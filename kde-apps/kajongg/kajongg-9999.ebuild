@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{6,7} )
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.68.0
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit python-single-r1 ecm kde.org
 
 DESCRIPTION="Classical Mah Jongg for four players"
