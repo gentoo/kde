@@ -13,10 +13,19 @@ inherit ecm kde.org
 
 DESCRIPTION="KDE Plasma desktop"
 
+# Avoid pulling in xf86-input-{evdev,libinput} DEPEND just for 1 header
+SHA_EVDEV="425ed601"
+SHA_LIBINPUT="e52daf20"
+XORG_URI="https://gitlab.freedesktop.org/xorg/driver/PKG/-/raw"
+SRC_URI+="
+	${XORG_URI/PKG/xf86-input-evdev}/${SHA_EVDEV}/include/evdev-properties.h -> evdev-properties.h-${SHA_EVDEV}
+	${XORG_URI/PKG/xf86-input-libinput}/${SHA_LIBINPUT}/include/libinput-properties.h -> libinput-properties.h-${SHA_LIBINPUT}
+"
+
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="emoji +fontconfig ibus +mouse scim +semantic-desktop touchpad"
+IUSE="emoji +fontconfig ibus scim +semantic-desktop touchpad"
 
 COMMON_DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -104,10 +113,6 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	x11-base/xorg-proto
 	fontconfig? ( x11-libs/libXrender )
-	mouse? (
-		x11-drivers/xf86-input-evdev
-		x11-drivers/xf86-input-libinput
-	)
 "
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
@@ -122,6 +127,19 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/kdeplasma-addons-5.15.80
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-5.18.4.1-override-include-dirs.patch" # downstream patch
+)
+
+src_unpack() {
+	kde.org_src_unpack
+	mkdir "${WORKDIR}/include" || die "Failed to prepare evdev/libinput dir"
+	cp "${DISTDIR}"/evdev-properties.h-${SHA_EVDEV} \
+		"${WORKDIR}"/include/evdev-properties.h || die "Failed to copy evdev"
+	cp "${DISTDIR}"/libinput-properties.h-${SHA_LIBINPUT} \
+		"${WORKDIR}"/include/libinput-properties.h || die "Failed to copy libinput"
+}
+
 src_prepare() {
 	ecm_src_prepare
 
@@ -134,8 +152,8 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package fontconfig Fontconfig)
-		$(cmake_use_find_package mouse Evdev)
-		$(cmake_use_find_package mouse XorgLibinput)
+		-DEvdev_INCLUDE_DIRS="${WORKDIR}"/include
+		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}"/include
 		$(cmake_use_find_package scim SCIM)
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
 		$(cmake_use_find_package touchpad Synaptics)
