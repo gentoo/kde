@@ -64,6 +64,8 @@ RDEPEND="${DEPEND}
 
 RESTRICT+=" test"
 
+PATCHES=( "${FILESDIR}/${PN}-19.12.3-fix-crash-w-qt-5.14.2.patch" ) # KDE-Bug 419585
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)
