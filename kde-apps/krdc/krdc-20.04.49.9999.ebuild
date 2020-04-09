@@ -14,7 +14,7 @@ HOMEPAGE="https://kde.org/applications/internet/org.kde.krdc"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+rdp vnc"
+IUSE="+rdp +vnc"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 2016-01-24
 DEPEND="
