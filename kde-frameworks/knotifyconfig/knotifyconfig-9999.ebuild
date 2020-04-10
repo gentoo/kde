@@ -21,6 +21,14 @@ DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	!phonon? ( media-libs/libcanberra )
 	phonon? ( media-libs/phonon[qt5(+)] )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package !phonon Canberra)
+	)
+	ecm_src_configure
+}
