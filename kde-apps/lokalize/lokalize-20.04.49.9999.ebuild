@@ -49,6 +49,7 @@ RDEPEND="${DEPEND}
 	$(python_gen_cond_dep '
 		dev-python/translate-toolkit[${PYTHON_MULTI_USEDEP}]
 	')
+	>=kde-apps/kross-interpreters-${PV}:${SLOT}[python]
 "
 
 pkg_setup() {
