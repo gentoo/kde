@@ -74,6 +74,7 @@ COMMON_DEPEND="
 	caps? ( sys-libs/libcap )
 	gles2-only? ( media-libs/mesa[gles2] )
 "
+# TODO: sys-apps/hwdata? not packaged yet; commit 33a1777a, Gentoo-bug 717216
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
