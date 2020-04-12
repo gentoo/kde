@@ -19,6 +19,15 @@ KEYWORDS=""
 IUSE="caps gles2-only multimedia"
 
 COMMON_DEPEND="
+	>=dev-libs/libinput-1.14
+	>=dev-libs/wayland-1.2
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5=[gles2-only=]
+	>=dev-qt/qtscript-${QTMIN}:5
+	>=dev-qt/qtsensors-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
@@ -46,15 +55,6 @@ COMMON_DEPEND="
 	>=kde-plasma/breeze-${PVCUT}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
 	>=kde-plasma/kscreenlocker-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=[gles2-only=]
-	>=dev-qt/qtscript-${QTMIN}:5
-	>=dev-qt/qtsensors-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=dev-libs/libinput-1.9
-	>=dev-libs/wayland-1.2
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libepoxy
@@ -75,10 +75,10 @@ COMMON_DEPEND="
 	gles2-only? ( media-libs/mesa[gles2] )
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
 "
 DEPEND="${COMMON_DEPEND}
