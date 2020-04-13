@@ -16,6 +16,11 @@ KEYWORDS=""
 IUSE="screencast"
 
 COMMON_DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5[cups]
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
@@ -24,11 +29,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5[cups]
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	screencast? (
 		media-libs/libepoxy
 		media-libs/mesa[gbm]
@@ -36,8 +36,8 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=kde-frameworks/kwayland-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
 	sys-apps/xdg-desktop-portal[screencast?]
@@ -45,9 +45,7 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package screencast PipeWire)
-		$(cmake_use_find_package screencast GBM)
-		$(cmake_use_find_package screencast Epoxy)
+		-DENABLE_PIPEWIRE=$(usex screencast)
 	)
 	ecm_src_configure
 }
