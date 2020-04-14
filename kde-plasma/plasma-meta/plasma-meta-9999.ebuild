@@ -11,7 +11,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="bluetooth +browser-integration consolekit crypt +desktop-portal discover
 +display-manager elogind grub gtk +handbook +legacy-systray networkmanager pam
-plymouth +pm-utils pulseaudio qrcode +sddm sdk systemd thunderbolt +wallpapers"
+plymouth pulseaudio qrcode +sddm sdk systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="?? ( consolekit elogind systemd )"
 
@@ -49,10 +49,7 @@ RDEPEND="
 	sys-fs/udisks:2[elogind?,systemd?]
 	bluetooth? ( >=kde-plasma/bluedevil-${PV}:${SLOT} )
 	browser-integration? ( >=kde-plasma/plasma-browser-integration-${PV}:${SLOT} )
-	consolekit? (
-		>=sys-auth/consolekit-1.0.1
-		pm-utils? ( sys-power/pm-utils )
-	)
+	consolekit? ( >=sys-auth/consolekit-1.0.1 )
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
 	desktop-portal? ( >=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT} )
 	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
