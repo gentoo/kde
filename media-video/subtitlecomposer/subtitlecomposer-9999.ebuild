@@ -7,7 +7,7 @@ ECM_TEST="forceoptional-recursive"
 KFMIN=5.60.0
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit ecm kde5
+inherit ecm kde.org
 
 DESCRIPTION="Text-based subtitles editor"
 HOMEPAGE="https://github.com/maxrd2/subtitlecomposer"
