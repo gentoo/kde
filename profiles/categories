@@ -12,6 +12,8 @@ dev-vcs
 games-board
 games-kids
 games-mud
+gui-libs
+gui-wm
 kde-apps
 kde-frameworks
 kde-misc
