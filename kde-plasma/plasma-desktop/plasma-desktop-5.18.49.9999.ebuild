@@ -77,7 +77,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	>=kde-plasma/kwin-${PVCUT}:5
+	|| (
+		>=kde-plasma/kwin-${PVCUT}:5
+		>=gui-wm/kwinft-$(ver_cut 1-2):5
+	)
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 	media-libs/phonon[qt5(+)]

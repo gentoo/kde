@@ -31,7 +31,10 @@ COMMON_DEPEND="
 	x11-libs/libXau
 "
 DEPEND="${COMMON_DEPEND}
-	>=kde-plasma/kwin-${PVCUT}:5
+	|| (
+		>=kde-plasma/kwin-${PVCUT}:5
+		>=gui-wm/kwinft-$(ver_cut 1-2):5
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-5.14.2:5

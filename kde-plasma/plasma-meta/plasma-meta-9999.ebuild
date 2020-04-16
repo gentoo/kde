@@ -10,8 +10,8 @@ LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
 IUSE="bluetooth +browser-integration consolekit crypt +desktop-portal discover
-+display-manager elogind grub gtk +handbook +legacy-systray networkmanager pam
-plymouth pulseaudio qrcode +sddm sdk systemd thunderbolt +wallpapers"
++display-manager elogind grub gtk +handbook kwinft +legacy-systray networkmanager
+pam plymouth pulseaudio qrcode +sddm sdk systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="?? ( consolekit elogind systemd )"
 
@@ -31,9 +31,10 @@ RDEPEND="
 	>=kde-plasma/ksshaskpass-${PV}:${SLOT}
 	>=kde-plasma/ksysguard-${PV}:${SLOT}
 	>=kde-plasma/kwayland-integration-${PV}:${SLOT}
-	>=kde-plasma/kwin-${PV}:${SLOT}
+	!kwinft? ( >=kde-plasma/kwin-${PV}:${SLOT} )
+	kwinft? ( >=gui-wm/kwinft-$(ver_cut 1-2):${SLOT} )
 	>=kde-plasma/kwrited-${PV}:${SLOT}
-	>=kde-plasma/libkscreen-${PV}:${SLOT}
+	>=kde-plasma/libkscreen-${PV}:${SLOT}[kwinft?]
 	>=kde-plasma/libksysguard-${PV}:${SLOT}
 	>=kde-plasma/milou-${PV}:${SLOT}
 	>=kde-plasma/oxygen-${PV}:${SLOT}
