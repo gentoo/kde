@@ -17,7 +17,7 @@ https://kde.org/applications/utilities/org.kde.kate"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="activities feedback +filebrowser lspclient +projects plasma +snippets sql"
+IUSE="activities +filebrowser lspclient +projects plasma +snippets sql telemetry"
 
 # only addons/externaltools depends on kiconthemes, too small for USE
 DEPEND="
@@ -46,7 +46,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
-	feedback? ( dev-libs/kuserfeedback:5 )
 	filebrowser? ( >=kde-frameworks/kbookmarks-${KFMIN}:5 )
 	lspclient? ( >=kde-frameworks/kitemmodels-${KFMIN}:5 )
 	plasma? ( >=kde-frameworks/plasma-${KFMIN}:5 )
@@ -59,6 +58,7 @@ DEPEND="
 		>=dev-qt/qtsql-${QTMIN}:5
 		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
+	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 RDEPEND="${DEPEND}
 	!kde-misc/ktexteditorpreviewplugin
@@ -77,7 +77,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)
-		$(cmake_use_find_package feedback KUserFeedback)
 		-DBUILD_filebrowser=$(usex filebrowser)
 		-DBUILD_lspclient=$(usex lspclient)
 		-DBUILD_sessionapplet=$(usex plasma)
@@ -85,6 +84,7 @@ src_configure() {
 		-DBUILD_snippets=$(usex snippets)
 		-DBUILD_katesql=$(usex sql)
 		-DBUILD_kwrite=FALSE
+		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 
 	ecm_src_configure

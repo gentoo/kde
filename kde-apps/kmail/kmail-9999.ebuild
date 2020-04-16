@@ -18,7 +18,7 @@ https://kontact.kde.org/components/kmail.html"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE="feedback"
+IUSE="telemetry"
 
 BDEPEND="
 	dev-libs/libxslt
@@ -76,7 +76,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	feedback? ( dev-libs/kuserfeedback:5 )
+	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-apps/kcalutils-${PVCUT}:5
@@ -100,7 +100,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package feedback KUserFeedback)
+		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 
 	ecm_src_configure

@@ -6,6 +6,6 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
-		<flag name="feedback">Send anonymized usage information to KDE so they can better understand our users</flag>
+		<flag name="telemetry">Send anonymized usage information to upstream so they can better understand our users</flag>
 	</use>
 </pkgmetadata>

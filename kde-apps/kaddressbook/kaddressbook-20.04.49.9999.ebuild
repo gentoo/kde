@@ -17,7 +17,7 @@ HOMEPAGE="https://kde.org/applications/office/org.kde.kaddressbook"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE="feedback"
+IUSE="telemetry"
 
 DEPEND="
 	>=app-crypt/gpgme-1.11.1[cxx,qt5]
@@ -53,7 +53,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/prison-${KFMIN}:5
-	feedback? ( dev-libs/kuserfeedback:5 )
+	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 RDEPEND="${DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
@@ -61,7 +61,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package feedback KUserFeedback)
+		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 
 	ecm_src_configure
