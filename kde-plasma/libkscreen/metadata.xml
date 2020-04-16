@@ -5,6 +5,9 @@
 		<email>kde@gentoo.org</email>
 		<name>Gentoo KDE Project</name>
 	</maintainer>
+	<use>
+		<flag name="kwinft">Enable support for <pkg>gui-wm/kwinft</pkg> via <pkg>gui-libs/wrapland</pkg></flag>
+	</use>
 	<slots>
 		<subslots>Reflects ABI compatibility of libKF5Screen.so</subslots>
 	</slots>
