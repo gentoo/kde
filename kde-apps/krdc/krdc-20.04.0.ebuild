@@ -43,6 +43,8 @@ RDEPEND="${DEPEND}
 	rdp? ( >=net-misc/freerdp-1.1.0_beta1[X] )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-19.12.3-kf5bookmarks-5.69.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package vnc LibVNCServer)
