@@ -423,8 +423,14 @@ ecm_src_prepare() {
 		done
 	fi
 
-	# limit playing field of locale stripping to kde-*/ categories
 	if [[ ${CATEGORY} = kde-* ]] ; then
+		# overzealous upstream disable-deprecated-before by .git dir detection
+		if [[ -e .git ]]; then
+			sed -e "/^if.*EXISTS.*CMAKE_SOURCE_DIR.*\.git/s/$/ # removed by ecm.eclass/" \
+				-e "/^if.*EXISTS.*CMAKE_SOURCE_DIR.*\.git/s/(.*)/(FALSE)/" \
+				-i CMakeLists.txt || die
+		fi
+
 		# always install unconditionally for kconfigwidgets - if you use
 		# language X as system language, and there is a combobox with language
 		# names, the translated language name for language Y is taken from
