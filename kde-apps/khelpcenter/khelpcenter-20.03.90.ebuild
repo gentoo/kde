@@ -18,6 +18,13 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE=""
 
 DEPEND="
+	dev-libs/grantlee:5
+	dev-libs/libxml2
+	dev-libs/xapian:=
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
@@ -36,13 +43,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	dev-libs/grantlee:5
-	dev-libs/libxml2
-	dev-libs/xapian:=
 "
 RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PLASMA_MINIMAL}:5
