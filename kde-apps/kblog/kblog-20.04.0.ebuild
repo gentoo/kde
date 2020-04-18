@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_TEST="true"
-KFMIN=5.68.0
+KFMIN=5.69.0
 inherit ecm kde.org
 
 DESCRIPTION="Library providing client-side support for web application remote blogging APIs"

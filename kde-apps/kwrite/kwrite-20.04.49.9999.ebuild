@@ -5,7 +5,7 @@ EAPI=7
 
 KDE_ORG_NAME="kate"
 ECM_HANDBOOK="optional"
-KFMIN=5.68.0
+KFMIN=5.69.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
