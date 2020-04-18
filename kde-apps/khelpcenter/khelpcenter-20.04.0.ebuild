@@ -48,6 +48,8 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PLASMA_MINIMAL}:5
 "
 
+PATCHES=( "${FILESDIR}/${P}-qt-5.15.patch" )
+
 src_prepare() {
 	ecm_src_prepare
 	sed -e "/^install.*kde4\/services/s/^/#DONT/" -i CMakeLists.txt || die
