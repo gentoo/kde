@@ -109,6 +109,8 @@ RDEPEND="${COMMON_DEPEND}
 	panorama? ( media-gfx/hugin )
 "
 
+PATCHES=( "${FILESDIR}"/${P}-qt-5.15.patch )
+
 RESTRICT+=" test"
 # bug 366505
 
