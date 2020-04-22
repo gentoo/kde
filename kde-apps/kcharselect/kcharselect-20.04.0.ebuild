@@ -29,5 +29,3 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-19.12.3-kf5bookmarks-5.69.patch" )
