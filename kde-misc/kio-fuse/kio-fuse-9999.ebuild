@@ -9,7 +9,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="FUSE interface for KIO"
-HOMEPAGE="https://feverfew.home.blog/2019/09/10/kiofuse-final-report/"
+HOMEPAGE="https://feverfew.home.blog/2019/12/24/kiofuse-beta-4-9-0-released/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
