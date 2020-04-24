@@ -13,19 +13,24 @@ inherit ecm kde.org
 
 DESCRIPTION="KDE Plasma desktop"
 
-# Avoid pulling in xf86-input-{evdev,libinput} DEPEND just for 1 header
+# Avoid pulling in xf86-input-{evdev,libinput,synaptics} DEPENDs
+# just for 1 header each. touchpad also uses a header from xorg-server.
 SHA_EVDEV="425ed601"
 SHA_LIBINPUT="e52daf20"
+SHA_SYNAPTICS="383355fa"
+SHA_XSERVER="d511a301"
 XORG_URI="https://gitlab.freedesktop.org/xorg/driver/PKG/-/raw"
 SRC_URI+="
 	${XORG_URI/PKG/xf86-input-evdev}/${SHA_EVDEV}/include/evdev-properties.h -> evdev-properties.h-${SHA_EVDEV}
 	${XORG_URI/PKG/xf86-input-libinput}/${SHA_LIBINPUT}/include/libinput-properties.h -> libinput-properties.h-${SHA_LIBINPUT}
+	${XORG_URI/PKG/xf86-input-synaptics}/${SHA_SYNAPTICS}/include/synaptics-properties.h -> synaptics-properties.h-${SHA_SYNAPTICS}
+	${XORG_URI/driver\/PKG/xserver}/${SHA_XSERVER}/include/xserver-properties.h -> xserver-properties.h-${SHA_XSERVER}
 "
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS="~amd64"
-IUSE="emoji +fontconfig ibus scim +semantic-desktop touchpad"
+IUSE="emoji +fontconfig ibus scim +semantic-desktop"
 
 COMMON_DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -110,7 +115,6 @@ COMMON_DEPEND="
 	)
 	scim? ( app-i18n/scim )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
-	touchpad? ( x11-drivers/xf86-input-synaptics )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
@@ -141,6 +145,10 @@ src_unpack() {
 		"${WORKDIR}"/include/evdev-properties.h || die "Failed to copy evdev"
 	cp "${DISTDIR}"/libinput-properties.h-${SHA_LIBINPUT} \
 		"${WORKDIR}"/include/libinput-properties.h || die "Failed to copy libinput"
+	cp "${DISTDIR}"/synaptics-properties.h-${SHA_SYNAPTICS} \
+		"${WORKDIR}"/include/synaptics-properties.h || die "Failed to copy synaptics"
+	cp "${DISTDIR}"/xserver-properties.h-${SHA_XSERVER} \
+		"${WORKDIR}"/include/xserver-properties.h || die "Failed to copy xserver"
 }
 
 src_prepare() {
@@ -157,9 +165,9 @@ src_configure() {
 		$(cmake_use_find_package fontconfig Fontconfig)
 		-DEvdev_INCLUDE_DIRS="${WORKDIR}"/include
 		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}"/include
+		-DSynaptics_INCLUDE_DIRS="${WORKDIR}"/include
 		$(cmake_use_find_package scim SCIM)
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
-		$(cmake_use_find_package touchpad Synaptics)
 	)
 	if ! use emoji && ! use ibus; then
 		mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_IBus=ON )
