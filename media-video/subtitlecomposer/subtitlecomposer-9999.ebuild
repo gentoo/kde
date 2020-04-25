@@ -15,7 +15,7 @@ HOMEPAGE="https://github.com/maxrd2/subtitlecomposer"
 LICENSE="GPL-2"
 SLOT="5"
 KEYWORDS=""
-IUSE="libav unicode"
+IUSE="unicode"
 
 BDEPEND="
 	sys-devel/gettext
@@ -37,8 +37,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	media-libs/qtav:=
-	libav? ( media-video/libav:= )
-	!libav? ( media-video/ffmpeg:0= )
+	media-video/ffmpeg:0=
 	unicode? ( dev-libs/icu:= )
 "
 RDEPEND="${DEPEND}"

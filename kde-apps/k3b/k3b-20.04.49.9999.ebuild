@@ -17,7 +17,7 @@ https://userbase.kde.org/K3b"
 LICENSE="GPL-2 FDL-1.2"
 SLOT="5"
 KEYWORDS=""
-IUSE="dvd encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis webkit"
+IUSE="dvd encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis webkit"
 
 REQUIRED_USE="
 	flac? ( taglib )
@@ -26,6 +26,12 @@ REQUIRED_USE="
 "
 
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-apps/libkcddb-${PVCUT}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
@@ -45,18 +51,9 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=kde-apps/libkcddb-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread:= )
-	ffmpeg? (
-		libav? ( media-video/libav:= )
-		!libav? ( media-video/ffmpeg:0= )
-	)
+	ffmpeg? ( media-video/ffmpeg:0= )
 	flac? ( >=media-libs/flac-1.2[cxx] )
 	mp3? ( media-sound/lame )
 	mad? ( media-libs/libmad )

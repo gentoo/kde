@@ -13,7 +13,7 @@ HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="ipod lastfm libav mtp ofa podcast wikipedia"
+IUSE="ipod lastfm mtp ofa podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 BDEPEND="virtual/pkgconfig"
@@ -70,8 +70,7 @@ DEPEND="
 	)
 	ofa? (
 		media-libs/libofa
-		!libav? ( media-video/ffmpeg:= )
-		libav? ( media-video/libav:= )
+		media-video/ffmpeg:=
 	)
 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
 	mtp? ( media-libs/libmtp )

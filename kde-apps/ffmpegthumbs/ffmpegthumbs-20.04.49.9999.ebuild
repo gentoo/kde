@@ -12,18 +12,17 @@ DESCRIPTION="FFmpeg based thumbnail generator for video files"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="libav"
+IUSE=""
 
 BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	libav? ( media-video/libav:= )
-	!libav? ( media-video/ffmpeg:0= )
+	media-video/ffmpeg:0=
 "
 RDEPEND="${DEPEND}"
