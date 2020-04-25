@@ -34,6 +34,7 @@ RDEPEND="
 	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlrpcclient-${KFMIN}:5
 	X? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 "
