@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
-ECM_TEST="forceoptional"
+ECM_TEST="true"
 KFMIN=5.60.0
 QTMIN=5.12.3
 inherit ecm kde.org
@@ -21,11 +21,11 @@ DEPEND="
 	dev-embedded/gpsim
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdelibs4support-${KFMIN}:5
 	>=kde-frameworks/khtml-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
