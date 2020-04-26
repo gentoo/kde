@@ -78,7 +78,6 @@ DEPEND="
 	wikipedia? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}
-	!media-sound/amarok:4
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	!ofa? ( media-video/ffmpeg )
 "
