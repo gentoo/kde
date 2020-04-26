@@ -64,7 +64,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/threadweaver-${KFMIN}:5
 	kde-apps/libkomparediff2:5
 	>=sys-devel/clang-6.0:=
-	gdbui? ( >=kde-plasma/libksysguard-5.16.5:5 )
+	gdbui? ( >=kde-plasma/libksysguard-5.16.5:5= )
 	hex? ( app-editors/okteta:5 )
 	plasma? (
 		>=kde-frameworks/krunner-${KFMIN}:5
