@@ -10,8 +10,8 @@ LICENSE="metapackage"
 SLOT="5"
 KEYWORDS="~amd64"
 IUSE="bluetooth +browser-integration crypt +desktop-portal discover
-+display-manager elogind grub gtk +handbook kwinft +legacy-systray networkmanager
-pam plymouth pulseaudio qrcode +sddm sdk systemd thunderbolt +wallpapers"
++display-manager elogind grub gtk +handbook kwallet kwinft +legacy-systray
+networkmanager plymouth pulseaudio qrcode +sddm sdk systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="?? ( elogind systemd )"
 
@@ -66,15 +66,12 @@ RDEPEND="
 		>=kde-plasma/kde-gtk-config-${PV}:${SLOT}
 	)
 	handbook? ( kde-apps/khelpcenter:5 )
+	kwallet? ( >=kde-plasma/kwallet-pam-${PV}:${SLOT} )
 	legacy-systray? ( >=kde-plasma/xembed-sni-proxy-${PV}:${SLOT} )
 	networkmanager? (
 		>=kde-plasma/plasma-nm-${PV}:${SLOT}
 		net-misc/networkmanager[elogind?,systemd?]
 		qrcode? ( kde-frameworks/prison[qml] )
-	)
-	pam? (
-		>=kde-plasma/kwallet-pam-${PV}:${SLOT}
-		sys-auth/pambase[elogind?,systemd?]
 	)
 	plymouth? (
 		>=kde-plasma/breeze-plymouth-${PV}:${SLOT}
