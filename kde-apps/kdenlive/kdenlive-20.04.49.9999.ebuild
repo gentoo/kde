@@ -64,7 +64,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
-	virtual/ffmpeg[encode,sdl,X]
+	media-video/ffmpeg[encode,sdl,X]
 "
 
 src_configure() {
