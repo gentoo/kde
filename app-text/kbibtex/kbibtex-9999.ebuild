@@ -54,7 +54,6 @@ DEPEND="
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
 "
 RDEPEND="${DEPEND}
-	!app-text/kbibtex:4
 	dev-tex/bibtex2html
 "
 
