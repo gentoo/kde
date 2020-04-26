@@ -136,7 +136,6 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.18.4.1-override-include-dirs.patch" # downstream patch
-	"${FILESDIR}/${PN}-5.18.80-synaptics-header.patch" # TODO upstream
 )
 
 src_unpack() {

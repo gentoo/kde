@@ -136,7 +136,7 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.18.4.1-override-include-dirs.patch" # downstream patch
-	"${FILESDIR}/${PN}-5.18.4.1-synaptics-header.patch" # TODO upstream
+	"${FILESDIR}/${PN}-5.18.4.1-synaptics-header.patch" # in Plasma/5.19
 )
 
 src_unpack() {
