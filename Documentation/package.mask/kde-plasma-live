@@ -23,6 +23,7 @@
 ~kde-plasma/ksysguard-9999
 ~kde-plasma/kwallet-pam-9999
 ~kde-plasma/kwayland-integration-9999
+~kde-plasma/kwayland-server-9999
 ~kde-plasma/kwin-9999
 ~kde-plasma/kwrited-9999
 ~kde-plasma/libkscreen-9999
