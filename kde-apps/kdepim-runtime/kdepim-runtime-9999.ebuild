@@ -48,6 +48,7 @@ RDEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmbox-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/libkgapi-${PVCUT}:5
 	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
