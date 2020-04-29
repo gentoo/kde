@@ -31,6 +31,7 @@ RDEPEND="
 	>=kde-plasma/ksshaskpass-${PV}:${SLOT}
 	>=kde-plasma/ksysguard-${PV}:${SLOT}
 	>=kde-plasma/kwayland-integration-${PV}:${SLOT}
+	>=kde-plasma/kwayland-server-${PV}:${SLOT}
 	!kwinft? ( >=kde-plasma/kwin-${PV}:${SLOT} )
 	kwinft? ( >=gui-wm/kwinft-$(ver_cut 1-2):${SLOT} )
 	>=kde-plasma/kwrited-${PV}:${SLOT}
