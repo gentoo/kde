@@ -55,7 +55,7 @@ COMMON_DEPEND="
 	>=kde-plasma/breeze-${PVCUT}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
 	>=kde-plasma/kscreenlocker-${PVCUT}:5
-	>=kde-plasma/kwayland-server-${KFMIN}:5
+	>=kde-plasma/kwayland-server-${PVCUT}:5
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libepoxy
