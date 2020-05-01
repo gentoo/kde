@@ -27,8 +27,8 @@ RDEPEND="
 	media-libs/mesa[egl]
 "
 DEPEND="${RDEPEND}
+	dev-libs/plasma-wayland-protocols
 	>=dev-libs/wayland-protocols-1.15
-	>=kde-frameworks/plasma-wayland-protocols-${KFMIN}:5
 "
 
 # All failing, I guess we need a virtual wayland server
