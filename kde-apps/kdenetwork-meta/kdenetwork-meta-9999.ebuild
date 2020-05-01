@@ -18,6 +18,7 @@ RDEPEND="
 	>=kde-apps/kopete-${PV}:${SLOT}
 	>=kde-apps/krfb-${PV}:${SLOT}
 	>=kde-apps/zeroconf-ioslave-${PV}:${SLOT}
+	>=kde-misc/kdeconnect-${PV}:${SLOT}
 	dropbox? ( >=kde-apps/dolphin-plugins-dropbox-${PV}:${SLOT} )
 	telepathy? ( >=kde-apps/plasma-telepathy-meta-${PV}:${SLOT} )
 "
