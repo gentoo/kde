@@ -35,5 +35,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	sys-apps/diffutils
-	!kde-misc/kdiff3:4
 "
