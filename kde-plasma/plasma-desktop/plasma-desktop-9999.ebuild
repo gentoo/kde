@@ -135,7 +135,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-5.18.4.1-override-include-dirs.patch" # downstream patch
+	"${FILESDIR}/${PN}-5.18.5-override-include-dirs.patch" # downstream patch
 )
 
 src_unpack() {
@@ -165,6 +165,7 @@ src_configure() {
 		$(cmake_use_find_package fontconfig Fontconfig)
 		-DEvdev_INCLUDE_DIRS="${WORKDIR}"/include
 		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}"/include
+		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}"/include
 		-DSynaptics_INCLUDE_DIRS="${WORKDIR}"/include
 		$(cmake_use_find_package scim SCIM)
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
