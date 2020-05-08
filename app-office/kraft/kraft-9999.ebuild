@@ -11,7 +11,7 @@ QTMIN=5.12.3
 inherit ecm git-r3
 
 DESCRIPTION="Software to manage quotes and invoices in small enterprises"
-HOMEPAGE="http://www.volle-kraft-voraus.de/"
+HOMEPAGE="https://www.volle-kraft-voraus.de/"
 
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="5"
