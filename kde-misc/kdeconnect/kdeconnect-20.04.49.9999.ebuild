@@ -8,7 +8,7 @@ ECM_TEST="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_RELEASE_SERVICE="true"
 KDE_SELINUX_MODULE="${PN}"
-KFMIN=5.68.0
+KFMIN=5.70.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
