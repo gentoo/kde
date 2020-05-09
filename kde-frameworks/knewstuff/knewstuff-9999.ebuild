@@ -29,6 +29,7 @@ DEPEND="
 	=kde-frameworks/kiconthemes-${PVCUT}*:5
 	=kde-frameworks/kio-${PVCUT}*:5
 	=kde-frameworks/kitemviews-${PVCUT}*:5
+	=kde-frameworks/kpackage-${PVCUT}*:5
 	=kde-frameworks/kservice-${PVCUT}*:5
 	=kde-frameworks/ktextwidgets-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
