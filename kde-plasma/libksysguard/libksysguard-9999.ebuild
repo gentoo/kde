@@ -29,6 +29,7 @@ RDEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	sys-libs/zlib
@@ -43,6 +44,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
+	!<kde-plasma/plasma-workspace-5.18.80:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	!minimal? ( >=kde-frameworks/plasma-${KFMIN}:5 )
 	X? ( x11-base/xorg-proto )
