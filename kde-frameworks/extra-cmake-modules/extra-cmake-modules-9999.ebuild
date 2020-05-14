@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8} )
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit cmake kde.org python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"

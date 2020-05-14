@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_QTHELP="false"
 ECM_TEST="false"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="Framework binding JavaScript objects to QObjects"

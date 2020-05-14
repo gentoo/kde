@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_DESIGNERPLUGIN="true"
-QTMIN=5.12.3
+QTMIN=5.14.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
@@ -13,12 +13,11 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls"
 
-# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5=
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

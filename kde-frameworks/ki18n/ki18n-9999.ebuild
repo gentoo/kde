@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8} )
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit ecm kde.org python-single-r1
 
 DESCRIPTION="Framework based on Gettext for internationalizing user interface text"

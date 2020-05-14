@@ -7,7 +7,7 @@ ECM_EXAMPLES="true"
 ECM_QTHELP="false"
 ECM_TEST="true"
 KDE_ORG_NAME="${PN}2"
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="Lightweight user interface framework for mobile and convergent applications"
@@ -18,7 +18,6 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
 	>=dev-qt/linguist-tools-${QTMIN}:5
 "
@@ -26,7 +25,7 @@ DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5

@@ -5,7 +5,7 @@ EAPI=7
 
 KDE_ORG_NAME="${PN}-framework"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.12.3
+QTMIN=5.14.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
@@ -15,14 +15,13 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gles2-only wayland X"
 
-# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
 	>=kde-frameworks/kdoctools-${PVCUT}:5
 "
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=[gles2-only=]
+	>=dev-qt/qtgui-${QTMIN}:5[gles2-only=]
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
