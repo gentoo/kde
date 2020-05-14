@@ -26,7 +26,6 @@ DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	x11-libs/gtk+:2
 	x11-libs/gtk+:3
 "
