@@ -14,12 +14,12 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	=kde-frameworks/kconfig-${PVCUT}*:5
-	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/kactivitymanagerd-${PLASMA_MINIMAL}:5

@@ -18,9 +18,9 @@ BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	=kde-frameworks/kconfig-${PVCUT}*:5
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"

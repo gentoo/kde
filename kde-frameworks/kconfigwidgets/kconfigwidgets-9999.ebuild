@@ -18,6 +18,9 @@ BDEPEND="
 	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	=kde-frameworks/kauth-${PVCUT}*:5
 	=kde-frameworks/kcodecs-${PVCUT}*:5
 	=kde-frameworks/kconfig-${PVCUT}*:5
@@ -25,9 +28,6 @@ DEPEND="
 	=kde-frameworks/kguiaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 

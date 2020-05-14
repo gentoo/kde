@@ -16,6 +16,10 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtscript-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	=kde-frameworks/kcompletion-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
@@ -24,10 +28,6 @@ RDEPEND="
 	=kde-frameworks/kparts-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtscript-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 "
 DEPEND="${RDEPEND}
 	>=dev-qt/designer-${QTMIN}:5

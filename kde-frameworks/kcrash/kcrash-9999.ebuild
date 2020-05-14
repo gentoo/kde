@@ -20,10 +20,10 @@ BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 RDEPEND="
-	=kde-frameworks/kcoreaddons-${PVCUT}*:5
-	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}

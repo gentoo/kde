@@ -15,6 +15,10 @@ IUSE=""
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.15.0
 DEPEND="
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5=
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/kglobalaccel-${PVCUT}*:5
@@ -25,10 +29,6 @@ DEPEND="
 	=kde-frameworks/kservice-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-libs/libepoxy
 "
 RDEPEND="${DEPEND}"

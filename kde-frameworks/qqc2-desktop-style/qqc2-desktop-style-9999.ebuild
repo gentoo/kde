@@ -14,12 +14,12 @@ LICENSE="|| ( GPL-2+ LGPL-3+ )"
 IUSE=""
 
 DEPEND="
-	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
-	=kde-frameworks/kiconthemes-${PVCUT}*:5
-	=kde-frameworks/kirigami-${PVCUT}*:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5=
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
+	=kde-frameworks/kiconthemes-${PVCUT}*:5
+	=kde-frameworks/kirigami-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5

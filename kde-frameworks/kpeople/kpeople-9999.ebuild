@@ -16,16 +16,16 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	=kde-frameworks/kconfig-${PVCUT}*:5
-	=kde-frameworks/kcoreaddons-${PVCUT}*:5
-	=kde-frameworks/ki18n-${PVCUT}*:5
-	=kde-frameworks/kitemviews-${PVCUT}*:5
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
+	=kde-frameworks/kitemviews-${PVCUT}*:5
+	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
 

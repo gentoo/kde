@@ -19,6 +19,12 @@ BDEPEND="
 	dev-util/gperf
 "
 RDEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	=kde-frameworks/karchive-${PVCUT}*:5
 	=kde-frameworks/kcodecs-${PVCUT}*:5
 	=kde-frameworks/kcompletion-${PVCUT}*:5
@@ -40,12 +46,6 @@ RDEPEND="
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/sonnet-${PVCUT}*:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 	media-libs/giflib:=
 	media-libs/libpng:0=
 	media-libs/phonon[qt5(+)]

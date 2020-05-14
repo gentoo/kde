@@ -17,8 +17,8 @@ BDEPEND="
 	sys-devel/bison
 "
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
 	dev-libs/libical:=
+	>=dev-qt/qtgui-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kcalcore:5

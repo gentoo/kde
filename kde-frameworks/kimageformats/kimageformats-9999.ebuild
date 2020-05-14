@@ -15,8 +15,8 @@ KEYWORDS=""
 IUSE="eps openexr"
 
 DEPEND="
-	=kde-frameworks/karchive-${PVCUT}*:5
 	>=dev-qt/qtgui-${QTMIN}:5
+	=kde-frameworks/karchive-${PVCUT}*:5
 	eps? ( >=dev-qt/qtprintsupport-${QTMIN}:5 )
 	openexr? (
 		media-libs/ilmbase:=

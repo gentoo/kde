@@ -15,6 +15,10 @@ KEYWORDS=""
 IUSE="designer"
 
 RDEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/kio-${PVCUT}*:5
@@ -22,10 +26,6 @@ RDEPEND="
 	=kde-frameworks/kparts-${PVCUT}*:5
 	=kde-frameworks/kservice-${PVCUT}*:5
 	=kde-frameworks/kwallet-${PVCUT}*:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	designer? ( =kde-frameworks/kdesignerplugin-${PVCUT}*:5 )
 "
 DEPEND="${RDEPEND}

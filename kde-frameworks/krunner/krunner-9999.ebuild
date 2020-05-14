@@ -14,6 +14,10 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
@@ -22,10 +26,6 @@ DEPEND="
 	=kde-frameworks/plasma-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
 	=kde-frameworks/threadweaver-${PVCUT}*:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 

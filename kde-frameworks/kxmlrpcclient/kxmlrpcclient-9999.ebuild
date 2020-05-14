@@ -14,9 +14,9 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtxml-${QTMIN}:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
 	=kde-frameworks/kio-${PVCUT}*:5
-	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
