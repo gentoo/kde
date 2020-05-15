@@ -5,7 +5,7 @@ EAPI=7
 
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.70.0
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="KDE Telepathy workspace integration"

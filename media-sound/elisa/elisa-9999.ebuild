@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KDE_RELEASE_SERVICE="true"
 KFMIN=5.70.0
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="Simple music player by KDE"

@@ -6,7 +6,7 @@ EAPI=7
 ECM_TEST="forceoptional-recursive"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.70.0
-QTMIN=5.12.3
+QTMIN=5.14.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
@@ -18,7 +18,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="importwizard markdown"
 
-# drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
+# drop qtwidgets subslot operator when QT_MINIMAL >= 5.15.0
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5

@@ -6,7 +6,7 @@ EAPI=7
 KDE_ORG_NAME="kate"
 ECM_HANDBOOK="optional"
 KFMIN=5.70.0
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="Simple text editor based on KDE Frameworks"

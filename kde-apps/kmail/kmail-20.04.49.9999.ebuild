@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.70.0
-QTMIN=5.12.3
+QTMIN=5.14.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
@@ -20,7 +20,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="telemetry"
 
-# drop qtcore subslot operator when QT_MINIMAL >= 5.14.0
+# drop qtcore subslot operator when QT_MINIMAL >= 5.15.0
 BDEPEND="
 	dev-libs/libxslt
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )

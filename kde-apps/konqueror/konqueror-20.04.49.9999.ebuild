@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional" # not optional until !kdelibs4support
 ECM_TEST="true"
 KFMIN=5.70.0
-QTMIN=5.12.3
+QTMIN=5.14.1
 VIRTUALX_REQUIRED="test"
 inherit flag-o-matic ecm kde.org
 

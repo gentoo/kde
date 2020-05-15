@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.70.0
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="Sound editor built on KDE Frameworks 5 that can edit many types of audio files"

@@ -5,7 +5,7 @@ EAPI=7
 
 KFMIN=5.70.0
 PLASMA_MINIMAL=5.16.5
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="Application to read documentation for KDE Plasma, Applications, Utilities"

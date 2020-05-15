@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.70.0
-QTMIN=5.12.3
+QTMIN=5.14.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
@@ -18,7 +18,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-# drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
+# drop qtwidgets subslot operator when QT_MINIMAL >= 5.15.0
 RDEPEND="
 	dev-libs/cyrus-sasl
 	>=dev-qt/qtdbus-${QTMIN}:5
