@@ -10,7 +10,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Commandline interface for accessing Akonadi"
-HOMEPAGE="https://cgit.kde.org/akonadiclient.git/"
+HOMEPAGE="https://invent.kde.org/pim/akonadiclient/"
 
 LICENSE="GPL-2"
 SLOT="5"

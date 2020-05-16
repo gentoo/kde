@@ -8,7 +8,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Provides interfaces and session daemon to colord"
-HOMEPAGE="https://cgit.kde.org/colord-kde.git"
+HOMEPAGE="https://invent.kde.org/graphics/colord-kde"
 #SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2+"

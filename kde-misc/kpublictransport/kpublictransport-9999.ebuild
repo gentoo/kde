@@ -9,7 +9,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Library for accessing public transport timetables and other information"
-HOMEPAGE="https://cgit.kde.org/kpublictransport.git/tree/
+HOMEPAGE="https://invent.kde.org/libraries/kpublictransport
 	https://www.volkerkrause.eu/2019/03/02/kpublictransport-introduction.html"
 
 LICENSE="LGPL-2+"

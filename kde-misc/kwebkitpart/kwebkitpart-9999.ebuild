@@ -6,7 +6,7 @@ EAPI=7
 inherit ecm kde.org
 
 DESCRIPTION="WebKit KPart for Konqueror"
-HOMEPAGE="https://cgit.kde.org/kwebkitpart.git"
+HOMEPAGE="https://invent.kde.org/libraries/kwebkitpart"
 
 LICENSE="LGPL-2"
 SLOT="5"

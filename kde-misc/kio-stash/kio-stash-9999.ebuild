@@ -7,7 +7,7 @@ ECM_TEST="forceoptional"
 inherit ecm kde.org
 
 DESCRIPTION="KIO Slave and daemon to stash discontinuous file selections"
-HOMEPAGE="https://arnavdhamija.com/2017/07/04/kio-stash-shipped/ https://cgit.kde.org/kio-stash.git"
+HOMEPAGE="https://arnavdhamija.com/2017/07/04/kio-stash-shipped/ https://invent.kde.org/utilities/kio-stash"
 
 LICENSE="GPL-2+"
 SLOT="0"
