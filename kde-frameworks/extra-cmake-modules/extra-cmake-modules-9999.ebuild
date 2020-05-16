@@ -8,7 +8,7 @@ QTMIN=5.14.1
 inherit cmake kde.org python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"
-HOMEPAGE="https://cgit.kde.org/extra-cmake-modules.git"
+HOMEPAGE="https://invent.kde.org/frameworks/extra-cmake-modules"
 
 LICENSE="BSD"
 KEYWORDS=""
