@@ -11,7 +11,7 @@ QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="Wayland Server Components built on KDE Frameworks"
-HOMEPAGE="https://cgit.kde.org/kwayland-server.git"
+HOMEPAGE="https://invent.kde.org/plasma/kwayland-server"
 
 LICENSE="LGPL-2.1"
 SLOT="5"
