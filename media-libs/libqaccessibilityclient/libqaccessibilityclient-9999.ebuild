@@ -11,7 +11,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Library for writing accessibility clients such as screen readers"
-HOMEPAGE="https://accessibility.kde.org/ https://cgit.kde.org/libqaccessibilityclient.git"
+HOMEPAGE="https://community.kde.org/Accessibility https://invent.kde.org/libraries/libqaccessibilityclient"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"

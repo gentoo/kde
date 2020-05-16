@@ -8,7 +8,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="MUD client by KDE"
-HOMEPAGE="https://cgit.kde.org/kmuddy.git/"
+HOMEPAGE="https://invent.kde.org/games/kmuddy/"
 
 LICENSE="GPL-2"
 SLOT="5"

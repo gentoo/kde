@@ -9,7 +9,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Atlantik board game"
-HOMEPAGE="https://cgit.kde.org/atlantik.git"
+HOMEPAGE="https://invent.kde.org/games/atlantik"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"

@@ -6,7 +6,7 @@ EAPI=7
 inherit cmake kde.org
 
 DESCRIPTION="Qt library to query the movie database API (themoviedb.org)"
-HOMEPAGE="https://cgit.kde.org/libtmdbqt.git"
+HOMEPAGE="https://invent.kde.org/libraries/libtmdbqt"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
