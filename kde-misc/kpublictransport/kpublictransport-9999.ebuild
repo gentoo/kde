@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_TEST="forceoptional"
+ECM_TEST="true"
 KFMIN=5.64.0
 QTMIN=5.12.3
 inherit ecm kde.org
@@ -17,9 +17,12 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
+	sys-libs/zlib
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
+"
