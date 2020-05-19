@@ -24,7 +24,6 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/grantleetheme-${PVCUT}:5
-	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
 	>=kde-apps/kpimtextedit-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
