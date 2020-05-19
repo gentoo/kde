@@ -31,7 +31,6 @@ DEPEND="
 	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/kalarmcal-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
-	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
