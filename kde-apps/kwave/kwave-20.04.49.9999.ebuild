@@ -4,7 +4,6 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
-PVCUT=$(ver_cut 1-3)
 KFMIN=5.70.0
 QTMIN=5.14.1
 inherit ecm kde.org
@@ -25,6 +24,8 @@ BDEPEND="
 	) )
 "
 RDEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -37,8 +38,6 @@ RDEPEND="
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-libs/audiofile:=
 	>=sci-libs/fftw-3
 	media-libs/libsamplerate
@@ -47,7 +46,11 @@ RDEPEND="
 	mp3? (
 		media-libs/id3lib
 		media-libs/libmad
-		|| ( media-sound/lame media-sound/toolame media-sound/twolame )
+		|| (
+			media-sound/lame
+			media-sound/toolame
+			media-sound/twolame
+		)
 	)
 	qtmedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5 )
 	opus? (
@@ -61,7 +64,6 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	>=kde-apps/poxml-${PVCUT}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 
