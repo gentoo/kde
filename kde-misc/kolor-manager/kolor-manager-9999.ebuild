@@ -8,7 +8,7 @@ ECM_PO_DIRS="doc/user/po"
 inherit ecm kde.org
 
 DESCRIPTION="KControl module for Oyranos CMS cross desktop settings"
-HOMEPAGE="https://www.oyranos.org/kolormanager"
+HOMEPAGE="https://www.oyranos.org/kolormanager/"
 
 LICENSE="BSD-2"
 SLOT="5"
