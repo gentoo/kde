@@ -10,7 +10,7 @@ QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="Assistant to import PIM data from other applications into Akonadi"
-HOMEPAGE+=" https://userbase.kde.org/Kmail/Import_Options"
+HOMEPAGE+=" https://userbase.kde.org/KMail/Import_Options"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
