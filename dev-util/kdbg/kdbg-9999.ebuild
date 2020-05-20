@@ -30,7 +30,6 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	!dev-util/kdbg:4
 	sys-devel/gdb
 "
 
