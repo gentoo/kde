@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_7 )
 inherit distutils-r1
 
 DESCRIPTION="Parser for CMakeLists.txt files"
-HOMEPAGE="https://pypi.python.org/pypi/parse_cmake/"
+HOMEPAGE="https://pypi.org/project/parse_cmake/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
