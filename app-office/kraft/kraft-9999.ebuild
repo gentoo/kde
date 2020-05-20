@@ -5,7 +5,6 @@ EAPI=7
 
 EGIT_REPO_URI="https://github.com/dragotin/kraft"
 ECM_HANDBOOK="forceoptional"
-KDE_APPS_MINIMAL=19.04.3
 KFMIN=5.60.0
 QTMIN=5.12.3
 inherit ecm git-r3
@@ -32,13 +31,11 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	pim? (
-		>=kde-apps/akonadi-${KDE_APPS_MINIMAL}:5
-		>=kde-apps/akonadi-contacts-${KDE_APPS_MINIMAL}:5
+		>=kde-apps/akonadi-19.04.3:5
+		>=kde-apps/akonadi-contacts-19.04.3:5
 	)
 "
-RDEPEND="${DEPEND}
-	!app-office/kraft:4
-"
+RDEPEND="${DEPEND}"
 
 DOCS=( AUTHORS Changes.txt README.md Releasenotes.txt TODO )
 
