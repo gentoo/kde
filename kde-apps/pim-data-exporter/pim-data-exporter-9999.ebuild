@@ -12,7 +12,8 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Assistant to backup and archive PIM data and configuration"
-HOMEPAGE+=" https://userbase.kde.org/Kmail/Backup_Options"
+HOMEPAGE="https://kde.org/applications/internet/org.kde.pimdataexporter
+https://userbase.kde.org/KMail/Backup_Options"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
