@@ -6,7 +6,7 @@ EAPI=7
 inherit ecm kde.org
 
 DESCRIPTION="GStreamer backend for the Phonon multimedia library"
-HOMEPAGE="https://phonon.kde.org/"
+HOMEPAGE="https://community.kde.org/Phonon"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/phonon/phonon-backend-gstreamer/${PV}/phonon-backend-gstreamer-${PV}.tar.xz"
