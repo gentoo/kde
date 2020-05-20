@@ -12,7 +12,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Assistant for KMail accounts configuration"
-HOMEPAGE+=" https://userbase.kde.org/Kmail/Account_Wizard"
+HOMEPAGE+=" https://userbase.kde.org/KMail/Account_Wizard"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
