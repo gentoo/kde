@@ -9,8 +9,8 @@ QTMIN=5.12.3
 inherit ecm git-r3
 
 DESCRIPTION="Graphical debugger interface"
-HOMEPAGE="http://www.kdbg.org/"
-EGIT_REPO_URI="http://repo.or.cz/kdbg.git"
+HOMEPAGE="https://www.kdbg.org/"
+EGIT_REPO_URI="https://repo.or.cz/kdbg.git"
 
 LICENSE="GPL-2"
 SLOT="5"
