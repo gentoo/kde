@@ -12,7 +12,7 @@ DESCRIPTION="Simple system settings module to manage the users of your system"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~ppc64"
 IUSE=""
 
 DEPEND="
