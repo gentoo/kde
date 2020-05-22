@@ -11,7 +11,7 @@ QTMIN=5.12.3
 inherit check-reqs ecm kde.org
 
 DESCRIPTION="KDE Office Suite"
-HOMEPAGE="https://www.calligra.org"
+HOMEPAGE="https://calligra.org/"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
