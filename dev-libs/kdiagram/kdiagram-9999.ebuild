@@ -6,6 +6,7 @@ EAPI=7
 ECM_EXAMPLES="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
+KDE_ORG_CATEGORY="graphics"
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
