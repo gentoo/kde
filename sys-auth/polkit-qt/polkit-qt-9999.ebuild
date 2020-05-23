@@ -3,6 +3,7 @@
 
 EAPI=7
 
+KDE_ORG_CATEGORY="libraries"
 KDE_ORG_NAME="polkit-qt-1"
 inherit cmake kde.org
 
