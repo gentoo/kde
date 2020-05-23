@@ -5,6 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
+KDE_ORG_CATEGORY="kdevelop"
 KFMIN=5.60.0
 QTMIN=5.12.3
 VIRTUALDBUS_TEST="true"

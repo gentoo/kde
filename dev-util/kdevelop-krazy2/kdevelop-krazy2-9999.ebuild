@@ -4,6 +4,7 @@
 EAPI=7
 
 ECM_TEST="forceoptional"
+KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-krazy2"
 KFMIN=5.60.0
 QTMIN=5.12.3
