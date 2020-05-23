@@ -4,6 +4,7 @@
 EAPI=7
 
 ECM_TEST="forceoptional"
+KDE_ORG_CATEGORY="network"
 KFMIN=5.60.0
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
