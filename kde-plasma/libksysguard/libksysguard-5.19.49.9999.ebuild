@@ -46,15 +46,16 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	!<kde-plasma/plasma-workspace-5.18.80:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	!minimal? ( >=kde-frameworks/plasma-${KFMIN}:5 )
 	X? ( x11-base/xorg-proto )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.16.0-no-detailed-mem-message.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.16.0-no-detailed-mem-message.patch"
+	"${FILESDIR}/${PN}-5.18.90-unused-dep.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package !minimal KF5Plasma)
 		$(cmake_use_find_package webengine Qt5WebChannel)
 		$(cmake_use_find_package webengine Qt5WebEngineWidgets)
 		$(cmake_use_find_package X X11)
