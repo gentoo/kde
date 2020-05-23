@@ -4,6 +4,7 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
+KDE_ORG_CATEGORY="office"
 KFMIN=5.60.0
 QTMIN=5.12.3
 MY_P=${P/_beta/b}
