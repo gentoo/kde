@@ -100,7 +100,7 @@ src_configure() {
 		$(cmake_use_find_package analitza Analitza5)
 		$(cmake_use_find_package julia Julia)
 		$(cmake_use_find_package lua LuaJIT)
-		$(cmake_use_find_package postscript LibSpectre)
+		-DUSE_LIBSPECTRE=$(usex postscript)
 		$(cmake_use_find_package python PythonLibs3)
 		$(cmake_use_find_package qalculate Qalculate)
 		$(cmake_use_find_package R R)
