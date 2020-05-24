@@ -10,7 +10,7 @@ QTMIN=5.14.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
-DESCRIPTION="A textedit with PIM-specific features"
+DESCRIPTION="Extended text editor for PIM applications"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
