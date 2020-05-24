@@ -24,6 +24,14 @@ BDEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
+	dev-libs/libxml2
+	dev-libs/libxslt
+	>=dev-perl/Text-BibTeX-0.780.0-r1
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
 	kde-frameworks/karchive:5
 	kde-frameworks/kcodecs:5
 	kde-frameworks/kcompletion:5
@@ -48,14 +56,6 @@ RDEPEND="
 	kde-frameworks/kxmlgui:5
 	kde-frameworks/solid:5
 	kde-frameworks/sonnet:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
-	dev-libs/libxml2
-	dev-libs/libxslt
-	>=dev-perl/Text-BibTeX-0.780.0-r1
 	cddb? ( kde-apps/libkcddb:5 )
 	discid? ( dev-libs/libcdio:= )
 	pdf? ( app-text/poppler[qt5] )
