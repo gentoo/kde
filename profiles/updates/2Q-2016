@@ -1,3 +1,0 @@
-move kde-plasma/khelpcenter kde-apps/khelpcenter
-move kde-base/khelpcenter kde-apps/khelpcenter
-move kde-plasma/kwayland kde-frameworks/kwayland
