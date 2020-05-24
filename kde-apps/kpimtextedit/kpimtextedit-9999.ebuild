@@ -18,7 +18,6 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtspeech-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
