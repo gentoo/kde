@@ -44,6 +44,7 @@ DEPEND="
 		kde-frameworks/kconfig:5
 		kde-frameworks/kconfigwidgets:5
 		kde-frameworks/kcoreaddons:5
+		kde-frameworks/kio:5
 		kde-frameworks/kwidgetsaddons:5
 		kde-frameworks/kxmlgui:5
 	)
