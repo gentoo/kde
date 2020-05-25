@@ -40,7 +40,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
