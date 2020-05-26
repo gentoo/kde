@@ -20,15 +20,15 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/dolphin-${PVCUT}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-apps/dolphin-${PVCUT}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/dolphin-plugins:5
