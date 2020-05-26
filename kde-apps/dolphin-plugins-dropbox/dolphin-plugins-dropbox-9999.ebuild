@@ -37,6 +37,9 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	ecm_src_prepare
+	# solid, qtdbus only required by mountiso
+	ecm_punt_bogus_dep Qt5 DBus
+	ecm_punt_bogus_dep KF5 Solid
 	# delete non-${PN} translations
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
 		find po -type f -name "*po" -and -not -name "*${MY_PLUGIN_NAME}plugin" -delete || die
@@ -49,6 +52,7 @@ src_configure() {
 		-DBUILD_bazaar=OFF
 		-DBUILD_git=OFF
 		-DBUILD_hg=OFF
+		-DBUILD_mountiso=OFF
 		-DBUILD_svn=OFF
 	)
 	ecm_src_configure
