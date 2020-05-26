@@ -24,7 +24,7 @@ SLOT="5/4"
 IUSE="marble +scripting webkit"
 
 RDEPEND="
-	>=dev-libs/kproperty-3.1.0:5=
+	>=dev-libs/kproperty-${PV}:5=
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
