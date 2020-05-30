@@ -4,8 +4,9 @@
 EAPI=7
 
 DISTUTILS_SINGLE_IMPL="true"
+DISTUTILS_USE_SETUPTOOLS="no"
 PYTHON_COMPAT=( python3_{7,8} )
-inherit cmake kde.org distutils-r1
+inherit kde.org distutils-r1
 
 DESCRIPTION="Framework for building KDE API documentation in a standard format and style"
 LICENSE="BSD-2"
@@ -20,7 +21,3 @@ RDEPEND="
 	')
 	media-gfx/graphviz[python,${PYTHON_SINGLE_USEDEP}]
 "
-
-pkg_setup() {
-	python-single-r1_pkg_setup
-}
