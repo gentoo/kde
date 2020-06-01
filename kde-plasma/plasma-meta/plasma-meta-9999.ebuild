@@ -45,7 +45,6 @@ RDEPEND="
 	>=kde-plasma/polkit-kde-agent-${PV}:${SLOT}
 	>=kde-plasma/powerdevil-${PV}:${SLOT}
 	>=kde-plasma/systemsettings-${PV}:${SLOT}
-	>=kde-plasma/user-manager-${PV}:${SLOT}
 	sys-apps/dbus[elogind?,systemd?]
 	sys-auth/polkit[elogind?,systemd?]
 	sys-fs/udisks:2[elogind?,systemd?]
