@@ -15,6 +15,11 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/libgit2:=
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
 	kde-frameworks/kcompletion:5
 	kde-frameworks/kconfig:5
 	kde-frameworks/kconfigwidgets:5
@@ -30,11 +35,6 @@ DEPEND="
 	kde-frameworks/kxmlgui:5
 	kde-frameworks/plasma:5
 	kde-frameworks/solid:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-libs/libgit2:=
 "
 RDEPEND="${DEPEND}
 	dev-qt/qtdeclarative:5
