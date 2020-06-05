@@ -16,7 +16,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-wrapland-support-5.18.
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5/7"
-KEYWORDS="~amd64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="kwinft"
 
 DEPEND="
