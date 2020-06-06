@@ -12,7 +12,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Powerful BitTorrent client based on KDE Frameworks"
 HOMEPAGE="https://kde.org/applications/internet/org.kde.ktorrent"
-[[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${PV/%.0}/${P}.tar.xz"
+[[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="5"
@@ -43,7 +43,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=net-libs/libktorrent-2.1.1:5
+	>=net-libs/libktorrent-2.2.0:5
 	infowidget? ( dev-libs/geoip )
 	kross? (
 		>=kde-frameworks/karchive-${KFMIN}:5
