@@ -43,7 +43,7 @@ RDEPEND="${COMMON_DEPEND}
 
 S="${S}/${PN}"
 
-PATCHES=( "${FILESDIR}/${PN}-5.18.80-standalone.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.19.80-standalone.patch" )
 
 src_prepare() {
 	# delete colliding libkworkspace translations, let ecm_src_prepare do its magic
