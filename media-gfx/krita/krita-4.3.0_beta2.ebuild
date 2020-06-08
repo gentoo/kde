@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_TEST="forceoptional-recursive"
+ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{7,8,9} )
 KFMIN=5.60.0
 QTMIN=5.12.3
@@ -11,8 +11,10 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org python-single-r1
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~ppc64 ~x86"
+	SRC_URI="mirror://kde/unstable/${PN}/${PV/_/-}/${P/_/-}.tar.xz
+		https://dev.gentoo.org/~asturm/distfiles/${PN}-4.2.9-patchset.tar.xz"
+	S="${WORKDIR}"/${P/_/-}
+	KEYWORDS=""
 fi
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
@@ -86,6 +88,11 @@ DEPEND="${RDEPEND}
 
 # bug 630508
 RESTRICT+=" test"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.2.4-tests-optional.patch
+	"${WORKDIR}"/${PN}-4.2.9-patchset/${PN}-4.2.9-ecm-findopenexr.patch
+)
 
 pkg_setup() {
 	python-single-r1_pkg_setup
