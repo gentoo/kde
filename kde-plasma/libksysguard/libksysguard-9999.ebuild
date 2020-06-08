@@ -3,6 +3,7 @@
 
 EAPI=7
 
+ECM_DESIGNERPLUGIN="true"
 ECM_TEST="true"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
