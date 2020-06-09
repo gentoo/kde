@@ -50,7 +50,6 @@
 <kde-plasma/user-manager-5.19.50:5
 <kde-plasma/xdg-desktop-portal-kde-5.19.50:5
 <kde-plasma/xembed-sni-proxy-5.19.50:5
-~dev-libs/kuserfeedback-1.0.0
 ~dev-libs/plasma-wayland-protocols-1.0
 ~dev-util/umockdev-0.12.1
 ~sys-apps/bolt-0.8
