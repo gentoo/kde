@@ -21,7 +21,7 @@ IUSE=""
 BDEPEND="
 	dev-libs/libxslt
 "
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -31,9 +31,11 @@ RDEPEND="
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/kimap-${PVCUT}:5
+	>=kde-apps/kldap-${KFMIN}:5
 	>=kde-apps/kpimtextedit-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -49,8 +51,11 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	test? ( >=kde-apps/kmime-${PVCUT}:5 )
+"
+RDEPEND="${COMMON_DEPEND}
+	!<kde-apps/libkdepim-20.07.80:5
 "
 
 src_test() {
