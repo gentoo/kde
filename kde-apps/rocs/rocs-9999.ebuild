@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=5.70.0
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Interface to work with Graph Theory"

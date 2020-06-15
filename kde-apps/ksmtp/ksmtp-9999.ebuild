@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_TEST="true"
 KFMIN=5.70.0
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Job-based library to send email through an SMTP server"

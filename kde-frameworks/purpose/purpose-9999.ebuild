@@ -6,7 +6,7 @@ EAPI=7
 ECM_QTHELP="false"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Library for providing abstractions to get the developer's purposes fulfilled"

@@ -7,7 +7,7 @@ ECM_TEST="true"
 KDE_ORG_NAME="ktnef"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.70.0
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Library for handling TNEF data"

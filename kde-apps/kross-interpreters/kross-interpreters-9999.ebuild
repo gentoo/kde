@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python2_7 )
 USE_RUBY="ruby25 ruby26 ruby27"
 KFMIN=5.70.0
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org python-single-r1 ruby-single
 
 DESCRIPTION="Kross interpreter plugins for programming languages"

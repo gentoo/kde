@@ -8,7 +8,7 @@ KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="svn"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.70.0
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Dolphin plugin for Subversion integration"

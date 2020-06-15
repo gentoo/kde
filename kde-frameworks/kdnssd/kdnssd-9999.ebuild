@@ -3,7 +3,7 @@
 
 EAPI=7
 
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Framework for network service discovery using Zeroconf"

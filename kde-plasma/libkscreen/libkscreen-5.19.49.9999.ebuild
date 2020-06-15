@@ -7,7 +7,7 @@ ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 KFMIN=5.70.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.14.1
+QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 

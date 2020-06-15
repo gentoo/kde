@@ -4,7 +4,7 @@
 EAPI=7
 
 KFMIN=5.70.0
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Library for playing & ripping CDs"

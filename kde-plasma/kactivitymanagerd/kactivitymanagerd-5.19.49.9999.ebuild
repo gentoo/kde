@@ -5,7 +5,7 @@ EAPI=7
 
 KFMIN=5.70.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="System service to manage user's activities, track the usage patterns etc."

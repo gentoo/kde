@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.14.1
+QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 

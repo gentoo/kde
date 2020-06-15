@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="gpg"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.70.0
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Frontend for GnuPG, a powerful encryption utility by KDE"

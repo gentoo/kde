@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="false"
 KFMIN=5.70.0
 PLASMA_MINIMAL=5.16.5
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Volume control gui based on KDE Frameworks"

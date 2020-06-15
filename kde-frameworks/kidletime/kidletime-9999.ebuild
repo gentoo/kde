@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_TEST="false"
-QTMIN=5.14.1
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Framework for detection and notification of device idle time"
