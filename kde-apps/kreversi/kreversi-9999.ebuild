@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="optional"
 KDE_SELINUX_MODULE="games"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.70.0
+KFMIN=5.71.0
 QTMIN=5.14.2
 inherit ecm kde.org
 
