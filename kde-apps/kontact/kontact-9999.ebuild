@@ -28,6 +28,7 @@ DEPEND="
 	>=kde-apps/kpimtextedit-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/mailcommon-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
