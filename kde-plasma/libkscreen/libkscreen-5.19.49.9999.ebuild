@@ -12,12 +12,11 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Plasma screen management library"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-wrapland-support-5.18.80.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5/7"
 KEYWORDS=""
-IUSE="kwinft"
+IUSE=""
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -26,19 +25,8 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kwayland-${KFMIN}:5
 	x11-libs/libxcb
-	kwinft? ( gui-libs/wrapland:5 )
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${WORKDIR}/${PN}-wrapland-support.patch" )
-
 # requires running session
 RESTRICT+=" test"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package kwinft Wrapland)
-	)
-
-	ecm_src_configure
-}
