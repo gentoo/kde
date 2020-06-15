@@ -36,7 +36,6 @@ DEPEND="
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
 	>=kde-apps/kpimtextedit-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/mailcommon-${PVCUT}:5
 	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
