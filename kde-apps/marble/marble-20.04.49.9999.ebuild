@@ -54,7 +54,10 @@ DEPEND="
 	)
 	phonon? ( media-libs/phonon[qt5(+)] )
 	shapefile? ( sci-libs/shapelib:= )
-	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
+	webengine? (
+		>=dev-qt/qtwebchannel-${QTMIN}:5
+		>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	)
 "
 RDEPEND="${DEPEND}"
 
