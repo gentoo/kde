@@ -24,7 +24,6 @@ DEPEND="
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/mailcommon-${PVCUT}:5
 	>=kde-apps/mailimporter-${PVCUT}:5
 	>=kde-apps/messagelib-${PVCUT}:5
