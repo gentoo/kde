@@ -16,7 +16,7 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="appstream +calendar geolocation gps qalculate qrcode +semantic-desktop systemd telemetry"
+IUSE="appstream +calendar geolocation gps qalculate +semantic-desktop systemd telemetry"
 
 REQUIRED_USE="gps? ( geolocation )"
 
@@ -66,6 +66,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-frameworks/prison-${KFMIN}:5[qml]
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-plasma/kscreenlocker-${PVCUT}:5
 	|| (
@@ -92,7 +93,6 @@ COMMON_DEPEND="
 	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 	gps? ( sci-geosciences/gpsd )
 	qalculate? ( sci-libs/libqalculate:= )
-	qrcode? ( >=kde-frameworks/prison-${KFMIN}:5[qml] )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
