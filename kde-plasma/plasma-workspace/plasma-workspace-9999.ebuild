@@ -180,7 +180,6 @@ src_configure() {
 		$(cmake_use_find_package calendar KF5Holidays)
 		$(cmake_use_find_package geolocation KF5NetworkManagerQt)
 		$(cmake_use_find_package qalculate Qalculate)
-		$(cmake_use_find_package qrcode KF5Prison)
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
 		$(cmake_use_find_package telemetry KUserFeedback)
 	)
