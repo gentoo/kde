@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_TEST="forceoptional-recursive"
+ECM_TEST="forceoptional"
 KFMIN=5.70.0
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
@@ -49,3 +49,5 @@ DEPEND="
 	media-libs/openal
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-20.04.2-optional-tests.patch" )
