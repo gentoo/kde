@@ -11,9 +11,8 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org python-single-r1
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/unstable/${PN}/${PV/_/-}/${P/_/-}.tar.xz
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz
 		https://dev.gentoo.org/~asturm/distfiles/${PN}-4.2.9-patchset.tar.xz"
-	S="${WORKDIR}"/${P/_/-}
 	KEYWORDS=""
 fi
 
@@ -90,7 +89,7 @@ DEPEND="${RDEPEND}
 RESTRICT+=" test"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.2.4-tests-optional.patch
+	"${FILESDIR}"/${P}-tests-optional.patch
 	"${WORKDIR}"/${PN}-4.2.9-patchset/${PN}-4.2.9-ecm-findopenexr.patch
 )
 
