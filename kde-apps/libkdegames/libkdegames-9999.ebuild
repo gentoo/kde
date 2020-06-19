@@ -49,5 +49,3 @@ DEPEND="
 	media-libs/openal
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-20.04.2-optional-tests.patch" )
