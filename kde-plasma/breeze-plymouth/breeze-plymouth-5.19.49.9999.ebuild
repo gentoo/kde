@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KFMIN=5.70.0
+KFMIN=5.71.0
 PVCUT=$(ver_cut 1-3)
 inherit cmake kde.org
 
