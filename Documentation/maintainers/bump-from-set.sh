@@ -7,6 +7,7 @@
 # Optional:
 # dev-vcs/git
 # app-portage/mgorny-dev-scripts
+# dev-util/pkgcheck
 
 : ${PORTDIR:="$(pwd)"}
 
@@ -93,4 +94,10 @@ if [[ -d "${PORTDIR}/.git" ]] && hash git 2>/dev/null && hash pkgcommit 2>/dev/n
 
 		popd > /dev/null
 	done
+
+	if hash pkgcheck 2>/dev/null; then
+		pushd "${PORTDIR}" > /dev/null
+			pkgcheck scan --commits
+		popd > /dev/null
+	fi
 fi
