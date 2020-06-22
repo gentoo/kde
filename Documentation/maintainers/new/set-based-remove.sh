@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Requires app-portage/repoman
+
 . $(dirname "$0")/lib.sh
 
 : ${TARGET_REPO:="$(pwd)"}

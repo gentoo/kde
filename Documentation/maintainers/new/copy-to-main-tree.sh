@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Requires app-portage/repoman
+
 . $(dirname "$0")/lib.sh
 
 : ${SOURCE_REPO:="$(realpath $(dirname $0)/../../../)"}

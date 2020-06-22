@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# requires app-portage/portage-utils and app-portage/gentoolkit-dev
+# Requires:
+# app-portage/portage-utils
+# app-portage/gentoolkit-dev
+# app-portage/repoman
 
 : ${SOURCE_REPO:="$(realpath $(dirname $0)/../../../)"}
 

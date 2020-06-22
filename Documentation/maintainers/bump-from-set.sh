@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# requires app-portage/portage-utils and app-portage/gentoolkit-dev
+# Requires:
+# app-portage/portage-utils
+# app-portage/gentoolkit-dev
+# app-portage/repoman
 
 : ${PORTDIR:="$(pwd)"}
 
