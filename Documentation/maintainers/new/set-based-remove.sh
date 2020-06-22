@@ -5,6 +5,7 @@
 # Optional:
 # dev-vcs/git
 # app-portage/mgorny-dev-scripts
+# dev-util/pkgcheck
 
 . $(dirname "$0")/lib.sh
 
@@ -62,4 +63,10 @@ if [[ -d "${TARGET_REPO}/.git" ]] && hash git 2>/dev/null && hash pkgcommit 2>/d
 
 		popd > /dev/null
 	done
+
+	if hash pkgcheck 2>/dev/null; then
+		pushd "${TARGET_REPO}" > /dev/null
+			pkgcheck scan --commits
+		popd > /dev/null
+	fi
 fi
