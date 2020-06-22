@@ -17,11 +17,11 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/cyrus-sasl
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	dev-libs/cyrus-sasl
 "
 RDEPEND="${DEPEND}"
 

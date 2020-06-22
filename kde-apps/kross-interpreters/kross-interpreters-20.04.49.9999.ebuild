@@ -19,9 +19,9 @@ IUSE="+python ruby"
 REQUIRED_USE="|| ( python ruby ) python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="
-	>=kde-frameworks/kross-${KFMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kross-${KFMIN}:5
 	python? ( ${PYTHON_DEPS} )
 	ruby? ( ${RUBY_DEPS} )
 "

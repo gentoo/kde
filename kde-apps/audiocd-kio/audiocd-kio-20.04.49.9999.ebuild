@@ -17,6 +17,9 @@ KEYWORDS=""
 IUSE="flac vorbis"
 
 DEPEND="
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/libkcddb-${PVCUT}:5
+	>=kde-apps/libkcompactdisc-${PVCUT}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -24,9 +27,6 @@ DEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-apps/libkcddb-${PVCUT}:5
-	>=kde-apps/libkcompactdisc-${PVCUT}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-sound/cdparanoia
 	flac? ( >=media-libs/flac-1.1.2 )
 	vorbis? (

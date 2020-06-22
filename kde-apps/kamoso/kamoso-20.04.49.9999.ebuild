@@ -19,22 +19,22 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/glib:2
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-libs/glib:2
 	media-libs/gst-plugins-base:1.0
 	virtual/opengl
 "
 RDEPEND="${DEPEND}
-	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	media-plugins/gst-plugins-jpeg:1.0
 	media-plugins/gst-plugins-libpng:1.0
 	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]

@@ -17,13 +17,13 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/krunner-${KFMIN}:5
-	>=kde-apps/ktp-common-internals-${PVCUT}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/ktp-common-internals-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/krunner-${KFMIN}:5
 	net-libs/telepathy-qt[qt5(+)]
 "
 DEPEND="${RDEPEND}

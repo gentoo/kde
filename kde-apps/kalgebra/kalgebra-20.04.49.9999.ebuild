@@ -19,6 +19,12 @@ KEYWORDS=""
 IUSE="readline"
 
 DEPEND="
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/analitza-${PVCUT}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -26,17 +32,11 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-apps/analitza-${PVCUT}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	readline? ( sys-libs/readline:0= )
 "
 RDEPEND="${DEPEND}
-	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 
 src_configure() {

@@ -14,9 +14,9 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-lang/perl
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	dev-lang/perl
 "
 RDEPEND="${DEPEND}"

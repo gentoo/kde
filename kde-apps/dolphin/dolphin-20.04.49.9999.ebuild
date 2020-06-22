@@ -21,6 +21,11 @@ KEYWORDS=""
 IUSE="activities semantic-desktop"
 
 DEPEND="
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
@@ -45,17 +50,12 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 	media-libs/phonon[qt5(+)]
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	semantic-desktop? (
+		>=kde-apps/baloo-widgets-${PVCUT}:5
 		>=kde-frameworks/baloo-${KFMIN}:5
 		>=kde-frameworks/kfilemetadata-${KFMIN}:5
-		>=kde-apps/baloo-widgets-${PVCUT}:5
 	)
 "
 RDEPEND="${DEPEND}

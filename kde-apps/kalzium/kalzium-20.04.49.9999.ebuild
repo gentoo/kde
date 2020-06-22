@@ -37,8 +37,8 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	editor? (
-		>=dev-qt/qtopengl-${QTMIN}:5
 		dev-cpp/eigen:3
+		>=dev-qt/qtopengl-${QTMIN}:5
 		>=kde-frameworks/knewstuff-${KFMIN}:5
 		sci-chemistry/openbabel
 		>=sci-libs/avogadrolibs-1.93[qt5]

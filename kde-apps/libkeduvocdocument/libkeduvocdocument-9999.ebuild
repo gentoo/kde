@@ -16,11 +16,11 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 

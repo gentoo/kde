@@ -17,9 +17,9 @@ KEYWORDS=""
 IUSE="raw"
 
 DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
 	raw? (
 		>=kde-apps/libkdcraw-${PVCUT}:5
 		>=kde-apps/libkexiv2-${PVCUT}:5

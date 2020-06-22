@@ -18,6 +18,13 @@ KEYWORDS=""
 IUSE="X"
 
 COMMON_DEPEND="
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -31,13 +38,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libICE
@@ -51,8 +51,8 @@ DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-apps/kqtquickcharts-${PVCUT}:5
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=kde-apps/kqtquickcharts-${PVCUT}:5
 "
 
 src_configure() {

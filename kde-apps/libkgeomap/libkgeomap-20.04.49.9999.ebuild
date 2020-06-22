@@ -19,16 +19,16 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-apps/marble-${PVCUT}:5=[kde]
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-apps/marble-${PVCUT}:5=[kde]
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
 

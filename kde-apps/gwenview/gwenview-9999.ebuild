@@ -23,6 +23,11 @@ IUSE="activities fits kipi +mpris raw semantic-desktop share X"
 RESTRICT+=" test"
 
 COMMON_DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtopengl-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -39,11 +44,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtopengl-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-gfx/exiv2:=
 	media-libs/lcms:2
 	media-libs/libpng:0=
@@ -65,12 +65,12 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kimageformats-${KFMIN}:5
 	>=dev-qt/qtimageformats-${QTMIN}:5
+	>=kde-frameworks/kimageformats-${KFMIN}:5
 	kipi? ( >=kde-apps/kipi-plugins-${PVCUT}:5 )
 "
 

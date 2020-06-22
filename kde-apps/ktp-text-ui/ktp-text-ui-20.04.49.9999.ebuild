@@ -17,6 +17,12 @@ KEYWORDS=""
 IUSE="speech"
 
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-apps/ktp-common-internals-${PVCUT}:5[otr]
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -37,12 +43,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	>=kde-apps/ktp-common-internals-${PVCUT}:5[otr]
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 	net-libs/telepathy-qt[qt5(+)]
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 "

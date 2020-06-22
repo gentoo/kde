@@ -16,11 +16,11 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/ki18n-${KFMIN}:5

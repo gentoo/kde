@@ -19,6 +19,16 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/libxml2:2
+	dev-libs/libxslt
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=kde-apps/libkeduvocdocument-${PVCUT}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -35,16 +45,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	>=kde-apps/libkeduvocdocument-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	dev-libs/libxml2:2
-	dev-libs/libxslt
 "
 RDEPEND="${DEPEND}
 	>=kde-apps/kdeedu-data-${PVCUT}:5

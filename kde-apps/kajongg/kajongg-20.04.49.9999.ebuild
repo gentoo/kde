@@ -21,13 +21,13 @@ IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-apps/libkdegames-${PVCUT}:5
+	dev-db/sqlite:3
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-db/sqlite:3
+	>=kde-apps/libkdegames-${PVCUT}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 	$(python_gen_cond_dep '
 		dev-python/PyQt5[gui,svg,widgets,${PYTHON_MULTI_USEDEP}]
 		>=dev-python/twisted-16.6.0[${PYTHON_MULTI_USEDEP}]

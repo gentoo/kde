@@ -15,10 +15,10 @@ KEYWORDS=""
 IUSE="alsa"
 
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
 	media-libs/phonon[qt5(+)]
 	alsa? ( media-libs/alsa-lib )
 "

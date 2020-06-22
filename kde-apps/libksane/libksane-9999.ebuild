@@ -15,11 +15,11 @@ KEYWORDS=""
 IUSE="kwallet"
 
 DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-gfx/sane-backends
 	kwallet? ( >=kde-frameworks/kwallet-${KFMIN}:5 )
 "
