@@ -33,7 +33,7 @@ bump_packages_from_set() {
 
 		repoman manifest
 
-        	popd > /dev/null
+		popd > /dev/null
 	done
 }
 
@@ -111,10 +111,10 @@ get_package_list_from_set() {
 # @FUNCTION: mark_unreleased
 # @USAGE: <category-version>
 # @DESCRIPTION:
-# Marks a <category-version> pair as unreleased in kde5.eclass.
+# Marks a <category-version> pair as unreleased in kde.org.eclass.
 mark_unreleased() {
 	local cv="${1}"
-	sed -i -e "/^KDE_UNRELEASED/s/ )/ ${cv}&/" eclass/kde5.eclass
+	sed -i -e "/^KDE_UNRELEASED/s/ )/ ${cv}&/" eclass/kde.org.eclass
 }
 
 # @FUNCTION: mask_from_live_set
