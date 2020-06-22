@@ -4,6 +4,9 @@
 # app-portage/portage-utils
 # app-portage/gentoolkit-dev
 # app-portage/repoman
+# Optional:
+# dev-vcs/git
+# app-portage/mgorny-dev-scripts
 
 : ${PORTDIR:="$(pwd)"}
 
@@ -33,13 +36,14 @@ help() {
 	echo Simple set-based version bumper.
 	echo
 	echo Given a set file, bumps all packages in the given set given source
-	echo and destination versions. Designed for workflows where ebuilds are
-	echo bumped from up-to-date live versions.
+	echo and destination versions. Optionally, if destination is a git repository,
+	echo each ebuild will be committed as \"cat/pn: DESTINATIONVERSION version bump\".
+	echo Designed for workflows where ebuilds are bumped from up-to-date live versions.
 	echo
 	echo Reads PORTDIR from your enviroment, defaulting to the current directory.
 	echo
 	echo Usage: bump-from-set.sh SETNAME SOURCEVERSION DESTINATIONVERSION
-	echo Example: bump-from-set.sh kde-plasma-5.7 5.7.49.9999 5.7.1
+	echo Example: bump-from-set.sh kde-plasma-5.19 5.19.49.9999 5.19.2
 	exit 0
 }
 
@@ -79,3 +83,14 @@ for cp in ${packages} ; do
 
 	popd > /dev/null
 done
+
+if [[ -d "${PORTDIR}/.git" ]] && hash git 2>/dev/null && hash pkgcommit 2>/dev/null; then
+	for cp in ${packages} ; do
+		pushd "${PORTDIR}/${cp}" > /dev/null
+
+		git add .
+		pkgcommit -sS . -m "${DESTINATIONVERSION} version bump"
+
+		popd > /dev/null
+	done
+fi
