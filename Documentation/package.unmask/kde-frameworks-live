@@ -73,7 +73,7 @@
 ~kde-frameworks/kbookmarks-9999
 ~kde-frameworks/kcmutils-9999
 ~kde-frameworks/kconfigwidgets-9999
-# TODO: KF 5.72: ~kde-frameworks/kdav-9999
+~kde-frameworks/kdav-9999
 ~kde-frameworks/kdeclarative-9999
 ~kde-frameworks/kded-9999
 ~kde-frameworks/kdesu-9999
