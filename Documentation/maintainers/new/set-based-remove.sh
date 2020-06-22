@@ -1,6 +1,10 @@
 #!/bin/sh
 
-# Requires app-portage/repoman
+# Requires:
+# app-portage/repoman
+# Optional:
+# dev-vcs/git
+# app-portage/mgorny-dev-scripts
 
 . $(dirname "$0")/lib.sh
 
@@ -10,11 +14,13 @@ help() {
 	echo Simple set-based version removed.
 	echo
 	echo Given a set file, removes all packages of a specified version.
+	echo Optionally, if target is a git repository, each change will be
+	echo committed as \"cat/pn: drop VERSION*\".
 	echo
 	echo Reads TARGET_REPO from your environment, defaulting to the current directory.
 	echo
 	echo Usage: set-based-remove.sh SETNAME VERSION
-	echo Example: set-based-remove.sh kde-plasma-5.0 5.0.1
+	echo Example: set-based-remove.sh kde-plasma-5.19 5.19.1
 	exit 0
 }
 
@@ -46,3 +52,14 @@ for package in ${packages} ; do
 	repoman manifest
 	popd > /dev/null
 done
+
+if [[ -d "${TARGET_REPO}/.git" ]] && hash git 2>/dev/null && hash pkgcommit 2>/dev/null; then
+	for cp in ${packages} ; do
+		pushd "${TARGET_REPO}/${cp}" > /dev/null
+
+		git add .
+		pkgcommit -sS . -m "drop ${VERSION}*"
+
+		popd > /dev/null
+	done
+fi
