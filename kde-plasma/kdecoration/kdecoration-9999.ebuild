@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
