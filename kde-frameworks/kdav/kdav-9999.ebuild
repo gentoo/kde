@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_TEST="forceoptional"
-KFMIN=5.71.0
+PVCUT=$(ver_cut 1-2)
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
@@ -21,10 +21,13 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kio-${PVCUT}:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-apps/kdav:5
+"
 
 src_test() {
 	# bug 616808 - DavItemFetchJobTest requires D-Bus
