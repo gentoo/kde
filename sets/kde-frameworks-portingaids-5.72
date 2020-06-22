@@ -1,0 +1,10 @@
+# PortingAids: Code and utilities for transition from kdelibs 4 to Frameworks 5.
+<kde-frameworks/kdelibs4support-5.72.50:5
+<kde-frameworks/kdesignerplugin-5.72.50:5
+<kde-frameworks/kdewebkit-5.72.50:5
+<kde-frameworks/khtml-5.72.50:5
+<kde-frameworks/kjs-5.72.50:5
+<kde-frameworks/kjsembed-5.72.50:5
+<kde-frameworks/kmediaplayer-5.72.50:5
+<kde-frameworks/kross-5.72.50:5
+<kde-frameworks/kxmlrpcclient-5.72.50:5
