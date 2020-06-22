@@ -23,7 +23,8 @@ pushd ../package.accept_keywords/ > /dev/null
 for release in $KF_RELEASES; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}.keywords"
 	if [[ -d ".kde-frameworks-${release}" ]]; then
-		cat ".kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' | sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-frameworks-${release}.keywords"
+		cat ".kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' | \
+			sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-frameworks-${release}.keywords"
 	fi
 done
 
@@ -37,7 +38,8 @@ done
 for release in $SERVICE_RELEASES; do
 	echo -e "${HEADER}" > "kde-release-service-${release}.keywords"
 	if [[ -d ".kde-release-service-${release}" ]]; then
-		cat ".kde-release-service-${release}/"* | sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-release-service-${release}.keywords"
+		cat ".kde-release-service-${release}/"* | \
+			sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-release-service-${release}.keywords"
 	fi
 done
 
@@ -49,7 +51,8 @@ for release in $SERVICE_RELEASES; do
 		echo -e "${HEADER}" > "kde-release-service-${release}.49.9999.keywords"
 		for file in ".kde-release-service-${release}"/*; do
 			newfile=".kde-release-service-${release}.49.9999"/$(basename "${file}")
-			sed -e "/^<[a-z-]*\/.*\.50$/{s/\.50/.49.9999/;s/^</~/};/^~.*[.-]9999$/s/$/ **/" -e "/^@/d" "${file}" > "${newfile}"
+			sed -e "/^<[a-z-]*\/.*\.50$/{s/\.50/.49.9999/;s/^</~/};/^~.*[.-]9999$/s/$/ **/" \
+				-e "/^@/d" "${file}" > "${newfile}"
 			# echo "${newfile}"
 		done
 		cat ".kde-release-service-${release}.49.9999"/* >> "kde-release-service-${release}.49.9999.keywords"
@@ -103,7 +106,8 @@ pushd ../package.unmask/ > /dev/null
 for release in $KF_RELEASES live; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}"
 	if [[ -d ".kde-frameworks-${release}" ]]; then
-		cat ".kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' >> "kde-frameworks-${release}"
+		cat ".kde-frameworks-${release}/"* | \
+			grep -P -v '^>=kde-frameworks/(?!kf-env)' >> "kde-frameworks-${release}"
 		sed -i "kde-frameworks-${release}" -e "/^@/d"
 	fi
 done
@@ -129,8 +133,10 @@ pushd ../package.mask/ > /dev/null
 for release in $KF_RELEASES live; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}"
 	if [[ -d "../package.unmask/.kde-frameworks-${release}" ]]; then
-		cat "../package.unmask/.kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' >> "kde-frameworks-${release}"
-		sed -i "kde-frameworks-${release}" -e "/^<kde-frameworks\/.*-5\..\.50:5$/{s/-5\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
+		cat "../package.unmask/.kde-frameworks-${release}/"* | \
+			grep -P -v '^>=kde-frameworks/(?!kf-env)' >> "kde-frameworks-${release}"
+		sed -i "kde-frameworks-${release}" \
+			-e "/^<kde-frameworks\/.*-5\..\.50:5$/{s/-5\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
 	fi
 done
 
@@ -138,7 +144,8 @@ for release in $PLASMA_RELEASES live; do
 	echo -e "${HEADER}" > "kde-plasma-${release}"
 	if [[ -d "../package.unmask/.kde-plasma-${release}" ]]; then
 		cat "../package.unmask/.kde-plasma-${release}/"* >> "kde-plasma-${release}"
-		sed -i "kde-plasma-${release}" -e "/^<kde-plasma\/.*-5\..\.50:5$/{s/-5\..\.50/-${release}/;s/^</>=/}"
+		sed -i "kde-plasma-${release}" \
+			-e "/^<kde-plasma\/.*-5\..\.50:5$/{s/-5\..\.50/-${release}/;s/^</>=/}"
 	fi
 done
 
@@ -146,7 +153,8 @@ for release in $SERVICE_RELEASES live; do
 	echo -e "${HEADER}" > "kde-release-service-${release}"
 	if [[ -d "../package.unmask/.kde-release-service-${release}" ]]; then
 		cat "../package.unmask/.kde-release-service-${release}/"* >> "kde-release-service-${release}"
-		sed -i "kde-release-service-${release}" -e "/^<kde-release-service\/.*-14\..\.50:5$/{s/-14\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
+		sed -i "kde-release-service-${release}" \
+			-e "/^<kde-release-service\/.*-14\..\.50:5$/{s/-14\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
 	fi
 done
 popd > /dev/null
