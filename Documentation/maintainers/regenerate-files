@@ -23,7 +23,7 @@ pushd ../package.accept_keywords/ > /dev/null
 for release in $KF_RELEASES; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}.keywords"
 	if [[ -d ".kde-frameworks-${release}" ]]; then
-		cat ".kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' |sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-frameworks-${release}.keywords"
+		cat ".kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' | sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-frameworks-${release}.keywords"
 	fi
 done
 
@@ -62,7 +62,7 @@ if [[ -d .kde-frameworks-live.base ]]; then
 	echo -e "${HEADER}" > kde-frameworks-live.keywords
 	for file in .kde-frameworks-live.base/*; do
 		newfile=.kde-frameworks-live/$(basename "${file}")
-		sed '/^~.*[.-]9999$/s/$/ **/' "${file}" > "${newfile}"
+		sed -e '/^~.*[.-]9999$/s/$/ **/'  -e '/^@/d' "${file}" > "${newfile}"
 	done
 	cat .kde-frameworks-live/* >> kde-frameworks-live.keywords
 fi
@@ -104,6 +104,7 @@ for release in $KF_RELEASES live; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}"
 	if [[ -d ".kde-frameworks-${release}" ]]; then
 		cat ".kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' >> "kde-frameworks-${release}"
+		sed -i "kde-frameworks-${release}" -e "/^@/d"
 	fi
 done
 
@@ -129,7 +130,7 @@ for release in $KF_RELEASES live; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}"
 	if [[ -d "../package.unmask/.kde-frameworks-${release}" ]]; then
 		cat "../package.unmask/.kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' >> "kde-frameworks-${release}"
-		sed -i "kde-frameworks-${release}" -e "/^<kde-frameworks\/.*-5\..\.50:5$/{s/-5\..\.50/-${release}/;s/^</>=/}"
+		sed -i "kde-frameworks-${release}" -e "/^<kde-frameworks\/.*-5\..\.50:5$/{s/-5\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
 	fi
 done
 
