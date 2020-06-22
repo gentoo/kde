@@ -42,7 +42,10 @@ RDEPEND="
 	>=kde-apps/akonadi-notes-${PVCUT}:5
 	>=kde-apps/kalarmcal-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
-	>=kde-apps/kdav-${PVCUT}:5
+	|| (
+		>=kde-frameworks/kdav-${KFMIN}:5
+		>=kde-apps/kdav-${PVCUT}:5
+	)
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kimap-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
