@@ -13,6 +13,8 @@ KEYWORDS=""
 IUSE="nls"
 
 BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 RDEPEND="
