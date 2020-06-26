@@ -15,7 +15,7 @@ DESCRIPTION="Library and components for secure lock screen architecture"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="consolekit +pam"
+IUSE="+pam"
 
 COMMON_DEPEND="
 	dev-libs/wayland
@@ -43,7 +43,6 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
-	consolekit? ( sys-auth/consolekit )
 	pam? ( sys-libs/pam )
 "
 DEPEND="${COMMON_DEPEND}
@@ -58,8 +57,6 @@ PDEPEND="
 "
 
 RESTRICT+=" test"
-
-PATCHES=( "${FILESDIR}/${PN}-5.19.5-ck-unlock.patch" )
 
 src_prepare() {
 	ecm_src_prepare
@@ -80,7 +77,6 @@ src_test() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package consolekit ConsoleKit)
 		-DPAM_REQUIRED=$(usex pam)
 		$(cmake_use_find_package pam PAM)
 	)
