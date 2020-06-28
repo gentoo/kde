@@ -14,7 +14,7 @@ DESCRIPTION="Task management and system monitoring library"
 LICENSE="LGPL-2+"
 SLOT="5/9"
 KEYWORDS=""
-IUSE="minimal webengine X"
+IUSE="webengine X"
 
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
