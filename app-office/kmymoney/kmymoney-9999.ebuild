@@ -21,7 +21,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities addressbook calendar hbci holidays ofx quotes webkit"
+IUSE="activities addressbook calendar hbci holidays quotes webkit"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
 BDEPEND="virtual/pkgconfig"
@@ -31,6 +31,7 @@ COMMON_DEPEND="
 	dev-libs/gmp:0=[cxx]
 	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
+	dev-libs/libofx:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -71,7 +72,6 @@ COMMON_DEPEND="
 		>=sys-libs/gwenhywfar-5.1.2:=[qt5]
 	)
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
-	ofx? ( dev-libs/libofx )
 	webkit? (
 		>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 		>=kde-frameworks/kdewebkit-${KFMIN}:5
@@ -97,6 +97,8 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_OFXIMPORTER=ON
+		-DENABLE_WEBOOB=OFF
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package addressbook KF5Akonadi)
@@ -105,9 +107,7 @@ src_configure() {
 		-DENABLE_LIBICAL=$(usex calendar)
 		-DENABLE_KBANKING=$(usex hbci)
 		$(cmake_use_find_package holidays KF5Holidays)
-		-DENABLE_OFXIMPORTER=$(usex ofx)
 		-DENABLE_WEBENGINE=$(usex !webkit)
-		-DENABLE_WEBOOB=OFF
 	)
 	[[ ${KDE_BUILD_TYPE} = live ]] &&
 		mycmakeargs+=( -DENABLE_UNFINISHEDFEATURES=$(usex experimental) )
