@@ -14,7 +14,7 @@ DESCRIPTION="KDE Office Suite"
 HOMEPAGE="https://calligra.org/"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -22,7 +22,7 @@ CAL_FTS=( karbon sheets stage words )
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities +charts +crypt +fontconfig gemini gsl import-filter +lcms okular openexr
+IUSE="activities +charts +crypt +fontconfig gemini gsl +import-filter +lcms okular openexr
 	+pdf phonon spacenav +truetype X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
 # TODO: Not packaged: Cauchy (https://bitbucket.org/cyrille/cauchy)
@@ -91,6 +91,7 @@ COMMON_DEPEND="
 		media-libs/ilmbase:=
 		media-libs/lcms:2
 	)
+	okular? ( kde-apps/okular:5 )
 	openexr? ( media-libs/openexr )
 	pdf? ( app-text/poppler:=[qt5] )
 	phonon? ( media-libs/phonon[qt5(+)] )
@@ -101,11 +102,7 @@ COMMON_DEPEND="
 		x11-libs/libX11
 	)
 	calligra_features_sheets? ( dev-cpp/eigen:3 )
-	calligra_features_stage? ( okular? ( kde-apps/okular:5 ) )
-	calligra_features_words? (
-		dev-libs/libxslt
-		okular? ( kde-apps/okular:5 )
-	)
+	calligra_features_words? ( dev-libs/libxslt )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
@@ -118,6 +115,7 @@ RDEPEND="${COMMON_DEPEND}
 		>=kde-frameworks/kirigami-${KFMIN}:5
 	)
 "
+
 RESTRICT+=" test"
 
 PATCHES=( "${FILESDIR}"/${PN}-3.1.89-no-arch-detection.patch )
@@ -142,17 +140,6 @@ src_prepare() {
 	# Unconditionally disable deprecated deps (required by QtQuick1)
 	ecm_punt_bogus_dep Qt5 Declarative
 	ecm_punt_bogus_dep Qt5 OpenGL
-
-	# Hack around the excessive use of CMake macros
-	if use okular && ! use calligra_features_words; then
-		sed -i -e "/add_subdirectory( *okularodtgenerator *)/ s/^/#DONT/" \
-			extras/CMakeLists.txt || die "Failed to disable OKULAR_GENERATOR_ODT"
-	fi
-
-	if use okular && ! use calligra_features_stage; then
-		sed -i -e "/add_subdirectory( *okularodpgenerator *)/ s/^/#DONT/" \
-			extras/CMakeLists.txt || die "Failed to disable OKULAR_GENERATOR_ODP"
-	fi
 }
 
 src_configure() {
@@ -164,6 +151,7 @@ src_configure() {
 	done
 
 	use lcms && myproducts+=( PLUGIN_COLORENGINES )
+	use okular && myproducts+=( OKULAR )
 	use spacenav && myproducts+=( PLUGIN_SPACENAVIGATOR )
 
 	local mycmakeargs=(
