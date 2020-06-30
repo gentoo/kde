@@ -3,6 +3,7 @@
 
 EAPI=7
 
+EGIT_BRANCH="8.0"
 ECM_TEST="forceoptional"
 KDE_ORG_NAME="alkimia"
 KFMIN=5.60.0
@@ -52,6 +53,8 @@ DEPEND="
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-8.0.3-cmake.patch" )
 
 src_configure() {
 	local mycmakeargs=(
