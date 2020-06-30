@@ -16,7 +16,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="caps gles2-only multimedia"
+IUSE="accessibility caps gles2-only multimedia"
 
 COMMON_DEPEND="
 	>=dev-libs/libinput-1.14
@@ -72,6 +72,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
+	accessibility? ( media-libs/libqaccessibilityclient:5 )
 	caps? ( sys-libs/libcap )
 	gles2-only? ( media-libs/mesa[gles2] )
 "
@@ -106,6 +107,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package accessibility QAccessibilityClient)
 		$(cmake_use_find_package caps Libcap)
 	)
 
