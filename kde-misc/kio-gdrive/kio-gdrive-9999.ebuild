@@ -5,12 +5,15 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="optional"
+KDE_ORG_CATEGORY="network"
+KDE_RELEASE_SERVICE="true"
+PVCUT=$(ver_cut 1-3)
 KFMIN=5.60.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="KIO Slave for Google Drive service"
-HOMEPAGE="https://phabricator.kde.org/project/profile/72/"
+HOMEPAGE="https://kde.org/applications/internet/org.kde.kio_gdrive"
 
 if [[ ${KDE_BUILD_TYPE} != live ]] ; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
@@ -29,7 +32,7 @@ RDEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	kaccounts? ( >=kde-apps/kaccounts-integration-20.03.80:5 )
+	kaccounts? ( >=kde-apps/kaccounts-integration-${PVCUT}:5 )
 	!kaccounts? ( dev-libs/qtkeychain:=[qt5(+)] )
 "
 DEPEND="${RDEPEND}
