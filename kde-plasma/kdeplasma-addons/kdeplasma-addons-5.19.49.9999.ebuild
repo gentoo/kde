@@ -14,7 +14,7 @@ DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
 SLOT="5"
 KEYWORDS=""
-IUSE="share webengine"
+IUSE="+comic share webengine"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -35,7 +35,6 @@ DEPEND="
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
-	>=kde-frameworks/kross-${KFMIN}:5
 	>=kde-frameworks/krunner-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kunitconversion-${KFMIN}:5
@@ -44,6 +43,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
+	comic? ( >=kde-frameworks/kross-${KFMIN}:5 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
@@ -53,8 +53,11 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 "
 
+PATCHES=( "${FILESDIR}/${PN}-5.19.3-kross-optional.patch" )
+
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package comic KF5Kross)
 		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package webengine Qt5WebEngine)
 	)
