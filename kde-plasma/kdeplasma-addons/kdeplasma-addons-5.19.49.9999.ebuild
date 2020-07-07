@@ -64,3 +64,12 @@ src_configure() {
 
 	ecm_src_configure
 }
+
+pkg_postinst() {
+	ecm_pkg_postinst
+
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		has_version sys-fs/quota || \
+			elog "For using disk quota applet, install sys-fs/quota."
+	fi
+}
