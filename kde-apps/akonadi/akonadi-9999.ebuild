@@ -57,7 +57,6 @@ DEPEND="${COMMON_DEPEND}
 	test? ( sys-apps/dbus )
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kapptemplate-17.11.80
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql )
 "
