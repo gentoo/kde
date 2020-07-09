@@ -60,9 +60,7 @@ DEPEND="
 	)
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
-RDEPEND="${DEPEND}
-	!kde-misc/ktexteditorpreviewplugin
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	ecm_src_prepare
