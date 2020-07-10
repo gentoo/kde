@@ -19,9 +19,7 @@ BDEPEND="
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kholidays:5
-"
+RDEPEND="${DEPEND}"
 
 src_test() {
 	# bug 624214
