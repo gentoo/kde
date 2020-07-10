@@ -27,7 +27,6 @@ RDEPEND="
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -38,7 +37,6 @@ RDEPEND="
 	>=kde-frameworks/kidletime-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
@@ -55,6 +53,8 @@ DEPEND="${RDEPEND}
 	x11-base/xorg-proto
 "
 PDEPEND="
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
