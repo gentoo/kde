@@ -48,7 +48,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kded-${KFMIN}:5
 	>=kde-frameworks/kdelibs4support-${KFMIN}:5
-	>=kde-frameworks/kemoticons-${KFMIN}:5
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
