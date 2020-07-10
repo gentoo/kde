@@ -22,7 +22,7 @@ REQUIRED_USE="seccomp? ( pam )"
 RDEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
