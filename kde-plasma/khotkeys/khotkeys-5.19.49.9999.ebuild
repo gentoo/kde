@@ -48,3 +48,8 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kded-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_bogus_dep KF5 Plasma # TODO: upstream
+}
