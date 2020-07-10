@@ -42,6 +42,4 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/ktimetracker
-"
+RDEPEND="${DEPEND}"
