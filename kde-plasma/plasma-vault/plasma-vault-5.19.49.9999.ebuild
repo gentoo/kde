@@ -35,6 +35,7 @@ DEPEND="
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	|| ( >=sys-fs/cryfs-0.9.9 >=sys-fs/encfs-1.9.2 )
 "
 
