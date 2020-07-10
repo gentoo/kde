@@ -35,7 +35,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-plasma/libkworkspace-${PVCUT}:5
 	x11-libs/libX11
 	x11-libs/libXtst
 "
