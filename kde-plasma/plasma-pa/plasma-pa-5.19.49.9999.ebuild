@@ -33,6 +33,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
-	media-libs/libcanberra
 	x11-themes/sound-theme-freedesktop
 "
