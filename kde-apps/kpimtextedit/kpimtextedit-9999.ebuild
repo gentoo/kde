@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_DESIGNERPLUGIN="true"
 ECM_TEST="true"
-KFMIN=5.71.0
+KFMIN=5.72.0
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org

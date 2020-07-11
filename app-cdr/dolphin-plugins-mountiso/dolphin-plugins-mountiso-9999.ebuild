@@ -8,8 +8,8 @@ KDE_RELEASE_SERVICE="true"
 KDE_ORG_CATEGORY="sdk"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="mountiso"
-PVCUT=20.04.1 # TODO: back to $(ver_cut 1-3) after first release
-KFMIN=5.71.0
+KFMIN=5.72.0
+PVCUT=$(ver_cut 1-3)
 QTMIN=5.14.2
 inherit ecm kde.org
 
