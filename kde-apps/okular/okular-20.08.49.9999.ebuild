@@ -70,11 +70,6 @@ RDEPEND="${DEPEND}
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-18.12.0-tests.patch"
-	"${FILESDIR}/${PN}-20.03.70-tests.patch"
-)
-
 src_prepare() {
 	ecm_src_prepare
 	use mobile || cmake_comment_add_subdirectory mobile
