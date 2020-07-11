@@ -16,6 +16,11 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
 	kde-frameworks/kconfig:5
 	kde-frameworks/kconfigwidgets:5
 	kde-frameworks/kcoreaddons:5
@@ -24,11 +29,6 @@ RDEPEND="
 	kde-frameworks/kparts:5
 	kde-frameworks/kwidgetsaddons:5
 	kde-frameworks/kxmlgui:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
 	>=media-gfx/graphviz-2.30
 "
 DEPEND="${RDEPEND}
