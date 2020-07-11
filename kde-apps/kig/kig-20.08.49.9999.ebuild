@@ -42,7 +42,7 @@ RDEPEND="${PYTHON_DEPS}
 	geogebra? ( >=dev-qt/qtxmlpatterns-${QTMIN}:5 )
 	scripting? (
 		$(python_gen_cond_dep '
-			>=dev-libs/boost-1.48:=[python,${PYTHON_MULTI_USEDEP}]
+			>=dev-libs/boost-1.70:=[python,${PYTHON_MULTI_USEDEP}]
 		')
 	)
 "
@@ -50,7 +50,7 @@ DEPEND="${RDEPEND}
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-4.12.0-boostpython.patch )
+PATCHES=( "${FILESDIR}"/${PN}-20.08.70-cmake-boostpython.patch )
 
 pkg_setup() {
 	python-single-r1_pkg_setup
@@ -64,8 +64,9 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DBOOSTPYTHON_VERSION_MAJOR_MINOR=${EPYTHON}
 		$(cmake_use_find_package geogebra Qt5XmlPatterns)
-		$(cmake_use_find_package scripting BoostPython)
+		$(cmake_use_find_package scripting Boost)
 	)
 
 	ecm_src_configure
