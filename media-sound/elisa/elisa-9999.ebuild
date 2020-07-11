@@ -21,7 +21,7 @@ IUSE="mpris semantic-desktop vlc"
 
 BDEPEND="sys-devel/gettext"
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
