@@ -43,6 +43,7 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
 	bluetooth? ( >=dev-qt/qtbluetooth-${QTMIN}:5 )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
