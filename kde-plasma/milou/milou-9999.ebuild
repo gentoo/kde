@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_TEST="forceoptional-recursive"
+ECM_TEST="forceoptional"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.14.2
