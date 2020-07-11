@@ -12,7 +12,7 @@ DESCRIPTION="Framework providing a full text editor component"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="editorconfig git"
+IUSE="+editorconfig git"
 
 BDEPEND="
 	test? ( >=kde-frameworks/kservice-${PVCUT}:5 )
