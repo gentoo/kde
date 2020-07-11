@@ -17,13 +17,13 @@ https://utils.kde.org/projects/ark/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="bzip2 lzma zip"
+IUSE="zip"
 
 BDEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
-	app-arch/libarchive:=[bzip2?,lzma?,zlib]
+	app-arch/libarchive:=[bzip2,lzma,zlib]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -55,8 +55,6 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package bzip2 BZip2)
-		$(cmake_use_find_package lzma LibLZMA)
 		$(cmake_use_find_package zip LibZip)
 	)
 
