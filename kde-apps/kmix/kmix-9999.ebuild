@@ -36,7 +36,6 @@ DEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )
 	plasma? ( >=kde-frameworks/plasma-${KFMIN}:5 )
 	pulseaudio? (
-		dev-libs/glib:2
 		media-libs/libcanberra
 		>=media-sound/pulseaudio-0.9.12
 	)
