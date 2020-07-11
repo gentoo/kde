@@ -66,6 +66,7 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
 		$(cmake_use_find_package semantic-desktop KF5BalooWidgets)
