@@ -48,6 +48,7 @@ COMMON_DEPEND="
 	media-libs/lcms:2
 	media-libs/libpng:0=
 	media-libs/phonon[qt5(+)]
+	media-libs/tiff
 	virtual/jpeg:0
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	fits? ( sci-libs/cfitsio )
