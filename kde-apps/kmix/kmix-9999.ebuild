@@ -6,7 +6,6 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="false"
 KFMIN=5.72.0
-PLASMA_MINIMAL=5.16.5
 QTMIN=5.14.2
 inherit ecm kde.org
 
@@ -43,7 +42,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	>=kde-plasma/kde-cli-tools-${PLASMA_MINIMAL}:5
+	kde-plasma/kde-cli-tools:5
 "
 
 PATCHES=( "${FILESDIR}/${PN}-19.12.3-no-more-kcm_phonon.patch" ) # bug 716092
