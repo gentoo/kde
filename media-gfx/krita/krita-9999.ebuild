@@ -87,6 +87,8 @@ DEPEND="${RDEPEND}
 # bug 630508
 RESTRICT+=" test"
 
+PATCHES=( "${FILESDIR}"/${PN}-4.3.1-tests-optional.patch )
+
 pkg_setup() {
 	python-single-r1_pkg_setup
 	ecm_pkg_setup
