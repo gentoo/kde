@@ -31,3 +31,5 @@ DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-5.19.80-disable-manual-tests.patch" ) # bug 732584
