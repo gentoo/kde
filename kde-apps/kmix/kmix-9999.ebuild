@@ -44,8 +44,6 @@ RDEPEND="${DEPEND}
 	kde-plasma/kde-cli-tools:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-19.12.3-no-more-kcm_phonon.patch" ) # bug 716092
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package alsa ALSA)
