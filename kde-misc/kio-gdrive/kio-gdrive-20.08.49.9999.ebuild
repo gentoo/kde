@@ -15,13 +15,9 @@ inherit ecm kde.org
 DESCRIPTION="KIO Slave for Google Drive service"
 HOMEPAGE="https://kde.org/applications/internet/org.kde.kio_gdrive"
 
-if [[ ${KDE_BUILD_TYPE} != live ]] ; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
-	KEYWORDS=""
-fi
-
 LICENSE="GPL-2+"
 SLOT="5"
+KEYWORDS=""
 IUSE="+kaccounts"
 
 BDEPEND="dev-util/intltool"
