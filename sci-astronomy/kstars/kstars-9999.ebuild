@@ -79,6 +79,7 @@ src_configure() {
 		-DBUILD_DOC=$(usex handbook)
 		$(cmake_use_find_package fits CFitsio)
 		$(cmake_use_find_package indi INDI)
+		$(cmake_use_find_package indi Nova)
 		$(cmake_use_find_package password Qt5Keychain)
 		$(cmake_use_find_package raw LibRaw)
 		$(cmake_use_find_package wcs WCSLIB)
@@ -87,7 +88,7 @@ src_configure() {
 	ecm_src_configure
 }
 
-pkg_postinst () {
+pkg_postinst() {
 	ecm_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]] && ! has_version "x11-misc/xplanet" ; then
