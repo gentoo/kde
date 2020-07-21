@@ -5,7 +5,7 @@ EAPI=7
 
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.14.2
+QTMIN=5.15.0
 inherit ecm kde.org
 
 DESCRIPTION="Plasma applet and services for creating encrypted vaults"
