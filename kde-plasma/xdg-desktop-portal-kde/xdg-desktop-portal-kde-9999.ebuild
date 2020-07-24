@@ -13,13 +13,15 @@ DESCRIPTION="Backend implementation for xdg-desktop-portal that is using Qt/KDE 
 LICENSE="LGPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="screencast"
+IUSE=""
 
 COMMON_DEPEND="
+	>=dev-libs/wayland-1.15
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5[cups]
+	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
@@ -29,23 +31,12 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
-	screencast? (
-		media-libs/libepoxy
-		media-libs/mesa[gbm]
-		media-video/pipewire:=
-	)
 "
 DEPEND="${COMMON_DEPEND}
+	>=dev-libs/plasma-wayland-protocols-1.1
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=kde-frameworks/kwayland-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	sys-apps/xdg-desktop-portal[screencast?]
+	sys-apps/xdg-desktop-portal
 "
-
-src_configure() {
-	local mycmakeargs=(
-		-DENABLE_PIPEWIRE=$(usex screencast)
-	)
-	ecm_src_configure
-}
