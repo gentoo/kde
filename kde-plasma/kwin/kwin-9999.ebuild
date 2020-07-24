@@ -16,7 +16,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="accessibility caps gles2-only multimedia"
+IUSE="accessibility caps gles2-only multimedia screencast"
 
 COMMON_DEPEND="
 	>=dev-libs/libinput-1.14
@@ -75,6 +75,7 @@ COMMON_DEPEND="
 	accessibility? ( media-libs/libqaccessibilityclient:5 )
 	caps? ( sys-libs/libcap )
 	gles2-only? ( media-libs/mesa[gles2] )
+	screencast? ( >=media-video/pipewire-0.3:= )
 "
 # TODO: sys-apps/hwdata? not packaged yet; commit 33a1777a, Gentoo-bug 717216
 RDEPEND="${COMMON_DEPEND}
@@ -103,6 +104,12 @@ src_prepare() {
 	# Access violations, bug #640432
 	sed -e "s/^ecm_find_qmlmodule.*QtMultimedia/#&/" \
 		-i CMakeLists.txt || die
+
+	# TODO: try to get a build switch upstreamed
+	if ! use screencast; then
+		sed -e "s/^pkg_check_modules.*PipeWire/#&/" \
+			-i CMakeLists.txt || die
+	fi
 }
 
 src_configure() {
