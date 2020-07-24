@@ -21,11 +21,13 @@ IUSE="appstream +calendar geolocation gps qalculate +semantic-desktop systemd te
 REQUIRED_USE="gps? ( geolocation )"
 
 COMMON_DEPEND="
+	>=dev-libs/wayland-1.15
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
-	>=dev-qt/qtgui-${QTMIN}:5[jpeg]
+	>=dev-qt/qtgui-${QTMIN}:5=[jpeg]
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
