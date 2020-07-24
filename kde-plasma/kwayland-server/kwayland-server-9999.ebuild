@@ -27,7 +27,7 @@ RDEPEND="
 	media-libs/mesa[egl]
 "
 DEPEND="${RDEPEND}
-	dev-libs/plasma-wayland-protocols
+	>=dev-libs/plasma-wayland-protocols-1.1
 	>=dev-libs/wayland-protocols-1.15
 "
 
