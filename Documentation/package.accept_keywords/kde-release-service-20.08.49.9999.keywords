@@ -237,3 +237,7 @@
 ~kde-apps/print-manager-20.08.49.9999 **
 ~kde-apps/sweeper-20.08.49.9999 **
 ~kde-apps/yakuake-20.08.49.9999 **
+~media-video/pipewire-0.3.7
+~net-libs/kdsoap-1.9.50_pre20200317
+~net-libs/kdsoap-ws-discovery-client-0.2_pre20200317
+~sys-apps/xdg-desktop-portal-1.7.2

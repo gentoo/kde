@@ -1,3 +1,4 @@
-~dev-libs/plasma-wayland-protocols-1.0
-~dev-util/umockdev-0.12.1
-~sys-apps/bolt-0.8
+~dev-libs/plasma-wayland-protocols-1.1.0
+~media-video/pipewire-0.3.7
+~sys-apps/bolt-0.9
+~sys-apps/xdg-desktop-portal-1.7.2
