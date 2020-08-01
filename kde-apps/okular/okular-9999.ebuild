@@ -70,6 +70,8 @@ RDEPEND="${DEPEND}
 	)
 "
 
+PATCHES=( "${FILESDIR}/${PN}-20.07.90-tests.patch" ) # bug 734138
+
 src_prepare() {
 	ecm_src_prepare
 	use mobile || cmake_comment_add_subdirectory mobile
