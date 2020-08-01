@@ -17,7 +17,7 @@ HOMEPAGE="https://kde.org/applications/internet/org.kde.kio_gdrive"
 
 LICENSE="GPL-2+"
 SLOT="5"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+kaccounts"
 
 BDEPEND="dev-util/intltool"
