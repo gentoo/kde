@@ -15,9 +15,7 @@ DESCRIPTION="Library and components for secure lock screen architecture"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="consolekit +pam seccomp"
-
-REQUIRED_USE="seccomp? ( pam )"
+IUSE="consolekit +pam"
 
 RDEPEND="
 	dev-libs/wayland
@@ -47,7 +45,6 @@ RDEPEND="
 	x11-libs/xcb-util-keysyms
 	consolekit? ( sys-auth/consolekit )
 	pam? ( sys-libs/pam )
-	seccomp? ( sys-libs/libseccomp )
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto
@@ -82,7 +79,6 @@ src_configure() {
 		$(cmake_use_find_package consolekit loginctl)
 		-DPAM_REQUIRED=$(usex pam)
 		$(cmake_use_find_package pam PAM)
-		$(cmake_use_find_package seccomp Seccomp)
 	)
 	ecm_src_configure
 }
