@@ -33,7 +33,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.1
+	>=dev-libs/plasma-wayland-protocols-1.1.1
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=kde-frameworks/kwayland-${KFMIN}:5
 "
