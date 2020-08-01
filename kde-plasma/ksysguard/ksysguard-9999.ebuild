@@ -36,19 +36,19 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-plasma/libksysguard-${PVCUT}:5[-minimal(-)]
+	>=kde-plasma/libksysguard-${PVCUT}:5
+	lm-sensors? ( sys-apps/lm-sensors:= )
 	pcap? (
 		net-libs/libpcap
 		sys-libs/libcap
 	)
-	lm-sensors? ( sys-apps/lm-sensors:= )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package pcap libpcap)
 		$(cmake_use_find_package lm-sensors Sensors)
+		$(cmake_use_find_package pcap libpcap)
 	)
 
 	ecm_src_configure
