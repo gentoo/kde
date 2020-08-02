@@ -89,10 +89,10 @@ src_configure() {
 src_install() {
 	ecm_src_install
 
-	use pam && newpamd "${FILESDIR}/kde.pam" kde
-	use pam && newpamd "${FILESDIR}/kde-np.pam" kde-np
-
-	if ! use pam; then
+	if use pam; then
+		newpamd "${FILESDIR}/kde.pam" kde
+		newpamd "${FILESDIR}/kde-np.pam" kde-np
+	else
 		chown root "${ED}"/usr/$(get_libdir)/libexec/kcheckpass || die
 		chmod +s "${ED}"/usr/$(get_libdir)/libexec/kcheckpass || die
 	fi
