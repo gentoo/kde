@@ -51,6 +51,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
 "
 PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
