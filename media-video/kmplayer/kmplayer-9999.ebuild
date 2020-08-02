@@ -19,7 +19,7 @@ fi
 
 LICENSE="GPL-2 FDL-1.2 LGPL-2.1"
 SLOT="5"
-IUSE="cairo npp"
+IUSE="cairo"
 
 BDEPEND="sys-devel/gettext"
 DEPEND="
@@ -47,42 +47,17 @@ DEPEND="
 	x11-libs/libX11
 	x11-libs/libxcb
 	cairo? ( x11-libs/cairo[X,xcb(+)] )
-	npp? (
-		dev-libs/dbus-glib
-		dev-libs/glib:2
-		www-plugins/adobe-flash:*
-		x11-libs/gtk+:2
-	)
 "
 RDEPEND="${DEPEND}
 	media-video/mplayer
 "
 
-src_prepare() {
-	if use npp; then
-		sed -i src/kmplayer_part.desktop \
-		-e ":^MimeType: s:=:=application/x-shockwave-flash;:" || die
-	fi
-
-	ecm_src_prepare
-}
-
 src_configure() {
 	# 0.12: expat build broken, check in later releases
 	local mycmakeargs=(
 		-DKMPLAYER_BUILT_WITH_EXPAT=OFF
+		-DKMPLAYER_BUILT_WITH_NPP=OFF
 		-DKMPLAYER_BUILT_WITH_CAIRO=$(usex cairo)
-		-DKMPLAYER_BUILT_WITH_NPP=$(usex npp)
 	)
-
 	ecm_src_configure
-}
-
-src_install() {
-	ecm_src_install
-
-	if use npp; then
-		kwriteconfig5 --file "${ED}/usr/share/config/kmplayerrc" --group "application/x-shockwave-flash" --key player npp
-		kwriteconfig5 --file "${ED}/usr/share/config/kmplayerrc" --group "application/x-shockwave-flash" --key plugin /usr/lib/nsbrowser/plugins/libflashplayer.so
-	fi
 }
