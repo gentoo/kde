@@ -20,6 +20,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="emoji +fontconfig ibus scim +semantic-desktop"
 
+BDEPEND="virtual/pkgconfig"
 COMMON_DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -32,6 +33,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
+	kde-apps/kaccounts-integration:5
 	>=kde-frameworks/attica-${KFMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kactivities-stats-${KFMIN}:5
@@ -62,7 +64,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/krunner-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
@@ -76,6 +77,8 @@ COMMON_DEPEND="
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 	media-libs/phonon[qt5(+)]
+	net-libs/accounts-qt
+	net-libs/signon-oauth2
 	x11-libs/libX11
 	x11-libs/libXcursor
 	x11-libs/libXfixes
