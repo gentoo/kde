@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	>=dev-libs/wayland-1.15.0
+	>=dev-libs/wayland-1.18.0
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5[egl]
 	>=dev-qt/qtwayland-${QTMIN}:5
