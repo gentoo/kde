@@ -20,6 +20,7 @@ IUSE="appstream +calendar geolocation gps qalculate +semantic-desktop systemd te
 
 REQUIRED_USE="gps? ( geolocation )"
 
+BDEPEND="virtual/pkgconfig"
 COMMON_DEPEND="
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -80,6 +81,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
 	media-libs/phonon[qt5(+)]
+	>=media-video/pipewire-0.3:=
 	sys-libs/zlib
 	x11-libs/libICE
 	x11-libs/libSM
@@ -100,6 +102,7 @@ COMMON_DEPEND="
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 DEPEND="${COMMON_DEPEND}
+	>=dev-libs/plasma-wayland-protocols-1.1.1
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	x11-base/xorg-proto
 "
