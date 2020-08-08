@@ -23,7 +23,7 @@ DEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtscript:5
-	dev-qt/qtwebengine:5
+	dev-qt/qtwebengine:5[widgets]
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	kde-frameworks/kcompletion:5
@@ -31,7 +31,6 @@ DEPEND="
 	kde-frameworks/kconfigwidgets:5
 	kde-frameworks/kcoreaddons:5
 	kde-frameworks/kcrash:5
-	kde-frameworks/kdewebkit:5
 	kde-frameworks/ki18n:5
 	kde-frameworks/kio:5
 	kde-frameworks/kjobwidgets:5
@@ -43,6 +42,4 @@ DEPEND="
 	kde-frameworks/kwindowsystem:5
 	kde-frameworks/kxmlgui:5
 "
-RDEPEND="${DEPEND}
-	virtual/libintl
-"
+RDEPEND="${DEPEND}"
