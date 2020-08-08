@@ -18,7 +18,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="emoji +fontconfig ibus scim +semantic-desktop"
+IUSE="emoji +fontconfig ibus +kaccounts scim +semantic-desktop"
 
 BDEPEND="virtual/pkgconfig"
 COMMON_DEPEND="
@@ -33,7 +33,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	kde-apps/kaccounts-integration:5
 	>=kde-frameworks/attica-${KFMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kactivities-stats-${KFMIN}:5
@@ -77,8 +76,6 @@ COMMON_DEPEND="
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 	media-libs/phonon[qt5(+)]
-	net-libs/accounts-qt
-	net-libs/signon-oauth2
 	x11-libs/libX11
 	x11-libs/libXcursor
 	x11-libs/libXfixes
@@ -103,6 +100,10 @@ COMMON_DEPEND="
 		x11-libs/libxcb
 		x11-libs/xcb-util-keysyms
 	)
+	kaccounts? (
+		kde-apps/kaccounts-integration:5
+		net-libs/accounts-qt
+	)
 	scim? ( app-i18n/scim )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 "
@@ -112,6 +113,7 @@ DEPEND="${COMMON_DEPEND}
 	fontconfig? ( x11-libs/libXrender )
 "
 RDEPEND="${COMMON_DEPEND}
+	!<kde-plasma/kdeplasma-addons-5.15.80
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
@@ -121,7 +123,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/oxygen-${PVCUT}:5
 	sys-apps/util-linux
 	x11-apps/setxkbmap
-	!<kde-plasma/kdeplasma-addons-5.15.80
+	kaccounts? ( net-libs/signon-oauth2 )
 "
 
 PATCHES=(
@@ -144,6 +146,8 @@ src_configure() {
 		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DSynaptics_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
+		$(cmake_use_find_package kaccounts AccountsQt5)
+		$(cmake_use_find_package kaccounts KAccounts)
 		$(cmake_use_find_package scim SCIM)
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
 	)
