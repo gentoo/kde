@@ -79,7 +79,6 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 "
 RDEPEND="${COMMON_DEPEND}
-	!app-office/kmymoney:4
 	quotes? ( dev-perl/Finance-Quote )
 "
 
