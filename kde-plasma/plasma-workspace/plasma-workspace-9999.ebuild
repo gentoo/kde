@@ -16,7 +16,7 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="appstream +calendar geolocation gps qalculate +semantic-desktop systemd telemetry"
+IUSE="appstream +calendar geolocation gps qalculate screencast +semantic-desktop systemd telemetry"
 
 REQUIRED_USE="gps? ( geolocation )"
 
@@ -81,7 +81,6 @@ COMMON_DEPEND="
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
 	media-libs/phonon[qt5(+)]
-	>=media-video/pipewire-0.3:=
 	sys-libs/zlib
 	x11-libs/libICE
 	x11-libs/libSM
@@ -98,6 +97,7 @@ COMMON_DEPEND="
 	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 	gps? ( sci-geosciences/gpsd )
 	qalculate? ( sci-libs/libqalculate:= )
+	screencast? ( >=media-video/pipewire-0.3:= )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
@@ -176,6 +176,12 @@ src_prepare() {
 	# delete colliding libkworkspace translations
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
 		find po -type f -name "*po" -and -name "libkworkspace*" -delete || die
+	fi
+
+	# TODO: try to get a build switch upstreamed
+	if ! use screencast; then
+		sed -e "s/^pkg_check_modules.*PipeWire/#&/" \
+			-i CMakeLists.txt || die
 	fi
 }
 
