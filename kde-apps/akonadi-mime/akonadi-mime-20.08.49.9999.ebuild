@@ -34,6 +34,4 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-runtime-18.03.80
-"
+RDEPEND="${DEPEND}"
