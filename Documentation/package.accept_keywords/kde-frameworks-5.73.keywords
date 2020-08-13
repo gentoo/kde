@@ -90,3 +90,4 @@
 <kde-frameworks/kxmlgui-5.73.50:5
 <kde-frameworks/plasma-5.73.50:5
 <kde-frameworks/purpose-5.73.50:5
+~dev-libs/plasma-wayland-protocols-1.1.1
