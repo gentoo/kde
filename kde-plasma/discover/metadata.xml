@@ -7,6 +7,5 @@
 	</maintainer>
 	<use>
 		<flag name="firmware">Enable support for firmware upgrades using <pkg>sys-apps/fwupd</pkg></flag>
-		<flag name="telemetry">Send anonymized usage information to upstream so they can better understand our users</flag>
 	</use>
 </pkgmetadata>
