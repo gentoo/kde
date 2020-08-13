@@ -13,6 +13,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="test"
 
+RESTRICT="!test? ( test )"
+
 DEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
