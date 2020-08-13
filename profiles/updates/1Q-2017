@@ -1,4 +1,3 @@
-slotmove dev-libs/kirigami 5 1
 move net-libs/libkgapi kde-apps/libkgapi
 move kde-misc/plasma-vault kde-plasma/plasma-vault
 move app-cdr/k3b kde-apps/k3b
