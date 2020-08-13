@@ -13,6 +13,5 @@
 		<flag name="projects">Enable Project plugin for executing queries on SQL DBs</flag>
 		<flag name="snippets">Enable Snippets Tool View plugin to manage or download code snippets</flag>
 		<flag name="sql">Enable SQL plugin for executing queries on SQL DBs</flag>
-		<flag name="telemetry">Send anonymized usage information to upstream so they can better understand our users</flag>
 	</use>
 </pkgmetadata>
