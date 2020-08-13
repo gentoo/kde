@@ -57,6 +57,5 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-misc/zanshin:4
 	>=kde-apps/kdepim-runtime-${KDE_APPS_MINIMAL}:5
 "
