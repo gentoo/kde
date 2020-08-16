@@ -102,7 +102,7 @@ pkg_postinst() {
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "The functionality of ktexteditorpreview plugin can be extended with:"
-		elog "  kde-misc/kmarkdownwebview"
+		elog "  kde-misc/markdownpart or kde-misc/kmarkdownwebview"
 		elog "  media-gfx/kgraphviewer"
 	fi
 }

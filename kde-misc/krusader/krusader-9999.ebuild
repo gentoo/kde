@@ -61,14 +61,21 @@ RDEPEND="${COMMON_DEPEND}
 pkg_postinst() {
 	ecm_pkg_postinst
 
-	if ! has_version kde-apps/thumbnailers:${SLOT} ||
-			! has_version kde-apps/ffmpegthumbs:${SLOT} ; then
-		elog "For PDF/PS, RAW and video thumbnails support, install:"
-		elog "   kde-apps/thumbnailers:${SLOT}"
-		elog "   kde-apps/ffmpegthumbs:${SLOT}"
-	fi
-
-	if ! has_version kde-apps/keditbookmarks:${SLOT} ; then
-		elog "For bookmarks support, install kde-apps/keditbookmarks:${SLOT}"
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		if ! has_version kde-misc/markdownpart:${SLOT} ||
+				! has_version kde-misc/kmarkdownwebview:${SLOT} ; then
+			elog "For markdown support in text previews, install one of:"
+			elog "   kde-misc/markdownpart:${SLOT}"
+			elog "   kde-misc/kmarkdownwebview:${SLOT}"
+		fi
+		if ! has_version kde-apps/thumbnailers:${SLOT} ||
+				! has_version kde-apps/ffmpegthumbs:${SLOT} ; then
+			elog "For PDF/PS, RAW and video thumbnails support, install:"
+			elog "   kde-apps/thumbnailers:${SLOT}"
+			elog "   kde-apps/ffmpegthumbs:${SLOT}"
+		fi
+		if ! has_version kde-apps/keditbookmarks:${SLOT} ; then
+			elog "For bookmarks support, install kde-apps/keditbookmarks:${SLOT}"
+		fi
 	fi
 }

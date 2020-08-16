@@ -77,5 +77,12 @@ pkg_postinst() {
 
 		has_version app-arch/lrzip || \
 			elog "For handling lrz archives, install app-arch/lrzip."
+
+		if ! has_version kde-misc/markdownpart:${SLOT} ||
+				! has_version kde-misc/kmarkdownwebview:${SLOT} ; then
+			elog "For markdown support in text previews, install one of:"
+			elog "   kde-misc/markdownpart:${SLOT}"
+			elog "   kde-misc/kmarkdownwebview:${SLOT}"
+		fi
 	fi
 }
