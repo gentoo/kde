@@ -14,14 +14,14 @@ KEYWORDS=""
 IUSE="webkit"
 
 DEPEND="
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	kde-frameworks/kconfigwidgets:5
 	kde-frameworks/kcoreaddons:5
 	kde-frameworks/ki18n:5
 	kde-frameworks/kio:5
 	kde-frameworks/kparts:5
 	kde-frameworks/kxmlgui:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
 	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	!webkit? (
 		dev-qt/qtwebchannel:5
