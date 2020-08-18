@@ -39,3 +39,11 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_BH_SOLVER=OFF # bug 733502, requires unpackaged dependency
+	)
+
+	ecm_src_configure
+}
