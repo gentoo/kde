@@ -6,7 +6,7 @@ EAPI=7
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-css"
-KFMIN=5.60.0
+KFMIN=5.70.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
