@@ -31,6 +31,7 @@ COMMON_DEPEND="
 	>=dev-qt/qthelp-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qttest-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=dev-util/astyle-3.1:=
@@ -78,7 +79,6 @@ COMMON_DEPEND="
 		dev-libs/apr-util:1
 		dev-vcs/subversion
 	)
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
