@@ -21,7 +21,7 @@ fi
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="5/55" # look at KDEVELOP_SOVERSION inside CMakeLists.txt
-IUSE="+gdbui hex +plasma +qmake reviewboard subversion webkit"
+IUSE="+gdbui hex +plasma +qmake reviewboard subversion"
 
 COMMON_DEPEND="
 	dev-libs/grantlee:5
@@ -78,8 +78,7 @@ COMMON_DEPEND="
 		dev-libs/apr-util:1
 		dev-vcs/subversion
 	)
-	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
-	!webkit? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
@@ -113,7 +112,6 @@ src_configure() {
 		$(cmake_use_find_package qmake KDevelop-PG-Qt)
 		$(cmake_use_find_package reviewboard KF5Purpose)
 		$(cmake_use_find_package subversion SubversionLibrary)
-		$(cmake_use_find_package !webkit Qt5WebEngineWidgets)
 	)
 
 	use reviewboard || mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_KDEExperimentalPurpose=ON )
