@@ -105,7 +105,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DLLVM_ROOT=${llvm_root}
-		$(cmake_use_find_package gdbui KF5SysGuard)
+		$(cmake_use_find_package gdbui KSysGuard)
 		-DBUILD_executeplasmoid=$(usex plasma)
 		$(cmake_use_find_package plasma KF5Plasma)
 		$(cmake_use_find_package hex OktetaKastenControllers)
@@ -114,6 +114,7 @@ src_configure() {
 		$(cmake_use_find_package subversion SubversionLibrary)
 	)
 
+	use gdbui || mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_KF5SysGuard=ON )
 	use reviewboard || mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_KDEExperimentalPurpose=ON )
 
 	ecm_src_configure
