@@ -100,6 +100,7 @@ src_configure() {
 	addpredict /dev/dri
 
 	local mycmakeargs=(
+		-DENABLE_UPDATERS=OFF
 		$(cmake_use_find_package color-management OCIO)
 		$(cmake_use_find_package fftw FFTW3)
 		$(cmake_use_find_package gif GIF)
