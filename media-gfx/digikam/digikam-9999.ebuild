@@ -24,7 +24,7 @@ HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop webkit X"
+IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop X"
 
 BDEPEND="
 	>=dev-util/cmake-3.14.3
@@ -42,6 +42,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5[mysql?]
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
@@ -90,8 +91,6 @@ COMMON_DEPEND="
 	panorama? ( >=kde-frameworks/threadweaver-${KFMIN}:5 )
 	scanner? ( >=kde-apps/libksane-19.04.3:5 )
 	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
-	!webkit? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
-	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
@@ -125,6 +124,7 @@ src_configure() {
 		-DBUILD_TESTING=OFF # bug 698192
 		-DENABLE_APPSTYLES=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
+		-DENABLE_QWEBENGINE=ON
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
 		$(cmake_use_find_package calendar KF5CalendarCore)
 		$(cmake_use_find_package gphoto2 Gphoto2)
@@ -140,7 +140,6 @@ src_configure() {
 		$(cmake_use_find_package panorama KF5ThreadWeaver)
 		$(cmake_use_find_package scanner KF5Sane)
 		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
-		-DENABLE_QWEBENGINE=$(usex !webkit)
 		$(cmake_use_find_package X X11)
 	)
 
