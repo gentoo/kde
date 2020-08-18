@@ -1,0 +1,6 @@
+# Andreas Sturmlechner <asturm@gentoo.org> (18 Aug 2020)
+# KDevelop 5.6 beta1 mask
+# Unstable release
+~dev-util/kdevelop-5.5.80
+~dev-util/kdevelop-php-5.5.80
+~dev-util/kdevelop-python-5.5.80
