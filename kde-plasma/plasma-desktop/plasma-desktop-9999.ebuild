@@ -18,7 +18,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="emoji +fontconfig ibus +kaccounts scim +semantic-desktop"
+IUSE="emoji ibus +kaccounts scim +semantic-desktop"
 
 BDEPEND="virtual/pkgconfig"
 COMMON_DEPEND="
@@ -77,7 +77,6 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 	media-libs/phonon[qt5(+)]
 	x11-libs/libX11
-	x11-libs/libXcursor
 	x11-libs/libXfixes
 	x11-libs/libXi
 	x11-libs/libxcb[xkb]
@@ -86,12 +85,6 @@ COMMON_DEPEND="
 		app-i18n/ibus[emoji]
 		dev-libs/glib:2
 		media-fonts/noto-emoji
-	)
-	fontconfig? (
-		media-libs/fontconfig
-		media-libs/freetype
-		x11-libs/libXft
-		x11-libs/xcb-util-image
 	)
 	ibus? (
 		app-i18n/ibus
@@ -110,7 +103,6 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	x11-base/xorg-proto
-	fontconfig? ( x11-libs/libXrender )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/kdeplasma-addons-5.15.80
@@ -141,7 +133,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package fontconfig Fontconfig)
 		-DEvdev_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
