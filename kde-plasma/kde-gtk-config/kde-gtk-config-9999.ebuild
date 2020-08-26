@@ -17,17 +17,23 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+BDEPEND="
+	dev-lang/sassc
+"
 DEPEND="
 	dev-cpp/glibmm:2
 	dev-libs/glib:2
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
 	gnome-base/gsettings-desktop-schemas
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-plasma/kdecoration-${PVCUT}:5
 	x11-libs/gtk+:2
 	x11-libs/gtk+:3
 "
