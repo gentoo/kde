@@ -65,7 +65,6 @@ RDEPEND="
 		>=kde-plasma/breeze-gtk-${PV}:${SLOT}
 		>=kde-plasma/kde-gtk-config-${PV}:${SLOT}
 		x11-misc/appmenu-gtk-module
-		x11-misc/xsettingsd
 	)
 	handbook? ( kde-apps/khelpcenter:5 )
 	kwallet? ( >=kde-plasma/kwallet-pam-${PV}:${SLOT} )
