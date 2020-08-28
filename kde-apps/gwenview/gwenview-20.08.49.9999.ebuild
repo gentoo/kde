@@ -47,7 +47,7 @@ COMMON_DEPEND="
 	media-gfx/exiv2:=
 	media-libs/lcms:2
 	media-libs/libpng:0=
-	media-libs/phonon[qt5(+)]
+	>=media-libs/phonon-4.11.0
 	media-libs/tiff
 	virtual/jpeg:0
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )

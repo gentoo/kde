@@ -48,7 +48,7 @@ RDEPEND="
 	=kde-frameworks/sonnet-${PVCUT}*:5
 	media-libs/giflib:=
 	media-libs/libpng:0=
-	media-libs/phonon[qt5(+)]
+	>=media-libs/phonon-4.11.0
 	sys-libs/zlib
 	virtual/jpeg:0
 	!libressl? ( dev-libs/openssl:0 )

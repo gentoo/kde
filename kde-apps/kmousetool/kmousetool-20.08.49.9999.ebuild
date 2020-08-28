@@ -26,7 +26,7 @@ RDEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	media-libs/phonon[qt5(+)]
+	>=media-libs/phonon-4.11.0
 	x11-libs/libX11
 	x11-libs/libXtst
 "

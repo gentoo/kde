@@ -56,7 +56,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
-	>=media-libs/phonon-4.10.90
+	>=media-libs/phonon-4.11.0
 "
 RDEPEND="${DEPEND}"
 

@@ -80,7 +80,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libkscreen-${PVCUT}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
-	media-libs/phonon[qt5(+)]
+	>=media-libs/phonon-4.11.0
 	sys-libs/zlib
 	x11-libs/libICE
 	x11-libs/libSM

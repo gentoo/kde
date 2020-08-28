@@ -51,7 +51,7 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	media-libs/phonon[qt5(+)]
+	>=media-libs/phonon-4.11.0
 	x11-libs/libX11
 	crypt? ( app-crypt/gpgme:= )
 	git? ( dev-libs/libgit2:= )

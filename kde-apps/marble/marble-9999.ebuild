@@ -52,7 +52,7 @@ DEPEND="
 		>=kde-frameworks/kservice-${KFMIN}:5
 		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
-	phonon? ( media-libs/phonon[qt5(+)] )
+	phonon? ( >=media-libs/phonon-4.11.0 )
 	shapefile? ( sci-libs/shapelib:= )
 	webengine? (
 		>=dev-qt/qtwebchannel-${QTMIN}:5

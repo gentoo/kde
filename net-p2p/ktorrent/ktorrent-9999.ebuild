@@ -51,7 +51,7 @@ COMMON_DEPEND="
 		>=kde-frameworks/kross-${KFMIN}:5
 	)
 	mediaplayer? (
-		media-libs/phonon[qt5(+)]
+		>=media-libs/phonon-4.11.0
 		>=media-libs/taglib-1.5
 	)
 	rss? (

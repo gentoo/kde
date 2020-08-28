@@ -73,7 +73,7 @@ COMMON_DEPEND="
 	>=kde-plasma/kwin-${PVCUT}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
-	media-libs/phonon[qt5(+)]
+	>=media-libs/phonon-4.11.0
 	x11-libs/libX11
 	x11-libs/libXcursor
 	x11-libs/libXfixes

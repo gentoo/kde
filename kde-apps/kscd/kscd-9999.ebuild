@@ -32,6 +32,6 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	media-libs/libdiscid
 	media-libs/musicbrainz:5
-	media-libs/phonon[qt5(+)]
+	>=media-libs/phonon-4.11.0
 "
 RDEPEND="${DEPEND}"
