@@ -104,7 +104,10 @@ COMMON_DEPEND="
 	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 	gps? ( sci-geosciences/gpsd )
 	qalculate? ( sci-libs/libqalculate:= )
-	screencast? ( >=media-video/pipewire-0.3:= )
+	screencast? (
+		>=media-video/pipewire-0.3:=
+		x11-libs/libdrm
+	)
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
