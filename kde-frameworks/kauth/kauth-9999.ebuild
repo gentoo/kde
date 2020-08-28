@@ -21,7 +21,7 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
-	policykit? ( sys-auth/polkit-qt[qt5(+)] )
+	policykit? ( >=sys-auth/polkit-qt-0.113.0 )
 "
 RDEPEND="${DEPEND}"
 PDEPEND="policykit? ( kde-plasma/polkit-kde-agent )"
