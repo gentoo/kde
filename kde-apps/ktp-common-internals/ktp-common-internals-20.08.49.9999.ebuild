@@ -40,7 +40,7 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=net-libs/telepathy-logger-qt-17.08.0:5
-	>=net-libs/telepathy-qt-0.9.5[qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8
 	otr? (
 		dev-libs/libgcrypt:0=
 		>=net-libs/libotr-4.0.0

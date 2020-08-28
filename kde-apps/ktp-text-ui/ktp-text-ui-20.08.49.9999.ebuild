@@ -43,7 +43,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	net-libs/telepathy-qt[qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}

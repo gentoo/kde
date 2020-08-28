@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	net-libs/telepathy-qt[qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kcmutils-${KFMIN}:5

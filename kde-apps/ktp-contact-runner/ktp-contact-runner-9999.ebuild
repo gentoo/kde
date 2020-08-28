@@ -24,7 +24,7 @@ RDEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/krunner-${KFMIN}:5
-	net-libs/telepathy-qt[qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/kservice-${KFMIN}:5

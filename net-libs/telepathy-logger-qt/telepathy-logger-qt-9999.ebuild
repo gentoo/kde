@@ -28,7 +28,7 @@ DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	net-im/telepathy-logger
 	net-libs/telepathy-glib
-	net-libs/telepathy-qt[qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8
 	sys-apps/dbus
 "
 RDEPEND="${DEPEND}"

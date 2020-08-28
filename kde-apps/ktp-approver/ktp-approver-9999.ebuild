@@ -26,7 +26,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
-	>=net-libs/telepathy-qt-0.9.8[qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8
 "
 RDEPEND="${DEPEND}
 	>=kde-apps/ktp-contact-list-${PVCUT}:5

@@ -33,7 +33,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	net-libs/accounts-qt
 	net-libs/signond
-	net-libs/telepathy-qt[qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kcmutils-${KFMIN}:5

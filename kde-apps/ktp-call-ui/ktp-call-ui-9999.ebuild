@@ -37,7 +37,7 @@ RDEPEND="
 	media-libs/qt-gstreamer[qt5(+)]
 	net-libs/farstream:0.2
 	net-libs/telepathy-farstream
-	net-libs/telepathy-qt[farstream,qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8[farstream]
 "
 # TODO: dep leak suspect
 DEPEND="${RDEPEND}

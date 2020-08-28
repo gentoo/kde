@@ -32,7 +32,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kidletime-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	net-libs/telepathy-qt[qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kcmutils-${KFMIN}:5

@@ -32,7 +32,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	net-libs/accounts-qt
 	net-libs/signond
-	net-libs/telepathy-qt[qt5(+)]
+	>=net-libs/telepathy-qt-0.9.8
 "
 RDEPEND="${DEPEND}
 	>=app-crypt/qca-2.3.0:2[ssl]

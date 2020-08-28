@@ -48,7 +48,7 @@ DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	attica? ( >=kde-frameworks/attica-${KFMIN}:5 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
-	telepathy? ( net-libs/telepathy-qt[qt5(+)] )
+	telepathy? ( >=net-libs/telepathy-qt-0.9.8 )
 "
 RDEPEND="${DEPEND}"
 
