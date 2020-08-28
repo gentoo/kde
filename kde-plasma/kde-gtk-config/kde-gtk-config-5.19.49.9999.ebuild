@@ -33,6 +33,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	x11-misc/xsettingsd
 "
 
 src_configure() {
