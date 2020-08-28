@@ -23,8 +23,8 @@ IUSE=""
 BDEPEND="virtual/pkgconfig"
 DEPEND="
 	|| (
-		app-crypt/qca[botan]
-		app-crypt/qca[ssl]
+		>=app-crypt/qca-2.3.0:2[botan]
+		>=app-crypt/qca-2.3.0:2[ssl]
 	)
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5

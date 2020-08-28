@@ -91,7 +91,7 @@ COMMON_DEPEND="
 	x11-libs/libX11
 	x11-libs/libXScrnSaver
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
-	groupwise? ( app-crypt/qca:2[qt5(+)] )
+	groupwise? ( >=app-crypt/qca-2.3.0:2 )
 	meanwhile? ( net-libs/meanwhile )
 	otr? ( >=net-libs/libotr-4.0.0 )
 	statistics? ( dev-db/sqlite:3 )
@@ -101,7 +101,7 @@ COMMON_DEPEND="
 		dev-libs/libxslt
 	)
 	xmpp? (
-		app-crypt/qca:2[qt5(+)]
+		>=app-crypt/qca-2.3.0:2
 		net-dns/libidn:0=
 		sys-libs/zlib
 	)
@@ -126,7 +126,7 @@ RDEPEND="${COMMON_DEPEND}
 		)
 		virtual/latex-base
 	)
-	ssl? ( app-crypt/qca:2[ssl] )
+	ssl? ( >=app-crypt/qca-2.3.0:2[ssl] )
 "
 #	sms? ( app-mobilephone/smssend )
 #	winpopup? ( net-fs/samba )

@@ -29,7 +29,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 COMMON_DEPEND="
-	app-crypt/qca:2[qt5(+)]
+	>=app-crypt/qca-2.3.0:2
 	dev-db/sqlcipher
 	dev-libs/grantlee:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5

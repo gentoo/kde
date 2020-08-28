@@ -46,7 +46,7 @@ DEPEND="
 		dev-libs/chmlib
 		>=kde-frameworks/khtml-${KFMIN}:5
 	)
-	crypt? ( app-crypt/qca:2[qt5(+)] )
+	crypt? ( >=app-crypt/qca-2.3.0:2 )
 	djvu? ( app-text/djvu )
 	epub? ( app-text/ebook-tools )
 	image-backend? (

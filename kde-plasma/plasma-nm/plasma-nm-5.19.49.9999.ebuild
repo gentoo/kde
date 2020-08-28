@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="modemmanager openconnect teamd"
 
 DEPEND="
-	>=app-crypt/qca-2.1.1:2[qt5(+)]
+	>=app-crypt/qca-2.3.0:2
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
 	>=dev-qt/qtgui-${QTMIN}:5

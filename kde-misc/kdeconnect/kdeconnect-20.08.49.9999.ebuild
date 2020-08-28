@@ -22,7 +22,7 @@ KEYWORDS=""
 IUSE="bluetooth pulseaudio wayland X"
 
 DEPEND="
-	>=app-crypt/qca-2.1.0:2[qt5(+),ssl]
+	>=app-crypt/qca-2.3.0:2[ssl]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5

@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE="bittorrent gpg kde mms sqlite"
 
 RDEPEND="
+	>=app-crypt/qca-2.3.0:2
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -46,7 +47,6 @@ RDEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	app-crypt/qca:2[qt5(+)]
 	bittorrent? ( net-libs/libktorrent:5 )
 	gpg? ( app-crypt/gpgme[qt5] )
 	kde? ( >=kde-plasma/libkworkspace-${PLASMA_MINIMAL}:5 )

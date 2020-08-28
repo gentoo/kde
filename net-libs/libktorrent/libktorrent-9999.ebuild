@@ -21,7 +21,7 @@ IUSE=""
 
 BDEPEND="sys-devel/gettext"
 COMMON_DEPEND="
-	app-crypt/qca:2[qt5(+)]
+	>=app-crypt/qca-2.3.0:2
 	>=dev-libs/gmp-6.0.0a:0=
 	dev-libs/libgcrypt:0=
 	>=dev-qt/qtnetwork-${QTMIN}:5

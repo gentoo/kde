@@ -22,7 +22,7 @@ SLOT="5"
 IUSE="attica share telepathy"
 
 DEPEND="
-	app-crypt/qca[qt5(+)]
+	>=app-crypt/qca-2.3.0:2
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetworkauth-${QTMIN}:5

@@ -18,7 +18,7 @@ IUSE="ipod lastfm mtp ofa podcast wikipedia"
 # ipod requires gdk enabled and also gtk compiled in libgpod
 BDEPEND="virtual/pkgconfig"
 DEPEND="
-	app-crypt/qca:2[qt5(+)]
+	>=app-crypt/qca-2.3.0:2
 	dev-db/mysql-connector-c:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
