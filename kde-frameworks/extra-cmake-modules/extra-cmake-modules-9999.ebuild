@@ -33,8 +33,8 @@ RESTRICT+=" !test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.49.0-no-fatal-warnings.patch"
-	"${FILESDIR}/${PN}-5.65.0-disable-qmlplugindump.patch"
 	"${FILESDIR}/${PN}-5.72.0-skip-ecm_add_test-early.patch"
+	"${FILESDIR}/${PN}-5.74.0-disable-qmlplugindump.patch"
 )
 
 python_check_deps() {
