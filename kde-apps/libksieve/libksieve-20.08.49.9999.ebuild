@@ -53,9 +53,5 @@ RESTRICT+=" test"
 
 src_prepare() {
 	ecm_src_prepare
-
-	if ! use handbook ; then
-		sed -e "/add_subdirectory(doc)/I s/^/#DONOTCOMPILE /" \
-			-i kioslave/CMakeLists.txt || die "failed to comment add_subdirectory(doc)"
-	fi
+	cmake_run_in kioslave cmake_comment_add_subdirectory doc
 }
