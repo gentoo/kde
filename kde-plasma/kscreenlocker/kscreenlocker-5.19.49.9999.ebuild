@@ -62,19 +62,7 @@ RESTRICT+=" test"
 
 src_prepare() {
 	ecm_src_prepare
-
-	if ! use test; then
-		sed -e "/add_subdirectory(autotests)/ s/^/#/" \
-			-i greeter/CMakeLists.txt || die
-	fi
-}
-
-src_test() {
-	# requires running environment
-	local myctestargs=(
-		-E x11LockerTest
-	)
-	ecm_src_test
+	use test || cmake_run_in greeter cmake_comment_add_subdirectory autotests
 }
 
 src_configure() {
@@ -84,6 +72,14 @@ src_configure() {
 		$(cmake_use_find_package pam PAM)
 	)
 	ecm_src_configure
+}
+
+src_test() {
+	# requires running environment
+	local myctestargs=(
+		-E x11LockerTest
+	)
+	ecm_src_test
 }
 
 src_install() {
