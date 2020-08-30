@@ -109,10 +109,6 @@ RESTRICT+=" test"
 src_prepare() {
 	ecm_src_prepare
 	use multimedia || eapply "${FILESDIR}/kwin-5.16.80-gstreamer-optional.patch"
-
-	# Access violations, bug #640432
-	sed -e "s/^ecm_find_qmlmodule.*QtMultimedia/#&/" \
-		-i CMakeLists.txt || die
 }
 
 src_configure() {
