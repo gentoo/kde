@@ -50,14 +50,6 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 
-src_prepare() {
-	ecm_src_prepare
-
-	# FIXME: hangs in chroot; similar to bug #640432
-	sed -e "s/^ecm_find_qmlmodule.*org\.kde\.kcm/#&/" \
-		-i CMakeLists.txt || die
-}
-
 pkg_postinst() {
 	ecm_pkg_postinst
 
