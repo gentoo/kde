@@ -62,7 +62,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package crypt Gpgme)
+		-DENABLE_GPG=$(usex crypt)
 		$(cmake_use_find_package git Libgit2)
 	)
 	ecm_src_configure
