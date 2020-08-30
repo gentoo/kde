@@ -18,9 +18,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE="systemd"
 
-# bug 378101
-RESTRICT+=" test"
-
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
@@ -40,22 +37,6 @@ DEPEND="
 	systemd? ( sys-apps/systemd )
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	ecm_src_prepare
-
-	if use test; then
-		# beat this stupid test into shape: the test files contain no year, so
-		# comparison succeeds only in 2007 !!!
-		local theyear=$(date +%Y)
-		einfo Setting the current year as ${theyear} in the test files
-		sed -e "s:2007:${theyear}:g" -i tests/systemAnalyzerTest.cpp || die
-
-		# one test consistently fails, so comment it out for the moment
-		sed -e "s:systemAnalyzerTest:# dont run systemAnalyzerTest:g" \
-			-i ksystemlog/tests/CMakeLists.txt || die
-	fi
-}
 
 src_configure() {
 	local mycmakeargs=(
