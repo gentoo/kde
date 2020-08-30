@@ -60,13 +60,6 @@ DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 
-src_prepare() {
-	ecm_src_prepare
-	if ! use test; then
-		sed -e "/add_subdirectory(tests/s/^/#DONT/" -i src/CMakeLists.txt || die
-	fi
-}
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package crypt Gpgme)
