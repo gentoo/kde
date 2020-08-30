@@ -132,11 +132,6 @@ pkg_setup() {
 src_prepare() {
 	ecm_src_prepare
 
-	if ! use test; then
-		sed -e "/add_subdirectory( *benchmarks *)/s/^/#DONT/" \
-			-i libs/pigment/CMakeLists.txt || die
-	fi
-
 	# Unconditionally disable deprecated deps (required by QtQuick1)
 	ecm_punt_bogus_dep Qt5 Declarative
 	ecm_punt_bogus_dep Qt5 OpenGL
