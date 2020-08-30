@@ -23,13 +23,3 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-src_prepare(){
-	ecm_src_prepare
-
-	if ! use test; then
-		sed -e "/add_subdirectory(autotests)/ s/^/#DONT/" \
-			-e "/add_subdirectory(tests)/ s/^/#DONT/" \
-			-i keduvocdocument/CMakeLists.txt || die
-	fi
-}
