@@ -69,10 +69,7 @@ src_prepare() {
 
 	rm -rf src/3rdparty/zlib || die "Failed to remove bundled libs"
 
-	if use kde; then
-		sed -e "/add_subdirectory(marble-qt)/ s/^/#DONT/" \
-			-i src/apps/CMakeLists.txt || die "Failed to disable marble-qt"
-	fi
+	use kde && cmake_run_in src/apps cmake_comment_add_subdirectory marble-qt
 }
 
 src_configure() {
