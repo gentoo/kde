@@ -52,8 +52,7 @@ src_prepare() {
 	ecm_src_prepare
 
 	# FIXME: Drop duplicate upstream
-	sed -e '/find_package.*Xml Test/ s/^/#/' \
-		-i stepcore/CMakeLists.txt || die
+	cmake_run_in stepcore ecm_punt_bogus_dep Qt5 Test
 }
 
 src_configure() {
