@@ -3,7 +3,6 @@
 
 EAPI=7
 
-ECM_HANDBOOK="true"
 KFMIN=5.70.0
 QTMIN=5.14.2
 inherit ecm kde.org
@@ -12,7 +11,7 @@ DESCRIPTION="Tool to check contrast for colors to verify they are correctly acce
 HOMEPAGE="https://invent.kde.org/accessibility/kontrast"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
