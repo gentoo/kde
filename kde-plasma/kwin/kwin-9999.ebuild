@@ -101,10 +101,6 @@ src_prepare() {
 	ecm_src_prepare
 	use multimedia || eapply "${FILESDIR}/${PN}-5.16.80-gstreamer-optional.patch"
 
-	# Access violations, bug #640432
-	sed -e "s/^ecm_find_qmlmodule.*QtMultimedia/#&/" \
-		-i CMakeLists.txt || die
-
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
 		sed -e "s/^pkg_check_modules.*PipeWire/#&/" \
