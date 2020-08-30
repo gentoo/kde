@@ -12,7 +12,7 @@ inherit ecm kde.org xdg-utils
 DESCRIPTION="Library for providing abstractions to get the developer's purposes fulfilled"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="+dolphin +kaccounts"
+IUSE="bluetooth +dolphin +kaccounts"
 
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -33,11 +33,17 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${PVCUT}:5
+	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:5 )
 	kaccounts? ( net-libs/accounts-qml )
 "
 
 # requires running environment
 RESTRICT+=" test"
+
+src_prepare() {
+	ecm_src_prepare
+	cmake_run_in src/plugins cmake_comment_add_subdirectory bluetooth
+}
 
 src_configure() {
 	local mycmakeargs=(
