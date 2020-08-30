@@ -91,10 +91,7 @@ RESTRICT+=" test" # bug 616878
 
 src_prepare() {
 	ecm_src_prepare
-
-	if ! use handbook; then
-		sed -i ktnef/CMakeLists.txt -e "/add_subdirectory(doc)/ s/^/#DONT/" || die
-	fi
+	use handbook || cmake_run_in ktnef cmake_comment_add_subdirectory doc
 }
 
 src_configure() {
