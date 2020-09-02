@@ -18,6 +18,13 @@ SLOT="5"
 KEYWORDS=""
 IUSE="kipi share"
 
+# TODO: mv guru.git -> gentoo.git
+# IUSE+=" annotate"
+# DEPEND+="
+# 	dev-qt/qtsvg-${QTMIN}:5
+# 	x11-libs/kimageannotator
+# "
+
 DEPEND="
 	>=dev-qt/qdbus-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
