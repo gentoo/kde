@@ -14,7 +14,7 @@ DESCRIPTION="Network-enabled task manager and system monitor"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="lm-sensors networkmanager pcap"
+IUSE="lm-sensors +network networkmanager"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -38,11 +38,12 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	lm-sensors? ( sys-apps/lm-sensors:= )
-	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
-	pcap? (
+	network? (
+		dev-libs/libnl:3
 		net-libs/libpcap
 		sys-libs/libcap
 	)
+	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}"
 
@@ -50,7 +51,8 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package lm-sensors Sensors)
 		$(cmake_use_find_package networkmanager KF5NetworkManagerQt)
-		$(cmake_use_find_package pcap libpcap)
+		$(cmake_use_find_package network libpcap)
+		$(cmake_use_find_package network NL)
 	)
 
 	ecm_src_configure
