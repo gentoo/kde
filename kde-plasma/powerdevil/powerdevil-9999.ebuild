@@ -15,7 +15,7 @@ HOMEPAGE="https://invent.kde.org/plasma/powerdevil"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="brightness-control +wireless"
+IUSE="brightness-control caps +wireless"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -46,6 +46,7 @@ DEPEND="
 	virtual/libudev:=
 	x11-libs/libxcb
 	brightness-control? ( app-misc/ddcutil )
+	caps? ( sys-libs/libcap )
 	wireless? (
 		>=kde-frameworks/bluez-qt-${KFMIN}:5
 		>=kde-frameworks/networkmanager-qt-${KFMIN}:5
@@ -59,6 +60,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DHAVE_DDCUTIL=$(usex brightness-control)
+		$(cmake_use_find_package caps Libcap)
 		$(cmake_use_find_package wireless KF5BluezQt)
 		$(cmake_use_find_package wireless KF5NetworkManagerQt)
 	)
