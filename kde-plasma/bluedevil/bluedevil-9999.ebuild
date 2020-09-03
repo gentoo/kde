@@ -25,6 +25,7 @@ DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kded-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
@@ -37,5 +38,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
