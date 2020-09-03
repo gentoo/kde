@@ -17,6 +17,7 @@ IUSE=""
 
 BDEPEND="${PYTHON_DEPS}
 	dev-lang/sassc
+	>=dev-util/cmake-3.16
 	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
 	>=kde-plasma/breeze-${PVCUT}:5
 "
@@ -30,19 +31,9 @@ pkg_setup() {
 	ecm_pkg_setup
 }
 
-src_prepare() {
-	ecm_src_prepare
-	if has_version "<dev-util/cmake-3.16_rc1"; then
-		eapply "${FILESDIR}"/${PN}-5.16.5-cmake-pre-3.16.patch
-	fi
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DPython3_EXECUTABLE="${PYTHON}"
 	)
-	if has_version "<dev-util/cmake-3.16_rc1"; then
-		mycmakeargs=( -DPYTHON_EXECUTABLE="${PYTHON}" )
-	fi
 	ecm_src_configure
 }
