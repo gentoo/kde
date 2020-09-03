@@ -41,7 +41,7 @@
 ~dev-qt/qtx11extras-5.15.0
 ~dev-qt/qtxml-5.15.0
 ~dev-qt/qtxmlpatterns-5.15.0
-~media-video/pipewire-0.3.7
+~media-video/pipewire-0.3.10
 ~sys-apps/bolt-0.9
 ~sys-apps/xdg-desktop-portal-1.7.2
 ~x11-misc/appmenu-gtk-module-0.7.3
