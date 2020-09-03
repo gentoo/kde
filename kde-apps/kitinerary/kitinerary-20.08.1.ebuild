@@ -18,6 +18,8 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+barcode pdf"
 
+REQUIRED_USE="test? ( pdf )"
+
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
