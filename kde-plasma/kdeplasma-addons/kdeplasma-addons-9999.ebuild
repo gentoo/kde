@@ -28,7 +28,6 @@ DEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
@@ -55,7 +54,7 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.19.3-kross-optional.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.19.3-kross-optional.patch" ) # downstream patch
 
 src_configure() {
 	local mycmakeargs=(
