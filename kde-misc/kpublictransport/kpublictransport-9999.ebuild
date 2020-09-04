@@ -17,7 +17,12 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
+"
 RDEPEND="
+	dev-libs/protobuf:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
