@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_HANDBOOK="forceoptional" # not optional until !kdelibs4support
+ECM_HANDBOOK="optional" # not optional until !kdelibs4support
 ECM_TEST="true"
 KFMIN=5.73.0
 QTMIN=5.14.2
