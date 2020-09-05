@@ -22,7 +22,6 @@ RDEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
-	=kde-frameworks/knotifications-${PVCUT}*:5
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5(+)] )
 	!phonon? ( media-libs/libcanberra )
