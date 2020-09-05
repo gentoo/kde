@@ -10,7 +10,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Project management application"
-HOMEPAGE="https://calligra.org/"
+HOMEPAGE="https://calligra.org/plan/"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/unstable/calligra/${PN}-${PV}.tar.xz"
