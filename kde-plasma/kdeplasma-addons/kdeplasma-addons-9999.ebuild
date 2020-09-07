@@ -8,7 +8,7 @@ KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.0
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Extra Plasma applets and engines"
 
@@ -67,10 +67,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		has_version sys-fs/quota || \
-			elog "For using disk quota applet, install sys-fs/quota."
+		elog "Optional dependencies:"
+		optfeature "Disk quota applet" sys-fs/quota
 	fi
+	ecm_pkg_postinst
 }
