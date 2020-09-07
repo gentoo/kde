@@ -9,7 +9,7 @@ PVCUT=$(ver_cut 1-3)
 KFMIN=5.72.0
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Email client, supporting POP3 and IMAP mailboxes."
 HOMEPAGE="https://kde.org/applications/office/org.kde.kmail2
@@ -103,22 +103,12 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
-	pkg_is_installed() {
-		echo "${1} ($(has_version ${1} || echo "not ")installed)"
-	}
-
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "KMail supports the following runtime dependencies:"
-		elog "  Virus detection:"
-		elog "    $(pkg_is_installed app-antivirus/clamav)"
-		elog "  Spam filtering:"
-		elog "    $(pkg_is_installed mail-filter/bogofilter)"
-		elog "    $(pkg_is_installed mail-filter/spamassassin)"
-		elog "  Fancy e-mail headers and various useful plugins:"
-		elog "    $(pkg_is_installed kde-apps/kdepim-addons:${SLOT})"
-		elog "  Crypto config and certificate details GUI:"
-		elog "    $(pkg_is_installed kde-apps/kleopatra:${SLOT})"
+		elog "Optional dependencies:"
+		optfeature "Virus detection" app-antivirus/clamav
+		optfeature "Spam filtering" mail-filter/bogofilter mail-filter/spamassassin
+		optfeature "Fancy e-mail headers and useful plugins" kde-apps/kdepim-addons:${SLOT}
+		optfeature "Crypto config and certificate details GUI" kde-apps/kleopatra:${SLOT}
 	fi
+	ecm_pkg_postinst
 }
