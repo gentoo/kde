@@ -9,7 +9,7 @@ PVCUT=$(ver_cut 1-3)
 KFMIN=5.72.0
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="https://kde.org/applications/system/org.kde.dolphin
@@ -77,22 +77,13 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		has_version "kde-apps/ark:${SLOT}" || \
-			elog "For compress/extract and other actions install kde-apps/ark:${SLOT}"
-
-		has_version "kde-apps/kleopatra:${SLOT}" || \
-			elog "For crypto actions install kde-apps/kleopatra:${SLOT}"
-
-		has_version "kde-apps/ffmpegthumbs:${SLOT}" || \
-			elog "For video file thumbnails install kde-apps/ffmpegthumbs:${SLOT}"
-
-		has_version "kde-apps/thumbnailers:${SLOT}" || \
-			elog "For graphics file thumbnails install kde-apps/thumbnailers:${SLOT}"
-
-		has_version "kde-frameworks/purpose:${SLOT}" || \
-			elog "For 'Share' context menu actions install kde-frameworks/purpose:${SLOT}"
+		elog "Optional dependencies:"
+		optfeature "compress/extract and other actions" kde-apps/ark:${SLOT}
+		optfeature "crypto actions" kde-apps/kleopatra:${SLOT}
+		optfeature "video file thumbnails" kde-apps/ffmpegthumbs:${SLOT}
+		optfeature "graphics file thumbnails" kde-apps/thumbnailers:${SLOT}
+		optfeature "'Share' context menu actions" kde-frameworks/purpose:${SLOT}
 	fi
+	ecm_pkg_postinst
 }
