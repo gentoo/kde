@@ -34,7 +34,7 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=media-libs/phonon-4.11.0
-	media-libs/qt-gstreamer[qt5(+)]
+	>=media-libs/qt-gstreamer-1.2.0-r4
 	net-libs/farstream:0.2
 	net-libs/telepathy-farstream
 	>=net-libs/telepathy-qt-0.9.8[farstream]

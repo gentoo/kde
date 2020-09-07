@@ -31,7 +31,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	gstreamer? ( >=media-libs/qt-gstreamer-1.2.0[qt5(+)] )
+	gstreamer? ( >=media-libs/qt-gstreamer-1.2.0-r4 )
 	!gstreamer? ( >=dev-qt/qtmultimedia-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}"
