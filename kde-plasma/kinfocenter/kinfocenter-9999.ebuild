@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.0
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Utility providing information about the computer hardware"
 HOMEPAGE="https://userbase.kde.org/KInfoCenter"
@@ -93,13 +93,10 @@ src_install() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		has_version "net-fs/nfs-utils" || \
-			elog "Installing net-fs/nfs-utils will enable the NFS information module."
-
-		has_version "net-fs/samba" || \
-			elog "Installing net-fs/samba will enable the Samba status information module."
+		elog "Optional dependencies:"
+		optfeature "NFS information module" net-fs/nfs-utils
+		optfeature "Samba status information module" net-fs/samba
 	fi
+	ecm_pkg_postinst
 }
