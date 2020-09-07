@@ -8,7 +8,7 @@ ECM_TEST="true"
 KFMIN=5.73.0
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Multi-document editor with network transparency, Plasma integration and more"
 HOMEPAGE="https://kate-editor.org/
@@ -98,11 +98,10 @@ src_test() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "The functionality of ktexteditorpreview plugin can be extended with:"
-		elog "  kde-misc/markdownpart or kde-misc/kmarkdownwebview"
-		elog "  media-gfx/kgraphviewer"
+		elog "Optional dependencies:"
+		optfeature "Markdown text previews" kde-misc/markdownpart:${SLOT} kde-misc/kmarkdownwebview:${SLOT}
+		optfeature "DOT graph file previews" media-gfx/kgraphviewer
 	fi
+	ecm_pkg_postinst
 }
