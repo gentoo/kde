@@ -9,7 +9,7 @@ PVCUT=$(ver_cut 1-3)
 KFMIN=5.72.0
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Address book application based on KDE Frameworks"
 HOMEPAGE="https://kde.org/applications/office/org.kde.kaddressbook"
@@ -68,10 +68,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		has_version "kde-apps/kdepim-addons:${SLOT}" || \
-			elog "${PN} is not complete without kde-apps/kdepim-addons:${SLOT}!"
+		elog "Optional dependencies:"
+		optfeature "Postal addresses" kde-apps/kdepim-addons:${SLOT}
 	fi
+	ecm_pkg_postinst
 }
