@@ -8,7 +8,7 @@ ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.72.0
 QTMIN=5.14.2
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Image viewer by KDE"
 HOMEPAGE="https://kde.org/applications/graphics/org.kde.gwenview
@@ -103,9 +103,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
-	if [[ -z "${REPLACING_VERSIONS}" ]] && ! has_version kde-apps/svgpart:${SLOT} ; then
-		elog "For SVG support, install kde-apps/svgpart:${SLOT}"
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "SVG support" kde-apps/svgpart:${SLOT}
 	fi
+	ecm_pkg_postinst
 }
