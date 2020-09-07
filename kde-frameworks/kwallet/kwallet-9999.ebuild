@@ -5,7 +5,7 @@ EAPI=7
 
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.14.2
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Framework providing desktop-wide storage for passwords"
 
@@ -44,11 +44,11 @@ src_configure() {
 }
 
 pkg_postinst() {
-	if ! has_version "kde-plasma/kwallet-pam" || ! has_version "kde-apps/kwalletmanager:5" ; then
-		elog
-		elog "Install kde-plasma/kwallet-pam for auto-unlocking after account login."
-		elog "Install kde-apps/kwalletmanager:5 to manage your kwallet."
-		elog
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "Auto-unlocking after account login" kde-plasma/kwallet-pam
+		optfeature "KWallet management" kde-apps/kwalletmanager:5
+		elog "For more information, read https://wiki.gentoo.org/wiki/KDE#KWallet"
 	fi
-	elog "For more information, read https://wiki.gentoo.org/wiki/KDE#KWallet"
+	ecm_pkg_postinst
 }
