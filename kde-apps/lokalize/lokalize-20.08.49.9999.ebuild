@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{7,8} )
 KFMIN=5.72.0
 QTMIN=5.14.2
-inherit python-single-r1 ecm kde.org
+inherit python-single-r1 ecm kde.org optfeature
 
 DESCRIPTION="KDE Applications 5 translation tool"
 HOMEPAGE="https://kde.org/applications/office/org.kde.lokalize
@@ -65,8 +65,9 @@ src_install() {
 }
 
 pkg_postinst() {
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "Autofetch kde.org translations in new project wizard" dev-vcs/subversion
+	fi
 	ecm_pkg_postinst
-
-	has_version dev-vcs/subversion || \
-		elog "To be able to autofetch KDE translations in new project wizard, install dev-vcs/subversion."
 }
