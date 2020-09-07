@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.60.0
 QTMIN=5.12.3
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
@@ -59,23 +59,12 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		if ! has_version kde-misc/markdownpart:${SLOT} ||
-				! has_version kde-misc/kmarkdownwebview:${SLOT} ; then
-			elog "For markdown support in text previews, install one of:"
-			elog "   kde-misc/markdownpart:${SLOT}"
-			elog "   kde-misc/kmarkdownwebview:${SLOT}"
-		fi
-		if ! has_version kde-apps/thumbnailers:${SLOT} ||
-				! has_version kde-apps/ffmpegthumbs:${SLOT} ; then
-			elog "For PDF/PS, RAW and video thumbnails support, install:"
-			elog "   kde-apps/thumbnailers:${SLOT}"
-			elog "   kde-apps/ffmpegthumbs:${SLOT}"
-		fi
-		if ! has_version kde-apps/keditbookmarks:${SLOT} ; then
-			elog "For bookmarks support, install kde-apps/keditbookmarks:${SLOT}"
-		fi
+		elog "Optional dependencies:"
+		optfeature "Markdown text previews" kde-misc/markdownpart:${SLOT} kde-misc/kmarkdownwebview:${SLOT}
+		optfeature "PDF/PS and RAW image thumbnails" kde-apps/thumbnailers:${SLOT}
+		optfeature "video thumbnails" kde-apps/ffmpegthumbs:${SLOT}
+		optfeature "bookmarks support" kde-apps/keditbookmarks:${SLOT}
 	fi
+	ecm_pkg_postinst
 }
