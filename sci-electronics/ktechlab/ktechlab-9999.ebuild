@@ -16,10 +16,9 @@ HOMEPAGE="https://userbase.kde.org/KTechlab"
 LICENSE="GPL-2"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="+gpsim"
 
 DEPEND="
-	dev-embedded/gpsim
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
@@ -41,5 +40,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
+	gpsim? ( dev-embedded/gpsim )
 "
 RDEPEND="${DEPEND}"
