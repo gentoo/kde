@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.60.0
 QTMIN=5.12.3
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Desktop Planetarium"
 HOMEPAGE="https://kde.org/applications/education/org.kde.kstars
@@ -89,10 +89,10 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
-	if [[ -z "${REPLACING_VERSIONS}" ]] && ! has_version "x11-misc/xplanet" ; then
-		elog "${PN} has optional runtime support for x11-misc/xplanet"
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "Display 'current' pictures of planets" x11-misc/xplanet
+		# for AstrometryNet is not packaged.
 	fi
-	# same for AstrometryNet, which is not packaged.
+	ecm_pkg_postinst
 }
