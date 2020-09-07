@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="optional"
 KFMIN=5.60.0
 QTMIN=5.12.3
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
 HOMEPAGE="https://kde.org/applications/education/org.kde.kbibtex
@@ -71,9 +71,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
-	if ! has_version "kde-apps/okular:${SLOT}" ; then
-		elog "For PDF or PostScript document preview support, please install kde-apps/okular:${SLOT}"
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "PDF or PostScript document previews" kde-apps/okular:${SLOT}
 	fi
+	ecm_pkg_postinst
 }
