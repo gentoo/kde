@@ -3,12 +3,12 @@
 
 EAPI=7
 
-ECM_HANDBOOK="optional" # not optional until !kdelibs4support
+ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=5.73.0
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
-inherit flag-o-matic ecm kde.org
+inherit flag-o-matic ecm kde.org optfeature
 
 DESCRIPTION="Web browser and file manager based on KDE Frameworks"
 HOMEPAGE="https://kde.org/applications/internet/org.kde.konqueror"
@@ -78,26 +78,12 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		if ! has_version kde-apps/keditbookmarks:${SLOT} ; then
-			elog "For bookmarks support, install keditbookmarks:"
-			elog "kde-apps/keditbookmarks:${SLOT}"
-		fi
-
-		if ! has_version kde-apps/dolphin:${SLOT} ; then
-			elog "If you want to use konqueror as a filemanager, install the dolphin kpart:"
-			elog "kde-apps/dolphin:${SLOT}"
-		fi
-
-		if ! has_version kde-apps/svg:${SLOT} ; then
-			elog "For konqueror to view SVGs, install the svg kpart:"
-			elog "kde-apps/svgpart:${SLOT}"
-		fi
-
-		if ! has_version virtual/jre ; then
-			elog "To use Java on webpages install virtual/jre."
-		fi
+		elog "Optional dependencies:"
+		optfeature "bookmarks support" kde-apps/keditbookmarks:${SLOT}
+		optfeature "filemanager component" kde-apps/dolphin:${SLOT}
+		optfeature "SVG support" kde-apps/svg:${SLOT}
+		optfeature "Java support on webpages" virtual/jre
 	fi
+	ecm_pkg_postinst
 }
