@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional"
 KDE_ORG_NAME="${PN}5"
-KFMIN=9999
+KFMIN=5.74.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.0
 inherit ecm kde.org
