@@ -8,7 +8,7 @@ PVCUT=$(ver_cut 1-3)
 KFMIN=5.72.0
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Plugins for KDE Personal Information Management Suite"
 HOMEPAGE="https://kde.org/applications/office/org.kde.kontact"
@@ -79,9 +79,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
-	if [[ ${KDE_BUILD_TYPE} = live ]] && ! has_version "kde-misc/kregexpeditor" ; then
-		elog "${PN} Sieve editor plugin can make use of kde-misc/kregexpeditor if installed."
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "regex support for Sieve editor plugin" kde-misc/kregexpeditor
 	fi
+	ecm_pkg_postinst
 }
