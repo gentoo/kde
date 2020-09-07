@@ -5,7 +5,7 @@ EAPI=7
 
 QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Provider for platform independent hardware discovery, abstraction and management"
 LICENSE="LGPL-2.1+"
@@ -30,9 +30,9 @@ DEPEND="${RDEPEND}
 "
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
-	if [[ -z "${REPLACING_VERSIONS}" ]] && ! has_version "app-misc/media-player-info" ; then
-		elog "For media player support, install app-misc/media-player-info"
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "Media player devices support" app-misc/media-player-info
 	fi
+	ecm_pkg_postinst
 }
