@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{7,8,9} )
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.14.2
-inherit ecm kde.org python-any-r1
+inherit ecm kde.org optfeature python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"
 LICENSE="LGPL-2+"
@@ -58,11 +58,10 @@ src_test() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
-	if ! has_version app-text/catdoc || ! has_version dev-libs/libxls; then
-		elog "To get additional features, optional runtime dependencies may be installed:"
-		elog "app-text/catdoc - indexing of Microsoft Word or Powerpoint files"
-		elog "dev-libs/libxls - indexing of Microsoft Excel files"
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "Microsoft Word/Powerpoint file indexing" app-text/catdoc
+		optfeature "Microsoft Excel file indexing" dev-libs/libxls
 	fi
+	ecm_pkg_postinst
 }
