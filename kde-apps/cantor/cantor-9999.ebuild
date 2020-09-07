@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python3_{7,8} )
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.73.0
 QTMIN=5.14.2
-inherit ecm kde.org python-single-r1
+inherit ecm kde.org optfeature python-single-r1
 
 DESCRIPTION="Interface for doing mathematics and scientific computing"
 HOMEPAGE="https://kde.org/applications/education/org.kde.cantor
@@ -63,31 +63,16 @@ DEPEND="
 	)
 	R? ( dev-lang/R )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!analitza? ( !julia? ( !lua? ( !python? ( !qalculate? ( !R? (
+		|| (
+			sci-mathematics/maxima
+			sci-mathematics/octave
+		)
+	) ) ) ) ) )
+"
 
 RESTRICT+=" test"
-
-pkg_pretend() {
-	ecm_pkg_pretend
-
-	if ! has_version sci-mathematics/maxima && ! has_version sci-mathematics/octave && \
-		! use analitza && ! use julia && ! use lua && ! use python && ! use qalculate && ! use R; then
-		elog "You have decided to build ${PN} with no backend."
-		elog "To have this application functional, please enable one of the backends via USE flag:"
-		elog "    analitza, lua, python, qalculate, R"
-		elog "Alternatively, install one of these:"
-		elog "    # emerge sci-mathematics/maxima (bug #619534)"
-		elog "    # emerge sci-mathematics/octave"
-		elog "Experimental available USE flag:"
-		elog "    julia (not stable, bug #613576)"
-		elog
-	fi
-
-	if ! has_version virtual/latex-base; then
-		elog "For LaTeX support:"
-		elog "    # emerge virtual/latex-base"
-	fi
-}
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -107,4 +92,14 @@ src_configure() {
 		$(cmake_use_find_package R R)
 	)
 	ecm_src_configure
+}
+
+pkg_postinst() {
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "Maxima backend" sci-mathematics/maxima
+		optfeature "Octave backend" sci-mathematics/octave
+		optfeature "LaTeX support" virtual/latex-base
+	fi
+	ecm_pkg_postinst
 }
