@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.0
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Control Center to configure KDE Plasma desktop"
 
@@ -51,10 +51,9 @@ RDEPEND="${DEPEND}
 "
 
 pkg_postinst() {
-	ecm_pkg_postinst
-
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		has_version kde-plasma/kde-gtk-config || \
-			elog "Install kde-plasma/kde-gtk-config to configure looks for GTK+."
+		elog "Optional dependencies:"
+		optfeature "Configure looks for GTK+" kde-plasma/kde-gtk-config
 	fi
+	ecm_pkg_postinst
 }
