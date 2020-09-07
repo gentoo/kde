@@ -10,7 +10,7 @@ KFMIN=5.70.0
 QTMIN=5.12.3
 VIRTUALDBUS_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 HOMEPAGE="https://www.kdevelop.org/"
@@ -121,25 +121,13 @@ src_configure() {
 }
 
 pkg_postinst() {
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "konsole view" kde-apps/konsole
+		optfeature "Static C++ Qt code analysis" dev-util/clazy
+		optfeature "Static C/C++ code analysis" dev-util/cppcheck
+		optfeature "Heap memory profiling" dev-util/heaptrack[qt5]
+		optfeature "Meson Project manager plugin" >=dev-util/meson-0.51
+	fi
 	ecm_pkg_postinst
-
-	if ! has_version "kde-apps/konsole" ; then
-		elog "For konsole view, please install kde-apps/konsole"
-	fi
-
-	if ! has_version "dev-util/cppcheck" ; then
-		elog "For static C/C++ code analysis support, please install dev-util/cppcheck"
-	fi
-
-	if ! has_version "dev-util/heaptrack[qt5]" ; then
-		elog "For heap memory profiling support, please install dev-util/heaptrack"
-	fi
-
-	if ! has_version "dev-util/clazy" ; then
-		elog "For static C++ Qt code analysis support, please install dev-util/clazy"
-	fi
-
-	if ! has_version ">=dev-util/meson-0.51" ; then
-		elog "For the Meson Project manager plugin, please install dev-util/meson"
-	fi
 }
