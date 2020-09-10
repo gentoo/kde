@@ -127,7 +127,7 @@ pkg_postinst() {
 		optfeature "Static C++ Qt code analysis" dev-util/clazy
 		optfeature "Static C/C++ code analysis" dev-util/cppcheck
 		optfeature "Heap memory profiling" dev-util/heaptrack[qt5]
-		optfeature "Meson Project manager plugin" >=dev-util/meson-0.51
+		optfeature "Meson Project manager plugin" dev-util/meson
 	fi
 	ecm_pkg_postinst
 }
