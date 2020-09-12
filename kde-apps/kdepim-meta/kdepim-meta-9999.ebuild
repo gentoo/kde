@@ -32,7 +32,6 @@ RDEPEND="
 	>=kde-apps/kalarmcal-${PV}:${SLOT}
 	>=kde-apps/kcalutils-${PV}:${SLOT}
 	>=kde-apps/kdepim-addons-${PV}:${SLOT}
-	>=kde-apps/kdepim-apps-libs-${PV}:${SLOT}
 	>=kde-apps/kdepim-runtime-${PV}:${SLOT}
 	>=kde-apps/kidentitymanagement-${PV}:${SLOT}
 	>=kde-apps/kimap-${PV}:${SLOT}
