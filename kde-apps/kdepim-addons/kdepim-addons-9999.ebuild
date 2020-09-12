@@ -20,6 +20,8 @@ IUSE="importwizard markdown"
 
 # drop qtwidgets subslot operator when QT_MINIMAL >= 5.15.0
 RDEPEND="
+	>=app-crypt/gpgme-1.11.1[cxx,qt5]
+	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5=
@@ -31,7 +33,7 @@ RDEPEND="
 	>=kde-apps/eventviews-${PVCUT}:5
 	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/incidenceeditor-${PVCUT}:5
-	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
+	>=kde-apps/kaddressbook-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kimap-${PVCUT}:5
 	>=kde-apps/kitinerary-${PVCUT}:5
@@ -64,9 +66,7 @@ RDEPEND="
 	importwizard? ( >=kde-apps/akonadi-import-wizard-${PVCUT}:5 )
 	markdown? ( app-text/discount )
 "
-DEPEND="${RDEPEND}
-	>=app-crypt/gpgme-1.11.1[cxx,qt5]
-"
+DEPEND="${RDEPEND}"
 
 RESTRICT+=" test"
 
