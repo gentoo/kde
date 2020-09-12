@@ -20,11 +20,14 @@ IUSE=""
 RESTRICT+=" test"
 
 DEPEND="
+	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/libkleo-${PVCUT}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
