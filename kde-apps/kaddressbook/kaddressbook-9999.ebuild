@@ -30,7 +30,6 @@ DEPEND="
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/akonadi-search-${PVCUT}:5
 	>=kde-apps/grantleetheme-${PVCUT}:5
-	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
 	>=kde-apps/libgravatar-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
