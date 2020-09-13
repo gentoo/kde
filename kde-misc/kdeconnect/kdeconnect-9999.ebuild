@@ -57,6 +57,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	dev-libs/kpeoplevcard
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	net-fs/sshfs
