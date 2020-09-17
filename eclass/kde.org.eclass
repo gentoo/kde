@@ -58,6 +58,7 @@ declare -A KDE_ORG_CATEGORIES=(
 	[media-libs]=libraries
 	[media-sound]=multimedia
 	[media-video]=multimedia
+	[net-firewall]=network
 	[net-im]=network
 	[net-irc]=network
 	[net-libs]=libraries
