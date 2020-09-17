@@ -17,7 +17,7 @@ HOMEPAGE="https://okular.kde.org https://kde.org/applications/office/org.kde.oku
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="chm crypt djvu epub +image-backend markdown mobi mobile +pdf plucker +postscript share speech +tiff"
+IUSE="chm crypt djvu epub +image-backend markdown mobi +pdf plucker +postscript qml share speech +tiff"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -64,22 +64,20 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	image-backend? ( >=kde-frameworks/kimageformats-${KFMIN}:5 )
-	mobile? (
-		>=dev-qt/qtquickcontrols-${QTMIN}:5
+	qml? (
+		>=dev-qt/qtquickcontrols2-${QTMIN}:5
 		>=kde-frameworks/kirigami-${KFMIN}:5
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-20.07.90-tests.patch" ) # bug 734138
-
-src_prepare() {
-	ecm_src_prepare
-	use mobile || cmake_comment_add_subdirectory mobile
-	use test || cmake_comment_add_subdirectory conf/autotests
-}
+PATCHES=(
+	"${FILESDIR}/${PN}-20.07.90-tests.patch" # bug 734138
+	"${FILESDIR}/${PN}-20.08.2-hide-mobile-app.patch" # avoid same-name entry
+)
 
 src_configure() {
 	local mycmakeargs=(
+		-DOKULAR_UI=$(usex qml "both" "desktop")
 		$(cmake_use_find_package chm CHM)
 		$(cmake_use_find_package crypt Qca-qt5)
 		$(cmake_use_find_package djvu DjVuLibre)
