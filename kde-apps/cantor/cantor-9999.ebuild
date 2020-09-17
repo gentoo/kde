@@ -8,7 +8,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{7,8} )
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.73.0
+KFMIN=5.74.0
 QTMIN=5.14.2
 inherit ecm kde.org optfeature python-single-r1
 
