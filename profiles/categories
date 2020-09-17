@@ -1,7 +1,10 @@
+app-accessibility
 app-admin
 app-backup
 app-cdr
 app-editors
+app-i18n
+app-misc
 app-office
 app-text
 dev-db
@@ -12,6 +15,7 @@ dev-vcs
 games-board
 games-kids
 games-mud
+gui-apps
 gui-libs
 gui-wm
 kde-apps
@@ -22,6 +26,7 @@ media-gfx
 media-libs
 media-sound
 media-video
+net-firewall
 net-im
 net-irc
 net-libs
