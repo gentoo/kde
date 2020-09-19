@@ -16,7 +16,7 @@ HOMEPAGE="https://kde.org/applications/system/org.kde.ksystemlog"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="systemd"
+IUSE="kdesu systemd"
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -38,9 +38,23 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	ecm_src_prepare
+	if ! use kdesu; then
+		sed -e "/^X-KDE-SubstituteUID/s:true:false:" \
+			-i src/org.kde.ksystemlog.desktop || die
+	fi
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package systemd Journald)
 	)
 	ecm_src_configure
+}
+
+pkg_postinst() {
+	ecm_pkg_postinst
+	use kdesu || elog "Will show only user readable logs without USE=kdesu (only in X)."
+	use kdesu && elog "Cannot be launched from application menu in Wayland with USE=kdesu."
 }
