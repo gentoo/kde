@@ -226,7 +226,7 @@ _kde.org_calculate_live_repo() {
 		EGIT_BRANCH="release/$(ver_cut 1-2)"
 	fi
 
-	if [[ ${PV} != 9999 && ${PV} != 5.20.49.9999 && ${CATEGORY} = kde-plasma ]]; then
+	if [[ ${PV} != 9999 && ${CATEGORY} = kde-plasma ]]; then
 		EGIT_BRANCH="Plasma/$(ver_cut 1-2)"
 	fi
 
