@@ -34,4 +34,6 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	sys-apps/smartmontools
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	kde-plasma/kinfocenter:5
+"
