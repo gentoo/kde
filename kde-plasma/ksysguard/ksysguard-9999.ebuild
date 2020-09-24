@@ -36,6 +36,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	lm-sensors? ( sys-apps/lm-sensors:= )
 	network? (
