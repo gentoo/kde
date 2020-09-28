@@ -68,6 +68,7 @@ pkg_postinst() {
 		elog "Optional dependencies:"
 		optfeature "Autofetch kde.org translations in new project wizard" dev-vcs/subversion
 		optfeature "msgmerge tool" "kde-apps/kross-interpreters:${SLOT}[python]"
+		optfeature "Spell and grammar checking" app-text/languagetool
 	fi
 	ecm_pkg_postinst
 }
