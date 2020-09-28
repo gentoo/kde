@@ -17,6 +17,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE="comic share webengine"
 
+RESTRICT+=" test" # bug 727846
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
