@@ -15,9 +15,9 @@ inherit ecm kde.org
 DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
 
+LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
-LICENSE="LGPL-2.1+"
 IUSE="+kaccounts +mysql postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
