@@ -10,8 +10,8 @@ QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org optfeature
 
-DESCRIPTION="KDE Archiving tool"
-HOMEPAGE="https://kde.org/applications/utilities/org.kde.ark
+DESCRIPTION="File archiver by KDE"
+HOMEPAGE="https://kde.org/applications/en/ark
 https://utils.kde.org/projects/ark/"
 
 LICENSE="GPL-2" # TODO: CHECK
