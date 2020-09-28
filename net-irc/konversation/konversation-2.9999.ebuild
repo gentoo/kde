@@ -10,8 +10,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="User friendly IRC Client"
-HOMEPAGE="https://konversation.kde.org
-https://kde.org/applications/internet/org.kde.konversation"
+HOMEPAGE="https://konversation.kde.org"
 
 LICENSE="GPL-2"
 SLOT="5"

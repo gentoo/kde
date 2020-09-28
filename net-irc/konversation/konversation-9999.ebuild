@@ -9,8 +9,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="User friendly IRC Client"
-HOMEPAGE="https://konversation.kde.org
-https://kde.org/applications/internet/org.kde.konversation"
+HOMEPAGE="https://konversation.kde.org"
 
 LICENSE="GPL-2"
 SLOT="5"
@@ -35,7 +34,6 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kidletime-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
