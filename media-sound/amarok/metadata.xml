@@ -9,13 +9,9 @@
 		<email>kde@gentoo.org</email>
 		<name>Gentoo KDE Project</name>
 	</maintainer>
-	<maintainer type="project">
-		<email>sound@gentoo.org</email>
-		<name>Gentoo Sound project</name>
-	</maintainer>
 	<use>
-		<flag name="lastfm">Enable Last.fm streaming services support through
-		<pkg>media-libs/liblastfm</pkg></flag>
+		<flag name="lastfm">Enable Last.fm streaming services support through <pkg>media-libs/liblastfm</pkg></flag>
+		<flag name="mariadb">Prefer <pkg>dev-db/mariadb-connector-c</pkg> over <pkg>dev-db/mysql-connector-c</pkg></flag>
 		<flag name="mtp">Enable support for libMTP (Plays4Sure) devices access through libmtp</flag>
 		<flag name="ofa">Use <pkg>media-libs/libofa</pkg> to compute MusicDNS acoustic
 		fingerprints (used by MusicBrainz)</flag>

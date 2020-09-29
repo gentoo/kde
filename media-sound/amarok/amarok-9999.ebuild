@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_HANDBOOK="true"
+ECM_HANDBOOK="forceoptional"
 KFMIN=5.60.0
 QTMIN=5.12.3
 inherit ecm kde.org
@@ -13,13 +13,12 @@ HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="ipod lastfm mtp ofa podcast wikipedia"
+IUSE="ipod lastfm mariadb mtp ofa podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 BDEPEND="virtual/pkgconfig"
 DEPEND="
 	>=app-crypt/qca-2.3.0:2
-	dev-db/mysql-connector-c:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -73,16 +72,17 @@ DEPEND="
 		media-video/ffmpeg:=
 	)
 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
+	mariadb? ( dev-db/mariadb-connector-c:= )
+	!mariadb? ( dev-db/mysql-connector-c:= )
 	mtp? ( media-libs/libmtp )
 	podcast? ( >=media-libs/libmygpo-qt-1.0.9_p20180307 )
 	wikipedia? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	!ofa? ( media-video/ffmpeg )
 "
-
-PATCHES=( "${FILESDIR}"/${PN}-2.8.90-mysqld-rpath.patch )
 
 src_configure() {
 	local mycmakeargs=(
@@ -90,15 +90,15 @@ src_configure() {
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
-		-DWITH_MYSQL_EMBEDDED=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_MySQLe=ON
 		-DWITH_IPOD=$(usex ipod)
 		$(cmake_use_find_package lastfm LibLastFm)
+		$(cmake_use_find_package !mariadb MySQL)
 		$(cmake_use_find_package mtp Mtp)
 		$(cmake_use_find_package ofa LibOFA)
 		$(cmake_use_find_package podcast Mygpo-qt5)
 		$(cmake_use_find_package wikipedia Qt5WebEngine)
 	)
-
 	use ipod && mycmakeargs+=( DWITH_GDKPixBuf=ON )
 
 	ecm_src_configure
@@ -112,9 +112,9 @@ pkg_postinst() {
 	}
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "You'll have to configure amarok to use an external db server, one of:"
-		elog "    $(pkg_is_installed dev-db/mariadb)"
-		elog "    $(pkg_is_installed dev-db/mysql)"
+		elog "You'll have to configure amarok to use an external db server:"
+		use mariadb && elog "    $(pkg_is_installed dev-db/mariadb)" ||
+			elog "    $(pkg_is_installed dev-db/mysql)"
 		elog "Please read https://community.kde.org/Amarok/Community/MySQL for details on how"
 		elog "to configure the external db and migrate your data from the embedded database."
 	fi
