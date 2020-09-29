@@ -9,8 +9,9 @@ QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Style for QtQuickControls 2 that uses QWidget's QStyle for painting"
-KEYWORDS=""
+
 LICENSE="|| ( GPL-2+ LGPL-3+ )"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
