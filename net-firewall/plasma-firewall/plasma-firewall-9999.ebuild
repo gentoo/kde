@@ -34,6 +34,7 @@ DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
+	${PYTHON_DEPS}
 	|| (
 		net-firewall/firewalld
 		net-firewall/ufw
