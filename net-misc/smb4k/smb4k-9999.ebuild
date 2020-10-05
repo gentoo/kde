@@ -4,12 +4,12 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.70.0
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Advanced network neighborhood browser"
-HOMEPAGE="https://kde.org/applications/utilities/org.kde.smb4k
+HOMEPAGE="https://kde.org/applications/en/smb4k
 https://sourceforge.net/p/smb4k/home/Home/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -61,8 +61,8 @@ RDEPEND="${DEPEND}
 
 src_configure(){
 	local mycmakeargs=(
-		-DWITH_WS_DISCOVERY=$(usex discovery)
-		-DINSTALL_PLASMOID=$(usex plasma)
+		-DSMB4K_WITH_WS_DISCOVERY=$(usex discovery)
+		-DSMB4K_INSTALL_PLASMOID=$(usex plasma)
 	)
 	ecm_src_configure
 }
