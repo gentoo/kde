@@ -6,12 +6,11 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=5.72.0
-PLASMA_MINIMAL=5.16.5
 QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Advanced download manager by KDE"
-HOMEPAGE="https://kde.org/applications/internet/org.kde.kget"
+HOMEPAGE="https://kde.org/applications/en/kget"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -49,7 +48,7 @@ RDEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	bittorrent? ( net-libs/libktorrent:5 )
 	gpg? ( app-crypt/gpgme[qt5] )
-	kde? ( >=kde-plasma/libkworkspace-${PLASMA_MINIMAL}:5 )
+	kde? ( kde-plasma/libkworkspace:5 )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
 "
