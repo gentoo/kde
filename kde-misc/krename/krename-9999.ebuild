@@ -5,11 +5,11 @@ EAPI=7
 
 ECM_TEST="true"
 KFMIN=5.70.0
-QTMIN=5.12.3
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Powerful batch file renamer"
-HOMEPAGE="https://kde.org/applications/utilities/org.kde.krename
+HOMEPAGE="https://kde.org/applications/en/krename
 https://userbase.kde.org/KRename"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
