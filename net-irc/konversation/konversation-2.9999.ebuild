@@ -5,8 +5,8 @@ EAPI=7
 
 EGIT_BRANCH="wip/qtquick"
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.70.0
-QTMIN=5.12.3
+KFMIN=5.74.0
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="User friendly IRC Client"
