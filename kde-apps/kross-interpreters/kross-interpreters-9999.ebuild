@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python2_7 )
 USE_RUBY="ruby25 ruby26 ruby27"
-KFMIN=5.74.0
+KFMIN=5.75.0
 QTMIN=5.14.2
 inherit ecm kde.org python-single-r1 ruby-single
 

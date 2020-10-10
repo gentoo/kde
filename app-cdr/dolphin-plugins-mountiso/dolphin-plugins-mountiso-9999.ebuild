@@ -8,7 +8,7 @@ KDE_RELEASE_SERVICE="true"
 KDE_ORG_CATEGORY="sdk"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="mountiso"
-KFMIN=5.74.0
+KFMIN=5.75.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.14.2
 inherit ecm kde.org

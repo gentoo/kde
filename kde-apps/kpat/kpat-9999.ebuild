@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KDE_SELINUX_MODULE="games"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.74.0
+KFMIN=5.75.0
 QTMIN=5.14.2
 inherit ecm kde.org
 

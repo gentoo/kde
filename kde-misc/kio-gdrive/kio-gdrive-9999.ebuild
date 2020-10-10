@@ -8,7 +8,7 @@ ECM_TEST="optional"
 KDE_ORG_CATEGORY="network"
 KDE_RELEASE_SERVICE="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.74.0
+KFMIN=5.75.0
 QTMIN=5.14.2
 inherit ecm kde.org
 
