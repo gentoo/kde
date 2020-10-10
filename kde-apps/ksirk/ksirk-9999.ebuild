@@ -10,7 +10,7 @@ QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Port of the board game risk"
-HOMEPAGE="https://kde.org/applications/games/org.kde.ksirk
+HOMEPAGE="https://kde.org/applications/en/ksirk
 https://games.kde.org/game.php?game=ksirk"
 
 LICENSE="GPL-2" # TODO: CHECK
@@ -32,7 +32,6 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
