@@ -10,7 +10,7 @@ QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Program that helps to learn and practice touch typing"
-HOMEPAGE="https://kde.org/applications/education/org.kde.ktouch"
+HOMEPAGE="https://kde.org/applications/en/ktouch"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -30,7 +30,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
