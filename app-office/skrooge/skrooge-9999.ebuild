@@ -5,8 +5,8 @@ EAPI=7
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.70.0
+QTMIN=5.14.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
