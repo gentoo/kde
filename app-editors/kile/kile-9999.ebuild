@@ -5,13 +5,13 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional"
 KDE_ORG_CATEGORY="office"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.70.0
+QTMIN=5.14.2
 MY_P=${P/_beta/b}
 inherit ecm kde.org
 
 DESCRIPTION="Latex Editor and TeX shell based on KDE Frameworks"
-HOMEPAGE="https://kile.sourceforge.io/"
+HOMEPAGE="https://kde.org/applications/en/kile https://kile.sourceforge.io/"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
@@ -45,14 +45,13 @@ DEPEND="
 	pdf? ( app-text/poppler[qt5] )
 "
 RDEPEND="${DEPEND}
-	!app-editors/kile:4
 	kde-apps/konsole:5
 	kde-apps/okular:5[pdf?]
 	virtual/latex-base
 	virtual/tex-base
 	pdf? (
-		>=app-text/texlive-core-2014
 		app-text/ghostscript-gpl
+		>=app-text/texlive-core-2014
 	)
 	png? (
 		app-text/dvipng
