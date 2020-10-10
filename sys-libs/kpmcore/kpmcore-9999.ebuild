@@ -4,8 +4,8 @@
 EAPI=7
 
 ECM_NONGUI="true"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.74.0
+QTMIN=5.14.2
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -14,10 +14,10 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Library for managing partitions"
-HOMEPAGE="https://kde.org/applications/system/org.kde.partitionmanager"
+HOMEPAGE="https://kde.org/applications/en/partitionmanager"
 
 LICENSE="GPL-3"
-SLOT="5/9"
+SLOT="5/10"
 IUSE=""
 
 BDEPEND="virtual/pkgconfig"
