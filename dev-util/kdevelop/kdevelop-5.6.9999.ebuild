@@ -13,14 +13,14 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org optfeature
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 LICENSE="GPL-2 LGPL-2"
-SLOT="5/55" # look at KDEVELOP_SOVERSION inside CMakeLists.txt
+SLOT="5/56" # look at KDEVELOP_SOVERSION inside CMakeLists.txt
 IUSE="+gdbui hex +plasma +qmake reviewboard subversion"
 
 COMMON_DEPEND="
