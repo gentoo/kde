@@ -10,14 +10,14 @@ QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Interface to work with Graph Theory"
-HOMEPAGE="https://kde.org/applications/education/org.kde.rocs"
+HOMEPAGE="https://kde.org/applications/en/rocs"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	dev-libs/grantlee:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
@@ -41,8 +41,11 @@ RDEPEND="
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=dev-libs/boost-1.49
+"
+RDEPEND="${COMMON_DEPEND}
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
 
 RESTRICT+=" test"	# 1/10 tests currently fails
