@@ -4,6 +4,7 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
 KDE_SELINUX_MODULE="games"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.72.0
@@ -11,7 +12,7 @@ QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="KDE patience game"
-HOMEPAGE="https://kde.org/applications/games/org.kde.kpat
+HOMEPAGE="https://kde.org/applications/en/kpat
 https://games.kde.org/game.php?game=kpat"
 
 LICENSE="GPL-2" # TODO: CHECK
