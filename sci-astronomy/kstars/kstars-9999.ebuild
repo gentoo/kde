@@ -9,7 +9,7 @@ QTMIN=5.12.3
 inherit ecm kde.org optfeature
 
 DESCRIPTION="Desktop Planetarium"
-HOMEPAGE="https://kde.org/applications/education/org.kde.kstars
+HOMEPAGE="https://kde.org/applications/en/kstars
 https://edu.kde.org/kstars/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -23,6 +23,9 @@ IUSE="fits indi +password raw wcs"
 
 REQUIRED_USE="indi? ( fits ) ${PYTHON_REQUIRED_USE}"
 
+# TODO: package stellarsolver
+# https://github.com/rlancaste/stellarsolver
+# https://invent.kde.org/education/kstars/-/commit/e78154841c7a55328cb9f1ab6a37cc8297cf2a2c
 COMMON_DEPEND="
 	>=dev-qt/qtdatavis3d-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -92,7 +95,6 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "Optional dependencies:"
 		optfeature "Display 'current' pictures of planets" x11-misc/xplanet
-		# for AstrometryNet is not packaged.
 	fi
 	ecm_pkg_postinst
 }
