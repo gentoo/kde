@@ -4,12 +4,12 @@
 EAPI=7
 
 ECM_HANDBOOK="optional"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.74.0
+QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Utility for management of disks, partitions and file systems"
-HOMEPAGE="https://kde.org/applications/system/org.kde.partitionmanager"
+HOMEPAGE="https://kde.org/applications/en/partitionmanager"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
