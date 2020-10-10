@@ -10,7 +10,7 @@ QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Classical hangman game by KDE"
-HOMEPAGE="https://kde.org/applications/education/org.kde.khangman
+HOMEPAGE="https://kde.org/applications/en/khangman
 https://edu.kde.org/khangman/"
 
 LICENSE="GPL-2" # TODO: CHECK
@@ -30,7 +30,6 @@ DEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5

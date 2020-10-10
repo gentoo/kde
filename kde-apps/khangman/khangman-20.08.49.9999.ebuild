@@ -10,7 +10,7 @@ QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Classical hangman game by KDE"
-HOMEPAGE="https://kde.org/applications/education/org.kde.khangman
+HOMEPAGE="https://kde.org/applications/en/khangman
 https://edu.kde.org/khangman/"
 
 LICENSE="GPL-2" # TODO: CHECK
