@@ -11,7 +11,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Multiple information organizer - a DropDrawers clone"
-HOMEPAGE="https://userbase.kde.org/BasKet https://github.com/basket-notepads/basket"
+HOMEPAGE="https://userbase.kde.org/BasKet https://invent.kde.org/utilities/basket"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="https://github.com/${PN}-notepads/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
