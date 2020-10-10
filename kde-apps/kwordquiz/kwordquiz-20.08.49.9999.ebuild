@@ -10,7 +10,7 @@ QTMIN=5.14.2
 inherit ecm kde.org
 
 DESCRIPTION="Powerful flashcard and vocabulary learning program"
-HOMEPAGE="https://kde.org/applications/education/org.kde.kwordquiz
+HOMEPAGE="https://kde.org/applications/en/kwordquiz
 https://edu.kde.org/kwordquiz/"
 
 LICENSE="GPL-2" # TODO: CHECK
