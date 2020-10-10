@@ -12,12 +12,12 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Universal document viewer based on KDE Frameworks"
-HOMEPAGE="https://okular.kde.org https://kde.org/applications/office/org.kde.okular"
+HOMEPAGE="https://okular.kde.org https://kde.org/applications/en/okular"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="chm crypt djvu epub +image-backend markdown mobi +pdf plucker +postscript qml share speech +tiff"
+IUSE="chm djvu epub +image-backend markdown mobi +pdf plucker +postscript qml share speech +tiff"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -46,7 +46,6 @@ DEPEND="
 		dev-libs/chmlib
 		>=kde-frameworks/khtml-${KFMIN}:5
 	)
-	crypt? ( >=app-crypt/qca-2.3.0:2 )
 	djvu? ( app-text/djvu )
 	epub? ( app-text/ebook-tools )
 	image-backend? (
@@ -79,7 +78,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DOKULAR_UI=$(usex qml "both" "desktop")
 		$(cmake_use_find_package chm CHM)
-		$(cmake_use_find_package crypt Qca-qt5)
 		$(cmake_use_find_package djvu DjVuLibre)
 		$(cmake_use_find_package epub EPub)
 		$(cmake_use_find_package image-backend KF5KExiv2)
