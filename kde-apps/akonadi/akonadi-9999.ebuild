@@ -23,6 +23,7 @@ IUSE="+kaccounts +mysql postgres sqlite tools xml"
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
 
 COMMON_DEPEND="
+	app-arch/xz-utils
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
