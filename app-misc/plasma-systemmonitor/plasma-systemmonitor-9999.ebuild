@@ -4,8 +4,8 @@
 EAPI=7
 
 KDE_ORG_CATEGORY=plasma
-KFMIN=5.70.0
-QTMIN=5.14.2
+KFMIN=5.74.0
+QTMIN=5.15.0
 inherit ecm kde.org
 
 DESCRIPTION="New version of KSysGuard built on top of the new KStats daemon and using QML"
@@ -28,6 +28,7 @@ DEPEND="
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	kde-plasma/libksysguard:5
 "
@@ -35,6 +36,5 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
-	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kquickcharts-${KFMIN}:5
 "
