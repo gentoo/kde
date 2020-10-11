@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_TEST="false"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.14.2
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Framework for configuring desktop notifications"

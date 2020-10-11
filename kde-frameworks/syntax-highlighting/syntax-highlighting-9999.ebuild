@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_TEST="forceoptional"
-QTMIN=5.14.2
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Framework for syntax highlighting"
