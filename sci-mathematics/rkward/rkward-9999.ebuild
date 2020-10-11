@@ -9,9 +9,13 @@ inherit ecm kde.org optfeature
 DESCRIPTION="IDE for the R-project"
 HOMEPAGE="https://rkward.kde.org/"
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+fi
+
 LICENSE="GPL-2+ LGPL-2"
 SLOT="5"
-KEYWORDS=""
 IUSE=""
 
 BDEPEND="
