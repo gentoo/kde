@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=5.75.0
-QTMIN=5.14.2
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Library for interacting with LDAP servers"
