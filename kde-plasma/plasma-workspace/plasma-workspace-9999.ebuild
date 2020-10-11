@@ -125,9 +125,9 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5[widgets]
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-apps/kio-extras-19.04.3:5
-	>=kde-frameworks/kquickcharts-${KFMIN}:5
 	>=kde-frameworks/kdesu-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kquickcharts-${KFMIN}:5
 	>=kde-plasma/ksysguard-${PVCUT}:5
 	>=kde-plasma/milou-${PVCUT}:5
 	>=kde-plasma/plasma-integration-${PVCUT}:5
@@ -147,41 +147,8 @@ PATCHES=( "${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch" )
 
 RESTRICT+=" test"
 
-pkg_setup() {
-	ecm_pkg_setup
-
-	local md5
-	local srcfile=/etc/plasma/XX/10-agent-XX.sh
-	local newdir="${EPREFIX}"/etc/xdg/plasma-workspace
-
-	if [[ -f "${EROOT}"${srcfile//XX/startup} ]]; then
-		md5=$(md5sum "${EROOT}"${srcfile//XX/startup})
-		if [[ ${md5%% *} != 90caaabb40b56bfbe65388841a6dd6ca ]]; then
-			elog "Existing modified ${EPREFIX}${srcfile//XX/startup} detected."
-			elog "Copying to ${newdir}/env/10-agent-startup.sh..."
-			cp -v "${EROOT}"${srcfile//XX/startup} "${T}"/ || die
-		fi
-	fi
-
-	if [[ -f "${EROOT}"${srcfile//XX/shutdown} ]]; then
-		md5=$(md5sum "${EROOT}"${srcfile//XX/shutdown})
-		if [[ ${md5%% *} != d7bffa0273f92abd999c7c3c43dbc23d ]]; then
-			elog "Existing modified ${EPREFIX}${srcfile//XX/shutdown} detected."
-			elog "Copying to ${newdir}/shutdown/10-agent-shutdown.sh..."
-			cp -v "${EROOT}"${srcfile//XX/shutdown} "${T}"/ || die
-		fi
-	fi
-}
-
 src_prepare() {
 	ecm_src_prepare
-
-	if [[ ! -f "${T}"/10-agent-startup.sh ]]; then
-		cp "${FILESDIR}"/10-agent-startup.sh "${T}"/ || die
-	fi
-	if [[ ! -f "${T}"/10-agent-shutdown.sh ]]; then
-		cp "${FILESDIR}"/10-agent-shutdown.sh "${T}"/ || die
-	fi
 
 	cmake_comment_add_subdirectory libkworkspace
 	# delete colliding libkworkspace translations
@@ -218,25 +185,17 @@ src_install() {
 
 	# default startup and shutdown scripts
 	insinto /etc/xdg/plasma-workspace/env
-	doins "${T}"/10-agent-startup.sh
+	doins "${FILESDIR}"/10-agent-startup.sh
 
 	insinto /etc/xdg/plasma-workspace/shutdown
-	doins "${T}"/10-agent-shutdown.sh
+	doins "${FILESDIR}"/10-agent-shutdown.sh
 	fperms +x /etc/xdg/plasma-workspace/shutdown/10-agent-shutdown.sh
 }
 
 pkg_postinst () {
 	ecm_pkg_postinst
 
-	# Clean up pre-5.17.4 scripts
-	if [[ -e "${EROOT}"/etc/plasma/startup/10-agent-startup.sh ]]; then
-		rm "${EROOT}"/etc/plasma/startup/10-agent-startup.sh || die
-		elog "Removed obsolete ${EPREFIX}/etc/plasma/startup/10-agent-startup.sh"
-	fi
-	if [[ -e "${EROOT}"/etc/plasma/shutdown/10-agent-shutdown.sh ]]; then
-		rm "${EROOT}"/etc/plasma/shutdown/10-agent-shutdown.sh || die
-		elog "Removed obsolete ${EPREFIX}/etc/plasma/shutdown/10-agent-shutdown.sh"
-	fi
+	# Clean up pre-5.17.4 dirs
 	rmdir -v "${EROOT}"/etc/plasma{/startup,/shutdown,} 2> /dev/null
 
 	elog "To enable gpg-agent and/or ssh-agent in Plasma sessions,"
