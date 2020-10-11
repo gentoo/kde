@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="IDE for the R-project"
 HOMEPAGE="https://rkward.kde.org/"
@@ -43,3 +43,9 @@ DEPEND="
 	kde-frameworks/kxmlgui:5
 "
 RDEPEND="${DEPEND}"
+
+pkg_postinst() {
+	elog "Optional dependencies:"
+	optfeature "kate plugins support" kde-apps/kate:${SLOT}
+	ecm_pkg_postinst
+}
