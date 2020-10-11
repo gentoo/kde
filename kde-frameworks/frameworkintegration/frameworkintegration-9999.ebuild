@@ -15,10 +15,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-# drop qtwidgets subslot operator when QT_MINIMAL >= 5.15.0
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5=
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
