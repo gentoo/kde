@@ -4,12 +4,11 @@
 EAPI=7
 
 KFMIN=5.74.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.0
 inherit ecm kde.org
 
-DESCRIPTION="KDE implementation of ssh-askpass with Kwallet integration"
-HOMEPAGE="https://invent.kde.org/plasma/ksshaskpass"
+DESCRIPTION="Implementation of ssh-askpass with KDE Wallet integration"
+HOMEPAGE+=" https://invent.kde.org/plasma/ksshaskpass"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
