@@ -59,14 +59,14 @@ pkg_setup() {
 
 src_install() {
 	ecm_src_install
-	python_fix_shebang "${ED}/usr/share/${PN}"
+	rm "${ED}"/usr/share/lokalize/scripts/msgmerge.{py,rc} || die
+	python_fix_shebang "${ED}"/usr/share/${PN}
 }
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "Optional dependencies:"
 		optfeature "Autofetch kde.org translations in new project wizard" dev-vcs/subversion
-		optfeature "msgmerge tool" "kde-apps/kross-interpreters:${SLOT}[python]"
 		optfeature "Spell and grammar checking" app-text/languagetool
 	fi
 	ecm_pkg_postinst
