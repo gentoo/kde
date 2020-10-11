@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.0
+QTMIN=5.15.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org optfeature
 

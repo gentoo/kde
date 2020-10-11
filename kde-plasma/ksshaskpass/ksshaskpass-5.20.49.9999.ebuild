@@ -4,7 +4,7 @@
 EAPI=7
 
 KFMIN=5.74.0
-QTMIN=5.15.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Implementation of ssh-askpass with KDE Wallet integration"
