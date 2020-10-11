@@ -18,13 +18,12 @@ SLOT="5"
 KEYWORDS=""
 IUSE="importwizard markdown"
 
-# drop qtwidgets subslot operator when QT_MINIMAL >= 5.15.0
 RDEPEND="
 	>=app-crypt/gpgme-1.11.1[cxx,qt5]
 	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5=
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
