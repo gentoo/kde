@@ -6,8 +6,8 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="sdk"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="IDE for microcontrollers and electronics"

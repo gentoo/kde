@@ -6,8 +6,8 @@ EAPI=7
 EGIT_BRANCH="frameworks"
 ECM_HANDBOOK="forceoptional"
 KDE_ORG_CATEGORY="unmaintained"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Application to generate publication-ready figures"

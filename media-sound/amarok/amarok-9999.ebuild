@@ -4,8 +4,8 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Advanced audio player based on KDE frameworks"

@@ -4,8 +4,8 @@
 EAPI=7
 
 ECM_TEST="true"
-KFMIN=5.64.0
-QTMIN=5.12.3
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Library for accessing public transport timetables and other information"

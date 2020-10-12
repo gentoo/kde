@@ -6,7 +6,7 @@ EAPI=7
 ECM_KDEINSTALLDIRS="false"
 ECM_TEST="true"
 ECM_EXAMPLES="true"
-QTMIN=5.12.3
+QTMIN=5.15.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 

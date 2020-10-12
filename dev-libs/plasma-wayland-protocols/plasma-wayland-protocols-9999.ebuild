@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_NONGUI=true
-KFMIN=5.69.0
+KFMIN=5.74.0
 inherit ecm kde.org
 
 DESCRIPTION="Plasma Specific Protocols for Wayland"

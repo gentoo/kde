@@ -5,8 +5,8 @@ EAPI=7
 
 ECM_TEST="forceoptional"
 KDE_APPS_MINIMAL=19.04.3
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Data Model and Extraction System for Travel Reservation information"
