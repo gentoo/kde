@@ -3,9 +3,9 @@
 
 EAPI=7
 
-KFMIN=5.72.0
+KFMIN=5.74.0
 PLASMA_MINIMAL=5.16.5
-QTMIN=5.14.2
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Manage print jobs and printers in Plasma"

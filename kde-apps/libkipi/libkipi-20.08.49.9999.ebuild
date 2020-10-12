@@ -3,8 +3,8 @@
 
 EAPI=7
 
-KFMIN=5.72.0
-QTMIN=5.14.2
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="A library for image plugins accross KDE applications"

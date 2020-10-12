@@ -7,8 +7,8 @@ ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 ECM_TEST="false"
 KDE_ORG_NAME="akonadi-calendar-tools"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.72.0
-QTMIN=5.14.2
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Tool to scan calendar data for buggy instances"

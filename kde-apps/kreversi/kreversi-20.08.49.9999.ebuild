@@ -6,8 +6,8 @@ EAPI=7
 ECM_HANDBOOK="optional"
 KDE_SELINUX_MODULE="games"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.72.0
-QTMIN=5.14.2
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Board game by KDE"

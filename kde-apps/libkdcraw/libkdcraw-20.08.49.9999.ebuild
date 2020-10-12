@@ -3,7 +3,7 @@
 
 EAPI=7
 
-QTMIN=5.14.2
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Digital camera raw image library wrapper"

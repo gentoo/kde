@@ -7,8 +7,8 @@ ECM_HANDBOOK="false"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="dropbox"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.72.0
-QTMIN=5.14.2
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Dolphin plugin for Dropbox service integration"
