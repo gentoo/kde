@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 inherit ecm kde.org
 
 DESCRIPTION="Application to create libraries of QPainterPath objects with rendering hints"
-HOMEPAGE="https://kde.org/applications/graphics/org.kde.SymbolEditor
+HOMEPAGE="https://kde.org/applications/en/SymbolEditor
 https://userbase.kde.org/SymbolEditor"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then

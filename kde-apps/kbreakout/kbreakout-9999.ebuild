@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Breakout-like game by KDE"
-HOMEPAGE="https://kde.org/applications/games/org.kde.kbreakout
+HOMEPAGE="https://kde.org/applications/en/kbreakout
 https://games.kde.org/game.php?game=kbreakout"
 
 LICENSE="GPL-2" # TODO: CHECK

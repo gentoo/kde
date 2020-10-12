@@ -11,7 +11,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="A vocabulary trainer to help you memorize things"
-HOMEPAGE="https://kde.org/applications/education/org.kde.parley"
+HOMEPAGE="https://kde.org/applications/en/parley"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

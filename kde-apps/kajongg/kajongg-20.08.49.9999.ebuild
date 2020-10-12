@@ -11,7 +11,7 @@ QTMIN=5.15.1
 inherit python-single-r1 ecm kde.org
 
 DESCRIPTION="Classical Mah Jongg for four players"
-HOMEPAGE="https://kde.org/applications/games/org.kde.kajongg"
+HOMEPAGE="https://kde.org/applications/en/kajongg"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

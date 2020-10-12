@@ -9,7 +9,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Universal currency converter and calculator"
-HOMEPAGE="https://kde.org/applications/office/org.kde.keurocalc
+HOMEPAGE="https://kde.org/applications/en/keurocalc
 https://userbase.kde.org/KEuroCalc"
 
 LICENSE="GPL-2+ FDL-1.2"

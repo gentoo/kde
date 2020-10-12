@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Five-in-a-row Board Game"
-HOMEPAGE="https://kde.org/applications/games/org.kde.bovo"
+HOMEPAGE="https://kde.org/applications/en/bovo"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

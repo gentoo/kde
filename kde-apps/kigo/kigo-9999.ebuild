@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Go game by KDE"
-HOMEPAGE="https://kde.org/applications/games/org.kde.kigo"
+HOMEPAGE="https://kde.org/applications/en/kigo"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

@@ -11,7 +11,7 @@ QTMIN=5.15.1
 inherit python-single-r1 ecm kde.org
 
 DESCRIPTION="KDE Interactive Geometry tool"
-HOMEPAGE="https://kde.org/applications/education/org.kde.kig
+HOMEPAGE="https://kde.org/applications/en/kig
 https://edu.kde.org/kig/"
 
 LICENSE="GPL-2" # TODO: CHECK

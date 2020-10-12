@@ -9,7 +9,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Frontend to diff3 based on KDE Frameworks"
-HOMEPAGE="https://kde.org/applications/development/org.kde.kdiff3
+HOMEPAGE="https://kde.org/applications/en/kdiff3
 https://userbase.kde.org/KDiff3"
 
 LICENSE="GPL-2"

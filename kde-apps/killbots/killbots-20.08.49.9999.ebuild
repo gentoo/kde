@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Kill the bots or they kill you!"
-HOMEPAGE="https://kde.org/applications/games/org.kde.killbots"
+HOMEPAGE="https://kde.org/applications/en/killbots"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

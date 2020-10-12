@@ -9,7 +9,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="KDE free disk space utility"
-HOMEPAGE="https://kde.org/applications/system/org.kde.kdf
+HOMEPAGE="https://kde.org/applications/en/kdf
 https://utils.kde.org/projects/kdf/"
 
 LICENSE="GPL-2" # TODO: CHECK

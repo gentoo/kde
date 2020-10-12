@@ -13,7 +13,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="KIO Slave for Google Drive service"
-HOMEPAGE="https://kde.org/applications/internet/org.kde.kio_gdrive"
+HOMEPAGE="https://kde.org/applications/en/kio_gdrive"
 
 LICENSE="GPL-2+"
 SLOT="5"

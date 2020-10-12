@@ -10,7 +10,7 @@ QTMIN=5.12.3
 inherit ecm kde.org optfeature
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
-HOMEPAGE="https://kde.org/applications/education/org.kde.kbibtex
+HOMEPAGE="https://kde.org/applications/en/kbibtex
 https://userbase.kde.org/KBibTeX"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then

@@ -10,7 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Small utility which bothers you at certain intervals"
-HOMEPAGE="https://kde.org/applications/utilities/org.kde.rsibreak
+HOMEPAGE="https://kde.org/applications/en/rsibreak
 https://userbase.kde.org/RSIBreak"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then

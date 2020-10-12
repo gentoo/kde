@@ -10,7 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
-HOMEPAGE="https://kde.org/applications/multimedia/org.kde.kamoso
+HOMEPAGE="https://kde.org/applications/en/kamoso
 https://userbase.kde.org/Kamoso"
 
 LICENSE="GPL-2+"

@@ -8,7 +8,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="SMB filesharing config module for systemsettings"
-HOMEPAGE="https://kde.org/applications/system/org.kde.kdenetwork_filesharing"
+HOMEPAGE="https://kde.org/applications/en/kdenetwork_filesharing"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

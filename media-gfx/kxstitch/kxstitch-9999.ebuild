@@ -9,7 +9,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Program to create cross stitch patterns"
-HOMEPAGE="https://kde.org/applications/graphics/org.kde.kxstitch
+HOMEPAGE="https://kde.org/applications/en/kxstitch
 https://userbase.kde.org/KXStitch"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then

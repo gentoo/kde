@@ -10,7 +10,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Video player plugin for Konqueror and basic MPlayer frontend"
 HOMEPAGE="https://kmplayer.kde.org
-https://kde.org/applications/multimedia/org.kde.kmplayer"
+https://kde.org/applications/en/kmplayer"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${EGIT_BRANCH}/${P}.tar.bz2"

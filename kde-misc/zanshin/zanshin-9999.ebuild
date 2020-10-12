@@ -12,7 +12,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Getting things done application by KDE"
 HOMEPAGE="https://zanshin.kde.org/ https://userbase.kde.org/Zanshin
-https://kde.org/applications/utilities/org.kde.zanshin"
+https://kde.org/applications/en/zanshin"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"

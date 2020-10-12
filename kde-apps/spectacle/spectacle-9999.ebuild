@@ -11,7 +11,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Screenshot capture utility"
-HOMEPAGE="https://kde.org/applications/utilities/org.kde.spectacle"
+HOMEPAGE="https://kde.org/applications/en/spectacle"
 
 LICENSE="LGPL-2+ handbook? ( FDL-1.3 ) kipi? ( GPL-2+ )"
 SLOT="5"

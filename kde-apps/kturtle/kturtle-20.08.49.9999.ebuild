@@ -9,7 +9,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Educational programming environment using the Logo programming language"
-HOMEPAGE="https://kde.org/applications/education/org.kde.kturtle
+HOMEPAGE="https://kde.org/applications/en/kturtle
 https://edu.kde.org/kturtle/"
 
 LICENSE="GPL-2" # TODO: CHECK

@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Simple ball dodging game"
-HOMEPAGE="https://kde.org/applications/games/org.kde.kollision
+HOMEPAGE="https://kde.org/applications/en/kollision
 https://games.kde.org/game.php?game=kollision"
 
 LICENSE="GPL-2" # TODO: CHECK
