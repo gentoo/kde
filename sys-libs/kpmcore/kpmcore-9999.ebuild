@@ -20,20 +20,19 @@ LICENSE="GPL-3"
 SLOT="5/10"
 IUSE=""
 
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	>=kde-frameworks/kauth-${KFMIN}:5
+	virtual/pkgconfig
+"
 DEPEND="
-	|| (
-		>=app-crypt/qca-2.3.0:2[botan]
-		>=app-crypt/qca-2.3.0:2[ssl]
-	)
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=sys-apps/util-linux-2.33.2
+	sys-auth/polkit-qt
 "
 RDEPEND="${DEPEND}"
 
