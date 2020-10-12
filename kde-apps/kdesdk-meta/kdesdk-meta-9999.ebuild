@@ -9,7 +9,7 @@ HOMEPAGE="https://kde.org/applications/development"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="cvs git mercurial python ruby subversion +webkit"
+IUSE="cvs git mercurial python ruby subversion"
 
 RDEPEND="
 	>=kde-apps/kapptemplate-${PV}:${SLOT}
@@ -21,11 +21,11 @@ RDEPEND="
 	>=kde-apps/kompare-${PV}:${SLOT}
 	>=kde-apps/libkomparediff2-${PV}:${SLOT}
 	>=kde-apps/poxml-${PV}:${SLOT}
+	>=kde-apps/umbrello-${PV}:${SLOT}
 	cvs? ( >=kde-apps/cervisia-${PV}:${SLOT} )
 	git? ( >=kde-apps/dolphin-plugins-git-${PV}:${SLOT} )
 	mercurial? ( >=kde-apps/dolphin-plugins-mercurial-${PV}:${SLOT} )
 	python? ( >=kde-apps/lokalize-${PV}:${SLOT} )
 	ruby? ( >=kde-apps/kross-interpreters-${PV}:${SLOT} )
 	subversion? ( >=kde-apps/dolphin-plugins-subversion-${PV}:${SLOT} )
-	webkit? ( >=kde-apps/umbrello-${PV}:${SLOT} )
 "
