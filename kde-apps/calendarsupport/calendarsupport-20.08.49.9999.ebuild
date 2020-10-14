@@ -4,9 +4,10 @@
 EAPI=7
 
 ECM_TEST="false"
-PVCUT=$(ver_cut 1-3)
 KFMIN=5.74.0
+PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.1
+VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Calendar support library"
