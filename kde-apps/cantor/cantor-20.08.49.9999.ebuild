@@ -74,7 +74,7 @@ RDEPEND="${DEPEND}
 
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}/${PN}-20.08.2-python.patch" )
+PATCHES=( "${FILESDIR}/${PN}-20.08.3-python.patch" )
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
