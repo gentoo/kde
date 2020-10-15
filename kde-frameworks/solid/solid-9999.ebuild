@@ -10,7 +10,7 @@ inherit ecm kde.org optfeature
 DESCRIPTION="Provider for platform independent hardware discovery, abstraction and management"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="nls"
+IUSE="ios nls"
 
 BDEPEND="
 	sys-devel/bison
@@ -24,10 +24,22 @@ RDEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	sys-fs/udisks:2
 	virtual/libudev:=
+	ios? (
+		app-pda/libimobiledevice:=
+		app-pda/libplist:=
+	)
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package ios IMobileDevice)
+		$(cmake_use_find_package ios PList)
+	)
+	ecm_src_configure
+}
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
