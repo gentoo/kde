@@ -62,8 +62,6 @@ RDEPEND="${DEPEND}
 	>=kde-apps/kio-extras-${PVCUT}:5
 "
 
-RESTRICT+=" test"
-
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON
@@ -72,8 +70,17 @@ src_configure() {
 		$(cmake_use_find_package semantic-desktop KF5BalooWidgets)
 		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
 	)
-
 	ecm_src_configure
+}
+
+src_test() {
+	local myctestargs=(
+		# servicemenuinstaller requires ruby, no thanks
+		# dolphinmainwindowtest, kitemlistcontrollertest, kfileitemlistviewtest, kfileitemmodeltest hang forever
+		# placesitemmodeltest requires DBus
+		-E "(servicemenuinstaller|dolphinmainwindowtest|kfileitemlistviewtest|kfileitemmodeltest|kitemlistcontrollertest|placesitemmodeltest)"
+	)
+	ecm_src_test
 }
 
 pkg_postinst() {
