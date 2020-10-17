@@ -84,7 +84,6 @@ COMMON_DEPEND="
 		app-text/libwpg:*
 		>=app-text/libwps-0.4
 		dev-libs/librevenge
-		>=kde-frameworks/khtml-${KFMIN}:5
 		media-libs/libvisio
 	)
 	lcms? (
@@ -153,6 +152,8 @@ src_configure() {
 		-DPACKAGERS_BUILD=OFF
 		-DRELEASE_BUILD=ON
 		-DWITH_Iconv=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5CalendarCore=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5KHtml=ON
 		-DPRODUCTSET="${myproducts[*]}"
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package charts KChart)
@@ -169,7 +170,6 @@ src_configure() {
 		-DWITH_LibWpg=$(usex import-filter)
 		-DWITH_LibWps=$(usex import-filter)
 		$(cmake_use_find_package phonon Phonon4Qt5)
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5CalendarCore=ON
 		-DWITH_LCMS2=$(usex lcms)
 		-DWITH_Okular5=$(usex okular)
 		-DWITH_OpenEXR=$(usex openexr)
