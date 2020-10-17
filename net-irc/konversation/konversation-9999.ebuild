@@ -37,6 +37,7 @@ DEPEND="
 	>=kde-frameworks/kidletime-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
@@ -50,6 +51,7 @@ DEPEND="
 	crypt? ( >=app-crypt/qca-2.3.0:2 )
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtsvg-${QTMIN}:5
 	crypt? ( >=app-crypt/qca-2.3.0:2[ssl] )
 "
 
