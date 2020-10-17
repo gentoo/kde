@@ -51,7 +51,7 @@ RDEPEND="${DEPEND}
 	virtual/tex-base
 	pdf? (
 		app-text/ghostscript-gpl
-		>=app-text/texlive-core-2014
+		app-text/texlive-core
 	)
 	png? (
 		app-text/dvipng
