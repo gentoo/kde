@@ -13,8 +13,7 @@ QTMIN=5.15.1
 inherit ecm kde.org optfeature python-single-r1
 
 DESCRIPTION="Interface for doing mathematics and scientific computing"
-HOMEPAGE="https://kde.org/applications/en/cantor
-https://edu.kde.org/cantor/"
+HOMEPAGE="https://kde.org/applications/en/cantor https://edu.kde.org/cantor/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
