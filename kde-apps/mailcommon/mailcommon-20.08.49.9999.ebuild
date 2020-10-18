@@ -18,12 +18,11 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-# drop qtcore subslot operator when QT_MINIMAL >= 5.15.0
 BDEPEND="
 	dev-libs/libxslt
 "
 DEPEND="
-	>=dev-qt/qtcore-${QTMIN}:5=
+	>=dev-qt/qtcore-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5

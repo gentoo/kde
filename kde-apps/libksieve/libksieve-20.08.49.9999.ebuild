@@ -18,12 +18,11 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-# drop qtnetwork subslot operator when QT_MINIMAL >= 5.15.0
 RDEPEND="
 	dev-libs/cyrus-sasl
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5=
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
