@@ -3,8 +3,8 @@
 
 EAPI=7
 
-KFMIN=5.70.0
-QTMIN=5.14.2
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Tool to check contrast for colors to verify they are correctly accessible"

@@ -4,8 +4,8 @@
 EAPI=7
 
 KDE_ORG_CATEGORY="plasma"
-KFMIN=5.70.0
-QTMIN=5.14.2
+KFMIN=5.74.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then

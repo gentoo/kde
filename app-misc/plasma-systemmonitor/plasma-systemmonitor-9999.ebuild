@@ -5,7 +5,7 @@ EAPI=7
 
 KDE_ORG_CATEGORY=plasma
 KFMIN=5.74.0
-QTMIN=5.15.0
+QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="New version of KSysGuard built on top of the new KStats daemon and using QML"
