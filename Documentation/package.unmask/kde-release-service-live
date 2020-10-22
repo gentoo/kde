@@ -5,6 +5,7 @@
 ~kde-apps/keditbookmarks-9999
 ~kde-apps/kfind-9999
 ~kde-apps/konqueror-9999
+~app-accessibility/kontrast-9999
 ~kde-apps/kdeaccessibility-meta-9999
 ~kde-apps/kmag-9999
 ~kde-apps/kmousetool-9999
@@ -137,6 +138,8 @@
 ~kde-apps/zeroconf-ioslave-9999
 ~kde-misc/kdeconnect-9999
 ~kde-misc/kio-gdrive-9999
+~net-libs/libktorrent-9999
+~net-p2p/ktorrent-9999
 ~kde-apps/akonadi-9999
 ~kde-apps/akonadi-calendar-9999
 ~kde-apps/akonadi-contacts-9999
@@ -225,3 +228,5 @@
 ~kde-apps/print-manager-9999
 ~kde-apps/sweeper-9999
 ~kde-apps/yakuake-9999
+~sys-block/partitionmanager-9999
+~sys-libs/kpmcore-9999

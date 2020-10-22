@@ -25,3 +25,5 @@
 ~kde-apps/zeroconf-ioslave-9999 **
 ~kde-misc/kdeconnect-9999 **
 ~kde-misc/kio-gdrive-9999 **
+~net-libs/libktorrent-9999 **
+~net-p2p/ktorrent-9999 **
