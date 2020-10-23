@@ -9,8 +9,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Application to read documentation for KDE Plasma, Applications, Utilities"
-HOMEPAGE="https://kde.org/applications/en/Help
-https://userbase.kde.org/KHelpCenter"
+HOMEPAGE="https://apps.kde.org/en/Help https://userbase.kde.org/KHelpCenter"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
