@@ -9,8 +9,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Educational application to learn calculating with fractions"
-HOMEPAGE="https://kde.org/applications/en/kbruch
-https://edu.kde.org/kbruch/"
+HOMEPAGE="https://apps.kde.org/en/kbruch https://edu.kde.org/kbruch/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

@@ -11,8 +11,7 @@ QTMIN=5.15.1
 inherit ecm kde.org optfeature
 
 DESCRIPTION="Image viewer by KDE"
-HOMEPAGE="https://kde.org/applications/en/gwenview
-https://userbase.kde.org/Gwenview"
+HOMEPAGE="https://apps.kde.org/en/gwenview https://userbase.kde.org/Gwenview"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 SLOT="5"

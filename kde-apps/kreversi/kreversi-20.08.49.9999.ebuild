@@ -11,7 +11,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Board game by KDE"
-HOMEPAGE="https://kde.org/applications/en/kreversi
+HOMEPAGE="https://apps.kde.org/en/kreversi
 https://games.kde.org/game.php?game=kreversi"
 
 LICENSE="GPL-2" # TODO: CHECK

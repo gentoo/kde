@@ -9,7 +9,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Generator of HTML image maps"
-HOMEPAGE="https://kde.org/applications/en/kimagemapeditor"
+HOMEPAGE="https://apps.kde.org/en/kimagemapeditor"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Interface to work with Graph Theory"
-HOMEPAGE="https://kde.org/applications/en/rocs"
+HOMEPAGE="https://apps.kde.org/en/rocs"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

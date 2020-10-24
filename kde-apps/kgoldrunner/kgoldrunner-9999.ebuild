@@ -11,7 +11,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Game of action and puzzle solving by KDE"
-HOMEPAGE="https://kde.org/applications/en/kgoldrunner
+HOMEPAGE="https://apps.kde.org/en/kgoldrunner
 https://games.kde.org/game.php?game=kgoldrunner"
 
 LICENSE="GPL-2" # TODO: CHECK

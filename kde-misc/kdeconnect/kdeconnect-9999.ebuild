@@ -14,7 +14,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
 HOMEPAGE="https://kdeconnect.kde.org/
-https://kde.org/applications/en/kdeconnect.kcm"
+https://apps.kde.org/en/kdeconnect.kcm"
 
 LICENSE="GPL-2+"
 SLOT="5"

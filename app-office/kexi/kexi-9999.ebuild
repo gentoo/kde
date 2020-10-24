@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Visual database applications creator"
-HOMEPAGE="https://kde.org/applications/en/kalgebra http://www.kexi-project.org/
+HOMEPAGE="https://apps.kde.org/en/kexi-3.3 http://kexi-project.org/
 https://userbase.kde.org/Kexi"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then

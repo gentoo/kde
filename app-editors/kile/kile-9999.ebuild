@@ -11,7 +11,7 @@ MY_P=${P/_beta/b}
 inherit ecm kde.org
 
 DESCRIPTION="Latex Editor and TeX shell based on KDE Frameworks"
-HOMEPAGE="https://kde.org/applications/en/kile https://kile.sourceforge.io/"
+HOMEPAGE="https://apps.kde.org/en/kile https://kile.sourceforge.io/"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"

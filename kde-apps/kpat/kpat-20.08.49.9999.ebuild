@@ -12,7 +12,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="KDE patience game"
-HOMEPAGE="https://kde.org/applications/en/kpat
+HOMEPAGE="https://apps.kde.org/en/kpat
 https://games.kde.org/game.php?game=kpat"
 
 LICENSE="GPL-2" # TODO: CHECK

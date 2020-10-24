@@ -11,7 +11,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Simple chess board based on KDE Frameworks"
-HOMEPAGE="https://kde.org/applications/en/knights"
+HOMEPAGE="https://apps.kde.org/en/knights"
 
 LICENSE="GPL-2+"
 SLOT="5"

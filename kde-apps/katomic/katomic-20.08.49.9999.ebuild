@@ -11,7 +11,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="KDE Atomic Entertainment Game"
-HOMEPAGE="https://kde.org/applications/en/katomic
+HOMEPAGE="https://apps.kde.org/en/katomic
 https://games.kde.org/game.php?game=katomic"
 
 LICENSE="GPL-2" # TODO: CHECK

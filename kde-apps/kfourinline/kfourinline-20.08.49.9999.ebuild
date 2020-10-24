@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="KDE four-in-a-row game"
-HOMEPAGE="https://kde.org/applications/en/kfourinline
+HOMEPAGE="https://apps.kde.org/en/kfourinline
 https://games.kde.org/game.php?game=kfourinline"
 
 LICENSE="GPL-2" # TODO: CHECK

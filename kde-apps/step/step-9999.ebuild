@@ -10,8 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Interactive physics simulator"
-HOMEPAGE="https://kde.org/applications/en/step
-https://edu.kde.org/step/"
+HOMEPAGE="https://apps.kde.org/en/step https://edu.kde.org/step/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

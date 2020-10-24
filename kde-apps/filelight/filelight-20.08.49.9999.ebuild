@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Visualise disk usage with interactive map of concentric, segmented rings"
-HOMEPAGE="https://kde.org/applications/en/filelight
+HOMEPAGE="https://apps.kde.org/en/filelight
 https://utils.kde.org/projects/filelight/"
 
 LICENSE="GPL-2" # TODO: CHECK

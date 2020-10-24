@@ -9,7 +9,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Program that lets you back up any directories or files"
-HOMEPAGE="https://kde.org/applications/en/kbackup"
+HOMEPAGE="https://apps.kde.org/en/kbackup"
 
 LICENSE="GPL-2"
 SLOT="5"
