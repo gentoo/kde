@@ -5,7 +5,6 @@ EAPI=7
 
 ECM_TEST="forceoptional"
 KFMIN=5.74.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
@@ -16,7 +15,7 @@ HOMEPAGE="https://userbase.kde.org/Discover"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+firmware telemetry"
+IUSE="+firmware flatpak telemetry"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
@@ -43,6 +42,10 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	firmware? ( sys-apps/fwupd )
+	flatpak? (
+		dev-libs/appstream:=
+		sys-apps/flatpak
+	)
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 RDEPEND="${DEPEND}
@@ -59,9 +62,9 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt5=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_AppStreamQt=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Snapd=ON
-		-DBUILD_FlatpakBackend=OFF
+		-DBUILD_FlatpakBackend=$(usex flatpak)
+		$(cmake_use_find_package flatpak AppStreamQt)
 		-DBUILD_FwupdBackend=$(usex firmware)
 		$(cmake_use_find_package telemetry KUserFeedback)
 	)
