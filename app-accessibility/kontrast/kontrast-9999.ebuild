@@ -10,13 +10,9 @@ inherit ecm kde.org
 DESCRIPTION="Tool to check contrast for colors to verify they are correctly accessible"
 HOMEPAGE="https://apps.kde.org/en/kontrast"
 
-if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
-
 LICENSE="GPL-3+"
 SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
