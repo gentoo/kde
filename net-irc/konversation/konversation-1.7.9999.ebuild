@@ -61,7 +61,6 @@ RDEPEND="${DEPEND}
 
 PATCHES=(
 	# git master
-	"${FILESDIR}"/${PN}-1.7.5-kf5bookmarks-5.69.patch
 	"${FILESDIR}"/${PN}-1.7.5-unused-kemoticons.patch
 	"${FILESDIR}"/${PN}-1.7.6-no-kiconthemes.patch
 )
