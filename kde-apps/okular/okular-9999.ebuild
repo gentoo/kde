@@ -44,6 +44,7 @@ DEPEND="
 	sys-libs/zlib
 	chm? (
 		dev-libs/chmlib
+		dev-libs/libzip:=
 		>=kde-frameworks/khtml-${KFMIN}:5
 	)
 	djvu? ( app-text/djvu )
@@ -78,6 +79,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DOKULAR_UI=$(usex qml "both" "desktop")
 		$(cmake_use_find_package chm CHM)
+		$(cmake_use_find_package chm KF5KHtml)
+		$(cmake_use_find_package chm LibZip)
 		$(cmake_use_find_package djvu DjVuLibre)
 		$(cmake_use_find_package epub EPub)
 		$(cmake_use_find_package image-backend KF5KExiv2)
