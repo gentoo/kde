@@ -16,10 +16,7 @@ SLOT="5/10"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	>=kde-frameworks/kauth-${KFMIN}:5
-	virtual/pkgconfig
-"
+BDEPEND="virtual/pkgconfig"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
