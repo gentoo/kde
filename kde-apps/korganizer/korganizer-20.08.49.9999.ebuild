@@ -25,7 +25,6 @@ BDEPEND="
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-calendar-${PVCUT}:5
@@ -67,6 +66,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=media-libs/phonon-4.11.0
 	telemetry? ( dev-libs/kuserfeedback:5 )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
