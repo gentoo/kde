@@ -16,9 +16,10 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+BDEPEND="virtual/pkgconfig"
 DEPEND="
 	dev-libs/grantlee:5
-	dev-libs/libxml2
+	dev-libs/gumbo
 	dev-libs/xapian:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
