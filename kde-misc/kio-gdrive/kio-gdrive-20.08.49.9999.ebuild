@@ -21,7 +21,8 @@ KEYWORDS=""
 IUSE="+kaccounts"
 
 BDEPEND="dev-util/intltool"
-RDEPEND="
+COMMON_DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-apps/libkgapi-19.08.0:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -31,9 +32,11 @@ RDEPEND="
 	kaccounts? ( >=kde-apps/kaccounts-integration-${PVCUT}:5 )
 	!kaccounts? ( dev-libs/qtkeychain:=[qt5(+)] )
 "
-DEPEND="${RDEPEND}
-	>=dev-qt/qtgui-${QTMIN}:5
+DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtnetwork-${QTMIN}:5
+"
+RDEPEND="${COMMON_DEPEND}
+	kaccounts? ( >=kde-apps/kaccounts-providers-${PVCUT}:5 )
 "
 
 DOCS=( README.md )
