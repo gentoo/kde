@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_HANDBOOK="optional"
-ECM_TEST="forceoptional"
+ECM_TEST="true"
 KFMIN=5.75.0
 QTMIN=5.15.1
 inherit ecm kde.org
@@ -46,13 +46,6 @@ DEPEND="
 	qalculate? ( >=sci-libs/libqalculate-0.9.5:= )
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	ecm_src_prepare
-
-	# FIXME: Drop duplicate upstream
-	cmake_run_in stepcore ecm_punt_bogus_dep Qt5 Test
-}
 
 src_configure() {
 	local mycmakeargs=(
