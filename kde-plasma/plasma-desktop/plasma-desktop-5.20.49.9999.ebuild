@@ -124,7 +124,7 @@ PATCHES=(
 src_prepare() {
 	ecm_src_prepare
 
-	cmake_run_in kcms cmake_comment_add_subdirectory users
+	use policykit || cmake_run_in kcms cmake_comment_add_subdirectory users
 
 	if ! use ibus; then
 		sed -e "s/Qt5X11Extras_FOUND AND XCB_XCB_FOUND AND XCB_KEYSYMS_FOUND/false/" \
