@@ -10,7 +10,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="User friendly IRC Client"
-HOMEPAGE="https://konversation.kde.org"
+HOMEPAGE="https://konversation.kde.org https://apps.kde.org/en/konversation"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV/_/-}/src/${P/_/-}.tar.xz"
