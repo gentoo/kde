@@ -9,7 +9,7 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Touch friendly calendar application"
-HOMEPAGE="https://kde.org/applications/cs/calindori"
+HOMEPAGE="https://apps.kde.org/cs/calindori"
 
 LICENSE="CC-BY-SA-4.0 BSD GPL-3+"
 SLOT="5"

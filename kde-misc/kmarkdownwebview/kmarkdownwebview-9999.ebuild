@@ -6,7 +6,7 @@ EAPI=7
 inherit ecm kde.org
 
 DESCRIPTION="KPart for rendering Markdown content"
-HOMEPAGE="https://frinring.wordpress.com/2017/09/14/kmarkdownwebview-0-1-0/"
+HOMEPAGE="https://apps.kde.org/en/kmarkdownwebviewpart"
 
 LICENSE="BSD LGPL-2.1+"
 SLOT="5"
