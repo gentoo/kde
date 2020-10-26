@@ -3,24 +3,24 @@
 
 EAPI=7
 
-DESCRIPTION="Meta package for the KDE Applications collection"
+DESCRIPTION="Meta package for the KDE Release Service collection"
 HOMEPAGE="https://kde.org/"
 
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="accessibility pim sdk"
+IUSE="accessibility +admin +education +games +graphics +multimedia +network pim sdk +utils"
 
 RDEPEND="
-	>=kde-apps/kdeadmin-meta-${PV}:${SLOT}
 	>=kde-apps/kdecore-meta-${PV}:${SLOT}
-	>=kde-apps/kdeedu-meta-${PV}:${SLOT}
-	>=kde-apps/kdegames-meta-${PV}:${SLOT}
-	>=kde-apps/kdegraphics-meta-${PV}:${SLOT}
-	>=kde-apps/kdemultimedia-meta-${PV}:${SLOT}
-	>=kde-apps/kdenetwork-meta-${PV}:${SLOT}
-	>=kde-apps/kdeutils-meta-${PV}:${SLOT}
 	accessibility? ( >=kde-apps/kdeaccessibility-meta-${PV}:${SLOT} )
+	admin? ( >=kde-apps/kdeadmin-meta-${PV}:${SLOT} )
+	education? ( >=kde-apps/kdeedu-meta-${PV}:${SLOT} )
+	games? ( >=kde-apps/kdegames-meta-${PV}:${SLOT} )
+	graphics? ( >=kde-apps/kdegraphics-meta-${PV}:${SLOT} )
+	multimedia? ( >=kde-apps/kdemultimedia-meta-${PV}:${SLOT} )
+	network? ( >=kde-apps/kdenetwork-meta-${PV}:${SLOT} )
 	pim? ( >=kde-apps/kdepim-meta-${PV}:${SLOT} )
 	sdk? ( >=kde-apps/kdesdk-meta-${PV}:${SLOT} )
+	utils? ( >=kde-apps/kdeutils-meta-${PV}:${SLOT} )
 "
