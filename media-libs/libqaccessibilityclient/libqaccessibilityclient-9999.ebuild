@@ -15,7 +15,7 @@ HOMEPAGE="https://community.kde.org/Accessibility https://invent.kde.org/librari
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 fi
 
 LICENSE="LGPL-2.1"

@@ -8,11 +8,14 @@ inherit ecm kde.org
 
 DESCRIPTION="Graphviz dot graph file viewer"
 HOMEPAGE="https://apps.kde.org/en/kgraphviewer"
-[[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm64 ~x86"
+fi
 
 LICENSE="GPL-2 GPL-2+ LGPL-2+ LGPL-2.1+ handbook? ( FDL-1.2 )"
 SLOT="5"
-KEYWORDS=""
 IUSE=""
 
 RDEPEND="
