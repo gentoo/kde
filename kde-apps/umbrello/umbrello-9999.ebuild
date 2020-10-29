@@ -50,7 +50,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${PN}-20.08.3-{no,unused}-qtwebkit.patch )
+PATCHES=( "${FILESDIR}"/${PN}-20.08.3-no-qtwebkit.patch )
 
 src_configure() {
 	local mycmakeargs=(
