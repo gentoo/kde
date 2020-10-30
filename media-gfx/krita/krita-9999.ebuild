@@ -45,7 +45,6 @@ RDEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
