@@ -45,12 +45,16 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	php? (
 		dev-util/kdevelop:5=
-		dev-util/kdevelop-pg-qt
+		dev-util/kdevelop-pg-qt:5
+		dev-util/kdevelop-php:5
 	)
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${PN}-20.08.3-{no,unused}-qtwebkit.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-20.08.3-{no,unused}-qtwebkit.patch
+	"${FILESDIR}"/${PN}-20.08.3-unbundle-kdevelop-php.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
