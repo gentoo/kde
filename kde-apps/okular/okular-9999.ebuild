@@ -17,7 +17,7 @@ HOMEPAGE="https://okular.kde.org https://apps.kde.org/en/okular"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="chm djvu epub +image-backend markdown mobi +pdf plucker +postscript qml share speech +tiff"
+IUSE="chm djvu epub +image-backend markdown mobi +pdf +plucker +postscript qml share speech +tiff"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
