@@ -16,7 +16,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="accessibility caps gles2-only multimedia screencast"
+IUSE="accessibility caps gles2-only multimedia plasma screencast"
 
 COMMON_DEPEND="
 	>=dev-libs/libinput-1.14
@@ -75,6 +75,7 @@ COMMON_DEPEND="
 	accessibility? ( media-libs/libqaccessibilityclient:5 )
 	caps? ( sys-libs/libcap )
 	gles2-only? ( media-libs/mesa[gles2] )
+	plasma? ( >=kde-frameworks/krunner-${KFMIN}:5 )
 	screencast? ( >=media-video/pipewire-0.3:= )
 "
 # TODO: sys-apps/hwdata? not packaged yet; commit 33a1777a, Gentoo-bug 717216
@@ -112,6 +113,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package accessibility QAccessibilityClient)
 		$(cmake_use_find_package caps Libcap)
+		$(cmake_use_find_package plasma KF5Runner)
 	)
 
 	ecm_src_configure
