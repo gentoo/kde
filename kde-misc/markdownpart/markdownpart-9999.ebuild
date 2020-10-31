@@ -7,16 +7,12 @@ KFMIN=5.74.0
 QTMIN=5.15.1
 inherit ecm kde.org
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
-
 DESCRIPTION="Markdown viewer KParts plugin based on QTextDocument"
 HOMEPAGE="https://apps.kde.org/en/markdownpart"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
