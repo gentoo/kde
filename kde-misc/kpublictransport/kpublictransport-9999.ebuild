@@ -17,10 +17,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	sys-devel/bison
-	sys-devel/flex
-"
 RDEPEND="
 	dev-libs/protobuf:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -31,3 +27,10 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_OsmTools=ON # we have no use for it
+	)
+	ecm_src_configure
+}
