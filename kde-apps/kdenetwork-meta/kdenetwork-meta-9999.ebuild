@@ -20,6 +20,7 @@ RDEPEND="
 	>=kde-apps/zeroconf-ioslave-${PV}:${SLOT}
 	>=kde-misc/kdeconnect-${PV}:${SLOT}
 	>=kde-misc/kio-gdrive-${PV}:${SLOT}
+	>=net-irc/konversation-${PV}:${SLOT}
 	dropbox? ( >=kde-apps/dolphin-plugins-dropbox-${PV}:${SLOT} )
 	webengine? ( >=kde-apps/plasma-telepathy-meta-${PV}:${SLOT} )
 "
