@@ -101,7 +101,6 @@
 ~kde-apps/kruler-20.04.49.9999 **
 ~kde-apps/libkdcraw-20.04.49.9999 **
 ~kde-apps/libkexiv2-20.04.49.9999 **
-~kde-apps/libkgeomap-20.04.49.9999 **
 ~kde-apps/libkipi-20.04.49.9999 **
 ~kde-apps/libksane-20.04.49.9999 **
 ~kde-apps/okular-20.04.49.9999 **
@@ -166,7 +165,6 @@
 ~kde-apps/kalarm-20.04.49.9999 **
 ~kde-apps/kalarmcal-20.04.49.9999 **
 ~kde-apps/kcalutils-20.04.49.9999 **
-~kde-apps/kdav-20.04.49.9999 **
 ~kde-apps/kdepim-addons-20.04.49.9999 **
 ~kde-apps/kdepim-apps-libs-20.04.49.9999 **
 ~kde-apps/kdepim-meta-20.04.49.9999 **
