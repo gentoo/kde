@@ -69,8 +69,6 @@ RDEPEND="${DEPEND}
 
 RESTRICT+=" test" # segfaults, bug 684132
 
-PATCHES=( "${FILESDIR}/${PN}-20.08.3-webengine.patch" ) # pending upstream
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
