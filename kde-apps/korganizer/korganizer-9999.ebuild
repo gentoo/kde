@@ -34,6 +34,7 @@ COMMON_DEPEND="
 	>=kde-apps/akonadi-search-${PVCUT}:5
 	>=kde-apps/calendarsupport-${PVCUT}:5
 	>=kde-apps/eventviews-${PVCUT}:5
+	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/incidenceeditor-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
