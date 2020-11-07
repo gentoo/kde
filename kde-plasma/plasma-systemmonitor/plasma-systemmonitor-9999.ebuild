@@ -3,7 +3,6 @@
 
 EAPI=7
 
-KDE_ORG_CATEGORY=plasma
 KFMIN=5.74.0
 QTMIN=5.15.1
 inherit ecm kde.org
@@ -11,9 +10,13 @@ inherit ecm kde.org
 DESCRIPTION="New version of KSysGuard built on top of the new KStats daemon and using QML"
 HOMEPAGE="https://invent.kde.org/plasma/plasma-systemmonitor"
 
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
+
 LICENSE="|| ( GPL-3 GPL-2 )"
 SLOT="5"
-KEYWORDS=""
 IUSE=""
 
 DEPEND="
