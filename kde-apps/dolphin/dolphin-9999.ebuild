@@ -17,7 +17,7 @@ HOMEPAGE="https://apps.kde.org/en/dolphin https://userbase.kde.org/Dolphin"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="activities semantic-desktop"
+IUSE="activities semantic-desktop telemetry"
 
 DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -56,6 +56,7 @@ DEPEND="
 		>=kde-frameworks/baloo-${KFMIN}:5
 		>=kde-frameworks/kfilemetadata-${KFMIN}:5
 	)
+	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 RDEPEND="${DEPEND}
 	>=kde-apps/kio-extras-${PVCUT}:5
@@ -68,6 +69,7 @@ src_configure() {
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
 		$(cmake_use_find_package semantic-desktop KF5BalooWidgets)
 		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
+		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 	ecm_src_configure
 }
