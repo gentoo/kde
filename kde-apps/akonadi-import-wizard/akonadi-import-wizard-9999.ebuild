@@ -22,6 +22,7 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/mailcommon-${PVCUT}:5
