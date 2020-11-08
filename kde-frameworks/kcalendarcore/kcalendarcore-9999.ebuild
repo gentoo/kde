@@ -17,7 +17,7 @@ BDEPEND="
 	sys-devel/bison
 "
 DEPEND="
-	dev-libs/libical:=
+	>=dev-libs/libical-3.0.5:=
 	>=dev-qt/qtgui-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
