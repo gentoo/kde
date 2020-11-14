@@ -5,6 +5,7 @@ EAPI=7
 
 EGIT_BRANCH="wip/qtquick"
 ECM_HANDBOOK="forceoptional"
+KDE_RELEASE_SERVICE="true"
 KFMIN=5.74.0
 QTMIN=5.15.1
 inherit ecm kde.org
