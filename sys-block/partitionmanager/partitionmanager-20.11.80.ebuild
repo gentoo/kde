@@ -5,6 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="optional"
 KFMIN=5.74.0
+PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.1
 inherit ecm kde.org
 
@@ -29,6 +30,6 @@ DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=sys-libs/kpmcore-4.2.0:5=
+	>=sys-libs/kpmcore-${PVCUT}:5=
 "
 RDEPEND="${DEPEND}"
