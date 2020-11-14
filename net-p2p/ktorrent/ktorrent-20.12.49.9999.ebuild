@@ -7,6 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="optional"
 KDE_RELEASE_SERVICE="true"
 KFMIN=5.74.0
+PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.1
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
@@ -43,7 +44,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=net-libs/libktorrent-2.2.0:5
+	>=net-libs/libktorrent-${PVCUT}:5
 	infowidget? ( dev-libs/geoip )
 	kross? (
 		>=kde-frameworks/karchive-${KFMIN}:5
