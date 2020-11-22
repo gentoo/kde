@@ -37,7 +37,6 @@ COMMON_DEPEND="
 	=kde-frameworks/kcrash-${PVCUT}*:5
 	=kde-frameworks/kdbusaddons-${PVCUT}*:5
 	>=kde-frameworks/kded-${PVCUT}:5
-	=kde-frameworks/kdesignerplugin-${PVCUT}*:5
 	=kde-frameworks/kdoctools-${PVCUT}*:5
 	=kde-frameworks/kemoticons-${PVCUT}*:5
 	=kde-frameworks/kglobalaccel-${PVCUT}*:5
@@ -68,7 +67,6 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-qt/designer-${QTMIN}:5
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 	X? ( x11-base/xorg-proto )
 "
@@ -79,6 +77,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 RESTRICT+=" test"
+
+PATCHES=( "${FILESDIR}/${P}-no-kdesignerplugin.patch" )
 
 src_prepare() {
 	ecm_src_prepare
