@@ -20,6 +20,7 @@ BDEPEND="
 	dev-perl/URI
 "
 COMMON_DEPEND="
+	app-text/docbook-xml-dtd:4.2
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
@@ -55,7 +56,6 @@ COMMON_DEPEND="
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
-	app-text/docbook-xml-dtd:4.2
 	virtual/libintl
 	!libressl? ( dev-libs/openssl:0 )
 	libressl? ( dev-libs/libressl )
@@ -73,9 +73,9 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
 "
 RDEPEND="${COMMON_DEPEND}
+	>=dev-qt/qtxml-${QTMIN}:5
 	=kde-frameworks/kinit-${PVCUT}*:5
 	=kde-frameworks/kitemmodels-${PVCUT}*:5
-	>=dev-qt/qtxml-${QTMIN}:5
 "
 
 RESTRICT+=" test"
