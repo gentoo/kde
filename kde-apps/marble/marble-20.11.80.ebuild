@@ -16,7 +16,7 @@ HOMEPAGE="https://marble.kde.org/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="aprs +dbus designer gps +kde nls phonon +geolocation shapefile +webengine"
+IUSE="aprs +dbus designer +geolocation gps +kde nls +pbf phonon shapefile +webengine"
 
 # FIXME (new package): libwlocate, WLAN-based geolocation
 BDEPEND="
@@ -52,6 +52,7 @@ DEPEND="
 		>=kde-frameworks/kservice-${KFMIN}:5
 		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
+	pbf? ( dev-libs/protobuf:= )
 	phonon? ( >=media-libs/phonon-4.11.0 )
 	shapefile? ( sci-libs/shapelib:= )
 	webengine? (
@@ -80,6 +81,7 @@ src_configure() {
 		-DWITH_DESIGNER_PLUGIN=$(usex designer)
 		-DWITH_libgps=$(usex gps)
 		-DWITH_KF5=$(usex kde)
+		$(cmake_use_find_package pbf Protobuf)
 		-DWITH_Phonon4Qt5=$(usex phonon)
 		-DWITH_libshp=$(usex shapefile)
 		$(cmake_use_find_package webengine Qt5WebEngine)
