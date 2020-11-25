@@ -5,14 +5,16 @@
 <kde-frameworks/frameworkintegration-5.74.50:5
 # PortingAids: Code and utilities for transition from kdelibs 4 to Frameworks 5.
 <kde-frameworks/kdelibs4support-5.74.50:5
-<kde-frameworks/kdesignerplugin-5.74.50:5
-<kde-frameworks/kdewebkit-5.74.50:5
 <kde-frameworks/khtml-5.74.50:5
 <kde-frameworks/kjs-5.74.50:5
-<kde-frameworks/kjsembed-5.74.50:5
-<kde-frameworks/kmediaplayer-5.74.50:5
 <kde-frameworks/kross-5.74.50:5
-<kde-frameworks/kxmlrpcclient-5.74.50:5
+# TODO: PMASK after KDE Frameworks 5.74 cleanup
+<kde-frameworks/kdesignerplugin-5.74.50:5
+# PMASKED
+# <kde-frameworks/kdewebkit-5.74.50:5
+# <kde-frameworks/kjsembed-5.74.50:5
+# <kde-frameworks/kmediaplayer-5.74.50:5
+# <kde-frameworks/kxmlrpcclient-5.74.50:5
 # Tier 1: Depend only on Qt and possibly a few third-party libraries.
 <kde-frameworks/attica-5.74.50:5
 <kde-frameworks/bluez-qt-5.74.50:5
