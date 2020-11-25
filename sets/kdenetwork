@@ -25,3 +25,4 @@ kde-apps/plasma-telepathy-meta:5
 kde-apps/signon-kwallet-extension:5
 kde-apps/zeroconf-ioslave:5
 kde-misc/kdeconnect:5
+kde-misc/kio-gdrive:5
