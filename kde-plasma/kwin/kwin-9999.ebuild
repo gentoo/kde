@@ -93,6 +93,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	x11-base/xorg-proto
+	test? ( >=dev-qt/qtwayland-${QTMIN}:5 )
 "
 PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
