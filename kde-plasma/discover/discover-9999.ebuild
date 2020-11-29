@@ -43,7 +43,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	firmware? ( sys-apps/fwupd )
 	flatpak? (
-		dev-libs/appstream:=
+		>=dev-libs/appstream-0.12.8:=
 		sys-apps/flatpak
 	)
 	telemetry? ( dev-libs/kuserfeedback:5 )
