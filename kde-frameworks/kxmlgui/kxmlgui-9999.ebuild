@@ -27,6 +27,7 @@ DEPEND="
 	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/kglobalaccel-${PVCUT}*:5
+	=kde-frameworks/kguiaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
 	=kde-frameworks/kiconthemes-${PVCUT}*:5
 	=kde-frameworks/kitemviews-${PVCUT}*:5
