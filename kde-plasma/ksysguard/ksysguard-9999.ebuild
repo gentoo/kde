@@ -38,6 +38,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
+	virtual/libudev:=
 	lm-sensors? ( sys-apps/lm-sensors:= )
 	network? (
 		dev-libs/libnl:3
