@@ -110,7 +110,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
-	>=kde-plasma/breeze-${PVCUT}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 	>=kde-plasma/oxygen-${PVCUT}:5
 	sys-apps/util-linux
@@ -139,6 +138,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON # not packaged
 		-DEvdev_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
