@@ -10,12 +10,16 @@ inherit ecm kde.org
 DESCRIPTION="Framework providing assorted high-level user interface components"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="wayland"
 
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	x11-libs/libX11
+	wayland? (
+		dev-libs/wayland
+		>=dev-qt/qtwayland-${QTMIN}:5
+	)
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto
@@ -25,6 +29,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON # bug 746866
+		-DWITH_WAYLAND=$(usex wayland)
 	)
 	ecm_src_configure
 }
