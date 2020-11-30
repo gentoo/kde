@@ -86,7 +86,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
-	x11-misc/colord
+	color-management? ( x11-misc/colord )
 	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
 "
 DEPEND="${COMMON_DEPEND}
