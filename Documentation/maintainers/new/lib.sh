@@ -50,7 +50,11 @@ bump_set_from_live() {
 
 	cp sets/${target}-live sets/${target}-${destination}
 	sed -i -e "s/~/</" -e "s/9999/${VERSION}/" -e "s/0/50:5/" sets/${target}-${destination}
+	sed -i -e "/^@/s/live$/${destination}/" sets/${target}-${destination}
 
+	for entry in $(grep ^@ sets/${target}) ; do
+		bump_set_from_live ${entry/@/} ${destination}
+	done
 }
 
 # @FUNCTION: bump_set_from_live
