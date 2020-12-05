@@ -3,12 +3,16 @@
 # Requires:
 # app-portage/portage-utils
 # app-portage/gentoolkit-dev
+# app-portage/mgorny-dev-scripts
 # app-portage/repoman
+# dev-util/pkgcheck
 # sys-apps/coreutils
 # Optional:
 # dev-vcs/git
 
 : ${SOURCE_REPO:="$(realpath $(dirname $0)/../../../)"}
+
+: ${TARGET_REPO:="${SOURCE_REPO}"}
 
 # @FUNCTION: bump_packages_from_set
 # @USAGE: <set name> <source version> <target version>
@@ -58,6 +62,37 @@ bump_set_from_live() {
 	for entry in $(grep ^@ sets/${target}) ; do
 		bump_set_from_live ${entry/@/} ${destination}
 	done
+}
+
+# @FUNCTION: commit_packages
+# @USAGE: <set name> <commit msg>
+# @DESCRIPTION:
+# Commit set of packages iterating over <set name>.
+commit_packages() {
+	local setname="${1}"
+	local commitmsg="${2}"
+	local cp packages
+
+	if ! { [[ -d "${TARGET_REPO}/.git" ]] && hash git 2>/dev/null; } then
+		echo "${FUNCNAME[0]}: error: only commits to git repositories!"
+		return
+	fi
+
+	packages=$(get_package_list_from_set ${setname})
+	for cp in ${packages} ; do
+		pushd "${TARGET_REPO}/${cp}" > /dev/null
+
+		git add .
+		pkgcommit -sS . -m "${commitmsg}"
+
+		popd > /dev/null
+	done
+
+	if hash pkgcheck 2>/dev/null; then
+		pushd "${TARGET_REPO}" > /dev/null
+			pkgcheck scan --commits
+		popd > /dev/null
+	fi
 }
 
 # @FUNCTION: create_keywords_files
