@@ -1,0 +1,12 @@
+# PortingAids: Code and utilities for transition from kdelibs 4 to Frameworks 5.
+<kde-frameworks/kdelibs4support-5.77.50:5
+<kde-frameworks/khtml-5.77.50:5
+<kde-frameworks/kjs-5.77.50:5
+<kde-frameworks/kross-5.77.50:5
+# TODO: PMASK after KDE Frameworks 5.74 cleanup
+# <kde-frameworks/kdesignerplugin-5.77.50:5
+# PMASKED
+# <kde-frameworks/kdewebkit-5.77.50:5
+# <kde-frameworks/kjsembed-5.77.50:5
+# <kde-frameworks/kmediaplayer-5.77.50:5
+# <kde-frameworks/kxmlrpcclient-5.77.50:5
