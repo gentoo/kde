@@ -48,5 +48,6 @@ sed -i -e "/KF_RELEASES/s/\"$/ ${major_version}\"/" Documentation/maintainers/re
 Documentation/maintainers/regenerate-files
 
 bump_packages_from_set kde-frameworks-live 9999 ${VERSION}
+commit_packages ${kfmv} "${VERSION} version bump"
 
 popd > /dev/null
