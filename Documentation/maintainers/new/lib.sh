@@ -60,30 +60,43 @@ bump_set_from_live() {
 	done
 }
 
-# @FUNCTION: bump_set_from_live
-# @USAGE: <base set name> <new version>
+# @FUNCTION: create_keywords_files
+# @USAGE: <set name>
 # @DESCRIPTION:
-# Creates new set <base setname>-<new version> based on <base setname>-live.
+# Creates new package.{accept_keywords,unmask,mask}/<set name> files based on
+# live dirs and referencing <set name> including any subsets.
 create_keywords_files() {
-	local setname="${1}"
-	local target="${2}"
+	local target="${1}"
+	local base=${target/%-[0-9.]*/}
+	local x
+
+	if [[ $# -gt 1 ]]; then
+		echo "${FUNCNAME[0]}: error: must be passed exactly one argument!"
+		return
+	fi
 
 	pushd Documentation > /dev/null
 	pushd package.unmask > /dev/null
-	cp -r .${setname} .${target}
+	cp -r .${base}-live .${target}
 	pushd .${target} > /dev/null
-	rm ${setname}
+	rm ${base}*-live
 	ln -s  ../../../sets/${target} ${target}
+	for x in $(grep ^@ ../../../sets/${target}); do
+		ln -s ../../../sets/${x/@/} ${x/@/}
+	done
 	echo "# You can use this file to mask/unmask the $(pretty_setname ${target}) release." > _HEADER_
 	echo "# Edit Documentation/package.unmask/.${target}/ files instead." >> _HEADER_
 	popd > /dev/null
 	popd > /dev/null
 
 	pushd package.accept_keywords > /dev/null
-	cp -r .${setname}.base .${target}
+	cp -r .${base}-live.base .${target}
 	pushd .${target} > /dev/null
-	rm ${setname}
+	rm ${base}*-live
 	ln -s  ../../../sets/${target} ${target}
+	for x in $(grep ^@ ../../../sets/${target}); do
+		ln -s ../../../sets/${x/@/} ${x/@/}
+	done
 	echo "# You can use this file to keyword/unkeyword the $(pretty_setname ${target}) release." > _HEADER_
 	echo "# Edit Documentation/package.accept_keywords/.${target}/ files instead." >> _HEADER_
 	popd > /dev/null
