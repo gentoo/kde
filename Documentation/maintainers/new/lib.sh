@@ -147,7 +147,7 @@ get_main_tree_keyword() {
 	local portdir="$(portageq get_repo_path / gentoo)"
 	local cp="${1}"
 
-	echo $(sed -ne 's/^KEYWORDS="\(.*\)"/\1/p' "$(ls ${portdir}/${cp}/*.ebuild | sort | tail -n 1)")
+	echo $(sed -ne 's/^\s*KEYWORDS="\(.*\)"/\1/p' "$(ls ${portdir}/${cp}/*.ebuild | sort | tail -n 1)")
 }
 
 # @FUNCTION: get_package_list_from_set
