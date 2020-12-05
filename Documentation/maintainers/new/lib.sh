@@ -4,6 +4,9 @@
 # app-portage/portage-utils
 # app-portage/gentoolkit-dev
 # app-portage/repoman
+# sys-apps/coreutils
+# Optional:
+# dev-vcs/git
 
 : ${SOURCE_REPO:="$(realpath $(dirname $0)/../../../)"}
 
@@ -133,8 +136,13 @@ mask_from_live_set() {
 	local set="${1}"
 	local version="${2}"
 	local filename="${3}"
+	local author
 
-	echo "#" >> profiles/package.mask/${filename}
+	if command -v git &> /dev/null; then
+		author="$(git config --get user.name) <$(git config --get user.email)>"
+	fi
+	echo "# ${author} ($(date "+%Y-%m-%d"))" >> profiles/package.mask/${filename}
+	echo "# $(pretty_setname ${set}-${version}) mask" >> profiles/package.mask/${filename}
 	echo "# UNRELEASED" >> profiles/package.mask/${filename}
 	echo "#" >> profiles/package.mask/${filename}
 	get_package_list_from_set ${set}-live >> profiles/package.mask/${filename}
