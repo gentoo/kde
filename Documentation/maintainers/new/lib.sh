@@ -137,8 +137,8 @@ mask_from_live_set() {
 	echo "#" >> profiles/package.mask/${filename}
 	echo "# UNRELEASED" >> profiles/package.mask/${filename}
 	echo "#" >> profiles/package.mask/${filename}
-	cat sets/${set}-live >> profiles/package.mask/${filename}
-	sed -i -e "s/9999/${version}/" profiles/package.mask/${filename}
+	get_package_list_from_set ${set}-live >> profiles/package.mask/${filename}
+	sed -i -e "/^#/!s/^/~/" -e "/^#/!s/$/-${version}/" profiles/package.mask/${filename}
 }
 
 # @FUNCTION: pretty_setname
