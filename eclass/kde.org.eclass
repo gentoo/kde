@@ -36,7 +36,7 @@ EXPORT_FUNCTIONS pkg_nofetch src_unpack
 
 # @ECLASS-VARIABLE: KDE_ORG_CATEGORIES
 # @INTERNAL
-# @DESCRIPTION
+# @DESCRIPTION:
 # Map of ${CATEGORY}=<upstream category> key-value pairs.
 declare -A KDE_ORG_CATEGORIES=(
 	[app-accessibility]=accessibility
@@ -110,7 +110,7 @@ esac
 
 # @ECLASS-VARIABLE: KDE_UNRELEASED
 # @INTERNAL
-# @DESCRIPTION
+# @DESCRIPTION:
 # An array of $CATEGORY-$PV pairs of packages that are unreleased upstream.
 # Any package matching this will have fetch restriction enabled, and receive
 # a proper error message via pkg_nofetch.
