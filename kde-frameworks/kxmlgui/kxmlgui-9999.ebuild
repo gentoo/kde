@@ -32,7 +32,6 @@ DEPEND="
 	=kde-frameworks/kiconthemes-${PVCUT}*:5
 	=kde-frameworks/kitemviews-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
-	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
 
