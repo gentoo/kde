@@ -23,6 +23,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}"/${P}-bashfix-{1,2}.patch )
+
 src_install() {
 	ecm_src_install
 	dobin "${BUILD_DIR}"/bin/katehighlightingindexer
