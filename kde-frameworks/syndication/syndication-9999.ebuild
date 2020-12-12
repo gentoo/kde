@@ -9,20 +9,18 @@ QTMIN=5.15.1
 inherit ecm kde.org
 
 DESCRIPTION="Library for parsing RSS and Atom feeds"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	=kde-frameworks/kcodecs-${PVCUT}*:5
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	test? (
 		>=dev-qt/qtnetwork-${QTMIN}:5
 		>=dev-qt/qtwidgets-${QTMIN}:5
 	)
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/syndication
 "
