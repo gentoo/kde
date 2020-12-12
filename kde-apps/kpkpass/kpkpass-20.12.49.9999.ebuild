@@ -21,6 +21,4 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-addons-18.07.80
-"
+RDEPEND="${DEPEND}"
