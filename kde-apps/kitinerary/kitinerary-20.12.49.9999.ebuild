@@ -33,9 +33,7 @@ DEPEND="
 	barcode? ( >=media-libs/zxing-cpp-1.1.0 )
 	pdf? ( app-text/poppler:=[qt5] )
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-addons-18.07.80
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
