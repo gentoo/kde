@@ -29,6 +29,4 @@ DEPEND="
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-runtime-18.07.80:5
-"
+RDEPEND="${DEPEND}"
