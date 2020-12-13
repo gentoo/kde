@@ -3,7 +3,6 @@
 
 EAPI=7
 
-EGIT_BRANCH="8.0"
 ECM_TEST="forceoptional"
 KDE_ORG_NAME="alkimia"
 KFMIN=5.74.0
@@ -38,9 +37,9 @@ DEPEND="
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdelibs4support-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
