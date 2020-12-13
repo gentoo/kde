@@ -153,7 +153,6 @@ src_configure() {
 		-DRELEASE_BUILD=ON
 		-DWITH_Iconv=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5CalendarCore=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5KHtml=ON
 		-DPRODUCTSET="${myproducts[*]}"
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package charts KChart)
