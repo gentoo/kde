@@ -30,6 +30,7 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
+	dev-qt/qtwebengine:5[widgets]
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	kde-frameworks/karchive:5
@@ -40,7 +41,6 @@ RDEPEND="
 	kde-frameworks/kcoreaddons:5
 	kde-frameworks/kcrash:5
 	kde-frameworks/kguiaddons:5
-	kde-frameworks/khtml:5
 	kde-frameworks/kiconthemes:5
 	kde-frameworks/kitemmodels:5
 	kde-frameworks/ki18n:5
