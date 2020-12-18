@@ -22,6 +22,7 @@ IUSE="exif office pdf taglib truetype"
 
 BDEPEND="sys-devel/gettext"
 DEPEND="
+	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
@@ -34,7 +35,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/kjs-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
@@ -54,6 +54,5 @@ src_configure() {
 		$(cmake_use_find_package taglib Taglib)
 		$(cmake_use_find_package truetype Freetype)
 	)
-
 	ecm_src_configure
 }
