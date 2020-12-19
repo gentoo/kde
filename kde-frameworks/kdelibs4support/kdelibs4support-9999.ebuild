@@ -78,7 +78,7 @@ RDEPEND="${COMMON_DEPEND}
 
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}/${PN}-5.77.0-no-kdesignerplugin.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.78.0-no-kdesignerplugin.patch" )
 
 src_prepare() {
 	ecm_src_prepare
