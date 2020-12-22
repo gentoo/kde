@@ -28,5 +28,6 @@ DEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
