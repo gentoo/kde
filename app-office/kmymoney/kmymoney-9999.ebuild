@@ -9,10 +9,10 @@ KFMIN=5.74.0
 QTMIN=5.15.1
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Personal finance manager based on KDE Frameworks"
-HOMEPAGE="https://kmymoney.org"
+HOMEPAGE="https://kmymoney.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
@@ -21,11 +21,11 @@ fi
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities addressbook calendar hbci holidays quotes"
+IUSE="activities addressbook calendar hbci holidays"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
 BDEPEND="virtual/pkgconfig"
-COMMON_DEPEND="
+RDEPEND="
 	>=app-crypt/gpgme-1.7.1-r1[cxx]
 	>=app-office/libalkimia-7.0.0:=
 	dev-db/sqlcipher
@@ -44,14 +44,14 @@ COMMON_DEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
@@ -75,11 +75,8 @@ COMMON_DEPEND="
 	)
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/boost
-"
-RDEPEND="${COMMON_DEPEND}
-	quotes? ( dev-perl/Finance-Quote )
 "
 
 pkg_setup() {
@@ -118,4 +115,18 @@ src_test() {
 	)
 
 	ecm_src_test
+}
+
+pkg_postinst() {
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "Optional dependencies:"
+		optfeature "More options for online stock quote retrieval" dev-perl/Finance-Quote
+	fi
+	if has_version "app-office/kmymoney[quotes]"; then
+		elog "Please note: IUSE=quotes flag is gone in ${PN}-5.1.1. ${PN} still"
+		elog "does online stock quote retrieval without it, but dev-perl/Finance-Quote"
+		elog "may provide additional sources. To keep the functionality, run:"
+		elog "  emerge --noreplace dev-perl/Finance-Quote"
+	fi
+	ecm_pkg_postinst
 }
