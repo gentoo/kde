@@ -3,6 +3,7 @@
 
 EAPI=7
 
+ECM_EXAMPLES="true"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="sdk"
