@@ -70,8 +70,8 @@ RDEPEND="
 	)
 	calendar? ( dev-libs/libical:= )
 	hbci? (
-		>=net-libs/aqbanking-6.0.1
-		>=sys-libs/gwenhywfar-5.1.2:=[qt5]
+		>=net-libs/aqbanking-6.2.5
+		>=sys-libs/gwenhywfar-5.4.1:=[qt5]
 	)
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 "
