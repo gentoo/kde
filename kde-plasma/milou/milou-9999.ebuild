@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_TEST="forceoptional"
+ECM_TEST="true"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.1
@@ -31,5 +31,3 @@ DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-5.19.80-disable-manual-tests.patch" ) # bug 732584
