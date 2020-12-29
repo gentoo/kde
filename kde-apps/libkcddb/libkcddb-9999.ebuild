@@ -36,12 +36,7 @@ RESTRICT+=" test"
 
 src_prepare() {
 	ecm_src_prepare
-
-	if ! use handbook ; then
-		pushd kcmcddb > /dev/null
-		cmake_comment_add_subdirectory doc
-		popd > /dev/null
-	fi
+	use handbook || cmake_run_in kcmcddb cmake_comment_add_subdirectory doc
 }
 
 src_configure() {
