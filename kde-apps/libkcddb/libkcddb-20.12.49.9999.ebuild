@@ -20,7 +20,6 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -34,6 +33,8 @@ RDEPEND="${DEPEND}"
 # tests require network access and compare static data with online data
 # bug 280996
 RESTRICT+=" test"
+
+PATCHES=( "${FILESDIR}/${PN}-20.12.1-unused-dep.patch" )
 
 src_prepare() {
 	ecm_src_prepare
