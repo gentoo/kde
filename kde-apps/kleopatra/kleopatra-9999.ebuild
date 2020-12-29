@@ -20,7 +20,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=app-crypt/gpgme-1.11.1[cxx,qt5]
+	>=app-crypt/gpgme-1.13.1[cxx,qt5]
 	dev-libs/boost:=
 	dev-libs/libassuan
 	dev-libs/libgpg-error
