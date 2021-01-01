@@ -3,6 +3,7 @@
 
 EAPI=7
 
+PVCUT=$(ver_cut 1-3)
 KFMIN=5.74.0
 QTMIN=5.15.1
 inherit ecm kde.org
@@ -33,7 +34,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
-	kde-plasma/libksysguard:5
+	>=kde-plasma/libksysguard-${PVCUT}:5
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
