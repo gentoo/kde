@@ -15,7 +15,7 @@ HOMEPAGE="https://userbase.kde.org/KIPI https://invent.kde.org/graphics/kipi-plu
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="flashexport mediawiki +remotestorage vkontakte"
+IUSE="flashexport mediawiki +remotestorage"
 
 BDEPEND="sys-devel/gettext"
 RDEPEND="
@@ -37,7 +37,6 @@ RDEPEND="
 	flashexport? ( >=kde-frameworks/karchive-${KFMIN}:5 )
 	mediawiki? ( net-libs/libmediawiki:5 )
 	remotestorage? ( >=kde-frameworks/kio-${KFMIN}:5 )
-	vkontakte? ( net-libs/libkvkontakte:5 )
 "
 DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -45,10 +44,10 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Vkontakte=ON
 		$(cmake_use_find_package flashexport KF5Archive)
 		$(cmake_use_find_package mediawiki KF5MediaWiki)
 		$(cmake_use_find_package remotestorage KF5KIO)
-		$(cmake_use_find_package vkontakte KF5Vkontakte)
 	)
 
 	ecm_src_configure
