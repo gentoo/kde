@@ -42,7 +42,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
+	>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml]
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
 
