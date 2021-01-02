@@ -22,9 +22,6 @@ IUSE="fits indi +password raw wcs"
 
 REQUIRED_USE="indi? ( fits ) ${PYTHON_REQUIRED_USE}"
 
-# TODO: package stellarsolver
-# https://github.com/rlancaste/stellarsolver
-# https://invent.kde.org/education/kstars/-/commit/e78154841c7a55328cb9f1ab6a37cc8297cf2a2c
 COMMON_DEPEND="
 	>=dev-qt/qtdatavis3d-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -50,14 +47,16 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	sys-libs/zlib
-	fits? ( sci-libs/cfitsio )
+	fits? ( sci-libs/cfitsio:= )
 	indi? (
+		sci-libs/gsl:=
 		>=sci-libs/indilib-1.7.5
-		sci-libs/libnova
+		sci-libs/libnova:=
+		sci-libs/stellarsolver
 	)
 	password? ( dev-libs/qtkeychain:= )
 	raw? ( media-libs/libraw:= )
-	wcs? ( sci-astronomy/wcslib )
+	wcs? ( sci-astronomy/wcslib:= )
 "
 # TODO: Add back when re-enabled by upstream
 # 	opengl? (
