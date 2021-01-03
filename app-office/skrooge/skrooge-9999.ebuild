@@ -63,7 +63,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	kde? ( >=kde-frameworks/krunner-${KFMIN}:5 )
-	ofx? ( dev-libs/libofx )
+	ofx? ( dev-libs/libofx:= )
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
