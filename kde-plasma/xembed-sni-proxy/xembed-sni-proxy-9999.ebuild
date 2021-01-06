@@ -28,7 +28,6 @@ DEPEND="
 	x11-libs/xcb-util-image
 "
 RDEPEND="${DEPEND}
-	!<kde-plasma/plasma-workspace-5.14.2:5
 	!kde-plasma/xembed-sni-proxy:0
 "
 
