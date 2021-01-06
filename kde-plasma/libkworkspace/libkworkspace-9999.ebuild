@@ -17,7 +17,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -31,14 +31,11 @@ COMMON_DEPEND="
 	x11-libs/libX11
 	x11-libs/libXau
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	|| (
 		>=kde-plasma/kwin-${PVCUT}:5
 		>=gui-wm/kwinft-$(ver_cut 1-2):5
 	)
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-plasma/plasma-workspace-5.14.2:5
 "
 
 S="${S}/${PN}"
