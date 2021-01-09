@@ -4,7 +4,7 @@
 <kde-frameworks/kjs-5.74.50:5
 <kde-frameworks/kross-5.74.50:5
 # TODO: PMASK after KDE Frameworks 5.74 cleanup
-<kde-frameworks/kdesignerplugin-5.74.50:5
+# <kde-frameworks/kdesignerplugin-5.74.50:5
 # PMASKED
 # <kde-frameworks/kdewebkit-5.74.50:5
 # <kde-frameworks/kjsembed-5.74.50:5
