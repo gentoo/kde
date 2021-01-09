@@ -1,4 +1,0 @@
-move net-libs/libkgapi kde-apps/libkgapi
-move kde-misc/plasma-vault kde-plasma/plasma-vault
-move app-cdr/k3b kde-apps/k3b
-move kde-apps/kasync dev-libs/kasync
