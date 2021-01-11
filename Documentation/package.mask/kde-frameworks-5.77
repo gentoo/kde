@@ -8,13 +8,8 @@
 <kde-frameworks/khtml-5.77.50:5
 <kde-frameworks/kjs-5.77.50:5
 <kde-frameworks/kross-5.77.50:5
-# TODO: PMASK after KDE Frameworks 5.74 cleanup
-# <kde-frameworks/kdesignerplugin-5.77.50:5
 # PMASKED
-# <kde-frameworks/kdewebkit-5.77.50:5
-# <kde-frameworks/kjsembed-5.77.50:5
-# <kde-frameworks/kmediaplayer-5.77.50:5
-# <kde-frameworks/kxmlrpcclient-5.77.50:5
+# <kde-frameworks/kdesignerplugin-5.77.50:5
 # Tier 1: Depend only on Qt and possibly a few third-party libraries.
 <kde-frameworks/attica-5.77.50:5
 <kde-frameworks/bluez-qt-5.77.50:5
@@ -24,7 +19,6 @@
 <kde-frameworks/kapidox-5.77.50:5
 <kde-frameworks/karchive-5.77.50:5
 <kde-frameworks/kcalendarcore-5.77.50:5
-# TODO: future: kcgroups (not packaged)
 <kde-frameworks/kcodecs-5.77.50:5
 <kde-frameworks/kconfig-5.77.50:5
 <kde-frameworks/kcoreaddons-5.77.50:5
@@ -39,7 +33,6 @@
 <kde-frameworks/kitemviews-5.77.50:5
 <kde-frameworks/kplotting-5.77.50:5
 <kde-frameworks/kquickcharts-5.77.50:5
-# TODO: future: dev-libs/kuserfeedback
 <kde-frameworks/kwayland-5.77.50:5
 <kde-frameworks/kwidgetsaddons-5.77.50:5
 <kde-frameworks/kwindowsystem-5.77.50:5
@@ -66,7 +59,6 @@
 <kde-frameworks/kpackage-5.77.50:5
 <kde-frameworks/kpeople-5.77.50:5
 <kde-frameworks/kpty-5.77.50:5
-# TODO: future: kquickimageeditor (not packaged)
 <kde-frameworks/kunitconversion-5.77.50:5
 <kde-frameworks/syndication-5.77.50:5
 # Tier 3: More powerful, comprehensive packages, with complex dependencies.
