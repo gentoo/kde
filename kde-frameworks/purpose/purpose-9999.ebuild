@@ -12,7 +12,7 @@ inherit ecm kde.org optfeature xdg-utils
 DESCRIPTION="Library for providing abstractions to get the developer's purposes fulfilled"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="bluetooth +dolphin +kaccounts"
+IUSE="bluetooth +kaccounts"
 
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -23,7 +23,7 @@ DEPEND="
 	=kde-frameworks/ki18n-${PVCUT}*:5
 	=kde-frameworks/kio-${PVCUT}*:5
 	=kde-frameworks/kirigami-${PVCUT}*:5
-	dolphin? ( =kde-frameworks/knotifications-${PVCUT}*:5 )
+	=kde-frameworks/knotifications-${PVCUT}*:5
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-19.04.3:5
 		net-libs/accounts-qt
@@ -47,7 +47,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package dolphin KF5Notifications)
 		$(cmake_use_find_package kaccounts KAccounts)
 	)
 
