@@ -22,6 +22,7 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -31,6 +32,9 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 	x11-misc/sddm
 "
