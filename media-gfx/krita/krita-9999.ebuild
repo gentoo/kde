@@ -100,7 +100,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DENABLE_UPDATERS=OFF
-		-DCMAKE_DISABLE_FIND_PACKAGE_SeExpr2=ON # not packaged
+		-DCMAKE_DISABLE_FIND_PACKAGE_KSeExpr=ON # not packaged
 		$(cmake_use_find_package color-management OCIO)
 		$(cmake_use_find_package fftw FFTW3)
 		$(cmake_use_find_package gif GIF)
