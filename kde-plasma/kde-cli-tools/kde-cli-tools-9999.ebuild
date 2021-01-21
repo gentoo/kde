@@ -20,6 +20,8 @@ KEYWORDS=""
 IUSE="kdesu X"
 
 REQUIRED_USE="kdesu? ( X )"
+# requires running kde environment
+RESTRICT+=" test"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -51,9 +53,6 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=( "${FILESDIR}/${PN}-5.12.80-tests-optional.patch" )
-
-# requires running kde environment
-RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

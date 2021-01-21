@@ -17,6 +17,9 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+# tests require DBus
+RESTRICT+=" test"
+
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -33,6 +36,3 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	sys-apps/bolt
 "
-
-# tests require DBus
-RESTRICT+=" test"

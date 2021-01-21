@@ -17,6 +17,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE="+pam"
 
+RESTRICT+=" test"
+
 COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -57,8 +59,6 @@ RDEPEND="${COMMON_DEPEND}
 PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
-
-RESTRICT+=" test"
 
 src_prepare() {
 	ecm_src_prepare

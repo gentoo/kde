@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE="appstream +calendar +fontconfig geolocation gps qalculate screencast +semantic-desktop systemd telemetry"
 
 REQUIRED_USE="gps? ( geolocation )"
+RESTRICT+=" test"
 
 BDEPEND="virtual/pkgconfig"
 COMMON_DEPEND="
@@ -142,8 +143,6 @@ PDEPEND="
 "
 
 PATCHES=( "${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch" )
-
-RESTRICT+=" test"
 
 src_prepare() {
 	ecm_src_prepare

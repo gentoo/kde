@@ -18,6 +18,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE="accessibility caps gles2-only multimedia plasma screencast"
 
+RESTRICT+=" test"
+
 COMMON_DEPEND="
 	>=dev-libs/libinput-1.14
 	>=dev-libs/wayland-1.2
@@ -97,8 +99,6 @@ DEPEND="${COMMON_DEPEND}
 PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
-
-RESTRICT+=" test"
 
 src_prepare() {
 	ecm_src_prepare

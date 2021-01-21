@@ -17,6 +17,9 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+# bug #580440, last checked 5.6.3
+RESTRICT+=" test"
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
@@ -41,6 +44,3 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
-
-# bug #580440, last checked 5.6.3
-RESTRICT+=" test"

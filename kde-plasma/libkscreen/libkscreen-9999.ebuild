@@ -18,6 +18,9 @@ SLOT="5/7"
 KEYWORDS=""
 IUSE=""
 
+# requires running session
+RESTRICT+=" test"
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -27,6 +30,3 @@ DEPEND="
 	x11-libs/libxcb
 "
 RDEPEND="${DEPEND}"
-
-# requires running session
-RESTRICT+=" test"

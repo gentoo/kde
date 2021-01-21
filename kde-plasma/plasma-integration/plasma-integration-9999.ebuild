@@ -16,6 +16,9 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+# requires running kde environment
+RESTRICT+=" test"
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5=[dbus]
@@ -43,6 +46,3 @@ RDEPEND="${DEPEND}
 	media-fonts/hack
 	media-fonts/noto
 "
-
-# requires running kde environment
-RESTRICT+=" test"
