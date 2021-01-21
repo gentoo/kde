@@ -6,6 +6,7 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
+		<flag name="audit">Enable security audit support via <pkg>sys-process/audit</pkg></flag>
 		<flag name="kdesu">Run as root using kdesu from <pkg>kde-plasma/kde-cli-tools</pkg></flag>
 	</use>
 </pkgmetadata>

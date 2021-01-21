@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/en/ksystemlog"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="kdesu systemd"
+IUSE="audit kdesu systemd"
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -34,6 +34,7 @@ DEPEND="
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	audit? ( sys-process/audit )
 	systemd? ( sys-apps/systemd )
 "
 RDEPEND="${DEPEND}
