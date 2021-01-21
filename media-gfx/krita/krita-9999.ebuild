@@ -20,7 +20,7 @@ HOMEPAGE="https://apps.kde.org/en/krita https://krita.org/en/"
 
 LICENSE="GPL-3"
 SLOT="5"
-IUSE="color-management fftw gif +gsl heif +jpeg openexr pdf qtmedia +raw tiff vc"
+IUSE="color-management fftw gif +gsl heif +jpeg +mypaint-brush-engine openexr pdf qtmedia +raw tiff vc"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 BDEPEND="
@@ -70,6 +70,7 @@ RDEPEND="${PYTHON_DEPS}
 	gsl? ( sci-libs/gsl:= )
 	jpeg? ( virtual/jpeg:0 )
 	heif? ( media-libs/libheif:= )
+	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? (
 		media-libs/ilmbase:=
 		media-libs/openexr
@@ -107,6 +108,7 @@ src_configure() {
 		$(cmake_use_find_package gsl GSL)
 		$(cmake_use_find_package heif HEIF)
 		$(cmake_use_find_package jpeg JPEG)
+		$(cmake_use_find_package mypaint-brush-engine LibMyPaint)
 		$(cmake_use_find_package openexr OpenEXR)
 		$(cmake_use_find_package pdf Poppler)
 		$(cmake_use_find_package qtmedia Qt5Multimedia)
