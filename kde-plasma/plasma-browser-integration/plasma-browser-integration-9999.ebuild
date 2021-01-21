@@ -29,6 +29,7 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/krunner-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
+	>=kde-plasma/plasma-workspace-${PVCUT}:5
 "
 RDEPEND="${DEPEND}"
 
