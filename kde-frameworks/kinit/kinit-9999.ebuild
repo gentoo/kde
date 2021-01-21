@@ -6,7 +6,7 @@ EAPI=7
 ECM_QTHELP="false"
 ECM_TEST="false"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Helper library to speed up start of applications on KDE work spaces"

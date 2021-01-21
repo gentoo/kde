@@ -6,7 +6,7 @@ EAPI=7
 ECM_QTHELP="true"
 KDE_ORG_CATEGORY="maui"
 KFMIN=5.74.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Templated convergent controls and multiplatform utilities for Maui applications"

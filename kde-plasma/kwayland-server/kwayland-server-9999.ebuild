@@ -7,7 +7,7 @@ ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=9999
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Wayland Server Components built on KDE Frameworks"

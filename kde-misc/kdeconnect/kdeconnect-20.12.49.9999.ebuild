@@ -9,7 +9,7 @@ KDE_ORG_NAME="${PN}-kde"
 KDE_RELEASE_SERVICE="true"
 KDE_SELINUX_MODULE="${PN}"
 KFMIN=5.75.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"

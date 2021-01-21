@@ -6,7 +6,7 @@ EAPI=7
 ECM_QTHELP="true"
 ECM_TEST="true" # build system adds autotests dir based on BUILD_TESTING value
 KFMIN=5.74.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Property editing framework with editor widget similar to Qt Designer"

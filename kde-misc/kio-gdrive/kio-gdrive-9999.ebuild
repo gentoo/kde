@@ -9,7 +9,7 @@ KDE_ORG_CATEGORY="network"
 KDE_RELEASE_SERVICE="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.75.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="KIO Slave for Google Drive service"

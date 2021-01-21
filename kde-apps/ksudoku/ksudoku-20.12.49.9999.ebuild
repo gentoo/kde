@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.75.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Logic-based symbol placement puzzle by KDE"

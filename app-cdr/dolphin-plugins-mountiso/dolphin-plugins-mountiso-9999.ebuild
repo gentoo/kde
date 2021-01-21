@@ -10,7 +10,7 @@ KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="mountiso"
 KFMIN=5.75.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Dolphin plugin for ISO loopback device mounting"

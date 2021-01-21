@@ -4,7 +4,7 @@
 EAPI=7
 
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Framework to install and load packages of non binary content"

@@ -6,7 +6,7 @@ EAPI=7
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-upload"
 KFMIN=5.70.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Plugin for uploading files to a remote server"

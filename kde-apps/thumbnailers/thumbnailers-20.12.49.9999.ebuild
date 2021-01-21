@@ -6,7 +6,7 @@ EAPI=7
 KDE_ORG_NAME="kdegraphics-thumbnailers"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.75.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Thumbnail generators for PDF/PS and RAW files"

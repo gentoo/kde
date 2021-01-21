@@ -6,7 +6,7 @@ EAPI=7
 ECM_TEST="forceoptional"
 KDE_APPS_MINIMAL=20.08.0
 KFMIN=5.74.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 

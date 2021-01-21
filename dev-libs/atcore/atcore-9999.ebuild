@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_TEST="forceoptional"
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="API to manage the serial connection between the computer and 3D Printers"

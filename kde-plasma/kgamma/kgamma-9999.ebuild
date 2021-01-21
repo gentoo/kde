@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 KDE_ORG_NAME="${PN}5"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Screen gamma values kcontrol module"

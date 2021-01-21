@@ -6,7 +6,7 @@ EAPI=7
 KDE_ORG_CATEGORY=utilities
 KDE_RELEASE_SERVICE="true"
 KFMIN=5.74.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Markdown viewer KParts plugin based on QTextDocument"

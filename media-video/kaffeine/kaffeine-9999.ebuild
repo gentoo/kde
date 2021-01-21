@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="optional"
 KFMIN=5.74.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then

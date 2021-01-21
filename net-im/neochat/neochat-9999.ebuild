@@ -4,7 +4,7 @@
 EAPI=7
 
 KFMIN=5.77.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Client for Matrix, the decentralized communication protocol"

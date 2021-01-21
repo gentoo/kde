@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Library for parsing RSS and Atom feeds"

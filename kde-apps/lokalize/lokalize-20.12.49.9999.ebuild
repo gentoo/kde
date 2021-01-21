@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{7,8,9} )
 KFMIN=5.75.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit python-single-r1 ecm kde.org optfeature
 
 DESCRIPTION="Localization tool for KDE software and other free and open source software"

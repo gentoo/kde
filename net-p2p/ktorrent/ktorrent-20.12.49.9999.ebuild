@@ -8,7 +8,7 @@ ECM_TEST="optional"
 KDE_RELEASE_SERVICE="true"
 KFMIN=5.74.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.1
+QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 

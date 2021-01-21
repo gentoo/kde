@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="optional"
 ECM_TEST="optional"
 KFMIN=5.74.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org optfeature
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"

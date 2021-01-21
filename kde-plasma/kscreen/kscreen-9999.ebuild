@@ -6,7 +6,7 @@ EAPI=7
 ECM_TEST="forceoptional"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="KDE Plasma screen management"

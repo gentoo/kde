@@ -6,7 +6,7 @@ EAPI=7
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.74.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org optfeature
 
 DESCRIPTION="Digital travel assistant with a priority on protecting your privacy"

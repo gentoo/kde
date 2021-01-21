@@ -6,7 +6,7 @@ EAPI=7
 KDE_ORG_NAME="plasma-workspace"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit cmake kde.org
 
 DESCRIPTION="Legacy xembed tray icons support for SNI-only system trays"

@@ -5,7 +5,7 @@ EAPI=7
 
 KDE_ORG_CATEGORY="system"
 KFMIN=5.74.0
-QTMIN=5.15.1
+QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Samba Share Mounter"
