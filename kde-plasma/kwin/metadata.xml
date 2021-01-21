@@ -6,7 +6,6 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
-		<flag name="color-management">Enable color management via <pkg>media-libs/lcms</pkg> and <pkg>x11-misc/colord</pkg></flag>
 		<flag name="multimedia">Enable effect video button in desktop effects KCM</flag>
 		<flag name="screencast">Enable screencast portal using <pkg>media-video/pipewire</pkg></flag>
 	</use>
