@@ -41,7 +41,7 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	firmware? ( sys-apps/fwupd )
+	firmware? ( >=sys-apps/fwupd-1.5.0 )
 	flatpak? (
 		>=dev-libs/appstream-0.12.8:=
 		sys-apps/flatpak
