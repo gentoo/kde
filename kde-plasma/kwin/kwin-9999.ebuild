@@ -61,8 +61,6 @@ COMMON_DEPEND="
 	media-libs/libepoxy
 	media-libs/mesa[egl,gbm,wayland,X(+)]
 	virtual/libudev:=
-	x11-libs/libICE
-	x11-libs/libSM
 	x11-libs/libX11
 	x11-libs/libXi
 	x11-libs/libdrm
