@@ -125,4 +125,12 @@ pkg_postinst() {
 	ecm_pkg_postinst
 	elog "Optional dependency:"
 	optfeature "color management support" x11-misc/colord
+	elog
+	elog "In Plasma 5.20, default behavior of the Task Switcher to move minimised"
+	elog "windows to the end of the list was changed so that it remains in the"
+	elog "original order. To revert to the well established behavior:"
+	elog
+	elog " - Edit ~/.config/kwinrc"
+	elog " - Find [TabBox] section"
+	elog " - Add \"MoveMinimizedWindowsToEndOfTabBoxFocusChain=true\""
 }
