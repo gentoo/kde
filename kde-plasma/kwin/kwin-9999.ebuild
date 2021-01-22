@@ -115,7 +115,6 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package accessibility QAccessibilityClient)
 		$(cmake_use_find_package caps Libcap)
-		$(cmake_use_find_package color-management lcms2)
 		$(cmake_use_find_package plasma KF5Runner)
 	)
 
