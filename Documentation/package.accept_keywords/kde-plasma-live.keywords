@@ -34,11 +34,13 @@
 ~kde-plasma/plasma-browser-integration-9999 **
 ~kde-plasma/plasma-desktop-9999 **
 ~kde-plasma/plasma-disks-9999 **
+~kde-plasma/plasma-firewall-9999 **
 ~kde-plasma/plasma-integration-9999 **
 ~kde-plasma/plasma-meta-9999 **
 ~kde-plasma/plasma-nm-9999 **
 ~kde-plasma/plasma-pa-9999 **
 ~kde-plasma/plasma-sdk-9999 **
+~kde-plasma/plasma-systemmonitor-9999 **
 ~kde-plasma/plasma-thunderbolt-9999 **
 ~kde-plasma/plasma-workspace-9999 **
 ~kde-plasma/plasma-workspace-wallpapers-9999 **
@@ -50,3 +52,4 @@
 ~kde-plasma/systemsettings-9999 **
 ~kde-plasma/xdg-desktop-portal-kde-9999 **
 ~kde-plasma/xembed-sni-proxy-9999 **
+>=sys-apps/fwupd-1.5.0
