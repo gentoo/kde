@@ -10,8 +10,9 @@ LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
 IUSE="bluetooth +browser-integration colord crypt +desktop-portal discover
-+display-manager +elogind grub gtk +handbook +kwallet +legacy-systray +networkmanager
-plymouth pulseaudio qrcode +sddm sdk +smart systemd thunderbolt +wallpapers"
++display-manager +elogind +firewall grub gtk +handbook +kwallet +legacy-systray
++networkmanager plymouth pulseaudio qrcode +sddm sdk +smart systemd thunderbolt
++wallpapers"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -60,6 +61,7 @@ RDEPEND="
 		)
 		!sddm? ( x11-misc/lightdm )
 	)
+	firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} )
 	grub? ( >=kde-plasma/breeze-grub-${PV}:${SLOT} )
 	gtk? (
 		>=kde-plasma/breeze-gtk-${PV}:${SLOT}
