@@ -42,6 +42,10 @@ bump_packages_from_set() {
 			ekeyword ~all ${destination} > /dev/null
 		fi
 
+		if [[ -n "${KFMIN}" ]] ; then
+			sed -e "/^KFMIN/s/=.*/=${KFMIN}/" -i ${destination}
+		fi
+
 		repoman manifest
 
 		popd > /dev/null
