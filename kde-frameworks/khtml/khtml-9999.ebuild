@@ -47,10 +47,10 @@ RDEPEND="
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/sonnet-${PVCUT}*:5
 	media-libs/giflib:=
+	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
 	>=media-libs/phonon-4.11.0
 	sys-libs/zlib
-	virtual/jpeg:0
 	!libressl? ( dev-libs/openssl:0 )
 	libressl? ( dev-libs/libressl )
 	X? (

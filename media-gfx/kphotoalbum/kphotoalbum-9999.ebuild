@@ -41,8 +41,8 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	media-gfx/exiv2:=
+	media-libs/libjpeg-turbo:=
 	>=media-libs/phonon-4.11.0
-	virtual/jpeg:0
 	map? ( kde-apps/marble:5 )
 	raw? ( kde-apps/libkdcraw:5 )
 	share? ( >=kde-frameworks/kxmlgui-${KFMIN}:5 )

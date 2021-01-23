@@ -61,11 +61,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=media-gfx/exiv2-0.27:=
 	media-libs/lcms:2
+	media-libs/libjpeg-turbo:=
 	media-libs/liblqr
 	media-libs/libpng:0=
 	>=media-libs/opencv-3.3.0:=[contrib,contribdnn]
 	media-libs/tiff:0
-	virtual/jpeg:0
 	addressbook? (
 		>=kde-apps/akonadi-contacts-19.04.3:5
 		>=kde-frameworks/kcontacts-${KFMIN}:5
