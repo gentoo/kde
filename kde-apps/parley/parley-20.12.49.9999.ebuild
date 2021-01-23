@@ -49,3 +49,14 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=kde-apps/kdeedu-data-${PVCUT}:5
 "
+
+src_prepare() {
+	ecm_src_prepare
+	cmake_comment_add_subdirectory plugins
+}
+
+pkg_postinst() {
+	ecm_pkg_postinst
+	elog "Plugins are disabled in Gentoo due to lack of Python-3 compatible"
+	elog "kross-interpreters, bug #766333."
+}
