@@ -14,6 +14,8 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT+=" test" # bug 624250
+
 DEPEND="
 	>=dev-db/lmdb-0.9.17
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -31,5 +33,3 @@ DEPEND="
 	=kde-frameworks/solid-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT+=" test" # bug 624250

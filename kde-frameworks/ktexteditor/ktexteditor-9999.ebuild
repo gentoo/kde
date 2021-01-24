@@ -14,6 +14,8 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="+editorconfig git"
 
+RESTRICT+=" test"
+
 BDEPEND="
 	test? ( >=kde-frameworks/kservice-${PVCUT}:5 )
 "
@@ -46,8 +48,6 @@ DEPEND="
 	git? ( dev-libs/libgit2:= )
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

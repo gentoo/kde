@@ -15,6 +15,8 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="libressl X"
 
+RESTRICT+=" test"
+
 BDEPEND="
 	dev-lang/perl
 	dev-perl/URI
@@ -75,8 +77,6 @@ RDEPEND="${COMMON_DEPEND}
 	=kde-frameworks/kinit-${PVCUT}*:5
 	=kde-frameworks/kitemmodels-${PVCUT}*:5
 "
-
-RESTRICT+=" test"
 
 PATCHES=( "${FILESDIR}/${PN}-5.78.0-no-kdesignerplugin.patch" )
 

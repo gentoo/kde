@@ -14,6 +14,8 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT+=" test" # bug 574770
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -28,5 +30,3 @@ DEPEND="
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT+=" test" # bug 574770

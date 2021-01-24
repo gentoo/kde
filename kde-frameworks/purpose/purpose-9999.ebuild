@@ -14,6 +14,9 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="bluetooth +kaccounts"
 
+# requires running environment
+RESTRICT+=" test"
+
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -36,9 +39,6 @@ RDEPEND="${DEPEND}
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:5 )
 	kaccounts? ( net-libs/accounts-qml )
 "
-
-# requires running environment
-RESTRICT+=" test"
 
 src_prepare() {
 	ecm_src_prepare

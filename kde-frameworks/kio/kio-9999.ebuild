@@ -16,6 +16,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="acl +handbook kerberos +kwallet X"
 
+# tests hang
+RESTRICT+=" test"
+
 RDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
@@ -67,9 +70,6 @@ DEPEND="${RDEPEND}
 PDEPEND="
 	>=kde-frameworks/kded-${PVCUT}:5
 "
-
-# tests hang
-RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

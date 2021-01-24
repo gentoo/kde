@@ -13,6 +13,8 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="epub exif ffmpeg kernel_linux office pdf taglib"
 
+RESTRICT+=" test"
+
 BDEPEND="
 	test? ( ${PYTHON_DEPS} )
 "
@@ -30,8 +32,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	kernel_linux? ( sys-apps/attr )
 "
-
-RESTRICT+=" test"
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup

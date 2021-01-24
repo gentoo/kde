@@ -12,6 +12,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="dbus nls"
 
+# bug 560086
+RESTRICT+=" test"
+
 BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
@@ -24,10 +27,7 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 "
 
-# bug 560086
-RESTRICT+=" test"
-
-DOCS=( DESIGN docs/DESIGN.kconfig docs/options.md )
+DOCS=( DESIGN docs/{DESIGN.kconfig,options.md} )
 
 src_configure() {
 	local mycmakeargs=(

@@ -13,6 +13,9 @@ LICENSE="LGPL-2 LGPL-2.1+"
 KEYWORDS=""
 IUSE="+man"
 
+# requires running kde environment
+RESTRICT+=" test"
+
 BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
@@ -30,9 +33,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 "
-
-# requires running kde environment
-RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

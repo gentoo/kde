@@ -13,6 +13,8 @@ LICENSE="GPL-2+ test? ( LGPL-3+ )"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT+=" test" # multiple tests fail or hang indefinitely
+
 BDEPEND="
 	sys-devel/bison
 "
@@ -23,5 +25,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-apps/kcalcore:5
 "
-
-RESTRICT+=" test" # multiple tests fail or hang indefinitely

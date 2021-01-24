@@ -13,6 +13,9 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
+# requires running kde environment
+RESTRICT+=" test"
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -23,6 +26,3 @@ DEPEND="
 	=kde-frameworks/kservice-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
-
-# requires running kde environment
-RESTRICT+=" test"

@@ -15,6 +15,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
+# requires running Plasma environment
+RESTRICT+=" test"
+
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -29,9 +32,6 @@ DEPEND="${RDEPEND}
 	=kde-frameworks/kpackage-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
-
-# requires running Plasma environment
-RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

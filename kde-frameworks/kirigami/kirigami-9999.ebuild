@@ -18,6 +18,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
+# requires package to already be installed
+RESTRICT+=" test"
+
 BDEPEND="
 	>=dev-qt/linguist-tools-${QTMIN}:5
 "
@@ -33,9 +36,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 "
-
-# requires package to already be installed
-RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

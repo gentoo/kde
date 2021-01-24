@@ -14,6 +14,8 @@ LICENSE="BSD"
 KEYWORDS=""
 IUSE="doc test"
 
+RESTRICT+=" !test? ( test )"
+
 BDEPEND="
 	doc? (
 		${PYTHON_DEPS}
@@ -28,8 +30,6 @@ BDEPEND="
 RDEPEND="
 	app-arch/libarchive[bzip2]
 "
-
-RESTRICT+=" !test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.49.0-no-fatal-warnings.patch"

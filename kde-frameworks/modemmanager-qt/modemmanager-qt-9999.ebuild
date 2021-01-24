@@ -12,6 +12,9 @@ LICENSE="LGPL-2"
 KEYWORDS=""
 IUSE=""
 
+# requires running environment
+RESTRICT+=" test"
+
 BDEPEND="
 	virtual/pkgconfig
 "
@@ -21,6 +24,3 @@ DEPEND="
 	net-misc/modemmanager
 "
 RDEPEND="${DEPEND}"
-
-# requires running environment
-RESTRICT+=" test"

@@ -15,6 +15,9 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
+# All failing, I guess we need a virtual wayland server
+RESTRICT+=" test"
+
 RDEPEND="
 	>=dev-libs/wayland-1.15.0
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -26,6 +29,3 @@ DEPEND="${RDEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.1.1
 	>=dev-libs/wayland-protocols-1.15
 "
-
-# All failing, I guess we need a virtual wayland server
-RESTRICT+=" test"

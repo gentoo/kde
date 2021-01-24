@@ -12,6 +12,8 @@ LICENSE="|| ( LGPL-2.1 LGPL-3 ) MIT"
 KEYWORDS=""
 IUSE="nls X"
 
+RESTRICT+=" test"
+
 BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
@@ -29,8 +31,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 "
-
-RESTRICT+=" test"
 
 DOCS=( docs/README.kstartupinfo )
 

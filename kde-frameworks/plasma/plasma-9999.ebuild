@@ -15,6 +15,8 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gles2-only wayland X"
 
+RESTRICT+=" test"
+
 BDEPEND="
 	>=kde-frameworks/kdoctools-${PVCUT}:5
 "
@@ -58,8 +60,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 "
-
-RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
