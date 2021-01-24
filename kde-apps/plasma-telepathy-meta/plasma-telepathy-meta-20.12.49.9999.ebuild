@@ -9,7 +9,7 @@ HOMEPAGE="https://community.kde.org/KTp"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="gstreamer"
+IUSE=""
 
 RDEPEND="
 	>=kde-apps/ktp-accounts-kcm-${PV}:${SLOT}
@@ -23,7 +23,6 @@ RDEPEND="
 	>=kde-apps/ktp-kded-module-${PV}:${SLOT}
 	>=kde-apps/ktp-send-file-${PV}:${SLOT}
 	>=kde-apps/ktp-text-ui-${PV}:${SLOT}
-	gstreamer? ( >=kde-apps/ktp-call-ui-${PV}:${SLOT} )
 "
 
 pkg_postinst() {
