@@ -42,7 +42,9 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	ecm_src_prepare
-	cmake_run_in src/plugins cmake_comment_add_subdirectory bluetooth
+
+	use bluetooth ||
+		cmake_run_in src/plugins cmake_comment_add_subdirectory bluetooth
 }
 
 src_configure() {
