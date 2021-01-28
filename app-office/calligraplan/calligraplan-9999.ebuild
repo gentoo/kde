@@ -29,6 +29,8 @@ IUSE="activities +holidays kwallet X"
 # =dev-libs/kproperty-3.0*:5
 # =dev-libs/kreport-3.0*:5
 DEPEND="
+	dev-lang/perl
+	>=dev-libs/kdiagram-2.8.0:5
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -56,8 +58,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	dev-lang/perl
-	>=dev-libs/kdiagram-2.7.0:5
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	kwallet? (
