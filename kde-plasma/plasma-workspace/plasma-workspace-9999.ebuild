@@ -21,7 +21,10 @@ IUSE="appstream +calendar +fontconfig geolocation gps qalculate screencast +sema
 REQUIRED_USE="gps? ( geolocation )"
 RESTRICT+=" test"
 
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	>=dev-util/cmake-3.14
+	virtual/pkgconfig
+"
 COMMON_DEPEND="
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -96,7 +99,6 @@ COMMON_DEPEND="
 	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	fontconfig? (
 		media-libs/fontconfig
-		media-libs/freetype
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
