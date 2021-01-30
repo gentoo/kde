@@ -56,7 +56,7 @@ DEPEND="
 	markdown? ( app-text/discount )
 	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:5 )
 	pdf? ( app-text/poppler[qt5] )
-	plucker? ( media-libs/libjpeg-turbo:= )
+	plucker? ( virtual/jpeg:0 )
 	postscript? ( app-text/libspectre )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
