@@ -1,4 +1,4 @@
-From a97b01b220e6ef08d1517fea76fdaddb84a9773e Mon Sep 17 00:00:00 2001
+From 720711e3a4e69bcc6447c928bea243a81a777a07 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Sun, 22 Nov 2020 00:25:06 +0100
 Subject: [PATCH 1/2] Drop KDE4_ADD_WIDGET_FILES macro and KF5DesignerPlugin
@@ -15,29 +15,29 @@ Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
  6 files changed, 52 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 9f4b6d33..20a27b52 100644
+index a60c88a4..2a432591 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -26,7 +26,6 @@ find_package(KF5Completion ${KF5_DEP_VERSION} REQUIRED)
- find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
- find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
- find_package(KF5Crash ${KF5_DEP_VERSION} REQUIRED)
--find_package(KF5DesignerPlugin ${KF5_DEP_VERSION} REQUIRED)
- find_package(KF5GlobalAccel ${KF5_DEP_VERSION} REQUIRED)
- find_package(KF5DocTools ${KF5_DEP_VERSION} REQUIRED)
- find_package(KF5Emoticons ${KF5_DEP_VERSION} REQUIRED)
+@@ -26,7 +26,6 @@ find_package(KF5Completion ${KF_DEP_VERSION} REQUIRED)
+ find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
+ find_package(KF5ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
+ find_package(KF5Crash ${KF_DEP_VERSION} REQUIRED)
+-find_package(KF5DesignerPlugin ${KF_DEP_VERSION} REQUIRED)
+ find_package(KF5GlobalAccel ${KF_DEP_VERSION} REQUIRED)
+ find_package(KF5DocTools ${KF_DEP_VERSION} REQUIRED)
+ find_package(KF5Emoticons ${KF_DEP_VERSION} REQUIRED)
 diff --git a/KF5KDELibs4SupportConfig.cmake.in b/KF5KDELibs4SupportConfig.cmake.in
-index b5194f94..5e16c780 100644
+index 3de7d530..4fe2369e 100644
 --- a/KF5KDELibs4SupportConfig.cmake.in
 +++ b/KF5KDELibs4SupportConfig.cmake.in
-@@ -11,7 +11,6 @@ find_dependency(KF5Archive "@KF5_DEP_VERSION@")
- find_dependency(KF5ConfigWidgets "@KF5_DEP_VERSION@")
- find_dependency(KF5CoreAddons "@KF5_DEP_VERSION@")
- find_dependency(KF5Crash "@KF5_DEP_VERSION@")
--find_dependency(KF5DesignerPlugin "@KF5_DEP_VERSION@")
- find_dependency(KF5DocTools "@KF5_DEP_VERSION@")
- find_dependency(KF5Emoticons "@KF5_DEP_VERSION@")
- find_dependency(KF5GuiAddons "@KF5_DEP_VERSION@")
+@@ -11,7 +11,6 @@ find_dependency(KF5Archive "@KF_DEP_VERSION@")
+ find_dependency(KF5ConfigWidgets "@KF_DEP_VERSION@")
+ find_dependency(KF5CoreAddons "@KF_DEP_VERSION@")
+ find_dependency(KF5Crash "@KF_DEP_VERSION@")
+-find_dependency(KF5DesignerPlugin "@KF_DEP_VERSION@")
+ find_dependency(KF5DocTools "@KF_DEP_VERSION@")
+ find_dependency(KF5Emoticons "@KF_DEP_VERSION@")
+ find_dependency(KF5GuiAddons "@KF_DEP_VERSION@")
 diff --git a/cmake/modules/FindKDE4Internal.cmake b/cmake/modules/FindKDE4Internal.cmake
 index 7e252a70..b9636036 100644
 --- a/cmake/modules/FindKDE4Internal.cmake
@@ -74,7 +74,7 @@ index ca868ad9..27bb28f9 100644
  # functions deprecated, they still should work
  macro (KDE4_AUTH_INSTALL_ACTIONS)
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index b249bd53..3ed8114d 100644
+index cb8a3c2d..70829dd6 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
 @@ -371,25 +371,6 @@ set_target_properties(KF5KDELibs4Support PROPERTIES
@@ -140,10 +140,10 @@ index 1570df34..e255960d 100644
  # 'appsources' - the sources of the application
  # 'pngfiles' - specifies the list of icon files
 -- 
-2.29.2
+2.30.0
 
 
-From 13277f3a50eee8ec2ebc5cd915a83b56c2613966 Mon Sep 17 00:00:00 2001
+From b51d32df6a89e559871469178de1c6fd8c8a2882 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Sun, 22 Nov 2020 00:27:55 +0100
 Subject: [PATCH 2/2] Drop Qt5Designer dependency
@@ -156,7 +156,7 @@ Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
  3 files changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 20a27b52..e09b93e2 100644
+index 2a432591..e503999d 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -20,7 +20,7 @@ include(GenerateExportHeader)
@@ -166,8 +166,8 @@ index 20a27b52..e09b93e2 100644
 -find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Network Widgets DBus Test Svg PrintSupport Designer)
 +find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Network Widgets DBus Test Svg PrintSupport)
  
- find_package(KF5Completion ${KF5_DEP_VERSION} REQUIRED)
- find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
+ find_package(KF5Completion ${KF_DEP_VERSION} REQUIRED)
+ find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
 diff --git a/cmake/modules/ECMQt4To5Porting.cmake b/cmake/modules/ECMQt4To5Porting.cmake
 index 4204fa54..01b8f995 100644
 --- a/cmake/modules/ECMQt4To5Porting.cmake
@@ -193,5 +193,5 @@ index df354fc6..68fa6d47 100644
        Script
        ScriptTools
 -- 
-2.29.2
+2.30.0
 
