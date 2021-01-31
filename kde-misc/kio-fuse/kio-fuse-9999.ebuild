@@ -6,7 +6,7 @@ EAPI=7
 ECM_TEST="true"
 KFMIN=5.74.0
 QTMIN=5.15.2
-inherit ecm kde.org
+inherit ecm kde.org linux-info
 
 DESCRIPTION="FUSE interface for KIO"
 HOMEPAGE="https://feverfew.home.blog/2019/12/24/kiofuse-beta-4-9-0-released/"
@@ -20,6 +20,8 @@ LICENSE="GPL-3+"
 SLOT="5"
 IUSE=""
 
+RESTRICT+=" test" # depend on fuse kernel module
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -31,4 +33,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT+=" test" # depend on fuse kernel module
+pkg_setup() {
+	local CONFIG_CHECK="~FUSE_FS"
+	linux-info_pkg_setup
+
+	ecm_pkg_setup
+}
