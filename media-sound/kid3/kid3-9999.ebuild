@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit kde.org cmake xdg
+PYTHON_COMPAT=( python3_{7..9} )
+inherit cmake kde.org python-any-r1 xdg
 
 DESCRIPTION="Simple tag editor based on Qt"
 HOMEPAGE="https://kid3.kde.org/"
@@ -15,15 +16,17 @@ fi
 
 LICENSE="GPL-2+"
 SLOT="5"
-IUSE="acoustid flac kde mp3 mp4 +mpris +taglib vorbis"
+IUSE="acoustid flac kde mp3 mp4 +mpris +taglib test vorbis"
 
 REQUIRED_USE="flac? ( vorbis )"
+RESTRICT+=" !test? ( test )"
 
 BDEPEND="
 	dev-qt/linguist-tools:5
 	kde? ( kde-frameworks/extra-cmake-modules:5 )
+	test? ( ${PYTHON_DEPS} )
 "
-DEPEND="
+RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
@@ -57,9 +60,15 @@ DEPEND="
 		media-libs/libvorbis
 	)
 "
-RDEPEND="${DEPEND}
-	!media-sound/kid3:4
+DEPEND="${RDEPEND}
+	test? ( dev-qt/qttest:5 )
 "
+
+PATCHES=( "${FILESDIR}/${PN}-3.8.5-tests-optional.patch" )
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+}
 
 src_prepare() {
 	# overengineered upstream build system
@@ -76,8 +85,10 @@ src_configure() {
 		-DWITH_ID3LIB=$(usex mp3)
 		-DWITH_MP4V2=$(usex mp4)
 		-DWITH_TAGLIB=$(usex taglib)
+		-DBUILD_TESTING=$(usex test)
 		-DWITH_VORBIS=$(usex vorbis)
 	)
+	use test && mycmakeargs+=( -DPython3_EXECUTABLE="${PYTHON}" )
 
 	if use kde ; then
 		mycmakeargs+=( "-DWITH_APPS=KDE;CLI" )
