@@ -29,7 +29,6 @@ DEPEND="
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	!kde-apps/dolphin-plugins:5
 	dev-vcs/subversion
 	>=kde-apps/kompare-${PVCUT}:5
 "
