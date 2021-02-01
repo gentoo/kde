@@ -34,7 +34,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	!kde-apps/dolphin-plugins:5
 	dev-vcs/mercurial
 "
 
