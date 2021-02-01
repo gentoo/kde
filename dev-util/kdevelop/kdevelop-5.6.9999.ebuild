@@ -23,6 +23,9 @@ LICENSE="GPL-2 LGPL-2"
 SLOT="5/56" # look at KDEVELOP_SOVERSION inside CMakeLists.txt
 IUSE="+gdbui hex +plasma +qmake reviewboard subversion"
 
+# see bug 366471
+RESTRICT+=" test"
+
 COMMON_DEPEND="
 	dev-libs/grantlee:5
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -93,11 +96,7 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/kio-extras:5
 	>=sys-devel/gdb-7.0[python]
 	reviewboard? ( kde-apps/ktp-accounts-kcm:5 )
-	!dev-util/kdevelop-clang-tidy
 "
-
-RESTRICT+=" test"
-# see bug 366471
 
 src_configure() {
 	local clang_version=$(best_version sys-devel/clang)
