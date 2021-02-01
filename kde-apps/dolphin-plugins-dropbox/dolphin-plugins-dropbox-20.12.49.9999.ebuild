@@ -31,7 +31,6 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	!kde-apps/dolphin-plugins:5
 	net-misc/dropbox-cli
 "
 
