@@ -56,7 +56,6 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	DEPEND+=" >=kde-frameworks/ki18n-${KFMIN}:5"
 fi
 RDEPEND="${COMMON_DEPEND}
-	!www-client/qupzilla
 	>=dev-qt/qtsvg-${QTMIN}:5
 "
 
