@@ -123,10 +123,12 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "Optional dependencies:"
 		optfeature "konsole view" kde-apps/konsole
-		optfeature "Static C++ Qt code analysis" dev-util/clazy
-		optfeature "Static C/C++ code analysis" dev-util/cppcheck
-		optfeature "Heap memory profiling" dev-util/heaptrack[qt5]
-		optfeature "Meson Project manager plugin" dev-util/meson
+		optfeature "static C++ Qt code analysis" dev-util/clazy
+		optfeature "static C/C++ code analysis" dev-util/cppcheck
+		optfeature "heap memory profiling" dev-util/heaptrack[qt5]
+		optfeature "meson project manager plugin" dev-util/meson
+		optfeature "formatting configurations via customscript plugin" dev-util/indent
+		optfeature "formatting configurations via customscript plugin" dev-util/uncrustify
 	fi
 	ecm_pkg_postinst
 }
