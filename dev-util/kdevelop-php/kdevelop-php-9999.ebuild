@@ -8,13 +8,13 @@ ECM_HANDBOOK_DIR="docs"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-php"
-KFMIN=5.70.0
+KFMIN=5.77.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="PHP plugin for KDevelop"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -23,6 +23,9 @@ fi
 LICENSE="GPL-2 LGPL-2"
 SLOT="5"
 IUSE=""
+
+# remaining tests fail for some, bug 668530
+RESTRICT+=" test"
 
 BDEPEND="
 	test? ( dev-util/kdevelop:5[test] )
@@ -44,9 +47,6 @@ DEPEND="
 	>=kde-frameworks/threadweaver-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-# remaining tests fail for some, bug 668530
-RESTRICT+=" test"
 
 src_test() {
 	# tests hang, bug 667922

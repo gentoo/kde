@@ -13,7 +13,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="LL(1) parser generator used mainly by KDevelop language plugins"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 LICENSE="LGPL-2+ LGPL-2.1+"
 SLOT="5"

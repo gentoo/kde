@@ -6,13 +6,13 @@ EAPI=7
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-krazy2"
-KFMIN=5.70.0
+KFMIN=5.77.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Plugin for KDevelop to perform Krazy2 analysis"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 LICENSE="GPL-2+"
 SLOT="5"

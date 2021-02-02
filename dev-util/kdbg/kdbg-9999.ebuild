@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_HANDBOOK="true"
-KFMIN=5.74.0
+KFMIN=5.77.0
 QTMIN=5.15.2
 inherit ecm git-r3
 

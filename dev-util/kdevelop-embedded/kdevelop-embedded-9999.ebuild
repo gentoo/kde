@@ -5,18 +5,23 @@ EAPI=7
 
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-embedded"
-KFMIN=5.70.0
+KFMIN=5.77.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Plugin for KDevelop to support the development of embedded systems"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	dev-util/kdevelop-pg-qt:5
+	dev-util/kdevelop:5=
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -30,10 +35,5 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-util/kdevelop-pg-qt:5
-	dev-util/kdevelop:5=
 "
 RDEPEND="${DEPEND}"

@@ -5,12 +5,12 @@ EAPI=7
 
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-upload"
-KFMIN=5.70.0
+KFMIN=5.77.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Plugin for uploading files to a remote server"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
@@ -18,6 +18,9 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	dev-util/kdevelop:5=
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -28,8 +31,5 @@ DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-util/kdevelop:5=
 "
 RDEPEND="${DEPEND}"

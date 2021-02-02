@@ -7,12 +7,12 @@ ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
 PYTHON_COMPAT=( python3_{7,8,9} )
-KFMIN=5.70.0
+KFMIN=5.77.0
 QTMIN=5.15.2
 inherit ecm kde.org python-single-r1
 
 DESCRIPTION="Python plugin for KDevelop"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -23,6 +23,7 @@ SLOT="5"
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT+=" test"
 
 DEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -46,8 +47,6 @@ RDEPEND="${DEPEND}
 		dev-python/pycodestyle[${PYTHON_MULTI_USEDEP}]
 	')
 "
-
-RESTRICT+=" test"
 
 pkg_setup() {
 	python-single-r1_pkg_setup
