@@ -14,11 +14,12 @@ HOMEPAGE="https://apps.kde.org/en/artikulate"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="gstreamer"
+IUSE=""
 
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
@@ -31,15 +32,13 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	gstreamer? ( >=media-libs/qt-gstreamer-1.2.0-r4 )
-	!gstreamer? ( >=dev-qt/qtmultimedia-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_GSTREAMER_PLUGIN=$(usex gstreamer)
-		-DBUILD_QTMULTIMEDIA_PLUGIN=$(usex !gstreamer)
+		-DBUILD_GSTREAMER_PLUGIN=OFF
+		-DBUILD_QTMULTIMEDIA_PLUGIN=ON
 	)
 
 	ecm_src_configure
