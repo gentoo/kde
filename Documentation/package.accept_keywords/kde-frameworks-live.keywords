@@ -8,13 +8,8 @@
 ~kde-frameworks/khtml-9999 **
 ~kde-frameworks/kjs-9999 **
 ~kde-frameworks/kross-9999 **
-# TODO: PMASK after KDE Frameworks 5.74 cleanup
-# ~kde-frameworks/kdesignerplugin-9999
 # PMASKED
-# ~kde-frameworks/kdewebkit-9999
-# ~kde-frameworks/kjsembed-9999
-# ~kde-frameworks/kmediaplayer-9999
-# ~kde-frameworks/kxmlrpcclient-9999
+# ~kde-frameworks/kdesignerplugin-9999
 # Tier 1: Depend only on Qt and possibly a few third-party libraries.
 ~kde-frameworks/attica-9999 **
 ~kde-frameworks/bluez-qt-9999 **
