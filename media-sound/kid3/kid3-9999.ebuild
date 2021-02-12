@@ -21,11 +21,6 @@ IUSE="acoustid flac kde mp3 mp4 +mpris +taglib test vorbis"
 REQUIRED_USE="flac? ( vorbis )"
 RESTRICT+=" !test? ( test )"
 
-BDEPEND="
-	dev-qt/linguist-tools:5
-	kde? ( kde-frameworks/extra-cmake-modules:5 )
-	test? ( ${PYTHON_DEPS} )
-"
 RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
@@ -63,8 +58,10 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
 "
-
-PATCHES=( "${FILESDIR}/${PN}-3.8.5-tests-optional.patch" )
+BDEPEND="${PYTHON_DEPS}
+	dev-qt/linguist-tools:5
+	kde? ( kde-frameworks/extra-cmake-modules:5 )
+"
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
@@ -79,6 +76,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DPython3_EXECUTABLE="${PYTHON}"
 		-DWITH_CHROMAPRINT=$(usex acoustid)
 		-DWITH_DBUS=$(usex mpris)
 		-DWITH_FLAC=$(usex flac)
@@ -88,7 +86,6 @@ src_configure() {
 		-DBUILD_TESTING=$(usex test)
 		-DWITH_VORBIS=$(usex vorbis)
 	)
-	use test && mycmakeargs+=( -DPython3_EXECUTABLE="${PYTHON}" )
 
 	if use kde ; then
 		mycmakeargs+=( "-DWITH_APPS=KDE;CLI" )
