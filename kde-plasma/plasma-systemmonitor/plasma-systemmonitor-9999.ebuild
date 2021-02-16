@@ -28,6 +28,7 @@ DEPEND="
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
