@@ -20,6 +20,7 @@ SLOT="5"
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
@@ -28,7 +29,9 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
+	sys-auth/oath-toolkit
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
