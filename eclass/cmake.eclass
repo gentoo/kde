@@ -127,21 +127,6 @@ if [[ ${PN} != cmake ]]; then
 	BDEPEND+=" dev-util/cmake"
 fi
 
-# @FUNCTION: _cmake_check_build_dir
-# @INTERNAL
-# @DESCRIPTION:
-# Determine using IN or OUT source build
-_cmake_check_build_dir() {
-	: ${CMAKE_USE_DIR:=${S}}
-	if [[ -n ${CMAKE_IN_SOURCE_BUILD} ]]; then
-		# we build in source dir
-		BUILD_DIR="${CMAKE_USE_DIR}"
-	fi
-
-	mkdir -p "${BUILD_DIR}" || die
-	einfo "Working in BUILD_DIR: \"$BUILD_DIR\""
-}
-
 # @FUNCTION: cmake_run_in
 # @USAGE: <working dir> <run command>
 # @DESCRIPTION:
@@ -270,6 +255,21 @@ cmake-utils_use() { _cmake_banned_func "" "$@" ; }
 # @DESCRIPTION:
 # Banned. Use -DNOFOO=$(usex !foo) instead.
 cmake-utils_useno() { _cmake_banned_func "" "$@" ; }
+
+# @FUNCTION: _cmake_check_build_dir
+# @INTERNAL
+# @DESCRIPTION:
+# Determine using IN or OUT source build
+_cmake_check_build_dir() {
+	: ${CMAKE_USE_DIR:=${S}}
+	if [[ -n ${CMAKE_IN_SOURCE_BUILD} ]]; then
+		# we build in source dir
+		BUILD_DIR="${CMAKE_USE_DIR}"
+	fi
+
+	mkdir -p "${BUILD_DIR}" || die
+	einfo "Working in BUILD_DIR: \"$BUILD_DIR\""
+}
 
 # @FUNCTION: _cmake_modify-cmakelists
 # @INTERNAL
