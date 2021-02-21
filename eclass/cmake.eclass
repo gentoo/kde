@@ -362,11 +362,11 @@ cmake_src_prepare() {
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # Optional cmake defines as a bash array. Should be defined before calling
-# src_configure.
+# cmake_src_configure.
 # @CODE
 # src_configure() {
 # 	local mycmakeargs=(
-# 		$(cmake_use_with openconnect)
+# 		$(cmake_use_find_package foo LibFoo)
 # 	)
 #
 # 	cmake_src_configure
