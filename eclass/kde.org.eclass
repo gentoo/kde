@@ -133,6 +133,10 @@ case ${CATEGORY} in
 	*) ;;
 esac
 
+# @FUNCTION: _kde.org_is_unreleased
+# @INTERNAL
+# @DESCRIPTION:
+# Return true if $CATEGORY-$PV matches against an entry in KDE_UNRELEASED array.
 _kde.org_is_unreleased() {
 	local pair
 	for pair in "${KDE_UNRELEASED[@]}" ; do
@@ -148,6 +152,9 @@ _kde.org_is_unreleased() {
 	return 1
 }
 
+# @FUNCTION: _kde.org_calculate_src_uri
+# @INTERNAL
+# @DESCRIPTION:
 # Determine fetch location for released tarballs
 _kde.org_calculate_src_uri() {
 	debug-print-function ${FUNCNAME} "$@"
@@ -209,6 +216,9 @@ _kde.org_calculate_src_uri() {
 	fi
 }
 
+# @FUNCTION: _kde.org_calculate_live_repo
+# @INTERNAL
+# @DESCRIPTION:
 # Determine fetch location for live sources
 _kde.org_calculate_live_repo() {
 	debug-print-function ${FUNCNAME} "$@"
