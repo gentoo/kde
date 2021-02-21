@@ -364,25 +364,20 @@ cmake_src_prepare() {
 	_CMAKE_SRC_PREPARE_HAS_RUN=1
 }
 
-# @VARIABLE: mycmakeargs
-# @DEFAULT_UNSET
+# @FUNCTION: cmake_src_configure
 # @DESCRIPTION:
-# Optional cmake defines as a bash array. Should be defined before calling
-# cmake_src_configure.
+# General function for configuring with cmake. Default behaviour is to start an
+# out-of-source build.
+# Passes arguments to cmake by reading from an optionally pre-defined local
+# mycmakeargs bash array.
 # @CODE
 # src_configure() {
 # 	local mycmakeargs=(
 # 		$(cmake_use_find_package foo LibFoo)
 # 	)
-#
 # 	cmake_src_configure
 # }
 # @CODE
-
-# @FUNCTION: cmake_src_configure
-# @DESCRIPTION:
-# General function for configuring with cmake. Default behaviour is to start an
-# out-of-source build.
 cmake_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
