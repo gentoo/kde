@@ -4,7 +4,7 @@
 EAPI=7
 
 KDE_ORG_CATEGORY="pim"
-KFMIN=5.70.0
+KFMIN=5.77.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
@@ -26,12 +26,12 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/akonadi-20.08.1:5
-	>=kde-apps/akonadi-notes-20.08.1:5
-	>=kde-apps/kmime-20.08.1:5
-	>=kde-apps/kontactinterface-20.08.1:5
-	>=kde-apps/kpimtextedit-20.08.1:5
-	>=kde-apps/libkdepim-20.08.1:5
+	>=kde-apps/akonadi-20.12.2:5
+	>=kde-apps/akonadi-notes-20.12.2:5
+	>=kde-apps/kmime-20.12.2:5
+	>=kde-apps/kontactinterface-20.12.2:5
+	>=kde-apps/kpimtextedit-20.12.2:5
+	>=kde-apps/libkdepim-20.12.2:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
