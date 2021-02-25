@@ -18,7 +18,10 @@ fi
 
 LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="5"
-IUSE="cddb discid pdf scanner semantic-desktop taglib v4l xmp yaz"
+IUSE="bibtex cddb discid pdf scanner semantic-desktop taglib v4l xmp yaz"
+
+# tests need network access
+RESTRICT+=" test"
 
 BDEPEND="
 	sys-devel/gettext
@@ -26,10 +29,11 @@ BDEPEND="
 RDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
-	>=dev-perl/Text-BibTeX-0.780.0-r1
+	dev-qt/qtcharts:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
+	dev-qt/qtprintsupport:5
 	dev-qt/qtwebengine:5[widgets]
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
@@ -56,6 +60,7 @@ RDEPEND="
 	kde-frameworks/kxmlgui:5
 	kde-frameworks/solid:5
 	kde-frameworks/sonnet:5
+	bibtex? ( >=dev-perl/Text-BibTeX-0.780.0-r1 )
 	cddb? ( kde-apps/libkcddb:5 )
 	discid? ( dev-libs/libcdio:= )
 	pdf? ( app-text/poppler[qt5] )
@@ -68,12 +73,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-# tests need network access
-RESTRICT+=" test"
-
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Csv=ON
+		-DENABLE_BTPARSE=$(usex bibtex)
 		$(cmake_use_find_package cddb KF5Cddb)
 		$(cmake_use_find_package discid CDIO)
 		$(cmake_use_find_package pdf Poppler)
