@@ -40,7 +40,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
-	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 "
 BDEPEND="
