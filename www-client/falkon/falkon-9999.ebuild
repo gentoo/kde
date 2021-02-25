@@ -19,9 +19,10 @@ HOMEPAGE="https://www.falkon.org/"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="dbus kde libressl +X"
+IUSE="dbus kde +X"
 
 COMMON_DEPEND="
+	dev-libs/openssl:0=
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
@@ -40,8 +41,6 @@ COMMON_DEPEND="
 		>=kde-frameworks/kwallet-${KFMIN}:5
 		>=kde-frameworks/purpose-${KFMIN}:5
 	)
-	libressl? ( dev-libs/libressl:= )
-	!libressl? ( dev-libs/openssl:0= )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libxcb:=
