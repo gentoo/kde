@@ -12,13 +12,14 @@ inherit ecm kde.org
 DESCRIPTION="KHTML web rendering engine"
 LICENSE="LGPL-2"
 KEYWORDS=""
-IUSE="libressl X"
+IUSE="X"
 
 BDEPEND="
 	dev-lang/perl
 	dev-util/gperf
 "
 RDEPEND="
+	dev-libs/openssl:0
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
@@ -51,8 +52,6 @@ RDEPEND="
 	>=media-libs/phonon-4.11.0
 	sys-libs/zlib
 	virtual/jpeg:0
-	!libressl? ( dev-libs/openssl:0 )
-	libressl? ( dev-libs/libressl )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
