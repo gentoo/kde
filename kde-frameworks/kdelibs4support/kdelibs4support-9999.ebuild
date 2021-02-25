@@ -13,7 +13,7 @@ inherit ecm kde.org
 DESCRIPTION="Framework easing the development transition from KDELibs 4 to KF 5"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="libressl X"
+IUSE="X"
 
 RESTRICT+=" test"
 
@@ -23,6 +23,7 @@ BDEPEND="
 "
 COMMON_DEPEND="
 	app-text/docbook-xml-dtd:4.2
+	dev-libs/openssl:0
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
@@ -58,8 +59,6 @@ COMMON_DEPEND="
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
 	virtual/libintl
-	!libressl? ( dev-libs/openssl:0 )
-	libressl? ( dev-libs/libressl )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libICE
