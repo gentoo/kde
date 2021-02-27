@@ -52,4 +52,6 @@
 <kde-plasma/systemsettings-5.21.50:5
 <kde-plasma/xdg-desktop-portal-kde-5.21.50:5
 <kde-plasma/xembed-sni-proxy-5.21.50:5
+>=dev-libs/wayland-1.19.0
+>=dev-util/wayland-scanner-1.19.0
 >=sys-apps/fwupd-1.5.0
