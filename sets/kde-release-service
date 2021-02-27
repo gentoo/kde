@@ -15,6 +15,6 @@ kde-apps/kwrite:5
 @kdegraphics
 @kdemultimedia
 @kdenetwork
-@kdepim
+@kdepim-20.12
 @kdesdk
 @kdeutils

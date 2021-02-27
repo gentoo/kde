@@ -239,6 +239,6 @@
 <kde-misc/markdownpart-20.12.50
 <sys-block/partitionmanager-20.12.50
 <sys-libs/kpmcore-20.12.50
-~media-libs/kcolorpicker-0.1.4
-~media-libs/kimageannotator-0.4.0
+~media-libs/kcolorpicker-0.1.5
+~media-libs/kimageannotator-0.4.1
 ~media-libs/zxing-cpp-1.1.1
