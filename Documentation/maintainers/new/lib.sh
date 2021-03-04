@@ -39,6 +39,7 @@ bump_packages_from_set() {
 
 		if [[ ${destination} != *9999* ]] ; then
 			ekeyword $(get_main_tree_keyword ${cp}) ${destination} > /dev/null
+			ekeyword ~all ${destination} > /dev/null
 		fi
 
 		repoman manifest
