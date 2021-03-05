@@ -54,7 +54,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-8.0.3-cmake.patch" )
+PATCHES=( "${FILESDIR}/${PN}-8.1.0-cmake.patch" )
 
 src_configure() {
 	local mycmakeargs=(
