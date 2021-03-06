@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="wayland"
 
 RDEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5[wayland?]
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	x11-libs/libX11
 	wayland? (
