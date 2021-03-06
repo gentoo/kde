@@ -57,7 +57,7 @@ bump_set_from_live() {
 	local destination="${2}"
 
 	cp sets/${target}-live sets/${target}-${destination}
-	sed -i -e "s/~/</" -e "s/9999/${VERSION}/" -e "s/0/50:5/" sets/${target}-${destination}
+	sed -i -e "s/~/</" -e "s/9999/${destination}.50/" sets/${target}-${destination}
 	sed -i -e "/^@/s/live$/${destination}/" sets/${target}-${destination}
 
 	for entry in $(grep ^@ sets/${target}) ; do
