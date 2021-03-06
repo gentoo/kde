@@ -11,7 +11,7 @@ inherit ecm kde.org
 DESCRIPTION="Framework for providing different actions given a string query"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="activities"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -26,8 +26,16 @@ DEPEND="
 	=kde-frameworks/plasma-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
 	=kde-frameworks/threadweaver-${PVCUT}*:5
+	activities? ( =kde-frameworks/kactivities-${PVCUT}*:5 )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package activities KF5Activities)
+	)
+	ecm_src_configure
+}
 
 src_test() {
 	# requires virtual dbus #630672
