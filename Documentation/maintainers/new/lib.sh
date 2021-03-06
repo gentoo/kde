@@ -192,6 +192,9 @@ mask_from_live_set() {
 		author="$(git config --get user.name) <$(git config --get user.email)>"
 	fi
 	[[ -d profiles/package.mask ]] || mkdir profiles/package.mask
+	[[ -f profiles/package.mask/${filename} ]] && rm profiles/package.mask/${filename}
+
+	touch profiles/package.mask/${filename}
 	echo "# ${author} ($(date "+%Y-%m-%d"))" >> profiles/package.mask/${filename}
 	echo "# $(pretty_setname ${set}-${version}) mask" >> profiles/package.mask/${filename}
 	echo "# UNRELEASED" >> profiles/package.mask/${filename}
