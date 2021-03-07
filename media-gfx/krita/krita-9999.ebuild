@@ -12,7 +12,7 @@ inherit ecm kde.org python-single-r1
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~ppc64 ~x86"
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 fi
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
@@ -23,6 +23,9 @@ SLOT="5"
 IUSE="color-management fftw gif +gsl heif +jpeg +mypaint-brush-engine openexr pdf qtmedia +raw tiff vc"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
+# bug 630508
+RESTRICT+=" test"
+
 BDEPEND="
 	dev-cpp/eigen:3
 	dev-lang/perl
@@ -30,7 +33,7 @@ BDEPEND="
 "
 RDEPEND="${PYTHON_DEPS}
 	dev-libs/boost:=
-	dev-libs/quazip
+	dev-libs/quazip:0=
 	$(python_gen_cond_dep '
 		dev-python/PyQt5[${PYTHON_MULTI_USEDEP}]
 		dev-python/sip[${PYTHON_MULTI_USEDEP}]
@@ -83,9 +86,6 @@ RDEPEND="${PYTHON_DEPS}
 DEPEND="${RDEPEND}
 	vc? ( >=dev-libs/vc-1.1.0 )
 "
-
-# bug 630508
-RESTRICT+=" test"
 
 PATCHES=( "${FILESDIR}"/${PN}-4.3.1-tests-optional.patch )
 
