@@ -26,6 +26,9 @@ LICENSE="GPL-2"
 SLOT="5"
 IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop X"
 
+# bug 366505
+RESTRICT+=" test"
+
 BDEPEND="
 	>=dev-util/cmake-3.14.3
 	sys-devel/gettext
@@ -81,7 +84,7 @@ COMMON_DEPEND="
 		>=kde-frameworks/kbookmarks-${KFMIN}:5
 	)
 	mediaplayer? (
-		media-libs/qtav
+		media-libs/qtav[opengl(+)]
 		media-video/ffmpeg:=
 	)
 	opengl? (
@@ -104,9 +107,6 @@ RDEPEND="${COMMON_DEPEND}
 	mysql? ( virtual/mysql[server(+)] )
 	panorama? ( media-gfx/hugin )
 "
-
-RESTRICT+=" test"
-# bug 366505
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
