@@ -19,8 +19,5 @@ RDEPEND="
 	=kde-frameworks/kcodecs-${PVCUT}*:5
 "
 DEPEND="${RDEPEND}
-	test? (
-		>=dev-qt/qtnetwork-${QTMIN}:5
-		>=dev-qt/qtwidgets-${QTMIN}:5
-	)
+	test? ( >=dev-qt/qtnetwork-${QTMIN}:5 )
 "
