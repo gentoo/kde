@@ -46,6 +46,10 @@ BDEPEND="
 	test? ( dev-qt/linguist-tools:5 )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.14.3-disable-Werror-flags.patch # bug 733774
+)
+
 src_prepare() {
 	default
 	sed -e "/^as_doc_target_dir/s/appstream/${PF}/" -i docs/meson.build || die
