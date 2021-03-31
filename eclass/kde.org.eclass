@@ -107,6 +107,7 @@ readonly KDE_ORG_CATEGORIES
 : ${KDE_GEAR:=false}
 
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
+# @PRE_INHERIT
 # @DESCRIPTION:
 # If set to "none", do nothing.
 # For any other value, add selinux to IUSE, and depending on that useflag
