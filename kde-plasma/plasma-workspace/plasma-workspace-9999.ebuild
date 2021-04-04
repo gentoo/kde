@@ -39,6 +39,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kactivities-stats-${KFMIN}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -49,12 +50,12 @@ COMMON_DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kded-${KFMIN}:5
-	>=kde-frameworks/kdelibs4support-${KFMIN}:5
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kidletime-${KFMIN}:5
+	>=kde-frameworks/kinit-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
@@ -68,6 +69,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kunitconversion-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
@@ -98,6 +100,7 @@ COMMON_DEPEND="
 	appstream? ( dev-libs/appstream[qt5] )
 	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	fontconfig? (
+		>=dev-qt/qtprintsupport-${QTMIN}:5
 		media-libs/fontconfig
 		x11-libs/libXft
 		x11-libs/xcb-util-image
