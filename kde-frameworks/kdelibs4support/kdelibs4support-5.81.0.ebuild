@@ -79,6 +79,11 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=( "${FILESDIR}/${PN}-5.79.0-no-kdesignerplugin.patch" )
 
+PATCHES=(
+	"${FILESDIR}/${PN}-5.80.0-no-kdesignerplugin.patch"
+	"${FILESDIR}/${PN}-5.80.0-unused-dep.patch"
+)
+
 src_prepare() {
 	ecm_src_prepare
 	if ! use handbook; then
