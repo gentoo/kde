@@ -8,8 +8,6 @@
 ~kde-frameworks/khtml-9999
 ~kde-frameworks/kjs-9999
 ~kde-frameworks/kross-9999
-# PMASKED
-# ~kde-frameworks/kdesignerplugin-9999
 # Tier 1: Depend only on Qt and possibly a few third-party libraries.
 ~kde-frameworks/attica-9999
 ~kde-frameworks/bluez-qt-9999

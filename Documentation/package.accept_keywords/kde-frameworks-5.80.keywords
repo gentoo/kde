@@ -8,8 +8,6 @@
 <kde-frameworks/khtml-5.80.50:5
 <kde-frameworks/kjs-5.80.50:5
 <kde-frameworks/kross-5.80.50:5
-# PMASKED
-# <kde-frameworks/kdesignerplugin-5.80.50:5
 # Tier 1: Depend only on Qt and possibly a few third-party libraries.
 <kde-frameworks/attica-5.80.50:5
 <kde-frameworks/bluez-qt-5.80.50:5
