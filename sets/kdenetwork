@@ -25,3 +25,6 @@ kde-apps/signon-kwallet-extension:5
 kde-apps/zeroconf-ioslave:5
 kde-misc/kdeconnect:5
 kde-misc/kio-gdrive:5
+net-irc/konversation:5
+net-libs/libktorrent:5
+net-p2p/ktorrent:5

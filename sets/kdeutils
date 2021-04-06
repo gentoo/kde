@@ -17,3 +17,6 @@ kde-apps/kwalletmanager:5
 kde-apps/print-manager:5
 kde-apps/sweeper:5
 kde-apps/yakuake:5
+kde-misc/markdownpart:5
+sys-block/partitionmanager:5
+sys-libs/kpmcore:5
