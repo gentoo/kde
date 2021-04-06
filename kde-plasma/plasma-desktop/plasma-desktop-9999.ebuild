@@ -45,6 +45,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kded-${KFMIN}:5
@@ -114,6 +115,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/oxygen-${PVCUT}:5
 	sys-apps/util-linux
 	x11-apps/setxkbmap
+	x11-misc/xdg-user-dirs
 	kaccounts? ( net-libs/signon-oauth2 )
 	policykit? ( sys-apps/accountsservice )
 "
