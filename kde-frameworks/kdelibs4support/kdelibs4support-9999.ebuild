@@ -77,7 +77,6 @@ RDEPEND="${COMMON_DEPEND}
 	=kde-frameworks/kitemmodels-${PVCUT}*:5
 "
 
-
 PATCHES=(
 	"${FILESDIR}/${PN}-5.80.0-no-kdesignerplugin.patch"
 	"${FILESDIR}/${PN}-5.82.0-unused-dep.patch"
