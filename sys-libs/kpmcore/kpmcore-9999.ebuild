@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_NONGUI="true"
-KDE_RELEASE_SERVICE="true"
+KDE_GEAR="true"
 KFMIN=5.74.0
 QTMIN=5.15.2
 inherit ecm kde.org
@@ -16,6 +16,9 @@ LICENSE="GPL-3"
 SLOT="5/10"
 KEYWORDS=""
 IUSE=""
+
+# bug 689468, tests need polkit etc.
+RESTRICT+=" test"
 
 BDEPEND="virtual/pkgconfig"
 DEPEND="
@@ -29,6 +32,3 @@ DEPEND="
 	sys-auth/polkit-qt
 "
 RDEPEND="${DEPEND}"
-
-# bug 689468, tests need polkit etc.
-RESTRICT+=" test"

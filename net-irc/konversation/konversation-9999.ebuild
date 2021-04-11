@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
-KDE_RELEASE_SERVICE="true"
+KDE_GEAR="true"
 KFMIN=5.74.0
 QTMIN=5.15.2
 inherit ecm kde.org

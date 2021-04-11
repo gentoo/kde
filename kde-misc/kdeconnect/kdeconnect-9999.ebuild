@@ -5,21 +5,22 @@ EAPI=7
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
+KDE_GEAR="true"
 KDE_ORG_NAME="${PN}-kde"
-KDE_RELEASE_SERVICE="true"
 KDE_SELINUX_MODULE="${PN}"
 KFMIN=5.75.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
-HOMEPAGE="https://kdeconnect.kde.org/
-https://apps.kde.org/en/kdeconnect.kcm"
+HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/en/kdeconnect.kcm"
 
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
 IUSE="bluetooth pulseaudio wayland X"
+
+RESTRICT+=" test"
 
 DEPEND="
 	>=app-crypt/qca-2.3.0:2[ssl]
@@ -62,8 +63,6 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	net-fs/sshfs
 "
-
-RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

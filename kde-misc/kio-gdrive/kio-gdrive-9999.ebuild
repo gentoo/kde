@@ -5,8 +5,8 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="optional"
+KDE_GEAR="true"
 KDE_ORG_CATEGORY="network"
-KDE_RELEASE_SERVICE="true"
 KFMIN=5.75.0
 QTMIN=5.15.2
 inherit ecm kde.org

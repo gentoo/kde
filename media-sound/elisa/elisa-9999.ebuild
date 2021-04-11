@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KDE_RELEASE_SERVICE="true"
+KDE_GEAR="true"
 KFMIN=5.75.0
 QTMIN=5.15.2
 inherit ecm kde.org
@@ -17,6 +17,8 @@ LICENSE="LGPL-3+"
 SLOT="5"
 KEYWORDS=""
 IUSE="mpris semantic-desktop +vlc"
+
+RESTRICT+=" test"
 
 BDEPEND="sys-devel/gettext"
 DEPEND="
@@ -49,8 +51,6 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "
-
-RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

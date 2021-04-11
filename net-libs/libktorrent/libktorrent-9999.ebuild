@@ -4,8 +4,8 @@
 EAPI=7
 
 ECM_TEST="forceoptional"
+KDE_GEAR="true"
 KDE_ORG_CATEGORY="network"
-KDE_RELEASE_SERVICE="true"
 KFMIN=5.74.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
