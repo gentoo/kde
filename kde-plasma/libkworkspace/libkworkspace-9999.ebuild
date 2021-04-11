@@ -32,10 +32,7 @@ RDEPEND="
 	x11-libs/libXau
 "
 DEPEND="${RDEPEND}
-	|| (
-		>=kde-plasma/kwin-${PVCUT}:5
-		>=gui-wm/kwinft-$(ver_cut 1-2):5
-	)
+	>=kde-plasma/kwin-${PVCUT}:5
 "
 
 S="${S}/${PN}"
