@@ -36,6 +36,4 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-DEPEND="${RDEPEND}
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-"
+DEPEND="${RDEPEND}"
