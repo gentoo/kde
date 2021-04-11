@@ -10,7 +10,7 @@
 # This eclass is intended to streamline the creation of ebuilds for packages
 # that use cmake and KDE Frameworks' extra-cmake-modules, thereby following
 # some of their packaging conventions. It is primarily intended for the three
-# upstream release groups (Frameworks, Plasma, Applications) but also for any
+# upstream release groups (Frameworks, Plasma, Gear) but also for any
 # other package that follows similar conventions.
 #
 # This eclass unconditionally inherits cmake.eclass and all its public
