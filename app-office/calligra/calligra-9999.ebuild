@@ -22,8 +22,11 @@ CAL_FTS=( karbon sheets stage words )
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities +charts +crypt +fontconfig gemini gsl +import-filter +lcms okular openexr
-	+pdf phonon spacenav +truetype X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
+IUSE="activities +charts +crypt +fontconfig gemini gsl +import-filter +lcms
+	okular openexr +pdf phonon spacenav +truetype X
+	$(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
+
+RESTRICT+=" test"
 
 # TODO: Not packaged: Cauchy (https://bitbucket.org/cyrille/cauchy)
 # Required for the matlab/octave formula tool
@@ -110,12 +113,11 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
 	gemini? (
+		>=dev-qt/qtquickcontrols-${QTMIN}:5
 		>=dev-qt/qtquickcontrols2-${QTMIN}:5
 		>=kde-frameworks/kirigami-${KFMIN}:5
 	)
 "
-
-RESTRICT+=" test"
 
 PATCHES=( "${FILESDIR}"/${PN}-3.1.89-no-arch-detection.patch )
 
