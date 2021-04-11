@@ -39,7 +39,7 @@ DEPEND="
 		dev-cpp/eigen:3
 		>=dev-qt/qtopengl-${QTMIN}:5
 		>=kde-frameworks/knewstuff-${KFMIN}:5
-		sci-chemistry/openbabel
+		sci-chemistry/openbabel:=
 		>=sci-libs/avogadrolibs-1.93[qt5]
 	)
 	solver? ( dev-ml/facile[ocamlopt] )
@@ -48,11 +48,14 @@ RDEPEND="${DEPEND}
 	sci-chemistry/chemical-mime-data
 "
 
+PATCHES=( "${FILESDIR}/${PN}-21.03.90-cmake.patch" )
+
 src_configure(){
 	# Fix missing finite()
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
 
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_OpenBabel3=ON # TODO: not packaged yet
 		$(cmake_use_find_package editor Eigen3)
 		$(cmake_use_find_package editor AvogadroLibs)
 		$(cmake_use_find_package editor OpenBabel2)
