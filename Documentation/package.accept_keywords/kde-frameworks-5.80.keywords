@@ -17,7 +17,6 @@
 <kde-frameworks/kapidox-5.80.50:5
 <kde-frameworks/karchive-5.80.50:5
 <kde-frameworks/kcalendarcore-5.80.50:5
-# TODO: future: kcgroups (not packaged)
 <kde-frameworks/kcodecs-5.80.50:5
 <kde-frameworks/kconfig-5.80.50:5
 <kde-frameworks/kcoreaddons-5.80.50:5
@@ -32,7 +31,6 @@
 <kde-frameworks/kitemviews-5.80.50:5
 <kde-frameworks/kplotting-5.80.50:5
 <kde-frameworks/kquickcharts-5.80.50:5
-# TODO: future: dev-libs/kuserfeedback
 <kde-frameworks/kwayland-5.80.50:5
 <kde-frameworks/kwidgetsaddons-5.80.50:5
 <kde-frameworks/kwindowsystem-5.80.50:5
@@ -59,7 +57,6 @@
 <kde-frameworks/kpackage-5.80.50:5
 <kde-frameworks/kpeople-5.80.50:5
 <kde-frameworks/kpty-5.80.50:5
-# TODO: future: kquickimageeditor (not packaged)
 <kde-frameworks/kunitconversion-5.80.50:5
 <kde-frameworks/syndication-5.80.50:5
 # Tier 3: More powerful, comprehensive packages, with complex dependencies.
