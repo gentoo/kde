@@ -1,3 +1,5 @@
+~dev-libs/kopeninghours-9999 **
+~dev-libs/kosmindoormap-9999 **
 ~kde-apps/akonadi-9999 **
 ~kde-apps/akonadi-calendar-9999 **
 ~kde-apps/akonadi-contacts-9999 **
@@ -51,3 +53,4 @@
 ~kde-apps/pim-data-exporter-9999 **
 ~kde-apps/pim-sieve-editor-9999 **
 ~kde-apps/pimcommon-9999 **
+~kde-misc/kpublictransport-9999 **
