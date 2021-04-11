@@ -70,6 +70,7 @@ RDEPEND="
 	)
 	calendar? ( dev-libs/libical:= )
 	hbci? (
+		>=dev-qt/qtdeclarative-${QTMIN}:5
 		>=net-libs/aqbanking-6.2.5
 		>=sys-libs/gwenhywfar-5.4.1:=[qt5]
 	)
@@ -92,7 +93,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_OFXIMPORTER=ON
 		-DENABLE_WEBENGINE=ON
-		-DENABLE_WEBOOB=OFF
+		-DENABLE_WEBOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package addressbook KF5Akonadi)
