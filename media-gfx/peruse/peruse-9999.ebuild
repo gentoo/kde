@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE="+semantic-desktop"
 
 DEPEND="
-	dev-qt/qtdeclarative:5
+	dev-qt/qtdeclarative:5=
 	dev-qt/qtgui:5
 	dev-qt/qtopengl:5
 	dev-qt/qtsql:5
@@ -26,6 +26,7 @@ DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kfilemetadata-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
