@@ -4,9 +4,9 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.74.0
+KFMIN=5.80.0
 QTMIN=5.15.2
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
@@ -15,7 +15,7 @@ LICENSE="GPL-2"
 SLOT="5"
 IUSE="ipod lastfm mariadb mtp ofa podcast wikipedia"
 
-# ipod requires gdk enabled and also gtk compiled in libgpod
+# USE="ipod" requires gdk enabled and also gtk compiled in libgpod.
 BDEPEND="virtual/pkgconfig"
 DEPEND="
 	>=app-crypt/qca-2.3.0:2
@@ -111,11 +111,40 @@ pkg_postinst() {
 		echo "${1} ($(has_version ${1} || echo "not ")installed)"
 	}
 
+	optfeature "Audio CD support" kde-apps/audiocd-kio
+
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "You'll have to configure amarok to use an external db server:"
-		use mariadb && elog "    $(pkg_is_installed dev-db/mariadb)" ||
+		elog "You'll have to configure amarok to use an external database server:"
+		if use mariadb ; then
+			elog "    $(pkg_is_installed dev-db/mariadb)"
+			elog "    For preliminary configuration of MariaDB Server please refer to"
+			elog "    https://wiki.gentoo.org/wiki/MariaDB#Configuration"
+		else
 			elog "    $(pkg_is_installed dev-db/mysql)"
+			elog "    For preliminary configuration of MySQL Server please refer to"
+			elog "    https://wiki.gentoo.org/wiki/MySQL#Configuration"
+		fi
 		elog "Please read https://community.kde.org/Amarok/Community/MySQL for details on how"
-		elog "to configure the external db and migrate your data from the embedded database."
+		elog "to configure the external database and migrate your data from the embedded database."
+		elog "To create external amarok database with default user/password please:"
+		elog "    1. Make sure that MySQL or MariaDB is installed and configured (see above)"
+		elog "    2. Ensure that 'mysql' service is started and then run command 'emerge --config amarok'"
+		elog "    3. On 'Configure Amarok - Database' menu page check 'Use external MySQL database' and press OK"
 	fi
+}
+
+pkg_config() {
+	# Create external mysql database with amarok default user/password
+	local AMAROK_DB_NAME="amarokdb"
+	local AMAROK_DB_USER_NAME="amarokuser"
+	local AMAROK_DB_USER_PWD="password"
+
+	einfo "Initializing ${PN} MySQL database 'amarokdb':"
+	ewarn "If prompted for a password, please enter your MySQL root password."
+	ewarn ""
+
+	if [[ -e "${EROOT}"/usr/bin/mysql ]]; then
+		"${EROOT}"/usr/bin/mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS ${AMAROK_DB_NAME}; GRANT ALL PRIVILEGES ON ${AMAROK_DB_NAME}.* TO '${AMAROK_DB_USER_NAME}' IDENTIFIED BY '${AMAROK_DB_USER_PWD}'; FLUSH PRIVILEGES;"
+	fi
+	einfo "${PN} MySQL database 'amarokdb' successfully initialized!"
 }
