@@ -11,7 +11,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Getting things done application by KDE"
-HOMEPAGE="https://zanshin.kde.org/ https://apps.kde.org/en/zanshin
+HOMEPAGE="https://zanshin.kde.org/ https://apps.kde.org/zanshin/
 https://userbase.kde.org/Zanshin"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -23,9 +23,6 @@ LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="5"
 IUSE=""
 
-BDEPEND="
-	test? ( >=kde-apps/akonadi-${KDE_APPS_MINIMAL}:5[tools] )
-"
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -59,4 +56,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-apps/kdepim-runtime-${KDE_APPS_MINIMAL}:5
+"
+BDEPEND="
+	test? ( >=kde-apps/akonadi-${KDE_APPS_MINIMAL}:5[tools] )
 "
