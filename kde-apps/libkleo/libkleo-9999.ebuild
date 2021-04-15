@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="+fancyviewer"
 
 RDEPEND="
-	>=app-crypt/gpgme-1.11.1[cxx,qt5]
+	>=app-crypt/gpgme-1.13.1[cxx,qt5]
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
