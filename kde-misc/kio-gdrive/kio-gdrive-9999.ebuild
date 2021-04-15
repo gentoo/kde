@@ -17,7 +17,7 @@ HOMEPAGE="https://apps.kde.org/en/kio_gdrive"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="+kaccounts"
+IUSE="+kaccounts +share"
 
 BDEPEND="dev-util/intltool"
 COMMON_DEPEND="
@@ -30,6 +30,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	kaccounts? ( >=kde-apps/kaccounts-integration-20.08.3:5 )
 	!kaccounts? ( dev-libs/qtkeychain:=[qt5(+)] )
+	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtnetwork-${QTMIN}:5
