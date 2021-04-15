@@ -17,9 +17,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	sys-devel/gettext
-"
 DEPEND="
 	dev-libs/gmp:0=
 	dev-libs/mpfr:0=
@@ -32,9 +29,9 @@ DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kinit-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND="sys-devel/gettext"
