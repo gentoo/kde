@@ -19,14 +19,14 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT+=" test"
+
 # TODO kolab
-BDEPEND="
-	dev-libs/libxslt
-"
 RDEPEND="
 	>=app-crypt/qca-2.3.0:2
 	dev-libs/cyrus-sasl:2
 	dev-libs/libical:=
+	dev-libs/qtkeychain:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -70,7 +70,6 @@ RDEPEND="
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
@@ -79,8 +78,7 @@ DEPEND="${RDEPEND}
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 	test? ( >=kde-apps/kimap-${PVCUT}:5[test] )
 "
-
-RESTRICT+=" test"
+BDEPEND="dev-libs/libxslt"
 
 src_configure() {
 	local mycmakeargs=(
