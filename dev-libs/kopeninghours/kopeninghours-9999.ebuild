@@ -38,6 +38,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	${PYTHON_DEPS}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "
 
