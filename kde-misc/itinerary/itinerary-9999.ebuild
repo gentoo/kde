@@ -54,7 +54,6 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
 		optfeature "screen brightness control to aid barcode scanning" "kde-frameworks/solid:5"
 	fi
 	ecm_pkg_postinst
