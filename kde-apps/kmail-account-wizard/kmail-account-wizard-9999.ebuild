@@ -20,6 +20,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/qtkeychain:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
