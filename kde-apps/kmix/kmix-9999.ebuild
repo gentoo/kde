@@ -47,7 +47,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package alsa ALSA)
-		$(cmake_use_find_package plasma KF5Plasma)
+		-DBUILD_DATAENGINE=$(usex plasma)
 		$(cmake_use_find_package pulseaudio Canberra)
 		$(cmake_use_find_package pulseaudio PulseAudio)
 	)
