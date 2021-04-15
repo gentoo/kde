@@ -23,7 +23,6 @@ COMMON_DEPEND="
 	>=kde-apps/ktp-common-internals-${PVCUT}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=net-libs/telepathy-qt-0.9.8
