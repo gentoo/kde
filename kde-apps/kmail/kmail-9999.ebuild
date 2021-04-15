@@ -11,7 +11,7 @@ QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org optfeature
 
-DESCRIPTION="Email client, supporting POP3 and IMAP mailboxes."
+DESCRIPTION="Email client, supporting POP3 and IMAP mailboxes"
 HOMEPAGE="https://apps.kde.org/en/kmail2
 https://kontact.kde.org/components/kmail.html"
 
@@ -20,10 +20,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE="telemetry"
 
-BDEPEND="
-	dev-libs/libxslt
-	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
-"
+RESTRICT+=" test" # bug 616878
+
 COMMON_DEPEND="
 	>=app-crypt/gpgme-1.11.1[cxx,qt5]
 	>=dev-qt/qtcore-${QTMIN}:5
@@ -52,7 +50,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -86,8 +83,10 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 	>=kde-apps/kmail-account-wizard-${PVCUT}:5
 "
-
-RESTRICT+=" test" # bug 616878
+BDEPEND="
+	dev-libs/libxslt
+	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
+"
 
 src_prepare() {
 	ecm_src_prepare
@@ -104,10 +103,10 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "Virus detection" app-antivirus/clamav
-		optfeature "Spam filtering" mail-filter/bogofilter mail-filter/spamassassin
-		optfeature "Fancy e-mail headers and useful plugins" kde-apps/kdepim-addons:${SLOT}
-		optfeature "Crypto config and certificate details GUI" kde-apps/kleopatra:${SLOT}
+		optfeature "virus detection" app-antivirus/clamav
+		optfeature "spam filtering" mail-filter/bogofilter mail-filter/spamassassin
+		optfeature "fancy e-mail headers and useful plugins" kde-apps/kdepim-addons:${SLOT}
+		optfeature "crypto config and certificate details GUI" kde-apps/kleopatra:${SLOT}
 	fi
 	ecm_pkg_postinst
 }
