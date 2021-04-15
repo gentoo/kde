@@ -14,12 +14,15 @@ HOMEPAGE="https://apps.kde.org/en/kbibtex https://userbase.kde.org/KBibTeX"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/KBibTeX/${PV}/${P}.tar.xz"
+	S="${WORKDIR}/${P/_/-}"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2"
 SLOT="5"
 IUSE="webengine"
+
+RESTRICT+=" test"
 
 DEPEND="
 	app-text/poppler[qt5]
@@ -56,10 +59,6 @@ RDEPEND="${DEPEND}
 	dev-tex/bibtex2html
 "
 
-RESTRICT+=" test"
-
-S="${WORKDIR}/${P/_/-}"
-
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebKitWidgets=ON
@@ -71,8 +70,7 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
-		optfeature "PDF or PostScript document previews" kde-apps/okular:${SLOT}
+		optfeature "PDF or PostScript document previews" "kde-apps/okular:${SLOT}"
 	fi
 	ecm_pkg_postinst
 }
