@@ -18,9 +18,6 @@ LICENSE="GPL-2+ LGPL-2"
 SLOT="5"
 IUSE=""
 
-BDEPEND="
-	sys-devel/gettext
-"
 DEPEND="
 	dev-lang/R
 	dev-qt/qtgui:5
@@ -47,9 +44,11 @@ DEPEND="
 	kde-frameworks/kxmlgui:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND="sys-devel/gettext"
 
 pkg_postinst() {
-	elog "Optional dependencies:"
-	optfeature "kate plugins support" kde-apps/kate:${SLOT}
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		optfeature "kate plugins support" "kde-apps/kate:${SLOT}"
+	fi
 	ecm_pkg_postinst
 }
