@@ -24,6 +24,7 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kpeople-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
