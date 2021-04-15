@@ -17,7 +17,6 @@ IUSE="alsa"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=media-libs/phonon-4.11.0
