@@ -17,9 +17,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE="X"
 
-BDEPEND="
-	dev-libs/libxslt
-"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -36,7 +33,6 @@ DEPEND="
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
 	>=kde-apps/kpimtextedit-${PVCUT}:5
-	>=kde-apps/mailcommon-${PVCUT}:5
 	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
@@ -74,6 +70,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
+BDEPEND="dev-libs/libxslt"
 
 src_configure() {
 	local mycmakeargs=(
