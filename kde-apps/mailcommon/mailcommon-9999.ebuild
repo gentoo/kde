@@ -18,9 +18,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	dev-libs/libxslt
-"
+RESTRICT+=" test"
+
 DEPEND="
 	>=dev-qt/qtcore-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -40,7 +39,6 @@ DEPEND="
 	>=kde-apps/messagelib-${PVCUT}:5
 	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -60,5 +58,4 @@ DEPEND="
 	>=media-libs/phonon-4.11.0
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT+=" test"
+BDEPEND="dev-libs/libxslt"
