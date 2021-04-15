@@ -18,11 +18,12 @@ SLOT="5"
 KEYWORDS=""
 IUSE="gles2-only semantic-desktop share v4l webengine"
 
+RESTRICT+=" test" # segfaults, bug 684132
+
 BDEPEND="
 	sys-devel/gettext
 "
 DEPEND="
-	dev-cpp/rttr
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -66,8 +67,6 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	media-video/ffmpeg[encode,sdl,X]
 "
-
-RESTRICT+=" test" # segfaults, bug 684132
 
 src_configure() {
 	local mycmakeargs=(
