@@ -18,9 +18,9 @@ SLOT="5"
 KEYWORDS=""
 IUSE="activities +man mtp nfs openexr phonon samba +sftp taglib X"
 
-BDEPEND="
-	man? ( dev-util/gperf )
-"
+# requires running Plasma environment
+RESTRICT+=" test"
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -38,7 +38,6 @@ DEPEND="
 	>=kde-frameworks/kdnssd-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
@@ -69,14 +68,13 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kded-${KFMIN}:5
 "
-
-# requires running kde environment
-RESTRICT+=" test"
+BDEPEND="man? ( dev-util/gperf )"
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package activities KF5ActivitiesStats)
+		$(cmake_use_find_package activities Qt5Sql)
 		$(cmake_use_find_package man Gperf)
 		$(cmake_use_find_package mtp Mtp)
 		$(cmake_use_find_package nfs TIRPC)
