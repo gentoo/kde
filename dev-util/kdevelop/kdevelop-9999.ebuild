@@ -121,11 +121,10 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
 		optfeature "konsole view" kde-apps/konsole
 		optfeature "static C++ Qt code analysis" dev-util/clazy
 		optfeature "static C/C++ code analysis" dev-util/cppcheck
-		optfeature "heap memory profiling" dev-util/heaptrack[qt5]
+		optfeature "heap memory profiling" "dev-util/heaptrack[gui]"
 		optfeature "meson project manager plugin" dev-util/meson
 		optfeature "formatting configurations via customscript plugin" dev-util/indent
 		optfeature "formatting configurations via customscript plugin" dev-util/uncrustify
