@@ -29,7 +29,9 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -47,7 +49,6 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	bluetooth? ( >=dev-qt/qtbluetooth-${QTMIN}:5 )
 	X? (
-		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libfakekey
 		x11-libs/libX11
 		x11-libs/libXtst
@@ -59,7 +60,6 @@ RDEPEND="${DEPEND}
 	dev-libs/kpeoplevcard
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	net-fs/sshfs
 "
