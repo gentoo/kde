@@ -35,7 +35,6 @@ DEPEND="
 	>=kde-frameworks/kdoctools-${KFMIN}:5
 	>=kde-frameworks/khtml-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kinit-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
