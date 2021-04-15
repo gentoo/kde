@@ -16,7 +16,10 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT+=" test"
+
 RDEPEND="
+	dev-libs/qtkeychain:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -39,5 +42,3 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( >=kde-frameworks/ktextwidgets-${KFMIN}:5 )
 "
-
-RESTRICT+=" test"
