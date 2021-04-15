@@ -17,6 +17,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT+=" test" # bug 653674
+
 DEPEND="
 	dev-libs/glib:2
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -38,5 +40,4 @@ RDEPEND="${DEPEND}
 	media-plugins/gst-plugins-libpng:1.0
 	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]
 "
-
-RESTRICT+=" test" # bug 653674
+BDEPEND="virtual/pkgconfig"
