@@ -24,7 +24,6 @@ SLOT="5"
 IUSE="activities addressbook calendar hbci holidays"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
-BDEPEND="virtual/pkgconfig"
 RDEPEND="
 	>=app-crypt/gpgme-1.7.1-r1[cxx]
 	>=app-office/libalkimia-7.0.0:=
@@ -79,6 +78,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/boost
 "
+BDEPEND="virtual/pkgconfig"
 
 pkg_setup() {
 	ecm_pkg_setup
@@ -120,8 +120,7 @@ src_test() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
-		optfeature "More options for online stock quote retrieval" dev-perl/Finance-Quote
+		optfeature "more options for online stock quote retrieval" dev-perl/Finance-Quote
 	fi
 	if has_version "app-office/kmymoney[quotes]"; then
 		elog "Please note: IUSE=quotes flag is gone in ${PN}-5.1.1. ${PN} still"
