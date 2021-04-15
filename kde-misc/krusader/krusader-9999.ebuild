@@ -60,11 +60,10 @@ RDEPEND="${COMMON_DEPEND}
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Optional dependencies:"
-		optfeature "Markdown text previews" kde-misc/markdownpart:${SLOT} kde-misc/kmarkdownwebview:${SLOT}
-		optfeature "PDF/PS and RAW image thumbnails" kde-apps/thumbnailers:${SLOT}
-		optfeature "video thumbnails" kde-apps/ffmpegthumbs:${SLOT}
-		optfeature "bookmarks support" kde-apps/keditbookmarks:${SLOT}
+		optfeature "markdown text previews" "kde-misc/markdownpart:${SLOT}" "kde-misc/kmarkdownwebview:${SLOT}"
+		optfeature "PDF/PS and RAW image thumbnails" "kde-apps/thumbnailers:${SLOT}"
+		optfeature "video thumbnails" "kde-apps/ffmpegthumbs:${SLOT}"
+		optfeature "bookmarks support" "kde-apps/keditbookmarks:${SLOT}"
 	fi
 	ecm_pkg_postinst
 }
