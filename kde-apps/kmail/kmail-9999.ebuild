@@ -18,7 +18,7 @@ https://kontact.kde.org/components/kmail.html"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE="telemetry"
+IUSE="pch telemetry"
 
 RESTRICT+=" test" # bug 616878
 
@@ -95,6 +95,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DUSE_PRECOMPILED_HEADERS=$(usex pch)
 		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 
