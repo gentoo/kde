@@ -120,7 +120,7 @@ create_keywords_files() {
 	pushd package.unmask > /dev/null
 	cp -r .${base}-live .${target}
 	pushd .${target} > /dev/null
-	rm ${base}*-live
+	rm *-live
 	ln -s  ../../../sets/${target} ${target}
 	for x in $(grep ^@ ../../../sets/${target}); do
 		ln -s ../../../sets/${x/@/} ${x/@/}
@@ -133,7 +133,7 @@ create_keywords_files() {
 	pushd package.accept_keywords > /dev/null
 	cp -r .${base}-live.base .${target}
 	pushd .${target} > /dev/null
-	rm ${base}*-live
+	rm *-live
 	ln -s  ../../../sets/${target} ${target}
 	for x in $(grep ^@ ../../../sets/${target}); do
 		ln -s ../../../sets/${x/@/} ${x/@/}
