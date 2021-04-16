@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.80.0
+KFMIN=5.81.0
 QTMIN=5.15.2
 PYTHON_COMPAT=( python3_{7,8,9} )
 inherit ecm kde.org python-single-r1
