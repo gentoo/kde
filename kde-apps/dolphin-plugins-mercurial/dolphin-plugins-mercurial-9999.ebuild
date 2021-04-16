@@ -7,7 +7,7 @@ ECM_HANDBOOK="false"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="hg"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.75.0
+KFMIN=5.81.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
