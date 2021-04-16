@@ -4,7 +4,7 @@
 EAPI=7
 
 KDE_GEAR="true"
-KFMIN=5.74.0
+KFMIN=5.81.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
