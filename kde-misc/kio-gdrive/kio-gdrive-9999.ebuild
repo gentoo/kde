@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="optional"
 KDE_GEAR="true"
 KDE_ORG_CATEGORY="network"
-KFMIN=5.75.0
+KFMIN=5.81.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
