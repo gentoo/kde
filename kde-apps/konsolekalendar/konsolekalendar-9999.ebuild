@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 KDE_ORG_NAME="akonadi-calendar-tools"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.75.0
+KFMIN=5.81.0
 inherit ecm kde.org
 
 DESCRIPTION="Command line interface to KDE calendars"
