@@ -60,7 +60,8 @@ bump_set_from_live() {
 	sed -i -e "s/~/</" -e "s/9999/${destination}.50/" sets/${target}-${destination}
 	sed -i -e "/^@/s/live$/${destination}/" sets/${target}-${destination}
 
-	for entry in $(grep ^@ sets/${target}) ; do
+	for entry in $(grep ^@ sets/${target}-live) ; do
+		entry=${entry/-live/}
 		bump_set_from_live ${entry/@/} ${destination}
 	done
 }
