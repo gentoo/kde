@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 ECM_QTHELP="false" # TODO: figure out install error
 ECM_TEST="forceoptional"
-KFMIN=5.75.0
+KFMIN=5.81.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
