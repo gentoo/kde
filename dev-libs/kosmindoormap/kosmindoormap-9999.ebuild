@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.74.0
+KFMIN=5.81.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
