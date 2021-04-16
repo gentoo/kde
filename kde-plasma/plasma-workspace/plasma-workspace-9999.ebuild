@@ -81,6 +81,7 @@ COMMON_DEPEND="
 	>=kde-plasma/breeze-${PVCUT}:5
 	>=kde-plasma/kscreenlocker-${PVCUT}:5
 	>=kde-plasma/kwin-${PVCUT}:5
+	>=kde-plasma/layer-shell-qt-${PVCUT}:5
 	>=kde-plasma/libkscreen-${PVCUT}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
