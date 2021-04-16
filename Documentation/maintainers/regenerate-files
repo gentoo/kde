@@ -15,6 +15,9 @@ KF_RELEASE=${KF_RELEASE:-5.80}
 PLASMA_RELEASES="5.20 5.21"
 PLASMA_RELEASE=${PLASMA_RELEASE:-5.20}
 
+GEAR_RELEASES=""
+GEAR_RELEASE=${GEAR_RELEASE:-}
+
 SERVICE_RELEASES="20.12"
 SERVICE_RELEASE=${SERVICE_RELEASE:-20.12}
 
@@ -32,6 +35,30 @@ for release in $PLASMA_RELEASES; do
 	echo -e "${HEADER}" > "kde-plasma-${release}.keywords"
 	if [[ -d ".kde-plasma-${release}" ]]; then
 		cat ".kde-plasma-${release}/"* | sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-plasma-${release}.keywords"
+	fi
+done
+
+for release in $GEAR_RELEASES; do
+	echo -e "${HEADER}" > "kde-gear-${release}.keywords"
+	if [[ -d ".kde-gear-${release}" ]]; then
+		cat ".kde-gear-${release}/"* | \
+			sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-gear-${release}.keywords"
+	fi
+done
+
+# ... and for completely unkeyworded packages, add "**"
+for release in $GEAR_RELEASES; do
+	if [[ -d ".kde-gear-${release}" ]]; then
+		rm -rf ".kde-gear-${release}.49.9999"
+		mkdir -p ".kde-gear-${release}.49.9999"
+		echo -e "${HEADER}" > "kde-gear-${release}.49.9999.keywords"
+		for file in ".kde-gear-${release}"/*; do
+			newfile=".kde-gear-${release}.49.9999"/$(basename "${file}")
+			sed -e "/^<[a-z-]*\/.*\.50$/{s/\.50/.49.9999/;s/^</~/};/^~.*[.-]9999$/s/$/ **/" \
+				-e "/^@/d" "${file}" > "${newfile}"
+			# echo "${newfile}"
+		done
+		cat ".kde-gear-${release}.49.9999"/* >> "kde-gear-${release}.49.9999.keywords"
 	fi
 done
 
@@ -81,6 +108,17 @@ if [[ -d .kde-plasma-live.base ]]; then
 	cat .kde-plasma-live/* >> kde-plasma-live.keywords
 fi
 
+if [[ -d .kde-gear-live.base ]]; then
+	rm -rf .kde-gear-live
+	mkdir -p .kde-gear-live
+	echo -e "${HEADER}" > kde-gear-live.keywords
+	for file in .kde-gear-live.base/*; do
+		newfile=.kde-gear-live/$(basename "${file}")
+		sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' "${file}" > "${newfile}"
+	done
+	cat .kde-gear-live/* >> kde-gear-live.keywords
+fi
+
 if [[ -d .kde-release-service-live.base ]]; then
 	rm -rf .kde-release-service-live
 	mkdir -p .kde-release-service-live
@@ -119,6 +157,14 @@ for release in $PLASMA_RELEASES live; do
 	fi
 done
 
+for release in $GEAR_RELEASES live; do
+	echo -e "${HEADER}" > "kde-gear-${release}"
+	if [[ -d ".kde-gear-${release}" ]]; then
+		cat ".kde-gear-${release}/"* >> "kde-gear-${release}"
+		sed -i "kde-gear-${release}" -e "/^@/d"
+	fi
+done
+
 for release in $SERVICE_RELEASES live; do
 	echo -e "${HEADER}" > "kde-release-service-${release}"
 	if [[ -d ".kde-release-service-${release}" ]]; then
@@ -149,6 +195,15 @@ for release in $PLASMA_RELEASES live; do
 	fi
 done
 
+for release in $GEAR_RELEASES live; do
+	echo -e "${HEADER}" > "kde-gear-${release}"
+	if [[ -d "../package.unmask/.kde-gear-${release}" ]]; then
+		cat "../package.unmask/.kde-gear-${release}/"* >> "kde-gear-${release}"
+		sed -i "kde-gear-${release}" \
+			-e "/^<kde-gear\/.*-14\..\.50:5$/{s/-14\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
+	fi
+done
+
 for release in $SERVICE_RELEASES live; do
 	echo -e "${HEADER}" > "kde-release-service-${release}"
 	if [[ -d "../package.unmask/.kde-release-service-${release}" ]]; then
@@ -171,6 +226,12 @@ for set in *plasma-${PLASMA_RELEASE}; do
 	newfile=${set/%-${PLASMA_RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
 	sed -r "/@/s/-${PLASMA_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-plasma/@s/-(9999|${PLASMA_RELEASE}\.50)//" "${set}" >> "${newfile}"
+done
+
+for set in *-${GEAR_RELEASE}; do
+	newfile=${set/%-${GEAR_RELEASE}}
+	echo -e "${HEADER}" > "${newfile}"
+	sed -r "/@/s/-${GEAR_RELEASE}//g;/9999$/s/~//;s/<//;\@[a-z-]+/@s/-(9999|${GEAR_RELEASE}\.50)/:5/" "${set}" >> "${newfile}"
 done
 
 for set in *-${SERVICE_RELEASE}; do
