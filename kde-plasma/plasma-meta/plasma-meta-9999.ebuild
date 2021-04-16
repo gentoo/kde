@@ -35,6 +35,7 @@ RDEPEND="
 	>=kde-plasma/kwayland-server-${PV}:${SLOT}
 	>=kde-plasma/kwin-${PV}:${SLOT}
 	>=kde-plasma/kwrited-${PV}:${SLOT}
+	>=kde-plasma/layer-shell-qt-${PV}:${SLOT}
 	>=kde-plasma/libkscreen-${PV}:${SLOT}
 	>=kde-plasma/libksysguard-${PV}:${SLOT}
 	>=kde-plasma/milou-${PV}:${SLOT}
