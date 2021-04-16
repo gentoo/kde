@@ -70,22 +70,6 @@ for release in $SERVICE_RELEASES; do
 	fi
 done
 
-# ... and for completely unkeyworded packages, add "**"
-for release in $SERVICE_RELEASES; do
-	if [[ -d ".kde-release-service-${release}" ]]; then
-		rm -rf ".kde-release-service-${release}.49.9999"
-		mkdir -p ".kde-release-service-${release}.49.9999"
-		echo -e "${HEADER}" > "kde-release-service-${release}.49.9999.keywords"
-		for file in ".kde-release-service-${release}"/*; do
-			newfile=".kde-release-service-${release}.49.9999"/$(basename "${file}")
-			sed -e "/^<[a-z-]*\/.*\.50$/{s/\.50/.49.9999/;s/^</~/};/^~.*[.-]9999$/s/$/ **/" \
-				-e "/^@/d" "${file}" > "${newfile}"
-			# echo "${newfile}"
-		done
-		cat ".kde-release-service-${release}.49.9999"/* >> "kde-release-service-${release}.49.9999.keywords"
-	fi
-done
-
 if [[ -d .kde-frameworks-live.base ]]; then
 	rm -rf .kde-frameworks-live
 	mkdir -p .kde-frameworks-live
@@ -117,17 +101,6 @@ if [[ -d .kde-gear-live.base ]]; then
 		sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' "${file}" > "${newfile}"
 	done
 	cat .kde-gear-live/* >> kde-gear-live.keywords
-fi
-
-if [[ -d .kde-release-service-live.base ]]; then
-	rm -rf .kde-release-service-live
-	mkdir -p .kde-release-service-live
-	echo -e "${HEADER}" > kde-release-service-live.keywords
-	for file in .kde-release-service-live.base/*; do
-		newfile=.kde-release-service-live/$(basename "${file}")
-		sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' "${file}" > "${newfile}"
-	done
-	cat .kde-release-service-live/* >> kde-release-service-live.keywords
 fi
 
 # keywords for miscleanous packages from package.unmask/
@@ -164,14 +137,6 @@ for release in $GEAR_RELEASES live; do
 		sed -i "kde-gear-${release}" -e "/^@/d"
 	fi
 done
-
-for release in $SERVICE_RELEASES live; do
-	echo -e "${HEADER}" > "kde-release-service-${release}"
-	if [[ -d ".kde-release-service-${release}" ]]; then
-		cat ".kde-release-service-${release}/"* >> "kde-release-service-${release}"
-		sed -i "kde-release-service-${release}" -e "/^@/d"
-	fi
-done
 popd > /dev/null
 
 # regenerate mask entries (base for package mask)
@@ -201,15 +166,6 @@ for release in $GEAR_RELEASES live; do
 		cat "../package.unmask/.kde-gear-${release}/"* >> "kde-gear-${release}"
 		sed -i "kde-gear-${release}" \
 			-e "/^<kde-gear\/.*-14\..\.50:5$/{s/-14\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
-	fi
-done
-
-for release in $SERVICE_RELEASES live; do
-	echo -e "${HEADER}" > "kde-release-service-${release}"
-	if [[ -d "../package.unmask/.kde-release-service-${release}" ]]; then
-		cat "../package.unmask/.kde-release-service-${release}/"* >> "kde-release-service-${release}"
-		sed -i "kde-release-service-${release}" \
-			-e "/^<kde-release-service\/.*-14\..\.50:5$/{s/-14\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
 	fi
 done
 popd > /dev/null
