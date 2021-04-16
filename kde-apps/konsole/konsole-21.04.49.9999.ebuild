@@ -26,7 +26,6 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -51,6 +50,11 @@ DEPEND="
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_bogus_dep KF5 Completion
+}
 
 src_configure() {
 	local mycmakeargs=(
