@@ -103,7 +103,7 @@ if [[ -d .kde-gear-live.base ]]; then
 	cat .kde-gear-live/* >> kde-gear-live.keywords
 fi
 
-# keywords for miscleanous packages from package.unmask/
+# keywords for miscellaneous packages from package.unmask/
 for misc in kde-extras-live; do
 	if [[ -f "../package.unmask/${misc}" ]]; then
 		echo -e "${HEADER}" > "${misc}.keywords"
