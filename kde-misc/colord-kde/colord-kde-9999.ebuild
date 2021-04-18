@@ -3,6 +3,7 @@
 
 EAPI=7
 
+KDE_ORG_CATEGORY=graphics
 KFMIN=5.74.0
 QTMIN=5.15.2
 inherit ecm kde.org
@@ -14,13 +15,12 @@ HOMEPAGE="https://invent.kde.org/graphics/colord-kde"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="X"
 
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -29,9 +29,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	media-libs/lcms:2
-	x11-libs/libxcb
-	x11-libs/libX11
-	x11-libs/libXrandr
+	X? (
+		>=dev-qt/qtx11extras-${QTMIN}:5
+		x11-libs/libX11
+		x11-libs/libxcb
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
@@ -40,6 +42,13 @@ RDEPEND="${COMMON_DEPEND}
 	kde-plasma/kde-cli-tools:5
 	x11-misc/colord
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package X X11)
+	)
+	ecm_src_configure
+}
 
 pkg_postinst() {
 	ecm_pkg_postinst
