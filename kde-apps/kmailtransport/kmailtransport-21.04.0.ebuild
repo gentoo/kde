@@ -42,3 +42,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( >=kde-frameworks/ktextwidgets-${KFMIN}:5 )
 "
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_bogus_dep KF5 Service # fixed in 21.08/git master
+}
