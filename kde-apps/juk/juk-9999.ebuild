@@ -17,7 +17,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -43,4 +43,6 @@ DEPEND="
 	>=media-libs/phonon-4.11.0
 	>=media-libs/taglib-1.6
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+"
