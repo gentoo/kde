@@ -15,6 +15,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/kpublictransport:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
@@ -23,7 +24,6 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	kde-misc/kpublictransport
 "
 RDEPEND="${DEPEND}
 	dev-qt/qtquickcontrols:5

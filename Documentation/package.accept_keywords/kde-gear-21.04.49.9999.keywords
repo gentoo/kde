@@ -150,6 +150,7 @@
 <net-p2p/ktorrent-21.04.50
 ~dev-libs/kopeninghours-21.04.49.9999 **
 ~dev-libs/kosmindoormap-21.04.49.9999 **
+~dev-libs/kpublictransport-21.04.49.9999 **
 ~kde-apps/akonadi-21.04.49.9999 **
 ~kde-apps/akonadi-calendar-21.04.49.9999 **
 ~kde-apps/akonadi-contacts-21.04.49.9999 **
@@ -203,7 +204,6 @@
 ~kde-apps/pim-data-exporter-21.04.49.9999 **
 ~kde-apps/pim-sieve-editor-21.04.49.9999 **
 ~kde-apps/pimcommon-21.04.49.9999 **
-~kde-misc/kpublictransport-21.04.49.9999 **
 ~kde-apps/cervisia-21.04.49.9999 **
 ~kde-apps/dolphin-plugins-git-21.04.49.9999 **
 ~kde-apps/dolphin-plugins-mercurial-21.04.49.9999 **

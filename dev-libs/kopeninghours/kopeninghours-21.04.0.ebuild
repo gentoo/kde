@@ -4,6 +4,7 @@
 EAPI=7
 
 ECM_TEST="true"
+KDE_GEAR="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.80.0
 QTMIN=5.15.2
@@ -21,15 +22,11 @@ IUSE="python"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-BDEPEND="
-	sys-devel/bison
-	sys-devel/flex
-"
 DEPEND="
+	>=dev-libs/kpublictransport-${PVCUT}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-misc/kpublictransport-${PVCUT}:5
 	sys-libs/zlib
 	python? (
 		$(python_gen_cond_dep '
@@ -40,6 +37,10 @@ DEPEND="
 RDEPEND="${DEPEND}
 	${PYTHON_DEPS}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+"
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-21.03.90-boostpython.patch )

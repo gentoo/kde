@@ -4,6 +4,7 @@
 EAPI=7
 
 ECM_TEST="true"
+KDE_GEAR="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.80.0
 QTMIN=5.15.2
@@ -17,17 +18,13 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	sys-devel/bison
-	sys-devel/flex
-"
 COMMON_DEPEND="
+	>=dev-libs/kpublictransport-${PVCUT}:5
 	dev-libs/protobuf:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-misc/kpublictransport-${PVCUT}:5
 	sys-libs/zlib
 "
 DEPEND="${COMMON_DEPEND}
@@ -35,6 +32,10 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+"
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
 "
 
 src_configure() {

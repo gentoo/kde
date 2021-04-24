@@ -20,6 +20,7 @@ IUSE="+networkmanager"
 
 DEPEND="
 	>=dev-libs/kosmindoormap-${PVCUT}:5
+	>=dev-libs/kpublictransport-${PVCUT}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -36,7 +37,6 @@ DEPEND="
 	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-misc/kpublictransport-${PVCUT}:5
 	sys-libs/zlib
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
