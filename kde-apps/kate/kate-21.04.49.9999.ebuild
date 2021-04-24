@@ -20,6 +20,7 @@ IUSE="activities +filebrowser lspclient +projects plasma +snippets sql telemetry
 
 # only addons/externaltools depends on kiconthemes, too small for USE
 DEPEND="
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -60,6 +61,11 @@ DEPEND="
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=(
+	# bug 785412, master/21.08
+	"${FILESDIR}/${PN}-21.04.0-implicit-dep.patch"
+)
 
 src_prepare() {
 	ecm_src_prepare

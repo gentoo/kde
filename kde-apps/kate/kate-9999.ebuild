@@ -20,6 +20,7 @@ IUSE="activities +filebrowser lspclient +projects plasma +snippets sql telemetry
 
 # only addons/externaltools depends on kiconthemes, too small for USE
 DEPEND="
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
