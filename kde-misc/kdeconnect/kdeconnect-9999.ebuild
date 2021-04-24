@@ -18,18 +18,20 @@ HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/en/kdeconnect.kcm"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth pulseaudio wayland X"
+IUSE="bluetooth pulseaudio X"
 
 RESTRICT+=" test"
 
 DEPEND="
 	>=app-crypt/qca-2.3.0:2[ssl]
+	>=dev-libs/wayland-1.15.0
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5=
 	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
@@ -44,6 +46,7 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kpeople-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
@@ -54,7 +57,6 @@ DEPEND="
 		x11-libs/libXtst
 	)
 	pulseaudio? ( media-libs/pulseaudio-qt )
-	wayland? ( >=kde-frameworks/kwayland-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	dev-libs/kpeoplevcard
@@ -68,10 +70,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
 		$(cmake_use_find_package pulseaudio KF5PulseAudioQt)
-		$(cmake_use_find_package wayland KF5Wayland)
 		$(cmake_use_find_package X LibFakeKey)
 	)
-
 	ecm_src_configure
 }
 
