@@ -16,7 +16,7 @@ SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-s
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="gles2-only ieee1394 +opengl +pci wayland"
+IUSE="gles2-only ieee1394 +opengl +pci usb wayland"
 
 REQUIRED_USE="wayland? ( || ( opengl gles2-only ) )"
 
@@ -46,6 +46,7 @@ DEPEND="
 		!gles2-only? ( media-libs/glu )
 	)
 	pci? ( sys-apps/pciutils )
+	usb? ( virtual/libusb:1 )
 	wayland? (
 		>=kde-frameworks/kwayland-${KFMIN}:5
 		media-libs/mesa[egl]
@@ -62,6 +63,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package ieee1394 RAW1394)
 		$(cmake_use_find_package pci PCIUTILS)
+		$(cmake_use_find_package usb USB1)
 		$(cmake_use_find_package wayland EGL)
 		$(cmake_use_find_package wayland KF5Wayland)
 	)

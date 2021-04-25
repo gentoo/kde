@@ -7,5 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name="pci">Show advanced PCI information</flag>
+		<flag name="usb">Show USB device information</flag>
 	</use>
 </pkgmetadata>
