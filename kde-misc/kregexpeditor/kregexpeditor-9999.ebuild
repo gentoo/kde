@@ -27,7 +27,7 @@ DEPEND="
 	kde-frameworks/kcrash:5
 	kde-frameworks/ki18n:5
 	kde-frameworks/kiconthemes:5
-	kde-frameworks/kio:5
+	kde-frameworks/kservice:5
 	kde-frameworks/ktextwidgets:5
 	kde-frameworks/kwidgetsaddons:5
 "
