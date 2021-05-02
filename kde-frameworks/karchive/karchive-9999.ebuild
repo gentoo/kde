@@ -8,11 +8,22 @@ inherit ecm kde.org
 DESCRIPTION="Framework for reading, creation, and manipulation of various archive formats"
 LICENSE="GPL-2 LGPL-2.1"
 KEYWORDS=""
-IUSE=""
+IUSE="+zstd"
 
 DEPEND="
 	app-arch/bzip2
 	app-arch/xz-utils
 	sys-libs/zlib
+	zstd? ( app-arch/zstd:= )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="zstd? ( virtual/pkgconfig )"
+
+src_prepare() {
+	ecm_src_prepare
+
+	# TODO: try to get a build switch upstreamed
+	if ! use zstd; then
+		sed -e "s/^pkg_check_modules.*LibZstd/#&/" -i CMakeLists.txt || die
+	fi
+}
