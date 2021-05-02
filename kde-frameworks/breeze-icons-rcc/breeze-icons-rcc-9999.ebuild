@@ -5,7 +5,8 @@ EAPI=7
 
 KDE_ORG_NAME="breeze-icons"
 PVCUT=$(ver_cut 1-2)
-inherit cmake kde.org
+PYTHON_COMPAT=( python3_{7,8,9} )
+inherit cmake kde.org python-any-r1
 
 DESCRIPTION="Breeze SVG icon theme binary resource"
 LICENSE="LGPL-3"
@@ -14,12 +15,17 @@ IUSE="test"
 
 RESTRICT+=" !test? ( test )"
 
-BDEPEND="
+BDEPEND="${PYTHON_DEPS}
+	$(python_gen_any_dep 'dev-python/lxml[${PYTHON_USEDEP}]')
 	dev-qt/qtcore:5
 	>=kde-frameworks/extra-cmake-modules-${PVCUT}:5
 	test? ( app-misc/fdupes )
 "
 DEPEND="test? ( dev-qt/qttest:5 )"
+
+python_check_deps() {
+	has_version "dev-python/lxml[${PYTHON_USEDEP}]"
+}
 
 src_prepare() {
 	cmake_src_prepare
@@ -28,6 +34,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DPython_EXECUTABLE="${PYTHON}"
 		-DBINARY_ICONS_RESOURCE=ON
 		-DSKIP_INSTALL_ICONS=ON
 	)
