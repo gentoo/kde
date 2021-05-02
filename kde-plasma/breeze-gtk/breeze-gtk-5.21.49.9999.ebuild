@@ -3,8 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
 PVCUT=$(ver_cut 1-3)
+PYTHON_COMPAT=( python3_{7,8,9} )
 inherit ecm kde.org python-any-r1
 
 DESCRIPTION="Official GTK+ port of Plasma's Breeze widget style"
@@ -17,8 +17,8 @@ IUSE=""
 
 BDEPEND="${PYTHON_DEPS}
 	dev-lang/sassc
-	>=dev-util/cmake-3.16
 	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
+	>=dev-util/cmake-3.16
 	>=kde-plasma/breeze-${PVCUT}:5
 "
 
