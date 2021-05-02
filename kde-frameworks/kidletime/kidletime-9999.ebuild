@@ -16,7 +16,6 @@ REQUIRED_USE="xscreensaver? ( X )"
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
