@@ -14,12 +14,8 @@ IUSE="nls X"
 
 RESTRICT+=" test"
 
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
@@ -30,12 +26,17 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
+	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
+"
+BDEPEND="
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 
 DOCS=( docs/README.kstartupinfo )
 
 src_configure() {
 	local mycmakeargs=(
+		-DKWINDOWSYSTEM_NO_WIDGETS=ON
 		$(cmake_use_find_package X X11)
 	)
 
