@@ -16,12 +16,12 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="appstream +calendar +fontconfig geolocation gps qalculate screencast +semantic-desktop systemd telemetry"
+IUSE="appstream +calculator +calendar +fontconfig geolocation gps screencast
++semantic-desktop systemd telemetry"
 
 REQUIRED_USE="gps? ( geolocation )"
 RESTRICT+=" test"
 
-BDEPEND="virtual/pkgconfig"
 COMMON_DEPEND="
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -93,6 +93,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image
 	appstream? ( dev-libs/appstream[qt5] )
+	calculator? ( sci-libs/libqalculate:= )
 	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	fontconfig? (
 		media-libs/fontconfig
@@ -102,7 +103,6 @@ COMMON_DEPEND="
 	)
 	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 	gps? ( sci-geosciences/gpsd )
-	qalculate? ( sci-libs/libqalculate:= )
 	screencast? (
 		>=media-video/pipewire-0.3:=
 		x11-libs/libdrm
@@ -138,6 +138,7 @@ RDEPEND="${COMMON_DEPEND}
 	!systemd? ( sys-apps/dbus )
 	!<kde-plasma/plasma-desktop-5.19.80:5
 "
+BDEPEND="virtual/pkgconfig"
 PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
@@ -155,9 +156,12 @@ src_prepare() {
 
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
-		sed -e "s/^pkg_check_modules.*PipeWire/#&/" \
-			-i CMakeLists.txt || die
+		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
 	fi
+
+	# KDE-bug: 433730
+	use calculator ||
+		cmake_run_in runners cmake_comment_add_subdirectory calculator
 }
 
 src_configure() {
@@ -167,7 +171,6 @@ src_configure() {
 		$(cmake_use_find_package calendar KF5Holidays)
 		$(cmake_use_find_package fontconfig Fontconfig)
 		$(cmake_use_find_package geolocation KF5NetworkManagerQt)
-		$(cmake_use_find_package qalculate Qalculate)
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
 		$(cmake_use_find_package telemetry KUserFeedback)
 	)
