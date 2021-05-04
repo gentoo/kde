@@ -120,6 +120,7 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/override-include-dirs.patch" # downstream patch
+	"${FILESDIR}/${P}-transparency.patch" # KDE-bug 434202
 )
 
 src_prepare() {
