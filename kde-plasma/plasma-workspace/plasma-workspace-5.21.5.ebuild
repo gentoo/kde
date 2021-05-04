@@ -143,7 +143,11 @@ PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch"
+	"${FILESDIR}/${P}-transparency.patch" # KDE-bug 434202
+	"${FILESDIR}/${P}-transparency-panelConfig.patch" # KDE-bug 434285
+)
 
 src_prepare() {
 	ecm_src_prepare
