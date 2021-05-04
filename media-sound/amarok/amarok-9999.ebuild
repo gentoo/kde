@@ -111,25 +111,27 @@ pkg_postinst() {
 		echo "${1} ($(has_version ${1} || echo "not ")installed)"
 	}
 
+	db_name() {
+		use mariadb && echo "MariaDB" || echo "MySQL"
+	}
+
 	optfeature "Audio CD support" kde-apps/audiocd-kio
 
-	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "You'll have to configure amarok to use an external database server:"
-		if use mariadb ; then
-			elog "    $(pkg_is_installed dev-db/mariadb)"
-			elog "    For preliminary configuration of MariaDB Server please refer to"
-			elog "    https://wiki.gentoo.org/wiki/MariaDB#Configuration"
-		else
-			elog "    $(pkg_is_installed dev-db/mysql)"
-			elog "    For preliminary configuration of MySQL Server please refer to"
-			elog "    https://wiki.gentoo.org/wiki/MySQL#Configuration"
-		fi
-		elog "Please read https://community.kde.org/Amarok/Community/MySQL for details on how"
-		elog "to configure the external database and migrate your data from the embedded database."
-		elog "To create external amarok database with default user/password please:"
-		elog "    1. Make sure that MySQL or MariaDB is installed and configured (see above)"
-		elog "    2. Ensure that 'mysql' service is started and then run command 'emerge --config amarok'"
-		elog "    3. On 'Configure Amarok - Database' menu page check 'Use external MySQL database' and press OK"
+	if [[ -z ${REPLACING_VERSIONS} ]]; then
+		elog "You must configure ${PN} to use an external database server."
+		elog " 1. Make sure either MySQL or MariaDB is installed and configured"
+		elog "    Checking local system:"
+		elog "      $(pkg_is_installed dev-db/mariadb)"
+		elog "      $(pkg_is_installed dev-db/mysql)"
+		elog "    For preliminary configuration of $(db_name) Server refer to"
+		elog "    https://wiki.gentoo.org/wiki/$(db_name)#Configuration"
+		elog " 2. Ensure 'mysql' service is started and run:"
+		elog "    # emerge --config amarok"
+		elog " 3. Run ${PN} and go to 'Configure Amarok - Database' menu page"
+		elog "    Check 'Use external MySQL database' and press OK"
+		elog
+		elog "For more information please read:"
+		elog "  https://community.kde.org/Amarok/Community/MySQL"
 	fi
 }
 
