@@ -88,3 +88,4 @@
 <kde-frameworks/kxmlgui-5.82.50
 <kde-frameworks/plasma-5.82.50
 <kde-frameworks/purpose-5.82.50
+~dev-libs/plasma-wayland-protocols-1.2.1
