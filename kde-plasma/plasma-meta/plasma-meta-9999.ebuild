@@ -9,16 +9,15 @@ HOMEPAGE="https://kde.org/plasma-desktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth +browser-integration colord crypt +desktop-portal discover
-+display-manager +elogind +firewall grub gtk +handbook +kwallet +legacy-systray
-+networkmanager plymouth pulseaudio qrcode +sddm sdk +smart systemd thunderbolt
-+wallpapers"
+IUSE="bluetooth +browser-integration colord +crash-handler crypt +desktop-portal
+discover +display-manager +elogind +firewall grub gtk +handbook +kwallet
++legacy-systray +networkmanager plymouth pulseaudio qrcode +sddm sdk +smart
+systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
 RDEPEND="
 	>=kde-plasma/breeze-${PV}:${SLOT}
-	>=kde-plasma/drkonqi-${PV}:${SLOT}
 	>=kde-plasma/kactivitymanagerd-${PV}:${SLOT}
 	>=kde-plasma/kde-cli-tools-${PV}:${SLOT}
 	>=kde-plasma/kdecoration-${PV}:${SLOT}
@@ -53,6 +52,7 @@ RDEPEND="
 	bluetooth? ( >=kde-plasma/bluedevil-${PV}:${SLOT} )
 	browser-integration? ( >=kde-plasma/plasma-browser-integration-${PV}:${SLOT} )
 	colord? ( x11-misc/colord )
+	crash-handler? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
 	desktop-portal? ( >=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT} )
 	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
