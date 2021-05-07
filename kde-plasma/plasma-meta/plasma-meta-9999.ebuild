@@ -63,6 +63,7 @@ RDEPEND="
 		)
 		!sddm? ( x11-misc/lightdm )
 	)
+	elogind? ( sys-auth/elogind[pam] )
 	grub? ( >=kde-plasma/breeze-grub-${PV}:${SLOT} )
 	gtk? (
 		>=kde-plasma/breeze-gtk-${PV}:${SLOT}
@@ -84,7 +85,10 @@ RDEPEND="
 	pulseaudio? ( >=kde-plasma/plasma-pa-${PV}:${SLOT} )
 	sdk? ( >=kde-plasma/plasma-sdk-${PV}:${SLOT} )
 	smart? ( >=kde-plasma/plasma-disks-${PV}:${SLOT} )
-	systemd? ( firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} ) )
+	systemd? (
+		sys-apps/systemd[pam]
+		firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} )
+	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 "
