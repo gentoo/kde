@@ -15,7 +15,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -37,8 +37,11 @@ RDEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
+"
+RDEPEND="${COMMON_DEPEND}
+	sys-devel/gdb
 "
 
 src_test() {
@@ -47,12 +50,4 @@ src_test() {
 		-E "(connectiontest)"
 	)
 	ecm_src_test
-}
-
-pkg_postinst() {
-	ecm_pkg_postinst
-	if ! has_version "sys-devel/gdb"; then
-		elog "For more usability consider installing the following package:"
-		elog "    sys-devel/gdb - Easier debugging support"
-	fi
 }

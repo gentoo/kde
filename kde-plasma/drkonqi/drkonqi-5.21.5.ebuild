@@ -15,7 +15,7 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="X"
 
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -38,8 +38,11 @@ RDEPEND="
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 	X? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
+"
+RDEPEND="${COMMON_DEPEND}
+	sys-devel/gdb
 "
 
 src_configure() {
@@ -54,14 +57,5 @@ src_test() {
 	local myctestargs=(
 		-E "(connectiontest)"
 	)
-
 	ecm_src_test
-}
-
-pkg_postinst() {
-	ecm_pkg_postinst
-	if ! has_version "sys-devel/gdb"; then
-		elog "For more usability consider installing the following package:"
-		elog "    sys-devel/gdb - Easier debugging support"
-	fi
 }
