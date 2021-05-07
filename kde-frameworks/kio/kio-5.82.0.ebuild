@@ -75,7 +75,15 @@ PDEPEND="
 PATCHES=(
 	# pending https://invent.kde.org/frameworks/kio/-/merge_requests/426
 	"${FILESDIR}"/${PN}-5.81.0-fix-qtconcurrent-private-link.patch # bug 784971
+	# git master/KIO 5.83:
+	"${FILESDIR}"/${P}-no-useragent-kcm.patch
+	"${FILESDIR}"/${P}-no-cache-kcm.patch
 )
+
+src_prepare() {
+	ecm_src_prepare
+	rm -rf po/*/docs/kcontrol5/{cache,useragent} || die # superfluous docs
+}
 
 src_configure() {
 	local mycmakeargs=(
