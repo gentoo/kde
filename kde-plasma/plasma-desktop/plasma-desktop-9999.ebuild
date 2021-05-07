@@ -20,7 +20,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE="emoji ibus +kaccounts +policykit scim +semantic-desktop"
 
-BDEPEND="virtual/pkgconfig"
 COMMON_DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -105,7 +104,6 @@ DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-plasma/kdeplasma-addons-5.15.80
 	!kde-plasma/user-manager
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
@@ -119,6 +117,7 @@ RDEPEND="${COMMON_DEPEND}
 	kaccounts? ( net-libs/signon-oauth2 )
 	policykit? ( sys-apps/accountsservice )
 "
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/override-include-dirs.patch" # downstream patch
