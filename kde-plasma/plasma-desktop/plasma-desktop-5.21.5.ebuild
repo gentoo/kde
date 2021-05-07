@@ -135,6 +135,9 @@ src_prepare() {
 		sed -e "s/Qt5X11Extras_FOUND AND XCB_XCB_FOUND AND XCB_KEYSYMS_FOUND/false/" \
 			-i applets/kimpanel/backend/ibus/CMakeLists.txt || die
 	fi
+
+	use emoji || cmake_run_in applets/kimpanel/backend/ibus \
+		cmake_comment_add_subdirectory emojier
 }
 
 src_configure() {
