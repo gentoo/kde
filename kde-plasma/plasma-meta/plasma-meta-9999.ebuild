@@ -9,10 +9,10 @@ HOMEPAGE="https://kde.org/plasma-desktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth +browser-integration colord +crash-handler crypt +desktop-portal
-discover +display-manager +elogind +firewall grub gtk +handbook +kwallet
-+legacy-systray +networkmanager plymouth pulseaudio qrcode +sddm sdk +smart
-systemd thunderbolt +wallpapers"
+IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
++desktop-portal discover +display-manager +elogind +firewall grub gtk +handbook
++kwallet +legacy-systray +networkmanager plymouth pulseaudio qrcode +sddm sdk
++smart systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -87,6 +87,10 @@ RDEPEND="
 	systemd? ( firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} ) )
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
+"
+# Optional runtime deps: kde-plasma/plasma-desktop
+RDEPEND="${RDEPEND}
+	accessibility? ( app-accessibility/orca )
 "
 
 pkg_postinst() {
