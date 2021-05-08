@@ -151,6 +151,8 @@ PATCHES=(
 )
 
 src_prepare() {
+	rm po/ta/kcm_autostart.po || die # spurious file
+
 	ecm_src_prepare
 
 	cmake_comment_add_subdirectory libkworkspace
