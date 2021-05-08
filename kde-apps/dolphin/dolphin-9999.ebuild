@@ -61,6 +61,11 @@ RDEPEND="${DEPEND}
 	>=kde-apps/kio-extras-${PVCUT}:5
 "
 
+PATCHES=(
+	# TODO: Downstream hack, track upstream bug for better solution
+	"${FILESDIR}/${PN}-21.04.0-fix-no-semantic-desktop.patch" # KDE-bug 435586
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON
