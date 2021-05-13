@@ -14,9 +14,9 @@ HOMEPAGE="https://invent.kde.org/network/plasma-firewall"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="firewalld +ufw"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="${PYTHON_REQUIRED_USE} || ( firewalld ufw )"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -35,10 +35,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	${PYTHON_DEPS}
-	|| (
-		net-firewall/firewalld
-		net-firewall/ufw
-	)
+	firewalld? ( net-firewall/firewalld )
+	ufw? ( net-firewall/ufw )
 "
 
 src_prepare() {
@@ -46,6 +44,14 @@ src_prepare() {
 	# this kind of cmake magic doesn't work for us at all.
 	sed -e "1 s:^.*$:\#\!/usr/bin/env python3.8:" \
 		-i kcm/backends/ufw/helper/kcm_ufw_helper.py.cmake || die
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_FIREWALLD_BACKEND=$(usex firewalld)
+		-DBUILD_UFW_BACKEND=$(usex ufw)
+	)
+	ecm_src_configure
 }
 
 pkg_postinst () {
