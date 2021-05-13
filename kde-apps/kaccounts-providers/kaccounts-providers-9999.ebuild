@@ -16,9 +16,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE="+webengine"
 
-BDEPEND="
-	dev-util/intltool
-"
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -35,8 +32,9 @@ RDEPEND="${DEPEND}
 	net-libs/signon-oauth2
 	net-libs/signon-ui
 "
-
-PATCHES=( "${FILESDIR}/${PN}-20.12.3-qtwebengine-optional.patch" ) # bug 753274
+BDEPEND="
+	dev-util/intltool
+"
 
 src_configure() {
 	local mycmakeargs=(
