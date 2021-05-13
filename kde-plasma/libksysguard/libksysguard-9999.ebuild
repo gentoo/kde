@@ -6,18 +6,19 @@ EAPI=7
 ECM_DESIGNERPLUGIN="true"
 ECM_TEST="true"
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Task management and system monitoring library"
+
 LICENSE="LGPL-2+"
 SLOT="5/9"
 KEYWORDS=""
 IUSE="webengine X"
 
-RDEPEND="
+COMMON_DEPEND="
+	dev-libs/libnl:3
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -35,6 +36,8 @@ RDEPEND="
 	>=kde-frameworks/kpackage-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	net-libs/libpcap
+	sys-libs/libcap
 	sys-libs/zlib
 	webengine? (
 		>=dev-qt/qtwebchannel-${QTMIN}:5
@@ -46,10 +49,13 @@ RDEPEND="
 		x11-libs/libXres
 	)
 "
-DEPEND="${RDEPEND}
-	!<kde-plasma/plasma-workspace-5.18.80:5
+DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	X? ( x11-base/xorg-proto )
+"
+RDEPEND="${COMMON_DEPEND}
+	!<kde-plasma/ksysguard-5.21.90:5
+	!<kde-plasma/plasma-workspace-5.18.80:5
 "
 
 PATCHES=( "${FILESDIR}/${PN}-5.16.0-no-detailed-mem-message.patch" )
