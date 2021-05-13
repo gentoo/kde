@@ -138,7 +138,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xsetroot
 	systemd? ( sys-apps/dbus[user-session] )
 	!systemd? ( sys-apps/dbus )
-	!<kde-plasma/plasma-desktop-5.19.80:5
+	!<kde-plasma/plasma-desktop-5.21.90:5
 "
 BDEPEND="
 	>=dev-util/cmake-3.14
@@ -172,6 +172,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_xembed-sni-proxy=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON
 		$(cmake_use_find_package appstream AppStreamQt)
 		$(cmake_use_find_package calendar KF5Holidays)
 		$(cmake_use_find_package fontconfig Fontconfig)
@@ -199,9 +200,6 @@ src_install() {
 
 pkg_postinst () {
 	ecm_pkg_postinst
-
-	# Clean up pre-5.17.4 dirs
-	rmdir -v "${EROOT}"/etc/plasma{/startup,/shutdown,} 2> /dev/null
 
 	elog "To enable gpg-agent and/or ssh-agent in Plasma sessions,"
 	elog "edit ${EPREFIX}/etc/xdg/plasma-workspace/env/10-agent-startup.sh"
