@@ -8,8 +8,8 @@ KFMIN=9999
 QTMIN=5.15.2
 inherit ecm kde.org
 
-DESCRIPTION="New version of KSysGuard built on top of the new KStats daemon and using QML"
-HOMEPAGE="https://invent.kde.org/plasma/plasma-systemmonitor"
+DESCRIPTION="Monitor system sensors, process information and other system resources"
+HOMEPAGE="https://apps.kde.org/plasma-systemmonitor/"
 
 LICENSE="|| ( GPL-3 GPL-2 )"
 SLOT="5"
@@ -38,5 +38,5 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	>=kde-frameworks/kquickcharts-${KFMIN}:5
-	>=kde-plasma/ksysguard-${PVCUT}:5
+	>=kde-plasma/ksystemstats-${PVCUT}:5
 "
