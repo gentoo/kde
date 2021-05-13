@@ -11,7 +11,8 @@ QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
-DESCRIPTION="Network-enabled task manager and system monitor"
+DESCRIPTION="Network-enabled resource usage monitor"
+HOMEPAGE="https://apps.kde.org/ksysguard/ https://userbase.kde.org/KSysGuard"
 
 LICENSE="GPL-2+"
 SLOT="5"
