@@ -130,7 +130,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kdesu-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kquickcharts-${KFMIN}:5
-	>=kde-plasma/ksysguard-${PVCUT}:5
 	>=kde-plasma/milou-${PVCUT}:5
 	>=kde-plasma/plasma-integration-${PVCUT}:5
 	x11-apps/xmessage
