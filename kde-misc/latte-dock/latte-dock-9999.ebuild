@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KFMIN=5.74.0
+KFMIN=5.82.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
@@ -13,7 +13,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Elegant dock, based on KDE Frameworks"
-HOMEPAGE="https://apps.kde.org/en/latte-dock"
+HOMEPAGE="https://apps.kde.org/latte-dock/"
 
 LICENSE="GPL-2+"
 SLOT="0"
