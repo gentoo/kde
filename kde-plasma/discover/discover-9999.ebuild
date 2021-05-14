@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_TEST="forceoptional"
+ECM_TEST="true"
 KFMIN=9999
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
@@ -55,6 +55,8 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
+
+PATCHES=( "${FILESDIR}/${PN}-5.21.90-tests-optional.patch" )
 
 src_prepare() {
 	ecm_src_prepare
