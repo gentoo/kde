@@ -12,7 +12,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org optfeature
 
 DESCRIPTION="KDE Plasma desktop"
-XORGHDRS="${PN}-override-include-dirs-0"
+XORGHDRS="${PN}-override-include-dirs-1"
 SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
@@ -143,10 +143,10 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON # not packaged
-		-DEvdev_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
+		-DEVDEV_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
-		-DSynaptics_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
+		-DSYNAPTICS_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		$(cmake_use_find_package kaccounts AccountsQt5)
 		$(cmake_use_find_package kaccounts KAccounts)
 		$(cmake_use_find_package scim SCIM)
