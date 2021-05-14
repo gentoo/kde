@@ -138,6 +138,11 @@ src_prepare() {
 
 	use emoji || cmake_run_in applets/kimpanel/backend/ibus \
 		cmake_comment_add_subdirectory emojier
+
+	# TODO: try to get a build switch upstreamed
+	if ! use scim; then
+		sed -e "s/^pkg_check_modules.*SCIM/#&/" -i CMakeLists.txt || die
+	fi
 }
 
 src_configure() {
@@ -149,11 +154,10 @@ src_configure() {
 		-DSYNAPTICS_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		$(cmake_use_find_package kaccounts AccountsQt5)
 		$(cmake_use_find_package kaccounts KAccounts)
-		$(cmake_use_find_package scim SCIM)
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
 	)
 	if ! use emoji && ! use ibus; then
-		mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_IBus=ON )
+		mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_GLIB2=ON )
 	fi
 
 	ecm_src_configure
