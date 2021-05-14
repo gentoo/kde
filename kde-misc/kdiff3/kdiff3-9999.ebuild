@@ -9,7 +9,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Frontend to diff3 based on KDE Frameworks"
-HOMEPAGE="https://apps.kde.org/en/kdiff3 https://userbase.kde.org/KDiff3"
+HOMEPAGE="https://apps.kde.org/kdiff3/ https://userbase.kde.org/KDiff3"
 
 LICENSE="GPL-2"
 SLOT="5"
@@ -25,7 +25,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
