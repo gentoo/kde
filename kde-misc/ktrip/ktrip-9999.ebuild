@@ -7,7 +7,7 @@ KFMIN=5.70.0
 inherit ecm kde.org
 
 DESCRIPTION="Public transport assistant targeted towards mobile Linux and Android"
-HOMEPAGE="https://apps.kde.org/en/ktrip"
+HOMEPAGE="https://apps.kde.org/ktrip/"
 
 LICENSE="GPL-2+"
 SLOT="5"

@@ -9,8 +9,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Free/Open Source micro-blogging client by KDE"
-HOMEPAGE="https://choqok.kde.org/
-https://apps.kde.org/en/choqok"
+HOMEPAGE="https://choqok.kde.org/ https://apps.kde.org/choqok/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV%.0}/src/${P}.tar.xz"

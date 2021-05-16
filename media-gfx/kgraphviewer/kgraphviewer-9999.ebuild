@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 inherit ecm kde.org
 
 DESCRIPTION="Graphviz dot graph file viewer"
-HOMEPAGE="https://apps.kde.org/en/kgraphviewer"
+HOMEPAGE="https://apps.kde.org/kgraphviewer/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"

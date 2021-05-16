@@ -10,7 +10,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="CDDB enabled audio CD player based on KDE Frameworks"
-HOMEPAGE="https://apps.kde.org/en/kscd"
+HOMEPAGE="https://apps.kde.org/kscd/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

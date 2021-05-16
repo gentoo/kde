@@ -10,7 +10,7 @@ QTMIN=5.15.2
 inherit ecm kde.org optfeature
 
 DESCRIPTION="Digital travel assistant with a priority on protecting your privacy"
-HOMEPAGE="https://apps.kde.org/en/itinerary
+HOMEPAGE="https://apps.kde.org/itinerary/
 https://www.volkerkrause.eu/2018/08/19/kde-itinerary-introduction.html"
 
 LICENSE="LGPL-2+"

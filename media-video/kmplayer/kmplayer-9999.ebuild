@@ -9,8 +9,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Video player plugin for Konqueror and basic MPlayer frontend"
-HOMEPAGE="https://kmplayer.kde.org
-https://apps.kde.org/en/kmplayer"
+HOMEPAGE="https://kmplayer.kde.org https://apps.kde.org/kmplayer/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${EGIT_BRANCH}/${P}.tar.bz2"
