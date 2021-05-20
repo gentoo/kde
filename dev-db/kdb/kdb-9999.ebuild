@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_QTHELP="true"
 ECM_TEST="true"
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7..10} )
 KFMIN=5.74.0
 QTMIN=5.15.2
 inherit ecm kde.org python-any-r1
@@ -22,9 +22,6 @@ LICENSE="LGPL-2+"
 SLOT="5/4"
 IUSE="debug mysql postgres sqlite"
 
-BDEPEND="${PYTHON_DEPS}
-	dev-qt/linguist-tools:5
-"
 DEPEND="
 	dev-libs/icu:=
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -34,12 +31,15 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	mysql? ( dev-db/mysql-connector-c:= )
 	postgres? (
-		>=dev-qt/qtnetwork-${QTMIN}:5
 		dev-db/postgresql:*
+		>=dev-qt/qtnetwork-${QTMIN}:5
 	)
 	sqlite? ( dev-db/sqlite:3 )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="${PYTHON_DEPS}
+	dev-qt/linguist-tools:5
+"
 
 pkg_setup() {
 	python-any-r1_pkg_setup
