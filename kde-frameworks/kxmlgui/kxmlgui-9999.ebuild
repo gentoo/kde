@@ -10,6 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Framework for managing menu and toolbar actions in an abstract way"
+
 KEYWORDS=""
 LICENSE="LGPL-2+"
 IUSE=""
@@ -34,14 +35,6 @@ DEPEND="
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Attica=ON
-	)
-
-	ecm_src_configure
-}
 
 src_test() {
 	# Files are missing; whatever. Bugs 650290, 668198
