@@ -36,5 +36,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
-
-DOCS=( CONTRIBUTORS )
