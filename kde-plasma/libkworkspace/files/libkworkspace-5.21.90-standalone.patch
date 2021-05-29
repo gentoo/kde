@@ -1,4 +1,4 @@
-From 30d75ef4b3e75155e78924aa82aa9f368bb86f4f Mon Sep 17 00:00:00 2001
+From 2360505a8f6475b6988efa60c3ba746bfbe4c4d0 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Sun, 2 Feb 2020 18:29:57 +0100
 Subject: [PATCH] libkworkspace: Allow standalone build
@@ -8,7 +8,7 @@ Subject: [PATCH] libkworkspace: Allow standalone build
  1 file changed, 66 insertions(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7ba097a6e..66f70c0b6 100644
+index 015c5181f..0aa635e11 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,3 +1,56 @@
@@ -18,10 +18,10 @@ index 7ba097a6e..66f70c0b6 100644
 +    set(PROJECT_VERSION "GENTOO_PV")
 +    set(PROJECT_VERSION_MAJOR 5)
 +
-+    cmake_minimum_required(VERSION 3.0)
++    cmake_minimum_required(VERSION 3.16)
 +
-+    set(QT_MIN_VERSION "5.14.0")
-+    set(KF5_MIN_VERSION "5.71.0")
++    set(QT_MIN_VERSION "5.15.0")
++    set(KF5_MIN_VERSION "5.82.0")
 +    find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core DBus)
 +    find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 +    set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
@@ -39,7 +39,7 @@ index 7ba097a6e..66f70c0b6 100644
 +    include(ECMMarkAsTest)
 +    include(GenerateExportHeader)
 +
-+    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n Init Plasma WindowSystem)
++    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Config CoreAddons I18n Init WindowSystem)
 +
 +    find_package(KWinDBusInterface CONFIG REQUIRED)
 +    find_package(KScreenLocker 5.13.80 REQUIRED)
@@ -68,7 +68,7 @@ index 7ba097a6e..66f70c0b6 100644
  
  set(kworkspace_LIB_SRCS kdisplaymanager.cpp
                          kworkspace.cpp
-@@ -16,9 +69,17 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
+@@ -12,9 +65,17 @@ add_definitions(-DTRANSLATION_DOMAIN=\"libkworkspace\")
  qt5_add_dbus_interface(kworkspace_LIB_SRCS ${KINIT_DBUS_INTERFACES_DIR}/kf5_org.kde.KLauncher.xml klauncher_interface)
  qt5_add_dbus_interface(kworkspace_LIB_SRCS ${KSCREENLOCKER_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.ScreenSaver.xml screenlocker_interface )
  qt5_add_dbus_interface(kworkspace_LIB_SRCS ${KSCREENLOCKER_DBUS_INTERFACES_DIR}/org.kde.screensaver.xml kscreenlocker_interface )
@@ -86,7 +86,7 @@ index 7ba097a6e..66f70c0b6 100644
  
  set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/org.freedesktop.login1.Manager.xml"
                              "${CMAKE_SOURCE_DIR}/data/interfaces/org.freedesktop.login1.Seat.xml"
-@@ -34,7 +95,6 @@ list(APPEND kworkspace_LIB_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/login1_manager_inte
+@@ -30,7 +91,6 @@ list(APPEND kworkspace_LIB_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/login1_manager_inte
  qt5_add_dbus_interface(kworkspace_LIB_SRCS "org.freedesktop.UPower.xml" upower_interface)
  qt5_add_dbus_interface(kworkspace_LIB_SRCS "org.freedesktop.ConsoleKit.Manager.xml" consolekit_manager_interface)
  
@@ -94,7 +94,7 @@ index 7ba097a6e..66f70c0b6 100644
  qt5_add_dbus_interface( kworkspace_LIB_SRCS ${ksmserver_xml} ksmserver_interface )
  
  add_library(kworkspace ${kworkspace_LIB_SRCS})
-@@ -100,3 +160,8 @@ if(BUILD_TESTING)
+@@ -98,3 +158,8 @@ if(BUILD_TESTING)
      add_subdirectory(autotests)
      add_subdirectory(tests)
  endif()
@@ -104,5 +104,5 @@ index 7ba097a6e..66f70c0b6 100644
 +    feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 +endif()
 -- 
-2.27.0
+2.31.1
 
