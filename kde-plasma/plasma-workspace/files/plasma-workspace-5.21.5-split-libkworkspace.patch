@@ -8,19 +8,19 @@ Subject: [PATCH] libkworkspace: Allow standalone build
  1 file changed, 5 insertions(+), 1 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e587a386..d1a63527 100644
+index 67f82cfb7..88a8c09b4 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -46,6 +46,7 @@ set_package_properties(KF5Baloo PROPERTIES DESCRIPTION "File Searching"
+@@ -73,6 +73,7 @@ set_package_properties(KF5Baloo PROPERTIES DESCRIPTION "File Searching"
  
  find_package(KF5TextEditor)
  find_package(KWinDBusInterface CONFIG REQUIRED)
-+find_package(LibKWorkspace 5.14.1)
++find_package(LibKWorkspace 5.21.5)
  
+ find_package(KF5Screen CONFIG REQUIRED)
  find_package(KScreenLocker 5.13.80 REQUIRED)
- find_package(ScreenSaverDBusInterface CONFIG REQUIRED)
-@@ -135,7 +136,10 @@ endif()
- add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
+@@ -214,7 +215,10 @@ query_qmake(QtBinariesDir QT_INSTALL_BINS)
+ option(PLASMA_WAYLAND_DEFAULT_SESSION "Use Wayland session by default for Plasma" FALSE)
  
  add_subdirectory(doc)
 -add_subdirectory(libkworkspace)
@@ -31,5 +31,3 @@ index e587a386..d1a63527 100644
  add_subdirectory(libdbusmenuqt)
  add_subdirectory(appmenu)
  
--- 
-2.19.1

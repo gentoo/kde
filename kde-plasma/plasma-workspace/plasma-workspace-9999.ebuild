@@ -148,7 +148,7 @@ PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.21.5-split-libkworkspace.patch" ) # downstream
 
 src_prepare() {
 	ecm_src_prepare
