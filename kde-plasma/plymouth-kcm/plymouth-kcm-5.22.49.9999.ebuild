@@ -3,7 +3,6 @@
 
 EAPI=7
 
-BOGUS=1
 KFMIN=5.82.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.2
