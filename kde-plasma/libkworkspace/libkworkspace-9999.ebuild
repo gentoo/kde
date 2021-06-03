@@ -45,7 +45,7 @@ src_prepare() {
 		cp -a ../po ./ || die
 	fi
 
-	eapply "${FILESDIR}/${PN}-5.21.90-standalone.patch"
+	eapply "${FILESDIR}/${PN}-5.22.80-standalone.patch"
 	sed -e "/set/s/GENTOO_PV/$(ver_cut 1-3)/" -i CMakeLists.txt || die
 	cat >> CMakeLists.txt <<- _EOF_ || die
 		ki18n_install(po)
