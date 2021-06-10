@@ -46,5 +46,3 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
-
-PATCHES=( "${FILESDIR}/${PN}-21.04.0-missing-link.patch" ) # bug 785418
