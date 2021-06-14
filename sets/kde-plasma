@@ -32,11 +32,13 @@ kde-plasma/oxygen:5
 kde-plasma/plasma-browser-integration:5
 kde-plasma/plasma-desktop:5
 kde-plasma/plasma-disks:5
+kde-plasma/plasma-firewall:5
 kde-plasma/plasma-integration:5
 kde-plasma/plasma-meta:5
 kde-plasma/plasma-nm:5
 kde-plasma/plasma-pa:5
 kde-plasma/plasma-sdk:5
+kde-plasma/plasma-systemmonitor:5
 kde-plasma/plasma-thunderbolt:5
 kde-plasma/plasma-workspace:5
 kde-plasma/plasma-workspace-wallpapers:5

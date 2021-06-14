@@ -3,5 +3,5 @@
 @kde-frameworks-tier2
 @kde-frameworks-tier3
 # Tier 4: Provide extra features to other Frameworks to integrate with Plasma.
-kde-frameworks/frameworkintegration:5
+kde-frameworks/frameworkintegration
 @kde-frameworks-portingaids
