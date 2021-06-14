@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 inherit cmake kde.org python-any-r1 xdg
 
 DESCRIPTION="Simple tag editor based on Qt"

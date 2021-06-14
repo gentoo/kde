@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.2
 inherit ecm kde.org optfeature python-any-r1

@@ -4,7 +4,7 @@
 EAPI=7
 
 PVCUT=$(ver_cut 1-2)
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit cmake kde.org python-any-r1 xdg-utils
 
 DESCRIPTION="Breeze SVG icon theme"
