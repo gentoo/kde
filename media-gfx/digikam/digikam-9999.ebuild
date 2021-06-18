@@ -29,14 +29,6 @@ IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mediaplayer
 # bug 366505
 RESTRICT+=" test"
 
-BDEPEND="
-	>=dev-util/cmake-3.14.3
-	sys-devel/gettext
-	panorama? (
-		sys-devel/bison
-		sys-devel/flex
-	)
-"
 COMMON_DEPEND="
 	dev-libs/expat
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -101,11 +93,19 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:3
-	dev-libs/boost[threads]
+	dev-libs/boost[threads(+)]
 "
 RDEPEND="${COMMON_DEPEND}
 	mysql? ( virtual/mysql[server(+)] )
 	panorama? ( media-gfx/hugin )
+"
+BDEPEND="
+	>=dev-util/cmake-3.14.3
+	sys-devel/gettext
+	panorama? (
+		sys-devel/bison
+		sys-devel/flex
+	)
 "
 
 pkg_pretend() {
