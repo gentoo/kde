@@ -24,10 +24,6 @@ LICENSE="LGPL-2.1"
 SLOT="0/8"
 IUSE="doc gmp plasma webengine"
 
-BDEPEND="
-	virtual/pkgconfig
-	doc? ( app-doc/doxygen )
-"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -46,7 +42,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	!gmp? ( sci-libs/mpir:=[cxx] )
-	gmp? ( dev-libs/gmp:0=[cxx] )
+	gmp? ( dev-libs/gmp:0=[cxx(+)] )
 	plasma? (
 		>=kde-frameworks/kpackage-${KFMIN}:5
 		>=kde-frameworks/plasma-${KFMIN}:5
@@ -54,6 +50,10 @@ DEPEND="
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+	doc? ( app-doc/doxygen )
+"
 
 PATCHES=( "${FILESDIR}/${PN}-8.1.0-cmake.patch" )
 
