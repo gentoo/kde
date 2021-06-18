@@ -25,12 +25,11 @@ SLOT="5"
 IUSE="activities addressbook calendar hbci holidays"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
-BDEPEND="virtual/pkgconfig"
 RDEPEND="
 	>=app-crypt/gpgme-1.7.1-r1[cxx]
 	>=app-office/libalkimia-7.0.0:=
 	dev-db/sqlcipher
-	dev-libs/gmp:0=[cxx]
+	dev-libs/gmp:0=[cxx(+)]
 	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
 	dev-libs/libofx:=
@@ -80,6 +79,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/boost
 "
+BDEPEND="virtual/pkgconfig"
 
 pkg_setup() {
 	ecm_pkg_setup
