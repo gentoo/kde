@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KFMIN=5.77.0
+KFMIN=5.82.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
@@ -29,11 +29,16 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5
 	media-libs/kquickimageeditor:5
 	>=net-libs/libquotient-0.6
 "
@@ -42,6 +47,4 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 "
-BDEPEND="
-	virtual/pkgconfig
-"
+BDEPEND="virtual/pkgconfig"
