@@ -59,7 +59,7 @@ RDEPEND="${DEPEND}
 	)
 "
 
-src_configure(){
+src_configure() {
 	local mycmakeargs=(
 		-DSMB4K_WITH_WS_DISCOVERY=$(usex discovery)
 		-DSMB4K_INSTALL_PLASMOID=$(usex plasma)
