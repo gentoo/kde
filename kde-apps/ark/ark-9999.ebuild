@@ -18,9 +18,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE="zip"
 
-BDEPEND="
-	sys-devel/gettext
-"
 RDEPEND="
 	app-arch/libarchive:=[bzip2,lzma,zlib]
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -48,6 +45,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
+BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
@@ -55,14 +53,6 @@ src_configure() {
 	)
 
 	ecm_src_configure
-}
-
-src_test() {
-	local myctestargs=(
-		-E "(plugins-clirartest)"
-	)
-
-	ecm_src_test
 }
 
 pkg_postinst() {
