@@ -10,7 +10,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Tool for indexing, searching, and viewing images"
-HOMEPAGE="https://www.kphotoalbum.org/"
+HOMEPAGE="https://kphotoalbum.org/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
