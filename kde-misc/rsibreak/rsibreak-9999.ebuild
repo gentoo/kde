@@ -21,7 +21,6 @@ LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 SLOT="5"
 IUSE=""
 
-BDEPEND="sys-devel/gettext"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -32,7 +31,6 @@ DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kidletime-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
@@ -45,3 +43,4 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=kde-frameworks/frameworkintegration-${KFMIN}:5
 "
+BDEPEND="sys-devel/gettext"
