@@ -74,7 +74,7 @@ PDEPEND="
 
 PATCHES=(
 	# pending https://invent.kde.org/frameworks/kio/-/merge_requests/426
-	"${FILESDIR}"/${PN}-5.81.0-fix-qtconcurrent-private-link.patch # bug 784971
+	"${FILESDIR}"/${PN}-5.84.0-fix-qtconcurrent-private-link.patch # bug 784971
 )
 
 src_configure() {
