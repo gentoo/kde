@@ -41,7 +41,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kidletime-${KFMIN}:5=
-	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
@@ -95,9 +94,7 @@ DEPEND="${COMMON_DEPEND}
 		>=dev-qt/qtwayland-${QTMIN}:5
 	)
 "
-PDEPEND="
-	>=kde-plasma/kde-cli-tools-${PVCUT}:5
-"
+PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
 src_prepare() {
 	ecm_src_prepare
@@ -105,8 +102,7 @@ src_prepare() {
 
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
-		sed -e "s/^pkg_check_modules.*PipeWire/#&/" \
-			-i CMakeLists.txt || die
+		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
 	fi
 }
 
