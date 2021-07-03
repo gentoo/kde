@@ -68,9 +68,7 @@ DEPEND="${RDEPEND}
 		x11-libs/libXrender
 	)
 "
-PDEPEND="
-	>=kde-frameworks/kded-${PVCUT}:5
-"
+PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
 PATCHES=(
 	# pending https://invent.kde.org/frameworks/kio/-/merge_requests/426
@@ -79,6 +77,7 @@ PATCHES=(
 
 src_configure() {
 	local mycmakeargs=(
+		-DKIO_NO_PUBLIC_QTCONCURRENT=ON
 		$(cmake_use_find_package acl ACL)
 		$(cmake_use_find_package handbook KF5DocTools)
 		$(cmake_use_find_package kerberos GSSAPI)
