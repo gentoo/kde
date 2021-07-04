@@ -30,7 +30,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
