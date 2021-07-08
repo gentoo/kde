@@ -50,7 +50,7 @@ COMMON_DEPEND="
 	fits? ( sci-libs/cfitsio:= )
 	indi? (
 		sci-libs/gsl:=
-		>=sci-libs/indilib-1.7.5
+		>=sci-libs/indilib-1.9.1
 		sci-libs/libnova:=
 		sci-libs/stellarsolver
 	)
