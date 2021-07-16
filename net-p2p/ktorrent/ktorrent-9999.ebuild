@@ -21,7 +21,6 @@ KEYWORDS=""
 IUSE="+bwscheduler +downloadorder +infowidget +ipfilter +kross +logviewer +magnetgenerator
 +mediaplayer rss +scanfolder +shutdown +stats +upnp +webengine +zeroconf"
 
-BDEPEND="sys-devel/gettext"
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -66,7 +65,7 @@ COMMON_DEPEND="
 	zeroconf? ( >=kde-frameworks/kdnssd-${KFMIN}:5 )
 "
 DEPEND="${COMMON_DEPEND}
-	dev-libs/boost
+	>=dev-libs/boost-1.71
 "
 RDEPEND="${COMMON_DEPEND}
 	ipfilter? (
@@ -76,6 +75,7 @@ RDEPEND="${COMMON_DEPEND}
 		>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	)
 "
+BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
