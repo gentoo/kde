@@ -28,8 +28,10 @@ RESTRICT+=" test"
 DEPEND="
 	app-text/poppler[qt5]
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qthelp-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
