@@ -7,6 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=5.81.0
 QTMIN=5.15.2
+VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Interface to work with Graph Theory"
@@ -46,5 +47,3 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
-
-RESTRICT+=" test"	# 1/10 tests currently fails
