@@ -18,7 +18,7 @@ https://kontact.kde.org/components/knotes.html"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="X"
 
 DEPEND="
 	dev-libs/grantlee:5
@@ -27,7 +27,6 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-notes-${PVCUT}:5
@@ -59,18 +58,19 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	x11-libs/libX11
+	X? (
+		>=dev-qt/qtx11extras-${QTMIN}:5
+		x11-libs/libX11
+	)
 "
 RDEPEND="${DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
 
 src_configure() {
-# 	local mycmakeargs=(
-# 	# FIXME: Does not build (last checked 2016-02-17)
-# 		$(cmake_use_find_package X Qt5X11Extras)
-# 		$(cmake_use_find_package X X11)
-# 	)
-
+	local mycmakeargs=(
+		$(cmake_use_find_package X Qt5X11Extras)
+		$(cmake_use_find_package X X11)
+	)
 	ecm_src_configure
 }
