@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.81.0
@@ -30,6 +30,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
@@ -87,16 +88,10 @@ src_configure() {
 		$(cmake_use_find_package fits CFitsio)
 		$(cmake_use_find_package kipi KF5Kipi)
 		$(cmake_use_find_package raw KF5KDcraw)
+		-DGWENVIEW_SEMANTICINFO_BACKEND=$(usex semantic-desktop Baloo None)
 		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package X X11)
 	)
-
-	if use semantic-desktop; then
-		mycmakeargs+=( -DGWENVIEW_SEMANTICINFO_BACKEND=Baloo )
-	else
-		mycmakeargs+=( -DGWENVIEW_SEMANTICINFO_BACKEND=None )
-	fi
-
 	ecm_src_configure
 }
 
