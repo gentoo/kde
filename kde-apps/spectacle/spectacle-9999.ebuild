@@ -46,7 +46,7 @@ DEPEND="
 	x11-libs/xcb-util
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
-	annotate? ( >=media-libs/kimageannotator-0.4.1 )
+	annotate? ( >=media-libs/kimageannotator-0.5.0 )
 	kipi? ( >=kde-apps/libkipi-${PVCUT}:5= )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 "
