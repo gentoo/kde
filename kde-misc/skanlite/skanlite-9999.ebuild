@@ -5,7 +5,10 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=5.74.0
+KDE_GEAR="true"
+KDE_ORG_CATEGORY="graphics"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.81.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
@@ -20,7 +23,7 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/libksane-19.04.0:5
+	>=kde-apps/libksane-${PVCUT}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -29,6 +32,5 @@ DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	media-libs/libpng:0=
 "
 RDEPEND="${DEPEND}"
