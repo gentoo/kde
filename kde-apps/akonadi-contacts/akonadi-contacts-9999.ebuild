@@ -19,7 +19,7 @@ IUSE=""
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT+=" test"
 
-DEPEND="
+RDEPEND="
 	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -34,8 +34,8 @@ DEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
@@ -43,4 +43,6 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/prison-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+"
