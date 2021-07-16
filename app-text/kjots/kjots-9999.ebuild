@@ -31,7 +31,6 @@ DEPEND="
 	>=kde-apps/kmime-20.12.2:5
 	>=kde-apps/kontactinterface-20.12.2:5
 	>=kde-apps/kpimtextedit-20.12.2:5
-	>=kde-apps/libkdepim-20.12.2:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
