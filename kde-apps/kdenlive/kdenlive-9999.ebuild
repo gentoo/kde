@@ -4,6 +4,7 @@
 EAPI=7
 
 ECM_HANDBOOK="optional"
+ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=5.81.0
 QTMIN=5.15.2
