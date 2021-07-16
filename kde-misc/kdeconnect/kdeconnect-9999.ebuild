@@ -66,6 +66,8 @@ RDEPEND="${DEPEND}
 	net-fs/sshfs
 "
 
+PATCHES=( "${FILESDIR}/${PN}-21.07.80-revert-disable-kpeople.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
