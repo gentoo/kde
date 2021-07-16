@@ -76,7 +76,7 @@ src_configure() {
 		$(cmake_use_find_package activities KF5ActivitiesStats)
 		$(cmake_use_find_package activities Qt5Sql)
 		$(cmake_use_find_package man Gperf)
-		$(cmake_use_find_package mtp Mtp)
+		$(cmake_use_find_package mtp Libmtp)
 		$(cmake_use_find_package nfs TIRPC)
 		$(cmake_use_find_package openexr OpenEXR)
 		$(cmake_use_find_package phonon Phonon4Qt5)
