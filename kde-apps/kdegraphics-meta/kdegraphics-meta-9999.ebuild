@@ -26,5 +26,8 @@ RDEPEND="
 	>=kde-apps/spectacle-${PV}:${SLOT}
 	>=kde-apps/svgpart-${PV}:${SLOT}
 	>=kde-apps/thumbnailers-${PV}:${SLOT}
-	scanner? ( >=kde-apps/libksane-${PV}:${SLOT} )
+	scanner? (
+		>=kde-apps/libksane-${PV}:${SLOT}
+		>=kde-misc/skanlite-${PV}:${SLOT}
+	)
 "
