@@ -11,8 +11,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Board game by KDE"
-HOMEPAGE="https://apps.kde.org/kreversi/
-https://games.kde.org/games/kreversi/"
+HOMEPAGE="https://apps.kde.org/kreversi/ https://games.kde.org/games/kreversi/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -33,7 +32,6 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
