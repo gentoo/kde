@@ -44,7 +44,7 @@ DEPEND="${PYTHON_DEPS}
 "
 RDEPEND="${DEPEND}
 	$(python_gen_cond_dep '
-		dev-python/pycodestyle[${PYTHON_MULTI_USEDEP}]
+		dev-python/pycodestyle[${PYTHON_USEDEP}]
 	')
 "
 
