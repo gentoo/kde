@@ -4,7 +4,7 @@
 # @ECLASS: kde.org.eclass
 # @MAINTAINER:
 # kde@gentoo.org
-# @SUPPORTED_EAPIS: 7
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: Support eclass for packages that are hosted on kde.org infrastructure.
 # @DESCRIPTION:
 # This eclass is mainly providing facilities for the three upstream release
@@ -15,8 +15,8 @@
 # It also contains default meta variables for settings not specific to any
 # particular build system.
 
-case ${EAPI} in
-	7) ;;
+case ${EAPI:-0} in
+	7|8) ;;
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
