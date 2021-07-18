@@ -17,6 +17,13 @@
 # out-of-source builds (default), in-source builds and an implementation of the
 # well-known use_enable function for CMake.
 
+case ${EAPI:-0} in
+	7) ;;
+	*) die "EAPI=${EAPI:-0} is not supported" ;;
+esac
+
+EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
+
 if [[ -z ${_CMAKE_ECLASS} ]]; then
 _CMAKE_ECLASS=1
 
@@ -97,14 +104,7 @@ _CMAKE_ECLASS=1
 # a user flag and should under _no circumstances_ be set in the ebuild.
 # Helps in improving QA of build systems that write to source tree.
 
-case ${EAPI} in
-	7) ;;
-	*) die "EAPI=${EAPI:-0} is not supported" ;;
-esac
-
 inherit toolchain-funcs ninja-utils flag-o-matic multiprocessing xdg-utils
-
-EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
 
 [[ ${CMAKE_MIN_VERSION} ]] && die "CMAKE_MIN_VERSION is banned; if necessary, set BDEPEND=\">=dev-util/cmake-${CMAKE_MIN_VERSION}\" directly"
 [[ ${CMAKE_BUILD_DIR} ]] && die "The ebuild must be migrated to BUILD_DIR"
