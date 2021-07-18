@@ -25,20 +25,6 @@ EXPORT_FUNCTIONS pkg_nofetch src_unpack
 if [[ -z ${_KDE_ORG_ECLASS} ]]; then
 _KDE_ORG_ECLASS=1
 
-# @ECLASS-VARIABLE: KDE_BUILD_TYPE
-# @DESCRIPTION:
-# If PV matches "*9999*", this is automatically set to "live".
-# Otherwise, this is automatically set to "release".
-KDE_BUILD_TYPE="release"
-if [[ ${PV} == *9999* ]]; then
-	KDE_BUILD_TYPE="live"
-fi
-export KDE_BUILD_TYPE
-
-if [[ ${KDE_BUILD_TYPE} == live ]]; then
-	inherit git-r3
-fi
-
 # @ECLASS-VARIABLE: KDE_ORG_CATEGORIES
 # @INTERNAL
 # @DESCRIPTION:
@@ -82,12 +68,14 @@ declare -A KDE_ORG_CATEGORIES=(
 readonly KDE_ORG_CATEGORIES
 
 # @ECLASS-VARIABLE: KDE_ORG_CATEGORY
+# @PRE_INHERIT
 # @DESCRIPTION:
 # If unset, default value is mapped from ${CATEGORY} to corresponding upstream
 # category on invent.kde.org, with "kde" as fallback value.
 : ${KDE_ORG_CATEGORY:=${KDE_ORG_CATEGORIES[${CATEGORY}]:-kde}}
 
 # @ECLASS-VARIABLE: KDE_ORG_COMMIT
+# @PRE_INHERIT
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # If set, instead of a regular release tarball, pull tar.gz snapshot from an
@@ -95,16 +83,42 @@ readonly KDE_ORG_CATEGORIES
 # at the desired COMMIT ID.
 
 # @ECLASS-VARIABLE: KDE_ORG_NAME
+# @PRE_INHERIT
 # @DESCRIPTION:
 # If unset, default value is set to ${PN}.
 # Name of the package as hosted on kde.org mirrors.
 : ${KDE_ORG_NAME:=$PN}
 
 # @ECLASS-VARIABLE: KDE_GEAR
+# @PRE_INHERIT
 # @DESCRIPTION:
-# If set to "false", do nothing.
+# Mark package is being part of KDE Gear release schedule.
+# By default, this is set to "false" and does nothing.
+# If CATEGORY equals kde-apps, this is automatically set to "true".
 # If set to "true", set SRC_URI accordingly and apply KDE_UNRELEASED.
 : ${KDE_GEAR:=false}
+if [[ ${CATEGORY} == kde-apps ]]; then
+	KDE_GEAR=true
+fi
+
+# @ECLASS-VARIABLE: KDE_BUILD_TYPE
+# @DESCRIPTION:
+# By default, this is set to "release".
+# If PV matches "*9999*", this is automatically set to "live" and will cause
+# git-r3.eclass to be inherited.
+# In EAPI-8, if KDE_ORG_COMMIT is set, this is automatically set to "snapshot".
+KDE_BUILD_TYPE="release"
+if [[ ${PV} == *9999* ]]; then
+	KDE_BUILD_TYPE="live"
+fi
+if [[ ${EAPI} == 8 ]] && [[ -n ${KDE_ORG_COMMIT} ]]; then
+	KDE_BUILD_TYPE="snapshot"
+fi
+export KDE_BUILD_TYPE
+
+if [[ ${KDE_BUILD_TYPE} == live ]]; then
+	inherit git-r3
+fi
 
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @PRE_INHERIT
@@ -138,16 +152,13 @@ case ${CATEGORY} in
 		HOMEPAGE="https://community.kde.org/Qt5PatchCollection
 			https://invent.kde.org/qt/qt/ https://www.qt.io/"
 		;;
-	kde-apps)
-		KDE_GEAR=true
-		;;
 	kde-plasma)
 		HOMEPAGE="https://kde.org/plasma-desktop"
 		;;
 	kde-frameworks)
 		HOMEPAGE="https://kde.org/products/frameworks/"
 		SLOT=5/${PV}
-		[[ ${KDE_BUILD_TYPE} == release ]] && SLOT=$(ver_cut 1)/$(ver_cut 1-2)
+		[[ ${KDE_BUILD_TYPE} != live ]] && SLOT=$(ver_cut 1)/$(ver_cut 1-2)
 		;;
 	*) ;;
 esac
@@ -284,6 +295,7 @@ case ${KDE_BUILD_TYPE} in
 	*)
 		_kde.org_calculate_src_uri
 		debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
+		# TODO: simplify after dropping support for EAPI-7
 		if [[ -n ${KDE_ORG_COMMIT} ]]; then
 			S=${WORKDIR}/${KDE_ORG_NAME}-${KDE_ORG_COMMIT}
 			[[ ${CATEGORY} == dev-qt ]] && QT5_BUILD_DIR="${S}_build"
