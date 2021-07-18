@@ -4,7 +4,7 @@
 # @ECLASS: ecm.eclass
 # @MAINTAINER:
 # kde@gentoo.org
-# @SUPPORTED_EAPIS: 7
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: Support eclass for packages that use KDE Frameworks with ECM.
 # @DESCRIPTION:
 # This eclass is intended to streamline the creation of ebuilds for packages
@@ -21,7 +21,7 @@
 # any phase functions are overridden the version here should also be called.
 
 case ${EAPI} in
-	7) ;;
+	7|8) ;;
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
@@ -154,7 +154,7 @@ fi
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: ${KFMIN:=$(ver_cut 1-2)}
 fi
-: ${KFMIN:=5.64.0}
+: ${KFMIN:=5.82.0}
 
 # @ECLASS-VARIABLE: KFSLOT
 # @INTERNAL
