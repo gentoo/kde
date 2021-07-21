@@ -76,7 +76,7 @@ RDEPEND="${PYTHON_DEPS}
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? (
 		media-libs/ilmbase:=
-		media-libs/openexr
+		<media-libs/openexr-3.0.0:0=
 	)
 	pdf? ( app-text/poppler[qt5] )
 	qtmedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5 )
