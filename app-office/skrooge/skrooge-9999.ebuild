@@ -22,10 +22,9 @@ LICENSE="GPL-2"
 SLOT="5"
 IUSE="activities kde ofx"
 
-BDEPEND="
-	dev-libs/libxslt
-	virtual/pkgconfig
-"
+# hangs + installs files (also requires KF5DesignerPlugin)
+RESTRICT+=" test"
+
 COMMON_DEPEND="
 	>=app-crypt/qca-2.3.0:2
 	dev-db/sqlcipher
@@ -73,13 +72,15 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
-
-# hangs + installs files (also requires KF5DesignerPlugin)
-RESTRICT+=" test"
+BDEPEND="
+	dev-libs/libxslt
+	virtual/pkgconfig
+"
 
 src_configure() {
 	local mycmakeargs=(
 		-DSKG_WEBENGINE=ON
+		-DSKG_WEBKIT=OFF
 		-DSKG_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package kde KF5Runner)
