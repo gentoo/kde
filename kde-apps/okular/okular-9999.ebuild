@@ -17,7 +17,7 @@ HOMEPAGE="https://okular.kde.org https://apps.kde.org/okular/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="chm djvu epub +image-backend markdown mobi +pdf +plucker +postscript qml share speech +tiff"
+IUSE="djvu epub +image-backend markdown mobi +pdf +plucker +postscript qml share speech +tiff"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -44,11 +44,6 @@ DEPEND="
 	media-libs/freetype
 	>=media-libs/phonon-4.11.0
 	sys-libs/zlib
-	chm? (
-		dev-libs/chmlib
-		dev-libs/libzip:=
-		>=kde-frameworks/khtml-${KFMIN}:5
-	)
 	djvu? ( app-text/djvu )
 	epub? ( app-text/ebook-tools )
 	image-backend? (
@@ -79,10 +74,10 @@ PATCHES=(
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_CHM=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5KHtml=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_LibZip=ON
 		-DOKULAR_UI=$(usex qml "both" "desktop")
-		$(cmake_use_find_package chm CHM)
-		$(cmake_use_find_package chm KF5KHtml)
-		$(cmake_use_find_package chm LibZip)
 		$(cmake_use_find_package djvu DjVuLibre)
 		$(cmake_use_find_package epub EPub)
 		$(cmake_use_find_package image-backend KF5KExiv2)
