@@ -83,6 +83,10 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
+	|| (
+		x11-base/xwayland
+		x11-base/xorg-server[wayland(-)]
+	)
 	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
 "
 DEPEND="${COMMON_DEPEND}
