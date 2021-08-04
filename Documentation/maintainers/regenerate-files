@@ -18,9 +18,6 @@ PLASMA_RELEASE=${PLASMA_RELEASE:-5.21}
 GEAR_RELEASES="21.04 21.08"
 GEAR_RELEASE=${GEAR_RELEASE:-21.04}
 
-SERVICE_RELEASES="20.12"
-SERVICE_RELEASE=${SERVICE_RELEASE:-20.12}
-
 # regenerate keywords
 pushd ../package.accept_keywords/ > /dev/null
 for release in $KF_RELEASES; do
@@ -59,14 +56,6 @@ for release in $GEAR_RELEASES; do
 			# echo "${newfile}"
 		done
 		cat ".kde-gear-${release}.49.9999"/* >> "kde-gear-${release}.49.9999.keywords"
-	fi
-done
-
-for release in $SERVICE_RELEASES; do
-	echo -e "${HEADER}" > "kde-release-service-${release}.keywords"
-	if [[ -d ".kde-release-service-${release}" ]]; then
-		cat ".kde-release-service-${release}/"* | \
-			sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-release-service-${release}.keywords"
 	fi
 done
 
@@ -190,11 +179,6 @@ for set in *-${GEAR_RELEASE}; do
 	sed -r "/@/s/-${GEAR_RELEASE}//g;/9999$/s/~//;s/<//;\@[a-z-]+/@s/-(9999|${GEAR_RELEASE}\.50)/:5/" "${set}" >> "${newfile}"
 done
 
-for set in *-${SERVICE_RELEASE}; do
-	newfile=${set/%-${SERVICE_RELEASE}}
-	echo -e "${HEADER}" > "${newfile}"
-	sed -r "/@/s/-${SERVICE_RELEASE}//g;/9999$/s/~//;s/<//;\@[a-z-]+/@s/-(9999|${SERVICE_RELEASE}\.50)/:5/" "${set}" >> "${newfile}"
-done
 popd > /dev/null
 
 # regenerate CONTRIBUTORS file
