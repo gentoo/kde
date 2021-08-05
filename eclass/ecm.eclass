@@ -30,6 +30,7 @@ if [[ -v KDE_GCC_MINIMAL ]]; then
 fi
 
 EXPORT_FUNCTIONS pkg_setup src_prepare src_configure src_test pkg_preinst pkg_postinst pkg_postrm
+[[ ${EAPI} != 7 ]] && EXPORT_FUNCTIONS src_install
 
 if [[ -z ${_ECM_ECLASS} ]]; then
 _ECM_ECLASS=1
@@ -535,12 +536,26 @@ ecm_src_test() {
 
 # @FUNCTION: ecm_src_install
 # @DESCRIPTION:
-# Wrapper for cmake_src_install. Currently doesn't do anything extra, but
-# is included as part of the API just in case it's needed in the future.
+# Wrapper for cmake_src_install. Drops executable bit from .desktop files
+# installed inside /usr/share/applications. This is set by cmake when install()
+# is called in PROGRAM form, as seen in many kde.org projects.
 ecm_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	cmake_src_install
+
+	# bug 621970
+	if [[ ${EAPI} != 7 ]]; then
+		if [[ -d "${ED}"/usr/share/applications ]]; then
+			local f
+			for f in "${ED}"/usr/share/applications/*.desktop; do
+				if [[ -x ${f} ]]; then
+					einfo "Removing executable bit from ${f#${ED}}"
+					fperms a-x "${f#${ED}}"
+				fi
+			done
+		fi
+	fi
 }
 
 # @FUNCTION: ecm_pkg_preinst
