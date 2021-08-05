@@ -1,11 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson xdg-utils
 
-if [[ ${PV} = 9999 ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ximion/${PN}"
 else
@@ -25,14 +25,6 @@ IUSE="apt +introspection qt5 test"
 
 RESTRICT="!test? ( test )"
 
-BDEPEND="
-	app-text/docbook-xml-dtd:4.5
-	dev-libs/appstream-glib
-	dev-util/itstool
-	>=dev-util/meson-0.42.0
-	>=sys-devel/gettext-0.19.8
-	test? ( dev-qt/linguist-tools:5 )
-"
 DEPEND="
 	dev-libs/glib:2
 	dev-libs/libxml2:2
@@ -45,6 +37,14 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	app-text/docbook-xml-dtd:4.5
+	dev-libs/appstream-glib
+	dev-util/itstool
+	>=dev-util/meson-0.42.0
+	>=sys-devel/gettext-0.19.8
+	test? ( dev-qt/linguist-tools:5 )
+"
 
 src_prepare() {
 	default
