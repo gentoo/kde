@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="kdecore - merge this to pull in the most basic applications"
 HOMEPAGE="https://kde.org/"
