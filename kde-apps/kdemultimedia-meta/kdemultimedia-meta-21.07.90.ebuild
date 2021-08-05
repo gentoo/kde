@@ -14,6 +14,7 @@ IUSE="+cdrom +ffmpeg gstreamer"
 RDEPEND="
 	>=kde-apps/dragon-${PV}:${SLOT}
 	>=kde-apps/juk-${PV}:${SLOT}
+	>=kde-apps/kdenlive-${PV}:${SLOT}
 	>=kde-apps/kmix-${PV}:${SLOT}
 	>=kde-apps/kwave-${PV}:${SLOT}
 	>=media-sound/elisa-${PV}:${SLOT}
