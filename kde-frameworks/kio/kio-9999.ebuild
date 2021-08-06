@@ -50,6 +50,7 @@ RDEPEND="
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
+	sys-apps/util-linux
 	acl? (
 		sys-apps/attr
 		virtual/acl
