@@ -243,3 +243,5 @@
 <kde-misc/markdownpart-21.08.50
 <sys-block/partitionmanager-21.08.50
 <sys-libs/kpmcore-21.08.50
+~media-libs/kcolorpicker-0.1.6
+~media-libs/kimageannotator-0.5.1
