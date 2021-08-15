@@ -6,7 +6,7 @@
 # qt@gentoo.org
 # @AUTHOR:
 # Davide Pesavento <pesa@gentoo.org>
-# @SUPPORTED_EAPIS: 7
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: Eclass for Qt5 split ebuilds.
 # @DESCRIPTION:
 # This eclass contains various functions that are used when building Qt5.
@@ -16,7 +16,7 @@ if [[ ${CATEGORY} != dev-qt ]]; then
 fi
 
 case ${EAPI} in
-	7) ;;
+	7|8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
@@ -74,7 +74,7 @@ _QT5_P=${QT5_MODULE}-everywhere-src-${PV}
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit eapi8-dosym estack flag-o-matic toolchain-funcs virtualx
+inherit estack flag-o-matic toolchain-funcs virtualx
 
 if [[ ${PN} != qtwebengine ]]; then
 	if [[ ${QT5_BUILD_TYPE} == live ]] || [[ -n ${KDE_ORG_COMMIT} ]]; then
@@ -299,7 +299,7 @@ qt5-build_pkg_postrm() {
 qt5_symlink_binary_to_path() {
 	[[ $# -ge 1 ]] || die "${FUNCNAME}() requires at least one argument"
 
-	dosym8 -r "${QT5_BINDIR#${EPREFIX}}"/${1} /usr/bin/${1}${2}
+	dosym -r "${QT5_BINDIR#${EPREFIX}}"/${1} /usr/bin/${1}${2}
 }
 
 # @FUNCTION: qt_use
