@@ -15,7 +15,7 @@
 # It also contains default meta variables for settings not specific to any
 # particular build system.
 
-case ${EAPI:-0} in
+case ${EAPI} in
 	7|8) ;;
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
@@ -24,6 +24,20 @@ EXPORT_FUNCTIONS pkg_nofetch src_unpack
 
 if [[ -z ${_KDE_ORG_ECLASS} ]]; then
 _KDE_ORG_ECLASS=1
+
+# @ECLASS-VARIABLE: KDE_BUILD_TYPE
+# @DESCRIPTION:
+# If PV matches "*9999*", this is automatically set to "live".
+# Otherwise, this is automatically set to "release".
+KDE_BUILD_TYPE="release"
+if [[ ${PV} == *9999* ]]; then
+	KDE_BUILD_TYPE="live"
+fi
+export KDE_BUILD_TYPE
+
+if [[ ${KDE_BUILD_TYPE} == live ]]; then
+	inherit git-r3
+fi
 
 # @ECLASS-VARIABLE: KDE_ORG_CATEGORIES
 # @INTERNAL
@@ -101,25 +115,6 @@ if [[ ${CATEGORY} == kde-apps ]]; then
 	KDE_GEAR=true
 fi
 
-# @ECLASS-VARIABLE: KDE_BUILD_TYPE
-# @DESCRIPTION:
-# By default, this is set to "release".
-# If PV matches "*9999*", this is automatically set to "live" and will cause
-# git-r3.eclass to be inherited.
-# In EAPI-8, if KDE_ORG_COMMIT is set, this is automatically set to "snapshot".
-KDE_BUILD_TYPE="release"
-if [[ ${PV} == *9999* ]]; then
-	KDE_BUILD_TYPE="live"
-fi
-if [[ ${EAPI} == 8 ]] && [[ -n ${KDE_ORG_COMMIT} ]]; then
-	KDE_BUILD_TYPE="snapshot"
-fi
-export KDE_BUILD_TYPE
-
-if [[ ${KDE_BUILD_TYPE} == live ]]; then
-	inherit git-r3
-fi
-
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @PRE_INHERIT
 # @DESCRIPTION:
@@ -158,7 +153,7 @@ case ${CATEGORY} in
 	kde-frameworks)
 		HOMEPAGE="https://kde.org/products/frameworks/"
 		SLOT=5/${PV}
-		[[ ${KDE_BUILD_TYPE} != live ]] && SLOT=$(ver_cut 1)/$(ver_cut 1-2)
+		[[ ${KDE_BUILD_TYPE} == release ]] && SLOT=$(ver_cut 1)/$(ver_cut 1-2)
 		;;
 	*) ;;
 esac
@@ -295,7 +290,6 @@ case ${KDE_BUILD_TYPE} in
 	*)
 		_kde.org_calculate_src_uri
 		debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
-		# TODO: simplify after dropping support for EAPI-7
 		if [[ -n ${KDE_ORG_COMMIT} ]]; then
 			S=${WORKDIR}/${KDE_ORG_NAME}-${KDE_ORG_COMMIT}
 			[[ ${CATEGORY} == dev-qt ]] && QT5_BUILD_DIR="${S}_build"
