@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby25 ruby26 ruby27"
+USE_RUBY="ruby26 ruby27"
 KFMIN=5.85.0
 QTMIN=5.15.2
 inherit ecm kde.org ruby-single
