@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.70.0
+KFMIN=5.82.0
 inherit ecm kde.org
 
 DESCRIPTION="Public transport assistant targeted towards mobile Linux and Android"
