@@ -8,7 +8,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="C++ interface for MediaWiki based web service as wikipedia.org"
-HOMEPAGE="https://www.digikam.org/"
+HOMEPAGE="https://invent.kde.org/libraries/libmediawiki"
 
 LICENSE="GPL-2+"
 SLOT="5"
