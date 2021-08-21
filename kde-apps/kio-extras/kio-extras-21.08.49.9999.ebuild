@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="activities +man mtp nfs openexr phonon samba +sftp taglib X"
 
 # requires running Plasma environment
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5

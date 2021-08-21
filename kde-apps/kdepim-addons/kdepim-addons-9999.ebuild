@@ -67,7 +67,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(

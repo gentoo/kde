@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 # tests require DBus
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5

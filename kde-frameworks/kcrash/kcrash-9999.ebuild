@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="nls"
 
 # requires running kde environment
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )

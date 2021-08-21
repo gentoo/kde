@@ -14,7 +14,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="+editorconfig git"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	test? ( >=kde-frameworks/kservice-${PVCUT}:5 )

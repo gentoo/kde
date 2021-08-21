@@ -19,7 +19,7 @@ IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RESTRICT+=" test" # tests are broken, bug 739734
+RESTRICT="test" # tests are broken, bug 739734
 
 DEPEND="${PYTHON_DEPS}
 	>=app-text/hunspell-1.2.8:=

@@ -26,7 +26,7 @@ IUSE="activities +charts +crypt +fontconfig gemini gsl +import-filter +lcms
 	okular openexr +pdf phonon spacenav +truetype X
 	$(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 # TODO: Not packaged: Cauchy (https://bitbucket.org/cyrille/cauchy)
 # Required for the matlab/octave formula tool

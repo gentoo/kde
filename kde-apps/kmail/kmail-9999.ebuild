@@ -20,7 +20,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="pch telemetry"
 
-RESTRICT+=" test" # bug 616878
+RESTRICT="test" # bug 616878
 
 COMMON_DEPEND="
 	>=app-crypt/gpgme-1.11.1[cxx,qt5]

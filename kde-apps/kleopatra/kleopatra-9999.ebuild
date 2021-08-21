@@ -52,4 +52,4 @@ RDEPEND="${DEPEND}
 "
 
 # tests completely broken, bug #641720
-RESTRICT+=" test"
+RESTRICT="test"

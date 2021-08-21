@@ -34,4 +34,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT+=" test" # bugs 653616, 711666
+RESTRICT="test" # bugs 653616, 711666

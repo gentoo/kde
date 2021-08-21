@@ -14,7 +14,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT+=" test" # bug 574770
+RESTRICT="test" # bug 574770
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5

@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="
 	dev-qt/qtdbus:5

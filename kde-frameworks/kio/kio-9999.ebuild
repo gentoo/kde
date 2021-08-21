@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="acl +handbook kerberos +kwallet X"
 
 # tests hang
-RESTRICT+=" test"
+RESTRICT="test"
 
 RDEPEND="
 	dev-libs/libxml2

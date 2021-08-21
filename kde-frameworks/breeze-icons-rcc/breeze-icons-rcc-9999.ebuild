@@ -13,7 +13,7 @@ LICENSE="LGPL-3"
 KEYWORDS=""
 IUSE="test"
 
-RESTRICT+=" !test? ( test )"
+RESTRICT="!test? ( test )"
 
 BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/lxml[${PYTHON_USEDEP}]')

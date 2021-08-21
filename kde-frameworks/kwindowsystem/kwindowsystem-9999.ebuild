@@ -12,7 +12,7 @@ LICENSE="|| ( LGPL-2.1 LGPL-3 ) MIT"
 KEYWORDS=""
 IUSE="nls X"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5

@@ -24,7 +24,7 @@ IUSE="color-management fftw gif +gsl heif +jpeg +mypaint-brush-engine openexr pd
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # bug 630508
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	dev-cpp/eigen:3

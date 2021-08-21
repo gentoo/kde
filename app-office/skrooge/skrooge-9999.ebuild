@@ -23,7 +23,7 @@ SLOT="5"
 IUSE="activities kde ofx"
 
 # hangs + installs files (also requires KF5DesignerPlugin)
-RESTRICT+=" test"
+RESTRICT="test"
 
 COMMON_DEPEND="
 	>=app-crypt/qca-2.3.0:2

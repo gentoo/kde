@@ -15,7 +15,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gles2-only wayland X"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	>=kde-frameworks/kdoctools-${PVCUT}:5

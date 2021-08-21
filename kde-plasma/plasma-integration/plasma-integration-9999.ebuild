@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 # requires running kde environment
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5

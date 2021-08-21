@@ -19,7 +19,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="gles2-only semantic-desktop share v4l"
 
-RESTRICT+=" test" # segfaults, bug 684132
+RESTRICT="test" # segfaults, bug 684132
 
 DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5

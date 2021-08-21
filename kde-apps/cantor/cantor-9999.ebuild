@@ -22,7 +22,7 @@ KEYWORDS=""
 IUSE="+analitza julia lua postscript python qalculate R"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} ) python? ( ${PYTHON_REQUIRED_USE} )"
-RESTRICT+=" test"
+RESTRICT="test"
 
 # TODO Add Sage Mathematics Software backend (https://www.sagemath.org)
 DEPEND="

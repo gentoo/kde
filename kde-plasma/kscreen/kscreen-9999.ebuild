@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 # bug #580440, last checked 5.6.3
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5

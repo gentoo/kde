@@ -22,7 +22,7 @@ IUSE="+kaccounts +mysql postgres sqlite tools xml"
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
-RESTRICT+=" test"
+RESTRICT="test"
 
 COMMON_DEPEND="
 	app-arch/xz-utils

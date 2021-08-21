@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="activities speech X"
 
 # 4 of 4 tests fail. Last checked for 4.0.3
-RESTRICT+=" test"
+RESTRICT="test"
 
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5

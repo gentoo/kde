@@ -15,7 +15,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="X"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	dev-lang/perl

@@ -13,7 +13,7 @@ LICENSE="LGPL-3"
 KEYWORDS=""
 IUSE="test"
 
-RESTRICT+=" !test? ( test )"
+RESTRICT="!test? ( test )"
 
 DEPEND="test? ( dev-qt/qttest:5 )"
 BDEPEND="${PYTHON_DEPS}

@@ -20,7 +20,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="bluetooth pulseaudio X"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="
 	>=app-crypt/qca-2.3.0:2[ssl]

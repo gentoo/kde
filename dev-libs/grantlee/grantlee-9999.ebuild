@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
 "
 
-RESTRICT+=" !test? ( test )"
+RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"

@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 # bug 689468, tests need polkit etc.
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="virtual/pkgconfig"
 DEPEND="

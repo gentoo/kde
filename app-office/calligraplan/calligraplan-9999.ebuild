@@ -74,7 +74,7 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:5
 "
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(

@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE=""
 
 # requires running environment
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	virtual/pkgconfig

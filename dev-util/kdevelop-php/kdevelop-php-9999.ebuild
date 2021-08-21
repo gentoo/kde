@@ -25,7 +25,7 @@ SLOT="5"
 IUSE=""
 
 # remaining tests fail for some, bug 668530
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	test? ( dev-util/kdevelop:5[test] )

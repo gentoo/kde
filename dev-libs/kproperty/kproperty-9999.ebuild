@@ -31,4 +31,4 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 # tests require installed headers, bug 636108
-RESTRICT+=" test"
+RESTRICT="test"

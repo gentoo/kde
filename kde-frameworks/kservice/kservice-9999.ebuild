@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="+man"
 
 # requires running kde environment
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	sys-devel/bison

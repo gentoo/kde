@@ -63,7 +63,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 # bug 588320
-RESTRICT+=" test"
+RESTRICT="test"
 
 src_prepare() {
 	ecm_src_prepare

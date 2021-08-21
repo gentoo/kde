@@ -17,7 +17,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT+=" test" # bug 668872
+RESTRICT="test" # bug 668872
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5

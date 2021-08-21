@@ -14,7 +14,7 @@ LICENSE="LGPL-3"
 KEYWORDS=""
 IUSE="test"
 
-RESTRICT+=" !test? ( test )"
+RESTRICT="!test? ( test )"
 
 BDEPEND="
 	>=dev-qt/qtcore-${QTMIN}:5

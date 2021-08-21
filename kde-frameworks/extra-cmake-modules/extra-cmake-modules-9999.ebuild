@@ -14,7 +14,7 @@ LICENSE="BSD"
 KEYWORDS=""
 IUSE="doc test"
 
-RESTRICT+=" !test? ( test )"
+RESTRICT="!test? ( test )"
 
 BDEPEND="
 	doc? (

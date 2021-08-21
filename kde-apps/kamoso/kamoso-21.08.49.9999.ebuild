@@ -17,7 +17,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT+=" test" # bug 653674
+RESTRICT="test" # bug 653674
 
 DEPEND="
 	dev-libs/glib:2

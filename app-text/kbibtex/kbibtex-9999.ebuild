@@ -22,7 +22,7 @@ LICENSE="GPL-2"
 SLOT="5"
 IUSE="webengine"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="
 	app-text/poppler[qt5]

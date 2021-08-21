@@ -20,7 +20,7 @@ LICENSE="GPL-3+"
 SLOT="5"
 IUSE=""
 
-RESTRICT+=" test" # depend on fuse kernel module
+RESTRICT="test" # depend on fuse kernel module
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5

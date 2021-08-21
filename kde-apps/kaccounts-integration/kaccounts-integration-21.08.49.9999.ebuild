@@ -47,4 +47,4 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 # bug #549444
-RESTRICT+=" test"
+RESTRICT="test"

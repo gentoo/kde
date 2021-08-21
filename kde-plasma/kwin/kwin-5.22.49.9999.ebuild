@@ -18,7 +18,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="accessibility caps gles2-only multimedia plasma screencast"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 COMMON_DEPEND="
 	>=dev-libs/libinput-1.14

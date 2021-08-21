@@ -19,7 +19,7 @@ SLOT="5"
 IUSE="acoustid flac kde mp3 mp4 +mpris +taglib test vorbis"
 
 REQUIRED_USE="flac? ( vorbis )"
-RESTRICT+=" !test? ( test )"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-qt/qtcore:5

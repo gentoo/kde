@@ -14,7 +14,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT+=" test" # bug 624250
+RESTRICT="test" # bug 624250
 
 DEPEND="
 	>=dev-db/lmdb-0.9.17

@@ -30,4 +30,4 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 # tests require DBus
-RESTRICT+=" test"
+RESTRICT="test"

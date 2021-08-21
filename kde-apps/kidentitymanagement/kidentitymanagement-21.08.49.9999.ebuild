@@ -34,4 +34,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT+=" test"
+RESTRICT="test"

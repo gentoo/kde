@@ -19,7 +19,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 # TODO kolab
 RDEPEND="

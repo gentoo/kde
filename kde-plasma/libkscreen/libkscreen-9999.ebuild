@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE=""
 
 # requires running session
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5

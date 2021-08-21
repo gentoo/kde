@@ -20,7 +20,7 @@ IUSE="appstream +calculator +calendar +fontconfig geolocation gps screencast
 +semantic-desktop systemd telemetry"
 
 REQUIRED_USE="gps? ( geolocation )"
-RESTRICT+=" test"
+RESTRICT="test"
 
 COMMON_DEPEND="
 	>=dev-libs/wayland-1.15

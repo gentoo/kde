@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE=""
 
 # All failing, I guess we need a virtual wayland server
-RESTRICT+=" test"
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-libs/wayland-1.19.0

@@ -13,7 +13,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="epub exif ffmpeg kernel_linux office pdf taglib"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	test? ( ${PYTHON_DEPS} )

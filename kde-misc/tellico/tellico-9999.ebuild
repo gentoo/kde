@@ -21,7 +21,7 @@ SLOT="5"
 IUSE="bibtex cddb discid pdf scanner semantic-desktop taglib v4l xmp yaz"
 
 # tests need network access
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	sys-devel/gettext

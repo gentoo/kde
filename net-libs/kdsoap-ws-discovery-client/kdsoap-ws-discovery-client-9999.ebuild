@@ -36,7 +36,7 @@ DEPEND="${RDEPEND}
 	test? ( dev-qt/qtxml:5 )
 "
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 PATCHES=( "${FILESDIR}"/${PN}-0.2_pre20200317-no-install-docs.patch )
 

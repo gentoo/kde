@@ -23,7 +23,7 @@ SLOT="5"
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtgui-${QTMIN}:5

@@ -48,7 +48,7 @@ DEPEND="${RDEPEND}
 	>=kde-apps/kmailtransport-${PVCUT}:5
 "
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 src_prepare() {
 	ecm_src_prepare

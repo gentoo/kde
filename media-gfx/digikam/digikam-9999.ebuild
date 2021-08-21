@@ -27,7 +27,7 @@ SLOT="5"
 IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop X"
 
 # bug 366505
-RESTRICT+=" test"
+RESTRICT="test"
 
 COMMON_DEPEND="
 	dev-libs/expat

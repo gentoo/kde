@@ -24,7 +24,7 @@ SLOT="5/57" # look at KDEVELOP_SOVERSION inside CMakeLists.txt
 IUSE="+gdbui hex +plasma +qmake reviewboard subversion"
 
 # see bug 366471
-RESTRICT+=" test"
+RESTRICT="test"
 
 COMMON_DEPEND="
 	dev-libs/grantlee:5

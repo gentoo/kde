@@ -17,7 +17,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5

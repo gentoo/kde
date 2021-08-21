@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE=""
 
 # requires package to already be installed
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	>=dev-qt/linguist-tools-${QTMIN}:5

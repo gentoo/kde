@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 # All failing, I guess we need a virtual wayland server
-RESTRICT+=" test"
+RESTRICT="test"
 
 # slot op: includes qpa/qplatformnativeinterface.h
 RDEPEND="

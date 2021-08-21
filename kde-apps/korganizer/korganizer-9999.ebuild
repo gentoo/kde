@@ -84,7 +84,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 # testkodaymatrix is broken, akonadi* tests need DBus, bug #665686
-RESTRICT+=" test"
+RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(

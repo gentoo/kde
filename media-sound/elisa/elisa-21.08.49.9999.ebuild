@@ -18,7 +18,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="mpris semantic-desktop +vlc"
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="sys-devel/gettext"
 DEPEND="

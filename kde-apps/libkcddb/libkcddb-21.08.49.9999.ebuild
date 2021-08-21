@@ -32,7 +32,7 @@ RDEPEND="${DEPEND}"
 
 # tests require network access and compare static data with online data
 # bug 280996
-RESTRICT+=" test"
+RESTRICT="test"
 
 src_prepare() {
 	ecm_src_prepare

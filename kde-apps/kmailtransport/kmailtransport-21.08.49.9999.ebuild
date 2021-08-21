@@ -16,7 +16,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT+=" test"
+RESTRICT="test"
 
 RDEPEND="
 	dev-libs/qtkeychain:=

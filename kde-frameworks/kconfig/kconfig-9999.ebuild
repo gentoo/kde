@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="dbus nls"
 
 # bug 560086
-RESTRICT+=" test"
+RESTRICT="test"
 
 BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )

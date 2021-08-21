@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="activities fits kipi +mpris raw semantic-desktop share X"
 
 # requires running environment
-RESTRICT+=" test"
+RESTRICT="test"
 
 COMMON_DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5

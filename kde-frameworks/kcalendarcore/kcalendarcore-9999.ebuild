@@ -13,7 +13,7 @@ LICENSE="GPL-2+ test? ( LGPL-3+ )"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT+=" test" # multiple tests fail or hang indefinitely
+RESTRICT="test" # multiple tests fail or hang indefinitely
 
 BDEPEND="
 	sys-devel/bison

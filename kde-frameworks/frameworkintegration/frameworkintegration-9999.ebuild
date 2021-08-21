@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 # requires running Plasma environment
-RESTRICT+=" test"
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
