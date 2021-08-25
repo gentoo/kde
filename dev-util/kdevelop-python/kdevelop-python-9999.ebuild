@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 KFMIN=5.82.0
 QTMIN=5.15.2
 inherit ecm kde.org python-single-r1
