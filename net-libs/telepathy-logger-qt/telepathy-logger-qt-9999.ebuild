@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 KDE_ORG_CATEGORY="network"
 QTMIN=5.15.2
 inherit ecm kde.org python-any-r1
