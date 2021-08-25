@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 KFMIN=5.85.0
 QTMIN=5.15.2
 inherit python-single-r1 ecm kde.org optfeature
@@ -18,7 +18,6 @@ KEYWORDS=""
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
 RESTRICT="test" # tests are broken, bug 739734
 
 DEPEND="${PYTHON_DEPS}
