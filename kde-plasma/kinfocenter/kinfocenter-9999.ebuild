@@ -93,6 +93,7 @@ pkg_postinst() {
 		optfeature "NFS information module" net-fs/nfs-utils
 		optfeature "Samba status information module" net-fs/samba
 		optfeature "Vulkan graphics API information module" dev-util/vulkan-tools
+		optfeature "advanced CPU information module" sys-apps/util-linux
 	fi
 	ecm_pkg_postinst
 }
