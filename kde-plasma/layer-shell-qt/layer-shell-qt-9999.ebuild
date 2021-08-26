@@ -14,10 +14,14 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+# dev-qt/qtgui: QtXkbCommonSupport is provided by either IUSE libinput or X
 RDEPEND="
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5[X]
+	|| (
+		>=dev-qt/qtgui-${QTMIN}:5[libinput]
+		>=dev-qt/qtgui-${QTMIN}:5[X]
+	)
 	>=dev-qt/qtwayland-${QTMIN}:5
 	x11-libs/libxkbcommon
 "
