@@ -20,6 +20,7 @@ SLOT="5"
 IUSE=""
 
 DEPEND="
+	app-crypt/gpgme[cxx,qt5]
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
