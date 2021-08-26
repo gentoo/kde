@@ -59,12 +59,21 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
+BDEPEND="virtual/pkgconfig"
+
+src_prepare() {
+	ecm_src_prepare
+
+	# TODO: try to get a build switch upstreamed
+	if ! use openconnect; then
+		sed -e "s/^pkg_check_modules.*openconnect/#&/" -i CMakeLists.txt || die
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_MODEMMANAGER_SUPPORT=$(usex !modemmanager)
 		$(cmake_use_find_package modemmanager KF5ModemManagerQt)
-		$(cmake_use_find_package openconnect OpenConnect)
 	)
 
 	ecm_src_configure
