@@ -92,6 +92,7 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "NFS information module" net-fs/nfs-utils
 		optfeature "Samba status information module" net-fs/samba
+		optfeature "Vulkan graphics API information module" dev-util/vulkan-tools
 	fi
 	ecm_pkg_postinst
 }
