@@ -9,7 +9,7 @@ QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
-DESCRIPTION="GTK2 and GTK3 configurator for KDE Plasma"
+DESCRIPTION="Syncs KDE Plasma theme settings to GTK applications"
 HOMEPAGE="https://invent.kde.org/plasma/kde-gtk-config"
 
 LICENSE="GPL-3"
@@ -17,9 +17,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	dev-lang/sassc
-"
 DEPEND="
 	dev-cpp/glibmm:2
 	dev-libs/glib:2
@@ -33,13 +30,17 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
-	x11-libs/gtk+:2
 	x11-libs/gtk+:3
 "
 RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 	x11-misc/xsettingsd
 "
+BDEPEND="
+	dev-lang/sassc
+"
+
+PATCHES=( "${FILESDIR}/${PN}-5.22.5-drop-gtk2-dep.patch" )
 
 src_configure() {
 	local mycmakeargs=(
