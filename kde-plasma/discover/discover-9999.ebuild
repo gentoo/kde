@@ -68,6 +68,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt5=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Snapd=ON
+		-DWITH_KCM=OFF
 		-DBUILD_FlatpakBackend=$(usex flatpak)
 		$(cmake_use_find_package flatpak AppStreamQt)
 		-DBUILD_FwupdBackend=$(usex firmware)

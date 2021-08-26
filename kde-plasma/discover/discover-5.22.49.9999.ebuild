@@ -56,7 +56,10 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.21.90-tests-optional.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.21.90-tests-optional.patch"
+	"${FILESDIR}/${PN}-5.22.5-no-updates-kcm.patch"
+)
 
 src_prepare() {
 	ecm_src_prepare
@@ -68,6 +71,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt5=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Snapd=ON
+		-DWITH_KCM=OFF
 		-DBUILD_FlatpakBackend=$(usex flatpak)
 		$(cmake_use_find_package flatpak AppStreamQt)
 		-DBUILD_FwupdBackend=$(usex firmware)
