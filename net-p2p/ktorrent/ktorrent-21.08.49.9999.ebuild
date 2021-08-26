@@ -18,7 +18,7 @@ HOMEPAGE="https://apps.kde.org/ktorrent/"
 LICENSE="GPL-2"
 SLOT="5"
 KEYWORDS=""
-IUSE="+bwscheduler +downloadorder +infowidget +ipfilter +kross +logviewer +magnetgenerator
+IUSE="+bwscheduler +downloadorder +infowidget +ipfilter +logviewer +magnetgenerator
 +mediaplayer rss +scanfolder +shutdown +stats +upnp +webengine +zeroconf"
 
 COMMON_DEPEND="
@@ -45,11 +45,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=net-libs/libktorrent-${PVCUT}:5
 	infowidget? ( dev-libs/geoip )
-	kross? (
-		>=kde-frameworks/karchive-${KFMIN}:5
-		>=kde-frameworks/kitemviews-${KFMIN}:5
-		>=kde-frameworks/kross-${KFMIN}:5
-	)
 	mediaplayer? (
 		>=media-libs/phonon-4.11.0
 		>=media-libs/taglib-1.5
@@ -79,12 +74,12 @@ BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_SCRIPTING_PLUGIN=OFF
 		-DENABLE_BWSCHEDULER_PLUGIN=$(usex bwscheduler)
 		-DENABLE_DOWNLOADORDER_PLUGIN=$(usex downloadorder)
 		-DENABLE_INFOWIDGET_PLUGIN=$(usex infowidget)
 		-DWITH_SYSTEM_GEOIP=$(usex infowidget)
 		-DENABLE_IPFILTER_PLUGIN=$(usex ipfilter)
-		-DENABLE_SCRIPTING_PLUGIN=$(usex kross)
 		-DENABLE_LOGVIEWER_PLUGIN=$(usex logviewer)
 		-DENABLE_MAGNETGENERATOR_PLUGIN=$(usex magnetgenerator)
 		-DENABLE_MEDIAPLAYER_PLUGIN=$(usex mediaplayer)
