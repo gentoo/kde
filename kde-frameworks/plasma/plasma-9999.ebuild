@@ -13,13 +13,10 @@ DESCRIPTION="Plasma framework"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="gles2-only wayland X"
+IUSE="gles2-only man wayland X"
 
 RESTRICT="test"
 
-BDEPEND="
-	>=kde-frameworks/kdoctools-${PVCUT}:5
-"
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -60,10 +57,12 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 "
+BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package !gles2-only OpenGL)
+		$(cmake_use_find_package man KF5DocTools)
 		$(cmake_use_find_package wayland EGL)
 		$(cmake_use_find_package wayland KF5Wayland)
 		$(cmake_use_find_package X X11)
