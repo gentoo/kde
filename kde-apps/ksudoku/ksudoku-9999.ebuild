@@ -10,8 +10,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Logic-based symbol placement puzzle by KDE"
-HOMEPAGE="https://apps.kde.org/ksudoku/
-https://games.kde.org/games/ksudoku/"
+HOMEPAGE="https://apps.kde.org/ksudoku/ https://games.kde.org/games/ksudoku/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -39,6 +38,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	opengl? (
 		>=dev-qt/qtopengl-${QTMIN}:5
+		media-libs/libglvnd
 		virtual/glu
 	)
 "
