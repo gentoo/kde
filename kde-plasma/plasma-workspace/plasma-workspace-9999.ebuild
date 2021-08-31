@@ -107,6 +107,8 @@ COMMON_DEPEND="
 	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 	gps? ( sci-geosciences/gpsd )
 	screencast? (
+		>=dev-qt/qtgui-${QTMIN}:5=[egl]
+		media-libs/libglvnd
 		>=media-video/pipewire-0.3:=
 		x11-libs/libdrm
 	)
@@ -126,7 +128,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtpaths-${QTMIN}:5
 	>=dev-qt/qtquickcontrols-${QTMIN}:5[widgets]
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-apps/kio-extras-19.04.3:5
+	kde-apps/kio-extras:5
 	>=kde-frameworks/kdesu-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kquickcharts-${KFMIN}:5
@@ -140,13 +142,8 @@ RDEPEND="${COMMON_DEPEND}
 	!systemd? ( sys-apps/dbus )
 	!<kde-plasma/plasma-desktop-5.21.90:5
 "
-BDEPEND="
-	>=dev-util/cmake-3.14
-	virtual/pkgconfig
-"
-PDEPEND="
-	>=kde-plasma/kde-cli-tools-${PVCUT}:5
-"
+BDEPEND="virtual/pkgconfig"
+PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
 PATCHES=( "${FILESDIR}/${PN}-5.21.5-split-libkworkspace.patch" ) # downstream
 
