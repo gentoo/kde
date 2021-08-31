@@ -16,11 +16,10 @@ SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-s
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="gles2-only ieee1394 +opengl +pci usb wayland"
+IUSE="gles2-only ieee1394 +opengl +pci usb wayland X"
 
 REQUIRED_USE="wayland? ( || ( opengl gles2-only ) )"
 
-BDEPEND=">=dev-util/cmake-3.14.3"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -38,11 +37,10 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	x11-libs/libX11
 	gles2-only? ( media-libs/mesa[gles2] )
 	ieee1394? ( sys-libs/libraw1394 )
 	opengl? (
-		media-libs/mesa[X(+)]
+		media-libs/libglvnd[X?]
 		!gles2-only? ( media-libs/glu )
 	)
 	pci? ( sys-apps/pciutils )
@@ -51,6 +49,7 @@ DEPEND="
 		>=kde-frameworks/kwayland-${KFMIN}:5
 		media-libs/mesa[egl(+)]
 	)
+	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
@@ -66,6 +65,7 @@ src_configure() {
 		$(cmake_use_find_package usb USB1)
 		$(cmake_use_find_package wayland EGL)
 		$(cmake_use_find_package wayland KF5Wayland)
+		$(cmake_use_find_package X X11)
 	)
 
 	if has_version "dev-qt/qtgui[gles2-only]"; then
