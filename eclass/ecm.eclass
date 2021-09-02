@@ -5,6 +5,7 @@
 # @MAINTAINER:
 # kde@gentoo.org
 # @SUPPORTED_EAPIS: 7 8
+# @PROVIDES: cmake
 # @BLURB: Support eclass for packages that use KDE Frameworks with ECM.
 # @DESCRIPTION:
 # This eclass is intended to streamline the creation of ebuilds for packages
@@ -22,15 +23,8 @@
 
 case ${EAPI} in
 	7|8) ;;
-	*) die "EAPI=${EAPI:-0} is not supported" ;;
+	*) die "${ECLASS}: EAPI=${EAPI:-0} is not supported" ;;
 esac
-
-if [[ -v KDE_GCC_MINIMAL ]]; then
-	EXPORT_FUNCTIONS pkg_pretend
-fi
-
-EXPORT_FUNCTIONS pkg_setup src_prepare src_configure src_test pkg_preinst pkg_postinst pkg_postrm
-[[ ${EAPI} != 7 ]] && EXPORT_FUNCTIONS src_install
 
 if [[ -z ${_ECM_ECLASS} ]]; then
 _ECM_ECLASS=1
@@ -41,6 +35,8 @@ _ECM_ECLASS=1
 # Here we redefine default value to be manual, if your package needs virtualx
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
+
+inherit cmake flag-o-matic toolchain-funcs virtualx
 
 # @ECLASS-VARIABLE: ECM_NONGUI
 # @DEFAULT_UNSET
@@ -53,8 +49,6 @@ if [[ ${CATEGORY} = kde-frameworks ]] ; then
 	: ${ECM_NONGUI:=true}
 fi
 : ${ECM_NONGUI:=false}
-
-inherit cmake flag-o-matic toolchain-funcs virtualx
 
 if [[ ${ECM_NONGUI} = false ]] ; then
 	inherit xdg
@@ -272,7 +266,7 @@ unset COMMONDEPEND
 # @DESCRIPTION:
 # Determine if the current GCC version is acceptable, otherwise die.
 _ecm_check_gcc_version() {
-	if [[ ${MERGE_TYPE} != binary && -v KDE_GCC_MINIMAL ]] && tc-is-gcc; then
+	if [[ ${MERGE_TYPE} != binary && -v ${KDE_GCC_MINIMAL} ]] && tc-is-gcc; then
 
 		local version=$(gcc-version)
 
@@ -600,4 +594,14 @@ ecm_pkg_postrm() {
 	esac
 }
 
+fi
+
+if [[ -v ${KDE_GCC_MINIMAL} ]]; then
+	EXPORT_FUNCTIONS pkg_pretend
+fi
+
+EXPORT_FUNCTIONS pkg_setup src_prepare src_configure src_test pkg_preinst pkg_postinst pkg_postrm
+
+if [[ ${EAPI} != 7 ]]; then
+	EXPORT_FUNCTIONS src_install
 fi
