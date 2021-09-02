@@ -10,6 +10,7 @@
 # (undisclosed contributors)
 # Original author: Zephyrus (zephyrus@mirach.it)
 # @SUPPORTED_EAPIS: 7 8
+# @PROVIDES: ninja-utils
 # @BLURB: common ebuild functions for cmake-based packages
 # @DESCRIPTION:
 # The cmake eclass makes creating ebuilds for cmake-based packages much easier.
@@ -19,13 +20,13 @@
 
 case ${EAPI} in
 	7|8) ;;
-	*) die "EAPI=${EAPI:-0} is not supported" ;;
+	*) die "${ECLASS}: EAPI=${EAPI:-0} is not supported" ;;
 esac
-
-EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
 
 if [[ -z ${_CMAKE_ECLASS} ]]; then
 _CMAKE_ECLASS=1
+
+inherit flag-o-matic multiprocessing ninja-utils toolchain-funcs xdg-utils
 
 # @ECLASS-VARIABLE: BUILD_DIR
 # @DEFAULT_UNSET
@@ -123,11 +124,9 @@ fi
 # read-only. This is a user flag and should under _no circumstances_ be set in
 # the ebuild. Helps in improving QA of build systems that write to source tree.
 
-inherit toolchain-funcs ninja-utils flag-o-matic multiprocessing xdg-utils
-
 [[ ${CMAKE_MIN_VERSION} ]] && die "CMAKE_MIN_VERSION is banned; if necessary, set BDEPEND=\">=dev-util/cmake-${CMAKE_MIN_VERSION}\" directly"
 [[ ${CMAKE_BUILD_DIR} ]] && die "The ebuild must be migrated to BUILD_DIR"
-[[ ${CMAKE_REMOVE_MODULES} ]] && die "CMAKE_REMOVE_MODULES is banned, set CMAKE_REMOVE_MODULES_LIST=\"\" instead"
+[[ ${CMAKE_REMOVE_MODULES} ]] && die "CMAKE_REMOVE_MODULES is banned, set CMAKE_REMOVE_MODULES_LIST array instead"
 [[ ${CMAKE_UTILS_QA_SRC_DIR_READONLY} ]] && die "Use CMAKE_QA_SRC_DIR_READONLY instead"
 [[ ${WANT_CMAKE} ]] && die "WANT_CMAKE has been removed and is a no-op"
 [[ ${PREFIX} ]] && die "PREFIX has been removed and is a no-op"
@@ -146,7 +145,7 @@ case ${CMAKE_MAKEFILE_GENERATOR} in
 esac
 
 if [[ ${PN} != cmake ]]; then
-	BDEPEND+=" >=dev-util/cmake-3.20"
+	BDEPEND+=" >=dev-util/cmake-3.20.5"
 fi
 
 # @FUNCTION: cmake_run_in
@@ -714,3 +713,5 @@ cmake_src_install() {
 }
 
 fi
+
+EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
