@@ -141,6 +141,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xsetroot
 	systemd? ( sys-apps/dbus[user-session] )
 	!systemd? ( sys-apps/dbus )
+	!<kde-plasma/breeze-5.22.90:5
 	!<kde-plasma/plasma-desktop-5.21.90:5
 "
 BDEPEND="virtual/pkgconfig"
