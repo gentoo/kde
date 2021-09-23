@@ -37,6 +37,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	net-libs/libpcap
+	sys-apps/lm-sensors:=
 	sys-libs/libcap
 	sys-libs/zlib
 	webengine? (
