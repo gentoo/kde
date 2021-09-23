@@ -16,7 +16,7 @@ DESCRIPTION="Plugin-based system monitoring daemon"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="lm-sensors networkmanager"
+IUSE="networkmanager"
 
 DEPEND="
 	dev-libs/libnl:3
@@ -29,9 +29,9 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	net-libs/libpcap
+	sys-apps/lm-sensors:=
 	sys-libs/libcap
 	virtual/libudev:=
-	lm-sensors? ( sys-apps/lm-sensors:= )
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
@@ -40,7 +40,6 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package lm-sensors Sensors)
 		$(cmake_use_find_package networkmanager KF5NetworkManagerQt)
 	)
 	ecm_src_configure
