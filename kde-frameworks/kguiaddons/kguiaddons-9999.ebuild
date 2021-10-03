@@ -12,12 +12,14 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="wayland"
 
+# slot op: includes qpa/qplatformnativeinterface.h
 RDEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5[wayland?]
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	x11-libs/libX11
 	wayland? (
 		dev-libs/wayland
+		>=dev-qt/qtgui-${QTMIN}:5=[wayland]
 		>=dev-qt/qtwayland-${QTMIN}:5
 	)
 "
