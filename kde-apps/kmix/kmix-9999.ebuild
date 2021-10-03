@@ -59,3 +59,15 @@ src_configure() {
 
 	ecm_src_configure
 }
+
+pkg_postinst() {
+	if use pulseaudio && has_version kde-plasma/plasma-pa; then
+		elog "In KDE Plasma, kde-plasma/plasma-pa is the default audio volume handler."
+		elog "Should you prefer this to be kde-apps/kmix instead, do the following:"
+		elog " - In system tray, right click on [Show hidden items]"
+		elog " - Select [Configure System Tray]"
+		elog " - In [Entries],  search for [Audio Volume] and set it to [Disabled]"
+		elog "KMix will be shown as [Volume Control]."
+	fi
+	ecm_pkg_postinst
+}
