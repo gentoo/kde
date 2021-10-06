@@ -17,10 +17,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE="unicode"
 
-BDEPEND="
-	sys-devel/gettext
-	virtual/pkgconfig
-"
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -36,11 +32,15 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	media-libs/qtav:=
+	media-libs/openal
 	media-video/ffmpeg:0=
 	unicode? ( dev-libs/icu:= )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	sys-devel/gettext
+	virtual/pkgconfig
+"
 
 src_configure() {
 	local mycmakeargs=(
