@@ -8,7 +8,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Photo geotagging program"
-HOMEPAGE="https://apps.kde.org/kgeotag/"
+HOMEPAGE="https://kgeotag.kde.org/ https://apps.kde.org/kgeotag/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
@@ -22,8 +22,8 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	kde-apps/marble:5
 	kde-apps/libkexiv2:5
+	kde-apps/marble:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
