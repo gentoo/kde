@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 . "$(dirname "$0")/lib.sh"
 
 : ${TARGET_REPO:="$(pwd)"}

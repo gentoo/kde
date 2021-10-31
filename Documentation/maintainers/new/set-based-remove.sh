@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Requires:
 # app-portage/repoman
