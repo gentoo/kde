@@ -4,8 +4,9 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KDE_APPS_MINIMAL=20.08.0
-KFMIN=5.82.0
+KDE_GEAR="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.85.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
@@ -14,13 +15,9 @@ DESCRIPTION="Getting things done application by KDE"
 HOMEPAGE="https://zanshin.kde.org/ https://apps.kde.org/zanshin/
 https://userbase.kde.org/Zanshin"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
-fi
-
 LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
@@ -28,11 +25,11 @@ COMMON_DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/akonadi-${KDE_APPS_MINIMAL}:5
-	>=kde-apps/akonadi-calendar-${KDE_APPS_MINIMAL}:5
-	>=kde-apps/akonadi-contacts-${KDE_APPS_MINIMAL}:5
-	>=kde-apps/kmime-${KDE_APPS_MINIMAL}:5
-	>=kde-apps/kontactinterface-${KDE_APPS_MINIMAL}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-calendar-${PVCUT}:5
+	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/kontactinterface-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -55,8 +52,8 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-apps/kdepim-runtime-${KDE_APPS_MINIMAL}:5
+	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
 BDEPEND="
-	test? ( >=kde-apps/akonadi-${KDE_APPS_MINIMAL}:5[tools] )
+	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
