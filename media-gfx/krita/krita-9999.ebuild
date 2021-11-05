@@ -20,7 +20,7 @@ HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
 
 LICENSE="GPL-3"
 SLOT="5"
-IUSE="color-management fftw gif +gsl heif +jpeg +mypaint-brush-engine openexr pdf qtmedia +raw tiff vc"
+IUSE="color-management fftw gif +gsl heif +jpeg +mypaint-brush-engine openexr pdf qtmedia +raw vc webp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # bug 630508
@@ -63,25 +63,23 @@ RDEPEND="${PYTHON_DEPS}
 	media-gfx/exiv2:=
 	media-libs/lcms
 	media-libs/libpng:0=
+	media-libs/tiff:0
 	sys-libs/zlib
 	virtual/opengl
 	x11-libs/libX11
 	x11-libs/libXi
-	color-management? ( media-libs/opencolorio )
+	color-management? ( >=media-libs/opencolorio-2.0.0 )
 	fftw? ( sci-libs/fftw:3.0= )
 	gif? ( media-libs/giflib )
 	gsl? ( sci-libs/gsl:= )
 	jpeg? ( virtual/jpeg:0 )
 	heif? ( media-libs/libheif:= )
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
-	openexr? (
-		media-libs/ilmbase:=
-		<media-libs/openexr-3.0.0:0=
-	)
+	openexr? ( media-libs/openexr:= )
 	pdf? ( app-text/poppler[qt5] )
 	qtmedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5 )
 	raw? ( media-libs/libraw:= )
-	tiff? ( media-libs/tiff:0 )
+	webp? ( >=media-libs/libwebp-1.2.0:= )
 "
 DEPEND="${RDEPEND}
 	vc? ( >=dev-libs/vc-1.1.0 )
@@ -101,8 +99,9 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DENABLE_UPDATERS=OFF
+		-DFETCH_TRANSLATIONS=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_KSeExpr=ON # not packaged
-		$(cmake_use_find_package color-management OCIO)
+		$(cmake_use_find_package color-management OpenColorIO)
 		$(cmake_use_find_package fftw FFTW3)
 		$(cmake_use_find_package gif GIF)
 		$(cmake_use_find_package gsl GSL)
@@ -113,8 +112,8 @@ src_configure() {
 		$(cmake_use_find_package pdf Poppler)
 		$(cmake_use_find_package qtmedia Qt5Multimedia)
 		$(cmake_use_find_package raw LibRaw)
-		$(cmake_use_find_package tiff TIFF)
 		$(cmake_use_find_package vc Vc)
+		$(cmake_use_find_package webp WebP)
 	)
 
 	ecm_src_configure
