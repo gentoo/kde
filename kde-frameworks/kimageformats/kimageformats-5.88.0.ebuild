@@ -17,7 +17,7 @@ IUSE="avif eps heif openexr"
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	=kde-frameworks/karchive-${PVCUT}*:5
-	avif? ( >=media-libs/libavif-0.8.2 )
+	avif? ( >=media-libs/libavif-0.8.2:= )
 	eps? ( >=dev-qt/qtprintsupport-${QTMIN}:5 )
 	heif? ( >=media-libs/libheif-1.10.0:= )
 	openexr? (
