@@ -12,6 +12,9 @@ KEYWORDS=""
 IUSE="cvs git mercurial python ruby subversion"
 
 RDEPEND="
+	>=dev-util/kdevelop-${PV}:${SLOT}
+	>=dev-util/kdevelop-php-${PV}:${SLOT}
+	>=dev-util/kdevelop-python-${PV}:${SLOT}
 	>=kde-apps/kapptemplate-${PV}:${SLOT}
 	>=kde-apps/kcachegrind-${PV}:${SLOT}
 	>=kde-apps/kde-dev-scripts-${PV}:${SLOT}
