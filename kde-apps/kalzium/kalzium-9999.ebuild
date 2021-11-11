@@ -55,7 +55,7 @@ src_configure() {
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
 
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_OpenBabel3=ON # TODO: not packaged yet
+		-DCMAKE_DISABLE_FIND_PACKAGE_OpenBabel3=ON # TODO: bug 823101
 		$(cmake_use_find_package editor Eigen3)
 		$(cmake_use_find_package editor AvogadroLibs)
 		$(cmake_use_find_package editor OpenBabel2)
