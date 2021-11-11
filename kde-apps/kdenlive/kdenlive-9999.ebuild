@@ -14,7 +14,7 @@ inherit ecm kde.org optfeature
 DESCRIPTION="Non-linear video editing suite by KDE"
 HOMEPAGE="https://kdenlive.org/en/"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="5"
 KEYWORDS=""
 IUSE="gles2-only semantic-desktop share v4l"
