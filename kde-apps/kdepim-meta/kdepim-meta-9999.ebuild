@@ -64,6 +64,7 @@ RDEPEND="
 	>=kde-apps/pim-data-exporter-${PV}:${SLOT}
 	>=kde-apps/pim-sieve-editor-${PV}:${SLOT}
 	>=kde-apps/pimcommon-${PV}:${SLOT}
+	>=kde-misc/zanshin-${PV}:${SLOT}
 "
 # Optional runtime dependencies: kde-apps/kmail
 RDEPEND="${RDEPEND}
