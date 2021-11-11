@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	app-i18n/translate-shell
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -39,7 +40,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kross-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
@@ -53,10 +53,4 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	ecm_src_prepare
 	cmake_comment_add_subdirectory plugins
-}
-
-pkg_postinst() {
-	ecm_pkg_postinst
-	elog "Plugins are disabled in Gentoo due to lack of Python-3 compatible"
-	elog "kross-interpreters, bug #766333."
 }
