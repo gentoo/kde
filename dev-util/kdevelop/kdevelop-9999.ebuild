@@ -5,8 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
+KDE_GEAR="true"
 KDE_ORG_CATEGORY="kdevelop"
-KFMIN=5.82.0
+KFMIN=5.87.0
 QTMIN=5.15.2
 VIRTUALDBUS_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -15,13 +16,10 @@ inherit ecm kde.org optfeature
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 HOMEPAGE="https://kdevelop.org/"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
-
 LICENSE="GPL-2 LGPL-2"
 SLOT="5/57" # look at KDEVELOP_SOVERSION inside CMakeLists.txt
 IUSE="+gdbui hex +plasma +qmake reviewboard subversion"
+KEYWORDS=""
 
 # see bug 366471
 RESTRICT="test"
