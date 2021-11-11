@@ -52,7 +52,7 @@ DEPEND="
 	kwallet? ( >=kde-frameworks/kwallet-${KFMIN}:5 )
 	markdown? ( app-text/discount )
 	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:5 )
-	pdf? ( app-text/poppler[nss,qt5] )
+	pdf? ( >=app-text/poppler-21.10.0[nss,qt5] )
 	plucker? ( virtual/jpeg:0 )
 	postscript? ( app-text/libspectre )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
