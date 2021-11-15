@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_QTHELP="true"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.85.0
@@ -17,6 +18,8 @@ LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
 IUSE=""
+
+RESTRICT="test" # bugs 653616, 711666
 
 DEPEND="
 	>=dev-libs/grantlee-5.2.0:5
@@ -33,5 +36,3 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT="test" # bugs 653616, 711666
