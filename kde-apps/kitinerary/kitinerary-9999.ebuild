@@ -42,6 +42,8 @@ BDEPEND="x11-misc/shared-mime-info"
 
 src_configure() {
 	local mycmakeargs=(
+		# sci-geosciences/osmctools; TODO: useful at all?
+		-DDISABLE_CMAKE_FIND_PACKAGE_OsmTools=ON
 		$(cmake_use_find_package barcode ZXing)
 		$(cmake_use_find_package pdf Poppler)
 	)
