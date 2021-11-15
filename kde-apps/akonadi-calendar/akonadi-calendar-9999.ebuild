@@ -16,6 +16,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT="test"
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -41,5 +43,3 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT="test"
