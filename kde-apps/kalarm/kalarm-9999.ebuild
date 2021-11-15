@@ -70,7 +70,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
-BDEPEND="dev-libs/libxslt"
 
 src_configure() {
 	local mycmakeargs=(
