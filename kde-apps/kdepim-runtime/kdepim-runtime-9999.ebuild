@@ -40,7 +40,6 @@ RDEPEND="
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/akonadi-notes-${PVCUT}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/kalarmcal-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
@@ -51,7 +50,6 @@ RDEPEND="
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/libkgapi-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
@@ -78,7 +76,6 @@ DEPEND="${RDEPEND}
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 	test? ( >=kde-apps/kimap-${PVCUT}:5[test] )
 "
-BDEPEND="dev-libs/libxslt"
 
 src_configure() {
 	local mycmakeargs=(
