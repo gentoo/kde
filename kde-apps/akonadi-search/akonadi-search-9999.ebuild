@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.85.0
@@ -20,9 +21,6 @@ IUSE=""
 
 RESTRICT="test" # perpetually broken, bug 662378
 
-BDEPEND="
-	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
-"
 RDEPEND="
 	>=dev-libs/xapian-1.3:=[chert(+)]
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -46,4 +44,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/boost
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[mysql,postgres,sqlite] )
+"
+BDEPEND="
+	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
