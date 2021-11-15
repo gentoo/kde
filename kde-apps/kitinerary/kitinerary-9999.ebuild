@@ -21,6 +21,9 @@ IUSE="+barcode pdf"
 REQUIRED_USE="test? ( pdf )"
 
 DEPEND="
+	dev-libs/libphonenumber
+	dev-libs/libxml2:2
+	dev-libs/openssl:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=kde-apps/kmime-${PVCUT}:5
@@ -34,6 +37,7 @@ DEPEND="
 	pdf? ( app-text/poppler:=[qt5] )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="x11-misc/shared-mime-info"
 
 src_configure() {
 	local mycmakeargs=(
