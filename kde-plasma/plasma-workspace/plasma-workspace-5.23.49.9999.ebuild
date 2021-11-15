@@ -17,7 +17,7 @@ LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
 IUSE="appstream +calculator +calendar +fontconfig geolocation gps screencast
-+semantic-desktop systemd telemetry"
++semantic-desktop telemetry"
 
 REQUIRED_USE="gps? ( geolocation )"
 RESTRICT="test"
@@ -136,12 +136,11 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kquickcharts-${KFMIN}:5
 	>=kde-plasma/milou-${PVCUT}:5
 	>=kde-plasma/plasma-integration-${PVCUT}:5
+	sys-apps/dbus
 	x11-apps/xmessage
 	x11-apps/xprop
 	x11-apps/xrdb
 	x11-apps/xsetroot
-	systemd? ( sys-apps/dbus[user-session] )
-	!systemd? ( sys-apps/dbus )
 	!<kde-plasma/breeze-5.22.90:5
 	!<kde-plasma/plasma-desktop-5.21.90:5
 "
