@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.85.0
@@ -11,9 +12,9 @@ inherit ecm kde.org
 
 DESCRIPTION="Library for akonadi contact integration"
 
+LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-LICENSE="GPL-2+"
 IUSE=""
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
