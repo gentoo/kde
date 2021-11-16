@@ -7,7 +7,7 @@ ECM_QTHELP="true"
 ECM_TEST="true"
 KDE_GEAR="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.85.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 PYTHON_COMPAT=( python3_{8..10} )
 inherit ecm kde.org python-single-r1
