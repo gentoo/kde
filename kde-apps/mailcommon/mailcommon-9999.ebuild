@@ -30,7 +30,6 @@ DEPEND="
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/akonadi-mime-${PVCUT}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kpimtextedit-${PVCUT}:5
@@ -58,4 +57,3 @@ DEPEND="
 	>=media-libs/phonon-4.11.0
 "
 RDEPEND="${DEPEND}"
-BDEPEND="dev-libs/libxslt"
