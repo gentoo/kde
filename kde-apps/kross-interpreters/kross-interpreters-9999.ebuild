@@ -4,7 +4,7 @@
 EAPI=8
 
 USE_RUBY="ruby26 ruby27"
-KFMIN=5.85.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 inherit ecm kde.org ruby-single
 
