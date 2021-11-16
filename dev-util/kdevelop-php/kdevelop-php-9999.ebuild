@@ -9,7 +9,7 @@ ECM_TEST="true"
 KDE_GEAR="true"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-php"
-KFMIN=5.87.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
