@@ -59,13 +59,6 @@ BDEPEND="
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
 
-src_configure() {
-	local mycmakeargs=(
-		-DKDEPIM_RUN_AKONADI_TEST=OFF
-	)
-	ecm_src_configure
-}
-
 src_test() {
 	# Paths exceed unix domain socket limit, bug 770775
 	local myctestargs=(
