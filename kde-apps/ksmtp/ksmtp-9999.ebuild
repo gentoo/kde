@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=5.85.0
 QTMIN=5.15.2
@@ -16,6 +17,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT="test" # bug 642410
+
 DEPEND="
 	dev-libs/cyrus-sasl
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -24,5 +27,3 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT="test" # bug 642410
