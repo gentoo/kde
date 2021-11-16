@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
+ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.85.0
