@@ -37,7 +37,10 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	vnc? ( >=net-libs/libvncserver-0.9 )
+	vnc? (
+		net-libs/libssh:=
+		>=net-libs/libvncserver-0.9
+	)
 "
 RDEPEND="${DEPEND}
 	rdp? ( >=net-misc/freerdp-1.1.0_beta1[X] )
@@ -45,7 +48,8 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package vnc LibVNCServer)
+		-DWITH_RDP=$(usex rdp)
+		-DWITH_VNC=$(usex vnc)
 	)
 
 	ecm_src_configure
