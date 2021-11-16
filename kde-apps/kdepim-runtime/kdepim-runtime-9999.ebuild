@@ -80,7 +80,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Libkolabxml=ON
-		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
+		$(cmake_use_find_package speech Qt5TextToSpeech)
 	)
 	ecm_src_configure
 }
