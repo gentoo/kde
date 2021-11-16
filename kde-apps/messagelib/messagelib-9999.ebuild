@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.85.0
@@ -16,6 +17,9 @@ LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
 IUSE=""
+
+# bug 579630
+RESTRICT="test"
 
 DEPEND="
 	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
@@ -67,6 +71,3 @@ DEPEND="
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-# bug 579630
-RESTRICT="test"
