@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_QTHELP="true"
 ECM_TEST="false"
 KFMIN=5.85.0
 PVCUT=$(ver_cut 1-3)
