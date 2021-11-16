@@ -7,7 +7,7 @@ ECM_TEST="forceoptional"
 KDE_GEAR="true"
 KDE_ORG_CATEGORY="pim"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.87.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
