@@ -19,9 +19,9 @@ SLOT="5"
 KEYWORDS=""
 IUSE="telemetry X"
 
-BDEPEND="
-	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
-"
+# testkodaymatrix is broken, akonadi* tests need DBus, bug #665686
+RESTRICT="test"
+
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -29,12 +29,9 @@ COMMON_DEPEND="
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-calendar-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
-	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/akonadi-notes-${PVCUT}:5
-	>=kde-apps/akonadi-search-${PVCUT}:5
 	>=kde-apps/calendarsupport-${PVCUT}:5
 	>=kde-apps/eventviews-${PVCUT}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/incidenceeditor-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
@@ -46,7 +43,6 @@ COMMON_DEPEND="
 	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
@@ -82,9 +78,9 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
-
-# testkodaymatrix is broken, akonadi* tests need DBus, bug #665686
-RESTRICT="test"
+BDEPEND="
+	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
+"
 
 src_configure() {
 	local mycmakeargs=(
