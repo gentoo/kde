@@ -8,7 +8,7 @@ KDE_GEAR="true"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
 PYTHON_COMPAT=( python3_{8..10} )
-KFMIN=5.87.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 inherit ecm kde.org python-single-r1
 
