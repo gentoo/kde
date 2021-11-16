@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_GEAR="true"
 KDE_ORG_CATEGORY=utilities
-KFMIN=5.85.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
