@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
+ECM_QTHELP="true"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.85.0
@@ -17,6 +18,8 @@ LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
 IUSE=""
+
+RESTRICT="test"
 
 RDEPEND="
 	dev-libs/cyrus-sasl
@@ -47,8 +50,6 @@ DEPEND="${RDEPEND}
 	>=kde-apps/kimap-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 "
-
-RESTRICT="test"
 
 src_prepare() {
 	ecm_src_prepare
