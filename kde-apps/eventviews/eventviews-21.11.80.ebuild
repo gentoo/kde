@@ -8,6 +8,7 @@ ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.88.0
 QTMIN=5.15.2
+# monthitemordertest requires a display
 VIRTUALX_REQUIRED=test
 inherit ecm kde.org
 
@@ -45,8 +46,3 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-src_test() {
-	# monthitemordertest requires a display
-	virtx ecm_src_test
-}
