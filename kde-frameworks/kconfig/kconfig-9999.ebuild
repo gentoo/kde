@@ -8,23 +8,25 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Framework for reading and writing configuration"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="dbus nls"
+IUSE="dbus nls qml"
 
 # bug 560086
 RESTRICT="test"
 
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	dbus? ( >=dev-qt/qtdbus-${QTMIN}:5 )
+	qml? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
+"
+BDEPEND="
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 
 DOCS=( DESIGN docs/{DESIGN.kconfig,options.md} )
@@ -33,6 +35,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON # bug 746866
 		-DKCONFIG_USE_DBUS=$(usex dbus)
+		$(cmake_use_find_package qml Qt5Qml)
 	)
 	ecm_src_configure
 }
