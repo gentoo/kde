@@ -247,6 +247,3 @@
 ~kde-misc/markdownpart-9999 **
 ~sys-block/partitionmanager-9999 **
 ~sys-libs/kpmcore-9999 **
-~app-crypt/gpgme-1.16.0
-~media-libs/kcolorpicker-0.1.6
-~media-libs/kimageannotator-0.5.2

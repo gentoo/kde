@@ -247,7 +247,4 @@
 <kde-misc/markdownpart-21.12.50
 <sys-block/partitionmanager-21.12.50
 <sys-libs/kpmcore-21.12.50
-~app-crypt/gpgme-1.16.0
 ~dev-libs/plasma-wayland-protocols-1.5.0
-~media-libs/kcolorpicker-0.1.6
-~media-libs/kimageannotator-0.5.2
