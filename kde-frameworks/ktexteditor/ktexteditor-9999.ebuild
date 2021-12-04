@@ -12,13 +12,10 @@ DESCRIPTION="Framework providing a full text editor component"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="+editorconfig git"
+IUSE="+editorconfig"
 
 RESTRICT="test"
 
-BDEPEND="
-	test? ( >=kde-frameworks/kservice-${PVCUT}:5 )
-"
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -45,14 +42,13 @@ DEPEND="
 	=kde-frameworks/sonnet-${PVCUT}*:5
 	=kde-frameworks/syntax-highlighting-${PVCUT}*:5
 	editorconfig? ( app-text/editorconfig-core-c )
-	git? ( dev-libs/libgit2:= )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="test? ( >=kde-frameworks/kservice-${PVCUT}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package editorconfig EditorConfig)
-		$(cmake_use_find_package git LibGit2)
 	)
 
 	ecm_src_configure
