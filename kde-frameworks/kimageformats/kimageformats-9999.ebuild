@@ -31,6 +31,7 @@ DOCS=( src/imageformats/AUTHORS )
 
 src_configure() {
 	local mycmakeargs=(
+		-DKIMAGEFORMATS_JXL=OFF # TODO: libjxl not packaged yet
 		$(cmake_use_find_package avif libavif)
 		$(cmake_use_find_package eps Qt5PrintSupport)
 		-DKIMAGEFORMATS_HEIF=$(usex heif)
