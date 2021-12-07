@@ -12,6 +12,7 @@ HOMEPAGE="https://invent.kde.org/system/liquidshell"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${PN}-1.8.tar.xz"
+	S="${WORKDIR}/${PN}-1.8"
 	KEYWORDS="~amd64"
 fi
 
