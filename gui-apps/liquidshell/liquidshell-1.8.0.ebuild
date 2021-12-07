@@ -11,7 +11,7 @@ DESCRIPTION="Basic desktop shell using QtWidgets"
 HOMEPAGE="https://invent.kde.org/system/liquidshell"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${PN}-1.8.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
