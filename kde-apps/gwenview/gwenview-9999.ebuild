@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/gwenview/ https://userbase.kde.org/Gwenview"
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 SLOT="5"
 KEYWORDS=""
-IUSE="activities fits kipi +mpris raw semantic-desktop share X"
+IUSE="activities fits +mpris raw semantic-desktop share X"
 
 # requires running environment
 RESTRICT="test"
@@ -51,7 +51,6 @@ COMMON_DEPEND="
 	virtual/jpeg:0
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	fits? ( sci-libs/cfitsio )
-	kipi? ( >=kde-apps/libkipi-${PVCUT}:5= )
 	mpris? ( >=dev-qt/qtdbus-${QTMIN}:5 )
 	raw? ( >=kde-apps/libkdcraw-${PVCUT}:5 )
 	semantic-desktop? (
@@ -71,7 +70,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtimageformats-${QTMIN}:5
 	>=kde-frameworks/kimageformats-${KFMIN}:5
-	kipi? ( >=kde-apps/kipi-plugins-${PVCUT}:5 )
 "
 
 src_prepare() {
@@ -86,7 +84,6 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package fits CFitsio)
-		$(cmake_use_find_package kipi KF5Kipi)
 		$(cmake_use_find_package raw KF5KDcraw)
 		-DGWENVIEW_SEMANTICINFO_BACKEND=$(usex semantic-desktop Baloo None)
 		$(cmake_use_find_package share KF5Purpose)
