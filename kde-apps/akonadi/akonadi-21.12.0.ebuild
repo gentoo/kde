@@ -47,7 +47,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-20.08.3:5
-		net-libs/accounts-qt
+		>=net-libs/accounts-qt-1.16
 	)
 	sqlite? (
 		dev-db/sqlite:3
