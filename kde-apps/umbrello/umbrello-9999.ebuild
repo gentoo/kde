@@ -52,7 +52,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-20.08.3-no-qtwebkit.patch
 	"${FILESDIR}"/${PN}-20.08.3-gentoo-docbundledir.patch # fix hardcoded path
 )
 
