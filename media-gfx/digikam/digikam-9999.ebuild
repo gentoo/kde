@@ -100,7 +100,6 @@ RDEPEND="${COMMON_DEPEND}
 	panorama? ( media-gfx/hugin )
 "
 BDEPEND="
-	>=dev-util/cmake-3.14.3
 	sys-devel/gettext
 	panorama? (
 		sys-devel/bison
