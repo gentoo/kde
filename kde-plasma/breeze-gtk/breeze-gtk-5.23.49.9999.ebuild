@@ -18,7 +18,6 @@ IUSE=""
 BDEPEND="${PYTHON_DEPS}
 	dev-lang/sassc
 	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
-	>=dev-util/cmake-3.16
 	>=kde-plasma/breeze-${PVCUT}:5
 "
 
