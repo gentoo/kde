@@ -12,18 +12,7 @@ DESCRIPTION="Library to support mobipocket ebooks"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+thumbnail"
+IUSE=""
 
-DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	thumbnail? ( >=kde-frameworks/kio-${KFMIN}:5 )
-"
+DEPEND=">=dev-qt/qtgui-${QTMIN}:5"
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		-DBUILD_thumbnailers=$(usex thumbnail)
-	)
-
-	ecm_src_configure
-}
