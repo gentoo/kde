@@ -3,20 +3,19 @@
 
 EAPI=8
 
-KFMIN=5.82.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 inherit ecm kde.org toolchain-funcs
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	MY_P=${PN}-${PV/_/-}
 	if [[ ${PV} =~ beta[0-9]$ ]]; then
 		SRC_URI="mirror://kde/unstable/${PN}/"
 	else
 		SRC_URI="mirror://kde/stable/${PN}/${PV}/"
 	fi
-	SRC_URI+="${MY_P}.tar.xz"
+	SRC_URI+="digiKam-${PV/_/-}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/${MY_P}"
+	S="${WORKDIR}/${PN}-${PV/_/-}"
 fi
 
 DESCRIPTION="Digital photo management application"
@@ -54,7 +53,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=media-gfx/exiv2-0.27:=
+	>=media-gfx/exiv2-0.27:=[xmp]
 	media-libs/lcms:2
 	media-libs/liblqr
 	media-libs/libpng:0=
@@ -107,6 +106,8 @@ BDEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/${PN}-7.3.0-cmake.patch" )
+
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 	ecm_pkg_pretend
@@ -138,7 +139,7 @@ src_configure() {
 		$(cmake_use_find_package opengl OpenGL)
 		$(cmake_use_find_package panorama KF5ThreadWeaver)
 		$(cmake_use_find_package scanner KF5Sane)
-		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
+		-DENABLE_KFILEMETADATASUPPORT=$(usex semantic-desktop)
 		$(cmake_use_find_package X X11)
 	)
 
