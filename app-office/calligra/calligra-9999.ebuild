@@ -6,7 +6,7 @@ EAPI=8
 CHECKREQS_DISK_BUILD="4G"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=5.82.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 inherit check-reqs ecm kde.org
 
@@ -23,16 +23,13 @@ CAL_FTS=( karbon sheets stage words )
 LICENSE="GPL-2"
 SLOT="5"
 IUSE="activities +charts +crypt +fontconfig gemini gsl +import-filter +lcms
-	okular openexr +pdf phonon spacenav +truetype X
+	okular +pdf phonon spacenav +truetype X
 	$(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
 RESTRICT="test"
 
 # TODO: Not packaged: Cauchy (https://bitbucket.org/cyrille/cauchy)
 # Required for the matlab/octave formula tool
-BDEPEND="
-	sys-devel/gettext
-"
 COMMON_DEPEND="
 	dev-lang/perl
 	>=dev-qt/designer-${QTMIN}:5
@@ -89,12 +86,8 @@ COMMON_DEPEND="
 		dev-libs/librevenge
 		media-libs/libvisio
 	)
-	lcms? (
-		media-libs/ilmbase:=
-		media-libs/lcms:2
-	)
+	lcms? ( media-libs/lcms:2 )
 	okular? ( kde-apps/okular:5 )
-	openexr? ( <media-libs/openexr-3.0.0:0= )
 	pdf? ( app-text/poppler:=[qt5] )
 	phonon? ( >=media-libs/phonon-4.11.0 )
 	spacenav? ( dev-libs/libspnav )
@@ -108,6 +101,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
+	lcms? ( dev-libs/imath:3 )
 	test? ( >=kde-frameworks/threadweaver-${KFMIN}:5 )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -118,6 +112,7 @@ RDEPEND="${COMMON_DEPEND}
 		>=kde-frameworks/kirigami-${KFMIN}:5
 	)
 "
+BDEPEND="sys-devel/gettext"
 
 PATCHES=( "${FILESDIR}"/${PN}-3.1.89-no-arch-detection.patch )
 
@@ -154,6 +149,8 @@ src_configure() {
 		-DPACKAGERS_BUILD=OFF
 		-DRELEASE_BUILD=ON
 		-DWITH_Iconv=ON
+		-DWITH_Imath=ON # w/ LCMS: 16 bit floating point Grayscale colorspace
+		-DCMAKE_DISABLE_FIND_PACKAGE_Cauchy=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5CalendarCore=ON
 		-DPRODUCTSET="${myproducts[*]}"
 		$(cmake_use_find_package activities KF5Activities)
@@ -173,11 +170,9 @@ src_configure() {
 		$(cmake_use_find_package phonon Phonon4Qt5)
 		-DWITH_LCMS2=$(usex lcms)
 		-DWITH_Okular5=$(usex okular)
-		-DWITH_OpenEXR=$(usex openexr)
 		-DWITH_Poppler=$(usex pdf)
 		-DWITH_Eigen3=$(usex calligra_features_sheets)
 		-DBUILD_UNMAINTAINED=$(usex calligra_features_stage)
-		-DENABLE_CSTESTER_TESTING=$(usex test)
 		-DWITH_Freetype=$(usex truetype)
 	)
 
