@@ -26,11 +26,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # bug 630508
 RESTRICT="test"
 
-BDEPEND="
-	dev-cpp/eigen:3
-	dev-lang/perl
-	sys-devel/gettext
-"
 RDEPEND="${PYTHON_DEPS}
 	dev-libs/boost:=
 	dev-libs/quazip:0=
@@ -73,7 +68,7 @@ RDEPEND="${PYTHON_DEPS}
 	gif? ( media-libs/giflib )
 	gsl? ( sci-libs/gsl:= )
 	jpeg? ( virtual/jpeg:0 )
-	heif? ( media-libs/libheif:= )
+	heif? ( >=media-libs/libheif-1.11:= )
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? ( media-libs/openexr:= )
 	pdf? ( app-text/poppler[qt5] )
@@ -83,6 +78,11 @@ RDEPEND="${PYTHON_DEPS}
 "
 DEPEND="${RDEPEND}
 	vc? ( >=dev-libs/vc-1.1.0 )
+"
+BDEPEND="
+	dev-cpp/eigen:3
+	dev-lang/perl
+	sys-devel/gettext
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-4.3.1-tests-optional.patch )
