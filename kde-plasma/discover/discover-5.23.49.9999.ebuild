@@ -61,7 +61,7 @@ PATCHES=( "${FILESDIR}/${PN}-5.21.90-tests-optional.patch" )
 src_prepare() {
 	ecm_src_prepare
 	# we don't need it with PackageKitBackend off
-	ecm_punt_bogus_dep KF5 Archive
+	ecm_punt_kf_module Archive
 }
 
 src_configure() {

@@ -129,7 +129,7 @@ src_prepare() {
 	ecm_src_prepare
 
 	if ! use policykit; then
-		ecm_punt_bogus_dep KF5 Wallet
+		ecm_punt_kf_module Wallet
 		cmake_run_in kcms cmake_comment_add_subdirectory users
 	fi
 

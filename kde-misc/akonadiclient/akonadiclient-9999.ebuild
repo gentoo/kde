@@ -30,5 +30,5 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	ecm_src_prepare
-	ecm_punt_bogus_dep KF5 KIO	# we don't need it with >=Qt-5.10
+	ecm_punt_kf_module KIO	# we don't need it with >=Qt-5.10
 }
