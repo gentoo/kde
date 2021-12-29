@@ -64,8 +64,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	ecm_punt_bogus_dep Qt5 WebKit
-	ecm_punt_bogus_dep Qt5 WebKitWidgets
+	ecm_punt_qt_module WebKit
+	ecm_punt_qt_module WebKitWidgets
 
 	ecm_src_prepare
 }

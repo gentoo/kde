@@ -40,10 +40,10 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	ecm_src_prepare
 	# solid, qtdbus only required by mountiso
-	ecm_punt_bogus_dep Qt5 DBus
+	ecm_punt_qt_module DBus
 	ecm_punt_bogus_dep KF5 Solid
 	# kxmlgui, qtnetwork only required by dropbox
-	ecm_punt_bogus_dep Qt5 Network
+	ecm_punt_qt_module Network
 	ecm_punt_bogus_dep KF5 XmlGui
 	# delete non-${PN} translations
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then

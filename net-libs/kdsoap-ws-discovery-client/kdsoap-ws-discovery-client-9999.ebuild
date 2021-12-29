@@ -42,7 +42,7 @@ PATCHES=( "${FILESDIR}"/${PN}-0.2_pre20200317-no-install-docs.patch )
 
 src_prepare() {
 	ecm_src_prepare
-	use test || ecm_punt_bogus_dep Qt5 Xml
+	use test || ecm_punt_qt_module Xml
 }
 
 src_configure() {

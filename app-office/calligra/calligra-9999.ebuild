@@ -129,8 +129,8 @@ src_prepare() {
 	ecm_src_prepare
 
 	# Unconditionally disable deprecated deps (required by QtQuick1)
-	ecm_punt_bogus_dep Qt5 Declarative
-	ecm_punt_bogus_dep Qt5 OpenGL
+	ecm_punt_qt_module Declarative
+	ecm_punt_qt_module OpenGL
 }
 
 src_configure() {
