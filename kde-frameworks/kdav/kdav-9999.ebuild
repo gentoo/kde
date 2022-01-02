@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,6 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 	>=kde-frameworks/kcoreaddons-${PVCUT}:5
 	>=kde-frameworks/ki18n-${PVCUT}:5
 	>=kde-frameworks/kio-${PVCUT}:5
