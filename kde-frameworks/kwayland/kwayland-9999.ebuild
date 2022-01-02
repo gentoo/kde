@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,6 +29,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.4.0
 	>=dev-libs/wayland-protocols-1.15
+	sys-kernel/linux-headers
 "
 BDEPEND="
 	>=dev-util/wayland-scanner-1.19.0
