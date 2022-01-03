@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="wayland"
 
-COMMON_DEPEND="
+RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -36,11 +36,8 @@ COMMON_DEPEND="
 	x11-libs/libxcb
 	wayland? ( >=kde-frameworks/kwayland-${KFMIN}:5 )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	>=kde-frameworks/kservice-${KFMIN}:5
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-plasma/plasma-desktop-5.16.80
 "
 PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
