@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,13 +15,9 @@ IUSE=""
 
 RESTRICT="test" # multiple tests fail or hang indefinitely
 
-BDEPEND="
-	sys-devel/bison
-"
 DEPEND="
 	>=dev-libs/libical-3.0.5:=
 	>=dev-qt/qtgui-${QTMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kcalcore:5
-"
+RDEPEND="${DEPEND}"
+BDEPEND="sys-devel/bison"
