@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,7 +32,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DEXCLUDE_DEPRECATED_BEFORE_AND_AT=5.65.0
+		-DEXCLUDE_DEPRECATED_BEFORE_AND_AT=5.73.0
 		$(cmake_use_find_package activities KF5Activities)
 	)
 	ecm_src_configure
