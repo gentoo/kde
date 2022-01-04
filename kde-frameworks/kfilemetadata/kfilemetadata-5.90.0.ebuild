@@ -11,7 +11,7 @@ inherit ecm kde.org optfeature python-any-r1
 DESCRIPTION="Library for extracting file metadata"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="epub exif ffmpeg kernel_linux office pdf taglib"
+IUSE="epub exif ffmpeg office pdf taglib"
 
 RESTRICT="test"
 
