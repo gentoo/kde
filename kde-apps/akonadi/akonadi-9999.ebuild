@@ -56,7 +56,6 @@ COMMON_DEPEND="
 	xml? ( dev-libs/libxml2 )
 "
 DEPEND="${COMMON_DEPEND}
-	dev-libs/boost
 	dev-libs/libxslt
 	test? ( sys-apps/dbus )
 "
