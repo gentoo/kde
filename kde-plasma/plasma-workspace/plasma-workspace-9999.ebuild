@@ -16,7 +16,7 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="appstream +calculator +calendar +fontconfig geolocation gps screencast
+IUSE="appstream +calendar +fontconfig geolocation gps screencast
 +semantic-desktop telemetry"
 
 REQUIRED_USE="gps? ( geolocation )"
@@ -84,6 +84,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
 	>=media-libs/phonon-4.11.0
+	sci-libs/libqalculate:=
 	sys-libs/zlib
 	x11-libs/libICE
 	x11-libs/libSM
@@ -97,7 +98,6 @@ COMMON_DEPEND="
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image
 	appstream? ( dev-libs/appstream[qt5] )
-	calculator? ( sci-libs/libqalculate:= )
 	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	fontconfig? (
 		>=dev-qt/qtprintsupport-${QTMIN}:5
@@ -165,10 +165,6 @@ src_prepare() {
 	if ! use screencast; then
 		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
 	fi
-
-	# KDE-bug: 433730
-	use calculator ||
-		cmake_run_in runners cmake_comment_add_subdirectory calculator
 }
 
 src_configure() {
