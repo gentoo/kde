@@ -4,6 +4,7 @@
 # Tier 4: Provide extra features to other Frameworks to integrate with Plasma.
 ~kde-frameworks/frameworkintegration-9999 **
 # PortingAids: Code and utilities for transition from kdelibs 4 to Frameworks 5.
+~kde-frameworks/countryflags-9999 **
 ~kde-frameworks/kdelibs4support-9999 **
 ~kde-frameworks/khtml-9999 **
 ~kde-frameworks/kjs-9999 **
