@@ -335,11 +335,10 @@ _ecm_punt_kfqt_module() {
 	local first=$(head -n 1 "${T}/bogus${dep}" | cut -d ":" -f 1)
 	local last=$(( length + first - 1))
 
-	# FIXME: may leave empty find_package($prefix) behind (no regression, non-trivial)
 	sed -e "${first},${last}s/${dep}//" -i CMakeLists.txt || die
 
 	if [[ ${length} -eq 1 ]] ; then
-		sed -e "/find_package\s*(\s*${prefix}\([0-9]|\${[A-Z0-9_]*}\)\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${[A-Z0-9_]*}\)\)\+\s*)/Is/^/# removed by ecm.eclass - /" \
+		sed -e "/find_package\s*(\s*${prefix}\([0-9]\|\${[A-Z0-9_]*}\)\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${[A-Z0-9_]*}\)\)\+\s*)/Is/^/# '${dep}' removed by ecm.eclass - /" \
 			-i CMakeLists.txt || die
 	fi
 }
