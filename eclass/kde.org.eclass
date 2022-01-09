@@ -197,8 +197,7 @@ _kde.org_calculate_src_uri() {
 	case ${CATEGORY} in
 		kde-frameworks)
 			_src_uri+="stable/frameworks/$(ver_cut 1-2)/"
-			case ${PN} in
-				countryflags | \
+			case ${KDE_ORG_NAME} in
 				kdelibs4support | \
 				kdesignerplugin | \
 				kdewebkit | \
