@@ -45,7 +45,7 @@ DEPEND="
 	>=kde-plasma/libkworkspace-${PVCUT}:5
 	virtual/libudev:=
 	x11-libs/libxcb
-	brightness-control? ( app-misc/ddcutil )
+	brightness-control? ( app-misc/ddcutil:= )
 	caps? ( sys-libs/libcap )
 	wireless? (
 		>=kde-frameworks/bluez-qt-${KFMIN}:5
