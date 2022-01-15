@@ -19,6 +19,7 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
