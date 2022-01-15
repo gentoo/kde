@@ -22,6 +22,7 @@ IUSE=""
 RESTRICT="test"
 
 DEPEND="
+	dev-libs/wayland
 	>=dev-libs/plasma-wayland-protocols-1.6.0
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
