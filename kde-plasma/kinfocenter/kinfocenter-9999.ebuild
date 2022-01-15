@@ -16,7 +16,7 @@ SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-s
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="gles2-only ieee1394 usb"
+IUSE="gles2-only usb"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -35,7 +35,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	gles2-only? ( media-libs/mesa[gles2] )
-	ieee1394? ( sys-libs/libraw1394 )
 	usb? ( virtual/libusb:1 )
 "
 RDEPEND="${DEPEND}
@@ -47,7 +46,6 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package ieee1394 RAW1394)
 		$(cmake_use_find_package usb USB1)
 	)
 
