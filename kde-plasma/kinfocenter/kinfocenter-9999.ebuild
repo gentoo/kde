@@ -16,7 +16,7 @@ SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-s
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="gles2-only ieee1394 +pci usb X"
+IUSE="gles2-only ieee1394 usb"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -36,9 +36,7 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	gles2-only? ( media-libs/mesa[gles2] )
 	ieee1394? ( sys-libs/libraw1394 )
-	pci? ( sys-apps/pciutils )
 	usb? ( virtual/libusb:1 )
-	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
@@ -50,9 +48,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package ieee1394 RAW1394)
-		$(cmake_use_find_package pci PCIUTILS)
 		$(cmake_use_find_package usb USB1)
-		$(cmake_use_find_package X X11)
 	)
 
 	ecm_src_configure
@@ -78,5 +74,7 @@ pkg_postinst() {
 	fi
 	optfeature "Wayland information module" app-misc/wayland-utils
 	optfeature "OpenGL information module" x11-apps/mesa-progs
+	optfeature "PCI devices information module" sys-apps/pciutil
+	optfeature "X Server information module" x11-apps/xdpyinfo
 	ecm_pkg_postinst
 }
