@@ -30,7 +30,7 @@ RDEPEND="
 	media-libs/libglvnd
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.3.0
-	>=dev-libs/wayland-protocols-1.21
+	>=dev-libs/plasma-wayland-protocols-1.6.0
+	>=dev-libs/wayland-protocols-1.24
 "
 BDEPEND="dev-util/wayland-scanner"
