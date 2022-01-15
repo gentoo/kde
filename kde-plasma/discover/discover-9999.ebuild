@@ -62,6 +62,10 @@ src_prepare() {
 	ecm_src_prepare
 	# we don't need it with PackageKitBackend off
 	ecm_punt_kf_module Archive
+	# we don't do anything with this
+	sed -e "s/^pkg_check_modules.*RpmOstree/#&/" \
+		-e "s/^pkg_check_modules.*Ostree/#&/" \
+		-i CMakeLists.txt || die
 }
 
 src_configure() {
