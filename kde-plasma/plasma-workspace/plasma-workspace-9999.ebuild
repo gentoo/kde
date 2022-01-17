@@ -117,7 +117,7 @@ COMMON_DEPEND="
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.1.1
+	>=dev-libs/plasma-wayland-protocols-1.6.0
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-util/wayland-scanner-1.19.0
 	x11-base/xorg-proto
