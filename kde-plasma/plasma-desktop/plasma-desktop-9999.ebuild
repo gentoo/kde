@@ -18,7 +18,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="emoji ibus +kaccounts +policykit scim +semantic-desktop telemetry"
+IUSE="emoji ibus +kaccounts scim +semantic-desktop telemetry"
 
 COMMON_DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -96,7 +96,6 @@ COMMON_DEPEND="
 		kde-apps/kaccounts-integration:5
 		net-libs/accounts-qt
 	)
-	policykit? ( >=kde-frameworks/kwallet-${KFMIN}:5 )
 	scim? ( app-i18n/scim )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 	telemetry? ( dev-libs/kuserfeedback:5 )
@@ -117,7 +116,6 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/setxkbmap
 	x11-misc/xdg-user-dirs
 	kaccounts? ( net-libs/signon-oauth2 )
-	policykit? ( sys-apps/accountsservice )
 "
 BDEPEND="virtual/pkgconfig"
 
@@ -127,11 +125,6 @@ PATCHES=(
 
 src_prepare() {
 	ecm_src_prepare
-
-	if ! use policykit; then
-		ecm_punt_kf_module Wallet
-		cmake_run_in kcms cmake_comment_add_subdirectory users
-	fi
 
 	if ! use ibus; then
 		sed -e "s/Qt5X11Extras_FOUND AND XCB_XCB_FOUND AND XCB_KEYSYMS_FOUND/false/" \
