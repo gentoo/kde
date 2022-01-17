@@ -142,7 +142,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xrdb
 	x11-apps/xsetroot
 	!<kde-plasma/breeze-5.22.90:5
-	!<kde-plasma/plasma-desktop-5.21.90:5
+	!<kde-plasma/plasma-desktop-5.23.90:5
 	policykit? ( sys-apps/accountsservice )
 "
 BDEPEND="virtual/pkgconfig"
