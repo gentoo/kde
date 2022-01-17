@@ -48,7 +48,7 @@ for cpv in `portageq match $ROOT/ $1`; do
 	# For each file that belongs to package
 	#     run dynlink-scanner --linking-deps <file> to obtain its linking dependencies
 	# Assign all linking deps to packages and print package names
-	qfile -eR $ROOT `portageq contents $ROOT/ $cpv | xargs -r -L 1 "$0" --linking-deps` | cut -f1 -d' ' | sort -u
+	qfile -R $ROOT `portageq contents $ROOT/ $cpv | xargs -r -L 1 "$0" --linking-deps` | cut -f1 -d' ' | sort -u
 done
 
 # Cleanup
