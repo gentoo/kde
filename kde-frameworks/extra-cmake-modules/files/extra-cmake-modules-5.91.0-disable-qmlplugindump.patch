@@ -1,4 +1,4 @@
-From 763df79a4b468acd401f8adb5b245245a63d2934 Mon Sep 17 00:00:00 2001
+From 76ee984d5094990c2bd79c71b84ba9f82b3bf3da Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Sun, 8 Dec 2019 15:01:33 +0100
 Subject: [PATCH] ECMFindQMLModule.cmake.in: Add ECM_DISABLE_QMLPLUGINDUMP to
@@ -9,13 +9,13 @@ See also: https://phabricator.kde.org/D25812
 Backstory: https://bugzilla.gnome.org/show_bug.cgi?id=744135
 BUG: 387753
 ---
- modules/ECMFindQMLModule.cmake.in | 45 ++++++++++++++++++-------------
+ modules/ECMFindQmlModule.cmake.in | 45 ++++++++++++++++++-------------
  1 file changed, 27 insertions(+), 18 deletions(-)
 
-diff --git a/modules/ECMFindQMLModule.cmake.in b/modules/ECMFindQMLModule.cmake.in
-index 7cd737b..9847825 100644
---- a/modules/ECMFindQMLModule.cmake.in
-+++ b/modules/ECMFindQMLModule.cmake.in
+diff --git a/modules/ECMFindQmlModule.cmake.in b/modules/ECMFindQmlModule.cmake.in
+index 6c054bf0..1c17c981 100644
+--- a/modules/ECMFindQmlModule.cmake.in
++++ b/modules/ECMFindQmlModule.cmake.in
 @@ -7,27 +7,36 @@
  include(FindPackageHandleStandardArgs)
  include("${ECM_MODULE_DIR}/QtVersionOption.cmake")
@@ -25,7 +25,7 @@ index 7cd737b..9847825 100644
 -    query_qmake(qt_binaries_dir QT_HOST_BINS)
 -    find_program(QMLPLUGINDUMP_PROGRAM NAMES qmlplugindump HINTS ${qt_binaries_dir})
 -elseif (QT_MAJOR_VERSION EQUAL "6")
--    find_package(Qt6QmlTools REQUIRED)
+-    find_package(Qt6 COMPONENTS QmlTools REQUIRED)
 -    get_target_property(QMLPLUGINDUMP_PROGRAM Qt6::qmlplugindump LOCATION)
 -endif()
 -
@@ -51,7 +51,7 @@ index 7cd737b..9847825 100644
 +        query_qmake(qt_binaries_dir QT_HOST_BINS)
 +        find_program(QMLPLUGINDUMP_PROGRAM NAMES qmlplugindump HINTS ${qt_binaries_dir})
 +    elseif (QT_MAJOR_VERSION EQUAL "6")
-+        find_package(Qt6QmlTools REQUIRED)
++        find_package(Qt6 COMPONENTS QmlTools REQUIRED)
 +        get_target_property(QMLPLUGINDUMP_PROGRAM Qt6::qmlplugindump LOCATION)
 +    endif()
 +
