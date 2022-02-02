@@ -10,7 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Cross-platform web browser using QtWebEngine"
-HOMEPAGE="https://www.falkon.org/"
+HOMEPAGE="https://www.falkon.org/ https://apps.kde.org/falkon/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV%.0}/${P}.tar.xz"
