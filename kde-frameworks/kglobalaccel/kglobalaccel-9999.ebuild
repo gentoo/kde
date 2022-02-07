@@ -14,6 +14,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="nls"
 
+# requires installed instance
+RESTRICT="test"
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
