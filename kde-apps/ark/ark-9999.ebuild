@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="zip"
 
 RDEPEND="
-	app-arch/libarchive:=[bzip2,lzma,zlib]
+	app-arch/libarchive:=[bzip2,lzma,zlib(+)]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
