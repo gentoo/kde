@@ -14,10 +14,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	dev-lang/php[cli,curl]
-	dev-libs/libphutil
-"
+RDEPEND="dev-lang/php[cli,curl]"
 
 src_install() {
 	dodir /opt/${PN}
