@@ -63,7 +63,7 @@ PROTOCOLS="gadu groupwise meanwhile oscar testbed winpopup +xmpp zeroconf"
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
 COMMON_DEPEND="
-	app-crypt/gpgme[cxx,qt5]
+	app-crypt/gpgme:=[cxx,qt5]
 	dev-libs/libpcre
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
