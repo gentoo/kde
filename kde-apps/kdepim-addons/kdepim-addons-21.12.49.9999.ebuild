@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="importwizard markdown"
 
 RDEPEND="
-	>=app-crypt/gpgme-1.11.1[cxx,qt5]
+	>=app-crypt/gpgme-1.11.1:=[cxx,qt5]
 	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
