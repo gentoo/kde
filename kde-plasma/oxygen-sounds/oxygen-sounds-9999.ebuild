@@ -14,4 +14,4 @@ LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
 
-RDEPEND="!<kde-plasma/oxygen-5.23.80"
+RDEPEND="!<kde-plasma/oxygen-5.24.80"
