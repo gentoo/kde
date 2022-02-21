@@ -13,19 +13,22 @@ DESCRIPTION="System settings module for Wacom tablets"
 HOMEPAGE="https://apps.kde.org/wacomtablet/
 https://userbase.kde.org/Wacomtablet"
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 LICENSE="GPL-2"
 SLOT="5"
-KEYWORDS=""
 IUSE=""
 
-BDEPEND="sys-devel/gettext"
 RDEPEND="
+	>=dev-libs/libwacom-0.30
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=dev-libs/libwacom-0.30
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -45,6 +48,7 @@ DEPEND="${RDEPEND}
 	x11-base/xorg-proto
 	x11-libs/libX11
 "
+BDEPEND="sys-devel/gettext"
 
 src_test() {
 	# test needs DBus, bug 675548
