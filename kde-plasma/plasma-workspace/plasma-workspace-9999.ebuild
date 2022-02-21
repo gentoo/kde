@@ -167,6 +167,12 @@ src_prepare() {
 		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
 	fi
 
+	# TODO: try to get a build switch upstreamed
+	if use geolocation; then
+		use gps || sed -e "s/^pkg_check_modules.*LIBGPS/#&/" \
+			-i dataengines/geolocation/CMakeLists.txt || die
+	fi
+
 	if ! use policykit; then
 		cmake_run_in kcms cmake_comment_add_subdirectory users
 	fi
@@ -183,8 +189,6 @@ src_configure() {
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
 		$(cmake_use_find_package telemetry KUserFeedback)
 	)
-
-	use geolocation && mycmakeargs+=( $(cmake_use_find_package gps libgps) )
 
 	ecm_src_configure
 }
