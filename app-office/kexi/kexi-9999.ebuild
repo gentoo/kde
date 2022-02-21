@@ -22,7 +22,6 @@ LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 IUSE="debug experimental marble mdb mysql postgres sqlite"
 
-BDEPEND="sys-devel/gettext"
 DEPEND="
 	>=dev-db/kdb-3.1.0-r1:5=[debug?,mysql?,postgres?,sqlite?]
 	>=dev-libs/kproperty-3.1.0:5=
@@ -62,6 +61,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
+BDEPEND="sys-devel/gettext"
 
 src_prepare() {
 	ecm_punt_qt_module WebKit
@@ -75,7 +75,7 @@ src_configure() {
 		-DKEXI_MIGRATEMANAGER_DEBUG=$(usex debug)
 		-DKEXI_AUTORISE_TABBED_TOOLBAR=$(usex experimental)
 		-DKEXI_SCRIPTS_SUPPORT=$(usex experimental)
-		$(cmake_use_find_package marble KexiMarble)
+		$(cmake_use_find_package marble Marble)
 		$(cmake_use_find_package mdb GLIB2)
 		$(cmake_use_find_package mysql MySQL)
 		$(cmake_use_find_package postgres PostgreSQL)
