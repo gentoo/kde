@@ -29,6 +29,7 @@ RDEPEND="
 	>=sys-auth/polkit-0.103
 "
 DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 DOCS=( AUTHORS README README.porting TODO )
 
