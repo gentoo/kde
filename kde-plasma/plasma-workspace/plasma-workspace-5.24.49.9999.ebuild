@@ -132,7 +132,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5[widgets]
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	kde-apps/kio-extras:5
-	>=kde-frameworks/kdesu-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kquickcharts-${KFMIN}:5
 	>=kde-plasma/milou-${PVCUT}:5
@@ -171,6 +170,8 @@ src_prepare() {
 	if ! use policykit; then
 		cmake_run_in kcms cmake_comment_add_subdirectory users
 	fi
+
+	ecm_punt_kf_module Su
 }
 
 src_configure() {
