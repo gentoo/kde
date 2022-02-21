@@ -8,7 +8,7 @@ KFMIN=5.82.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
-DESCRIPTION="A frontend to the subversion vcs"
+DESCRIPTION="Frontend to the subversion vcs"
 HOMEPAGE="https://apps.kde.org/kdesvn/"
 
 if [[ ${PV} != 9999* ]]; then
@@ -20,9 +20,6 @@ LICENSE="GPL-2"
 SLOT="5"
 IUSE="+man"
 
-BDEPEND="
-	man? ( >=kde-frameworks/kdoctools-${KFMIN}:5 )
-"
 DEPEND="
 	dev-libs/apr:1
 	dev-libs/apr-util:1
@@ -53,6 +50,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND="man? ( >=kde-frameworks/kdoctools-${KFMIN}:5 )"
 
 src_prepare(){
 	ecm_src_prepare
