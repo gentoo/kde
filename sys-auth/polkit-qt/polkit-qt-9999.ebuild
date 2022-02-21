@@ -8,7 +8,7 @@ KDE_ORG_NAME="polkit-qt-1"
 inherit cmake kde.org
 
 DESCRIPTION="Qt wrapper around polkit-1 client libraries"
-HOMEPAGE="https://api.kde.org/kdesupport-api/polkit-qt-1-apidocs/"
+HOMEPAGE="https://api.kde.org/polkit-qt-1/html/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${KDE_ORG_NAME}/${KDE_ORG_NAME}-${PV}.tar.xz"
@@ -18,7 +18,7 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="debug examples"
+IUSE="examples"
 
 RDEPEND="
 	dev-libs/glib:2
