@@ -16,7 +16,7 @@ DESCRIPTION="Libraries for messaging functions"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="speech"
 
 # bug 579630
 RESTRICT="test"
@@ -41,7 +41,7 @@ DEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmbox-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
 	>=kde-apps/libgravatar-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/libkleo-${PVCUT}:5
