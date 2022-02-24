@@ -40,7 +40,7 @@ DEPEND="${RDEPEND}
 	test? ( >=kde-frameworks/ktextwidgets-${KFMIN}:5 )
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-21.12.2-speech-optional-{1,2}.patch )
+PATCHES=( "${FILESDIR}"/${PN}-21.12.3-speech-optional-{1,2,3}.patch )
 
 src_configure() {
 	local mycmakeargs=(

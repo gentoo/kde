@@ -16,13 +16,12 @@ DESCRIPTION="Extended text editor for PIM applications"
 LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="speech"
 
 RESTRICT="test"
 
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtspeech-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -35,7 +34,15 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
+	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}
 	test? ( >=kde-frameworks/ktextwidgets-${KFMIN}:5 )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package speech Qt5TextToSpeech)
+	)
+	ecm_src_configure
+}
