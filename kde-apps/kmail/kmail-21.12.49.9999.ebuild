@@ -18,7 +18,7 @@ https://kontact.kde.org/components/kmail.html"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE="pch telemetry"
+IUSE="pch speech telemetry"
 
 RESTRICT="test" # bug 616878
 
@@ -38,7 +38,7 @@ COMMON_DEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
 	>=kde-apps/libgravatar-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/libkleo-${PVCUT}:5
@@ -87,6 +87,8 @@ BDEPEND="
 	dev-libs/libxslt
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
+
+PATCHES=( "${FILESDIR}"/${PN}-21.12.3-speech-optional.patch )
 
 src_prepare() {
 	ecm_src_prepare
