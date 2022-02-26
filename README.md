@@ -12,7 +12,7 @@ infrastructure at:
 - https://github.com/gentoo/kde
 - https://gitweb.gentoo.org/proj/kde.git
 
-If you have questions, you can find us on IRC in #gentoo-kde on Freenode or at
+If you have questions, you can find us on IRC in #gentoo-kde on Libera.chat or at
 [kde@gentoo.org](mailto:kde@gentoo.org).
 
 Bugs should be reported at https://bugs.gentoo.org. Be sure to include
