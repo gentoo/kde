@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/kalarm/ https://userbase.kde.org/KAlarm"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE="X"
+IUSE="speech X"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -31,7 +31,7 @@ DEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
 	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
