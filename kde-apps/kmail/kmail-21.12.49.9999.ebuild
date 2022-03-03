@@ -110,6 +110,7 @@ pkg_postinst() {
 		optfeature "spam filtering" mail-filter/bogofilter mail-filter/spamassassin
 		optfeature "fancy e-mail headers and useful plugins" kde-apps/kdepim-addons:${SLOT}
 		optfeature "crypto config and certificate details GUI" kde-apps/kleopatra:${SLOT}
+		optfeature "import PIM data from other applications" kde-apps/akonadi-import-wizard:${SLOT}
 	fi
 	ecm_pkg_postinst
 }
