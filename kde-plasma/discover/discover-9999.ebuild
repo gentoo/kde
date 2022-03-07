@@ -56,7 +56,7 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.21.90-tests-optional.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.24.90-tests-optional.patch" )
 
 src_prepare() {
 	ecm_src_prepare
