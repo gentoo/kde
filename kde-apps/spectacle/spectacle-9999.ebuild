@@ -49,7 +49,7 @@ DEPEND="
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qdbus-${QTMIN}:5
+	>=dev-qt/qdbus-${QTMIN}:*
 "
 
 src_prepare() {
