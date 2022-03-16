@@ -21,6 +21,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT="test" # bug 785844
+
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
