@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KFMIN=5.88.0
+KFMIN=5.92.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit flag-o-matic ecm kde.org optfeature
