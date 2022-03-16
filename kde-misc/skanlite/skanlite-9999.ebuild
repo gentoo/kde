@@ -8,7 +8,7 @@ ECM_TEST="forceoptional"
 KDE_GEAR="true"
 KDE_ORG_CATEGORY="graphics"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.88.0
+KFMIN=5.92.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
