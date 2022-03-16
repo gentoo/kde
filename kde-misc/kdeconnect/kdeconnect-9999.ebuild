@@ -8,7 +8,7 @@ ECM_TEST="true"
 KDE_GEAR="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
-KFMIN=5.88.0
+KFMIN=5.89.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
@@ -18,7 +18,7 @@ HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect.kcm/"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth pulseaudio X"
+IUSE="bluetooth pulseaudio wayland X"
 
 RESTRICT="test"
 
@@ -31,7 +31,6 @@ DEPEND="
 	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
@@ -39,6 +38,7 @@ DEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
@@ -46,7 +46,6 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kpeople-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
@@ -59,6 +58,7 @@ DEPEND="
 		x11-libs/libXtst
 	)
 	pulseaudio? ( media-libs/pulseaudio-qt:= )
+	wayland? ( >=kde-frameworks/kwayland-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	dev-libs/kpeoplevcard
@@ -74,6 +74,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
 		$(cmake_use_find_package pulseaudio KF5PulseAudioQt)
+		$(cmake_use_find_package wayland KF5Wayland)
 		$(cmake_use_find_package X LibFakeKey)
 	)
 	ecm_src_configure
