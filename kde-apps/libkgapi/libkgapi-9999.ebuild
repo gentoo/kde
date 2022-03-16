@@ -33,14 +33,13 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_test() {
-       local myctestargs=(
-               # Both fail for multiple distros, see bug #832709 for more discussion
-               # Revisit at least once Qt 5.15.3 is in wider distribution (in Gentoo at least):
-               # - contacts-contactcreatejobtest
-               # - contacts-contactmodifyjobtest
-               -E "(contacts-contactcreatejobtest|contacts-contactmodifyjobtest"
-       )
+	local myctestargs=(
+		# Both fail for multiple distros, see bug #832709 for more discussion
+		# Revisit at least once Qt 5.15.3 is in wider distribution (in Gentoo at least):
+		# - contacts-contactcreatejobtest
+		# - contacts-contactmodifyjobtest
+		-E "(contacts-contactcreatejobtest|contacts-contactmodifyjobtest"
+	)
 
-       virtx cmake_src_test
+	virtx cmake_src_test
 }
-
