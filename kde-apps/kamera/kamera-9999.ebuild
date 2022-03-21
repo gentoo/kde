@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 KFMIN=5.92.0
 QTMIN=5.15.2
 inherit ecm kde.org
@@ -16,9 +16,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	sys-devel/gettext
-"
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -32,3 +29,4 @@ DEPEND="
 	media-libs/libgphoto2:=
 "
 RDEPEND="${DEPEND}"
+BDEPEND="sys-devel/gettext"
