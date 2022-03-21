@@ -3,8 +3,8 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
-ECM_TEST="forceoptional"
+ECM_HANDBOOK="optional"
+ECM_TEST="true"
 KDE_GEAR="true"
 KDE_ORG_CATEGORY="graphics"
 PVCUT=$(ver_cut 1-3)
