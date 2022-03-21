@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 KFMIN=9999
-QTMIN=5.15.2
+QTMIN=5.15.3
 inherit ecm kde.org python-single-r1
 
 DESCRIPTION="Plasma frontend for Firewalld or UFW"
