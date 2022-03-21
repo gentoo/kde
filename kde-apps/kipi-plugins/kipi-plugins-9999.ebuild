@@ -43,7 +43,6 @@ BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Vkontakte=ON
 		$(cmake_use_find_package mediawiki KF5MediaWiki)
 		$(cmake_use_find_package remotestorage KF5KIO)
 	)
