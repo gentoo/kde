@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="true"
 KFMIN=9999
-QTMIN=5.15.2
+QTMIN=5.15.3
 inherit ecm kde.org
 
 DESCRIPTION="Monitors S.M.A.R.T. capable devices for imminent failure"
