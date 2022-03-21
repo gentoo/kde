@@ -5,7 +5,7 @@ EAPI=8
 
 PVCUT=$(ver_cut 1-3)
 KFMIN=9999
-QTMIN=5.15.2
+QTMIN=5.15.3
 inherit ecm kde.org
 
 DESCRIPTION="Monitor system sensors, process information and other system resources"
