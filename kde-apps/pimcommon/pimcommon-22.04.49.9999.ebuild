@@ -53,6 +53,8 @@ RDEPEND="${DEPEND}
 	!<kde-apps/libkdepim-20.07.80:5
 "
 
+PATCHES=( "${FILESDIR}"/${PN}-22.03.80-unused-dep-{1,2}.patch )
+
 src_test() {
 	# bugs 641730, 661330
 	local myctestargs=(
