@@ -3,15 +3,14 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.92.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Single player three-in-a-row game"
-HOMEPAGE="https://apps.kde.org/kdiamond/
-https://games.kde.org/games/kdiamond/"
+HOMEPAGE="https://apps.kde.org/kdiamond/ https://games.kde.org/games/kdiamond/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
