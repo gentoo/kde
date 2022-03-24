@@ -22,12 +22,13 @@ IUSE=""
 DEPEND="
 	app-crypt/gpgme:=[cxx(+),qt5]
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	virtual/libudev:=
+	>=kde-frameworks/solid-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
