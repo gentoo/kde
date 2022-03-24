@@ -31,6 +31,7 @@ DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	sys-auth/polkit-qt
 	>=sys-libs/kpmcore-${PVCUT}:5=
 "
 RDEPEND="${DEPEND}"
