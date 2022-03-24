@@ -39,7 +39,6 @@ RDEPEND="
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/akonadi-notes-${PVCUT}:5
-	>=kde-apps/kalarmcal-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kimap-${PVCUT}:5
