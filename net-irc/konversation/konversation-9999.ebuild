@@ -17,10 +17,10 @@ SLOT="5"
 KEYWORDS=""
 IUSE="+crypt"
 
-BDEPEND="sys-devel/gettext"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
@@ -48,13 +48,13 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=media-libs/phonon-4.11.0
 	crypt? ( >=app-crypt/qca-2.3.0:2 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:5
 	crypt? ( >=app-crypt/qca-2.3.0:2[ssl] )
 "
+BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
