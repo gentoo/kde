@@ -4,7 +4,8 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=5.88.0
+KDE_GEAR="true"
+KFMIN=5.92.0
 QTMIN=5.15.2
 PYTHON_COMPAT=( python3_{8..10} )
 VIRTUALX_REQUIRED="test"
@@ -13,13 +14,9 @@ inherit ecm kde.org python-single-r1
 DESCRIPTION="Cross-platform web browser using QtWebEngine"
 HOMEPAGE="https://www.falkon.org/ https://apps.kde.org/falkon/"
 
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
-
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS=""
 IUSE="dbus kde python +X"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
