@@ -36,7 +36,9 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kunitconversion-${KFMIN}:5
 	sys-libs/zlib
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
