@@ -21,7 +21,6 @@ IUSE=""
 
 DEPEND="
 	>=app-crypt/gpgme-1.16.0:=[cxx,qt5]
-	dev-libs/boost:=
 	dev-libs/libassuan
 	dev-libs/libgpg-error
 	>=dev-qt/qtdbus-${QTMIN}:5
