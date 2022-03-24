@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 KDE_SELINUX_MODULE="games"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.92.0
@@ -11,8 +11,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Classic mine sweeper game"
-HOMEPAGE="https://apps.kde.org/kmines/
-https://games.kde.org/games/kmines/"
+HOMEPAGE="https://apps.kde.org/kmines/ https://games.kde.org/games/kmines/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
