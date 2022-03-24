@@ -49,7 +49,7 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/syndication-${KFMIN}:5
-	telemetry? ( dev-libs/kuserfeedback:5 )
+	telemetry? ( >=dev-libs/kuserfeedback-1.2.0:5 )
 "
 DEPEND="${RDEPEND}
 	dev-libs/grantlee:5

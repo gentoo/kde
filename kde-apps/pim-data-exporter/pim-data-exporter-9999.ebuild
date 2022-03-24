@@ -46,7 +46,7 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	telemetry? ( dev-libs/kuserfeedback:5 )
+	telemetry? ( >=dev-libs/kuserfeedback-1.2.0:5 )
 "
 RDEPEND="${DEPEND}"
 

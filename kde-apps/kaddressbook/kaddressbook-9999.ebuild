@@ -50,7 +50,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/prison-${KFMIN}:5
-	telemetry? ( dev-libs/kuserfeedback:5 )
+	telemetry? ( >=dev-libs/kuserfeedback-1.2.0:5 )
 "
 RDEPEND="${DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5

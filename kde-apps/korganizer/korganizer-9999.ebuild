@@ -64,7 +64,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=media-libs/phonon-4.11.0
-	telemetry? ( dev-libs/kuserfeedback:5 )
+	telemetry? ( >=dev-libs/kuserfeedback-1.2.0:5 )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
