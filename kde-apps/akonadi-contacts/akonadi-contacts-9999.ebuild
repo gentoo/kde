@@ -28,7 +28,6 @@ RDEPEND="
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/libkleo-${PVCUT}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
