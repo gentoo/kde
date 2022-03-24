@@ -32,7 +32,6 @@ RDEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kdelibs4support-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
@@ -40,7 +39,6 @@ RDEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
@@ -63,7 +61,7 @@ src_configure() {
 		$(cmake_use_find_package gpg Gpgmepp)
 		$(cmake_use_find_package kde LibKWorkspace)
 		$(cmake_use_find_package mms LibMms)
-		$(cmake_use_find_package sqlite Sqlite)
+		$(cmake_use_find_package sqlite SQLite3)
 	)
 
 	ecm_src_configure
