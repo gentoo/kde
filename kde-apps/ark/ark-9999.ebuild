@@ -40,11 +40,11 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	sys-libs/zlib
-	zip? ( >=dev-libs/libzip-1.2.0:= )
+	zip? ( >=dev-libs/libzip-1.6.0:= )
 "
 DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
-	test? ( >=dev-libs/libzip-1.2.0:= )
+	test? ( >=dev-libs/libzip-1.6.0:= )
 "
 BDEPEND="
 	sys-devel/gettext
