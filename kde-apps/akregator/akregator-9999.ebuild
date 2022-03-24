@@ -51,9 +51,7 @@ RDEPEND="
 	>=kde-frameworks/syndication-${KFMIN}:5
 	telemetry? ( >=dev-libs/kuserfeedback-1.2.0:5 )
 "
-DEPEND="${RDEPEND}
-	dev-libs/grantlee:5
-"
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
