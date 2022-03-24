@@ -48,7 +48,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
@@ -63,7 +62,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=media-libs/phonon-4.11.0
 	telemetry? ( >=dev-libs/kuserfeedback-1.2.0:5 )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
