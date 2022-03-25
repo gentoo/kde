@@ -51,7 +51,7 @@ COMMON_DEPEND="
 		sci-libs/gsl:=
 		>=sci-libs/indilib-1.9.1
 		sci-libs/libnova:=
-		sci-libs/stellarsolver
+		>=sci-libs/stellarsolver-2.2
 	)
 	password? ( dev-libs/qtkeychain:= )
 	raw? ( media-libs/libraw:= )
