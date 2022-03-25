@@ -1,4 +1,4 @@
-From 76ee984d5094990c2bd79c71b84ba9f82b3bf3da Mon Sep 17 00:00:00 2001
+From 1c79ef2189dc156bbe0f182411bcc136f140a21d Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Sun, 8 Dec 2019 15:01:33 +0100
 Subject: [PATCH] ECMFindQMLModule.cmake.in: Add ECM_DISABLE_QMLPLUGINDUMP to
@@ -13,7 +13,7 @@ BUG: 387753
  1 file changed, 27 insertions(+), 18 deletions(-)
 
 diff --git a/modules/ECMFindQmlModule.cmake.in b/modules/ECMFindQmlModule.cmake.in
-index 6c054bf0..1c17c981 100644
+index 0ee5665e..d6e1f14c 100644
 --- a/modules/ECMFindQmlModule.cmake.in
 +++ b/modules/ECMFindQmlModule.cmake.in
 @@ -7,27 +7,36 @@
@@ -21,8 +21,8 @@ index 6c054bf0..1c17c981 100644
  include("${ECM_MODULE_DIR}/QtVersionOption.cmake")
  
 -if (QT_MAJOR_VERSION EQUAL "5")
--    include("${ECM_MODULE_DIR}/ECMQueryQmake.cmake")
--    query_qmake(qt_binaries_dir QT_HOST_BINS)
+-    include("${ECM_MODULE_DIR}/ECMQueryQt.cmake")
+-    ecm_query_qt(qt_binaries_dir QT_HOST_BINS)
 -    find_program(QMLPLUGINDUMP_PROGRAM NAMES qmlplugindump HINTS ${qt_binaries_dir})
 -elseif (QT_MAJOR_VERSION EQUAL "6")
 -    find_package(Qt6 COMPONENTS QmlTools REQUIRED)
@@ -47,8 +47,8 @@ index 6c054bf0..1c17c981 100644
 -    set(@GENMODULE@_FOUND FALSE)
 +
 +    if (QT_MAJOR_VERSION EQUAL "5")
-+        include("${ECM_MODULE_DIR}/ECMQueryQmake.cmake")
-+        query_qmake(qt_binaries_dir QT_HOST_BINS)
++        include("${ECM_MODULE_DIR}/ECMQueryQt.cmake")
++        ecm_query_qt(qt_binaries_dir QT_HOST_BINS)
 +        find_program(QMLPLUGINDUMP_PROGRAM NAMES qmlplugindump HINTS ${qt_binaries_dir})
 +    elseif (QT_MAJOR_VERSION EQUAL "6")
 +        find_package(Qt6 COMPONENTS QmlTools REQUIRED)
@@ -72,5 +72,5 @@ index 6c054bf0..1c17c981 100644
  
  find_package_handle_standard_args(@GENMODULE@
 -- 
-2.34.1
+2.35.1
 
