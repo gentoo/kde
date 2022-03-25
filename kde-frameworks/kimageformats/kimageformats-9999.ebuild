@@ -12,7 +12,7 @@ inherit ecm kde.org
 DESCRIPTION="Framework providing additional format plugins for Qt's image I/O system"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="avif eps heif openexr"
+IUSE="avif eps heif jpegxl openexr"
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -28,7 +28,7 @@ DOCS=( src/imageformats/AUTHORS )
 
 src_configure() {
 	local mycmakeargs=(
-		-DKIMAGEFORMATS_JXL=OFF # TODO: libjxl not packaged yet
+		-DKIMAGEFORMATS_JXL=$(usex jpegxl)
 		$(cmake_use_find_package avif libavif)
 		$(cmake_use_find_package eps Qt5PrintSupport)
 		-DKIMAGEFORMATS_HEIF=$(usex heif)
