@@ -51,6 +51,8 @@ DEPEND="${RDEPEND}
 	>=kde-apps/kmailtransport-${PVCUT}:5
 "
 
+PATCHES=( "${FILESDIR}/${PN}-22.03.80-unused-dep.patch" )
+
 src_prepare() {
 	ecm_src_prepare
 	cmake_run_in kioslave cmake_comment_add_subdirectory doc
