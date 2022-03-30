@@ -1,4 +1,4 @@
-From 86729e7698250dcb11ccbec0a6cc9690501ad691 Mon Sep 17 00:00:00 2001
+From f29b89d8ac7fcca1cf74462dcc33da24551c924f Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Tue, 31 Aug 2021 16:48:42 +0200
 Subject: [PATCH] Make WITH_KWALLET and WITH_KJS proper cmake options
@@ -21,7 +21,7 @@ Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
  4 files changed, 16 insertions(+), 13 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 43a45c7b9..57d0f6f74 100644
+index 547671f24..f1e14fa8b 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -91,12 +91,9 @@ ecm_setup_qtplugin_macro_names(
@@ -40,7 +40,7 @@ index 43a45c7b9..57d0f6f74 100644
  
  find_package(KF5 ${KF5_REQUIRED_VERSION} REQUIRED COMPONENTS
      Archive
-@@ -111,21 +108,19 @@ find_package(KF5 ${KF5_REQUIRED_VERSION} REQUIRED COMPONENTS
+@@ -110,21 +107,19 @@ find_package(KF5 ${KF5_REQUIRED_VERSION} REQUIRED COMPONENTS
      TextWidgets
      ThreadWeaver
      WindowSystem
@@ -52,7 +52,7 @@ index 43a45c7b9..57d0f6f74 100644
  )
  
  if (BUILD_DESKTOP)
-     find_package(KF5 ${KF5_REQUIRED_VERSION} REQUIRED COMPONENTS Parts Crash)
+     find_package(KF5 ${KF5_REQUIRED_VERSION} REQUIRED COMPONENTS Parts Crash IconThemes)
  endif()
  
 -if(KF5Wallet_FOUND)
