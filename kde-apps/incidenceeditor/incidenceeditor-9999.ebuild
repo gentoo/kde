@@ -61,7 +61,7 @@ BDEPEND="
 "
 
 src_test() {
-	# Paths exceed unix domain socket limit, bug 770775
+	# Paths exceed unix domain socket limit, bugs 770775 and 837182
 	local myctestargs=(
 		-E "(akonadi-mysql-incidencedatetimetest|akonadi-pgsql-incidencedatetimetest|akonadi-sqlite-incidencedatetimetest)"
 	)
