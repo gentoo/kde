@@ -54,7 +54,7 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 DEPEND="${RDEPEND}
-	test? ( >=kde-apps/akonadi-${PVCUT}:5[postgres,sqlite] )
+	test? ( >=kde-apps/akonadi-${PVCUT}:5[mysql,postgres,sqlite] )
 "
 BDEPEND="
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
@@ -63,7 +63,7 @@ BDEPEND="
 src_test() {
 	# Paths exceed unix domain socket limit, bug 770775
 	local myctestargs=(
-		-E "(akonadi-pgsql-incidencedatetimetest|akonadi-sqlite-incidencedatetimetest)"
+		-E "(akonadi-mysql-incidencedatetimetest|akonadi-pgsql-incidencedatetimetest|akonadi-sqlite-incidencedatetimetest)"
 	)
 
 	ecm_src_test
