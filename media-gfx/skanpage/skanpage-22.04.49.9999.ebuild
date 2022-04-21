@@ -19,7 +19,6 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtcore-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
