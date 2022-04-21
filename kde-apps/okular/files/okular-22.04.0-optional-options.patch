@@ -41,7 +41,7 @@ index 547671f24..f1e14fa8b 100644
  find_package(KF5 ${KF5_REQUIRED_VERSION} REQUIRED COMPONENTS
      Archive
 @@ -110,21 +107,19 @@ find_package(KF5 ${KF5_REQUIRED_VERSION} REQUIRED COMPONENTS
-     TextWidgets
+     KIO
      ThreadWeaver
      WindowSystem
 -    ${optionalComponents}
@@ -52,7 +52,7 @@ index 547671f24..f1e14fa8b 100644
  )
  
  if (BUILD_DESKTOP)
-     find_package(KF5 ${KF5_REQUIRED_VERSION} REQUIRED COMPONENTS Parts Crash IconThemes)
+     find_package(KF5 ${KF5_REQUIRED_VERSION} REQUIRED COMPONENTS Parts Crash IconThemes TextWidgets)
  endif()
  
 -if(KF5Wallet_FOUND)
