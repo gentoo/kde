@@ -10,8 +10,8 @@ KFMIN=5.91
 QTMIN=5.15.2
 inherit ecm kde.org
 
-DESCRIPTION="Multi-page scanning application supporting image and pdf files"
-HOMEPAGE="https://apps.kde.org/skanpage/"
+DESCRIPTION="A calendar application using Akonadi"
+HOMEPAGE="https://apps.kde.org/kalendar/"
 
 LICENSE="|| ( GPL-2 GPL-3 ) CC0-1.0"
 SLOT="5"
