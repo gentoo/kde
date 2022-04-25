@@ -43,6 +43,8 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
+# qtlocation is needed at runtime only or fails to start
 RDEPEND="${DEPEND}
+	>=dev-qt/qtlocation-${QTMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 "
