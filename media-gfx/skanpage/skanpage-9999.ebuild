@@ -4,6 +4,7 @@
 EAPI=8
 
 KDE_ORG_CATEGORY="utilities"
+KDE_GEAR="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.91
 QTMIN=5.15.2
