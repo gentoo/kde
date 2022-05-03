@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # requires app-portage/portage-utils and app-portage/gentoolkit-dev
 

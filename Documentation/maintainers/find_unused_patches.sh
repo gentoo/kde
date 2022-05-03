@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 TMP="/tmp/"
 CATEGORY="kde-apps"
 # we also assume that we are run from the directory where we want to remove patches eg. directory where are categories.

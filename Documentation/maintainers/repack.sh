@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Script to repack upstream tarballs
 #
 SVNREV=$2

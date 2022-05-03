@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Contact: devurandom
 METADATA_MIRROR=rsync://gentoo.kynes.de:800/gentoo-overlay-kde/metadata/cache/

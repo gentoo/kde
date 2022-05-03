@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 KDEVER=$1
 SVNREV=$2
 
