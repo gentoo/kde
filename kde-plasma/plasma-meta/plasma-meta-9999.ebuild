@@ -31,7 +31,6 @@ RDEPEND="
 	>=kde-plasma/ksshaskpass-${PV}:${SLOT}
 	>=kde-plasma/ksystemstats-${PV}:${SLOT}
 	>=kde-plasma/kwayland-integration-${PV}:${SLOT}
-	>=kde-plasma/kwayland-server-${PV}:${SLOT}
 	>=kde-plasma/kwin-${PV}:${SLOT}
 	>=kde-plasma/kwrited-${PV}:${SLOT}
 	>=kde-plasma/layer-shell-qt-${PV}:${SLOT}
