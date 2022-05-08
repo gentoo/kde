@@ -14,10 +14,6 @@ LICENSE="LGPL-2"
 KEYWORDS=""
 IUSE="X"
 
-BDEPEND="
-	dev-lang/perl
-	dev-util/gperf
-"
 RDEPEND="
 	dev-libs/openssl:0
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -48,10 +44,10 @@ RDEPEND="
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/sonnet-${PVCUT}*:5
 	media-libs/giflib:=
+	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
 	>=media-libs/phonon-4.11.0
 	sys-libs/zlib
-	virtual/jpeg:0
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
@@ -60,6 +56,10 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 	X? ( x11-base/xorg-proto )
+"
+BDEPEND="
+	dev-lang/perl
+	dev-util/gperf
 "
 
 src_configure() {
