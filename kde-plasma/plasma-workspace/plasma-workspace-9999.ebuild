@@ -123,6 +123,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/wayland-scanner-1.19.0
 	x11-base/xorg-proto
 	fontconfig? ( x11-libs/libXrender )
+	test? ( >=dev-libs/wayland-protocols-1.24 )
 "
 RDEPEND="${COMMON_DEPEND}
 	app-text/iso-codes
