@@ -16,7 +16,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="accessibility caps gles2-only multimedia plasma screencast"
+IUSE="accessibility caps gles2-only lock multimedia plasma screencast"
 
 RESTRICT="test"
 
@@ -54,7 +54,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-plasma/breeze-${PVCUT}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
-	>=kde-plasma/kscreenlocker-${PVCUT}:5
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/lcms:2
@@ -75,6 +74,7 @@ COMMON_DEPEND="
 	accessibility? ( media-libs/libqaccessibilityclient:5 )
 	caps? ( sys-libs/libcap )
 	gles2-only? ( media-libs/mesa[gles2] )
+	lock? ( >=kde-plasma/kscreenlocker-${PVCUT}:5 )
 	plasma? ( >=kde-frameworks/krunner-${KFMIN}:5 )
 	screencast? ( >=media-video/pipewire-0.3:= )
 "
@@ -117,6 +117,7 @@ src_configure() {
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient)
 		$(cmake_use_find_package caps Libcap)
+		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		$(cmake_use_find_package plasma KF5Runner)
 	)
 
