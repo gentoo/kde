@@ -26,6 +26,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
@@ -35,10 +36,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.1.1
+	>=dev-libs/plasma-wayland-protocols-1.7.0
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
+	kde-misc/kio-fuse:5
 	sys-apps/xdg-desktop-portal
 "
 BDEPEND=">=dev-qt/qtwaylandscanner-${QTMIN}:5"
