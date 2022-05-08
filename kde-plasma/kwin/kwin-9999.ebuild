@@ -22,17 +22,18 @@ RESTRICT="test"
 
 COMMON_DEPEND="
 	>=dev-libs/libinput-1.19
-	>=dev-libs/wayland-1.2
+	>=dev-libs/wayland-1.20.0
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=[gles2-only=,libinput]
+	>=dev-qt/qtgui-${QTMIN}:5=[egl,gles2-only=,libinput]
+	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5[qml]
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
@@ -40,13 +41,12 @@ COMMON_DEPEND="
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5=
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kidletime-${KFMIN}:5=
+	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5=[X]
@@ -55,17 +55,18 @@ COMMON_DEPEND="
 	>=kde-plasma/breeze-${PVCUT}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
 	>=kde-plasma/kscreenlocker-${PVCUT}:5
-	>=kde-plasma/kwayland-server-${PVCUT}:5
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/lcms:2
 	media-libs/libepoxy
+	media-libs/libglvnd
 	>=media-libs/mesa-21.1[egl(+),gbm(+),wayland,X]
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libXi
 	x11-libs/libdrm
 	>=x11-libs/libxcb-1.10
+	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-0.7.0
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
@@ -78,6 +79,7 @@ COMMON_DEPEND="
 	screencast? ( >=media-video/pipewire-0.3:= )
 "
 RDEPEND="${COMMON_DEPEND}
+	!kde-plasma/kwayland-server
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:5
@@ -88,15 +90,16 @@ RDEPEND="${COMMON_DEPEND}
 	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
 "
 DEPEND="${COMMON_DEPEND}
+	dev-libs/plasma-wayland-protocols
+	>=dev-libs/wayland-protocols-1.25
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	x11-base/xorg-proto
-	test? (
-		dev-libs/plasma-wayland-protocols
-		>=dev-libs/wayland-protocols-1.19
-	)
 "
-BDEPEND="test? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
+BDEPEND="
+	>=dev-qt/qtwaylandscanner-${QTMIN}:5
+	dev-util/wayland-scanner
+"
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
 src_prepare() {
@@ -111,6 +114,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient)
 		$(cmake_use_find_package caps Libcap)
 		$(cmake_use_find_package plasma KF5Runner)
