@@ -48,7 +48,7 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qdbus-${QTMIN}:5
+	>=dev-qt/qdbus-${QTMIN}:0
 	>=kde-frameworks/kded-${KFMIN}:5
 	sys-apps/dbus
 	x11-themes/hicolor-icon-theme
