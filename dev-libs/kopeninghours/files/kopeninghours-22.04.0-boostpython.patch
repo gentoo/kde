@@ -26,7 +26,7 @@ index 7c50b40..a9a9328 100644
 +cmake_minimum_required(VERSION 3.12)
  
  # KDE Application Version, managed by release script
- set (RELEASE_SERVICE_VERSION_MAJOR "21")
+ set (RELEASE_SERVICE_VERSION_MAJOR "22")
 @@ -56,22 +56,16 @@ set_package_properties(FLEX PROPERTIES PURPOSE "Lexer generator for parsing open
  find_package(BISON REQUIRED)
  set_package_properties(BISON PROPERTIES PURPOSE "Grammar generator for parsing opening hours expressions")
@@ -63,9 +63,9 @@ index 771cedf..e755ea7 100644
  
  # Set up the libraries and header search paths for this target
 -target_link_libraries(PyKOpeningHours PUBLIC ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} KOpeningHours)
--target_include_directories(PyKOpeningHours PRIVATE ${PYTHON_INCLUDE_DIRS})
+-target_include_directories(PyKOpeningHours PRIVATE ${Boost_INCLUDE_DIR} ${PYTHON_INCLUDE_DIRS})
 +target_link_libraries(PyKOpeningHours PUBLIC Boost::${BOOSTPYTHON_VERSION_MAJOR_MINOR} ${Python3_LIBRARIES} KOpeningHours)
-+target_include_directories(PyKOpeningHours PRIVATE ${Python3_INCLUDE_DIRS})
++target_include_directories(PyKOpeningHours PRIVATE ${Boost_INCLUDE_DIR} ${Python3_INCLUDE_DIRS})
  
 -set(_install_dir lib/python${PYTHONLIBS_VERSION_MAJOR}.${PYTHONLIBS_VERSION_MINOR}/site-packages)
 -

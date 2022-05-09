@@ -44,7 +44,7 @@ BDEPEND="
 	sys-devel/flex
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-21.03.90-boostpython.patch )
+PATCHES=( "${FILESDIR}"/${PN}-22.04.0-boostpython.patch )
 
 pkg_setup() {
 	ecm_pkg_setup
