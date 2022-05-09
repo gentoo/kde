@@ -17,7 +17,7 @@ IUSE="nls"
 # requires installed instance
 RESTRICT="test"
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -30,7 +30,13 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? (
+		>=dev-qt/qtdeclarative-${QTMIN}:5
+		>=dev-qt/qtquickcontrols2-${QTMIN}:5
+		=kde-frameworks/kdeclarative-${PVCUT}*:5
+	)
+"
 BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
 
 src_test() {
