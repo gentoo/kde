@@ -5,7 +5,7 @@ EAPI=8
 
 PVCUT=$(ver_cut 1-2)
 PLASMA_MINIMAL=5.16.5
-QTMIN=5.15.2
+QTMIN=5.15.3
 inherit ecm kde.org
 
 DESCRIPTION="Framework for working with KDE activities"

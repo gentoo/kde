@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="false"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.2
+QTMIN=5.15.3
 inherit ecm kde.org
 
 DESCRIPTION="Style for QtQuickControls 2 that uses QWidget's QStyle for painting"

@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_NAME="oxygen-icons5"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.2
+QTMIN=5.15.3
 inherit cmake kde.org xdg-utils
 
 DESCRIPTION="Oxygen SVG icon theme"

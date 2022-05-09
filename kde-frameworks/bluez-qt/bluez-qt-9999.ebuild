@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=5.15.2
+QTMIN=5.15.3
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org udev
 

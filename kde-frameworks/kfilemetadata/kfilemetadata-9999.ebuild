@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.2
+QTMIN=5.15.3
 inherit ecm kde.org optfeature python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"
