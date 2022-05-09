@@ -137,6 +137,16 @@ esac
 # a proper error message via pkg_nofetch.
 KDE_UNRELEASED=( kde-apps-22.04.2 )
 
+# @ECLASS_VARIABLE: EGIT_MIRROR
+# @DESCRIPTION:
+# This variable allows easy overriding of default kde mirror service
+# (anongit) with anything else you might want to use.
+
+# @ECLASS_VARIABLE: EGIT_REPONAME
+# @DESCRIPTION:
+# This variable allows overriding of default repository name.
+# Specify only if this differs from PN and KDE_ORG_NAME.
+
 HOMEPAGE="https://kde.org/"
 
 case ${CATEGORY} in
@@ -248,10 +258,6 @@ _kde.org_calculate_live_repo() {
 
 	SRC_URI=""
 
-	# @ECLASS_VARIABLE: EGIT_MIRROR
-	# @DESCRIPTION:
-	# This variable allows easy overriding of default kde mirror service
-	# (anongit) with anything else you might want to use.
 	EGIT_MIRROR=${EGIT_MIRROR:=https://invent.kde.org/${KDE_ORG_CATEGORY}}
 
 	if [[ ${PV} == 5.??(.?)*.9999 && ${CATEGORY} == dev-qt ]]; then
@@ -266,10 +272,6 @@ _kde.org_calculate_live_repo() {
 		EGIT_BRANCH="Plasma/$(ver_cut 1-2)"
 	fi
 
-	# @ECLASS_VARIABLE: EGIT_REPONAME
-	# @DESCRIPTION:
-	# This variable allows overriding of default repository
-	# name. Specify only if this differs from PN and KDE_ORG_NAME.
 	EGIT_REPO_URI="${EGIT_MIRROR}/${EGIT_REPONAME:=$KDE_ORG_NAME}.git"
 }
 
