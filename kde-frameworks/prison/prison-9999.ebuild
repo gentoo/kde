@@ -15,6 +15,7 @@ IUSE="qml"
 
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
 	media-gfx/qrencode:=
 	media-libs/libdmtx
 	media-libs/zxing-cpp
