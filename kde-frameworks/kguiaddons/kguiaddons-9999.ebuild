@@ -28,6 +28,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto
+	wayland? ( >=dev-libs/plasma-wayland-protocols-1.7.0 )
 	X? ( x11-libs/libxcb )
 "
 BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
