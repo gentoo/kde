@@ -27,5 +27,6 @@ RDEPEND="
 	scanner? (
 		>=kde-apps/libksane-${PV}:${SLOT}
 		>=kde-misc/skanlite-${PV}:${SLOT}
+		>=media-gfx/skanpage-${PV}:${SLOT}
 	)
 "
