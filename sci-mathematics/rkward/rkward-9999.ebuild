@@ -27,6 +27,7 @@ DEPEND="
 	dev-qt/qtwebengine:5[widgets]
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	kde-frameworks/karchive:5
 	kde-frameworks/kcompletion:5
 	kde-frameworks/kconfig:5
 	kde-frameworks/kconfigwidgets:5
