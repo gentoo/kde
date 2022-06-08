@@ -19,10 +19,12 @@ IUSE=""
 # requires running kde environment
 RESTRICT="test"
 
-DEPEND="
+COMMON_DEPEND="
+	dev-libs/wayland
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5=[dbus]
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -34,7 +36,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
@@ -42,7 +43,13 @@ DEPEND="
 	x11-libs/libXcursor
 	x11-libs/libxcb
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	>=dev-libs/plasma-wayland-protocols-1.6.0
+"
+RDEPEND="${COMMON_DEPEND}
 	media-fonts/hack
 	media-fonts/noto
+"
+BDEPEND="
+	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 "
