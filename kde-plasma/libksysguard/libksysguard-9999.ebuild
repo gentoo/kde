@@ -29,7 +29,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:5[qml]
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
