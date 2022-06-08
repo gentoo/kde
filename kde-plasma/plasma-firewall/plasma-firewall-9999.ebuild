@@ -31,7 +31,6 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
 	${PYTHON_DEPS}
