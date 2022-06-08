@@ -39,6 +39,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-plasma/libkscreen-${PVCUT}:5
+	x11-libs/libX11
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
