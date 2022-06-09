@@ -38,6 +38,7 @@ RDEPEND="
 	>=kde-plasma/libksysguard-${PV}:${SLOT}
 	>=kde-plasma/milou-${PV}:${SLOT}
 	>=kde-plasma/oxygen-${PV}:${SLOT}
+	>=kde-plasma/oxygen-sounds-${PV}:${SLOT}
 	>=kde-plasma/plasma-desktop-${PV}:${SLOT}
 	>=kde-plasma/plasma-integration-${PV}:${SLOT}
 	>=kde-plasma/plasma-systemmonitor-${PV}:${SLOT}
