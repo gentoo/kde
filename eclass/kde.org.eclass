@@ -135,7 +135,7 @@ esac
 # An array of $CATEGORY-$PV pairs of packages that are unreleased upstream.
 # Any package matching this will have fetch restriction enabled, and receive
 # a proper error message via pkg_nofetch.
-KDE_UNRELEASED=( kde-plasma-5.25.0 kde-frameworks-5.95.0 kde-frameworks-5.95.0 )
+KDE_UNRELEASED=( kde-plasma-5.25.0 )
 
 # @ECLASS_VARIABLE: EGIT_MIRROR
 # @DESCRIPTION:
