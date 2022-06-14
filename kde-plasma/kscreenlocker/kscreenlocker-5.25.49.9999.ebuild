@@ -15,7 +15,7 @@ DESCRIPTION="Library and components for secure lock screen architecture"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+pam"
+IUSE=""
 
 RESTRICT="test"
 
@@ -43,11 +43,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-plasma/layer-shell-qt-${PVCUT}:5
+	sys-libs/pam
 	x11-libs/libX11
 	x11-libs/libXi
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
-	pam? ( sys-libs/pam )
 "
 DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
@@ -65,14 +65,6 @@ src_prepare() {
 	use test || cmake_run_in greeter cmake_comment_add_subdirectory autotests
 }
 
-src_configure() {
-	local mycmakeargs=(
-		-DPAM_REQUIRED=$(usex pam)
-		$(cmake_use_find_package pam PAM)
-	)
-	ecm_src_configure
-}
-
 src_test() {
 	# requires running environment
 	local myctestargs=(
@@ -84,11 +76,6 @@ src_test() {
 src_install() {
 	ecm_src_install
 
-	if use pam; then
-		newpamd "${FILESDIR}/kde.pam" kde
-		newpamd "${FILESDIR}/kde-np.pam" kde-np
-	else
-		chown root "${ED}"/usr/$(get_libdir)/libexec/kcheckpass || die
-		chmod +s "${ED}"/usr/$(get_libdir)/libexec/kcheckpass || die
-	fi
+	newpamd "${FILESDIR}/kde.pam" kde
+	newpamd "${FILESDIR}/kde-np.pam" kde-np
 }
