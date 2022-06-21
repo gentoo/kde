@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=5.15.3
+QTMIN=5.15.4
 VIRTUALDBUS_TEST="true"
 inherit ecm kde.org
 

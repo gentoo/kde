@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="forceoptional"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.3
+QTMIN=5.15.4
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 

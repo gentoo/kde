@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=5.92.0
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="Visualise disk usage with interactive map of concentric, segmented rings"

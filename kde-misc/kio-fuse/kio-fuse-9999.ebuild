@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=5.82.0
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org linux-info
 
 DESCRIPTION="FUSE interface for KIO"

@@ -9,7 +9,7 @@ KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
 PYTHON_COMPAT=( python3_{8..9} )
 KFMIN=5.92.0
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org python-single-r1
 
 DESCRIPTION="Python plugin for KDevelop"

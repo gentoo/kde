@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=9999
-QTMIN=5.15.3
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="Qt component to allow applications make use of Wayland wl-layer-shell protocol"

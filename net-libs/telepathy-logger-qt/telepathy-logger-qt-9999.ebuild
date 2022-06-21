@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 KDE_ORG_CATEGORY="network"
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org python-any-r1
 
 DESCRIPTION="Qt bindings for the Telepathy logger"

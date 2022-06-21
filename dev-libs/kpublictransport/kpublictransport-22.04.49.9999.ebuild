@@ -7,7 +7,7 @@ ECM_QTHELP="true"
 ECM_TEST="true"
 KDE_GEAR="true"
 KFMIN=5.92.0
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="Library for accessing public transport timetables and other information"

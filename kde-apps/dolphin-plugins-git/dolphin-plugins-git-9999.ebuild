@@ -8,7 +8,7 @@ KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="git"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.92.0
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="Dolphin plugin for Git integration"

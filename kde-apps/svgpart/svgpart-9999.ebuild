@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=5.92.0
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="Kpart for viewing SVGs"

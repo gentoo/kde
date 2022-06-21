@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=5.15.3
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="QRCode and data matrix barcode library"

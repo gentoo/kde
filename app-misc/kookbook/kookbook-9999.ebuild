@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_CATEGORY=utilities
 KFMIN=5.82.0
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="Simple recipe manager taking structured markdown for recipes"

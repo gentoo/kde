@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="Qt Quick plugin for beautiful and interactive charts"

@@ -7,7 +7,7 @@ EGIT_BRANCH="frameworks"
 ECM_HANDBOOK="forceoptional"
 KDE_ORG_CATEGORY="unmaintained"
 KFMIN=5.82.0
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="Application to generate publication-ready figures"

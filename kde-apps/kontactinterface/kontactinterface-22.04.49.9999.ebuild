@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="true"
 KFMIN=5.92.0
-QTMIN=5.15.2
+QTMIN=5.15.4
 inherit ecm kde.org
 
 DESCRIPTION="Library for embedding KParts in a Kontact component"
