@@ -18,26 +18,19 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index cd8c61aa..8ce3fa8c 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -22,7 +22,7 @@ include(GenerateExportHeader)
+@@ -22,7 +22,11 @@
  include(ECMQtDeclareLoggingCategory)
  include(KDEClangFormat)
  include(KDEGitCommitHooks)
 -find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED CONFIG COMPONENTS Widgets Test Network Xml Concurrent DBus Quick)
 +find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED CONFIG COMPONENTS Widgets Network Xml Concurrent DBus Quick)
- 
- if (QT_MAJOR_VERSION STREQUAL "5")
-         find_package(Qt5X11Extras REQUIRED)
-@@ -30,6 +30,10 @@ elseif (QT_MAJOR_VERSION STREQUAL "6")
-         find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui) # qtx11extras_p.h
- endif()
- 
-+if(BUILD_TESTING)
-+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED)
-+endif()
 +
++if(BUILD_TESTING)
++    find_package(Qt${QT_MAJOR_VERSION}Test ${QT_MIN_VERSION} CONFIG REQUIRED)
++endif()
+ 
  find_package(PkgConfig REQUIRED)
  
- find_package(KF5 ${KF5_MIN_VERSION} REQUIRED CoreAddons Config Crash DBusAddons I18n Archive XmlGui ItemModels KIO Declarative KCMUtils IdleTime)
 diff --git a/libdiscover/CMakeLists.txt b/libdiscover/CMakeLists.txt
 index a26d6934..ca827f3b 100644
 --- a/libdiscover/CMakeLists.txt
