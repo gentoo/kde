@@ -110,6 +110,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	>=kde-plasma/kpipewire-${PVCUT}:5
 	>=kde-plasma/oxygen-${PVCUT}:5
 	sys-apps/util-linux
 	x11-apps/setxkbmap
