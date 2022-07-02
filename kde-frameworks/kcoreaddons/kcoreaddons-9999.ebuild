@@ -10,23 +10,23 @@ DESCRIPTION="Framework for solving common problems such as caching, randomisatio
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="fam nls"
+IUSE="dbus fam nls"
 
 DEPEND="
 	>=dev-qt/qtcore-${QTMIN}:5[icu]
+	dbus? ( >=dev-qt/qtdbus-${QTMIN}:5 )
 	fam? ( virtual/fam )
 "
 RDEPEND="${DEPEND}
 	nls? ( >=dev-qt/qttranslations-${QTMIN}:5 )
 "
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
+BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
 		-D_KDE4_DEFAULT_HOME_POSTFIX=4
 		$(cmake_use_find_package fam FAM)
+		$(cmake_use_find_package dbus Qt5DBus)
 	)
 
 	ecm_src_configure
