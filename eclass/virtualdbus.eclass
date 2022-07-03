@@ -8,20 +8,20 @@
 #  kde@gentoo.org
 # @BLURB: This eclass can be used for packages that needs a working dbus session bus during test phase. UNTESTED SO FAR.
 
-# @ECLASS-VARIABLE: VIRTUALDBUS_REQUIRED
+# @ECLASS_VARIABLE: VIRTUALDBUS_REQUIRED
 # @DESCRIPTION:
 #  Is a dependency on dbus etc needed?
 #  Valid values are "always", "optional", and "manual".
 #  "tests" is a synonym for "optional".
 : ${VIRTUALDBUS_REQUIRED:=optional}
 
-# @ECLASS-VARIABLE: VIRTUALDBUS_USE
+# @ECLASS_VARIABLE: VIRTUALDBUS_USE
 # @DESCRIPTION:
 #  If VIRTUALDBUS_REQUIRED=optional, what USE flag should control
 #  the dependency?
 : ${VIRTUALDBUS_USE:=test}
 
-# @ECLASS-VARIABLE: VIRTUALDBUS_DEPEND
+# @ECLASS_VARIABLE: VIRTUALDBUS_DEPEND
 # @DESCRIPTION:
 #  Dep string available for use outside of eclass, in case a more
 #  complicated dep is needed.
