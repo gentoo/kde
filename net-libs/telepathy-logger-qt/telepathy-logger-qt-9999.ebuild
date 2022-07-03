@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 KDE_ORG_CATEGORY="network"
 QTMIN=5.15.4
 inherit ecm kde.org python-any-r1
@@ -20,7 +20,6 @@ LICENSE="LGPL-2.1"
 SLOT="5"
 IUSE=""
 
-BDEPEND="${PYTHON_DEPS}"
 DEPEND="
 	dev-libs/dbus-glib
 	dev-libs/glib:2
@@ -32,3 +31,4 @@ DEPEND="
 	sys-apps/dbus
 "
 RDEPEND="${DEPEND}"
+BDEPEND="${PYTHON_DEPS}"
