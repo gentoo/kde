@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.94.0
+KFMIN=5.95.0
 PVCUT=$(ver_cut 1-3)
 inherit ecm kde.org
 
