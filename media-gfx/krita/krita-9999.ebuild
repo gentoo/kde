@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 KFMIN=5.82.0
 QTMIN=5.15.4
 VIRTUALX_REQUIRED="test"
@@ -12,7 +12,7 @@ inherit ecm kde.org python-single-r1
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
@@ -20,7 +20,7 @@ HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
 
 LICENSE="GPL-3"
 SLOT="5"
-IUSE="color-management fftw gif +gsl heif +jpeg +mypaint-brush-engine openexr pdf qtmedia +raw vc webp"
+IUSE="color-management fftw gif +gsl heif +jpeg jpegxl +mypaint-brush-engine openexr pdf qtmedia +raw webp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # bug 630508
@@ -69,6 +69,7 @@ RDEPEND="${PYTHON_DEPS}
 	gif? ( media-libs/giflib )
 	gsl? ( sci-libs/gsl:= )
 	jpeg? ( media-libs/libjpeg-turbo:= )
+	jpegxl? ( >=media-libs/libjxl-0.7.0 )
 	heif? ( >=media-libs/libheif-1.11:= )
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? ( media-libs/openexr:= )
@@ -77,9 +78,7 @@ RDEPEND="${PYTHON_DEPS}
 	raw? ( media-libs/libraw:= )
 	webp? ( >=media-libs/libwebp-1.2.0:= )
 "
-DEPEND="${RDEPEND}
-	vc? ( >=dev-libs/vc-1.1.0 )
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-cpp/eigen:3
 	dev-lang/perl
@@ -101,19 +100,21 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_UPDATERS=OFF
 		-DFETCH_TRANSLATIONS=OFF
+		-DKRITA_ENABLE_PCH=OFF # big mess.
 		-DCMAKE_DISABLE_FIND_PACKAGE_KSeExpr=ON # not packaged
+		-DCMAKE_DISABLE_FIND_PACKAGE_xsimd=ON # not packaged
 		$(cmake_use_find_package color-management OpenColorIO)
 		$(cmake_use_find_package fftw FFTW3)
 		$(cmake_use_find_package gif GIF)
 		$(cmake_use_find_package gsl GSL)
 		$(cmake_use_find_package heif HEIF)
 		$(cmake_use_find_package jpeg JPEG)
+		$(cmake_use_find_package jpegxl JPEGXL)
 		$(cmake_use_find_package mypaint-brush-engine LibMyPaint)
 		$(cmake_use_find_package openexr OpenEXR)
 		$(cmake_use_find_package pdf Poppler)
 		$(cmake_use_find_package qtmedia Qt5Multimedia)
 		$(cmake_use_find_package raw LibRaw)
-		$(cmake_use_find_package vc Vc)
 		$(cmake_use_find_package webp WebP)
 	)
 
