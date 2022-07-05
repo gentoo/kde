@@ -7,7 +7,7 @@ ECM_TEST="true"
 KDE_GEAR="true"
 KFMIN=5.92.0
 QTMIN=5.15.4
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org python-single-r1
 
