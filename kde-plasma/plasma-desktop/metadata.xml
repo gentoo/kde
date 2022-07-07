@@ -13,5 +13,6 @@
 		<flag name="ibus">Use ibus input method via <pkg>app-i18n/ibus</pkg></flag>
 		<flag name="kaccounts">Build the OpenDesktop integration plugin</flag>
 		<flag name="scim">Enable applets that use <pkg>app-i18n/scim</pkg></flag>
+		<flag name="screencast">Enable screencast portal thumbnails using <pkg>kde-plasma/kpipewire</pkg></flag>
 	</use>
 </pkgmetadata>

@@ -18,7 +18,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="emoji ibus +kaccounts scim +semantic-desktop telemetry"
+IUSE="emoji ibus +kaccounts scim screencast +semantic-desktop telemetry"
 
 COMMON_DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -72,7 +72,7 @@ COMMON_DEPEND="
 	>=kde-plasma/kwin-${PVCUT}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
-	>=kde-plasma/plasma-workspace-${PVCUT}:5
+	>=kde-plasma/plasma-workspace-${PVCUT}:5[screencast?]
 	>=media-libs/phonon-4.11.0
 	x11-libs/libX11
 	x11-libs/libXfixes
@@ -110,12 +110,12 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
-	>=kde-plasma/kpipewire-${PVCUT}:5
 	>=kde-plasma/oxygen-${PVCUT}:5
 	sys-apps/util-linux
 	x11-apps/setxkbmap
 	x11-misc/xdg-user-dirs
 	kaccounts? ( net-libs/signon-oauth2 )
+	screencast? ( >=kde-plasma/kpipewire-${PVCUT}:5 )
 "
 BDEPEND="virtual/pkgconfig"
 
