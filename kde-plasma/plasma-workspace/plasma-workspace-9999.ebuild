@@ -185,7 +185,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_xembed-sni-proxy=OFF
-		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON
+		-DGLIBC_LOCALE_GEN=$(usex policykit)
 		$(cmake_use_find_package appstream AppStreamQt)
 		$(cmake_use_find_package calendar KF5Holidays)
 		$(cmake_use_find_package fontconfig Fontconfig)
