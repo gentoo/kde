@@ -24,6 +24,7 @@ RESTRICT="test"
 
 # slot op: various private QtWaylandClient headers
 COMMON_DEPEND="
+	dev-libs/icu:=
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
