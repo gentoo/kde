@@ -110,6 +110,7 @@ COMMON_DEPEND="
 	policykit? ( virtual/libcrypt:= )
 	screencast? (
 		>=dev-qt/qtgui-${QTMIN}:5=[egl]
+		>=kde-plasma/kpipewire-${PVCUT}:5
 		media-libs/libglvnd
 		>=media-video/pipewire-0.3:=
 		x11-libs/libdrm
@@ -168,6 +169,7 @@ src_prepare() {
 
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
+		ecm_punt_bogus_dep K PipeWire
 		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
 	fi
 
