@@ -18,7 +18,7 @@ HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect.kcm/"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth pulseaudio wayland X"
+IUSE="bluetooth pulseaudio X"
 
 RESTRICT="test"
 
@@ -31,6 +31,7 @@ DEPEND="
 	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
@@ -58,7 +59,6 @@ DEPEND="
 		x11-libs/libXtst
 	)
 	pulseaudio? ( media-libs/pulseaudio-qt:= )
-	wayland? ( >=kde-frameworks/kwayland-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	dev-libs/kpeoplevcard
@@ -67,6 +67,10 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	net-fs/sshfs
 "
+BDEPEND="
+	dev-libs/plasma-wayland-protocols
+	>=dev-qt/qtwaylandscanner-${QTMIN}:5
+"
 
 PATCHES=( "${FILESDIR}/${PN}-21.07.80-revert-disable-kpeople.patch" )
 
@@ -74,7 +78,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
 		$(cmake_use_find_package pulseaudio KF5PulseAudioQt)
-		$(cmake_use_find_package wayland KF5Wayland)
 		$(cmake_use_find_package X LibFakeKey)
 	)
 	ecm_src_configure
