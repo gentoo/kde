@@ -34,9 +34,7 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	callgraph? ( media-gfx/kgraphviewer:5 )
 "
-DEPEND="${RDEPEND}
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-"
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
