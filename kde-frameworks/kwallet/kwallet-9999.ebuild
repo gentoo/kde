@@ -13,10 +13,8 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gpg +man"
 
-BDEPEND="
-	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
-"
 DEPEND="
+	>=app-crypt/qca-2.3.1
 	dev-libs/libgcrypt:0=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -33,6 +31,7 @@ DEPEND="
 	gpg? ( >=app-crypt/gpgme-1.7.1:=[cxx,qt5] )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
