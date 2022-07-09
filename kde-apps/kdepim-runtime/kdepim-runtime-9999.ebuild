@@ -72,8 +72,10 @@ RDEPEND="
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-	test? ( >=kde-apps/kimap-${PVCUT}:5[test] )
+	test? (
+		>=dev-qt/qtxmlpatterns-${QTMIN}:5
+		>=kde-apps/kimap-${PVCUT}:5[test]
+	)
 "
 
 src_configure() {
