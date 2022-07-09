@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.4
+QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="Oxygen visual style for the Plasma desktop"

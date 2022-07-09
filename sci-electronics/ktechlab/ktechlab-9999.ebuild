@@ -8,7 +8,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="sdk"
 KFMIN=5.82.0
-QTMIN=5.15.4
+QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="IDE for microcontrollers and electronics"

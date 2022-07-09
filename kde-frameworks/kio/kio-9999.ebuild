@@ -6,7 +6,7 @@ EAPI=8
 ECM_DESIGNERPLUGIN="true"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.4
+QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org xdg-utils
 

@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_CATEGORY="pim"
 KFMIN=5.82.0
-QTMIN=5.15.4
+QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="Note taking utility by KDE"

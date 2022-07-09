@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 KFMIN=5.95.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.4
+QTMIN=5.15.5
 inherit ecm kde.org optfeature
 
 DESCRIPTION="Control Center to configure KDE Plasma desktop"

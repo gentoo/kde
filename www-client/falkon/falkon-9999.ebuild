@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="true"
 KDE_GEAR="true"
 KFMIN=5.96.0
-QTMIN=5.15.4
+QTMIN=5.15.5
 PYTHON_COMPAT=( python3_{8..11} )
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org python-single-r1

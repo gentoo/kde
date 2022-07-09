@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KDE_ORG_CATEGORY="office"
 KFMIN=5.82.0
-QTMIN=5.15.4
+QTMIN=5.15.5
 MY_P=${P/_beta/b}
 inherit ecm kde.org
 
