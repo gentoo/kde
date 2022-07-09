@@ -28,7 +28,6 @@ RDEPEND="
 	kde-frameworks/kconfigwidgets:5
 	kde-frameworks/kcoreaddons:5
 	kde-frameworks/ki18n:5
-	kde-frameworks/kiconthemes:5
 	kde-frameworks/kparts:5
 	kde-frameworks/kwidgetsaddons:5
 	kde-frameworks/kxmlgui:5
