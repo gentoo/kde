@@ -53,6 +53,11 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	ecm_punt_bogus_dep QGpgme
+	ecm_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package telemetry KUserFeedback)
