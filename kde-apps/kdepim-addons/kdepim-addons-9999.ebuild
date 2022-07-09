@@ -18,8 +18,10 @@ SLOT="5"
 KEYWORDS=""
 IUSE="importwizard markdown"
 
+RESTRICT="test"
+
 RDEPEND="
-	>=app-crypt/gpgme-1.11.1:=[cxx,qt5]
+	>=app-crypt/gpgme-1.16.0:=[cxx,qt5]
 	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -38,7 +40,6 @@ RDEPEND="
 	>=kde-apps/kitinerary-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kontactinterface-${PVCUT}:5
 	>=kde-apps/kpkpass-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/libkleo-${PVCUT}:5
@@ -66,8 +67,6 @@ RDEPEND="
 	markdown? ( app-text/discount )
 "
 DEPEND="${RDEPEND}"
-
-RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(
