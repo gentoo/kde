@@ -17,11 +17,10 @@ HOMEPAGE="https://apps.kde.org/kontact/"
 LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
-IUSE="+barcode pdf"
-
-REQUIRED_USE="test? ( pdf )"
+IUSE="+barcode"
 
 DEPEND="
+	app-text/poppler:=[qt5]
 	dev-libs/libphonenumber
 	dev-libs/libxml2:2
 	dev-libs/openssl:=
@@ -35,7 +34,6 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	sys-libs/zlib
 	barcode? ( >=media-libs/zxing-cpp-1.1.0 )
-	pdf? ( app-text/poppler:=[qt5] )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="x11-misc/shared-mime-info"
@@ -45,7 +43,6 @@ src_configure() {
 		# sci-geosciences/osmctools; TODO: useful at all?
 		-DCMAKE_DISABLE_FIND_PACKAGE_OsmTools=ON
 		$(cmake_use_find_package barcode ZXing)
-		$(cmake_use_find_package pdf Poppler)
 	)
 	ecm_src_configure
 }
