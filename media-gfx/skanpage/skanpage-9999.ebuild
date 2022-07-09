@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/skanpage/"
 LICENSE="|| ( GPL-2 GPL-3 ) CC0-1.0"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="ocr"
 
 DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -37,5 +37,17 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
+	ocr? (
+		app-text/tesseract:=
+		media-libs/leptonica:=
+	)
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package ocr Tesseract)
+		$(cmake_use_find_package ocr Leptonica)
+	)
+	ecm_src_configure
+}
