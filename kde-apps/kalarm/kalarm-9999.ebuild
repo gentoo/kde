@@ -15,19 +15,15 @@ HOMEPAGE="https://apps.kde.org/kalarm/ https://userbase.kde.org/KAlarm"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE="speech X"
+IUSE="+pim speech X"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-contacts-${PVCUT}:5
-	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
 	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
@@ -60,6 +56,12 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=media-libs/phonon-4.11.0
+	pim? (
+		>=kde-apps/akonadi-${PVCUT}:5
+		>=kde-apps/akonadi-contacts-${PVCUT}:5
+		>=kde-apps/akonadi-mime-${PVCUT}:5
+		>=kde-apps/kmailtransport-${PVCUT}:5
+	)
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
@@ -67,11 +69,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kalarmcal:5
-	>=kde-apps/kdepim-runtime-${PVCUT}:5
+	pim? ( >=kde-apps/kdepim-runtime-${PVCUT}:5 )
 "
 
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_AKONADI_PLUGIN=$(usex pim)
 		$(cmake_use_find_package X Qt5X11Extras)
 		$(cmake_use_find_package X X11)
 	)
