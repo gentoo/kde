@@ -38,3 +38,10 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	sys-apps/diffutils
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_WITH_QT6=OFF
+	)
+	ecm_src_configure
+}
