@@ -7,6 +7,7 @@ ECM_EXAMPLES="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="graphics"
+KFMIN=5.92.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
@@ -25,9 +26,6 @@ SLOT="5"
 
 REQUIRED_USE="test? ( examples )"
 
-BDEPEND="
-	>=dev-qt/linguist-tools-${QTMIN}:5
-"
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
@@ -35,3 +33,4 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
