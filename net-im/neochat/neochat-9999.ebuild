@@ -38,7 +38,6 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5[qml]
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
-	>=kde-frameworks/sonnet-${KFMIN}:5
 	media-libs/kquickimageeditor:5
 	>=net-libs/libquotient-0.6
 "
@@ -47,5 +46,6 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	>=kde-frameworks/purpose-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5[qml]
 "
 BDEPEND="virtual/pkgconfig"
