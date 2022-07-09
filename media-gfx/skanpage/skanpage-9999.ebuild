@@ -37,6 +37,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
+	>=media-libs/ksanecore-${PVCUT}:5
 	ocr? (
 		app-text/tesseract:=
 		media-libs/leptonica:=
