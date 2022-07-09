@@ -19,7 +19,9 @@ fi
 
 LICENSE="GPL-2+ FDL-1.2"
 SLOT="5"
-IUSE="map +raw share"
+IUSE="map phonon qtav +raw share +vlc"
+
+REQUIRED_USE="|| ( phonon qtav vlc )"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -42,10 +44,12 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	media-gfx/exiv2:=
 	media-libs/libjpeg-turbo:=
-	>=media-libs/phonon-4.11.0
 	map? ( kde-apps/marble:5 )
+	phonon? ( >=media-libs/phonon-4.11.0 )
+	qtav? ( media-libs/qtav:= )
 	raw? ( kde-apps/libkdcraw:5 )
 	share? ( >=kde-frameworks/kxmlgui-${KFMIN}:5 )
+	vlc? ( media-video/vlc:= )
 "
 RDEPEND="${DEPEND}
 	media-video/ffmpeg
@@ -55,9 +59,12 @@ DOCS=( ChangeLog README.md )
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package phonon Phonon4Qt5)
+		$(cmake_use_find_package qtav QtAV)
 		$(cmake_use_find_package map Marble)
 		$(cmake_use_find_package raw KF5KDcraw)
 		$(cmake_use_find_package share KF5Purpose)
+		$(cmake_use_find_package vlc LIBVLC)
 	)
 
 	ecm_src_configure
