@@ -170,7 +170,7 @@ src_prepare() {
 
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
-		ecm_punt_bogus_dep K PipeWire
+		ecm_punt_bogus_dep KPipeWire
 		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
 	fi
 
