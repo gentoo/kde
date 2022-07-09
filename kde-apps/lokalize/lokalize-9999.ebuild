@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{8..10} )
-KFMIN=5.92.0
+KFMIN=5.96.0
 QTMIN=5.15.4
 inherit python-single-r1 ecm kde.org optfeature
 
