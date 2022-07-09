@@ -38,7 +38,6 @@ RDEPEND="
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
@@ -92,7 +91,6 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_OFXIMPORTER=ON
-		-DENABLE_WEBENGINE=ON
 		-DENABLE_WEBOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
