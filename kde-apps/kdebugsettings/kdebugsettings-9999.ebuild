@@ -7,7 +7,7 @@ ECM_TEST="true"
 KFMIN=5.96.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Application to enable/disable qCDebug"
 HOMEPAGE="https://apps.kde.org/kdebugsettings/"

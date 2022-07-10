@@ -7,7 +7,7 @@ ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Job-based library to send email through an SMTP server"
 HOMEPAGE="https://api.kde.org/kdepim/ksmtp/html/index.html"

@@ -8,7 +8,7 @@ KFMIN=5.96.0
 PLASMA_MINIMAL=5.16.5
 QTMIN=5.15.5
 VIRTUALDBUS_TEST="true"
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Administer web accounts for the sites and services across the Plasma desktop"
 HOMEPAGE="https://community.kde.org/KTp"

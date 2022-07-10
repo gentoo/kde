@@ -3,11 +3,10 @@
 
 EAPI=8
 
-KDE_GEAR="true"
 KDE_ORG_CATEGORY=utilities
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Markdown viewer KParts plugin based on QTextDocument"
 HOMEPAGE="https://apps.kde.org/markdownpart/"

@@ -7,7 +7,7 @@ ECM_TEST="true"
 KFMIN=5.96.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Library for accessing Google calendar and contact resources"
 HOMEPAGE="https://api.kde.org/kdepim/libkgapi/html/index.html"

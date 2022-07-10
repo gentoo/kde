@@ -10,7 +10,7 @@ KFMIN=5.96.0
 QTMIN=5.15.5
 # monthitemordertest requires a display
 VIRTUALX_REQUIRED=test
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Calendar viewer for KDE PIM"
 

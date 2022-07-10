@@ -6,13 +6,12 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_HANDBOOK_DIR="docs"
 ECM_TEST="true"
-KDE_GEAR="true"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-php"
 KFMIN=5.96.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="PHP plugin for KDevelop"
 HOMEPAGE="https://kdevelop.org/"

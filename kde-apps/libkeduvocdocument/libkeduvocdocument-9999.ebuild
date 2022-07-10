@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="true"
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Library for reading/writing KVTML"
 

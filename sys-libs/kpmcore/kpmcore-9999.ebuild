@@ -4,10 +4,9 @@
 EAPI=8
 
 ECM_NONGUI="true"
-KDE_GEAR="true"
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Library for managing partitions"
 HOMEPAGE="https://apps.kde.org/partitionmanager/"

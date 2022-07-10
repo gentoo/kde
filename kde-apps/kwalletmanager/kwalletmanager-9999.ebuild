@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Tool to manage the passwords on your system using KDE Wallet"
 HOMEAGE="https://apps.kde.org/kwalletmanager5/

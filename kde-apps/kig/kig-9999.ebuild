@@ -8,7 +8,7 @@ ECM_TEST="true"
 PYTHON_COMPAT=( python3_{8..11} )
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit python-single-r1 ecm kde.org
+inherit python-single-r1 ecm gear.kde.org
 
 DESCRIPTION="KDE Interactive Geometry tool"
 HOMEPAGE="https://apps.kde.org/kig/ https://edu.kde.org/kig/"

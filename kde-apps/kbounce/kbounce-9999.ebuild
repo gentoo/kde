@@ -8,7 +8,7 @@ KDE_SELINUX_MODULE="games"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="KDE Bounce Ball Game"
 HOMEPAGE="https://apps.kde.org/kbounce/"

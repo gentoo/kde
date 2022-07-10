@@ -5,12 +5,11 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KDE_GEAR="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
 HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect.kcm/"

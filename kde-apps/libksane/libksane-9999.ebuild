@@ -6,7 +6,7 @@ EAPI=8
 KFMIN=5.96.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="SANE Library interface based on KDE Frameworks"
 

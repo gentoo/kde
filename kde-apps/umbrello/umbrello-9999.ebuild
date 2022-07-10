@@ -9,7 +9,7 @@ ECM_TEST="forceoptional"
 KFMIN=5.96.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="KDE UML Modeller"
 HOMEPAGE="https://apps.kde.org/umbrello/ https://umbrello.kde.org"

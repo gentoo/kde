@@ -5,10 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KDE_GEAR="true"
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Simple music player by KDE"
 HOMEPAGE="https://elisa.kde.org/ https://apps.kde.org/elisa/"

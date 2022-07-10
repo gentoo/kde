@@ -4,13 +4,12 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KDE_GEAR="true"
 KDE_ORG_CATEGORY="pim"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.96.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Getting things done application by KDE"
 HOMEPAGE="https://zanshin.kde.org/ https://apps.kde.org/zanshin/

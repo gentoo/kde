@@ -9,7 +9,7 @@ PVCUT=$(ver_cut 1-3)
 KFMIN=5.96.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org optfeature
+inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="https://apps.kde.org/dolphin/ https://userbase.kde.org/Dolphin"
