@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.82.0
+KFMIN=5.96.0
 QTMIN=5.15.5
 inherit ecm kde.org
 
@@ -20,6 +20,7 @@ SLOT="0"
 
 DEPEND="
 	app-text/cmark:=
+	dev-libs/qcoro5
 	dev-libs/qtkeychain:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
