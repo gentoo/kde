@@ -4,10 +4,9 @@
 EAPI=8
 
 ECM_TEST="false"
-KDE_ORG_CATEGORY=plasma-mobile
 KFMIN=5.88.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm plasma-mobile.kde.org
 
 DESCRIPTION="Library for retrieval of weather information including forecasts and alerts"
 HOMEPAGE="https://apps.kde.org/kweather/"
