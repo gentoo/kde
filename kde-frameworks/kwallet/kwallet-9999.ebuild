@@ -5,7 +5,7 @@ EAPI=8
 
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.5
-inherit ecm kde.org optfeature
+inherit ecm frameworks.kde.org optfeature
 
 DESCRIPTION="Framework providing desktop-wide storage for passwords"
 

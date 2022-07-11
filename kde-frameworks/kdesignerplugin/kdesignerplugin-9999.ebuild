@@ -8,18 +8,17 @@ ECM_QTHELP="false"
 ECM_TEST="false"
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing plugins to use KDE frameworks widgets in QtDesigner"
+
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls"
 
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 DEPEND="
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"

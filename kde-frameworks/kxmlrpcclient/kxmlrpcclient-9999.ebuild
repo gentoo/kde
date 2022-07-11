@@ -6,9 +6,10 @@ EAPI=8
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing client-side support for the XML-RPC protocol"
+
 LICENSE="BSD-2"
 KEYWORDS=""
 IUSE=""

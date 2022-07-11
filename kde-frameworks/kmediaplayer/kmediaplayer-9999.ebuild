@@ -7,9 +7,10 @@ ECM_QTHELP="false"
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing a common interface for KParts that can play media files"
+
 LICENSE="MIT"
 KEYWORDS=""
 IUSE=""

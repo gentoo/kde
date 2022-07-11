@@ -8,9 +8,10 @@ ECM_QTHELP="false"
 ECM_TEST="false"
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework binding JavaScript objects to QObjects"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
