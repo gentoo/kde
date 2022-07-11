@@ -7,7 +7,7 @@ ECM_TEST="true"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Dedicated search application built on top of Baloo"
 HOMEPAGE="https://invent.kde.org/plasma/milou"

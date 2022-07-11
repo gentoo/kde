@@ -6,7 +6,7 @@ EAPI=8
 KFMIN=5.95.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Oxygen visual style for the Plasma desktop"
 HOMEPAGE="https://invent.kde.org/plasma/oxygen"

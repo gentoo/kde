@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=5.92.0
 PVCUT=$(ver_cut 1-3)
-inherit cmake kde.org
+inherit cmake plasma.kde.org
 
 DESCRIPTION="Breeze theme for Plymouth"
 

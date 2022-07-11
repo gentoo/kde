@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Implementation of ssh-askpass with KDE Wallet integration"
 HOMEPAGE+=" https://invent.kde.org/plasma/ksshaskpass"

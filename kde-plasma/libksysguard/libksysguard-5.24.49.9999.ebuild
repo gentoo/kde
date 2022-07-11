@@ -8,7 +8,7 @@ ECM_TEST="true"
 KFMIN=5.92.0
 QTMIN=5.15.4
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Task management and system monitoring library"
 

@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 KFMIN=5.95.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://invent.kde.org/plasma/powerdevil"

@@ -7,7 +7,7 @@ ECM_TEST="true"
 KFMIN=5.92.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.4
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Provides integration plugins for various KDE frameworks for Wayland"
 HOMEPAGE="https://invent.kde.org/plasma/kwayland-integration"

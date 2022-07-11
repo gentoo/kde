@@ -9,7 +9,7 @@ KFMIN=5.95.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org optfeature
+inherit ecm plasma.kde.org optfeature
 
 DESCRIPTION="KDE Plasma desktop"
 XORGHDRS="${PN}-override-include-dirs-1"

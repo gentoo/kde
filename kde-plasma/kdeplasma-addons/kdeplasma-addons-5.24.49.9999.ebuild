@@ -8,7 +8,7 @@ KFMIN=5.92.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.4
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org optfeature
+inherit ecm plasma.kde.org optfeature
 
 DESCRIPTION="Extra Plasma applets and engines"
 

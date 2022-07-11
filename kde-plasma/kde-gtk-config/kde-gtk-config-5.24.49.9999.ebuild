@@ -7,7 +7,7 @@ KFMIN=5.92.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.4
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Syncs KDE Plasma theme settings to GTK applications"
 HOMEPAGE="https://invent.kde.org/plasma/kde-gtk-config"

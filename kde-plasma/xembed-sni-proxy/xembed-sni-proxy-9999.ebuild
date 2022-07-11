@@ -7,7 +7,7 @@ KDE_ORG_NAME="plasma-workspace"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
-inherit cmake kde.org
+inherit cmake plasma.kde.org
 
 DESCRIPTION="Legacy xembed tray icons support for SNI-only system trays"
 HOMEPAGE="https://invent.kde.org/plasma/plasma-workspace/-/blob/master/xembed-sni-proxy/Readme.md"

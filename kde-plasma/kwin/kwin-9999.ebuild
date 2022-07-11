@@ -9,7 +9,7 @@ KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org optfeature
+inherit ecm plasma.kde.org optfeature
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 

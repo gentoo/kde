@@ -9,7 +9,7 @@ KFMIN=5.95.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma workspace"
 

@@ -9,7 +9,7 @@ KFMIN=5.92.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.4
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Tools based on KDE Frameworks 5 to better interact with the system"
 HOMEPAGE="https://invent.kde.org/plasma/kde-cli-tools"

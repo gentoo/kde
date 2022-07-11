@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KFMIN=9999
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma menu editor"
 HOMEPAGE="https://invent.kde.org/plasma/kmenuedit"

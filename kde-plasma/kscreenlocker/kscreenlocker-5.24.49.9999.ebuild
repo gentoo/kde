@@ -8,7 +8,7 @@ KFMIN=5.92.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.4
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org pam
+inherit ecm plasma.kde.org pam
 
 DESCRIPTION="Library and components for secure lock screen architecture"
 

@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=5.95.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Oxygen sound theme for the Plasma desktop"
 HOMEPAGE="https://invent.kde.org/plasma/oxygen-sounds"

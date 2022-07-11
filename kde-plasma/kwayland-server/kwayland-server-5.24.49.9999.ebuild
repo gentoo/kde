@@ -8,7 +8,7 @@ ECM_TEST="true"
 KFMIN=5.92.0
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.4
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Wayland Server Components built on KDE Frameworks"
 HOMEPAGE="https://invent.kde.org/plasma/kwayland-server"

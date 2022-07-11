@@ -7,7 +7,7 @@ ECM_TEST="true"
 KFMIN=5.92.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.4
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma applet for NetworkManager"
 

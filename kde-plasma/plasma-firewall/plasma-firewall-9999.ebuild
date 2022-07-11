@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8..11} )
 KFMIN=9999
 QTMIN=5.15.5
-inherit ecm kde.org python-single-r1
+inherit ecm plasma.kde.org python-single-r1
 
 DESCRIPTION="Plasma frontend for Firewalld or UFW"
 HOMEPAGE="https://invent.kde.org/network/plasma-firewall"
