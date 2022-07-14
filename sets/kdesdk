@@ -2,6 +2,7 @@
 dev-util/kdevelop:5
 dev-util/kdevelop-php:5
 dev-util/kdevelop-python:5
+dev-util/kio-perldoc:5
 kde-apps/cervisia:5
 kde-apps/dolphin-plugins-git:5
 kde-apps/dolphin-plugins-mercurial:5
@@ -11,7 +12,6 @@ kde-apps/kcachegrind:5
 kde-apps/kde-dev-scripts:5
 kde-apps/kde-dev-utils:5
 kde-apps/kdesdk-meta:5
-kde-apps/kdesdk-kioslaves:5
 kde-apps/kdesdk-thumbnailers:5
 kde-apps/kompare:5
 kde-apps/kross-interpreters:5
