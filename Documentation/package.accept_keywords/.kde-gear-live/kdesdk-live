@@ -1,6 +1,7 @@
 ~dev-util/kdevelop-9999 **
 ~dev-util/kdevelop-php-9999 **
 ~dev-util/kdevelop-python-9999 **
+~dev-util/kio-perldoc-9999 **
 ~kde-apps/cervisia-9999 **
 ~kde-apps/dolphin-plugins-git-9999 **
 ~kde-apps/dolphin-plugins-mercurial-9999 **
@@ -10,7 +11,6 @@
 ~kde-apps/kde-dev-scripts-9999 **
 ~kde-apps/kde-dev-utils-9999 **
 ~kde-apps/kdesdk-meta-9999 **
-~kde-apps/kdesdk-kioslaves-9999 **
 ~kde-apps/kdesdk-thumbnailers-9999 **
 ~kde-apps/kompare-9999 **
 ~kde-apps/kross-interpreters-9999 **

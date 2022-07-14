@@ -207,6 +207,7 @@
 <dev-util/kdevelop-21.12.50
 <dev-util/kdevelop-php-21.12.50
 <dev-util/kdevelop-python-21.12.50
+<dev-util/kio-perldoc-21.12.50
 <kde-apps/cervisia-21.12.50
 <kde-apps/dolphin-plugins-git-21.12.50
 <kde-apps/dolphin-plugins-mercurial-21.12.50
@@ -216,7 +217,6 @@
 <kde-apps/kde-dev-scripts-21.12.50
 <kde-apps/kde-dev-utils-21.12.50
 <kde-apps/kdesdk-meta-21.12.50
-<kde-apps/kdesdk-kioslaves-21.12.50
 <kde-apps/kdesdk-thumbnailers-21.12.50
 <kde-apps/kompare-21.12.50
 <kde-apps/kross-interpreters-21.12.50

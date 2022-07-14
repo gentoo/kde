@@ -1,6 +1,7 @@
 ~dev-util/kdevelop-21.12.49.9999 **
 ~dev-util/kdevelop-php-21.12.49.9999 **
 ~dev-util/kdevelop-python-21.12.49.9999 **
+~dev-util/kio-perldoc-21.12.49.9999 **
 ~kde-apps/cervisia-21.12.49.9999 **
 ~kde-apps/dolphin-plugins-git-21.12.49.9999 **
 ~kde-apps/dolphin-plugins-mercurial-21.12.49.9999 **
@@ -10,7 +11,6 @@
 ~kde-apps/kde-dev-scripts-21.12.49.9999 **
 ~kde-apps/kde-dev-utils-21.12.49.9999 **
 ~kde-apps/kdesdk-meta-21.12.49.9999 **
-~kde-apps/kdesdk-kioslaves-21.12.49.9999 **
 ~kde-apps/kdesdk-thumbnailers-21.12.49.9999 **
 ~kde-apps/kompare-21.12.49.9999 **
 ~kde-apps/kross-interpreters-21.12.49.9999 **
