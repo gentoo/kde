@@ -9,7 +9,7 @@ HOMEPAGE="https://kde.org/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="+bittorrent dropbox samba +webengine"
+IUSE="+bittorrent dropbox samba webengine"
 
 RDEPEND="
 	>=kde-apps/kget-${PV}:${SLOT}
