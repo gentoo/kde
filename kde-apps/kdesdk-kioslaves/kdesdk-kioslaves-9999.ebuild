@@ -3,12 +3,14 @@
 
 EAPI=8
 
+KDE_ORG_CATEGORY="sdk"
+KDE_ORG_NAME="kdesdk-kio"
 KFMIN=5.96.0
 inherit ecm gear.kde.org
 
-DESCRIPTION="kioslaves from kdesdk package"
+DESCRIPTION="KIO worker interface to browse Perl documentation"
 
-LICENSE="GPL-2" # TODO: CHECK
+LICENSE="GPL-2+ || ( Artistic GPL-1+ )"
 SLOT="5"
 KEYWORDS=""
 IUSE=""
