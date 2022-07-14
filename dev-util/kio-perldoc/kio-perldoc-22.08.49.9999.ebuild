@@ -3,7 +3,6 @@
 
 EAPI=8
 
-KDE_ORG_CATEGORY="sdk"
 KDE_ORG_NAME="kdesdk-kio"
 KFMIN=5.96.0
 inherit ecm gear.kde.org
