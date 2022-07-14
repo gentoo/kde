@@ -120,7 +120,7 @@ RDEPEND="${COMMON_DEPEND}
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${WORKDIR}/${XORGHDRS}/override-include-dirs.patch" # downstream patch
+	"${WORKDIR}/${XORGHDRS}/${PN}-5.25.80-override-include-dirs.patch" # downstream patch
 )
 
 src_prepare() {
