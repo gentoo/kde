@@ -33,7 +33,7 @@ DEPEND="
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	sys-libs/zlib
-	barcode? ( >=media-libs/zxing-cpp-1.1.0 )
+	barcode? ( >=media-libs/zxing-cpp-1.1.0:= )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="x11-misc/shared-mime-info"
