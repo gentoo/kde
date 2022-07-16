@@ -3,8 +3,6 @@
 
 EAPI=8
 
-KDE_ORG_CATEGORY="network"
-KDE_ORG_NAME="kio-zeroconf"
 KFMIN=5.96.0
 QTMIN=5.15.5
 inherit ecm gear.kde.org

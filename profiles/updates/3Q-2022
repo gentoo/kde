@@ -1,1 +1,2 @@
 move kde-apps/kdesdk-kioslaves dev-util/kio-perldoc
+move kde-apps/zeroconf-ioslave net-misc/kio-zeroconf
