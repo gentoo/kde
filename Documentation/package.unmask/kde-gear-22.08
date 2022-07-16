@@ -144,11 +144,11 @@
 <kde-apps/ktp-text-ui-22.08.50:5
 <kde-apps/plasma-telepathy-meta-22.08.50:5
 <kde-apps/signon-kwallet-extension-22.08.50:5
-<kde-apps/zeroconf-ioslave-22.08.50:5
 <kde-misc/kdeconnect-22.08.50:5
 <kde-misc/kio-gdrive-22.08.50:5
 <net-irc/konversation-22.08.50:5
 <net-libs/libktorrent-22.08.50:5
+<net-misc/kio-zeroconf-22.08.50:5
 <net-p2p/ktorrent-22.08.50:5
 <app-office/kalendar-22.08.50:5
 <dev-libs/kopeninghours-22.08.50:5

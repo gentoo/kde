@@ -141,11 +141,11 @@
 <kde-apps/ktp-text-ui-21.12.50
 <kde-apps/plasma-telepathy-meta-21.12.50
 <kde-apps/signon-kwallet-extension-21.12.50
-<kde-apps/zeroconf-ioslave-21.12.50
 <kde-misc/kdeconnect-21.12.50
 <kde-misc/kio-gdrive-21.12.50
 <net-irc/konversation-21.12.50
 <net-libs/libktorrent-21.12.50
+<net-misc/kio-zeroconf-21.12.50
 <net-p2p/ktorrent-21.12.50
 <dev-libs/kopeninghours-21.12.50
 <dev-libs/kosmindoormap-21.12.50
