@@ -22,6 +22,7 @@ SLOT="5"
 DEPEND="
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtpositioning-${QTMIN}:5
+	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
