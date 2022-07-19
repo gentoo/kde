@@ -4,15 +4,14 @@
 EAPI=8
 
 ECM_TEST="false"
-KFMIN=5.88.0
+KFMIN=5.90.0
 QTMIN=5.15.5
 inherit ecm plasma-mobile.kde.org
 
-DESCRIPTION="Library for retrieval of weather information including forecasts and alerts"
+DESCRIPTION="Weather forecast application for Plasma with flat and dynamic/animated views"
 HOMEPAGE="https://apps.kde.org/kweather/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${KDE_ORG_CATEGORY}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -20,7 +19,7 @@ LICENSE="GPL-2+"
 SLOT="5"
 
 DEPEND="
-	dev-libs/kweathercore
+	>=dev-libs/kweathercore-0.6
 	>=dev-qt/qtcharts-${QTMIN}:5[qml]
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -30,6 +29,7 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
