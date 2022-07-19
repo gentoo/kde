@@ -3,9 +3,8 @@
 # Requires:
 # app-portage/portage-utils
 # app-portage/gentoolkit-dev
-# app-portage/mgorny-dev-scripts
-# app-portage/repoman
 # dev-util/pkgcheck
+# dev-util/pkgdev
 # sys-apps/coreutils
 # Optional:
 # dev-vcs/git
@@ -46,7 +45,7 @@ bump_packages_from_set() {
 			sed -e "/^KFMIN/s/=.*/=${KFMIN}/" -i ${destination}
 		fi
 
-		repoman manifest
+		pkgdev manifest
 
 		popd > /dev/null
 	done
@@ -89,7 +88,7 @@ commit_packages() {
 		pushd "${TARGET_REPO}/${cp}" > /dev/null
 
 		git add .
-		pkgcommit -sS . -m "${commitmsg}"
+		pkgdev commit . -m "${commitmsg}"
 
 		popd > /dev/null
 	done

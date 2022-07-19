@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # Requires:
-# app-portage/repoman
+# dev-util/pkgdev
 # Optional:
 # dev-vcs/git
-# app-portage/mgorny-dev-scripts
 # dev-util/pkgcheck
 
 . $(dirname "$0")/lib.sh
@@ -50,16 +49,16 @@ for package in ${packages} ; do
 	rm -f ${pn}-${VERSION}.ebuild
 	rm -f ${pn}-${VERSION}-r*.ebuild
 
-	repoman manifest
+	pkgdev manifest
 	popd > /dev/null
 done
 
-if [[ -d "${TARGET_REPO}/.git" ]] && hash git 2>/dev/null && hash pkgcommit 2>/dev/null; then
+if [[ -d "${TARGET_REPO}/.git" ]] && hash git 2>/dev/null && hash pkgdev 2>/dev/null; then
 	for cp in ${packages} ; do
 		pushd "${TARGET_REPO}/${cp}" > /dev/null
 
 		git add .
-		pkgcommit -sS . -m "drop ${VERSION}*"
+		pkgdev commit .
 
 		popd > /dev/null
 	done

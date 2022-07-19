@@ -3,7 +3,7 @@
 # Requires:
 # app-portage/portage-utils
 # app-portage/gentoolkit-dev
-# app-portage/repoman
+# dev-util/pkgdev
 # Optional:
 # dev-vcs/git
 # app-portage/mgorny-dev-scripts
@@ -80,7 +80,7 @@ for cp in ${packages} ; do
 		ekeyword ~all ${destination} > /dev/null
 	fi
 
-	repoman manifest
+	pkgdev manifest
 
 	popd > /dev/null
 done
