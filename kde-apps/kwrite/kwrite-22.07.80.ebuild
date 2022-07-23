@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/kwrite/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="activities"
+IUSE="activities telemetry"
 
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -33,10 +33,13 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
+	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 "
+
+PATCHES=( "${FILESDIR}/${KDE_ORG_NAME}-22.07.80-split-build-from-source.patch" )
 
 src_prepare() {
 	ecm_src_prepare
@@ -49,9 +52,11 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package activities KF5Activities)
+		-DBUILD_SPLIT_FROM_SOURCE=ON
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
+		$(cmake_use_find_package activities KF5Activities)
+		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 	use handbook && mycmakeargs+=( -DBUILD_katepart=FALSE )
 
