@@ -61,6 +61,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-22.07.80-split-build-from-source.patch" )
+
 src_prepare() {
 	ecm_src_prepare
 
@@ -73,6 +75,8 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_SPLIT_FROM_SOURCE=ON
+		-DBUILD_kwrite=FALSE
 		$(cmake_use_find_package activities KF5Activities)
 		-DBUILD_filebrowser=$(usex filebrowser)
 		-DBUILD_lspclient=$(usex lspclient)
@@ -80,7 +84,6 @@ src_configure() {
 		-DBUILD_project=$(usex projects)
 		-DBUILD_snippets=$(usex snippets)
 		-DBUILD_katesql=$(usex sql)
-		-DBUILD_kwrite=FALSE
 		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 

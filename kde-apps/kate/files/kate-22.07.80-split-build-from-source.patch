@@ -1,0 +1,75 @@
+From 9062475ec3ef15ff9355cbbdc581a59653589534 Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Sat, 23 Jul 2022 12:09:28 +0200
+Subject: [PATCH 1/2] lib is not optional, so don't pretend it is
+
+Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
+---
+ apps/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/apps/CMakeLists.txt b/apps/CMakeLists.txt
+index 04b048482..669f10a35 100644
+--- a/apps/CMakeLists.txt
++++ b/apps/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ # kateprivate shared library used by Kate & KWrite (and addons)
+-ecm_optional_add_subdirectory(lib)
++add_subdirectory(lib)
+ 
+ # the Kate application
+ ecm_optional_add_subdirectory(kate)
+-- 
+2.35.1
+
+
+From def5d43a015779e26b6e438e1b2f38afb7bd8b27 Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Sat, 23 Jul 2022 12:16:26 +0200
+Subject: [PATCH 2/2] Add option to -DBUILD_SPLIT_FROM_SOURCE
+
+This will enable source-based distributions like Gentoo to keep split
+kate/kwrite packaging not conflicting with one another by not
+requiring to install a duplicate kateprivate lib.
+
+Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
+---
+ CMakeLists.txt          | 5 +++++
+ apps/lib/CMakeLists.txt | 6 ++++--
+ 2 files changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e7fff38db..1ec401c55 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -35,6 +35,11 @@ include(ECMDeprecationSettings)
+ 
+ include(FeatureSummary)
+ 
++option(BUILD_SPLIT_FROM_SOURCE "This will build kateprivate as a static library" OFF)
++set(KATEPRIVATE_LIB_MODE "SHARED")
++if(BUILD_SPLIT_FROM_SOURCE)
++    set(KATEPRIVATE_LIB_MODE "STATIC")
++endif()
+ 
+ ecm_set_disabled_deprecation_versions(
+     QT 5.15
+diff --git a/apps/lib/CMakeLists.txt b/apps/lib/CMakeLists.txt
+index a883cf5c5..04dcb340c 100644
+--- a/apps/lib/CMakeLists.txt
++++ b/apps/lib/CMakeLists.txt
+@@ -1,7 +1,9 @@
+ # Kate shared library, used by Kate/KWrite and the addons
+-add_library(kateprivate SHARED "")
++add_library(kateprivate ${KATEPRIVATE_LIB_MODE} "")
+ set_target_properties(kateprivate PROPERTIES VERSION ${RELEASE_SERVICE_VERSION})
+-install(TARGETS kateprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
++if(NOT BUILD_SPLIT_FROM_SOURCE)
++  install(TARGETS kateprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
++endif()
+ 
+ # ensure right translations domain, we use one kate.po(t) for lib + apps
+ target_compile_definitions(kateprivate PRIVATE TRANSLATION_DOMAIN="kate")
+-- 
+2.35.1
+
