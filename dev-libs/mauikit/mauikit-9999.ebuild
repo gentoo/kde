@@ -17,6 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-libs/mauiman-${KFMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
