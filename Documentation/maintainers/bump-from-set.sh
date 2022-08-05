@@ -89,7 +89,7 @@ if [[ -d "${PORTDIR}/.git" ]] && hash git 2>/dev/null && hash pkgdev 2>/dev/null
 		pushd "${PORTDIR}/${cp}" > /dev/null
 
 		git add .
-		pkgdev commit . -m "${DESTINATIONVERSION} version bump"
+		pkgdev commit . -m "${DESTINATIONVERSION} version bump" -s false
 
 		popd > /dev/null
 	done
