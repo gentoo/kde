@@ -1,0 +1,28 @@
+From a189a9c9ce1db42bd0ee1e0eda146d2acdf8bf93 Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Fri, 5 Aug 2022 10:37:09 +0200
+Subject: [PATCH] Drop unused dependencies
+
+See also: https://invent.kde.org/office/kmymoney/-/issues/63
+
+Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f5dd8e6f2..5c73b872a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -111,7 +111,7 @@ if (PkgConfig_FOUND)
+ endif()
+ 
+ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core DBus Widgets Svg Xml Test PrintSupport)
+-find_package(Qt5 ${QT_MIN_VERSION} OPTIONAL_COMPONENTS Sql Concurrent QuickWidgets WebEngineWidgets WebKitWidgets)
++find_package(Qt5 ${QT_MIN_VERSION} OPTIONAL_COMPONENTS Sql Concurrent QuickWidgets)
+ 
+ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Archive CoreAddons Config ConfigWidgets I18n Completion KCMUtils ItemModels ItemViews Service Wallet XmlGui TextWidgets Notifications KIO)
+ find_package(KF5 ${KF5_MIN_VERSION} OPTIONAL_COMPONENTS DocTools Holidays Contacts Activities)
+-- 
+2.35.1
+

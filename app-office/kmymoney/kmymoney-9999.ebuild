@@ -48,7 +48,6 @@ RDEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
@@ -79,6 +78,8 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
+
 pkg_setup() {
 	ecm_pkg_setup
 
@@ -91,7 +92,7 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_OFXIMPORTER=ON
-		-DENABLE_WEBOOB=OFF # ported to Py3; not yet re-added in Gentoo
+		-DENABLE_WOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package addressbook KF5Akonadi)

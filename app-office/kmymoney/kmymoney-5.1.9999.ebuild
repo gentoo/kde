@@ -94,7 +94,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_OFXIMPORTER=ON
 		-DENABLE_WEBENGINE=ON
-		-DENABLE_WEBOOB=OFF # ported to Py3; not yet re-added in Gentoo
+		-DENABLE_WOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package addressbook KF5Akonadi)
