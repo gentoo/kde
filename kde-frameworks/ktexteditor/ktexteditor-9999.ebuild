@@ -36,7 +36,6 @@ DEPEND="
 	=kde-frameworks/kitemviews-${PVCUT}*:5
 	=kde-frameworks/kjobwidgets-${PVCUT}*:5
 	=kde-frameworks/kparts-${PVCUT}*:5
-	=kde-frameworks/ktextwidgets-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/sonnet-${PVCUT}*:5
