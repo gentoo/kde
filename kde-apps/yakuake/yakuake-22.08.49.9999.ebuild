@@ -48,7 +48,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-22.04.3-without_x11.patch" )
+PATCHES=( "${FILESDIR}/${PN}-22.07.90-without_x11.patch" )
 
 src_configure() {
 	local mycmakeargs=(
