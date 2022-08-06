@@ -11,7 +11,7 @@ DESCRIPTION="Framework for reading and writing configuration"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="dbus nls qml"
+IUSE="dbus nls"
 
 # bug 560086
 RESTRICT="test"
@@ -20,21 +20,17 @@ RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	dbus? ( >=dev-qt/qtdbus-${QTMIN}:5 )
-	qml? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 "
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
+BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
 
 DOCS=( DESIGN docs/{DESIGN.kconfig,options.md} )
 
 src_configure() {
 	local mycmakeargs=(
 		-DKCONFIG_USE_DBUS=$(usex dbus)
-		$(cmake_use_find_package qml Qt5Qml)
 	)
 	ecm_src_configure
 }
