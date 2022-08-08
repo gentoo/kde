@@ -40,7 +40,7 @@ RDEPEND="
 	=kde-frameworks/ktextwidgets-${PVCUT}*:5
 	=kde-frameworks/kwallet-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
-	=kde-frameworks/kwindowsystem-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5[X?]
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/sonnet-${PVCUT}*:5
 	media-libs/giflib:=
@@ -62,9 +62,11 @@ BDEPEND="
 	dev-util/gperf
 "
 
+PATCHES=( "${FILESDIR}/${PN}-5.96.0-with_x11.patch" )
+
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package X X11)
+		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
