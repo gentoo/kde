@@ -15,9 +15,6 @@ LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="+caps +man X"
 
-BDEPEND="
-	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
-"
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -28,7 +25,7 @@ RDEPEND="
 	=kde-frameworks/ki18n-${PVCUT}*:5
 	=kde-frameworks/kio-${PVCUT}*:5
 	=kde-frameworks/kservice-${PVCUT}*:5
-	=kde-frameworks/kwindowsystem-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5[X?]
 	caps? ( sys-libs/libcap )
 	X? (
 		x11-libs/libX11
@@ -38,13 +35,15 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 "
+BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
+
+PATCHES=( "${FILESDIR}/${PN}-5.96.0-with_x11.patch" )
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package caps Libcap)
 		$(cmake_use_find_package man KF5DocTools)
-		$(cmake_use_find_package X X11)
-		$(cmake_use_find_package X XCB)
+		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
