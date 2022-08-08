@@ -47,7 +47,7 @@ RDEPEND="
 	=kde-frameworks/kservice-${PVCUT}*:5
 	=kde-frameworks/ktextwidgets-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
-	=kde-frameworks/kwindowsystem-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5[X?]
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
 	acl? (
@@ -62,13 +62,10 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	test? ( sys-libs/zlib )
-	X? (
-		x11-base/xorg-proto
-		x11-libs/libX11
-		x11-libs/libXrender
-	)
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
+
+PATCHES=( "${FILESDIR}/${PN}-5.96.0-with_x11.patch" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -77,7 +74,7 @@ src_configure() {
 		$(cmake_use_find_package handbook KF5DocTools)
 		$(cmake_use_find_package kerberos GSSAPI)
 		$(cmake_use_find_package kwallet KF5Wallet)
-		$(cmake_use_find_package X X11)
+		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
