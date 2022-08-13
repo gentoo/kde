@@ -45,5 +45,3 @@ RDEPEND="${COMMON_DEPEND}
 	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]
 "
 BDEPEND="virtual/pkgconfig"
-
-PATCHES=( "${FILESDIR}/${PN}-22.04.3-tests-optional.patch" )
