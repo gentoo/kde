@@ -43,10 +43,10 @@ COMMON_DEPEND="
 	)
 	python? (
 		${PYTHON_DEPS}
-		$(python_gen_cond_dep '
-			dev-python/pyside2[designer,gui,webengine,widgets,${PYTHON_USEDEP}]
-			dev-python/shiboken2[${PYTHON_USEDEP}]
-		')
+		$(python_gen_cond_dep "
+			>=dev-python/pyside2-${QTMIN}[designer,gui,webengine,widgets,\${PYTHON_USEDEP}] \
+			>=dev-python/shiboken2-${QTMIN}[\${PYTHON_USEDEP}]
+		")
 	)
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
