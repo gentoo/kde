@@ -20,7 +20,7 @@ RDEPEND="
 	>=kde-apps/kwrite-${PV}:${SLOT}
 	handbook? ( >=kde-apps/khelpcenter-${PV}:${SLOT} )
 	webengine? ( || (
-		www-client/falkon
+		>=www-client/falkon-${PV}
 		>=kde-apps/konqueror-${PV}:${SLOT}
 	) )
 "
