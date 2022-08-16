@@ -11,7 +11,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Templated convergent controls and multiplatform utilities for Maui applications"
 
-LICENSE="GPL-3"
+LICENSE="LGPL-3"
 SLOT="5"
 KEYWORDS=""
 IUSE=""
