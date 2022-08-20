@@ -7,7 +7,7 @@ KDE_ORG_NAME="kate"
 ECM_HANDBOOK="optional"
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm gear.kde.org
+inherit ecm flag-o-matic gear.kde.org
 
 DESCRIPTION="Simple text editor based on KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/kwrite/"
@@ -15,34 +15,24 @@ HOMEPAGE="https://apps.kde.org/kwrite/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="activities telemetry"
+IUSE=""
 
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	~kde-apps/kate-lib-${PV}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
-	telemetry? ( dev-libs/kuserfeedback:5 )
 "
-DEPEND="${RDEPEND}
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-"
-
-PATCHES=( "${FILESDIR}/${KDE_ORG_NAME}-22.07.80-split-build-from-source.patch" )
+DEPEND="${RDEPEND}"
 
 src_prepare() {
 	ecm_src_prepare
+
+	# these tests are run in dev-libs/libkate
+	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
+
 	# delete colliding kate translations
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
 		find po -type f -name "*po" -and -not -name "kwrite*" -delete || die
@@ -52,13 +42,20 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_SPLIT_FROM_SOURCE=ON
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
-		$(cmake_use_find_package activities KF5Activities)
-		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 	use handbook && mycmakeargs+=( -DBUILD_katepart=FALSE )
 
+	# provided by dev-libs/libkate
+	append-libs -l/usr/$(get_libdir)/libkateprivate.so.${PV}
+
 	ecm_src_configure
+}
+
+src_install() {
+	ecm_src_install
+
+	# provided by dev-libs/libkate
+	rm -v "${D}"/usr/$(get_libdir)/libkateprivate.so.${PV} || die
 }
