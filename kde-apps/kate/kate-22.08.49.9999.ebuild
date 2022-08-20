@@ -4,11 +4,10 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-ECM_TEST="true"
 KFMIN=5.96.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm gear.kde.org optfeature
+inherit ecm flag-o-matic gear.kde.org
 
 DESCRIPTION="Multi-document editor with network transparency, Plasma integration and more"
 HOMEPAGE="https://kate-editor.org/ https://apps.kde.org/kate/"
@@ -16,93 +15,51 @@ HOMEPAGE="https://kate-editor.org/ https://apps.kde.org/kate/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="activities +filebrowser lspclient +projects plasma +snippets sql telemetry"
+IUSE=""
 
-# only addons/externaltools depends on kiconthemes, too small for USE
 DEPEND="
-	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	~kde-apps/kate-lib-${PV}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
-	filebrowser? ( >=kde-frameworks/kbookmarks-${KFMIN}:5 )
-	lspclient? ( >=kde-frameworks/kitemmodels-${KFMIN}:5 )
-	plasma? ( >=kde-frameworks/plasma-${KFMIN}:5 )
-	projects? (
-		>=kde-frameworks/knewstuff-${KFMIN}:5
-		>=kde-frameworks/threadweaver-${KFMIN}:5
-	)
-	snippets? ( >=kde-frameworks/knewstuff-${KFMIN}:5 )
-	sql? (
-		>=dev-qt/qtsql-${QTMIN}:5
-		>=kde-frameworks/kwallet-${KFMIN}:5
-	)
-	telemetry? ( dev-libs/kuserfeedback:5 )
 "
-RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-22.07.80-split-build-from-source.patch" )
+RDEPEND="${DEPEND}
+	~kde-apps/kate-addons-${PV}:5
+"
 
 src_prepare() {
 	ecm_src_prepare
 
+	# these tests are run in dev-libs/libkate
+	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
+
 	# delete colliding kwrite translations
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		find po -type f -name "*po" -and -name "kwrite*" -delete || die
+		rm -f po/*/*.po || die # installed by dev-libs/libkate
 		rm -rf po/*/docs/kwrite || die
 	fi
 }
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_SPLIT_FROM_SOURCE=ON
+		-DBUILD_addons=FALSE
 		-DBUILD_kwrite=FALSE
-		$(cmake_use_find_package activities KF5Activities)
-		-DBUILD_filebrowser=$(usex filebrowser)
-		-DBUILD_lspclient=$(usex lspclient)
-		-DBUILD_sessionapplet=$(usex plasma)
-		-DBUILD_project=$(usex projects)
-		-DBUILD_snippets=$(usex snippets)
-		-DBUILD_katesql=$(usex sql)
-		$(cmake_use_find_package telemetry KUserFeedback)
 	)
+
+	# provided by dev-libs/libkate
+	append-libs -l/usr/$(get_libdir)/libkateprivate.so.${PV}
 
 	ecm_src_configure
 }
 
-src_test() {
-	# tests hang
-	local myctestargs=(
-		-E "(session_manager_test|sessions_action_test)"
-	)
+src_install() {
+	ecm_src_install
 
-	ecm_src_test
-}
-
-pkg_postinst() {
-	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "Markdown text previews" kde-misc/markdownpart:${SLOT} kde-misc/kmarkdownwebview:${SLOT}
-		optfeature "DOT graph file previews" media-gfx/kgraphviewer
-	fi
-	ecm_pkg_postinst
+	# provided by dev-libs/libkate
+	rm -v "${D}"/usr/$(get_libdir)/libkateprivate.so.${PV} || die
 }
