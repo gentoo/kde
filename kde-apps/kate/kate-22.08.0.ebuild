@@ -52,7 +52,7 @@ src_configure() {
 	)
 
 	# provided by dev-libs/libkate
-	append-libs -l/usr/$(get_libdir)/libkateprivate.so.${PV}
+	append-libs -l"${ESYSROOT}"/usr/$(get_libdir)/libkateprivate.so.${PV}
 
 	ecm_src_configure
 }
@@ -61,5 +61,5 @@ src_install() {
 	ecm_src_install
 
 	# provided by dev-libs/libkate
-	rm -v "${D}"/usr/$(get_libdir)/libkateprivate.so.${PV} || die
+	rm -v "${ED}"/usr/$(get_libdir)/libkateprivate.so.${PV} || die
 }
