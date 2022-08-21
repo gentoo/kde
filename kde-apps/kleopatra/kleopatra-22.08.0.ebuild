@@ -57,6 +57,10 @@ RDEPEND="${DEPEND}
 	app-crypt/paperkey
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-gpgme-1.18.0.patch
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package pim KF5IdentityManagement)
