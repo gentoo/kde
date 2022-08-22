@@ -30,7 +30,7 @@ DEPEND="${RDEPEND}"
 src_prepare() {
 	ecm_src_prepare
 
-	# these tests are run in dev-libs/libkate
+	# these tests are run in kde-apps/kate-lib
 	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
 
 	# delete colliding kate translations
@@ -47,8 +47,8 @@ src_configure() {
 	)
 	use handbook && mycmakeargs+=( -DBUILD_katepart=FALSE )
 
-	# provided by dev-libs/libkate
-	append-libs -l"${ESYSROOT}"/usr/$(get_libdir)/libkateprivate.so.${PV}
+	# provided by kde-apps/kate-lib
+	append-libs -lkateprivate
 
 	ecm_src_configure
 }
@@ -56,6 +56,6 @@ src_configure() {
 src_install() {
 	ecm_src_install
 
-	# provided by dev-libs/libkate
-	rm -v "${ED}"/usr/$(get_libdir)/libkateprivate.so.${PV} || die
+	# provided by kde-apps/kate-lib
+	rm -v "${ED}"/usr/$(get_libdir)/libkateprivate.so.* || die
 }
