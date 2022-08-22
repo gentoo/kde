@@ -67,7 +67,7 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	ecm_src_prepare
 
-	# these tests are run in dev-libs/libkate
+	# these tests are run in kde-apps/kate-lib
 	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
 
 	# delete colliding libkate/kwrite translations
@@ -84,8 +84,8 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5DocTools=ON # docs in kate/kwrite
 	)
 
-	# provided by dev-libs/libkate
-	append-libs -l"${ESYSROOT}"/usr/$(get_libdir)/libkateprivate.so.${PV}
+	# provided by kde-apps/kate-lib
+	append-libs -lkateprivate
 
 	ecm_src_configure
 }
@@ -93,8 +93,8 @@ src_configure() {
 src_install() {
 	ecm_src_install
 
-	# provided by dev-libs/libkate
-	rm -v "${ED}"/usr/$(get_libdir)/libkateprivate.so.${PV} || die
+	# provided by kde-apps/kate-lib
+	rm -v "${ED}"/usr/$(get_libdir)/libkateprivate.so.* || die
 }
 
 pkg_postinst() {
