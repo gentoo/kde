@@ -15,7 +15,7 @@ DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
 SLOT="5"
 KEYWORDS=""
-IUSE="share webengine"
+IUSE="networkmanager share webengine"
 
 RESTRICT="test" # bug 727846
 
@@ -43,6 +43,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
+	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
@@ -54,6 +55,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package networkmanager KF5NetworkManagerQt)
 		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package webengine Qt5WebEngine)
 	)
