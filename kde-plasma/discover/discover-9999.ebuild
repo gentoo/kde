@@ -15,7 +15,7 @@ HOMEPAGE="https://userbase.kde.org/Discover"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+firmware flatpak telemetry"
+IUSE="+firmware flatpak share telemetry"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
@@ -47,11 +47,11 @@ DEPEND="
 		>=dev-libs/appstream-0.14.4:=
 		sys-apps/flatpak
 	)
+	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 
 PATCHES=( "${FILESDIR}/${PN}-5.25.1-tests-optional.patch" )
@@ -74,6 +74,7 @@ src_configure() {
 		-DBUILD_FlatpakBackend=$(usex flatpak)
 		$(cmake_use_find_package flatpak AppStreamQt)
 		-DBUILD_FwupdBackend=$(usex firmware)
+		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 
