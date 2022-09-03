@@ -44,7 +44,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	firmware? ( >=sys-apps/fwupd-1.5.0 )
 	flatpak? (
-		>=dev-libs/appstream-0.14.4:=
+		>=dev-libs/appstream-0.15.3:=
 		sys-apps/flatpak
 	)
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
