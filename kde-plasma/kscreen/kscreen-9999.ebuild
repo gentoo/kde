@@ -38,6 +38,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-plasma/layer-shell-qt-${PVCUT}:5
 	>=kde-plasma/libkscreen-${PVCUT}:5
 	x11-libs/libX11
 "
