@@ -31,7 +31,6 @@ RDEPEND="
 	x11-libs/libXau
 "
 DEPEND="${RDEPEND}
-	>=kde-frameworks/kinit-${KFMIN}:5
 	>=kde-plasma/kwin-${PVCUT}:5
 "
 
