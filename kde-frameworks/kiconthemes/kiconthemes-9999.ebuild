@@ -26,7 +26,6 @@ RDEPEND="
 	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
-	=kde-frameworks/kitemviews-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
 DEPEND="${RDEPEND}
