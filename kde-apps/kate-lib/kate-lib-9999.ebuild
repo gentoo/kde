@@ -51,7 +51,7 @@ src_prepare() {
 
 	# delete colliding kate/kwrite translations
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		find po -type f -name "*po" -and -name "kwrite*" -delete || die
+		find po -type f -name "*po" -and ! -name 'kate.po' -delete || die
 		rm -rf po/*/docs || die
 	fi
 }
