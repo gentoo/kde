@@ -28,7 +28,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	media-sound/cdparanoia
-	flac? ( >=media-libs/flac-1.1.2 )
+	flac? ( >=media-libs/flac-1.1.2:= )
 	vorbis? (
 		media-libs/libogg
 		media-libs/libvorbis
