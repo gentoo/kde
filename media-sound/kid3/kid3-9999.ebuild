@@ -29,13 +29,13 @@ RDEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	sys-libs/readline:0=
+	sys-libs/readline:=
 	acoustid? (
-		media-libs/chromaprint
-		media-video/ffmpeg
+		media-libs/chromaprint:=
+		media-video/ffmpeg:=
 	)
 	flac? (
-		media-libs/flac[cxx]
+		media-libs/flac:=[cxx]
 		media-libs/libvorbis
 	)
 	kde? (
