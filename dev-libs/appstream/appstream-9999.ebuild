@@ -30,7 +30,7 @@ RDEPEND="
 	dev-libs/libxml2:2
 	dev-libs/libyaml
 	dev-libs/snowball-stemmer
-	>=net-libs/libsoup-2.56:2.4
+	net-misc/curl
 	introspection? ( >=dev-libs/gobject-introspection-1.56:= )
 	qt5? ( dev-qt/qtcore:5 )
 "
@@ -60,6 +60,7 @@ src_configure() {
 	local emesonargs=(
 		-Dapidocs=false
 		-Ddocs=false
+		-Dcompose=false
 		-Dmaintainer=false
 		-Dstemming=true
 		-Dvapi=false
