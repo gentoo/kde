@@ -26,7 +26,8 @@ IUSE="apt +introspection qt5 test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	dev-libs/glib:2
+	dev-db/lmdb:=
+	>=dev-libs/glib-2.54:2
 	dev-libs/libxml2:2
 	dev-libs/libyaml
 	dev-libs/snowball-stemmer
