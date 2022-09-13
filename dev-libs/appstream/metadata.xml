@@ -8,4 +8,7 @@
 	<use>
 		<flag name="apt">Enables Debians APT support</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">ximion/appstream</remote-id>
+	</upstream>
 </pkgmetadata>
