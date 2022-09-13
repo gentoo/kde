@@ -25,19 +25,19 @@ IUSE="apt doc +introspection qt5 test"
 
 RESTRICT="!test? ( test )"
 
-DEPEND="
+RDEPEND="
 	dev-db/lmdb:=
-	>=dev-libs/glib-2.54:2
+	>=dev-libs/glib-2.58:2
 	dev-libs/libxml2:2
 	dev-libs/libyaml
 	dev-libs/snowball-stemmer
+	>=net-libs/libsoup-2.56:2.4
 	introspection? ( >=dev-libs/gobject-introspection-1.56:= )
-	qt5? (
-		dev-qt/qtcore:5
-		test? ( dev-qt/qttest:5 )
-	)
+	qt5? ( dev-qt/qtcore:5 )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( qt5? ( dev-qt/qttest:5 ) )
+"
 BDEPEND="
 	dev-libs/appstream-glib
 	dev-libs/libxslt
