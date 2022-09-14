@@ -37,6 +37,7 @@ PATCHES=(
 
 src_configure() {
 	local mycmakeargs=(
+		-DGRANTLEE_BUILD_WITH_QT6=OFF
 		-DBUILD_TESTS=$(usex test)
 	)
 
