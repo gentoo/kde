@@ -15,10 +15,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE="debug doc test"
 
-BDEPEND="
-	doc? ( app-doc/doxygen[dot] )
-	test? ( dev-qt/linguist-tools:5 )
-"
+RESTRICT="!test? ( test )"
+
 RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
@@ -27,12 +25,14 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
 "
-
-RESTRICT="!test? ( test )"
+BDEPEND="
+	doc? ( app-doc/doxygen[dot] )
+	test? ( dev-qt/linguist-tools:5 )
+"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"
-	"${FILESDIR}/${P}-slot.patch"
+	"${FILESDIR}/${PN}-5.3.0-slot.patch" # TODO: Qt5 specific
 )
 
 src_configure() {
