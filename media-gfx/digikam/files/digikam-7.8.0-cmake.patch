@@ -1,14 +1,15 @@
-From 370308fb8381b55e7ebfcdd77f1361b49a288f88 Mon Sep 17 00:00:00 2001
+From 618e3f3ba195a3b50812d1184ebf90555d659055 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 Date: Sun, 17 Feb 2019 23:51:03 +0100
 Subject: [PATCH] Un-break optional Qt5/KF5 detection
 
+And if we enable an option, make the necessary libraries REQUIRED.
 ---
- core/CMakeLists.txt | 58 ++++++++++++++++-----------------------------
- 1 file changed, 20 insertions(+), 38 deletions(-)
+ core/CMakeLists.txt | 50 +++++++++++++--------------------------------
+ 1 file changed, 14 insertions(+), 36 deletions(-)
 
 diff --git a/core/CMakeLists.txt b/core/CMakeLists.txt
-index 16bba83335..b8cdc59baa 100644
+index de599ee881..8aef35e062 100644
 --- a/core/CMakeLists.txt
 +++ b/core/CMakeLists.txt
 @@ -65,17 +65,14 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED
@@ -42,42 +43,47 @@ index 16bba83335..b8cdc59baa 100644
 -                 NO_MODULE COMPONENTS
 -                 Test
 -    )
--
++    find_package(Qt5Test ${QT_MIN_VERSION} NO_MODULE)
+ 
 -    find_package(Qt5 ${QT_MIN_VERSION}
 -                 QUIET
 -                 OPTIONAL_COMPONENTS
 -                 Qml WebView  # Optional, for 'sialis' O2 library test tool.
 -    )
-+    find_package(Qt5Test ${QT_MIN_VERSION} NO_MODULE)
-+    
 +    # Optional, for 'sialis' O2 library test tool.
 +    find_package(Qt5Qml ${QT_MIN_VERSION} QUIET NO_MODULE)
 +    find_package(Qt5WebView ${QT_MIN_VERSION} QUIET NO_MODULE)
  endif()
  
  find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
-@@ -113,38 +105,28 @@ find_package(KF5 ${KF5_MIN_VERSION} QUIET
-              OPTIONAL_COMPONENTS
-              KIO                    # For Desktop integration (Widgets only).
-              IconThemes             # For Desktop integration.
--             FileMetaData           # For KDE file indexer support.
-              ThreadWeaver           # For Panorama tool.
-              NotifyConfig           # KDE desktop application notify configuration.
-              Notifications          # KDE desktop notifications integration.
- )
+@@ -121,7 +113,7 @@ find_package(KF5 ${KF5_MIN_VERSION} QUIET
+ if(ENABLE_KFILEMETADATASUPPORT)
  
--find_package(KF5 ${AKONADI_MIN_VERSION} QUIET
--             OPTIONAL_COMPONENTS
--             AkonadiContact         # For KDE Mail Contacts support.
--             Contacts               # API for contacts/address book data.
--)
-+find_package(KF5Sane ${KSANE_MIN_VERSION} QUIET) # For digital scanner support.
+     find_package(KF5 ${KF5_MIN_VERSION}
+-                 QUIET
++                 REQUIRED
+                  OPTIONAL_COMPONENTS
+                  FileMetaData           # For Plasma destop file indexer support.
+     )
+@@ -130,7 +122,7 @@ endif()
+ 
+ if(ENABLE_AKONADICONTACTSUPPORT)
+ 
+-    find_package(KF5 ${AKONADI_MIN_VERSION} QUIET
++    find_package(KF5 ${AKONADI_MIN_VERSION} REQUIRED
+                  OPTIONAL_COMPONENTS
+                  AkonadiContact         # For KDE Mail Contacts support.
+                  Contacts               # API for contacts/address book data.
+@@ -138,28 +130,14 @@ if(ENABLE_AKONADICONTACTSUPPORT)
+ 
+ endif()
  
 -find_package(KF5 ${KSANE_MIN_VERSION} QUIET
 -             OPTIONAL_COMPONENTS
 -             Sane                   # For digital scanner support.
 -)
--
++find_package(KF5Sane ${KSANE_MIN_VERSION} QUIET) # For digital scanner support.
+ 
 -find_package(KF5 ${CALENDAR_MIN_VERSION} QUIET
 -             OPTIONAL_COMPONENTS
 -             CalendarCore           # For Calendar tool.
@@ -90,21 +96,16 @@ index 16bba83335..b8cdc59baa 100644
  
 -if(ENABLE_AKONADICONTACTSUPPORT AND (NOT KF5AkonadiContact_FOUND OR NOT KF5Contacts_FOUND))
 -    set(ENABLE_AKONADICONTACTSUPPORT OFF)
-+if(ENABLE_AKONADICONTACTSUPPORT)
-+    find_package(KF5 ${AKONADI_MIN_VERSION} REQUIRED
-+                AkonadiContact         # For KDE Mail Contacts support.
-+                Contacts               # API for contacts/address book data.
-+    )
- endif()
- 
+-endif()
+-
 -if(ENABLE_KFILEMETADATASUPPORT AND NOT KF5FileMetaData_FOUND)
 -    set(ENABLE_KFILEMETADATASUPPORT OFF)
-+if(ENABLE_KFILEMETADATASUPPORT)
-+    find_package(KF5FileMetaData ${KF5_MIN_VERSION} REQUIRED) # For KDE file indexer support.
- endif()
- 
+-endif()
+-
  # Check if KIO have been compiled with KIOWidgets. digiKam only needs this one.
-@@ -275,7 +257,7 @@ endif()
+ if(KF5KIO_FOUND)
+     get_target_property(KIOWidgets_INCLUDE_DIRS KF5::KIOWidgets
+@@ -296,7 +274,7 @@ endif()
  find_package(X11)
  
  if(X11_FOUND)
@@ -114,5 +115,5 @@ index 16bba83335..b8cdc59baa 100644
  else()
      set(HAVE_X11 FALSE)
 -- 
-2.34.1
+2.37.3
 

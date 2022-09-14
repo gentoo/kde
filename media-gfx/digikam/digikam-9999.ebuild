@@ -66,7 +66,10 @@ COMMON_DEPEND="
 	)
 	calendar? ( >=kde-frameworks/kcalendarcore-${KFMIN}:5 )
 	gphoto2? ( media-libs/libgphoto2:= )
-	heif? ( media-libs/x265:= )
+	heif? (
+		media-libs/libheif:=
+		media-libs/x265:=
+	)
 	imagemagick? ( media-gfx/imagemagick:= )
 	lensfun? ( media-libs/lensfun )
 	marble? (
@@ -106,7 +109,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-7.3.0-cmake.patch" )
+PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -128,7 +131,7 @@ src_configure() {
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
 		$(cmake_use_find_package calendar KF5CalendarCore)
 		$(cmake_use_find_package gphoto2 Gphoto2)
-		$(cmake_use_find_package heif X265)
+		$(cmake_use_find_package heif Libheif)
 		$(cmake_use_find_package imagemagick ImageMagick)
 		$(cmake_use_find_package lensfun LensFun)
 		$(cmake_use_find_package marble Marble)
