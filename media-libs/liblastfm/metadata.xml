@@ -5,6 +5,9 @@
 		<email>kde@gentoo.org</email>
 		<name>Gentoo KDE Project</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">lastfm/liblastfm</remote-id>
+	</upstream>
 	<use>
 		<flag name="fingerprint">Build the lastfm-fingerprint library</flag>
 	</use>
