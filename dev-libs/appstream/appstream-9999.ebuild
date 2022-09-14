@@ -11,7 +11,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	MY_PN="AppStream"
 	SRC_URI="https://www.freedesktop.org/software/appstream/releases/${MY_PN}-${PV}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 	S="${WORKDIR}/${MY_PN}-${PV}"
 fi
 
@@ -25,12 +25,12 @@ IUSE="apt doc +introspection qt5 test"
 RESTRICT="test" # bug 691962
 
 RDEPEND="
-	dev-db/lmdb:=
-	>=dev-libs/glib-2.58:2
+	>=dev-libs/glib-2.62:2
 	dev-libs/libxml2:2
+	>=dev-libs/libxmlb-0.3.6:=
 	dev-libs/libyaml
 	dev-libs/snowball-stemmer:=
-	net-misc/curl
+	>=net-misc/curl-7.62
 	introspection? ( >=dev-libs/gobject-introspection-1.56:= )
 	qt5? ( dev-qt/qtcore:5 )
 "
@@ -66,6 +66,7 @@ src_configure() {
 		-Ddocs=false
 		-Dcompose=false
 		-Dmaintainer=false
+		-Dstatic-analysis=false
 		-Dstemming=true
 		-Dvapi=false
 		-Dapt-support=$(usex apt true false)
