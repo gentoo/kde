@@ -21,6 +21,7 @@ KEYWORDS=""
 IUSE="emoji ibus +kaccounts scim screencast +semantic-desktop telemetry"
 
 COMMON_DEPEND="
+	dev-libs/wayland
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -29,6 +30,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
@@ -100,6 +102,7 @@ COMMON_DEPEND="
 	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 DEPEND="${COMMON_DEPEND}
+	>=dev-libs/wayland-protocols-1.25
 	dev-libs/boost
 	x11-base/xorg-proto
 "
@@ -107,6 +110,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/user-manager
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
