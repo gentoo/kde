@@ -4,26 +4,22 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=5.82.0
+KFMIN=5.92.0
 QTMIN=5.15.5
 inherit ecm kde.org
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Media player with digital TV support by KDE"
-HOMEPAGE="https://userbase.kde.org/Kaffeine"
+HOMEPAGE="https://apps.kde.org/kaffeine/ https://userbase.kde.org/Kaffeine"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.3 )"
 SLOT="5"
 IUSE="dvb"
 
-BDEPEND="
-	sys-devel/gettext
-	virtual/pkgconfig
-"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -47,6 +43,10 @@ DEPEND="
 	dvb? ( media-libs/libv4l[dvb] )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	sys-devel/gettext
+	virtual/pkgconfig
+"
 
 DOCS=( Changelog NOTES README.md )
 
