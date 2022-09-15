@@ -63,7 +63,7 @@ COMMON_DEPEND="
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libXi
-	x11-libs/libdrm
+	>=x11-libs/libdrm-2.4.108
 	>=x11-libs/libxcb-1.10
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-0.7.0
@@ -90,7 +90,7 @@ RDEPEND="${COMMON_DEPEND}
 	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
 "
 DEPEND="${COMMON_DEPEND}
-	dev-libs/plasma-wayland-protocols
+	>=dev-libs/plasma-wayland-protocols-1.8
 	>=dev-libs/wayland-protocols-1.25
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
