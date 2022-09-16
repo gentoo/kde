@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="true"
 KFMIN=9999
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Components relating to Flatpak pipewire use in Plasma"
 
