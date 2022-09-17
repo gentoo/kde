@@ -17,7 +17,7 @@ LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
 IUSE="appstream +calendar +fontconfig geolocation gps +policykit
-screencast +semantic-desktop telemetry"
+screencast +semantic-desktop telemetry +wallpaper-metadata"
 
 REQUIRED_USE="gps? ( geolocation )"
 RESTRICT="test"
@@ -118,6 +118,7 @@ COMMON_DEPEND="
 	)
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 	telemetry? ( dev-libs/kuserfeedback:5 )
+	wallpaper-metadata? ( kde-apps/libkexiv2:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.6.0
