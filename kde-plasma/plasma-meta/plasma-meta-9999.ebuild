@@ -9,10 +9,10 @@ HOMEPAGE="https://kde.org/plasma-desktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
-+desktop-portal discover +display-manager +elogind +firewall grub gtk +handbook
-+kwallet +legacy-systray +networkmanager plymouth pulseaudio +sddm sdk +smart
-systemd thunderbolt +wallpapers"
+IUSE="accessibility bigscreen bluetooth +browser-integration colord
++crash-handler crypt +desktop-portal discover +display-manager +elogind
++firewall grub gtk +handbook +kwallet +legacy-systray +networkmanager
+plymouth pulseaudio +sddm sdk +smart systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
