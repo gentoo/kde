@@ -107,6 +107,7 @@ DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 RDEPEND="${COMMON_DEPEND}
+	!<kde-plasma/kdeplasma-addons-5.25.50
 	!kde-plasma/user-manager
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
