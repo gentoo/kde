@@ -15,7 +15,7 @@ HOMEPAGE="https://userbase.kde.org/Discover"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+firmware flatpak share telemetry"
+IUSE="+firmware flatpak share telemetry webengine"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
@@ -50,6 +50,7 @@ DEPEND="
 	)
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	telemetry? ( dev-libs/kuserfeedback:5 )
+	webengine? ( >=dev-qt/qtwebview-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
@@ -77,6 +78,7 @@ src_configure() {
 		-DBUILD_FwupdBackend=$(usex firmware)
 		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package telemetry KUserFeedback)
+		$(cmake_use_find_package webengine Qt5WebView)
 	)
 
 	ecm_src_configure
