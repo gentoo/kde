@@ -90,7 +90,7 @@ RDEPEND="${COMMON_DEPEND}
 	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.8
+	>=dev-libs/plasma-wayland-protocols-1.9
 	>=dev-libs/wayland-protocols-1.25
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
