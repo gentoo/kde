@@ -15,7 +15,7 @@ HOMEPAGE="https://userbase.kde.org/Discover"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+firmware flatpak share telemetry webengine"
+IUSE="+firmware flatpak telemetry webengine"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
@@ -24,7 +24,6 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwebview-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/attica-${KFMIN}:5
@@ -43,12 +42,12 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/purpose-${KFMIN}:5
 	firmware? ( >=sys-apps/fwupd-1.5.0 )
 	flatpak? (
 		>=dev-libs/appstream-0.15.3:=
 		sys-apps/flatpak
 	)
-	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	telemetry? ( dev-libs/kuserfeedback:5 )
 	webengine? ( >=dev-qt/qtwebview-${QTMIN}:5 )
 "
@@ -76,7 +75,6 @@ src_configure() {
 		-DBUILD_FlatpakBackend=$(usex flatpak)
 		$(cmake_use_find_package flatpak AppStreamQt)
 		-DBUILD_FwupdBackend=$(usex firmware)
-		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package telemetry KUserFeedback)
 		$(cmake_use_find_package webengine Qt5WebView)
 	)
