@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="true"
 KFMIN=5.82.0
 QTMIN=5.15.5
-inherit ecm kde.org linux-info
+inherit ecm kde.org linux-info tmpfiles
 
 DESCRIPTION="FUSE interface for KIO"
 HOMEPAGE="https://feverfew.home.blog/2019/12/24/kiofuse-beta-4-9-0-released/"
@@ -38,4 +38,9 @@ pkg_setup() {
 	linux-info_pkg_setup
 
 	ecm_pkg_setup
+}
+
+pkg_postinst() {
+	tmpfiles_process "${PN}-tmpfiles.conf"
+	ecm_pkg_postinst
 }
