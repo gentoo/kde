@@ -12,7 +12,7 @@ HOMEPAGE="https://plasma-bigscreen.org/"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="5"
-IUSE="~amd64"
+KEYWORDS="~amd64"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
