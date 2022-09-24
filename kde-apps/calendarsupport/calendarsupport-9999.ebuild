@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="false"
-KFMIN=5.96.0
+KFMIN=5.98.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
