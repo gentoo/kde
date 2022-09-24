@@ -44,7 +44,6 @@ RDEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
@@ -52,11 +51,6 @@ RDEPEND="
 	telemetry? ( >=dev-libs/kuserfeedback-1.2.0:5 )
 "
 DEPEND="${RDEPEND}"
-
-src_prepare() {
-	ecm_punt_bogus_dep QGpgme
-	ecm_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(
