@@ -39,9 +39,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!games-mud/kmuddy:4
-"
+RDEPEND="${DEPEND}"
 
 DOC=( AUTHORS README CHANGELOG Scripting-HOWTO TODO DESIGN )
 
