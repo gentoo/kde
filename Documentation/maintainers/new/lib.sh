@@ -172,12 +172,13 @@ get_package_list_from_set() {
 }
 
 # @FUNCTION: mark_unreleased
-# @USAGE: <category-version>
+# @USAGE: <category> <version>
 # @DESCRIPTION:
-# Marks a <category-version> pair as unreleased in kde.org.eclass.
+# Marks a <version> as unreleased in <category>.kde.org.eclass.
 mark_unreleased() {
-	local cv="${1}"
-	sed -i -e "/^KDE_UNRELEASED/s/ )/ ${cv}&/" eclass/kde.org.eclass
+	local category="${1}"
+	local version="${2}"
+	sed -i -e "/^KDE_PV_UNRELEASED/s/ )/ ${version}&/" eclass/"${category}".kde.org.eclass
 }
 
 # @FUNCTION: mask_from_live_set
