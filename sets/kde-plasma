@@ -21,7 +21,6 @@ kde-plasma/ksshaskpass:5
 kde-plasma/ksystemstats:5
 kde-plasma/kwallet-pam:5
 kde-plasma/kwayland-integration:5
-kde-plasma/kwayland-server:5
 kde-plasma/kwin:5
 kde-plasma/kwrited:5
 kde-plasma/layer-shell-qt:5
@@ -30,6 +29,7 @@ kde-plasma/libksysguard:5
 kde-plasma/libkworkspace:5
 kde-plasma/milou:5
 kde-plasma/oxygen:5
+kde-plasma/oxygen-sounds:5
 kde-plasma/plasma-browser-integration:5
 kde-plasma/plasma-desktop:5
 kde-plasma/plasma-disks:5
