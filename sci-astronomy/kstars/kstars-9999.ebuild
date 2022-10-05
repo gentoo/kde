@@ -89,6 +89,15 @@ src_configure() {
 	ecm_src_configure
 }
 
+src_test() {
+	# bug 842768, test declared unstable by upstream
+	local myctestargs=(
+		-E "(TestKSPaths)"
+	)
+
+	ecm_src_test
+}
+
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "Display 'current' pictures of planets" x11-misc/xplanet
