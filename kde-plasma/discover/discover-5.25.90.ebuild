@@ -15,7 +15,7 @@ HOMEPAGE="https://userbase.kde.org/Discover"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="+firmware flatpak telemetry webengine"
+IUSE="+firmware flatpak telemetry"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
@@ -24,6 +24,7 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwebview-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/attica-${KFMIN}:5
@@ -49,7 +50,6 @@ DEPEND="
 		sys-apps/flatpak
 	)
 	telemetry? ( dev-libs/kuserfeedback:5 )
-	webengine? ( >=dev-qt/qtwebview-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
@@ -76,7 +76,6 @@ src_configure() {
 		$(cmake_use_find_package flatpak AppStreamQt)
 		-DBUILD_FwupdBackend=$(usex firmware)
 		$(cmake_use_find_package telemetry KUserFeedback)
-		$(cmake_use_find_package webengine Qt5WebView)
 	)
 
 	ecm_src_configure
