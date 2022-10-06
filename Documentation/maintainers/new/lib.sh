@@ -181,12 +181,12 @@ mark_unreleased() {
 	sed -i -e "/^KDE_PV_UNRELEASED/s/ )/ ${version}&/" eclass/"${category}".kde.org.eclass
 }
 
-# @FUNCTION: mask_from_live_set
-# @USAGE: <base set name> <target version> <filename>
+# @FUNCTION: mask_from_set
+# @USAGE: <base set> <target version> <filename>
 # @DESCRIPTION:
-# Takes sets/<base set name>-live, transforming it a profiles/package.mask/<filename>
+# Takes sets/<base set>, transforming it a profiles/package.mask/<filename>
 # list of atoms with <target version>.
-mask_from_live_set() {
+mask_from_set() {
 	local set="${1}"
 	local version="${2}"
 	local filename="${3}"
@@ -203,8 +203,17 @@ mask_from_live_set() {
 	echo "# $(pretty_setname ${set}-${version}) mask" >> profiles/package.mask/${filename}
 	echo "# UNRELEASED" >> profiles/package.mask/${filename}
 	echo "#" >> profiles/package.mask/${filename}
-	get_package_list_from_set ${set}-live >> profiles/package.mask/${filename}
+	get_package_list_from_set ${set} >> profiles/package.mask/${filename}
 	sed -i -e "/^#/!s/^/~/" -e "/^#/!s/$/-${version}/" profiles/package.mask/${filename}
+}
+
+# @FUNCTION: mask_from_live_set
+# @USAGE: <base set name> <target version> <filename>
+# @DESCRIPTION:
+# Takes sets/<base set name>-live, transforming it a profiles/package.mask/<filename>
+# list of atoms with <target version>.
+mask_from_live_set() {
+	mask_from_set "${1}-live" "${2}" "${3}"
 }
 
 # @FUNCTION: pretty_setname
