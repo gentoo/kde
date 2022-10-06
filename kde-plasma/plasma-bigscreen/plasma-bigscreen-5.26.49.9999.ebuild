@@ -12,6 +12,7 @@ HOMEPAGE="https://plasma-bigscreen.org/"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
