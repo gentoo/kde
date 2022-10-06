@@ -27,8 +27,3 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	ecm_src_prepare
-	ecm_punt_kf_module KIO	# we don't need it with >=Qt-5.10
-}
