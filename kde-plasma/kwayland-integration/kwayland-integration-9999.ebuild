@@ -3,9 +3,7 @@
 
 EAPI=8
 
-ECM_TEST="true"
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
 inherit ecm plasma.kde.org
 
@@ -17,22 +15,20 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT="test" # bug 668872
-
 # dev-qt/qtgui: QtXkbCommonSupport is provided by either IUSE libinput or X
 # slot ops:
+# dev-qt/qtgui: QtXkbCommonSupportPrivate
 # dev-qt/qtwayland: Qt::WaylandClientPrivate (private/qwayland*_p.h) stuff
-# kde-frameworks/kidletime: KIdleTime/private/abstractsystempoller.h
 # kde-frameworks/kwindowsystem: Various private headers
 DEPEND="
 	>=dev-libs/wayland-1.15
+	>=dev-qt/qtgui-${QTMIN}:5=
 	|| (
 		>=dev-qt/qtgui-${QTMIN}:5[libinput]
 		>=dev-qt/qtgui-${QTMIN}:5[X]
 	)
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtwayland-${QTMIN}:5=
-	>=kde-frameworks/kidletime-${KFMIN}:5=
 	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5=
 	x11-libs/libxkbcommon
@@ -42,3 +38,10 @@ BDEPEND="
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	virtual/pkgconfig
 "
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_kf_module IdleTime
+	cmake_comment_add_subdirectory autotests # only contains idletime test
+	cmake_run_in src cmake_comment_add_subdirectory idletime
+}
