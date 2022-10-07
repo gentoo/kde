@@ -21,11 +21,13 @@ RESTRICT="test" # bug 668872
 
 # dev-qt/qtgui: QtXkbCommonSupport is provided by either IUSE libinput or X
 # slot ops:
+# dev-qt/qtgui: QtXkbCommonSupportPrivate
 # dev-qt/qtwayland: Qt::WaylandClientPrivate (private/qwayland*_p.h) stuff
 # kde-frameworks/kidletime: KIdleTime/private/abstractsystempoller.h
 # kde-frameworks/kwindowsystem: Various private headers
 DEPEND="
 	>=dev-libs/wayland-1.15
+	>=dev-qt/qtgui-${QTMIN}:5=
 	|| (
 		>=dev-qt/qtgui-${QTMIN}:5[libinput]
 		>=dev-qt/qtgui-${QTMIN}:5[X]
