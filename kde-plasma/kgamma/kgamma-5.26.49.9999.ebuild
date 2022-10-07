@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KDE_ORG_NAME="${PN}5"
-KFMIN=5.98.0
+KFMIN=5.99.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
 inherit ecm plasma.kde.org
