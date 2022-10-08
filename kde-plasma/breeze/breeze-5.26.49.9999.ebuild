@@ -36,6 +36,7 @@ RDEPEND="
 	X? ( x11-libs/libxcb )
 "
 DEPEND="${RDEPEND}"
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 PDEPEND="
 	>=kde-frameworks/breeze-icons-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
