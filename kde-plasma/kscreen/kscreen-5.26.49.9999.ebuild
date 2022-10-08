@@ -46,3 +46,4 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
