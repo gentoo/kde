@@ -122,7 +122,10 @@ RDEPEND="${COMMON_DEPEND}
 	kaccounts? ( net-libs/signon-oauth2 )
 	screencast? ( >=kde-plasma/kpipewire-${PVCUT}:5 )
 "
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	virtual/pkgconfig
+"
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/${PN}-5.25.80-override-include-dirs.patch" # downstream patch
