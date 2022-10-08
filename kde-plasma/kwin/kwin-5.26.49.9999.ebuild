@@ -99,6 +99,7 @@ DEPEND="${COMMON_DEPEND}
 BDEPEND="
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	dev-util/wayland-scanner
+	>=kde-frameworks/kcmutils-${KFMIN}:5
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
