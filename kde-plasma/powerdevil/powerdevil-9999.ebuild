@@ -57,6 +57,7 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 	>=sys-power/upower-0.9.23
 "
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
 src_configure() {
 	local mycmakeargs=(
