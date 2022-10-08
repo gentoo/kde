@@ -51,6 +51,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	kdesu? ( sys-apps/dbus[X] )
 "
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
 PATCHES=( "${FILESDIR}/${PN}-5.12.80-tests-optional.patch" )
 
