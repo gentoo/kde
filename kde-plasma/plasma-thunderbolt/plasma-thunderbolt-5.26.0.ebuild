@@ -36,3 +36,4 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	sys-apps/bolt
 "
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
