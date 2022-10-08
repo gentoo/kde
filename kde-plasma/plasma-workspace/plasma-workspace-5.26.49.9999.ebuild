@@ -151,6 +151,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
 	virtual/pkgconfig
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
