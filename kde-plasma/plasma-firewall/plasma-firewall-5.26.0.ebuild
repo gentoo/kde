@@ -37,6 +37,7 @@ RDEPEND="${DEPEND}
 	firewalld? ( net-firewall/firewalld )
 	ufw? ( net-firewall/ufw )
 "
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
 src_prepare() {
 	ecm_src_prepare
