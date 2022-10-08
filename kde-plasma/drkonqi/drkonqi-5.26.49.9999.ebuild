@@ -9,6 +9,7 @@ QTMIN=5.15.5
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Plasma crash handler, gives the user feedback if a program crashed"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-5.26.0-revert-add-sentry-support.patch.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -48,7 +49,10 @@ RDEPEND="${COMMON_DEPEND}
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.25.90-unused-dep.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.25.90-unused-dep.patch" # git master
+	"${WORKDIR}/${PN}-5.26.0-revert-add-sentry-support.patch" # bug 871759
+)
 
 src_test() {
 	# needs network access, bug #698510
