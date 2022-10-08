@@ -59,7 +59,10 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	virtual/pkgconfig
+"
 
 src_prepare() {
 	ecm_src_prepare
