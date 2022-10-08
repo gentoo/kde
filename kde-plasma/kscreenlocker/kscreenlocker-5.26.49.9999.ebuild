@@ -58,8 +58,11 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
+BDEPEND="
+	dev-util/wayland-scanner
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+"
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
-BDEPEND="dev-util/wayland-scanner"
 
 src_prepare() {
 	ecm_src_prepare
