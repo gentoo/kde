@@ -39,5 +39,6 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 	x11-misc/sddm
 "
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
 DOCS=( CONTRIBUTORS )
