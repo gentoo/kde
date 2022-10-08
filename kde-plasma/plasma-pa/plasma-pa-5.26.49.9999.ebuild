@@ -33,3 +33,4 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	x11-themes/sound-theme-freedesktop
 "
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
