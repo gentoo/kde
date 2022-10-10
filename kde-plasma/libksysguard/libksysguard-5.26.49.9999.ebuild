@@ -55,7 +55,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/ksysguard-5.21.90:5
-	!<kde-plasma/plasma-workspace-5.18.80:5
 "
 
 PATCHES=(
