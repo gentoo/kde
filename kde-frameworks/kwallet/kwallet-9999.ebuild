@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="gpg +man"
 
 DEPEND="
-	>=app-crypt/qca-2.3.1
+	>=app-crypt/qca-2.3.1:2[qt5(+)]
 	dev-libs/libgcrypt:0=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
