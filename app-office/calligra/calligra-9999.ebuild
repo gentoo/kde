@@ -73,7 +73,7 @@ COMMON_DEPEND="
 	virtual/libiconv
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	charts? ( dev-libs/kdiagram:5 )
-	crypt? ( >=app-crypt/qca-2.3.0:2 )
+	crypt? ( >=app-crypt/qca-2.3.0:2[qt5(+)] )
 	fontconfig? ( media-libs/fontconfig )
 	gemini? ( >=dev-qt/qtdeclarative-${QTMIN}:5[widgets] )
 	gsl? ( sci-libs/gsl:= )
