@@ -23,7 +23,7 @@ RESTRICT="test"
 
 # TODO kolab
 RDEPEND="
-	>=app-crypt/qca-2.3.0:2
+	>=app-crypt/qca-2.3.0:2[qt5(+)]
 	dev-libs/cyrus-sasl:2
 	dev-libs/libical:=
 	dev-libs/qtkeychain:=
