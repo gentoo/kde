@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE=""
 
 DEPEND="
-	dev-libs/qtkeychain:=
+	dev-libs/qtkeychain:=[qt5(+)]
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
