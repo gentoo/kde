@@ -26,6 +26,6 @@ RDEPEND="
 	kde-frameworks/kcoreaddons:5
 	kde-frameworks/ki18n:5
 	kde-frameworks/kwidgetsaddons:5
-	sys-auth/polkit-qt
+	>=sys-auth/polkit-qt-0.113.0[qt5(+)]
 "
 DEPEND="${RDEPEND}"
