@@ -29,7 +29,7 @@ _PLASMA_KDE_ORG_ECLASS=1
 # @INTERNAL
 # @DESCRIPTION:
 # For proper description see kde.org.eclass manpage.
-KDE_PV_UNRELEASED=( 5.26.0 )
+KDE_PV_UNRELEASED=( )
 
 inherit kde.org
 
