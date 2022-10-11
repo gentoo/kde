@@ -47,11 +47,11 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	crypt? ( >=app-crypt/qca-2.3.0:2 )
+	crypt? ( >=app-crypt/qca-2.3.0:2[qt5(+)] )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:5
-	crypt? ( >=app-crypt/qca-2.3.0:2[ssl] )
+	crypt? ( >=app-crypt/qca-2.3.0:2[qt5(+),ssl] )
 "
 BDEPEND="sys-devel/gettext"
 
