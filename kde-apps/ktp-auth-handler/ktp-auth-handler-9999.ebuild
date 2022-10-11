@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=app-crypt/qca-2.3.0:2
+	>=app-crypt/qca-2.3.0:2[qt5(+)]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -35,5 +35,5 @@ DEPEND="
 	>=net-libs/telepathy-qt-0.9.8
 "
 RDEPEND="${DEPEND}
-	>=app-crypt/qca-2.3.0:2[ssl]
+	>=app-crypt/qca-2.3.0:2[qt5(+),ssl]
 "
