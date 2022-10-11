@@ -54,7 +54,7 @@ COMMON_DEPEND="
 		sci-libs/libnova:=
 		>=sci-libs/stellarsolver-2.2
 	)
-	password? ( dev-libs/qtkeychain:= )
+	password? ( dev-libs/qtkeychain:=[qt5(+)] )
 	raw? ( media-libs/libraw:= )
 	wcs? ( sci-astronomy/wcslib:= )
 "
