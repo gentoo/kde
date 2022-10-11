@@ -21,7 +21,7 @@ SLOT="0"
 DEPEND="
 	app-text/cmark:=
 	dev-libs/qcoro5
-	dev-libs/qtkeychain:=
+	dev-libs/qtkeychain:=[qt5(+)]
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5
