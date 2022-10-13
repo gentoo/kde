@@ -42,7 +42,6 @@ RDEPEND="${DEPEND}
 	kde-plasma/kde-cli-tools:5
 	gtk? ( app-admin/system-config-printer )
 "
-BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
 pkg_postinst() {
 	ecm_pkg_postinst
