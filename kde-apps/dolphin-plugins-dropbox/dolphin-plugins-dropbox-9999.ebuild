@@ -40,9 +40,7 @@ src_prepare() {
 	ecm_punt_qt_module DBus
 	ecm_punt_kf_module Solid
 	# delete non-${PN} translations
-	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		find po -type f -name "*po" -and -not -name "*${MY_PLUGIN_NAME}plugin" -delete || die
-	fi
+	find po -type f -name "*po" -and -not -name "*${MY_PLUGIN_NAME}plugin" -delete || die
 }
 
 src_configure() {
