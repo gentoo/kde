@@ -71,10 +71,8 @@ src_prepare() {
 	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
 
 	# delete colliding libkate/kwrite translations
-	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		find po -type f -name "*po" -and \( -name "kwrite*" -or -name "kate.po" \) -delete || die
-		rm -rf po/*/docs || die
-	fi
+	find po -type f -name "*po" -and \( -name "kwrite*" -or -name "kate.po" \) -delete || die
+	rm -rf po/*/docs || die
 }
 
 src_configure() {
