@@ -60,7 +60,7 @@ RDEPEND="${COMMON_DEPEND}
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "markdown text previews" "kde-misc/markdownpart:${SLOT}" "kde-misc/kmarkdownwebview:${SLOT}"
+		optfeature "Markdown text previews" "kde-misc/markdownpart:${SLOT}"
 		optfeature "PDF/PS and RAW image thumbnails" "kde-apps/thumbnailers:${SLOT}"
 		optfeature "video thumbnails" "kde-apps/ffmpegthumbs:${SLOT}"
 		optfeature "bookmarks support" "kde-apps/keditbookmarks:${SLOT}"
