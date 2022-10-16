@@ -39,10 +39,8 @@ src_prepare() {
 	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
 
 	# delete colliding kwrite translations
-	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		rm -f po/*/*.po || die # installed by kde-apps/kate-lib
-		rm -rf po/*/docs/kwrite || die
-	fi
+	rm -f po/*/*.po || die # installed by kde-apps/kate-lib
+	rm -rf po/*/docs/kwrite || die
 }
 
 src_configure() {
