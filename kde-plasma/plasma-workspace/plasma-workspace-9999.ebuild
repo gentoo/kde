@@ -166,9 +166,7 @@ src_prepare() {
 
 	cmake_comment_add_subdirectory libkworkspace
 	# delete colliding libkworkspace translations
-	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		find po -type f -name "*po" -and -name "libkworkspace*" -delete || die
-	fi
+	find po -type f -name "*po" -and -name "libkworkspace*" -delete || die
 
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
