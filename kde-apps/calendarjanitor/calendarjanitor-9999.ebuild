@@ -36,8 +36,6 @@ src_prepare() {
 	sed -i -e "/console\.categories/ s/^/#DONT/" CMakeLists.txt || die
 
 	# delete colliding konsolekalendar translations
-	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		rm -f po/*/konsolekalendar.po || die
-		rm -rf po/*/docs/konsolekalendar || die
-	fi
+	rm -f po/*/konsolekalendar.po || die
+	rm -rf po/*/docs/konsolekalendar || die
 }
