@@ -50,10 +50,8 @@ src_prepare() {
 	ecm_src_prepare
 
 	# delete colliding kate/kwrite translations
-	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		find po -type f -name "*po" -and ! -name 'kate.po' -delete || die
-		rm -rf po/*/docs || die
-	fi
+	find po -type f -name "*po" -and ! -name 'kate.po' -delete || die
+	rm -rf po/*/docs || die
 }
 
 src_configure() {
