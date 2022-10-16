@@ -22,7 +22,7 @@ RESTRICT="test"
 
 COMMON_DEPEND="
 	>=dev-libs/libinput-1.19
-	>=dev-libs/wayland-1.20.0
+	>=dev-libs/wayland-1.21.0
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
