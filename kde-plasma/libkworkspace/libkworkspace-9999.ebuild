@@ -38,11 +38,9 @@ S="${S}/${PN}"
 
 src_prepare() {
 	# delete colliding libkworkspace translations, let ecm_src_prepare do its magic
-	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		find ../po -type f -name "*po" -and -not -name "libkworkspace*" -delete || die
-		rm -rf po/*/docs || die
-		cp -a ../po ./ || die
-	fi
+	find ../po -type f -name "*po" -and -not -name "libkworkspace*" -delete || die
+	rm -rf po/*/docs || die
+	cp -a ../po ./ || die
 
 	eapply "${FILESDIR}/${PN}-5.22.80-standalone.patch"
 	sed -e "/set/s/GENTOO_PV/$(ver_cut 1-3)/" -i CMakeLists.txt || die
