@@ -91,7 +91,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.9
-	>=dev-libs/wayland-protocols-1.25
+	>=dev-libs/wayland-protocols-1.27
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	x11-base/xorg-proto
