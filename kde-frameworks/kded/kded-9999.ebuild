@@ -10,18 +10,16 @@ QTMIN=5.15.5
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Central daemon of KDE workspaces"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="+man"
 
-BDEPEND="
-	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
-"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kconfig-${PVCUT}*:5[dbus]
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/kcrash-${PVCUT}*:5
 	=kde-frameworks/kdbusaddons-${PVCUT}*:5
@@ -29,6 +27,7 @@ DEPEND="
 	=kde-frameworks/kservice-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
