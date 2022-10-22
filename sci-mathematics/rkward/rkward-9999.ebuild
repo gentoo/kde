@@ -10,7 +10,7 @@ DESCRIPTION="IDE for the R-project"
 HOMEPAGE="https://rkward.kde.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.gz"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 fi
 
@@ -49,7 +49,7 @@ BDEPEND="sys-devel/gettext"
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "kate plugins support" "kde-apps/kate:${SLOT}"
+		optfeature "kate plugins support" "kde-apps/kate-addons:${SLOT}"
 		optfeature "prendering (or previewing) R markdown (.Rmd) files" "app-text/pandoc"
 		optfeature "managing citations while writing articles" "app-text/kbibtex"
 	fi
