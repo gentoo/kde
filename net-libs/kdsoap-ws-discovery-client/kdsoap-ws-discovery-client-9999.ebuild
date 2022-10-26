@@ -5,38 +5,27 @@ EAPI=8
 
 ECM_QTHELP="false"
 ECM_TEST="forceoptional"
-inherit ecm
-
-if [[ ${PV} != *9999* ]]; then
-	COMMIT=14287e92e80a77aa4c0adee2871e6b87c9c3055e
-	SRC_URI="https://gitlab.com/caspermeijn/${PN}/repository/${COMMIT}/archive.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}-${COMMIT}-${COMMIT}"
-else
-	EGIT_REPO_URI="https://gitlab.com/caspermeijn/${PN}.git"
-	inherit git-r3
-fi
+inherit ecm kde.org
 
 DESCRIPTION="WS-Discovery client library based on KDSoap"
-HOMEPAGE="https://gitlab.com/caspermeijn/kdsoap-ws-discovery-client
-https://caspermeijn.gitlab.io/kdsoap-ws-discovery-client"
+HOMEPAGE="https://invent.kde.org/libraries/kdsoap-ws-discovery-client"
 
 LICENSE="CC0-1.0 GPL-3+"
 SLOT="0"
+KEYWORDS=""
 IUSE="doc"
 
-BDEPEND="
-	doc? ( app-doc/doxygen[dot] )
-"
+RESTRICT="test"
+
 RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
-	>=net-libs/kdsoap-1.9.0"
+	>=net-libs/kdsoap-1.9.0
+"
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qtxml:5 )
 "
-
-RESTRICT="test"
+BDEPEND="doc? ( app-doc/doxygen[dot] )"
 
 PATCHES=( "${FILESDIR}"/${PN}-0.2_pre20200317-no-install-docs.patch )
 
