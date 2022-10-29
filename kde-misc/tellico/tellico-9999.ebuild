@@ -23,9 +23,6 @@ IUSE="bibtex cddb discid pdf scanner semantic-desktop taglib v4l xmp yaz"
 # tests need network access
 RESTRICT="test"
 
-BDEPEND="
-	sys-devel/gettext
-"
 RDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
@@ -68,10 +65,11 @@ RDEPEND="
 	semantic-desktop? ( kde-frameworks/kfilemetadata:5 )
 	taglib? ( >=media-libs/taglib-1.5 )
 	v4l? ( >=media-libs/libv4l-0.8.3 )
-	xmp? ( >=media-libs/exempi-2 )
+	xmp? ( >=media-libs/exempi-2:= )
 	yaz? ( >=dev-libs/yaz-2:0= )
 "
 DEPEND="${RDEPEND}"
+BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
