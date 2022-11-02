@@ -89,14 +89,14 @@ src_configure() {
 		$(cmake_use_find_package raw KF5KDcraw)
 		-DGWENVIEW_SEMANTICINFO_BACKEND=$(usex semantic-desktop Baloo None)
 		$(cmake_use_find_package share KF5Purpose)
-		$(cmake_use_find_package X X11)
+		-DWITHOUT_X11=$(usex !X)
 	)
 	ecm_src_configure
 }
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "SVG support" kde-apps/svgpart:${SLOT}
+		optfeature "SVG support" "kde-apps/svgpart:${SLOT}"
 	fi
 	ecm_pkg_postinst
 }
