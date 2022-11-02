@@ -83,9 +83,6 @@ PATCHES=(
 	# downstream patches
 	"${FILESDIR}/${PN}-5.80.0-no-kdesignerplugin.patch" # bug 755956
 	"${FILESDIR}/${PN}-5.86.0-unused-dep.patch" # bug 755956
-	# pending upstream:
-	# https://invent.kde.org/frameworks/kdelibs4support/-/merge_requests/21
-	"${FILESDIR}/${PN}-5.99.0-with_x11.patch"
 )
 
 src_prepare() {
