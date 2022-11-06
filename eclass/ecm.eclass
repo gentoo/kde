@@ -230,11 +230,11 @@ case ${ECM_QTHELP} in
 			>=app-doc/doxygen-1.8.13-r1
 			|| (
 				(
-					=dev-qt/qtcore-5.15.6*:5
-					=dev-qt/qtgui-5.15.6*:5
-					=dev-qt/qthelp-5.15.6*:5
-					=dev-qt/qtsql-5.15.6*:5
-					=dev-qt/qtwidgets-5.15.6*:5
+					=dev-qt/qtcore-5.15.7*:5
+					=dev-qt/qtgui-5.15.7*:5
+					=dev-qt/qthelp-5.15.7*:5
+					=dev-qt/qtsql-5.15.7*:5
+					=dev-qt/qtwidgets-5.15.7*:5
 				)
 				(
 					=dev-qt/qtcore-5.15.5*:5
