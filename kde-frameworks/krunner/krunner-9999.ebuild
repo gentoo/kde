@@ -22,9 +22,6 @@ DEPEND="
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
-	=kde-frameworks/kio-${PVCUT}*:5
-	=kde-frameworks/kservice-${PVCUT}*:5
-	=kde-frameworks/plasma-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
 	=kde-frameworks/threadweaver-${PVCUT}*:5
 	activities? ( =kde-frameworks/kactivities-${PVCUT}*:5 )
@@ -33,6 +30,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DEXCLUDE_DEPRECATED_BEFORE_AND_AT=5.91.0
 		$(cmake_use_find_package activities KF5Activities)
 	)
 	ecm_src_configure
