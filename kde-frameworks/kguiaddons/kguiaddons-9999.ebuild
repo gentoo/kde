@@ -9,13 +9,15 @@ VIRTUALX_REQUIRED="test"
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing assorted high-level user interface components"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="wayland X"
+IUSE="dbus wayland X"
 
 # slot op: includes qpa/qplatformnativeinterface.h
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
+	dbus? ( >=dev-qt/qtdbus-${QTMIN}:5 )
 	wayland? (
 		dev-libs/wayland
 		>=dev-qt/qtgui-${QTMIN}:5=[wayland]
@@ -35,6 +37,7 @@ BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
+		-DWITH_DBUS=$(usex dbus)
 		-DWITH_WAYLAND=$(usex wayland)
 		-DWITH_X11=$(usex X)
 	)
