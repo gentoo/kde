@@ -176,7 +176,7 @@ done
 for set in *-${GEAR_RELEASE}; do
 	newfile=${set/%-${GEAR_RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
-	sed -r "/@/s/-${GEAR_RELEASE}//g;/9999$/s/~//;s/<//;\@[a-z-]+/@s/-(9999|${GEAR_RELEASE}\.50)/:5/" "${set}" >> "${newfile}"
+	sed -r "/@/s/-${GEAR_RELEASE}//g;/9999$/s/~//;s/<//;\@[a-z-]+/@s/-(9999|${GEAR_RELEASE}\.50)//" "${set}" >> "${newfile}"
 done
 
 popd > /dev/null
