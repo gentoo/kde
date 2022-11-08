@@ -1,29 +1,29 @@
-<kde-apps/dolphin-plugins-dropbox-22.08.50:5
-<kde-apps/kaccounts-integration-22.08.50:5
-<kde-apps/kaccounts-providers-22.08.50:5
-<kde-apps/kdenetwork-meta-22.08.50:5
-<kde-apps/kdenetwork-filesharing-22.08.50:5
-<kde-apps/kget-22.08.50:5
-<kde-apps/kio-extras-22.08.50:5
-<kde-apps/krdc-22.08.50:5
-<kde-apps/krfb-22.08.50:5
-<kde-apps/kopete-22.08.50:5
-<kde-apps/ktp-accounts-kcm-22.08.50:5
-<kde-apps/ktp-approver-22.08.50:5
-<kde-apps/ktp-auth-handler-22.08.50:5
-<kde-apps/ktp-common-internals-22.08.50:5
-<kde-apps/ktp-contact-list-22.08.50:5
-<kde-apps/ktp-contact-runner-22.08.50:5
-<kde-apps/ktp-desktop-applets-22.08.50:5
-<kde-apps/ktp-filetransfer-handler-22.08.50:5
-<kde-apps/ktp-kded-module-22.08.50:5
-<kde-apps/ktp-send-file-22.08.50:5
-<kde-apps/ktp-text-ui-22.08.50:5
-<kde-apps/plasma-telepathy-meta-22.08.50:5
-<kde-apps/signon-kwallet-extension-22.08.50:5
-<kde-misc/kdeconnect-22.08.50:5
-<kde-misc/kio-gdrive-22.08.50:5
-<net-irc/konversation-22.08.50:5
-<net-libs/libktorrent-22.08.50:5
-<net-misc/kio-zeroconf-22.08.50:5
-<net-p2p/ktorrent-22.08.50:5
+~kde-apps/dolphin-plugins-dropbox-22.08.49.9999 **
+~kde-apps/kaccounts-integration-22.08.49.9999 **
+~kde-apps/kaccounts-providers-22.08.49.9999 **
+~kde-apps/kdenetwork-meta-22.08.49.9999 **
+~kde-apps/kdenetwork-filesharing-22.08.49.9999 **
+~kde-apps/kget-22.08.49.9999 **
+~kde-apps/kio-extras-22.08.49.9999 **
+~kde-apps/krdc-22.08.49.9999 **
+~kde-apps/krfb-22.08.49.9999 **
+~kde-apps/kopete-22.08.49.9999 **
+~kde-apps/ktp-accounts-kcm-22.08.49.9999 **
+~kde-apps/ktp-approver-22.08.49.9999 **
+~kde-apps/ktp-auth-handler-22.08.49.9999 **
+~kde-apps/ktp-common-internals-22.08.49.9999 **
+~kde-apps/ktp-contact-list-22.08.49.9999 **
+~kde-apps/ktp-contact-runner-22.08.49.9999 **
+~kde-apps/ktp-desktop-applets-22.08.49.9999 **
+~kde-apps/ktp-filetransfer-handler-22.08.49.9999 **
+~kde-apps/ktp-kded-module-22.08.49.9999 **
+~kde-apps/ktp-send-file-22.08.49.9999 **
+~kde-apps/ktp-text-ui-22.08.49.9999 **
+~kde-apps/plasma-telepathy-meta-22.08.49.9999 **
+~kde-apps/signon-kwallet-extension-22.08.49.9999 **
+~kde-misc/kdeconnect-22.08.49.9999 **
+~kde-misc/kio-gdrive-22.08.49.9999 **
+~net-irc/konversation-22.08.49.9999 **
+~net-libs/libktorrent-22.08.49.9999 **
+~net-misc/kio-zeroconf-22.08.49.9999 **
+<net-p2p/ktorrent-22.08.50

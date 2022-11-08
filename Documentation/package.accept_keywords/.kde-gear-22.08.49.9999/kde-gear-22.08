@@ -1,10 +1,10 @@
-<kde-apps/baloo-widgets-22.08.50:5
-<kde-apps/dolphin-22.08.50:5
-<kde-apps/kate-22.08.50:5
-<kde-apps/kate-addons-22.08.50:5
-<kde-apps/kate-lib-22.08.50:5
-<kde-apps/kde-apps-meta-22.08.50:5
-<kde-apps/kdecore-meta-22.08.50:5
-<kde-apps/khelpcenter-22.08.50:5
-<kde-apps/konsole-22.08.50:5
-<kde-apps/kwrite-22.08.50:5
+~kde-apps/baloo-widgets-22.08.49.9999 **
+~kde-apps/dolphin-22.08.49.9999 **
+~kde-apps/kate-22.08.49.9999 **
+~kde-apps/kate-addons-22.08.49.9999 **
+~kde-apps/kate-lib-22.08.49.9999 **
+~kde-apps/kde-apps-meta-22.08.49.9999 **
+~kde-apps/kdecore-meta-22.08.49.9999 **
+~kde-apps/khelpcenter-22.08.49.9999 **
+~kde-apps/konsole-22.08.49.9999 **
+~kde-apps/kwrite-22.08.49.9999 **
