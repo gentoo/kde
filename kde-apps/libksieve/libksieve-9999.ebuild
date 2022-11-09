@@ -50,8 +50,3 @@ DEPEND="${RDEPEND}
 	>=kde-apps/kimap-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 "
-
-src_prepare() {
-	ecm_src_prepare
-	cmake_run_in kioslave cmake_comment_add_subdirectory doc
-}
