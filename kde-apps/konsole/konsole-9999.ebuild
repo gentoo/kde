@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE="X"
 
 DEPEND="
+	dev-libs/icu:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
