@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/krdc/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+rdp +vnc"
+IUSE="activities +rdp +vnc"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 2016-01-24
 DEPEND="
@@ -37,6 +37,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	vnc? (
 		net-libs/libssh:=
 		>=net-libs/libvncserver-0.9
@@ -48,6 +49,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package activities KF5Activities)
 		-DWITH_RDP=$(usex rdp)
 		-DWITH_VNC=$(usex vnc)
 	)
