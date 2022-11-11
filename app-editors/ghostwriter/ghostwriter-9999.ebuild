@@ -4,6 +4,7 @@
 EAPI=8
 
 KDE_ORG_CATEGORY=office
+ECM_HANDBOOK=optional
 KFMIN=5.90.0
 QTMIN=5.15.2
 inherit ecm kde.org
