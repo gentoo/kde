@@ -19,7 +19,9 @@ SLOT="5"
 KEYWORDS=""
 IUSE="crypt djvu epub +image-backend markdown mobi +pdf +plucker +postscript qml share speech +tiff"
 
+# slot op: Uses Qt5::CorePrivate
 DEPEND="
+	>=dev-qt/qtcore-${QTMIN}:5=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
