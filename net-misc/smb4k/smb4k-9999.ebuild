@@ -26,7 +26,6 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qttest-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
