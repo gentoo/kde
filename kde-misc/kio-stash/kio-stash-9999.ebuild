@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
+QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="KIO Slave and daemon to stash discontinuous file selections"
@@ -17,7 +18,7 @@ IUSE=""
 RESTRICT="test"
 
 DEPEND="
-	dev-qt/qtdbus:5
+	>=dev-qt/qtdbus-${QTMIN}:5
 	kde-frameworks/kconfig:5
 	kde-frameworks/kcoreaddons:5
 	kde-frameworks/kdbusaddons:5
