@@ -42,6 +42,7 @@ DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kfilemetadata-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
@@ -57,7 +58,6 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=media-libs/mlt-7.8.0[ffmpeg,frei0r,qt5,sdl,xml]
-	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	v4l? ( media-libs/libv4l )
 "
@@ -70,7 +70,6 @@ BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
 		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package v4l LibV4L2)
 	)
