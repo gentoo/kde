@@ -21,7 +21,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 fi
 
-LICENSE="GPL-2" # TODO CHECK
+LICENSE="GPL-2+"
 SLOT="5"
 
 REQUIRED_USE="test? ( examples )"
