@@ -18,7 +18,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 
-LICENSE="GPL-2" # TODO: CHECK
+LICENSE="GPL-2+"
 SLOT="5"
 IUSE="debug experimental marble mdb mysql postgres sqlite"
 
