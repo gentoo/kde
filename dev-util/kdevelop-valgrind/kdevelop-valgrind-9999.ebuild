@@ -10,7 +10,7 @@ QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="Plugin offering full integration of the valgrind suite to KDevelop"
-HOMEPAGE="https://kdevelop.org/"
+HOMEPAGE="https://www.kdevelop.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
