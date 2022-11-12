@@ -14,16 +14,13 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	virtual/pkgconfig
-"
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	media-libs/taglib
 	media-video/ffmpeg:0=
 "
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
