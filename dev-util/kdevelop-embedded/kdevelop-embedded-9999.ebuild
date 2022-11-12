@@ -12,7 +12,7 @@ inherit ecm kde.org
 DESCRIPTION="Plugin for KDevelop to support the development of embedded systems"
 HOMEPAGE="https://www.kdevelop.org/"
 
-LICENSE="GPL-2" # TODO: CHECK
+LICENSE="GPL-2+"
 SLOT="5"
 IUSE=""
 
