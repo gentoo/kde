@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_DESIGNERPLUGIN="true"
 ECM_HANDBOOK="optional"
 ECM_QTHELP="true"
 ECM_TEST="true"
