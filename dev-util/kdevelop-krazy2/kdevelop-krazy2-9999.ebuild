@@ -12,7 +12,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Plugin for KDevelop to perform Krazy2 analysis"
-HOMEPAGE="https://kdevelop.org/"
+HOMEPAGE="https://www.kdevelop.org/"
 
 LICENSE="GPL-2+"
 SLOT="5"
