@@ -14,7 +14,7 @@ inherit ecm gear.kde.org python-single-r1
 DESCRIPTION="Python plugin for KDevelop"
 HOMEPAGE="https://www.kdevelop.org/"
 
-LICENSE="GPL-2" # TODO: CHECK
+LICENSE="GPL-2 GPL-2+ GPL-3 LGPL-2 LGPL-2+ MIT"
 SLOT="5"
 IUSE=""
 KEYWORDS=""
