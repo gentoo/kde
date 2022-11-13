@@ -22,15 +22,19 @@ IUSE=""
 RESTRICT="test"
 
 DEPEND="
+	app-crypt/gpgme:=[cxx]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-calendar-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/calendarsupport-${PVCUT}:5
 	>=kde-apps/eventviews-${PVCUT}:5
+	>=kde-apps/mailcommon-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
@@ -38,6 +42,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
@@ -45,7 +50,9 @@ DEPEND="
 "
 # qtlocation is needed at runtime only or fails to start
 RDEPEND="${DEPEND}
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtlocation-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 "
