@@ -6,11 +6,10 @@ EAPI=8
 KDE_ORG_CATEGORY=graphics
 KFMIN=5.96.0
 QTMIN=5.15.5
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Provides interfaces and session daemon to colord"
 HOMEPAGE="https://invent.kde.org/graphics/colord-kde"
-#SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2+"
 SLOT="5"
