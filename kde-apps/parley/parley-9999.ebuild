@@ -10,7 +10,7 @@ KFMIN=5.98.0
 QTMIN=5.15.5
 inherit ecm gear.kde.org optfeature
 
-DESCRIPTION="A vocabulary trainer to help you memorize things"
+DESCRIPTION="Vocabulary trainer to help you memorize things"
 HOMEPAGE="https://apps.kde.org/parley/"
 
 LICENSE="GPL-2" # TODO: CHECK
@@ -30,7 +30,6 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=kde-apps/libkeduvocdocument-${PVCUT}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
