@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
+ECM_TEST="forceoptional"
 KFMIN=5.98.0
 QTMIN=5.15.5
 inherit ecm gear.kde.org
@@ -21,7 +22,6 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
@@ -30,16 +30,17 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+"
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_GSTREAMER_PLUGIN=OFF
-		-DBUILD_QTMULTIMEDIA_PLUGIN=ON
+		-DBUILD_autotests=$(usex test)
 	)
-
 	ecm_src_configure
 }
