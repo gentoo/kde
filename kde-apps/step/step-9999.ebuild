@@ -17,13 +17,9 @@ SLOT="5"
 KEYWORDS=""
 IUSE="+gsl nls +qalculate"
 
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 DEPEND="
 	>=dev-cpp/eigen-3.2:3
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtopengl-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
@@ -46,6 +42,7 @@ DEPEND="
 	qalculate? ( >=sci-libs/libqalculate-0.9.5:= )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
