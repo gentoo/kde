@@ -18,10 +18,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	sys-devel/flex
-	test? ( >=dev-util/kdevelop-5.1.80:5[test] )
-"
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -34,5 +30,7 @@ DEPEND="
 	>=kde-frameworks/threadweaver-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-tests.patch" ) # TODO: upstream
+BDEPEND="
+	sys-devel/flex
+	test? ( >=dev-util/kdevelop-5.1.80:5[test] )
+"
