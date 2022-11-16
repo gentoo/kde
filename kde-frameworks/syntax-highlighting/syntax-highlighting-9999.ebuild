@@ -8,9 +8,10 @@ QTMIN=5.15.5
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for syntax highlighting"
+
 LICENSE="MIT"
 KEYWORDS=""
-IUSE="nls"
+IUSE=""
 
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -21,7 +22,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-lang/perl
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
+	>=dev-qt/linguist-tools-${QTMIN}:5
 "
 
 src_install() {
