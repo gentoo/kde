@@ -11,7 +11,7 @@ DESCRIPTION="Framework for reading and writing configuration"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="dbus nls qml"
+IUSE="dbus qml"
 
 # bug 560086
 RESTRICT="test"
@@ -25,7 +25,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 "
-BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
+BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
 DOCS=( DESIGN docs/{DESIGN.kconfig,options.md} )
 
