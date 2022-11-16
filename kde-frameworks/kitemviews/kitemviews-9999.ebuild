@@ -12,11 +12,11 @@ DESCRIPTION="Framework providing additional widgets for item models"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="nls"
+IUSE=""
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
-BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
+BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
