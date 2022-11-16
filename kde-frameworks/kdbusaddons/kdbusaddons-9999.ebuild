@@ -8,18 +8,17 @@ VIRTUALDBUS_TEST="true"
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for registering services and applications per freedesktop standards"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="nls X"
+IUSE="X"
 
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	X? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}"
+BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
 src_configure() {
 	local mycmakeargs=(
