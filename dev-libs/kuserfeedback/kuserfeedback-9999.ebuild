@@ -12,20 +12,12 @@ DESCRIPTION="Framework to collect user feedback for applications via telemetry a
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 LICENSE="MIT"
 SLOT="5"
 IUSE="doc"
 
-BDEPEND="
-	sys-devel/bison
-	sys-devel/flex
-	doc? (
-		>=dev-qt/qdoc-${QTMIN}:5
-		>=dev-qt/qthelp-${QTMIN}:5
-	)
-"
 DEPEND="
 	>=dev-qt/qtcharts-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -42,6 +34,14 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
+	doc? (
+		>=dev-qt/qdoc-${QTMIN}:5
+		>=dev-qt/qthelp-${QTMIN}:5
+	)
+"
 
 src_configure() {
 	local mycmakeargs=(
