@@ -14,11 +14,11 @@ DESCRIPTION="Framework providing plugins to use KDE frameworks widgets in QtDesi
 
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="nls"
+IUSE=""
 
 DEPEND="
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
-BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
+BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
