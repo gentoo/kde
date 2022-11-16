@@ -14,6 +14,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="nls"
 
+BDEPEND="
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
+"
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -24,15 +27,8 @@ RDEPEND="
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/kiconthemes-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
+	=kde-frameworks/kxmlgui-${PVCUT}*:5
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
 "
-BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
-
-src_configure() {
-	local mycmakeargs=(
-		-DEXCLUDE_DEPRECATED_BEFORE_AND_AT=5.69.0
-	)
-	ecm_src_configure
-}
