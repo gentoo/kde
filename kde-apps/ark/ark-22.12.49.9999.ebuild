@@ -19,11 +19,10 @@ KEYWORDS=""
 IUSE="zip"
 
 RDEPEND="
-	app-arch/libarchive:=[bzip2,lzma,zlib(+)]
+	>=app-arch/libarchive-3.5.3:=[bzip2,lzma]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
