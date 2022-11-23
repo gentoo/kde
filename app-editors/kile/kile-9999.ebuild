@@ -58,17 +58,11 @@ RDEPEND="${DEPEND}
 	)
 "
 
-S=${WORKDIR}/${MY_P}
-
 DOCS=( kile-remote-control.txt )
 
-src_prepare() {
-	ecm_src_prepare
+S=${WORKDIR}/${MY_P}
 
-	# I know upstream wants to help us but it doesn't work..
-	sed -e '/INSTALL( FILES AUTHORS/s/^/#DISABLED /' \
-		-i CMakeLists.txt || die
-}
+PATCHES=( "${FILESDIR}/${PN}-2.9.93_p20221123-cmake.patch" )
 
 src_configure() {
 	local mycmakeargs=(
