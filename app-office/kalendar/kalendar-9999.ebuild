@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_CATEGORY="pim"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.98.0
+KFMIN=5.100.0
 QTMIN=5.15.5
 inherit ecm gear.kde.org
 

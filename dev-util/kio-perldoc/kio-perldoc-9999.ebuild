@@ -4,7 +4,7 @@
 EAPI=8
 
 KDE_ORG_NAME="kdesdk-kio"
-KFMIN=5.98.0
+KFMIN=5.100.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="KIO worker interface to browse Perl documentation"

@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_CATEGORY="utilities"
 KDE_ORG_NAME="kate"
 ECM_TEST="true"
-KFMIN=5.98.0
+KFMIN=5.100.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm flag-o-matic gear.kde.org optfeature
