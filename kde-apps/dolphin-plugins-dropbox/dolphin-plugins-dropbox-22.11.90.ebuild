@@ -7,7 +7,7 @@ ECM_HANDBOOK="false"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="dropbox"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.98.0
+KFMIN=5.99.0
 QTMIN=5.15.5
 inherit ecm gear.kde.org
 

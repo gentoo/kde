@@ -7,7 +7,7 @@ ECM_DESIGNERPLUGIN="true"
 ECM_HANDBOOK="optional"
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=5.98.0
+KFMIN=5.99.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org optfeature

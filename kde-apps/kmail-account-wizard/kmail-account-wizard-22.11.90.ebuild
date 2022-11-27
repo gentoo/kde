@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.98.0
+KFMIN=5.99.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org

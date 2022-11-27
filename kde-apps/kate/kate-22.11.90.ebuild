@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=5.98.0
+KFMIN=5.99.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm flag-o-matic gear.kde.org
