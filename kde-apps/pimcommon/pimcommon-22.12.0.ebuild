@@ -19,7 +19,7 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -49,9 +49,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/libkdepim-20.07.80:5
-"
+DEPEND="${RDEPEND}"
 
 src_test() {
 	# bugs 641730, 661330
