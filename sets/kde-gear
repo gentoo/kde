@@ -2,6 +2,8 @@
 kde-apps/baloo-widgets
 kde-apps/dolphin
 kde-apps/kate
+kde-apps/kate-addons
+kde-apps/kate-lib
 kde-apps/kde-apps-meta
 kde-apps/kdecore-meta
 kde-apps/khelpcenter
@@ -17,4 +19,5 @@ kde-apps/kwrite
 @kdenetwork
 @kdepim
 @kdesdk
+@kdetelepathy
 @kdeutils
