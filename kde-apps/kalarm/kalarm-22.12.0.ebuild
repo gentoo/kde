@@ -68,7 +68,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kalarmcal:5
 	pim? ( >=kde-apps/kdepim-runtime-${PVCUT}:5 )
 "
 
