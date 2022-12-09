@@ -8,7 +8,7 @@
 	<upstream>
 		<bugs-to>https://bugs.kde.org/</bugs-to>
 	</upstream>
-	<use>	
+	<use>
 		<flag name="designer">Build plugins for <pkg>dev-qt/designer</pkg></flag>
 		<flag name="share">Enable support for a share menu using <pkg>kde-frameworks/purpose</pkg></flag>
 	</use>
