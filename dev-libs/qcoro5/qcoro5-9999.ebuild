@@ -19,7 +19,7 @@ HOMEPAGE="https://qcoro.dvratil.cz/ https://github.com/danvratil/qcoro"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="dbus examples +network test websockets"
+IUSE="dbus examples +network qml test websockets"
 
 RESTRICT="!test? ( test )"
 
@@ -27,6 +27,7 @@ RDEPEND="
 	dev-qt/qtcore:5
 	dbus? ( dev-qt/qtdbus:5 )
 	network? ( dev-qt/qtnetwork:5 )
+	qml? ( dev-qt/qtdeclarative:5= )
 "
 DEPEND="${RDEPEND}
 	examples? (
@@ -45,6 +46,8 @@ src_configure() {
 		-DQCORO_BUILD_EXAMPLES=$(usex examples)
 		-DQCORO_WITH_QTDBUS=$(usex dbus)
 		-DQCORO_WITH_QTNETWORK=$(usex network)
+		-DQCORO_WITH_QML=$(usex qml)
+		-DQCORO_WITH_QTQUICK=$(usex qml)
 		-DBUILD_TESTING=$(usex test)
 		-DQCORO_WITH_QTWEBSOCKETS=$(usex websockets)
 	)
