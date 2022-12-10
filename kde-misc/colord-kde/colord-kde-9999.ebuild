@@ -24,7 +24,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
+	>=kde-frameworks/kpackage-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	media-libs/lcms:2
@@ -38,6 +41,9 @@ DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
+	dev-libs/kirigami-addons:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	kde-plasma/kde-cli-tools:5
 	x11-misc/colord
 "
