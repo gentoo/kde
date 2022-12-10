@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=9999
+KFMIN=5.101.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"

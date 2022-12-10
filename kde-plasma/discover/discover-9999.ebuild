@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=9999
+KFMIN=5.101.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm plasma.kde.org
