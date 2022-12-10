@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="false"
-KFMIN=5.90.0
+KFMIN=5.101.0
 QTMIN=5.15.5
 inherit ecm plasma-mobile.kde.org
 
@@ -19,7 +19,8 @@ LICENSE="GPL-2+"
 SLOT="5"
 
 DEPEND="
-	>=dev-libs/kweathercore-0.6
+	>=dev-libs/kirigami-addons-0.6:5
+	>=dev-libs/kweathercore-0.6:5
 	>=dev-qt/qtcharts-${QTMIN}:5[qml]
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
