@@ -1,17 +1,1 @@
-# Tier 2: Additionally depend on tier 1 frameworks.
-<kde-frameworks/kactivities-5.99.50
-<kde-frameworks/kauth-5.99.50
-<kde-frameworks/kcompletion-5.99.50
-<kde-frameworks/kcontacts-5.99.50
-<kde-frameworks/kcrash-5.99.50
-<kde-frameworks/kdoctools-5.99.50
-<kde-frameworks/kfilemetadata-5.99.50
-<kde-frameworks/kimageformats-5.99.50
-<kde-frameworks/kjobwidgets-5.99.50
-<kde-frameworks/knotifications-5.99.50
-<kde-frameworks/kpackage-5.99.50
-<kde-frameworks/kpeople-5.99.50
-<kde-frameworks/kpty-5.99.50
-# TODO: future: kquickimageeditor (not packaged)
-<kde-frameworks/kunitconversion-5.99.50
-<kde-frameworks/syndication-5.99.50
+kde-frameworks-5-tier2-5.99
