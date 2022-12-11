@@ -35,8 +35,15 @@ inherit kde.org
 
 HOMEPAGE="https://develop.kde.org/products/frameworks/"
 
-SLOT=5/${PV}
-[[ ${KDE_BUILD_TYPE} == release ]] && SLOT=$(ver_cut 1)/$(ver_cut 1-2)
+_SLOT=6
+_SUBSLOT=${PV}
+[[ ${KDE_BUILD_TYPE} == release ]] && _SUBSLOT=$(ver_cut 1-2)
+if [[ ${PV/.*} == 5 ]]; then
+	_SLOT=5
+	[[ ${KDE_BUILD_TYPE} == live ]] && _SUBSLOT=9999
+fi
+SLOT=${_SLOT}/${_SUBSLOT}
+unset _SLOT _SUBSLOT
 
 # @ECLASS_VARIABLE: KDE_ORG_SCHEDULE_URI
 # @INTERNAL
