@@ -1,17 +1,1 @@
-# Tier 2: Additionally depend on tier 1 frameworks.
-~kde-frameworks/kactivities-9999
-~kde-frameworks/kauth-9999
-~kde-frameworks/kcompletion-9999
-~kde-frameworks/kcontacts-9999
-~kde-frameworks/kcrash-9999
-~kde-frameworks/kdoctools-9999
-~kde-frameworks/kfilemetadata-9999
-~kde-frameworks/kimageformats-9999
-~kde-frameworks/kjobwidgets-9999
-~kde-frameworks/knotifications-9999
-~kde-frameworks/kpackage-9999
-~kde-frameworks/kpeople-9999
-~kde-frameworks/kpty-9999
-# TODO: future: kquickimageeditor (not packaged)
-~kde-frameworks/kunitconversion-9999
-~kde-frameworks/syndication-9999
+kde-frameworks-5-tier2-live

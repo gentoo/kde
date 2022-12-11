@@ -1,6 +1,1 @@
-@kde-frameworks-tier1-live
-@kde-frameworks-tier2-live
-@kde-frameworks-tier3-live
-# Tier 4: Provide extra features to other Frameworks to integrate with Plasma.
-~kde-frameworks/frameworkintegration-9999
-@kde-frameworks-portingaids-live
+kde-frameworks-5-live
