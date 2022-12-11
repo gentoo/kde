@@ -101,16 +101,16 @@ commit_packages() {
 }
 
 # @FUNCTION: create_keywords_files
-# @USAGE: <set name>
+# @USAGE: <target set> <base setname>
 # @DESCRIPTION:
-# Creates new package.{accept_keywords,unmask,mask}/<set name> files based on
-# live dirs and referencing <set name> including any subsets.
+# Creates new package.{accept_keywords,unmask,mask}/<target set> files based on
+# <base setname>-live dirs and referencing <target setname> including any subsets.
 create_keywords_files() {
 	local target="${1}"
-	local base=${target/%-[0-9.]*/}
+	local base="${2}"
 	local x
 
-	if [[ $# -gt 1 ]]; then
+	if [[ $# -gt 2 ]]; then
 		echo "${FUNCNAME[0]}: error: must be passed exactly one argument!"
 		return
 	fi

@@ -42,7 +42,7 @@ pushd "${TARGET_REPO}" > /dev/null
 
 if ! [[ -f sets/kde-plasma-${major_version} ]]; then
 	bump_set_from_live kde-plasma ${major_version} # TODO: s/49.9999/50:5/
-	create_keywords_files ${kfmv}
+	create_keywords_files ${kfmv} kde-plasma
 
 	sed -i -e "/PLASMA_RELEASES/s/\"$/ ${major_version}\"/" Documentation/maintainers/regenerate-files
 	Documentation/maintainers/regenerate-files
