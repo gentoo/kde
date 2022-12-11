@@ -151,11 +151,12 @@ if [[ ${CATEGORY} = kde-frameworks ]]; then
 fi
 : ${KFMIN:=5.82.0}
 
-# @ECLASS_VARIABLE: KFSLOT
+# @ECLASS_VARIABLE: _KFSLOT
 # @INTERNAL
 # @DESCRIPTION:
 # KDE Frameworks and Qt slot dependency, implied by KFMIN version.
-: ${KFSLOT:=5}
+: ${_KFSLOT:=5}
+[[ ${KFMIN/.*} == 6 ]] && _KFSLOT=6
 
 case ${ECM_NONGUI} in
 	true) ;;
@@ -186,7 +187,11 @@ esac
 case ${ECM_DESIGNERPLUGIN} in
 	true)
 		IUSE+=" designer"
-		BDEPEND+=" designer? ( dev-qt/designer:${KFSLOT} )"
+		if [[ ${_KFSLOT} == 6 ]]; then
+			BDEPEND+=" designer? ( dev-qt/qttools:${_KFSLOT}[designer] )"
+		else
+			BDEPEND+=" designer? ( dev-qt/designer:${_KFSLOT} )"
+		fi
 		;;
 	false) ;;
 	*)
@@ -209,7 +214,7 @@ esac
 case ${ECM_HANDBOOK} in
 	true|optional|forceoptional)
 		IUSE+=" +handbook"
-		BDEPEND+=" handbook? ( >=kde-frameworks/kdoctools-${KFMIN}:${KFSLOT} )"
+		BDEPEND+=" handbook? ( >=kde-frameworks/kdoctools-${KFMIN}:${_KFSLOT} )"
 		;;
 	false) ;;
 	*)
@@ -225,17 +230,19 @@ esac
 case ${ECM_QTHELP} in
 	true)
 		IUSE+=" doc"
-		COMMONDEPEND+=" doc? ( dev-qt/qt-docs:${KFSLOT} )"
-		BDEPEND+=" doc? (
-			>=app-doc/doxygen-1.8.13-r1
-			(
+		COMMONDEPEND+=" doc? ( dev-qt/qt-docs:${_KFSLOT} )"
+		BDEPEND+=" doc? ( >=app-doc/doxygen-1.8.13-r1 )"
+		if [[ ${_KFSLOT} == 6 ]]; then
+			BDEPEND+=" dev-qt/qttools:${_KFSLOT}[doc]"
+		else
+			BDEPEND+=" doc? (
 				=dev-qt/qtcore-5.15.7*:5
 				=dev-qt/qtgui-5.15.7*:5
 				=dev-qt/qthelp-5.15.7*:5
 				=dev-qt/qtsql-5.15.7*:5
 				=dev-qt/qtwidgets-5.15.7*:5
-			)
-		)"
+			)"
+		fi
 		;;
 	false) ;;
 	*)
@@ -247,7 +254,11 @@ esac
 case ${ECM_TEST} in
 	true|optional|forceoptional|forceoptional-recursive)
 		IUSE+=" test"
-		DEPEND+=" test? ( dev-qt/qttest:${KFSLOT} )"
+		if [[ ${_KFSLOT} == 6 ]]; then
+			DEPEND+=" test? ( dev-qt/qtbase:${_KFSLOT}[test] )"
+		else
+			DEPEND+=" test? ( dev-qt/qttest:${_KFSLOT} )"
+		fi
 		RESTRICT+=" !test? ( test )"
 		;;
 	false) ;;
@@ -258,11 +269,15 @@ case ${ECM_TEST} in
 esac
 
 BDEPEND+="
-	>=kde-frameworks/extra-cmake-modules-${KFMIN}:${KFSLOT}
+	>=kde-frameworks/extra-cmake-modules-${KFMIN}:${_KFSLOT}
 	dev-libs/libpcre2:*
 "
 RDEPEND+=" >=kde-frameworks/kf-env-4"
-COMMONDEPEND+=" dev-qt/qtcore:${KFSLOT}"
+if [[ ${_KFSLOT} == 6 ]]; then
+	COMMONDEPEND+=" dev-qt/qtbase:${_KFSLOT}"
+else
+	COMMONDEPEND+=" dev-qt/qtcore:${_KFSLOT}"
+fi
 
 DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
