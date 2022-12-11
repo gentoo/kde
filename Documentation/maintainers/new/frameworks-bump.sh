@@ -4,9 +4,9 @@
 : ${TARGET_REPO:="$(pwd)"}
 
 help() {
-	echo "Perform a version bump of KDE Frameworks."
+	echo "Perform a version bump of KDE Frameworks 5 or 6."
 	echo
-	echo "Based on the kde-frameworks-live set, this script performs a full version bump"
+	echo "Based on the kde-frameworks-(5|6)-live set, this script performs a full version bump"
 	echo "of a new unreleased KDE Frameworks."
 	echo
 	echo "In addition to the new ebuild being created, the following operations are performed:"
@@ -17,7 +17,7 @@ help() {
 	echo "* Generation of package.* files in Documentation"
 	echo
 	echo "Usage: frameworks-bump.sh <version>"
-	echo "Example: frameworks-bump.sh 5.30"
+	echo "Example: frameworks-bump.sh 5.101.0"
 	exit 0
 }
 
@@ -33,21 +33,27 @@ if [[ -z "${VERSION}" ]] ; then
 	help
 fi
 
-major_version=$(echo ${VERSION} | cut -d "." -f 1-2)
-kfv="kde-frameworks-${VERSION}"
-kfmv="kde-frameworks-${major_version}"
+major_version=$(echo ${VERSION} | cut -d "." -f 1)
+major_minor_version=$(echo ${VERSION} | cut -d "." -f 1-2)
+kfmv="kde-frameworks-${major_version}-${major_minor_version}"
+setname="kde-frameworks-${major_version}"
+if [[ ${major_version} == 5 ]]; then
+	base_version=5.9999
+else
+	base_version=9999
+fi
 
 pushd "${TARGET_REPO}" > /dev/null
 
-bump_set_from_live kde-frameworks ${major_version}
-mask_from_live_set kde-frameworks ${VERSION} ${kfv}
+bump_set_from_live ${setname} ${major_minor_version}
+mask_from_live_set ${setname} ${VERSION} kde-frameworks-${VERSION}
 mark_unreleased frameworks ${VERSION}
-create_keywords_files ${kfmv} ${set}
+create_keywords_files ${kfmv} ${setname}
 
-sed -i -e "/KF_RELEASES/s/\"$/ ${major_version}\"/" Documentation/maintainers/regenerate-files
+sed -i -e "/KF${major_version}_RELEASES/s/\"$/ ${major_minor_version}\"/" Documentation/maintainers/regenerate-files
 Documentation/maintainers/regenerate-files
 
-bump_packages_from_set kde-frameworks-live 9999 ${VERSION}
+bump_packages_from_set ${setname}-live ${base_version} ${VERSION}
 commit_packages ${kfmv} "${VERSION} version bump"
 
 popd > /dev/null
