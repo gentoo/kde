@@ -91,14 +91,6 @@ if [[ -d .kde-gear-live.base ]]; then
 	done
 	cat .kde-gear-live/* >> kde-gear-live.keywords
 fi
-
-# keywords for miscellaneous packages from package.unmask/
-for misc in kde-extras-live; do
-	if [[ -f "../package.unmask/${misc}" ]]; then
-		echo -e "${HEADER}" > "${misc}.keywords"
-		sed '/^~.*[.-]9999$/s/$/ **/' "../package.unmask/${misc}" >> "${misc}.keywords"
-	fi
-done
 popd > /dev/null
 
 # regenerate unmask entries (base for package mask)
