@@ -42,7 +42,7 @@ pushd "${TARGET_REPO}" > /dev/null
 
 if ! [[ -f sets/kde-gear-${major_version} ]]; then
 	bump_set_from_live kde-gear ${major_version}
-	create_keywords_files ${kfmv}
+	create_keywords_files ${kfmv} kde-gear
 
 	sed -i -e "/GEAR_RELEASES/s/\"$/ ${major_version}\"/" Documentation/maintainers/regenerate-files
 	Documentation/maintainers/regenerate-files
