@@ -14,7 +14,7 @@ HOMEPAGE="https://invent.kde.org/plasma/oxygen"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="wayland"
+IUSE=""
 
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -34,18 +34,8 @@ RDEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
 	x11-libs/libxcb
-	wayland? ( >=kde-frameworks/kwayland-${KFMIN}:5 )
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/kservice-${KFMIN}:5
 "
-PDEPEND="
-	>=kde-plasma/kde-cli-tools-${PVCUT}:5
-"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package wayland KF5Wayland)
-	)
-	ecm_src_configure
-}
+PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
