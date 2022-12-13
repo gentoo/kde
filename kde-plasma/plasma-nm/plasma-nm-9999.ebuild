@@ -14,7 +14,7 @@ DESCRIPTION="KDE Plasma applet for NetworkManager"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="5"
 KEYWORDS=""
-IUSE="modemmanager openconnect teamd"
+IUSE="openconnect teamd"
 
 DEPEND="
 	>=app-crypt/qca-2.3.0:2[qt5(+)]
@@ -37,15 +37,13 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/modemmanager-qt-${KFMIN}:5
 	>=kde-frameworks/networkmanager-qt-${KFMIN}:5[teamd=]
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	net-misc/networkmanager[teamd=]
-	modemmanager? (
-		>=dev-qt/qtxml-${QTMIN}:5
-		>=kde-frameworks/modemmanager-qt-${KFMIN}:5
-		net-misc/mobile-broadband-provider-info
-	)
+	>=dev-qt/qtxml-${QTMIN}:5
+	net-misc/mobile-broadband-provider-info
 	openconnect? (
 		>=dev-qt/qtxml-${QTMIN}:5
 		net-vpn/networkmanager-openconnect
@@ -72,15 +70,6 @@ src_prepare() {
 	if ! use openconnect; then
 		sed -e "s/^pkg_check_modules.*openconnect/#&/" -i CMakeLists.txt || die
 	fi
-}
-
-src_configure() {
-	local mycmakeargs=(
-		-DDISABLE_MODEMMANAGER_SUPPORT=$(usex !modemmanager)
-		$(cmake_use_find_package modemmanager KF5ModemManagerQt)
-	)
-
-	ecm_src_configure
 }
 
 pkg_postinst() {
