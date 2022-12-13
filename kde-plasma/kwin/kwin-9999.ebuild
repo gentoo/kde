@@ -63,7 +63,7 @@ COMMON_DEPEND="
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libXi
-	>=x11-libs/libdrm-2.4.108
+	>=x11-libs/libdrm-2.4.112
 	>=x11-libs/libxcb-1.10
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-0.7.0
@@ -91,7 +91,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.9
-	>=dev-libs/wayland-protocols-1.27
+	>=dev-libs/wayland-protocols-1.31
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	x11-base/xorg-proto
