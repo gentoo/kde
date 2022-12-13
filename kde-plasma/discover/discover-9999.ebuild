@@ -19,13 +19,13 @@ IUSE="+firmware flatpak telemetry webengine"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
+	>=dev-libs/appstream-0.15.3:=
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/attica-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -44,10 +44,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
 	firmware? ( >=sys-apps/fwupd-1.5.0 )
-	flatpak? (
-		>=dev-libs/appstream-0.15.3:=
-		sys-apps/flatpak
-	)
+	flatpak? ( sys-apps/flatpak )
 	telemetry? ( dev-libs/kuserfeedback:5 )
 	webengine? ( >=dev-qt/qtwebview-${QTMIN}:5 )
 "
@@ -74,7 +71,6 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Snapd=ON
 		-DWITH_KCM=OFF
 		-DBUILD_FlatpakBackend=$(usex flatpak)
-		$(cmake_use_find_package flatpak AppStreamQt)
 		-DBUILD_FwupdBackend=$(usex firmware)
 		$(cmake_use_find_package telemetry KUserFeedback)
 		$(cmake_use_find_package webengine Qt5WebView)
