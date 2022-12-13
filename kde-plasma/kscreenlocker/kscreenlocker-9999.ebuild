@@ -44,6 +44,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-plasma/layer-shell-qt-${PVCUT}:5
+	>=kde-plasma/libkscreen-${PVCUT}:5
 	sys-libs/pam
 	x11-libs/libX11
 	x11-libs/libXi
