@@ -38,7 +38,6 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
