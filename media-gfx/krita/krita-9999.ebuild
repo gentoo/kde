@@ -99,7 +99,6 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DENABLE_UPDATERS=OFF
-		-DFETCH_TRANSLATIONS=OFF
 		-DKRITA_ENABLE_PCH=OFF # big mess.
 		-DCMAKE_DISABLE_FIND_PACKAGE_KSeExpr=ON # not packaged
 		-DCMAKE_DISABLE_FIND_PACKAGE_xsimd=ON # not packaged
