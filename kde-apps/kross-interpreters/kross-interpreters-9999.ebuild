@@ -4,7 +4,7 @@
 EAPI=8
 
 USE_RUBY="ruby26 ruby27"
-KFMIN=5.100.0
+KFMIN=5.101.0
 QTMIN=5.15.5
 inherit ecm gear.kde.org ruby-single
 

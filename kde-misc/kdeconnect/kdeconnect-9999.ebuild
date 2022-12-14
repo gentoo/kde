@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
-KFMIN=5.100.0
+KFMIN=5.101.0
 QTMIN=5.15.5
 inherit ecm gear.kde.org
 

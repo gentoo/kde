@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.100.0
+KFMIN=5.101.0
 QTMIN=5.15.5
 inherit ecm flag-o-matic gear.kde.org
 

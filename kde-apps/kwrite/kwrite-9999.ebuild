@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_NAME="kate"
 ECM_HANDBOOK="optional"
-KFMIN=5.100.0
+KFMIN=5.101.0
 QTMIN=5.15.5
 inherit ecm flag-o-matic gear.kde.org
 
