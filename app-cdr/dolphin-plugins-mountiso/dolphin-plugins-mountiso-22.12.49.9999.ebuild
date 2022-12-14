@@ -7,7 +7,7 @@ ECM_HANDBOOK="false"
 KDE_ORG_CATEGORY="sdk"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="mountiso"
-KFMIN=5.99.0
+KFMIN=5.101.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.5
 inherit ecm gear.kde.org

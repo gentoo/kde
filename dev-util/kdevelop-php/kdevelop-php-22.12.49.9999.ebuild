@@ -8,7 +8,7 @@ ECM_HANDBOOK_DIR="docs"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-php"
-KFMIN=5.99.0
+KFMIN=5.101.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org
