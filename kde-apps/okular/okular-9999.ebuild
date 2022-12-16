@@ -59,7 +59,7 @@ DEPEND="
 	postscript? ( app-text/libspectre )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
-	tiff? ( media-libs/tiff:0 )
+	tiff? ( media-libs/tiff:= )
 "
 RDEPEND="${DEPEND}
 	image-backend? ( >=kde-frameworks/kimageformats-${KFMIN}:5 )
