@@ -33,6 +33,6 @@ DEPEND="
 	kde-frameworks/kwidgetsaddons:5
 	kde-frameworks/kxmlgui:5
 	media-gfx/sane-backends
-	media-libs/tiff:0
+	media-libs/tiff:=
 "
 RDEPEND="${DEPEND}"
