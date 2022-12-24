@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KFMIN=5.101.0
-PLASMA_MINIMAL=5.16.5
 QTMIN=5.15.5
 VIRTUALDBUS_TEST="true"
 inherit ecm gear.kde.org
@@ -18,10 +17,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	sys-devel/gettext
-"
 COMMON_DEPEND="
+	dev-libs/qcoro5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -40,11 +37,12 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-plasma/kde-cli-tools-${PLASMA_MINIMAL}:5
+	kde-plasma/kde-cli-tools:5
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-util/intltool
 "
+BDEPEND="sys-devel/gettext"
 
 # bug #549444
 RESTRICT="test"
