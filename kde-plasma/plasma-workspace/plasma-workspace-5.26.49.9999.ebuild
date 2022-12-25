@@ -97,7 +97,6 @@ COMMON_DEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/xcb-util
-	x11-libs/xcb-util-image
 	appstream? ( dev-libs/appstream[qt5] )
 	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	fontconfig? (
@@ -187,6 +186,11 @@ src_prepare() {
 
 	if ! use policykit; then
 		cmake_run_in kcms cmake_comment_add_subdirectory users
+	fi
+
+	if ! use fontconfig; then
+		ecm_punt_bogus_dep XCB IMAGE
+		sed -e "s/check_X11_lib(Xft)/#&/" -i CMakeLists.txt || die
 	fi
 }
 
