@@ -21,29 +21,25 @@ LICENSE="GPL-3+"
 SLOT="0"
 IUSE="kiosk"
 
+DEPEND="
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtsensors-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+"
+RDEPEND="${DEPEND}
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml]
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+"
 BDEPEND="
 	>=dev-qt/linguist-tools-${QTMIN}:5
 	test? (
 		dev-util/cppcheck
 		sys-devel/clang
 	)
-"
-COMMON_DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtsensors-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-"
-DEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-"
-RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml]
-	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
 
 src_configure() {
