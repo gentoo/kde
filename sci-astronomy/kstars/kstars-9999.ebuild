@@ -76,7 +76,6 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DFETCH_TRANSLATIONS=OFF
 		-DBUILD_DOC=$(usex handbook)
 		$(cmake_use_find_package fits CFitsio)
 		$(cmake_use_find_package indi INDI)
