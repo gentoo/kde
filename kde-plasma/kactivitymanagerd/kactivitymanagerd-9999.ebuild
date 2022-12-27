@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=5.102.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.5
+QTMIN=5.15.7
 inherit ecm plasma.kde.org
 
 DESCRIPTION="System service to manage user's activities, track the usage patterns etc."
