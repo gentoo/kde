@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.101.0
+KFMIN=5.102.0
 PVCUT=$(ver_cut 1-3)
 inherit ecm plasma.kde.org
 

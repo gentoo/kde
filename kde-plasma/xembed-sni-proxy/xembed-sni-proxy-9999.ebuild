@@ -4,7 +4,7 @@
 EAPI=8
 
 KDE_ORG_NAME="plasma-workspace"
-KFMIN=5.101.0
+KFMIN=5.102.0
 QTMIN=5.15.5
 inherit cmake plasma.kde.org
 
