@@ -33,7 +33,6 @@ RDEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdelibs4support-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
@@ -58,7 +57,6 @@ PATCHES=(
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Doxygen=ON # broken, re-enable w/ ECM_QTHELP
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebKitWidgets=ON
 		-DBUILD_APIDOC=OFF
 		-DBUILD_KF5=ON
 		-DBUILD_PHP_IMPORT=$(usex php)
