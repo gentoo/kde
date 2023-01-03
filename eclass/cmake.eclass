@@ -96,6 +96,7 @@ fi
 # By default it uses current working directory (in EAPI-7: ${S}).
 
 # @ECLASS_VARIABLE: CMAKE_VERBOSE
+# @USER_VARIABLE
 # @DESCRIPTION:
 # Set to OFF to disable verbose messages during compilation
 : ${CMAKE_VERBOSE:=ON}
