@@ -21,7 +21,6 @@ RESTRICT="test"
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
-	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
