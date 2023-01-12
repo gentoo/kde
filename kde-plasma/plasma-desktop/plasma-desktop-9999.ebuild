@@ -18,7 +18,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="ibus +kaccounts scim screencast +semantic-desktop telemetry"
+IUSE="ibus +kaccounts scim screencast +semantic-desktop"
 
 COMMON_DEPEND="
 	dev-libs/wayland
@@ -94,7 +94,6 @@ COMMON_DEPEND="
 	)
 	scim? ( app-i18n/scim )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
-	telemetry? ( dev-libs/kuserfeedback:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.25
@@ -152,7 +151,6 @@ src_configure() {
 		$(cmake_use_find_package kaccounts AccountsQt5)
 		$(cmake_use_find_package kaccounts KAccounts)
 		$(cmake_use_find_package semantic-desktop KF5Baloo)
-		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 
 	ecm_src_configure
