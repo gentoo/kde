@@ -78,9 +78,11 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma-workspace-${PVCUT}:5[screencast?]
 	>=media-libs/phonon-4.11.0
 	x11-libs/libX11
+	x11-libs/libXcursor
 	x11-libs/libXfixes
 	x11-libs/libXi
 	x11-libs/libxcb
+	x11-libs/libxkbcommon
 	x11-libs/libxkbfile
 	ibus? (
 		app-i18n/ibus
