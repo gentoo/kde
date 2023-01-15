@@ -63,6 +63,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
+	>=kde-frameworks/kpackage-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/krunner-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
