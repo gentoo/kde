@@ -17,6 +17,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+# kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -32,7 +33,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
