@@ -59,7 +59,7 @@ COMMON_DEPEND="
 	media-libs/lcms:2
 	media-libs/libepoxy
 	media-libs/libglvnd
-	>=media-libs/mesa-21.1[egl(+),gbm(+),wayland,X]
+	>=media-libs/mesa-21.3[egl(+),gbm(+),wayland,X]
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libXi
