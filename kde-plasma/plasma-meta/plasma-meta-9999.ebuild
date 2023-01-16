@@ -42,6 +42,7 @@ RDEPEND="
 	>=kde-plasma/plasma-desktop-${PV}:${SLOT}
 	>=kde-plasma/plasma-integration-${PV}:${SLOT}
 	>=kde-plasma/plasma-systemmonitor-${PV}:${SLOT}
+	>=kde-plasma/plasma-welcome-${PV}:${SLOT}
 	>=kde-plasma/plasma-workspace-${PV}:${SLOT}
 	>=kde-plasma/polkit-kde-agent-${PV}:${SLOT}
 	>=kde-plasma/powerdevil-${PV}:${SLOT}
