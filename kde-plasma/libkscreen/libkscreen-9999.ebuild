@@ -32,7 +32,7 @@ RDEPEND="
 	x11-libs/libxcb
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.6.0
+	>=dev-libs/plasma-wayland-protocols-1.10.0
 "
 BDEPEND="
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
