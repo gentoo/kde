@@ -22,7 +22,7 @@ if [[ "$1" = --linking-deps ]]; then
 		exit 1
 	fi
 	mime=`file -b --mime-type "$2"`
-	if [[ "$mime" == 'application/x-executable' ]] || [[ "${mime}" == 'application/x-sharedlib' ]]; then
+	if [[ "$mime" == 'application/x-pie-executable' ]] || [[ "$mime" == 'application/x-executable' ]] || [[ "${mime}" == 'application/x-sharedlib' ]]; then
 		LINK=`get_link_deps "$2"`
 		[[ "$mime" == 'application/x-sharedlib' ]] && /tmp/try_dlopen "$2"
 		[[ -n $LINK ]] && echo -e ${LINK//,/\\n} | sort -u
