@@ -58,7 +58,7 @@ PROTOCOLS="gadu groupwise meanwhile oscar testbed winpopup +xmpp zeroconf"
 #	jingle: media-libs/speex net-libs/ortp DISABLED BY UPSTREAM
 #	qq: NO DEPS
 #	telepathy: net-libs/decibel
-#	skype, sms (until fixed)
+#	sms (until fixed)
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
@@ -158,7 +158,7 @@ src_configure() {
 	done
 
 	# disable until fixed:
-	mycmakeargs+=( -DWITH_{cryptography,libjingle,skype,sms}=OFF )
+	mycmakeargs+=( -DWITH_{cryptography,libjingle,sms}=OFF )
 
 	# enable plugins
 	for x in ${PLUGINS}; do
