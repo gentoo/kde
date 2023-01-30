@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/k3b/ https://userbase.kde.org/K3b"
 LICENSE="GPL-2 FDL-1.2"
 SLOT="5"
 KEYWORDS=""
-IUSE="dvd flac mad musepack sndfile taglib vcd vorbis"
+IUSE="dvd ffmpeg flac mad musepack sndfile taglib vcd vorbis"
 
 REQUIRED_USE="flac? ( taglib )"
 
@@ -48,6 +48,7 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread:= )
+	ffmpeg? ( media-video/ffmpeg:0= )
 	flac? ( >=media-libs/flac-1.2:=[cxx] )
 	mad? ( media-libs/libmad )
 	musepack? ( >=media-sound/musepack-tools-444 )
@@ -81,6 +82,7 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebKitWidgets=ON
 		-DK3B_DEBUG=$(usex debug)
 		-DK3B_ENABLE_DVD_RIPPING=$(usex dvd)
+		-DK3B_BUILD_FFMPEG_DECODER_PLUGIN=$(usex ffmpeg)
 		-DK3B_BUILD_FLAC_DECODER_PLUGIN=$(usex flac)
 		-DK3B_BUILD_MAD_DECODER_PLUGIN=$(usex mad)
 		-DK3B_BUILD_MUSE_DECODER_PLUGIN=$(usex musepack)
