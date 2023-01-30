@@ -64,7 +64,7 @@ RDEPEND="
 	>=kde-frameworks/prison-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 	importwizard? ( >=kde-apps/akonadi-import-wizard-${PVCUT}:5 )
-	markdown? ( app-text/discount )
+	markdown? ( app-text/discount:= )
 "
 DEPEND="${RDEPEND}"
 
