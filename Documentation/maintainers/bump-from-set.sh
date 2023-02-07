@@ -28,7 +28,7 @@ get_main_tree_keyword() {
 	if [[ -e ${portdir}/${cp} ]] ; then
 		echo $(sed -ne 's/^\s*KEYWORDS="\(.*\)"/\1/p' "$(ls ${portdir}/${cp}/*.ebuild | sort | tail -n 1)")
 	else
-		echo "~amd64 ~x86"
+		echo "~amd64"
 	fi
 }
 
