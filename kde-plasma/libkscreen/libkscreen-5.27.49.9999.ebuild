@@ -14,7 +14,7 @@ inherit ecm plasma.kde.org
 DESCRIPTION="Plasma screen management library"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5/7"
+SLOT="5/8"
 KEYWORDS=""
 IUSE=""
 
