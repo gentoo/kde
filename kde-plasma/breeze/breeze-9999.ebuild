@@ -31,7 +31,6 @@ RDEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
 	X? ( x11-libs/libxcb )
 "
