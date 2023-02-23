@@ -45,6 +45,7 @@ DEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	net-misc/mobile-broadband-provider-info
 	openconnect? (
+		>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 		>=dev-qt/qtxml-${QTMIN}:5
 		net-vpn/networkmanager-openconnect
 		net-vpn/openconnect:=
@@ -63,13 +64,14 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-src_prepare() {
-	ecm_src_prepare
+PATCHES=( "${FILESDIR}/${PN}-5.27.80-openconnect-optional.patch" )
 
-	# TODO: try to get a build switch upstreamed
-	if ! use openconnect; then
-		sed -e "s/^pkg_check_modules.*openconnect/#&/" -i CMakeLists.txt || die
-	fi
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_OPENCONNECT=$(usex openconnect)
+	)
+
+	ecm_src_configure
 }
 
 pkg_postinst() {
