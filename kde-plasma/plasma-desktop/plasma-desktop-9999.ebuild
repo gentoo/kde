@@ -77,7 +77,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
 	>=kde-plasma/plasma-workspace-${PVCUT}:5[screencast?]
-	>=media-libs/phonon-4.11.0
+	media-libs/libcanberra
 	x11-libs/libX11
 	x11-libs/libXcursor
 	x11-libs/libXfixes
