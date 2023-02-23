@@ -59,6 +59,7 @@ src_configure() {
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
 		-DBUILD_kwrite=FALSE
+		-DBUILD_libkateterminal=FALSE # we've got konsole instead
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5DocTools=ON
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package telemetry KUserFeedback)
