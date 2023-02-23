@@ -79,6 +79,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_kate=FALSE
 		-DBUILD_kwrite=FALSE
+		-DBUILD_libkateterminal=FALSE # we've got konsole instead
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5DocTools=ON # docs in kate/kwrite
 		-DBUILD_filebrowser=$(usex filebrowser)
 		-DBUILD_lspclient=$(usex lspclient)
