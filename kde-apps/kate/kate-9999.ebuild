@@ -48,6 +48,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_addons=FALSE
 		-DBUILD_kwrite=FALSE
+		-DBUILD_libkateterminal=FALSE # we've got konsole instead
 	)
 
 	# provided by kde-apps/kate-lib
