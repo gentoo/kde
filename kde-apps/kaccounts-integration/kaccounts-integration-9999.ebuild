@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KFMIN=5.101.0
+KFMIN=5.103.0
 QTMIN=5.15.5
 VIRTUALDBUS_TEST="true"
 inherit ecm gear.kde.org

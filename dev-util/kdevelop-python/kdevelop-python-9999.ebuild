@@ -7,7 +7,7 @@ ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
 PYTHON_COMPAT=( python3_{9..10} )
-KFMIN=5.101.0
+KFMIN=5.103.0
 QTMIN=5.15.5
 inherit ecm gear.kde.org python-single-r1
 
