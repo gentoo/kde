@@ -42,7 +42,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	kde-plasma/kpipewire:5
 	x11-libs/libxcb
