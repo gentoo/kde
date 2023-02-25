@@ -32,6 +32,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kpty-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
@@ -59,7 +60,6 @@ src_configure() {
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
 		-DBUILD_kwrite=FALSE
-		-DBUILD_libkateterminal=FALSE # we've got konsole instead
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5DocTools=ON
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package telemetry KUserFeedback)
