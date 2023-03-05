@@ -43,4 +43,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-apps/kdepim-runtime-22.08.3:5
+"
