@@ -22,6 +22,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/grantlee:5
+	dev-libs/ktextaddons:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
