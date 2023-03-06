@@ -29,10 +29,3 @@ pkg_setup() {
 	python-any-r1_pkg_setup
 	ecm_pkg_setup
 }
-
-src_configure() {
-	local mycmakeargs=(
-		-DPython3_EXECUTABLE="${PYTHON}"
-	)
-	ecm_src_configure
-}
