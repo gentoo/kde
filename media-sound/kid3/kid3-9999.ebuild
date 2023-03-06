@@ -76,7 +76,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DPython3_EXECUTABLE="${PYTHON}"
 		-DWITH_CHROMAPRINT=$(usex acoustid)
 		-DWITH_DBUS=$(usex mpris)
 		-DWITH_FLAC=$(usex flac)
