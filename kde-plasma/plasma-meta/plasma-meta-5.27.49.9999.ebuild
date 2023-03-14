@@ -10,9 +10,9 @@ LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
-discover +display-manager +elogind +firewall flatpak grub gtk +handbook
-+kwallet +legacy-systray +networkmanager plymouth pulseaudio +sddm sdk +smart
-systemd thunderbolt +wallpapers"
++desktop-portal discover +display-manager +elogind +firewall flatpak grub gtk
++handbook +kwallet +legacy-systray +networkmanager plymouth pulseaudio +sddm
+sdk +smart systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -47,7 +47,6 @@ RDEPEND="
 	>=kde-plasma/polkit-kde-agent-${PV}:${SLOT}
 	>=kde-plasma/powerdevil-${PV}:${SLOT}
 	>=kde-plasma/systemsettings-${PV}:${SLOT}
-	>=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT}
 	sys-apps/dbus[elogind?,systemd?]
 	sys-auth/polkit[systemd?]
 	sys-fs/udisks:2[elogind?,systemd?]
@@ -56,6 +55,7 @@ RDEPEND="
 	colord? ( x11-misc/colord )
 	crash-handler? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
+	desktop-portal? ( >=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT} )
 	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
 	display-manager? (
 		sddm? (
