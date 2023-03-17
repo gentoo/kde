@@ -17,7 +17,7 @@
 
 case ${EAPI} in
 	8) ;;
-	*) die "EAPI=${EAPI:-0} is not supported" ;;
+	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
 if [[ -z ${_KDE_ORG_ECLASS} ]]; then
