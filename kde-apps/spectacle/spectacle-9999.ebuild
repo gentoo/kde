@@ -38,7 +38,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
@@ -56,7 +55,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qdbus-${QTMIN}:*
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
 	>=dev-qt/qtsvg-${QTMIN}:5
 "
