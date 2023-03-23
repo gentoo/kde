@@ -41,7 +41,6 @@ DEPEND="
 	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kpty-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
@@ -90,7 +89,7 @@ src_configure() {
 	)
 
 	# provided by kde-apps/kate-lib
-	append-libs -lkateprivate -lkateterminal
+	append-libs -lkateprivate
 
 	ecm_src_configure
 }
@@ -100,7 +99,6 @@ src_install() {
 
 	# provided by kde-apps/kate-lib
 	rm -v "${ED}"/usr/$(get_libdir)/libkateprivate.so.* || die
-	rm -v "${ED}"/usr/$(get_libdir)/libkateterminal.so* || die
 }
 
 pkg_postinst() {
