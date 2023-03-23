@@ -21,10 +21,13 @@ IUSE="activities fits +mpris raw semantic-desktop share X"
 # requires running environment
 RESTRICT="test"
 
+# slot op: includes qpa/qplatformnativeinterface.h
 COMMON_DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
+	dev-libs/wayland
+	>=dev-qt/qtgui-${QTMIN}:5=
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -66,12 +69,17 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
+	dev-libs/wayland-protocols
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtimageformats-${QTMIN}:5
 	>=kde-frameworks/kimageformats-${KFMIN}:5
+"
+BDEPEND="
+	>=dev-qt/qtwaylandscanner-${QTMIN}:5
+	dev-util/wayland-scanner
 "
 
 src_prepare() {
