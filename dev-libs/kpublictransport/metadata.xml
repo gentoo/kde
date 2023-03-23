@@ -6,6 +6,10 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<upstream>
+		<remote-id type="kde-invent">libraries/kpublictransport</remote-id>
 		<bugs-to>https://bugs.kde.org/</bugs-to>
 	</upstream>
+	<use>
+		<flag name="networkmanager">Enable onboard status detection using <pkg>kde-frameworks/networkmanager-qt</pkg></flag>
+	</use>
 </pkgmetadata>

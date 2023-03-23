@@ -16,14 +16,16 @@ HOMEPAGE="https://invent.kde.org/libraries/kpublictransport
 LICENSE="LGPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="networkmanager"
 
 RDEPEND="
 	dev-libs/protobuf:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
+	>=kde-frameworks/ki18n-${KFMIN}:5
 	sys-libs/zlib
+	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
@@ -32,6 +34,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_OsmTools=ON # we have no use for it
+		$(cmake_use_find_package networkmanager KF5NetworkManagerQt)
 	)
 	ecm_src_configure
 }
