@@ -32,7 +32,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kpty-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
