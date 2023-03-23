@@ -29,4 +29,7 @@ DEPEND="
 	media-libs/libgphoto2:=
 "
 RDEPEND="${DEPEND}"
-BDEPEND="sys-devel/gettext"
+BDEPEND="
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	sys-devel/gettext
+"
