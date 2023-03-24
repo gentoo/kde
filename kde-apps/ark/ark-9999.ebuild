@@ -30,6 +30,7 @@ RDEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
