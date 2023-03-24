@@ -59,7 +59,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=media-libs/mlt-7.10.0[ffmpeg,frei0r,qt5,sdl,xml]
+	>=media-libs/mlt-7.14.0[ffmpeg,frei0r,qt5,sdl,xml]
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	v4l? ( media-libs/libv4l )
 "
