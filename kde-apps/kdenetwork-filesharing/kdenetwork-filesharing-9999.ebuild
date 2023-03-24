@@ -16,6 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/qcoro5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
