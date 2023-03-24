@@ -28,6 +28,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
+	virtual/libintl
 "
 RDEPEND="${DEPEND}
 	~kde-apps/kate-addons-${PV}:5
