@@ -17,7 +17,7 @@ HOMEPAGE="https://kate-editor.org/ https://apps.kde.org/kate/"
 LICENSE="LGPL-2 LGPL-2+ MIT"
 SLOT="5"
 KEYWORDS=""
-IUSE="+filebrowser lspclient plasma +projects +snippets sql"
+IUSE="+filebrowser lspclient +projects +snippets sql"
 
 DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -49,7 +49,6 @@ DEPEND="
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 	filebrowser? ( >=kde-frameworks/kbookmarks-${KFMIN}:5 )
 	lspclient? ( >=kde-frameworks/kitemmodels-${KFMIN}:5 )
-	plasma? ( >=kde-frameworks/plasma-${KFMIN}:5 )
 	projects? (
 		>=kde-frameworks/knewstuff-${KFMIN}:5
 		>=kde-frameworks/threadweaver-${KFMIN}:5
@@ -82,7 +81,6 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5DocTools=ON # docs in kate/kwrite
 		-DBUILD_filebrowser=$(usex filebrowser)
 		-DBUILD_lspclient=$(usex lspclient)
-		-DBUILD_sessionapplet=$(usex plasma)
 		-DBUILD_project=$(usex projects)
 		-DBUILD_snippets=$(usex snippets)
 		-DBUILD_katesql=$(usex sql)
