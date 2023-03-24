@@ -16,6 +16,10 @@ SLOT="5"
 KEYWORDS=""
 IUSE="musicbrainz"
 
+# tests require network access and compare static data with online data
+# bug 280996
+RESTRICT="test"
+
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -29,10 +33,7 @@ DEPEND="
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
 RDEPEND="${DEPEND}"
-
-# tests require network access and compare static data with online data
-# bug 280996
-RESTRICT="test"
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
 src_prepare() {
 	ecm_src_prepare
