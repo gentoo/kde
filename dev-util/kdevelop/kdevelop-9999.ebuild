@@ -16,9 +16,9 @@ DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and mu
 HOMEPAGE="https://www.kdevelop.org/"
 
 LICENSE="GPL-2 LGPL-2"
-SLOT="5/57" # look at KDEVELOP_SOVERSION inside CMakeLists.txt
-IUSE="+gdbui hex +plasma +qmake reviewboard subversion"
+SLOT="5/$(ver_cut 1-2)"
 KEYWORDS=""
+IUSE="+gdbui hex +plasma +qmake reviewboard subversion"
 
 # see bug 366471
 RESTRICT="test"
