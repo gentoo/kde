@@ -24,7 +24,8 @@ RESTRICT="test"
 DEPEND="
 	>=app-crypt/gpgme-1.16.0:=[cxx,qt5]
 	>=app-crypt/qca-2.3.0:2[qt5(+)]
-	>=dev-libs/grantlee-5.2.0:5
+	>=dev-libs/grantlee-5.3.0:5
+	dev-libs/ktextaddons:5[speech?]
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
@@ -41,10 +42,11 @@ DEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmbox-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech?]
 	>=kde-apps/libgravatar-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/libkleo-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
@@ -71,3 +73,11 @@ DEPEND="
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package speech KF5TextEditTextToSpeech)
+	)
+
+	ecm_src_configure
+}
