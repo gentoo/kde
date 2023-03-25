@@ -17,7 +17,7 @@ HOMEPAGE="https://apps.kde.org/kontact/"
 LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
-IUSE="+barcode"
+IUSE=""
 
 DEPEND="
 	app-text/poppler:=[qt5]
@@ -32,8 +32,8 @@ DEPEND="
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=media-libs/zxing-cpp-1.1.0:=
 	sys-libs/zlib
-	barcode? ( >=media-libs/zxing-cpp-1.1.0:= )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="x11-misc/shared-mime-info"
@@ -42,7 +42,6 @@ src_configure() {
 	local mycmakeargs=(
 		# sci-geosciences/osmctools; TODO: useful at all?
 		-DCMAKE_DISABLE_FIND_PACKAGE_OsmTools=ON
-		$(cmake_use_find_package barcode ZXing)
 	)
 	ecm_src_configure
 }
