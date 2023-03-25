@@ -12,6 +12,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Various text handling addons"
+HOMEPAGE="https://invent.kde.org/libraries/ktextaddons"
 
 LICENSE="LGPL-2+"
 SLOT="5"
