@@ -59,9 +59,9 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package pim KF5IdentityManagement)
-		$(cmake_use_find_package pim KF5MailTransport)
-		$(cmake_use_find_package pim KF5MailTransportAkonadi)
+		$(cmake_use_find_package pim KPim5IdentityManagement)
+		$(cmake_use_find_package pim KPim5MailTransport)
+		$(cmake_use_find_package pim KPim5MailTransportAkonadi)
 	)
 	ecm_src_configure
 }
