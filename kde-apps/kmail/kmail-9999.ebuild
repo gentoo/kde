@@ -25,6 +25,7 @@ RESTRICT="test" # bug 616878
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 COMMON_DEPEND="
 	>=app-crypt/gpgme-1.16.0:=[cxx,qt5]
+	dev-libs/ktextaddons:5[speech?]
 	>=dev-qt/qtcore-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -39,7 +40,7 @@ COMMON_DEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech?]
 	>=kde-apps/libgravatar-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/libkleo-${PVCUT}:5
@@ -97,6 +98,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_PRECOMPILED_HEADERS=$(usex pch)
+		$(cmake_use_find_package speech KF5TextEditTextToSpeech)
 		$(cmake_use_find_package telemetry KUserFeedback)
 	)
 
