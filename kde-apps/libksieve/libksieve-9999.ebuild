@@ -23,6 +23,7 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-libs/cyrus-sasl
+	dev-libs/ktextaddons:5[speech?]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -31,7 +32,7 @@ RDEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech?]
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
@@ -50,3 +51,11 @@ DEPEND="${RDEPEND}
 	>=kde-apps/kimap-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package speech KF5TextEditTextToSpeech)
+	)
+
+	ecm_src_configure
+}
