@@ -21,7 +21,7 @@ IUSE=""
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-libs/grantlee-5.2.0:5
+	>=dev-libs/grantlee-5.3.0:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
