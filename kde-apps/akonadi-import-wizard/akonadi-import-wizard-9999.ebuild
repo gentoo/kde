@@ -29,6 +29,7 @@ DEPEND="
 	>=kde-apps/mailimporter-${PVCUT}:5
 	>=kde-apps/messagelib-${PVCUT}:5
 	>=kde-apps/pimcommon-${PVCUT}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
