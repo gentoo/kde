@@ -41,9 +41,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-20.08.3:5
