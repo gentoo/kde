@@ -51,6 +51,7 @@ DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
+	x11-libs/libxkbcommon
 	bluetooth? ( >=dev-qt/qtbluetooth-${QTMIN}:5 )
 	X? (
 		x11-libs/libfakekey
@@ -67,7 +68,6 @@ RDEPEND="${DEPEND}
 	net-fs/sshfs
 "
 BDEPEND="
-	dev-libs/plasma-wayland-protocols
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	dev-util/wayland-scanner
 "
