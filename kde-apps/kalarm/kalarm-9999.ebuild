@@ -26,7 +26,7 @@ DEPEND="
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech?]
 	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
@@ -62,6 +62,7 @@ DEPEND="
 		>=kde-apps/akonadi-mime-${PVCUT}:5
 		>=kde-apps/kmailtransport-${PVCUT}:5
 	)
+	speech? ( dev-libs/ktextaddons:5[speech] )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
@@ -74,6 +75,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_AKONADI_PLUGIN=$(usex pim)
+		$(cmake_use_find_package speech KF5TextEditTextToSpeech)
 		-DWITHOUT_X11=$(usex !X)
 	)
 
