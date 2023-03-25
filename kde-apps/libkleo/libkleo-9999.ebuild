@@ -39,7 +39,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package fancyviewer KF5PimTextEdit)
+		$(cmake_use_find_package fancyviewer KPim5TextEdit)
 	)
 
 	ecm_src_configure
