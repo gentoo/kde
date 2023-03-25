@@ -47,6 +47,7 @@ COMMON_DEPEND="
 		)
 		>=dev-qt/qtwayland-${QTMIN}:5
 		>=kde-frameworks/kwayland-${KFMIN}:5
+		kde-plasma/kpipewire:5
 		media-libs/libepoxy
 		media-libs/mesa[gbm(+)]
 		>=media-video/pipewire-0.3:=
