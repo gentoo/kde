@@ -23,6 +23,7 @@ RESTRICT="test"
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -34,7 +35,7 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
-	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
+	speech? ( dev-libs/ktextaddons:5[speech] )
 "
 DEPEND="${RDEPEND}
 	test? ( >=kde-frameworks/ktextwidgets-${KFMIN}:5 )
@@ -42,7 +43,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package speech Qt5TextToSpeech)
+		$(cmake_use_find_package speech KF5TextEditTextToSpeech)
 	)
 	ecm_src_configure
 }
