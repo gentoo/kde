@@ -21,6 +21,7 @@ KEYWORDS=""
 IUSE="X"
 
 DEPEND="
+	dev-libs/ktextaddons:5
 	dev-libs/libxslt
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -55,7 +56,7 @@ DEPEND="
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
