@@ -29,6 +29,7 @@ COMMON_DEPEND="
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-calendar-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/akonadi-notes-${PVCUT}:5
 	>=kde-apps/calendarsupport-${PVCUT}:5
 	>=kde-apps/eventviews-${PVCUT}:5
@@ -75,9 +76,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
-BDEPEND="
-	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
-"
+BDEPEND="test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )"
 
 src_configure() {
 	local mycmakeargs=(
