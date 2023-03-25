@@ -22,7 +22,8 @@ RESTRICT="test"
 
 RDEPEND="
 	>=app-crypt/gpgme-1.16.0:=[cxx,qt5]
-	>=dev-libs/grantlee-5.2.0:5
+	>=dev-libs/grantlee-5.3.0:5
+	dev-libs/ktextaddons:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
