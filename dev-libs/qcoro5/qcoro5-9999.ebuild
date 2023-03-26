@@ -11,7 +11,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	SRC_URI="https://github.com/danvratil/${PN/5/}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${P/5/}"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64 ~ppc64"
 fi
 
 DESCRIPTION="C++ Coroutine Library for Qt5"
@@ -28,6 +28,7 @@ RDEPEND="
 	dbus? ( dev-qt/qtdbus:5 )
 	network? ( dev-qt/qtnetwork:5 )
 	qml? ( dev-qt/qtdeclarative:5= )
+	websockets? ( dev-qt/qtwebsockets:5 )
 "
 DEPEND="${RDEPEND}
 	examples? (
@@ -57,7 +58,7 @@ src_configure() {
 src_install() {
 	if use examples; then
 		docinto examples
-		dodoc examples/*
+		dodoc -r examples/*
 	fi
 	cmake_src_install
 }
