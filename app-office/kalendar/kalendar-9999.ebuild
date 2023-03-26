@@ -23,6 +23,7 @@ RESTRICT="test"
 
 DEPEND="
 	app-crypt/gpgme:=[cxx]
+	>=dev-libs/kirigami-addons-0.7.2:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -31,6 +32,7 @@ DEPEND="
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-calendar-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/calendarsupport-${PVCUT}:5
 	>=kde-apps/eventviews-${PVCUT}:5
 	>=kde-apps/mailcommon-${PVCUT}:5
