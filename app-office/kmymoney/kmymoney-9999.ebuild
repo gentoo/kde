@@ -78,8 +78,6 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
-
 pkg_setup() {
 	ecm_pkg_setup
 
