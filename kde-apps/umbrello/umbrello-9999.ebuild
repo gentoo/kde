@@ -51,7 +51,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-20.08.3-gentoo-docbundledir.patch # fix hardcoded path
+	"${FILESDIR}"/${PN}-23.03.80-gentoo-docbundledir.patch # fix hardcoded path
 )
 
 src_configure() {
