@@ -18,11 +18,11 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 
-LICENSE="GPL-2+ FDL-1.2"
+LICENSE="GPL-2+ FDL-1.2 CC-BY-SA-4.0"
 SLOT="5"
-IUSE="map phonon qtav +raw share +vlc"
+IUSE="map phonon +raw share +vlc"
 
-REQUIRED_USE="|| ( phonon qtav vlc )"
+REQUIRED_USE="|| ( phonon vlc )"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -47,7 +47,6 @@ DEPEND="
 	media-libs/libjpeg-turbo:=
 	map? ( kde-apps/marble:5 )
 	phonon? ( >=media-libs/phonon-4.11.0 )
-	qtav? ( media-libs/qtav:= )
 	raw? ( kde-apps/libkdcraw:5 )
 	share? ( >=kde-frameworks/kxmlgui-${KFMIN}:5 )
 	vlc? ( media-video/vlc:= )
@@ -56,13 +55,13 @@ RDEPEND="${DEPEND}
 	media-video/ffmpeg
 "
 
-DOCS=( ChangeLog README.md )
+DOCS=( CHANGELOG.{md,old} README.md )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package phonon Phonon4Qt5)
-		$(cmake_use_find_package qtav QtAV)
+		-DCMAKE_DISABLE_FIND_PACKAGE_QtAV=ON # bug 758641, last-rited
 		$(cmake_use_find_package map Marble)
+		$(cmake_use_find_package phonon Phonon4Qt5)
 		$(cmake_use_find_package raw KF5KDcraw)
 		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package vlc LIBVLC)
