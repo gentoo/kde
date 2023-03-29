@@ -23,7 +23,7 @@ HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop X"
+IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mysql opengl openmp +panorama scanner semantic-desktop X"
 
 # bug 366505
 RESTRICT="test"
@@ -77,10 +77,6 @@ COMMON_DEPEND="
 		>=kde-apps/marble-19.04.3:5
 		>=kde-frameworks/kbookmarks-${KFMIN}:5
 	)
-	mediaplayer? (
-		media-libs/qtav[opengl(+)]
-		media-video/ffmpeg:=
-	)
 	opengl? (
 		>=dev-qt/qtopengl-${QTMIN}:5
 		virtual/opengl
@@ -127,6 +123,7 @@ src_configure() {
 		-DBUILD_TESTING=OFF # bug 698192
 		-DENABLE_APPSTYLES=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
+		-DENABLE_MEDIAPLAYER=OFF # bug 758641, last-rited
 		-DENABLE_QWEBENGINE=ON
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
 		$(cmake_use_find_package calendar KF5CalendarCore)
@@ -135,8 +132,6 @@ src_configure() {
 		$(cmake_use_find_package imagemagick ImageMagick)
 		$(cmake_use_find_package lensfun LensFun)
 		$(cmake_use_find_package marble Marble)
-		-DENABLE_MEDIAPLAYER=$(usex mediaplayer)
-		$(cmake_use_find_package mediaplayer QtAV)
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
 		-DENABLE_INTERNALMYSQL=$(usex mysql)
 		$(cmake_use_find_package opengl OpenGL)
