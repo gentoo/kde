@@ -17,6 +17,8 @@ RDEPEND="
 	>=kde-apps/krdc-${PV}:${SLOT}
 	>=kde-apps/krfb-${PV}:${SLOT}
 	>=kde-misc/kdeconnect-${PV}:${SLOT}
+	>=net-im/neochat-${PV}
+	>=net-im/tokodon-${PV}
 	>=net-irc/konversation-${PV}:${SLOT}
 	>=net-misc/kio-zeroconf-${PV}:${SLOT}
 	bittorrent? (
