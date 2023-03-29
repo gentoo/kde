@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/categories/development/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="cvs git mercurial perl php python ruby subversion webengine"
+IUSE="cvs git mercurial perl php python subversion webengine"
 
 RDEPEND="
 	>=kde-apps/kapptemplate-${PV}:${SLOT}
@@ -26,7 +26,6 @@ RDEPEND="
 	mercurial? ( >=kde-apps/dolphin-plugins-mercurial-${PV}:${SLOT} )
 	perl? ( >=dev-util/kio-perldoc-${PV}:${SLOT} )
 	python? ( >=kde-apps/lokalize-${PV}:${SLOT} )
-	ruby? ( >=kde-apps/kross-interpreters-${PV}:${SLOT} )
 	subversion? ( >=kde-apps/dolphin-plugins-subversion-${PV}:${SLOT} )
 	webengine? (
 		>=dev-util/kdevelop-${PV}:${SLOT}
