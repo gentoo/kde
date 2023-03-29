@@ -96,10 +96,6 @@ RDEPEND="${COMMON_DEPEND}
 	reviewboard? ( kde-apps/ktp-accounts-kcm:5 )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-22.12.3-clang16.patch
-)
-
 llvm_check_deps() {
 	has_version -d "sys-devel/clang:${LLVM_SLOT}"
 }
