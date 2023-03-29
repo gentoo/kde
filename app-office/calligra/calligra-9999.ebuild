@@ -18,6 +18,9 @@ if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~ppc64 ~x86"
 fi
 
+PATCHSET="${PN}-3.2.1-patchset-1"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz"
+
 CAL_FTS=( karbon sheets stage words )
 
 LICENSE="GPL-2"
@@ -62,7 +65,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kross-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
@@ -114,7 +116,10 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="sys-devel/gettext"
 
-PATCHES=( "${FILESDIR}"/${PN}-3.1.89-no-arch-detection.patch )
+PATCHES=(
+	"${WORKDIR}"/${PATCHSET}/${PN}-3.1.89-no-arch-detection.patch # downstream
+	"${WORKDIR}"/${PATCHSET}/${PN}-3.2.1-kross-optional.patch # bug 903532
+)
 
 pkg_pretend() {
 	check-reqs_pkg_pretend
@@ -152,6 +157,7 @@ src_configure() {
 		-DWITH_Imath=ON # w/ LCMS: 16 bit floating point Grayscale colorspace
 		-DCMAKE_DISABLE_FIND_PACKAGE_Cauchy=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5CalendarCore=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Kross=ON
 		-DPRODUCTSET="${myproducts[*]}"
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package charts KChart)
