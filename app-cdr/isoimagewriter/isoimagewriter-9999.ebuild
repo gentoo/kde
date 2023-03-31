@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.90.0
+KFMIN=5.102.0
 QTMIN=5.15.5
 inherit ecm kde.org
 
@@ -21,15 +21,17 @@ IUSE=""
 
 DEPEND="
 	app-crypt/gpgme:=[cxx(+),qt5]
+	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	sys-fs/udisks:2
+"
