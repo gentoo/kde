@@ -34,4 +34,4 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-DOCS=( CREDITS.md README.md )
+DOCS=( CHANGELOG.md README.md )
