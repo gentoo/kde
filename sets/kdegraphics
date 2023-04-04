@@ -13,6 +13,7 @@ kde-apps/okular
 kde-apps/spectacle
 kde-apps/svgpart
 kde-apps/thumbnailers
+kde-misc/colord-kde
 kde-misc/skanlite
 media-gfx/skanpage
 media-libs/ksanecore
