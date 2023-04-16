@@ -138,8 +138,6 @@
 ~kde-apps/signon-kwallet-extension-23.03.90
 ~kde-misc/kdeconnect-23.03.90
 ~kde-misc/kio-gdrive-23.03.90
-~net-im/neochat-23.03.90
-~net-im/tokodon-23.03.90
 ~net-irc/konversation-23.03.90
 ~net-libs/libktorrent-23.03.90
 ~net-misc/kio-zeroconf-23.03.90
@@ -229,7 +227,6 @@
 ~kde-apps/kcharselect-23.03.90
 ~kde-apps/kdebugsettings-23.03.90
 ~kde-apps/kdeutils-meta-23.03.90
-~app-editors/ghostwriter-23.03.90
 ~kde-apps/kdf-23.03.90
 ~kde-apps/kfloppy-23.03.90
 ~kde-apps/kgpg-23.03.90
