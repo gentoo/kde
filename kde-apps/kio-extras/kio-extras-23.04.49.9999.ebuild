@@ -75,6 +75,9 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="man? ( dev-util/gperf )"
 
+# https://invent.kde.org/network/kio-extras/-/merge_requests/236
+PATCHES=( "${FILESDIR}/${PN}-23.04.0-tests-optional.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)
