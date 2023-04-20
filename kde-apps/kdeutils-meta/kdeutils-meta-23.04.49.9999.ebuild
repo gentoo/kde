@@ -13,7 +13,6 @@ IUSE="7zip cups floppy gpg lrz rar +webengine"
 
 RDEPEND="
 	>=app-cdr/dolphin-plugins-mountiso-${PV}:${SLOT}
-	>=app-editors/ghostwriter-${PV}
 	>=kde-apps/ark-${PV}:${SLOT}
 	>=kde-apps/filelight-${PV}:${SLOT}
 	>=kde-apps/kate-${PV}:${SLOT}
@@ -33,7 +32,10 @@ RDEPEND="
 	cups? ( >=kde-apps/print-manager-${PV}:${SLOT} )
 	floppy? ( >=kde-apps/kfloppy-${PV}:${SLOT} )
 	gpg? ( >=kde-apps/kgpg-${PV}:${SLOT} )
-	webengine? ( >=kde-apps/kimagemapeditor-${PV}:${SLOT} )
+	webengine? (
+		>=app-editors/ghostwriter-${PV}
+		>=kde-apps/kimagemapeditor-${PV}:${SLOT}
+	)
 "
 # Optional runtime deps: kde-apps/ark
 RDEPEND="${RDEPEND}
