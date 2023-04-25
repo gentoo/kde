@@ -13,6 +13,7 @@ IUSE="7zip cups floppy gpg lrz rar +webengine"
 
 RDEPEND="
 	>=app-cdr/dolphin-plugins-mountiso-${PV}:${SLOT}
+	>=app-crypt/keysmith-${PV}
 	>=kde-apps/ark-${PV}:${SLOT}
 	>=kde-apps/filelight-${PV}:${SLOT}
 	>=kde-apps/kate-${PV}:${SLOT}
