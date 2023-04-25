@@ -124,6 +124,7 @@
 ~kde-apps/libkcddb-9999 **
 ~kde-apps/libkcompactdisc-9999 **
 ~media-sound/elisa-9999 **
+~media-sound/kasts-9999 **
 ~kde-apps/dolphin-plugins-dropbox-9999 **
 ~kde-apps/kaccounts-integration-9999 **
 ~kde-apps/kaccounts-providers-9999 **
@@ -220,6 +221,7 @@
 ~kde-apps/poxml-9999 **
 ~kde-apps/umbrello-9999 **
 ~app-cdr/dolphin-plugins-mountiso-9999 **
+~app-crypt/keysmith-9999 **
 ~app-editors/ghostwriter-9999 **
 ~kde-apps/ark-9999 **
 ~kde-apps/filelight-9999 **
@@ -238,6 +240,7 @@
 ~kde-apps/print-manager-9999 **
 ~kde-apps/sweeper-9999 **
 ~kde-apps/yakuake-9999 **
+~kde-misc/kweather-9999 **
 ~kde-misc/markdownpart-9999 **
 ~sys-block/partitionmanager-9999 **
 ~sys-libs/kpmcore-9999 **
