@@ -24,10 +24,9 @@ IUSE="webengine"
 
 RESTRICT="test"
 
-DEPEND="
+COMMON_DEPEND="
 	app-text/poppler[qt5]
 	dev-libs/icu:=
-	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -55,8 +54,11 @@ DEPEND="
 	virtual/tex-base
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
 "
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	dev-tex/bibtex2html
+"
+DEPEND="${COMMON_DEPEND}
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 
 src_configure() {
