@@ -32,7 +32,6 @@ DEPEND="
 	=kde-frameworks/kitemviews-${PVCUT}*:5
 	=kde-frameworks/kpackage-${PVCUT}*:5
 	=kde-frameworks/kservice-${PVCUT}*:5
-	=kde-frameworks/ktextwidgets-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	opds? ( =kde-frameworks/syndication-${PVCUT}*:5 )
