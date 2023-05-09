@@ -39,7 +39,7 @@ RDEPEND="${DEPEND}
 	discover? ( kde-plasma/discover:5 )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.27.4-kaccounts-optional.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.27.4.1-kaccounts-optional.patch" )
 
 src_prepare() {
 	ecm_src_prepare
