@@ -23,6 +23,7 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -41,12 +42,10 @@ DEPEND="
 	>=kde-frameworks/networkmanager-qt-${KFMIN}:5[teamd=]
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	net-misc/networkmanager[teamd=]
-	>=dev-qt/qtxml-${QTMIN}:5
 	net-misc/mobile-broadband-provider-info
+	net-misc/networkmanager[teamd=]
 	openconnect? (
 		>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-		>=dev-qt/qtxml-${QTMIN}:5
 		net-vpn/networkmanager-openconnect
 		net-vpn/openconnect:=
 	)
