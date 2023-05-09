@@ -235,22 +235,13 @@ case ${ECM_QTHELP} in
 		if [[ ${_KFSLOT} == 6 ]]; then
 			BDEPEND+=" dev-qt/qttools:${_KFSLOT}[doc]"
 		else
-			BDEPEND+=" doc? ( || (
-				(
-					=dev-qt/qtcore-5.15.9*:5
-					=dev-qt/qtgui-5.15.9*:5
-					=dev-qt/qthelp-5.15.9*:5
-					=dev-qt/qtsql-5.15.9*:5
-					=dev-qt/qtwidgets-5.15.9*:5
-				)
-				(
-					=dev-qt/qtcore-5.15.8*:5
-					=dev-qt/qtgui-5.15.8*:5
-					=dev-qt/qthelp-5.15.8*:5
-					=dev-qt/qtsql-5.15.8*:5
-					=dev-qt/qtwidgets-5.15.8*:5
-				)
-			) )"
+			BDEPEND+=" doc? (
+				=dev-qt/qtcore-5.15.9*:5
+				=dev-qt/qtgui-5.15.9*:5
+				=dev-qt/qthelp-5.15.9*:5
+				=dev-qt/qtsql-5.15.9*:5
+				=dev-qt/qtwidgets-5.15.9*:5
+			)"
 		fi
 		;;
 	false) ;;
