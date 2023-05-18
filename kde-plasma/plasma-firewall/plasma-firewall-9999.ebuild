@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 KFMIN=5.102.0
 QTMIN=5.15.7
 inherit ecm plasma.kde.org python-single-r1
