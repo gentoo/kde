@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_QTHELP="false"
 ECM_TEST="false"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing plugins to use KDE frameworks widgets in QtDesigner"

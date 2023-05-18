@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=5.88.0
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm kde.org toolchain-funcs
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then

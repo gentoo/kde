@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="Digital camera raw image library wrapper"

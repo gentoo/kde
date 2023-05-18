@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_QTHELP="false"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.5
+QTMIN=5.15.9
 VIRTUALX_REQUIRED="test"
 inherit ecm frameworks.kde.org
 

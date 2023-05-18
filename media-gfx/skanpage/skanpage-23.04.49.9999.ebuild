@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_CATEGORY="utilities"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.104.0
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="Multi-page scanning application supporting image and pdf files"

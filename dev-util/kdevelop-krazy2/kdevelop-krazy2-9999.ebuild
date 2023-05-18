@@ -7,7 +7,7 @@ ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-krazy2"
 KFMIN=5.82.0
-QTMIN=5.15.5
+QTMIN=5.15.9
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 

@@ -7,7 +7,7 @@ ECM_EXAMPLES="true"
 ECM_QTHELP="false"
 ECM_TEST="true"
 KDE_ORG_NAME="${PN}2"
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm frameworks.kde.org toolchain-funcs
 
 DESCRIPTION="Lightweight user interface framework for mobile and convergent applications"

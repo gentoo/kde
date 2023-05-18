@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="true"
 KFMIN=5.102.0
-QTMIN=5.15.7
+QTMIN=5.15.9
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Monitors S.M.A.R.T. capable devices for imminent failure"

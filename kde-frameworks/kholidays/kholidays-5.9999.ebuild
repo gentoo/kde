@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="false"
 ECM_TEST="true"
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Library to determine holidays and other special events for a geographical region"

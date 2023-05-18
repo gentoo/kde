@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=5.104.0
-QTMIN=5.15.5
+QTMIN=5.15.9
 PYTHON_COMPAT=( python3_{10..11} )
 VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org python-single-r1

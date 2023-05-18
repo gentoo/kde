@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="true"
 KFMIN=5.102.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.7
+QTMIN=5.15.9
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Dedicated search application built on top of Baloo"

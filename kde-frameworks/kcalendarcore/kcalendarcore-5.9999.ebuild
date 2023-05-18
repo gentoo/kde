@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="true"
-QTMIN=5.15.5
+QTMIN=5.15.9
 VIRTUALX_REQUIRED="test"
 inherit ecm frameworks.kde.org
 

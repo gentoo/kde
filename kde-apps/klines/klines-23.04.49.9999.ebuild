@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 KDE_SELINUX_MODULE="games"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.104.0
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="A little KDE game about balls and how to get rid of them"

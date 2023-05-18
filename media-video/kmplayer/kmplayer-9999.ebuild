@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional" # TODO: not optional until kdelibs4support is gone
 KFMIN=5.82.0
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm kde.org
 
 DESCRIPTION="Video player plugin for Konqueror and basic MPlayer frontend"

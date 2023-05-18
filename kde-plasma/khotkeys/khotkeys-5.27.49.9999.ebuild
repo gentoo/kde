@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional" # not optional until !kdelibs4support
 KFMIN=5.102.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.7
+QTMIN=5.15.9
 inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma workspace hotkey module"

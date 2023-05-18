@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm kde.org
 
 DESCRIPTION="KIO Slave and daemon to stash discontinuous file selections"

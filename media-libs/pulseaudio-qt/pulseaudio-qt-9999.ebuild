@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_QTHELP="true"
 ECM_TEST="optional"
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm kde.org
 
 DESCRIPTION="Qt bindings for libpulse"

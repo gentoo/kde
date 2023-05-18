@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="false"
-QTMIN=5.15.5
+QTMIN=5.15.9
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for detection and notification of device idle time"
