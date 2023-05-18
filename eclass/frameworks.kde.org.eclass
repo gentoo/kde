@@ -37,10 +37,13 @@ HOMEPAGE="https://develop.kde.org/products/frameworks/"
 
 _SLOT=6
 _SUBSLOT=${PV}
-[[ ${KDE_BUILD_TYPE} == release ]] && _SUBSLOT=$(ver_cut 1-2)
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	_SUBSLOT=$(ver_cut 1-2)
+else
+	_SUBSLOT=9999
+fi
 if [[ ${PV/.*} == 5 ]]; then
 	_SLOT=5
-	[[ ${KDE_BUILD_TYPE} == live ]] && _SUBSLOT=9999
 fi
 SLOT=${_SLOT}/${_SUBSLOT}
 unset _SLOT _SUBSLOT
@@ -59,7 +62,9 @@ _KDE_SRC_URI="mirror://kde/"
 
 case ${KDE_BUILD_TYPE} in
 	live)
-		[[ ${PV} == 5.9999 ]] && EGIT_BRANCH="kf5"
+		if [[ ${PV} == 5.9999 ]]; then
+			EGIT_BRANCH="kf5"
+		fi
 		;;
 	*)
 		if [[ -z ${KDE_ORG_COMMIT} ]]; then
