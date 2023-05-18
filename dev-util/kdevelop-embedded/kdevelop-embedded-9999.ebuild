@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-embedded"
-KFMIN=5.82.0
+KFMIN=5.106.0
 QTMIN=5.15.9
 inherit ecm kde.org
 

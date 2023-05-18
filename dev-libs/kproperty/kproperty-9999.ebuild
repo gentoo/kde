@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="true" # build system adds autotests dir based on BUILD_TESTING value
-KFMIN=5.82.0
+KFMIN=5.106.0
 QTMIN=5.15.9
 inherit ecm kde.org
 

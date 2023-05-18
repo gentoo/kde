@@ -7,7 +7,7 @@ ECM_EXAMPLES="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="graphics"
-KFMIN=5.92.0
+KFMIN=5.106.0
 QTMIN=5.15.9
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org

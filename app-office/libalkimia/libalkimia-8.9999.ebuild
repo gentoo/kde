@@ -6,7 +6,7 @@ EAPI=8
 EGIT_BRANCH="8.1"
 ECM_TEST="forceoptional"
 KDE_ORG_NAME="alkimia"
-KFMIN=5.82.0
+KFMIN=5.106.0
 QTMIN=5.15.9
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org

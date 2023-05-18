@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 ECM_TEST="false"
 KDE_ORG_NAME="akonadi-calendar-tools"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.104.0
+KFMIN=5.106.0
 QTMIN=5.15.9
 inherit ecm gear.kde.org
 

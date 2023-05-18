@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="true"
 PYTHON_COMPAT=( python3_{10..11} )
-KFMIN=5.82.0
+KFMIN=5.106.0
 QTMIN=5.15.9
 inherit ecm kde.org python-any-r1
 

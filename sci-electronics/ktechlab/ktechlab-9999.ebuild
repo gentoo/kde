@@ -7,7 +7,7 @@ ECM_EXAMPLES="true"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="sdk"
-KFMIN=5.82.0
+KFMIN=5.106.0
 QTMIN=5.15.9
 inherit ecm kde.org
 

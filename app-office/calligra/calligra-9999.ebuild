@@ -6,7 +6,7 @@ EAPI=8
 CHECKREQS_DISK_BUILD="4G"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=5.88.0
+KFMIN=5.106.0
 QTMIN=5.15.9
 inherit check-reqs ecm kde.org
 
