@@ -235,7 +235,7 @@ case ${ECM_QTHELP} in
 		COMMONDEPEND+=" doc? ( dev-qt/qt-docs:${_KFSLOT} )"
 		BDEPEND+=" doc? ( >=app-doc/doxygen-1.8.13-r1 )"
 		if [[ ${_KFSLOT} == 6 ]]; then
-			BDEPEND+=" dev-qt/qttools:${_KFSLOT}[doc]"
+			BDEPEND+=" dev-qt/qttools:${_KFSLOT}[assistant]"
 		else
 			BDEPEND+=" doc? (
 				=dev-qt/qtcore-5.15.9*:5
