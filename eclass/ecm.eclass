@@ -145,7 +145,7 @@ fi
 # Minimum version of Frameworks to require. Default value for kde-frameworks
 # is ${PV} and 5.82.0 baseline for everything else. This is not going to be
 # changed unless we also bump EAPI, which usually implies (rev-)bumping.
-# Version will also be used to differentiate between KF5/Qt5 and KF6/Qt6.
+# If set to >=5.240, KF6/Qt6 will be assumed thus SLOT=6 dependencies added.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: "${KFMIN:=$(ver_cut 1-2)}"
 fi
@@ -156,7 +156,9 @@ fi
 # @DESCRIPTION:
 # KDE Frameworks and Qt slot dependency, implied by KFMIN version.
 : "${_KFSLOT:=5}"
-[[ ${KFMIN/.*} == 6 ]] && _KFSLOT=6
+if [[ ${KFMIN/.*} == 6 ]] || $(ver_test ${KFMIN} -ge 5.240); then
+	_KFSLOT=6
+fi
 
 case ${ECM_NONGUI} in
 	true) ;;
