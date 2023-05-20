@@ -39,7 +39,6 @@
 ~kde-frameworks/networkmanager-qt-5.9999 **
 ~kde-frameworks/oxygen-icons-5.9999 **
 ~kde-frameworks/prison-5.9999 **
-~kde-frameworks/qqc2-desktop-style-5.9999 **
 ~kde-frameworks/solid-5.9999 **
 ~kde-frameworks/sonnet-5.9999 **
 ~kde-frameworks/syntax-highlighting-5.9999 **
@@ -86,3 +85,4 @@
 ~kde-frameworks/kxmlgui-5.9999 **
 ~kde-frameworks/plasma-5.9999 **
 ~kde-frameworks/purpose-5.9999 **
+~kde-frameworks/qqc2-desktop-style-5.9999 **
