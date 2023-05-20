@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/categories/utilities/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="7zip cups floppy gpg lrz rar +webengine"
+IUSE="7zip cups gpg lrz rar +webengine"
 
 RDEPEND="
 	>=app-cdr/dolphin-plugins-mountiso-${PV}:${SLOT}
@@ -32,7 +32,6 @@ RDEPEND="
 	>=sys-block/partitionmanager-${PV}:${SLOT}
 	>=sys-libs/kpmcore-${PV}:${SLOT}
 	cups? ( >=kde-apps/print-manager-${PV}:${SLOT} )
-	floppy? ( >=kde-apps/kfloppy-${PV}:${SLOT} )
 	gpg? ( >=kde-apps/kgpg-${PV}:${SLOT} )
 	webengine? (
 		>=app-editors/ghostwriter-${PV}
