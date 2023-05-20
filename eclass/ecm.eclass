@@ -156,8 +156,14 @@ fi
 # @DESCRIPTION:
 # KDE Frameworks and Qt slot dependency, implied by KFMIN version.
 : "${_KFSLOT:=5}"
-if [[ ${KFMIN/.*} == 6 ]] || $(ver_test ${KFMIN} -ge 5.240); then
-	_KFSLOT=6
+if [[ ${CATEGORY} == kde-frameworks ]]; then
+	if [[ ${PV} != 5.9999 ]] && $(ver_test ${KFMIN} -ge 5.240); then
+		_KFSLOT=6
+	fi
+else
+	if [[ ${KFMIN/.*} == 6 ]] || $(ver_test ${KFMIN} -ge 5.240); then
+		_KFSLOT=6
+	fi
 fi
 
 case ${ECM_NONGUI} in
