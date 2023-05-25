@@ -40,5 +40,5 @@ src_test() {
 		-E "(contacts-contactcreatejobtest|contacts-contactmodifyjobtest|calendar-eventcreatejobtest|calendar-eventfetchjobtest|calendar-eventmodifyjobtest)"
 	)
 
-	virtx cmake_src_test
+	ecm_src_test
 }
