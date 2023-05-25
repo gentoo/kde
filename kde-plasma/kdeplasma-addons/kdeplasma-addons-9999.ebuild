@@ -7,7 +7,6 @@ ECM_HANDBOOK="forceoptional"
 KFMIN=5.106.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm plasma.kde.org optfeature
 
 DESCRIPTION="Extra Plasma applets and engines"

@@ -8,7 +8,6 @@ ECM_TEST="true"
 KDE_ORG_CATEGORY="pim"
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Todo management and time tracker"

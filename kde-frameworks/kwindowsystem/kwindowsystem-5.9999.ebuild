@@ -4,7 +4,6 @@
 EAPI=8
 
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing access to properties and features of the window manager"

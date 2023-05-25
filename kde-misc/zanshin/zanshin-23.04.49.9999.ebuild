@@ -8,7 +8,6 @@ KDE_ORG_CATEGORY="pim"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org
 
 DESCRIPTION="Getting things done application by KDE"

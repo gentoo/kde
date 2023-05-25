@@ -7,7 +7,6 @@ ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Personal finances manager, aiming at being simple and intuitive"

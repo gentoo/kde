@@ -6,7 +6,6 @@ EAPI=8
 KFMIN=5.106.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Syncs KDE Plasma theme settings to GTK applications"

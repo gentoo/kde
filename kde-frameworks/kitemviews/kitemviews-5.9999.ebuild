@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing additional widgets for item models"

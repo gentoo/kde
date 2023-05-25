@@ -7,7 +7,6 @@ ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="network"
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org
 
 DESCRIPTION="BitTorrent library based on KDE Frameworks"

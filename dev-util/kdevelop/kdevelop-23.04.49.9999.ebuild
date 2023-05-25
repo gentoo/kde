@@ -10,7 +10,6 @@ KFMIN=5.106.0
 LLVM_MAX_SLOT=16
 QTMIN=5.15.9
 VIRTUALDBUS_TEST="true"
-VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org llvm optfeature
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"

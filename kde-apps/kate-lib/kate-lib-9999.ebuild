@@ -8,7 +8,6 @@ KDE_ORG_NAME="kate"
 ECM_TEST="true"
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org
 
 DESCRIPTION="Shared library used by Kate/Kwrite and Kate-Addons"

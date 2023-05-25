@@ -7,7 +7,6 @@ ECM_TEST="true"
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org
 
 DESCRIPTION="Application to take pictures and videos from your webcam by KDE"

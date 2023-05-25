@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Collection manager based on KDE Frameworks"

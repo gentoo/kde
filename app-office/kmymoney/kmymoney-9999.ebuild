@@ -7,7 +7,6 @@ ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
 inherit ecm kde.org optfeature
 

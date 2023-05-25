@@ -9,7 +9,6 @@ PVCUT=$(ver_cut 1-3)
 KFMIN=5.106.0
 QTMIN=5.15.9
 # monthitemordertest requires a display
-VIRTUALX_REQUIRED=test
 inherit ecm gear.kde.org
 
 DESCRIPTION="Calendar viewer for KDE PIM"

@@ -7,7 +7,6 @@ ECM_KDEINSTALLDIRS="false"
 ECM_TEST="true"
 ECM_EXAMPLES="true"
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Library for writing accessibility clients such as screen readers"

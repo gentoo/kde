@@ -8,7 +8,6 @@ ECM_TEST="true"
 PYTHON_COMPAT=( python3_{10..11} )
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm kde.org python-any-r1
 
 DESCRIPTION="Framework for creation and generation of reports in multiple formats"

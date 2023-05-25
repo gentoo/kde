@@ -8,7 +8,6 @@ ECM_TEST="optional"
 KFMIN=5.106.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Tools based on KDE Frameworks 5 to better interact with the system"

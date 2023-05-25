@@ -8,7 +8,6 @@ ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org
 
 DESCRIPTION="Extended text editor for PIM applications"

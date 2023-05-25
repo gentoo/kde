@@ -3,8 +3,7 @@
 
 EAPI=8
 
-VIRTUALX_REQUIRED="test"
-inherit cmake virtualx git-r3
+inherit cmake git-r3
 
 DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="https://github.com/steveire/grantlee"
@@ -13,7 +12,7 @@ EGIT_REPO_URI=( "https://github.com/steveire/${PN}" )
 LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
-IUSE="debug doc test"
+IUSE="doc test"
 
 RESTRICT="!test? ( test )"
 
@@ -51,11 +50,12 @@ src_compile() {
 }
 
 src_test() {
-	virtx cmake_src_test
+	local -x QT_QPA_PLATFORM="offscreen"
+	cmake_src_test
 }
 
 src_install() {
-	use doc && local HTML_DOCS=("${BUILD_DIR}/apidox/")
+	use doc && local HTML_DOCS=( "${BUILD_DIR}/apidox/" )
 
 	cmake_src_install
 }

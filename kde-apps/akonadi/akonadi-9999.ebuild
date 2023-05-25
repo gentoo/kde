@@ -9,7 +9,6 @@ ECM_TEST="forceoptional"
 KFMIN=5.106.0
 QTMIN=5.15.9
 VIRTUALDBUS_TEST="true"
-VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org readme.gentoo-r1
 
 DESCRIPTION="Storage service for PIM data and libraries for PIM apps"

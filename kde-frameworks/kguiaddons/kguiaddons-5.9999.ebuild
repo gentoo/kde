@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_NONGUI="false"
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing assorted high-level user interface components"

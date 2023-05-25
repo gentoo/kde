@@ -7,7 +7,6 @@ ECM_HANDBOOK="optional" # see src/apps/marble-kde/CMakeLists.txt
 ECM_TEST="forceoptional"
 KFMIN=5.106.0
 QTMIN=5.15.9
-VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org
 
 DESCRIPTION="Virtual Globe and World Atlas to learn more about Earth"
