@@ -20,7 +20,6 @@ LICENSE="GPL-2"
 SLOT="5"
 IUSE="exif office pdf taglib truetype"
 
-BDEPEND="sys-devel/gettext"
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -45,10 +44,11 @@ DEPEND="
 	truetype? ( media-libs/freetype:2 )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package exif Exiv2)
+		$(cmake_use_find_package exif LibExiv2)
 		$(cmake_use_find_package office KF5Archive)
 		$(cmake_use_find_package pdf PoDoFo)
 		$(cmake_use_find_package taglib Taglib)
