@@ -41,8 +41,3 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-src_test() {
-	local -x QT_QPA_PLATFORM=offscreen
-	ecm_src_test
-}
