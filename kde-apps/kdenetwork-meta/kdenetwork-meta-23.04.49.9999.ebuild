@@ -21,6 +21,7 @@ RDEPEND="
 	>=net-im/tokodon-${PV}
 	>=net-irc/konversation-${PV}:${SLOT}
 	>=net-misc/kio-zeroconf-${PV}:${SLOT}
+	>=net-news/alligator-${PV}
 	bittorrent? (
 		>=net-libs/libktorrent-${PV}:${SLOT}
 		>=net-p2p/ktorrent-${PV}:${SLOT}
