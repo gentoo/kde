@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KFMIN=5.75.0
-QTMIN=5.15.0
+KFMIN=5.106.0
+QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="Convergent RSS/Atom feed reader for Plasma"
