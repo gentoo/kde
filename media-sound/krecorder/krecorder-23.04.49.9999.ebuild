@@ -3,9 +3,9 @@
 
 EAPI=8
 
-KFMIN=5.89.0
-QTMIN=5.15.0
 KDE_ORG_CATEGORY="utilities"
+KFMIN=5.106.0
+QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="Convergent audio recording application for Plasma"
@@ -30,6 +30,4 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
-BDEPEND="
-	>=kde-frameworks/ki18n-${KFMIN}:5
-"
+BDEPEND=">=kde-frameworks/ki18n-${KFMIN}:5"
