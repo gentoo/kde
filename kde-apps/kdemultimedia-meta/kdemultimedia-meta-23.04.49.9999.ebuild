@@ -19,6 +19,7 @@ RDEPEND="
 	>=kde-apps/kwave-${PV}:${SLOT}
 	>=media-sound/elisa-${PV}:${SLOT}
 	>=media-sound/kasts-${PV}
+	>=media-sound/krecorder-${PV}
 	cdrom? (
 		>=kde-apps/audiocd-kio-${PV}:${SLOT}
 		>=kde-apps/k3b-${PV}:${SLOT}
