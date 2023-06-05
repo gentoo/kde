@@ -15,11 +15,8 @@ https://kcachegrind.github.io/html/Home.html"
 LICENSE="GPL-2"
 SLOT="5"
 KEYWORDS=""
-IUSE="nls"
+IUSE=""
 
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -38,3 +35,4 @@ DEPEND="
 RDEPEND="${DEPEND}
 	media-gfx/graphviz
 "
+BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
