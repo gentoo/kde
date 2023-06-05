@@ -15,13 +15,12 @@ HOMEPAGE="https://marble.kde.org/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5/$(ver_cut 1-2)"
 KEYWORDS=""
-IUSE="aprs +dbus designer +geolocation gps +kde nls +pbf phonon shapefile +webengine"
+IUSE="aprs +dbus designer +geolocation gps +kde +pbf phonon shapefile +webengine"
+
+# bug 588320
+RESTRICT="test"
 
 # FIXME (new package): libwlocate, WLAN-based geolocation
-BDEPEND="
-	aprs? ( dev-lang/perl )
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -60,9 +59,10 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-
-# bug 588320
-RESTRICT="test"
+BDEPEND="
+	>=dev-qt/linguist-tools-${QTMIN}:5
+	aprs? ( dev-lang/perl )
+"
 
 src_prepare() {
 	ecm_src_prepare
