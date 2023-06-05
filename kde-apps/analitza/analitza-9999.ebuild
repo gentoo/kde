@@ -12,11 +12,8 @@ DESCRIPTION="KDE library for mathematical features"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="eigen nls"
+IUSE="eigen"
 
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5[-gles2-only]
@@ -27,6 +24,7 @@ DEPEND="
 	eigen? ( dev-cpp/eigen:3 )
 "
 RDEPEND="${DEPEND}"
+BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
 src_prepare() {
 	ecm_src_prepare
