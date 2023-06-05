@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/step/ https://edu.kde.org/step/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+gsl nls +qalculate"
+IUSE="+gsl +qalculate"
 
 DEPEND="
 	>=dev-cpp/eigen-3.2:3
@@ -42,7 +42,7 @@ DEPEND="
 	qalculate? ( >=sci-libs/libqalculate-0.9.5:= )
 "
 RDEPEND="${DEPEND}"
-BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
+BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
 src_configure() {
 	local mycmakeargs=(
