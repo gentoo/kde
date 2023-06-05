@@ -14,7 +14,7 @@ HOMEPAGE="https://api.kde.org/kdepim/libkgapi/html/index.html"
 LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
-IUSE="nls"
+IUSE=""
 
 DEPEND="
 	dev-libs/cyrus-sasl:2
@@ -27,7 +27,7 @@ DEPEND="
 	>=kde-frameworks/kwallet-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
+BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
 src_test() {
 	local myctestargs=(
