@@ -23,7 +23,7 @@ HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mysql opengl openmp +panorama scanner semantic-desktop X"
+IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mysql opengl openmp +panorama scanner semantic-desktop spell X"
 
 # bug 366505
 RESTRICT="test"
@@ -34,6 +34,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5[-gles2-only]
 	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtnetworkauth-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5[mysql?]
 	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
@@ -53,7 +54,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=media-gfx/exiv2-0.27:=[xmp]
+	>=media-gfx/exiv2-0.27.1:=[xmp]
 	media-libs/lcms:2
 	media-libs/libjpeg-turbo:=
 	media-libs/liblqr
@@ -84,6 +85,7 @@ COMMON_DEPEND="
 	panorama? ( >=kde-frameworks/threadweaver-${KFMIN}:5 )
 	scanner? ( >=kde-apps/libksane-19.04.3:5 )
 	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
+	spell? ( >=kde-frameworks/sonnet-${KFMIN}:5 )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
@@ -92,6 +94,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:3
 	dev-libs/boost
+	addressbook? ( >=kde-apps/akonadi-19.04.3:5 )
 "
 RDEPEND="${COMMON_DEPEND}
 	mysql? ( virtual/mysql[server(+)] )
@@ -105,7 +108,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-7.8.0-cmake.patch" )
+PATCHES=( "${FILESDIR}/${PN}-8.1.0-cmake.patch" )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -120,10 +123,12 @@ pkg_setup() {
 # FIXME: Unbundle libraw (libs/rawengine/libraw)
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_WITH_QT6=OFF # KF6 not stable upstream yet
 		-DBUILD_TESTING=OFF # bug 698192
 		-DENABLE_APPSTYLES=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
-		-DENABLE_MEDIAPLAYER=OFF # bug 758641, last-rited
+		-DENABLE_MEDIAPLAYER=OFF # bug 758641; bundled as of 8.0, KDE-bug 448681
+		-DENABLE_SHOWFOTO=ON # built unconditionally so far, new option since 8.0
 		-DENABLE_QWEBENGINE=ON
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
 		$(cmake_use_find_package calendar KF5CalendarCore)
@@ -137,6 +142,7 @@ src_configure() {
 		$(cmake_use_find_package opengl OpenGL)
 		$(cmake_use_find_package panorama KF5ThreadWeaver)
 		$(cmake_use_find_package scanner KF5Sane)
+		$(cmake_use_find_package spell KF5Sonnet)
 		-DENABLE_KFILEMETADATASUPPORT=$(usex semantic-desktop)
 		$(cmake_use_find_package X X11)
 	)
