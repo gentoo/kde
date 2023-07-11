@@ -10,7 +10,7 @@ DESCRIPTION="Simple tag editor based on Qt"
 HOMEPAGE="https://kid3.kde.org/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -47,7 +47,7 @@ RDEPEND="
 		kde-frameworks/kxmlgui:5
 	)
 	mp3? ( media-libs/id3lib )
-	mp4? ( media-libs/libmp4v2:0 )
+	mp4? ( media-libs/libmp4v2 )
 	mpris? ( dev-qt/qtdbus:5 )
 	taglib? ( >=media-libs/taglib-1.9.1 )
 	vorbis? (
@@ -76,6 +76,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_WITH_QT6=OFF
 		-DWITH_CHROMAPRINT=$(usex acoustid)
 		-DWITH_DBUS=$(usex mpris)
 		-DWITH_FLAC=$(usex flac)
