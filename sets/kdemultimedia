@@ -12,3 +12,5 @@ kde-apps/kwave
 kde-apps/libkcddb
 kde-apps/libkcompactdisc
 media-sound/elisa
+media-sound/kasts
+media-sound/krecorder
