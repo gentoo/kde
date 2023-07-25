@@ -49,6 +49,7 @@ RDEPEND="
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5[X?]
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
+	sys-power/switcheroo-control
 	acl? (
 		sys-apps/attr
 		virtual/acl
