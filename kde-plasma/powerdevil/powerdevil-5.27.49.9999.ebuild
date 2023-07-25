@@ -54,6 +54,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	sys-power/power-profiles-daemon
 	>=sys-power/upower-0.9.23
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
