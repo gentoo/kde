@@ -11,7 +11,7 @@ inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Visual end user components for Kirigami-based applications"
@@ -29,6 +29,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 "
