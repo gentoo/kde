@@ -50,7 +50,7 @@ COMMON_DEPEND="
 	fits? ( sci-libs/cfitsio:= )
 	indi? (
 		sci-libs/gsl:=
-		>=sci-libs/indilib-1.9.1
+		>=sci-libs/indilib-2.0.2
 		sci-libs/libnova:=
 		>=sci-libs/stellarsolver-2.2
 	)
@@ -76,6 +76,7 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_LibXISF=ON # not packaged
 		-DBUILD_DOC=$(usex handbook)
 		$(cmake_use_find_package fits CFitsio)
 		$(cmake_use_find_package indi INDI)
