@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_QTHELP="true"
 ECM_TEST="true"
 KDE_ORG_NAME="ktnef"
 PVCUT=$(ver_cut 1-3)
