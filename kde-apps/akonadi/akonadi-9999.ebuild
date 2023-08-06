@@ -29,7 +29,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5[mysql?,postgres?]
+	>=dev-qt/qtsql-${QTMIN}:5[mysql?,postgres?,sqlite?]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -45,10 +45,6 @@ COMMON_DEPEND="
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-20.08.3:5
 		>=net-libs/accounts-qt-1.16
-	)
-	sqlite? (
-		dev-db/sqlite:3
-		>=dev-qt/qtsql-${QTMIN}:5=[sqlite]
 	)
 	xml? ( dev-libs/libxml2 )
 "
@@ -66,7 +62,7 @@ PATCHES=( "${FILESDIR}/${PN}-21.03.80-mysql56-crash.patch" )
 pkg_setup() {
 	# Set default storage backend in order: MySQL, PostgreSQL, SQLite
 	# reverse driver check to keep the order
-	use sqlite && DRIVER="QSQLITE3"
+	use sqlite && DRIVER="QSQLITE"
 	use postgres && DRIVER="QPSQL"
 	use mysql && DRIVER="QMYSQL"
 
@@ -76,12 +72,6 @@ pkg_setup() {
 		ewarn
 	fi
 
-	if use sqlite || has_version "<${CATEGORY}/${P}[sqlite]"; then
-		ewarn "We strongly recommend you change your Akonadi database backend to"
-		ewarn "either MariaDB/MySQL or PostgreSQL in your user configuration."
-		ewarn "In particular, kde-apps/kmail does not work properly with the sqlite backend."
-	fi
-
 	ecm_pkg_setup
 }
 
@@ -89,7 +79,6 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package kaccounts AccountsQt5)
 		$(cmake_use_find_package kaccounts KAccounts)
-		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
 		-DBUILD_TOOLS=$(usex tools)
 		$(cmake_use_find_package xml LibXml2)
 	)
@@ -116,7 +105,7 @@ pkg_postinst() {
 	elog "Available drivers are:"
 	use mysql && elog "  QMYSQL"
 	use postgres && elog "  QPSQL"
-	use sqlite && elog "  QSQLITE3"
+	use sqlite && elog "  QSQLITE"
 	elog "${DRIVER} has been set as your default akonadi storage backend."
 	use mysql && elog
 	use mysql && FORCE_PRINT_ELOG=1 readme.gentoo_print_elog
