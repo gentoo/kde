@@ -17,6 +17,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="alsa plasma pulseaudio"
 
+# kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -30,7 +31,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )
