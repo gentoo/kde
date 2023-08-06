@@ -17,6 +17,8 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/futuresql:5
+	dev-libs/qcoro5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
