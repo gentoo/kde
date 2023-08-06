@@ -42,7 +42,10 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	dev-util/intltool
 "
-BDEPEND="sys-devel/gettext"
+BDEPEND="
+	>=kde-frameworks/kpackage-${KFMIN}:5
+	sys-devel/gettext
+"
 
 # bug #549444
 RESTRICT="test"
