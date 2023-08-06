@@ -4,6 +4,7 @@
 EAPI=8
 
 KDE_ORG_CATEGORY="pim"
+KDE_ORG_NAME="merkuro"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.106.0
@@ -30,13 +31,11 @@ DEPEND="
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-calendar-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/akonadi-mime-${PVCUT}:5
-	>=kde-apps/calendarsupport-${PVCUT}:5
-	>=kde-apps/eventviews-${PVCUT}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/mailcommon-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
