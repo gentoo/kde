@@ -37,6 +37,7 @@ COMMON_DEPEND="
 		>=kde-frameworks/kcoreaddons-${KFMIN}:5
 		>=kde-frameworks/kcrash-${KFMIN}:5
 		>=kde-frameworks/kio-${KFMIN}:5
+		>=kde-frameworks/kjobwidgets-${KFMIN}:5
 		>=kde-frameworks/kwallet-${KFMIN}:5
 		>=kde-frameworks/purpose-${KFMIN}:5
 	)
@@ -64,7 +65,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
-PATCHES=( "${FILESDIR}/${PN}-22.04.3-python3.patch" )
+PATCHES=( "${FILESDIR}/${PN}-23.07.80-python3.patch" )
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -77,9 +78,7 @@ src_configure() {
 		-DDISABLE_DBUS=$(usex !dbus)
 		$(cmake_use_find_package kde KF5Wallet)
 		$(cmake_use_find_package kde KF5KIO)
-		$(cmake_use_find_package python PySide2)
-		$(cmake_use_find_package python Shiboken2)
-		$(cmake_use_find_package python Python3)
+		-DBUILD_PYTHON_SUPPORT=$(usex python)
 		-DNO_X11=$(usex !X)
 	)
 	use python && mycmakeargs+=(
