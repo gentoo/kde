@@ -22,7 +22,6 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
 	>=kde-apps/kpimtextedit-${PVCUT}:5
