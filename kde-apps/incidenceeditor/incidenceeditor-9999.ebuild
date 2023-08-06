@@ -10,7 +10,7 @@ KFMIN=5.106.0
 QTMIN=5.15.9
 inherit ecm gear.kde.org
 
-DESCRIPTION="Incidence editor for korganizer"
+DESCRIPTION="Incidence editor for KOrganizer"
 
 LICENSE="GPL-2+"
 SLOT="5"
@@ -31,7 +31,6 @@ RDEPEND="
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kldap-${PVCUT}:5
-	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/pimcommon-${PVCUT}:5
