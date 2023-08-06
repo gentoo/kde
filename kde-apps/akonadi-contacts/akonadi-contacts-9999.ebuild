@@ -43,6 +43,4 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/prison-${KFMIN}:5
 "
-DEPEND="${RDEPEND}
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-"
+DEPEND="${RDEPEND}"
