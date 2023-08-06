@@ -40,6 +40,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
@@ -47,6 +48,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	pim? (
+		>=kde-apps/akonadi-mime-${PVCUT}:5
 		>=kde-apps/kidentitymanagement-${PVCUT}:5
 		>=kde-apps/kmailtransport-${PVCUT}:5
 	)
