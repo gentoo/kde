@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{10..11} )
 KFMIN=5.106.0
 QTMIN=5.15.9
