@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/k3b/ https://userbase.kde.org/K3b"
 LICENSE="GPL-2 FDL-1.2"
 SLOT="5"
 KEYWORDS=""
-IUSE="dvd ffmpeg flac lame mad musepack sndfile sox taglib vcd vorbis"
+IUSE="dvd ffmpeg flac lame mad musepack sndfile sox taglib vcd vorbis webengine"
 
 REQUIRED_USE="flac? ( taglib ) lame? ( taglib ) sox? ( taglib )"
 
@@ -59,6 +59,7 @@ DEPEND="
 		media-libs/libogg
 		media-libs/libvorbis
 	)
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 "
 RDEPEND="${DEPEND}
 	app-cdr/cdrdao
@@ -81,7 +82,6 @@ src_configure() {
 		-DK3B_BUILD_WAVE_DECODER_PLUGIN=ON
 		-DK3B_ENABLE_HAL_SUPPORT=OFF
 		-DK3B_ENABLE_MUSICBRAINZ=OFF
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebKitWidgets=ON
 		-DK3B_DEBUG=$(usex debug)
 		-DK3B_ENABLE_DVD_RIPPING=$(usex dvd)
 		-DK3B_BUILD_FFMPEG_DECODER_PLUGIN=$(usex ffmpeg)
@@ -94,6 +94,7 @@ src_configure() {
 		-DK3B_ENABLE_TAGLIB=$(usex taglib)
 		-DK3B_BUILD_OGGVORBIS_DECODER_PLUGIN=$(usex vorbis)
 		-DK3B_BUILD_OGGVORBIS_ENCODER_PLUGIN=$(usex vorbis)
+		$(cmake_use_find_package webengine Qt5WebEngineWidgets)
 	)
 
 	ecm_src_configure
