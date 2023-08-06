@@ -48,16 +48,10 @@ COMMON_DEPEND="
 		>=dev-qt/qtwayland-${QTMIN}:5
 		>=kde-frameworks/kwayland-${KFMIN}:5
 		kde-plasma/kpipewire:5
-		media-libs/libepoxy
-		media-libs/mesa[gbm(+)]
-		>=media-video/pipewire-0.3:=
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	wayland? (
-		>=dev-libs/plasma-wayland-protocols-1.5.0
-		media-libs/libglvnd
-	)
+	wayland? ( >=dev-libs/plasma-wayland-protocols-1.5.0 )
 "
 RDEPEND="${COMMON_DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast] )
