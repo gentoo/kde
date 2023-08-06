@@ -17,6 +17,7 @@ KEYWORDS=""
 IUSE="unicode"
 
 DEPEND="
+	dev-libs/openssl:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
