@@ -35,7 +35,6 @@ DEPEND="
 	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/akonadi-search-${PVCUT}:5
 	>=kde-apps/grantleetheme-${PVCUT}:5
-	>=kde-apps/incidenceeditor-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kldap-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
