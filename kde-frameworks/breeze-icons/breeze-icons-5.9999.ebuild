@@ -4,7 +4,7 @@
 EAPI=8
 
 PVCUT=$(ver_cut 1-2)
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit cmake frameworks.kde.org python-any-r1 xdg-utils
 
 DESCRIPTION="Breeze SVG icon theme"
