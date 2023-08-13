@@ -5,14 +5,20 @@ EAPI=8
 
 ECM_EXAMPLES="true"
 ECM_TEST="true"
+KDE_ORG_NAME="${PN/5/}"
 inherit ecm kde.org
 
 DESCRIPTION="Non-blocking Qt database framework"
 HOMEPAGE="https://api.kde.org/futuresql/html/index.html https://invent.kde.org/libraries/futuresql"
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN/5/}/${KDE_ORG_NAME}-${PV}.tar.xz"
+	S="${WORKDIR}/${KDE_ORG_NAME}-${PV}"
+	KEYWORDS="~amd64"
+fi
+
 LICENSE="MIT"
-SLOT="5"
-KEYWORDS="~amd64"
+SLOT="0"
 IUSE=""
 
 RESTRICT="!test? ( test )"
