@@ -4,10 +4,11 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
+KDE_ORG_CATEGORY="pim"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.106.0
 QTMIN=5.15.9
-inherit ecm kde.org optfeature
+inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Digital travel assistant with a priority on protecting your privacy"
 HOMEPAGE="https://apps.kde.org/itinerary/
@@ -16,9 +17,10 @@ https://www.volkerkrause.eu/2018/08/19/kde-itinerary-introduction.html"
 LICENSE="LGPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="+networkmanager"
+IUSE="matrix +networkmanager"
 
 DEPEND="
+	>=dev-libs/kirigami-addons-0.9:5
 	>=dev-libs/kosmindoormap-${PVCUT}:5
 	>=dev-libs/kpublictransport-${PVCUT}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -43,6 +45,7 @@ DEPEND="
 	>=kde-frameworks/kunitconversion-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	sys-libs/zlib
+	matrix? ( >=net-libs/libquotient-0.7.2:= )
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
@@ -54,6 +57,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package networkmanager KF5NetworkManagerQt)
+		$(cmake_use_find_package matrix Quotient)
 	)
 	ecm_src_configure
 }
