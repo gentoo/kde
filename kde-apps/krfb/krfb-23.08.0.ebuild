@@ -54,7 +54,7 @@ DEPEND="${COMMON_DEPEND}
 	wayland? ( >=dev-libs/plasma-wayland-protocols-1.5.0 )
 "
 RDEPEND="${COMMON_DEPEND}
-	wayland? ( sys-apps/xdg-desktop-portal[screencast] )
+	wayland? ( sys-apps/xdg-desktop-portal[screencast(+)] )
 "
 BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
 
