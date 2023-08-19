@@ -35,3 +35,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
+
+src_prepare() {
+	ecm_src_prepare
+	# https://invent.kde.org/system/xwaylandvideobridge/-/merge_requests/14
+	ecm_punt_kf_module WidgetsAddons
+}
