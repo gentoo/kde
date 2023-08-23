@@ -578,7 +578,6 @@ cmake_build() {
 				OFF) NINJA_VERBOSE=OFF eninja "$@" ;;
 				*) eninja "$@" ;;
 			esac
-			eninja "$@"
 			;;
 	esac
 
