@@ -59,7 +59,7 @@ DEPEND="
 		media-libs/libogg
 		media-libs/libvorbis
 	)
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
 "
 RDEPEND="${DEPEND}
 	app-cdr/cdrdao
