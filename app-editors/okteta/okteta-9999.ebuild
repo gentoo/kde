@@ -20,7 +20,7 @@ fi
 
 LICENSE="GPL-2 handbook? ( FDL-1.2 )"
 SLOT="5"
-IUSE="crypt"
+IUSE=""
 
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -31,7 +31,6 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -39,7 +38,6 @@ DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
@@ -48,14 +46,12 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	crypt? ( >=app-crypt/qca-2.3.0:2[qt5(+)] )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
 		-DOMIT_EXAMPLES=ON
-		$(cmake_use_find_package crypt Qca-qt5)
 	)
 
 	ecm_src_configure
