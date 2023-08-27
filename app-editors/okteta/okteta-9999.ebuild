@@ -20,7 +20,7 @@ fi
 
 LICENSE="GPL-2 handbook? ( FDL-1.2 )"
 SLOT="5"
-IUSE=""
+IUSE="kparts"
 
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -42,16 +42,17 @@ DEPEND="
 	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	kparts? ( >=kde-frameworks/kparts-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
 		-DOMIT_EXAMPLES=ON
+		-DBUILD_KPARTSPLUGIN=$(usex kparts)
 	)
 
 	ecm_src_configure
