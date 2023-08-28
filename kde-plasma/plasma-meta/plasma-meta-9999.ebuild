@@ -10,7 +10,7 @@ LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
-discover +display-manager +elogind +firewall flatpak grub gtk +handbook
+discover +display-manager +elogind +firewall flatpak +fonts grub gtk +handbook
 +kwallet +legacy-systray +networkmanager plymouth pulseaudio +sddm sdk +smart
 systemd thunderbolt +wallpapers"
 
@@ -66,6 +66,11 @@ RDEPEND="
 	)
 	elogind? ( sys-auth/elogind[pam] )
 	flatpak? ( >=kde-plasma/flatpak-kcm-${PV}:${SLOT} )
+	fonts? (
+		media-fonts/hack
+		media-fonts/noto
+		media-fonts/noto-emoji
+	)
 	grub? ( >=kde-plasma/breeze-grub-${PV}:${SLOT} )
 	gtk? (
 		>=kde-plasma/breeze-gtk-${PV}:${SLOT}
