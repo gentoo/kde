@@ -72,8 +72,6 @@ RDEPEND="${DEPEND}
 
 DOCS+=( ChangeLog {FAQ,PERMISSIONS,README}.txt )
 
-PATCHES=( "${FILESDIR}/${PN}-23.04.2-disable-transcode.patch" ) # bugs 891585, 906526
-
 src_configure() {
 	local mycmakeargs=(
 		-DK3B_BUILD_API_DOCS=OFF
