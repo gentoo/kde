@@ -60,7 +60,7 @@ src_configure() {
 		-DENABLE_FINANCEQUOTE=OFF
 		-DBUILD_TOOLS=ON
 		-DBUILD_WITH_WEBKIT=OFF
-		-DBUILD_DOXYGEN_DOCS=$(usex doc)
+		$(cmake_use_find_package doc Doxygen)
 		$(cmake_use_find_package !gmp MPIR)
 		-DBUILD_APPLETS=$(usex plasma)
 		-DBUILD_WITH_WEBENGINE=$(usex webengine)
