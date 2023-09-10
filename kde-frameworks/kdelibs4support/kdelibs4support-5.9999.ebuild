@@ -14,7 +14,7 @@ DESCRIPTION="Framework easing the development transition from KDELibs 4 to KF 5"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="X"
+IUSE="networkmanager X"
 
 RESTRICT="test"
 
@@ -56,6 +56,7 @@ COMMON_DEPEND="
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
 	virtual/libintl
+	networkmanager? ( net-misc/networkmanager )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libICE
@@ -98,6 +99,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_X11=$(usex X)
+		$(cmake_use_find_package networkmanager NetworkManager)
 	)
 
 	ecm_src_configure
