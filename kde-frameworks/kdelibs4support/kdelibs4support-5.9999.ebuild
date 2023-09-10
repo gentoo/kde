@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="true"
+ECM_HANDBOOK_DIR="docs"
 ECM_QTHELP="false"
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.9
