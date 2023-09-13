@@ -31,6 +31,7 @@ DEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 "
 RDEPEND="${DEPEND}
