@@ -30,6 +30,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
