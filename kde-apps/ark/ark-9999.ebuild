@@ -29,19 +29,19 @@ RDEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/kpty-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	sys-libs/zlib
 	zip? ( >=dev-libs/libzip-1.6.0:= )
 "
 DEPEND="${RDEPEND}
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	test? ( >=dev-libs/libzip-1.6.0:= )
 "
