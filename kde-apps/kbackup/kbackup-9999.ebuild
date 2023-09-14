@@ -17,6 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	app-arch/libarchive:=
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
