@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/konsole/ https://konsole.kde.org"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="X"
+IUSE=""
 
 DEPEND="
 	dev-libs/icu:=
@@ -48,17 +48,10 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}"
 
-src_configure() {
-	local mycmakeargs=(
-		-DWITHOUT_X11=$(usex !X)
-	)
-
-	ecm_src_configure
-}
+PATCHES=( "${FILESDIR}/${PN}-23.08.1-drop-unused-X11-dep.patch" ) # FIXME properly upstream
 
 src_test() {
 	# DBusTest: drkonqi process interferes. bug 702690
