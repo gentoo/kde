@@ -60,8 +60,8 @@ RDEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	addressbook? (
-		kde-apps/akonadi:5
-		kde-apps/kidentitymanagement:5
+		>=kde-apps/akonadi-23.04:5
+		>=kde-apps/kidentitymanagement-23.04:5
 		>=kde-frameworks/kcontacts-${KFMIN}:5
 	)
 	calendar? ( dev-libs/libical:= )
@@ -92,9 +92,9 @@ src_configure() {
 		-DENABLE_WOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
-		$(cmake_use_find_package addressbook KF5Akonadi)
 		$(cmake_use_find_package addressbook KF5Contacts)
-		$(cmake_use_find_package addressbook KF5IdentityManagement)
+		$(cmake_use_find_package addressbook KPim5Akonadi)
+		$(cmake_use_find_package addressbook KPim5IdentityManagement)
 		-DENABLE_LIBICAL=$(usex calendar)
 		-DENABLE_KBANKING=$(usex hbci)
 		$(cmake_use_find_package holidays KF5Holidays)
