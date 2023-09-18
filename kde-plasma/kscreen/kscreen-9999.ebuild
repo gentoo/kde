@@ -26,21 +26,22 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtsensors-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-plasma/layer-shell-qt-${PVCUT}:5
-	>=kde-plasma/libkscreen-${PVCUT}:5
+	>=kde-plasma/libkscreen-${PVCUT}:5=
 	x11-libs/libX11
+	x11-libs/libxcb:=
+	x11-libs/libXi
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
