@@ -26,7 +26,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5=[egl,gles2-only=,libinput]
 	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwayland-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
@@ -41,7 +40,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5=[X]
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kidletime-${KFMIN}:5=
-	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
@@ -79,7 +77,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kwayland-server
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtvirtualkeyboard-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	sys-apps/hwdata
@@ -91,6 +88,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.31
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:5
 	x11-base/xorg-proto
 	x11-libs/xcb-util-image
 	caps? ( sys-libs/libcap )
