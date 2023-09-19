@@ -30,7 +30,9 @@ RDEPEND="
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
 "
 DEPEND="${RDEPEND}"
