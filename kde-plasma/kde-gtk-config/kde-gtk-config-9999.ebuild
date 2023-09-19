@@ -17,7 +17,6 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-cpp/glibmm:2
 	dev-libs/glib:2
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -36,9 +35,7 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 	x11-misc/xsettingsd
 "
-BDEPEND="
-	dev-lang/sassc
-"
+BDEPEND="dev-lang/sassc"
 
 src_configure() {
 	local mycmakeargs=(
