@@ -23,7 +23,6 @@ RESTRICT="test"
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtscript-${QTMIN}:5
 	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
@@ -83,7 +82,6 @@ pkg_postinst() {
 		optfeature "bookmarks support" kde-apps/keditbookmarks:${SLOT}
 		optfeature "filemanager component" kde-apps/dolphin:${SLOT}
 		optfeature "SVG support" kde-apps/svg:${SLOT}
-		optfeature "Java support on webpages" virtual/jre
 	fi
 	ecm_pkg_postinst
 }
