@@ -34,9 +34,7 @@ DEPEND="
 	virtual/libudev:=
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
-RDEPEND="${DEPEND}
-	!<kde-plasma/ksysguard-5.21.90:5
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
