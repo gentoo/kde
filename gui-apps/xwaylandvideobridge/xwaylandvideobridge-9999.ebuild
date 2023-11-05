@@ -13,6 +13,7 @@ HOMEPAGE="https://planet.kde.org/david-edmundson-2023-03-22-fixing-wayland-xwayl
 https://invent.kde.org/system/xwaylandvideobridge"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -32,12 +33,7 @@ DEPEND="
 	>=kde-plasma/kpipewire-5.27.4:5
 	media-libs/freetype
 	x11-libs/libxcb:=
+	x11-libs/xcb-util
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-src_prepare() {
-	ecm_src_prepare
-	# https://invent.kde.org/system/xwaylandvideobridge/-/merge_requests/14
-	ecm_punt_kf_module WidgetsAddons
-}
