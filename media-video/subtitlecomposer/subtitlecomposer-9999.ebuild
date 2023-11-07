@@ -11,9 +11,13 @@ inherit ecm kde.org
 DESCRIPTION="Text-based subtitles editor"
 HOMEPAGE="https://subtitlecomposer.kde.org/"
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 LICENSE="GPL-2"
 SLOT="5"
-KEYWORDS=""
 IUSE="unicode"
 
 DEPEND="
@@ -44,16 +48,9 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_PocketSphinx=ON # bug 616706
+		-DCMAKE_DISABLE_FIND_PACKAGE_PocketSphinx=ON # bugs 616706, 610434
 		$(cmake_use_find_package unicode ICU)
 	)
 
 	ecm_src_configure
-}
-
-pkg_postinst() {
-	ecm_pkg_postinst
-
-	elog "Some example scripts provided by ${PN} require dev-lang/ruby"
-	elog "or dev-lang/python to be installed."
 }
