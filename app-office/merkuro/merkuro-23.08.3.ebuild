@@ -4,7 +4,6 @@
 EAPI=8
 
 KDE_ORG_CATEGORY="pim"
-KDE_ORG_NAME="merkuro"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.106.0
