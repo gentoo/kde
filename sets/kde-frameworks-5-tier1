@@ -23,7 +23,7 @@ kde-frameworks/kitemmodels:5
 kde-frameworks/kitemviews:5
 kde-frameworks/kplotting:5
 kde-frameworks/kquickcharts:5
-# TODO: future: dev-libs/kuserfeedback
+# FIXME: uncomment: kde-frameworks/kuserfeedback:6
 kde-frameworks/kwayland:5
 kde-frameworks/kwidgetsaddons:5
 kde-frameworks/kwindowsystem:5

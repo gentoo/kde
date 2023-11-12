@@ -3,19 +3,17 @@
 
 EAPI=8
 
+ECM_QTHELP="false"
 ECM_TEST="forceoptional"
-KFMIN=5.106.0
+PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.9
-inherit ecm kde.org
+inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework to collect user feedback for applications via telemetry and surveys"
+EGIT_BRANCH="master" # TODO: drop on move to 9999
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-fi
 LICENSE="MIT"
-SLOT="5"
+KEYWORDS=""
 IUSE="doc"
 
 DEPEND="
@@ -27,11 +25,11 @@ DEPEND="
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kdeclarative-${PVCUT}:5
+	>=kde-frameworks/kguiaddons-${PVCUT}:5
+	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
