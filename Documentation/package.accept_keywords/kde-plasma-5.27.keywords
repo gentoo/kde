@@ -56,5 +56,3 @@
 <kde-plasma/systemsettings-5.27.50:5
 <kde-plasma/xdg-desktop-portal-kde-5.27.50:5
 <kde-plasma/xembed-sni-proxy-5.27.50:5
-~dev-libs/plasma-wayland-protocols-1.10.0
-~x11-libs/libxkbcommon-1.5.0
