@@ -5,9 +5,9 @@ EAPI=8
 
 KFMIN=5.106.0
 QTMIN=5.15.9
-inherit ecm gear.kde.org
+inherit ecm plasma.kde.org
 
-DESCRIPTION="Manage print jobs and printers in Plasma"
+DESCRIPTION="Manage CUPS print jobs and printers in Plasma"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

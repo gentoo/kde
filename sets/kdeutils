@@ -16,7 +16,7 @@ kde-apps/kimagemapeditor
 kde-apps/kteatime
 kde-apps/ktimer
 kde-apps/kwalletmanager
-kde-apps/print-manager
+kde-plasma/print-manager
 kde-apps/sweeper
 kde-apps/yakuake
 kde-misc/kclock
