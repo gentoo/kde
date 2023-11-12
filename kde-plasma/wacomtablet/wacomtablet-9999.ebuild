@@ -6,19 +6,14 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.106.0
 QTMIN=5.15.9
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
-DESCRIPTION="System settings module for Wacom tablets"
-HOMEPAGE="https://apps.kde.org/wacomtablet/
-https://userbase.kde.org/Wacomtablet"
-
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
-fi
+DESCRIPTION="Wacom system settings module that supports different button/pen layout profiles"
+HOMEPAGE="https://userbase.kde.org/Wacomtablet"
 
 LICENSE="GPL-2"
 SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="
