@@ -10,9 +10,9 @@ LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
-discover +display-manager +elogind +firewall flatpak grub gtk +handbook
+cups discover +display-manager +elogind +firewall flatpak grub gtk +handbook
 +kwallet +legacy-systray +networkmanager plymouth pulseaudio +sddm sdk +smart
-systemd thunderbolt +wallpapers"
+systemd thunderbolt wacom +wallpapers"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -56,6 +56,7 @@ RDEPEND="
 	colord? ( x11-misc/colord )
 	crash-handler? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
+	cups? ( >=kde-plasma/print-manager-${PV}:${SLOT} )
 	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
 	display-manager? (
 		sddm? (
@@ -91,6 +92,7 @@ RDEPEND="
 		firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} )
 	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
+	wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 "
 # Optional runtime deps: kde-plasma/plasma-desktop
