@@ -239,7 +239,7 @@
 ~kde-apps/kteatime-23.04.49.9999 **
 ~kde-apps/ktimer-23.04.49.9999 **
 ~kde-apps/kwalletmanager-23.04.49.9999 **
-~kde-apps/print-manager-23.04.49.9999 **
+~kde-plasma/print-manager-23.04.49.9999 **
 ~kde-apps/sweeper-23.04.49.9999 **
 ~kde-apps/yakuake-23.04.49.9999 **
 ~kde-misc/kclock-23.04.49.9999 **
