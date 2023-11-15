@@ -35,18 +35,19 @@ inherit kde.org
 
 HOMEPAGE="https://develop.kde.org/products/frameworks/"
 
-_SLOT=6
-_SUBSLOT=${PV}
-if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	_SUBSLOT=$(ver_cut 1-2)
+SLOT=6
+if [[ ${PV} == 5.9999 ]] || ver_test ${PV} -lt 5.240; then
+	SLOT=5
+fi
+if [[ ${PN} == extra-cmake-modules ]]; then
+	SLOT=0
 else
-	_SUBSLOT=9999
+	if [[ ${KDE_BUILD_TYPE} == release ]]; then
+		SLOT=${SLOT}/$(ver_cut 1-2)
+	else
+		SLOT=${SLOT}/9999
+	fi
 fi
-if [[ ${PV/.*} == 5 ]]; then
-	_SLOT=5
-fi
-SLOT=${_SLOT}/${_SUBSLOT}
-unset _SLOT _SUBSLOT
 
 # @ECLASS_VARIABLE: KDE_ORG_SCHEDULE_URI
 # @INTERNAL
