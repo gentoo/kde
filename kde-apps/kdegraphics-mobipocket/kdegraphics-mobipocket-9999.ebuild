@@ -3,16 +3,19 @@
 
 EAPI=8
 
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library to support mobipocket ebooks"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-DEPEND=">=dev-qt/qtgui-${QTMIN}:5"
+DEPEND="
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
+"
 RDEPEND="${DEPEND}"
