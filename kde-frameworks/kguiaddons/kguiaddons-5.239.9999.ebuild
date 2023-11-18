@@ -11,10 +11,10 @@ DESCRIPTION="Framework providing assorted high-level user interface components"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="dbus wayland X"
+IUSE="dbus kf6compat wayland X"
 
 # slot op: includes qpa/qplatformnativeinterface.h
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	dbus? ( >=dev-qt/qtdbus-${QTMIN}:5 )
 	wayland? (
@@ -27,16 +27,19 @@ RDEPEND="
 		x11-libs/libX11
 	)
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 	wayland? ( >=dev-libs/plasma-wayland-protocols-1.7.0 )
 	X? ( x11-libs/libxcb )
+"
+RDEPEND="${COMMON_DEPEND}
+	kf6compat? ( kde-frameworks/kguiaddons:6 )
 "
 BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_GEO_SCHEME_HANDLER=ON # coordinate on/off with KF6
+		-DBUILD_GEO_SCHEME_HANDLER=$(usex !kf6compat)
 		-DWITH_DBUS=$(usex dbus)
 		-DWITH_WAYLAND=$(usex wayland)
 		-DWITH_X11=$(usex X)
