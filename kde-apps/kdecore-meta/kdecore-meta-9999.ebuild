@@ -12,23 +12,23 @@ KEYWORDS=""
 IUSE="+handbook +share +thumbnail +webengine"
 
 RDEPEND="
-	>=kde-apps/dolphin-${PV}:${SLOT}
-	>=kde-apps/kdialog-${PV}:${SLOT}
-	>=kde-apps/keditbookmarks-${PV}:${SLOT}
-	>=kde-apps/kfind-${PV}:${SLOT}
-	>=kde-apps/konsole-${PV}:${SLOT}
-	>=kde-apps/kwrite-${PV}:${SLOT}
-	handbook? ( >=kde-apps/khelpcenter-${PV}:${SLOT} )
+	>=kde-apps/dolphin-${PV}:*
+	>=kde-apps/kdialog-${PV}:*
+	>=kde-apps/keditbookmarks-${PV}:*
+	>=kde-apps/kfind-${PV}:*
+	>=kde-apps/konsole-${PV}:*
+	>=kde-apps/kwrite-${PV}:*
+	handbook? ( >=kde-apps/khelpcenter-${PV}:* )
 	webengine? ( || (
 		>=www-client/falkon-${PV}
-		>=kde-apps/konqueror-${PV}:${SLOT}
+		>=kde-apps/konqueror-${PV}:*
 	) )
 "
 # Optional runtime deps: kde-apps/dolphin
 RDEPEND="${RDEPEND}
 	share? ( kde-frameworks/purpose:${SLOT} )
 	thumbnail? (
-		>=kde-apps/ffmpegthumbs-${PV}:${SLOT}
-		>=kde-apps/thumbnailers-${PV}:${SLOT}
+		>=kde-apps/ffmpegthumbs-${PV}:*
+		>=kde-apps/thumbnailers-${PV}:*
 	)
 "

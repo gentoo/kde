@@ -12,20 +12,20 @@ KEYWORDS=""
 IUSE="+cdrom +ffmpeg gstreamer"
 
 RDEPEND="
-	>=kde-apps/dragon-${PV}:${SLOT}
-	>=kde-apps/juk-${PV}:${SLOT}
-	>=kde-apps/kdenlive-${PV}:${SLOT}
-	>=kde-apps/kmix-${PV}:${SLOT}
-	>=kde-apps/kwave-${PV}:${SLOT}
-	>=media-sound/elisa-${PV}:${SLOT}
+	>=kde-apps/dragon-${PV}:*
+	>=kde-apps/juk-${PV}:*
+	>=kde-apps/kdenlive-${PV}:*
+	>=kde-apps/kmix-${PV}:*
+	>=kde-apps/kwave-${PV}:*
+	>=media-sound/elisa-${PV}:*
 	>=media-sound/kasts-${PV}
 	>=media-sound/krecorder-${PV}
 	cdrom? (
-		>=kde-apps/audiocd-kio-${PV}:${SLOT}
-		>=kde-apps/k3b-${PV}:${SLOT}
-		>=kde-apps/libkcddb-${PV}:${SLOT}
-		>=kde-apps/libkcompactdisc-${PV}:${SLOT}
+		>=kde-apps/audiocd-kio-${PV}:*
+		>=kde-apps/k3b-${PV}:*
+		>=kde-apps/libkcddb-${PV}:*
+		>=kde-apps/libkcompactdisc-${PV}:*
 	)
-	ffmpeg? ( >=kde-apps/ffmpegthumbs-${PV}:${SLOT} )
-	gstreamer? ( >=kde-apps/kamoso-${PV}:${SLOT} )
+	ffmpeg? ( >=kde-apps/ffmpegthumbs-${PV}:* )
+	gstreamer? ( >=kde-apps/kamoso-${PV}:* )
 "

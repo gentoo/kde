@@ -12,15 +12,15 @@ KEYWORDS=""
 IUSE="accessibility +admin +education +games +graphics +multimedia +network pim sdk +utils"
 
 RDEPEND="
-	>=kde-apps/kdecore-meta-${PV}:${SLOT}
-	accessibility? ( >=kde-apps/kdeaccessibility-meta-${PV}:${SLOT} )
-	admin? ( >=kde-apps/kdeadmin-meta-${PV}:${SLOT} )
-	education? ( >=kde-apps/kdeedu-meta-${PV}:${SLOT} )
-	games? ( >=kde-apps/kdegames-meta-${PV}:${SLOT} )
-	graphics? ( >=kde-apps/kdegraphics-meta-${PV}:${SLOT} )
-	multimedia? ( >=kde-apps/kdemultimedia-meta-${PV}:${SLOT} )
-	network? ( >=kde-apps/kdenetwork-meta-${PV}:${SLOT} )
-	pim? ( >=kde-apps/kdepim-meta-${PV}:${SLOT} )
-	sdk? ( >=kde-apps/kdesdk-meta-${PV}:${SLOT} )
-	utils? ( >=kde-apps/kdeutils-meta-${PV}:${SLOT} )
+	>=kde-apps/kdecore-meta-${PV}:*
+	accessibility? ( >=kde-apps/kdeaccessibility-meta-${PV}:* )
+	admin? ( >=kde-apps/kdeadmin-meta-${PV}:* )
+	education? ( >=kde-apps/kdeedu-meta-${PV}:* )
+	games? ( >=kde-apps/kdegames-meta-${PV}:* )
+	graphics? ( >=kde-apps/kdegraphics-meta-${PV}:* )
+	multimedia? ( >=kde-apps/kdemultimedia-meta-${PV}:* )
+	network? ( >=kde-apps/kdenetwork-meta-${PV}:* )
+	pim? ( >=kde-apps/kdepim-meta-${PV}:* )
+	sdk? ( >=kde-apps/kdesdk-meta-${PV}:* )
+	utils? ( >=kde-apps/kdeutils-meta-${PV}:* )
 "

@@ -12,31 +12,31 @@ KEYWORDS=""
 IUSE="7zip cups gpg lrz plasma rar +webengine"
 
 RDEPEND="
-	>=app-cdr/dolphin-plugins-mountiso-${PV}:${SLOT}
+	>=app-cdr/dolphin-plugins-mountiso-${PV}:*
 	>=app-crypt/keysmith-${PV}
-	>=kde-apps/ark-${PV}:${SLOT}
-	>=kde-apps/filelight-${PV}:${SLOT}
-	>=kde-apps/kate-${PV}:${SLOT}
-	>=kde-apps/kbackup-${PV}:${SLOT}
-	>=kde-apps/kcalc-${PV}:${SLOT}
-	>=kde-apps/kcharselect-${PV}:${SLOT}
-	>=kde-apps/kdebugsettings-${PV}:${SLOT}
-	>=kde-apps/kdf-${PV}:${SLOT}
-	>=kde-apps/kteatime-${PV}:${SLOT}
-	>=kde-apps/ktimer-${PV}:${SLOT}
-	>=kde-apps/kwalletmanager-${PV}:${SLOT}
-	>=kde-apps/sweeper-${PV}:${SLOT}
-	>=kde-apps/yakuake-${PV}:${SLOT}
-	>=kde-misc/kweather-${PV}:${SLOT}
-	>=kde-misc/markdownpart-${PV}:${SLOT}
-	>=sys-block/partitionmanager-${PV}:${SLOT}
-	>=sys-libs/kpmcore-${PV}:${SLOT}
-	cups? ( >=kde-plasma/print-manager-${PV}:${SLOT} )
-	gpg? ( >=kde-apps/kgpg-${PV}:${SLOT} )
+	>=kde-apps/ark-${PV}:*
+	>=kde-apps/filelight-${PV}:*
+	>=kde-apps/kate-${PV}:*
+	>=kde-apps/kbackup-${PV}:*
+	>=kde-apps/kcalc-${PV}:*
+	>=kde-apps/kcharselect-${PV}:*
+	>=kde-apps/kdebugsettings-${PV}:*
+	>=kde-apps/kdf-${PV}:*
+	>=kde-apps/kteatime-${PV}:*
+	>=kde-apps/ktimer-${PV}:*
+	>=kde-apps/kwalletmanager-${PV}:*
+	>=kde-apps/sweeper-${PV}:*
+	>=kde-apps/yakuake-${PV}:*
+	>=kde-misc/kweather-${PV}:*
+	>=kde-misc/markdownpart-${PV}:*
+	>=sys-block/partitionmanager-${PV}:*
+	>=sys-libs/kpmcore-${PV}:*
+	cups? ( >=kde-plasma/print-manager-${PV}:* )
+	gpg? ( >=kde-apps/kgpg-${PV}:* )
 	plasma? ( >=kde-misc/kclock-${PV} )
 	webengine? (
 		>=app-editors/ghostwriter-${PV}
-		>=kde-apps/kimagemapeditor-${PV}:${SLOT}
+		>=kde-apps/kimagemapeditor-${PV}:*
 	)
 "
 # Optional runtime deps: kde-apps/ark

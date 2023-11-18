@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="+cron"
 
 RDEPEND="
-	>=kde-apps/ksystemlog-${PV}:${SLOT}
-	cron? ( >=kde-apps/kcron-${PV}:${SLOT} )
+	>=kde-apps/ksystemlog-${PV}:*
+	cron? ( >=kde-apps/kcron-${PV}:* )
 "

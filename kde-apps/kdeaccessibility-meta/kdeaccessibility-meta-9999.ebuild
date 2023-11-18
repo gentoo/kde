@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	>=app-accessibility/kontrast-${PV}:${SLOT}
-	>=kde-apps/kmag-${PV}:${SLOT}
-	>=kde-apps/kmousetool-${PV}:${SLOT}
-	>=kde-apps/kmouth-${PV}:${SLOT}
+	>=app-accessibility/kontrast-${PV}:*
+	>=kde-apps/kmag-${PV}:*
+	>=kde-apps/kmousetool-${PV}:*
+	>=kde-apps/kmouth-${PV}:*
 "

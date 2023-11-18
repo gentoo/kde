@@ -12,22 +12,22 @@ KEYWORDS=""
 IUSE="color-management scanner +screencast"
 
 RDEPEND="
-	>=kde-apps/gwenview-${PV}:${SLOT}
-	>=kde-apps/kamera-${PV}:${SLOT}
-	>=kde-apps/kcolorchooser-${PV}:${SLOT}
-	>=kde-apps/kdegraphics-mobipocket-${PV}:${SLOT}
-	>=kde-apps/kolourpaint-${PV}:${SLOT}
-	>=kde-apps/kruler-${PV}:${SLOT}
-	>=kde-apps/libkdcraw-${PV}:${SLOT}
-	>=kde-apps/libkexiv2-${PV}:${SLOT}
-	>=kde-apps/okular-${PV}:${SLOT}
-	>=kde-apps/svgpart-${PV}:${SLOT}
-	>=kde-apps/thumbnailers-${PV}:${SLOT}
-	color-management? ( >=kde-misc/colord-kde-${PV}:${SLOT} )
+	>=kde-apps/gwenview-${PV}:*
+	>=kde-apps/kamera-${PV}:*
+	>=kde-apps/kcolorchooser-${PV}:*
+	>=kde-apps/kdegraphics-mobipocket-${PV}:*
+	>=kde-apps/kolourpaint-${PV}:*
+	>=kde-apps/kruler-${PV}:*
+	>=kde-apps/libkdcraw-${PV}:*
+	>=kde-apps/libkexiv2-${PV}:*
+	>=kde-apps/okular-${PV}:*
+	>=kde-apps/svgpart-${PV}:*
+	>=kde-apps/thumbnailers-${PV}:*
+	color-management? ( >=kde-misc/colord-kde-${PV}:* )
 	scanner? (
-		>=kde-apps/libksane-${PV}:${SLOT}
-		>=kde-misc/skanlite-${PV}:${SLOT}
-		>=media-gfx/skanpage-${PV}:${SLOT}
+		>=kde-apps/libksane-${PV}:*
+		>=kde-misc/skanlite-${PV}:*
+		>=media-gfx/skanpage-${PV}:*
 	)
-	screencast? ( >=kde-apps/spectacle-${PV}:${SLOT} )
+	screencast? ( >=kde-apps/spectacle-${PV}:* )
 "

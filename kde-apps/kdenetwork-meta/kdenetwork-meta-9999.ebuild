@@ -12,20 +12,20 @@ KEYWORDS=""
 IUSE="+bittorrent dropbox samba +screencast +webengine"
 
 RDEPEND="
-	>=kde-apps/kget-${PV}:${SLOT}
-	>=kde-apps/krdc-${PV}:${SLOT}
-	>=kde-misc/kdeconnect-${PV}:${SLOT}
+	>=kde-apps/kget-${PV}:*
+	>=kde-apps/krdc-${PV}:*
+	>=kde-misc/kdeconnect-${PV}:*
 	>=net-im/neochat-${PV}
 	>=net-im/tokodon-${PV}
-	>=net-irc/konversation-${PV}:${SLOT}
-	>=net-misc/kio-zeroconf-${PV}:${SLOT}
+	>=net-irc/konversation-${PV}:*
+	>=net-misc/kio-zeroconf-${PV}:*
 	>=net-news/alligator-${PV}
 	bittorrent? (
-		>=net-libs/libktorrent-${PV}:${SLOT}
-		>=net-p2p/ktorrent-${PV}:${SLOT}
+		>=net-libs/libktorrent-${PV}:*
+		>=net-p2p/ktorrent-${PV}:*
 	)
-	dropbox? ( >=kde-apps/dolphin-plugins-dropbox-${PV}:${SLOT} )
-	samba? ( >=kde-apps/kdenetwork-filesharing-${PV}:${SLOT} )
-	screencast? ( >=kde-apps/krfb-${PV}:${SLOT} )
-	webengine? ( >=kde-misc/kio-gdrive-${PV}:${SLOT} )
+	dropbox? ( >=kde-apps/dolphin-plugins-dropbox-${PV}:* )
+	samba? ( >=kde-apps/kdenetwork-filesharing-${PV}:* )
+	screencast? ( >=kde-apps/krfb-${PV}:* )
+	webengine? ( >=kde-misc/kio-gdrive-${PV}:* )
 "
