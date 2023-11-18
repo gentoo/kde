@@ -13,19 +13,14 @@ LICENSE="MIT"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5"
 BDEPEND="
 	dev-lang/perl
 	>=dev-qt/linguist-tools-${QTMIN}:5
 "
-
-src_install() {
-	ecm_src_install
-	dobin "${BUILD_DIR}"/bin/katehighlightingindexer
-}
