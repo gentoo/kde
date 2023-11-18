@@ -148,7 +148,8 @@ fi
 # @DESCRIPTION:
 # Minimum version of Frameworks to require. Default value for kde-frameworks
 # is ${PV} and 5.106.0 baseline for everything else.
-# If set to >=5.240, KF6/Qt6 will be assumed thus SLOT=6 dependencies added.
+# If set to >=5.240, KF6/Qt6 is assumed thus SLOT=6 dependencies added and
+# -DQT_MAJOR_VERSION=6 added to cmake args.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: "${KFMIN:=$(ver_cut 1-2)}"
 fi
@@ -541,6 +542,10 @@ ecm_src_configure() {
 	fi
 
 	local cmakeargs
+
+	if [[ ${_KFSLOT} == 6 ]]; then
+		cmakeargs+=( -DQT_MAJOR_VERSION=6 )
+	fi
 
 	if in_iuse test && ! use test ; then
 		cmakeargs+=( -DBUILD_TESTING=OFF )
