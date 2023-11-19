@@ -11,9 +11,8 @@ DESCRIPTION="Framework to handle global shortcuts"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="X"
+IUSE=""
 
-REQUIRED_USE="test? ( X )"
 RESTRICT="test" # requires installed instance
 
 RDEPEND="
@@ -21,15 +20,13 @@ RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
-	X? (
-		=kde-frameworks/kconfig-${PVCUT}*:5
-		=kde-frameworks/kcoreaddons-${PVCUT}*:5
-		=kde-frameworks/kcrash-${PVCUT}*:5
-		=kde-frameworks/kdbusaddons-${PVCUT}*:5
-		=kde-frameworks/kwindowsystem-${PVCUT}*:5[X]
-		x11-libs/libxcb
-		x11-libs/xcb-util-keysyms
-	)
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kcrash-${PVCUT}*:5
+	=kde-frameworks/kdbusaddons-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5[X]
+	x11-libs/libxcb
+	x11-libs/xcb-util-keysyms
 "
 DEPEND="${RDEPEND}
 	test? (
@@ -42,7 +39,6 @@ BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_RUNTIME=$(usex X)
 		-DKF6_COMPAT_BUILD=OFF # TODO: switch for KF6 compat
 	)
 	ecm_src_configure

@@ -7,13 +7,11 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://bugs.kde.org/</bugs-to>
+		<remote-id type="kde-invent">frameworks/kglobalaccel</remote-id>
 	</upstream>
 	<slots>
 		<subslots>
 			Must only be used by packages that are known to use private parts of the Frameworks API.
 		</subslots>
 	</slots>
-	<use>
-		<flag name="X">Build the kglobalacceld runtime needed for X</flag>
-	</use>
 </pkgmetadata>
