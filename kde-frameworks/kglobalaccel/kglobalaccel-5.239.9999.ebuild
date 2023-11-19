@@ -11,11 +11,11 @@ DESCRIPTION="Framework to handle global shortcuts"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="kf6compat"
 
 RESTRICT="test" # requires installed instance
 
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -28,18 +28,21 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	test? (
 		>=dev-qt/qtdeclarative-${QTMIN}:5
 		>=dev-qt/qtquickcontrols2-${QTMIN}:5
 		=kde-frameworks/kdeclarative-${PVCUT}*:5
 	)
 "
+RDEPEND="${COMMON_DEPEND}
+	kf6compat? ( kde-plasma/kglobalacceld:6 )
+"
 BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
 src_configure() {
 	local mycmakeargs=(
-		-DKF6_COMPAT_BUILD=OFF # TODO: switch for KF6 compat
+		-DKF6_COMPAT_BUILD=$(usex kf6compat)
 	)
 	ecm_src_configure
 }
