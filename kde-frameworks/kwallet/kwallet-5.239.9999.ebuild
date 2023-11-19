@@ -11,7 +11,7 @@ DESCRIPTION="Framework providing desktop-wide storage for passwords"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="gpg +man"
+IUSE="gpg kf6compat +man"
 
 DEPEND="
 	>=app-crypt/qca-2.3.1:2[qt5(+)]
@@ -28,24 +28,32 @@ DEPEND="
 	=kde-frameworks/kservice-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5[X]
-	gpg? ( >=app-crypt/gpgme-1.7.1:=[cxx,qt5] )
+	!kf6compat? ( gpg? ( >=app-crypt/gpgme-1.7.1:=[cxx,qt5] ) )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	kf6compat? ( kde-frameworks/kwallet:6 )
+"
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package gpg Gpgmepp)
+		-DBUILD_KWALLETD=$(usex !kf6compat)
+		-DBUILD_KWALLET_QUERY=$(usex !kf6compat)
 		$(cmake_use_find_package man KF5DocTools)
 	)
+	if ! use kf6compat; then
+		mycmakeargs+=(
+			$(cmake_use_find_package gpg Gpgmepp)
+		)
+	fi
 
 	ecm_src_configure
 }
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "Auto-unlocking after account login" kde-plasma/kwallet-pam
-		optfeature "KWallet management" kde-apps/kwalletmanager:5
+		optfeature "Auto-unlocking after account login" "kde-plasma/kwallet-pam:5"
+		optfeature "KWallet management" "kde-apps/kwalletmanager:5"
 		elog "For more information, read https://wiki.gentoo.org/wiki/KDE#KWallet"
 	fi
 	ecm_pkg_postinst
