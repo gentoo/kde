@@ -9,9 +9,10 @@ QTMIN=5.15.9
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for searching and managing metadata"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="kf6compat"
 
 RESTRICT="test" # bug 624250
 
@@ -31,4 +32,14 @@ DEPEND="
 	=kde-frameworks/kio-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	kf6compat? ( kde-frameworks/baloo:6 )
+"
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_INDEXER_SERVICE=$(usex !kf6compat)
+	)
+
+	ecm_src_configure
+}
