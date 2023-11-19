@@ -10,7 +10,6 @@
 	</upstream>
 	<use>
 		<flag name="designer">Build plugins for <pkg>dev-qt/designer</pkg></flag>
-		<flag name="man">Build and install man pages</flag>
 	</use>
 	<slots>
 		<subslots>
