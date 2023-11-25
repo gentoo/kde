@@ -4,7 +4,7 @@ kde-frameworks/attica:5
 kde-frameworks/bluez-qt:5
 kde-frameworks/breeze-icons:5
 kde-frameworks/breeze-icons-rcc:5
-kde-frameworks/extra-cmake-modules:5
+kde-frameworks/extra-cmake-modules:0
 kde-frameworks/kapidox:5
 kde-frameworks/karchive:5
 kde-frameworks/kcalendarcore:5
