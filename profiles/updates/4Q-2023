@@ -5,3 +5,4 @@ move dev-libs/kuserfeedback kde-frameworks/kuserfeedback
 move kde-frameworks/plasma kde-plasma/libplasma
 move kde-frameworks/kactivities-stats kde-plasma/plasma-activities-stats
 move kde-frameworks/kactivities kde-plasma/plasma-activities
+slotmove kde-frameworks/extra-cmake-modules 5 0

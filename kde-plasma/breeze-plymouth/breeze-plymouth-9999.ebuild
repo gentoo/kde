@@ -14,7 +14,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND=">=kde-frameworks/extra-cmake-modules-${KFMIN}:5"
+BDEPEND=">=kde-frameworks/extra-cmake-modules-${KFMIN}:0"
 DEPEND="sys-boot/plymouth"
 RDEPEND="${DEPEND}"
 
