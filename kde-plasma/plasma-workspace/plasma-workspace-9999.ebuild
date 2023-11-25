@@ -37,7 +37,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
-	>=kde-frameworks/kactivities-stats-${KFMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
@@ -85,6 +84,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
 	>=kde-plasma/libplasma-${PVCUT}:5
+	>=kde-plasma/plasma-activities-stats-${PVCUT}:5
 	>=media-libs/phonon-4.11.0
 	sci-libs/libqalculate:=
 	sys-libs/zlib

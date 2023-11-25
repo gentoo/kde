@@ -61,7 +61,6 @@
 ~kde-frameworks/syndication-5.9999 **
 # Tier 3: More powerful, comprehensive packages, with complex dependencies.
 ~kde-frameworks/baloo-5.9999 **
-~kde-frameworks/kactivities-stats-5.9999 **
 ~kde-frameworks/kbookmarks-5.9999 **
 ~kde-frameworks/kcmutils-5.9999 **
 ~kde-frameworks/kconfigwidgets-5.9999 **
@@ -86,3 +85,4 @@
 ~kde-frameworks/purpose-5.9999 **
 ~kde-frameworks/qqc2-desktop-style-5.9999 **
 ~kde-plasma/libplasma-5.9999 **
+~kde-plasma/plasma-activities-stats-5.9999 **
