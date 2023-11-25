@@ -42,12 +42,12 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5=[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-plasma/breeze-${PVCUT}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
+	>=kde-plasma/kwayland-${PVCUT}:5
 	>=kde-plasma/libplasma-${PVCUT}:5
 	>=kde-plasma/plasma-activities-${PVCUT}:5
 	media-libs/fontconfig

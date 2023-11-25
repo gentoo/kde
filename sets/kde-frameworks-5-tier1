@@ -24,7 +24,6 @@ kde-frameworks/kitemviews:5
 kde-frameworks/kplotting:5
 kde-frameworks/kquickcharts:5
 # FIXME: uncomment: kde-frameworks/kuserfeedback:6
-kde-frameworks/kwayland:5
 kde-frameworks/kwidgetsaddons:5
 kde-frameworks/kwindowsystem:5
 kde-frameworks/modemmanager-qt:5
@@ -35,3 +34,4 @@ kde-frameworks/solid:5
 kde-frameworks/sonnet:5
 kde-frameworks/syntax-highlighting:5
 kde-frameworks/threadweaver:5
+kde-plasma/kwayland:5

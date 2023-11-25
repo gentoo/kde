@@ -21,7 +21,6 @@
 <kde-frameworks/kitemviews-5.112.50
 <kde-frameworks/kplotting-5.112.50
 <kde-frameworks/kquickcharts-5.112.50
-<kde-frameworks/kwayland-5.112.50
 <kde-frameworks/kwidgetsaddons-5.112.50
 <kde-frameworks/kwindowsystem-5.112.50
 <kde-frameworks/modemmanager-qt-5.112.50
@@ -32,3 +31,4 @@
 <kde-frameworks/sonnet-5.112.50
 <kde-frameworks/syntax-highlighting-5.112.50
 <kde-frameworks/threadweaver-5.112.50
+<kde-plasma/kwayland-5.112.50

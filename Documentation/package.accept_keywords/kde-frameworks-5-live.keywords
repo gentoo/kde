@@ -32,7 +32,6 @@
 ~kde-frameworks/kitemviews-5.9999 **
 ~kde-frameworks/kplotting-5.9999 **
 ~kde-frameworks/kquickcharts-5.9999 **
-~kde-frameworks/kwayland-5.9999 **
 ~kde-frameworks/kwidgetsaddons-5.9999 **
 ~kde-frameworks/kwindowsystem-5.9999 **
 ~kde-frameworks/modemmanager-qt-5.9999 **
@@ -43,6 +42,7 @@
 ~kde-frameworks/sonnet-5.9999 **
 ~kde-frameworks/syntax-highlighting-5.9999 **
 ~kde-frameworks/threadweaver-5.9999 **
+~kde-plasma/kwayland-5.9999 **
 # Tier 2: Additionally depend on tier 1 frameworks.
 ~kde-frameworks/kauth-5.9999 **
 ~kde-frameworks/kcompletion-5.9999 **
