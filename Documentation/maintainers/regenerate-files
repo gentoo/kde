@@ -203,14 +203,14 @@ pushd ../../sets/ > /dev/null
 for set in *frameworks-5*${KF5_RELEASE}; do
 	newfile=${set/%-${KF5_RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
-	sed -r "/@/s/-${KF5_RELEASE}//g;/5\.9999$/s/~//;s/<//;\@kde-frameworks/@s/-(5\.9999|5\...\.50)/:5/" "${set}" >> "${newfile}"
+	sed -r "/@/s/-${KF5_RELEASE}//g;/5\.9999$/s/~//;s/<//;\@kde-[a-z]+/@s/-(5\.9999|5\.[0-9]+\.50)/:5/" "${set}" >> "${newfile}"
 done
 
 if [[ -n ${KF6_RELEASE} ]]; then
 	for set in *frameworks-6*${KF6_RELEASE}; do
 		newfile=${set/%-${KF6_RELEASE}}
 		echo -e "${HEADER}" > "${newfile}"
-		sed -r "/@/s/-${KF6_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-frameworks/@s/-(9999|5\...\.50)//" "${set}" >> "${newfile}"
+		sed -r "/@/s/-${KF6_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-frameworks/@s/-(9999|5\.[0-9]+\.50)//" "${set}" >> "${newfile}"
 	done
 fi
 
