@@ -5,6 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.106.0
+PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
 inherit ecm plasma.kde.org
 
@@ -33,7 +34,7 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-plasma/libplasma-${PVCUT}:5
 	>=x11-drivers/xf86-input-wacom-0.20.0
 	x11-libs/libXi
 	x11-libs/libxcb

@@ -22,6 +22,6 @@
 ~kde-frameworks/ktextwidgets-5.9999
 ~kde-frameworks/kwallet-5.9999
 ~kde-frameworks/kxmlgui-5.9999
-~kde-frameworks/plasma-5.9999
 ~kde-frameworks/purpose-5.9999
 ~kde-frameworks/qqc2-desktop-style-5.9999
+~kde-plasma/libplasma-5.9999

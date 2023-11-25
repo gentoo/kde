@@ -20,7 +20,7 @@ RDEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-plasma/libplasma-${KFMIN}:5
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/ki18n-${KFMIN}:5

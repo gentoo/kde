@@ -32,8 +32,8 @@ DEPEND="
 	kde-frameworks/knotifications:5
 	kde-frameworks/kwidgetsaddons:5
 	kde-frameworks/kxmlgui:5
-	kde-frameworks/plasma:5
 	kde-frameworks/solid:5
+	kde-plasma/libplasma:5
 "
 RDEPEND="${DEPEND}
 	dev-qt/qtdeclarative:5

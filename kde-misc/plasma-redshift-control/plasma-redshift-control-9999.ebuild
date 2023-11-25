@@ -13,7 +13,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="kde-frameworks/plasma:5"
+DEPEND="kde-plasma/libplasma:5"
 RDEPEND="${DEPEND}
 	x11-misc/redshift
 "

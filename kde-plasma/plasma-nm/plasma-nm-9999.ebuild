@@ -40,8 +40,8 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/modemmanager-qt-${KFMIN}:5
 	>=kde-frameworks/networkmanager-qt-${KFMIN}:5[teamd=]
-	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
+	>=kde-plasma/libplasma-${PVCUT}:5
 	net-misc/mobile-broadband-provider-info
 	net-misc/networkmanager[teamd=]
 	openconnect? (

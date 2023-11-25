@@ -21,7 +21,5 @@ LICENSE="GPL-2+"
 SLOT="5"
 IUSE=""
 
-DEPEND="
-	kde-frameworks/plasma:5
-"
+DEPEND="kde-plasma/libplasma:5"
 RDEPEND="${DEPEND}"

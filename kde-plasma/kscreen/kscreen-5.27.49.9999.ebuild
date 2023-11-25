@@ -36,9 +36,9 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-plasma/layer-shell-qt-${PVCUT}:5
 	>=kde-plasma/libkscreen-${PVCUT}:5=
+	>=kde-plasma/libplasma-${KFMIN}:5
 	x11-libs/libX11
 	x11-libs/libxcb:=
 	x11-libs/libXi

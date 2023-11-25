@@ -4,6 +4,7 @@
 EAPI=8
 
 KFMIN=5.106.0
+PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
 inherit ecm plasma.kde.org
 
@@ -34,8 +35,8 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-plasma/libkworkspace-5.19.0:5
+	>=kde-plasma/libplasma-${PVCUT}:5
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5

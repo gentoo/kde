@@ -29,5 +29,5 @@ RDEPEND="${DEPEND}
 	dev-qt/qtquickcontrols:5
 	dev-qt/qtquickcontrols2:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-plasma/libplasma-${KFMIN}:5
 "

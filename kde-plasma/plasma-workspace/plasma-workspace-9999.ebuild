@@ -75,7 +75,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/prison-${KFMIN}:5[qml]
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-plasma/breeze-${PVCUT}:5
@@ -85,6 +84,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libkscreen-${PVCUT}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
+	>=kde-plasma/libplasma-${PVCUT}:5
 	>=media-libs/phonon-4.11.0
 	sci-libs/libqalculate:=
 	sys-libs/zlib

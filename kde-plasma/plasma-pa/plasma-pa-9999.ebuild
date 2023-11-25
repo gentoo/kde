@@ -5,6 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.106.0
+PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
 inherit ecm plasma.kde.org
 
@@ -27,7 +28,7 @@ DEPEND="
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-plasma/libplasma-${PVCUT}:5
 	media-libs/libcanberra
 	media-libs/libpulse
 "
