@@ -28,7 +28,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5[qml]
@@ -51,6 +50,7 @@ COMMON_DEPEND="
 	>=kde-plasma/breeze-${PVCUT}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
 	>=kde-plasma/libplasma-${KFMIN}:5
+	>=kde-plasma/plasma-activities-${KFMIN}:5
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/lcms:2

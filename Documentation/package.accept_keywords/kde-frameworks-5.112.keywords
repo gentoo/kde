@@ -44,7 +44,6 @@
 <kde-frameworks/syntax-highlighting-5.112.50
 <kde-frameworks/threadweaver-5.112.50
 # Tier 2: Additionally depend on tier 1 frameworks.
-<kde-frameworks/kactivities-5.112.50
 <kde-frameworks/kauth-5.112.50
 <kde-frameworks/kcompletion-5.112.50
 <kde-frameworks/kcontacts-5.112.50
@@ -59,6 +58,7 @@
 <kde-frameworks/kpty-5.112.50
 <kde-frameworks/kunitconversion-5.112.50
 <kde-frameworks/syndication-5.112.50
+<kde-plasma/plasma-activities-5.112.50
 # Tier 3: More powerful, comprehensive packages, with complex dependencies.
 <kde-frameworks/baloo-5.112.50
 <kde-frameworks/kbookmarks-5.112.50

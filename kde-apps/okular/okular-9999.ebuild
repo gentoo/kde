@@ -28,7 +28,6 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -42,6 +41,7 @@ DEPEND="
 	>=kde-frameworks/kpty-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
+	>=kde-plasma/plasma-activities-${KFMIN}:5
 	media-libs/freetype
 	sys-libs/zlib
 	crypt? ( >=kde-frameworks/kwallet-${KFMIN}:5 )

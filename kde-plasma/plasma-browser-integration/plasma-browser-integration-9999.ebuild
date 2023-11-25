@@ -20,7 +20,6 @@ RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
@@ -32,6 +31,7 @@ RDEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
+	>=kde-plasma/plasma-activities-${PVCUT}:5
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 "
 DEPEND="${RDEPEND}

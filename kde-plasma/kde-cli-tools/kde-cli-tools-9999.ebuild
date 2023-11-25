@@ -27,7 +27,6 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -41,6 +40,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
+	>=kde-plasma/plasma-activities-${PVCUT}:5
 	kdesu? ( >=kde-frameworks/kdesu-${KFMIN}:5 )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5

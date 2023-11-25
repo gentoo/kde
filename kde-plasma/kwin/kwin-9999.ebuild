@@ -27,7 +27,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5=[accessibility,egl,gles2-only=,libinput]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5[qml]
@@ -50,6 +49,7 @@ COMMON_DEPEND="
 	>=kde-plasma/breeze-${PVCUT}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
 	>=kde-plasma/libplasma-${PVCUT}:5
+	>=kde-plasma/plasma-activities-${PVCUT}:5
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/lcms:2

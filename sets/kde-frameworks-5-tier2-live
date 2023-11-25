@@ -1,5 +1,4 @@
 # Tier 2: Additionally depend on tier 1 frameworks.
-~kde-frameworks/kactivities-5.9999
 ~kde-frameworks/kauth-5.9999
 ~kde-frameworks/kcompletion-5.9999
 ~kde-frameworks/kcontacts-5.9999
@@ -14,3 +13,4 @@
 ~kde-frameworks/kpty-5.9999
 ~kde-frameworks/kunitconversion-5.9999
 ~kde-frameworks/syndication-5.9999
+~kde-plasma/plasma-activities-5.9999
