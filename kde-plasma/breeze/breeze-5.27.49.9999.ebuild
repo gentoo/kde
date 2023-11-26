@@ -39,5 +39,5 @@ DEPEND="${RDEPEND}"
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 PDEPEND="
 	>=kde-frameworks/breeze-icons-${KFMIN}:*
-	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 "

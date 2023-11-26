@@ -157,7 +157,7 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	virtual/pkgconfig
 "
-PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
+PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.24.80-split-libkworkspace.patch" # downstream

@@ -42,7 +42,7 @@ RDEPEND="${DEPEND}
 	dev-qt/qdbus:*
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 	>=kde-plasma/systemsettings-${PVCUT}:5
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"

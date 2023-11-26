@@ -38,4 +38,4 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=kde-frameworks/kservice-${KFMIN}:5
 "
-PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
+PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"

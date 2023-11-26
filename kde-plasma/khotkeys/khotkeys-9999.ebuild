@@ -46,5 +46,5 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kded-${KFMIN}:5
-	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 "

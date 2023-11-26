@@ -39,7 +39,7 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	kde-plasma/kde-cli-tools:5
+	kde-plasma/kde-cli-tools:*
 	gtk? ( app-admin/system-config-printer )
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"

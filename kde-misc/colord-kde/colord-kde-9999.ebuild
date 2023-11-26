@@ -44,7 +44,7 @@ RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
-	kde-plasma/kde-cli-tools:5
+	kde-plasma/kde-cli-tools:*
 	x11-misc/colord
 "
 

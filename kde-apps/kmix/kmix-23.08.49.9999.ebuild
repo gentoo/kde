@@ -42,7 +42,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	kde-plasma/kde-cli-tools:5
+	kde-plasma/kde-cli-tools:*
 "
 
 PATCHES=( "${FILESDIR}/${PN}-23.04.2-autostart_disable.patch" ) # TODO: upstream

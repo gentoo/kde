@@ -110,7 +110,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
-	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 	>=kde-plasma/oxygen-${PVCUT}:5
 	media-fonts/noto-emoji
 	sys-apps/util-linux

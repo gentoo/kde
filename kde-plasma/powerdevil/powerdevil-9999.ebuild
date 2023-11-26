@@ -53,7 +53,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 	sys-power/power-profiles-daemon
 	>=sys-power/upower-0.9.23
 "

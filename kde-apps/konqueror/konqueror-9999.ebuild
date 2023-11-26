@@ -58,7 +58,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	kde-apps/kfind:5
-	kde-plasma/kde-cli-tools:5
+	kde-plasma/kde-cli-tools:*
 "
 
 src_prepare() {

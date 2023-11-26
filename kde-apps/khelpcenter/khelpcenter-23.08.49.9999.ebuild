@@ -42,7 +42,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	kde-plasma/kde-cli-tools:5
+	kde-plasma/kde-cli-tools:*
 "
 
 src_prepare() {

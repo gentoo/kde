@@ -37,7 +37,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/qcoro5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
-	kde-plasma/kde-cli-tools:5
+	kde-plasma/kde-cli-tools:*
 "
 # KAccountsMacros.cmake needs intltool
 RDEPEND="${COMMON_DEPEND}
