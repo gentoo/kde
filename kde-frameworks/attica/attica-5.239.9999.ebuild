@@ -7,20 +7,15 @@ QTMIN=5.15.9
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing access to Open Collaboration Services"
+
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	>=dev-qt/qtnetwork-${QTMIN}:5
-"
+RDEPEND=">=dev-qt/qtnetwork-${QTMIN}:5"
 DEPEND="${RDEPEND}"
 
-src_test() {
+CMAKE_SKIP_TESTS=(
 	# requires network access, bug #661230
-	local myctestargs=(
-		-E "(providertest)"
-	)
-
-	ecm_src_test
-}
+	providertest
+)
