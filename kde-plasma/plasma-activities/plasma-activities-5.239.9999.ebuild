@@ -16,7 +16,7 @@ LICENSE="|| ( LGPL-2.1 LGPL-3 )"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -24,9 +24,6 @@ COMMON_DEPEND="
 	=kde-frameworks/kconfig-${KFMIN}*:5
 	=kde-frameworks/kcoreaddons-${KFMIN}*:5
 "
-RDEPEND="${COMMON_DEPEND}
-	>=kde-plasma/kactivitymanagerd-5.27.0:5
-"
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/boost
 "
