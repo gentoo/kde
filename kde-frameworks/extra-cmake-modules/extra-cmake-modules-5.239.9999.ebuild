@@ -57,14 +57,14 @@ src_configure() {
 }
 
 src_test() {
-	# ECMToolchainAndroidTest passes but then breaks src_install
-	# ECMPoQmToolsTest is broken, bug #627806
-	# KDEFetchTranslations can not possibly succeed in releases, bug #764953
-	# possible race condition with multiple jobs, bug #701854
-	local myctestargs=(
-		-j1
-		-E "(ECMToolchainAndroidTest|ECMPoQmToolsTest|KDEFetchTranslations)"
+	local CMAKE_SKIP_TESTS=(
+		# passes, but then breaks src_install
+		ECMToolchainAndroidTest
+		# broken, bug #627806
+		ECMPoQmToolsTest
+		# can not possibly succeed in releases, bug #764953
+		KDEFetchTranslations
 	)
-
-	cmake_src_test
+	# possible race condition with multiple jobs, bug #701854
+	cmake_src_test -j1
 }
