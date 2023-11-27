@@ -34,13 +34,17 @@ src_configure() {
 }
 
 src_test() {
-	# bugs: 619656, 632398, 647414, 665682
-	local myctestargs=(
-		-j1
-		-E "(kautosavefiletest|kdirwatch_qfswatch_unittest|kdirwatch_stat_unittest|kformattest)"
+	local CMAKE_SKIP_TESTS=(
+		# bug 632398
+		kautosavefiletest
+		# bug 647414
+		kdirwatch_qfswatch_unittest
+		kdirwatch_stat_unittest
+		# bugs 665682
+		kformattest
 	)
-
-	ecm_src_test
+	# bug 619656
+	ecm_src_test -j1
 }
 
 pkg_postinst() {
