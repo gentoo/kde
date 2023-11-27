@@ -23,6 +23,14 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
+CMAKE_SKIP_TESTS=(
+	# bug 779994
+	sonnet-test_autodetect
+	# bug 680032
+	sonnet-test_settings
+	sonnet-test_highlighter
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package aspell ASPELL)
@@ -31,14 +39,4 @@ src_configure() {
 	)
 
 	ecm_src_configure
-}
-
-src_test() {
-	# sonnet-test_settings: bug 680032
-	# sonnet-test_autodetect: bug 779994
-	local myctestargs=(
-		-E "(sonnet-test_autodetect|sonnet-test_settings|sonnet-test_highlighter)"
-	)
-
-	ecm_src_test
 }
