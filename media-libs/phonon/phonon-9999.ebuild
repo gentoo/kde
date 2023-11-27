@@ -15,25 +15,33 @@ fi
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) !pulseaudio? ( || ( GPL-2 GPL-3 ) )"
 SLOT="0"
-IUSE="debug designer gstreamer pulseaudio +vlc"
+IUSE="designer pulseaudio +qt5 qt6 +vlc"
+REQUIRED_USE="|| ( qt5 qt6 )"
 
 DEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	designer? ( dev-qt/designer:5 )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libpulse[glib]
 	)
+	qt5? (
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
+		designer? ( dev-qt/designer:5 )
+	)
+	qt6? (
+		dev-qt/qt5compat:6
+		dev-qt/qtbase:6[gui,widgets]
+		designer? ( dev-qt/qttools:6[designer] )
+	)
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	dev-qt/linguist-tools:5
+	qt5? ( dev-qt/linguist-tools:5 )
+	qt6? ( dev-qt/qttools:6[linguist] )
 	virtual/pkgconfig
 "
 PDEPEND="
-	gstreamer? ( >=media-libs/phonon-gstreamer-4.9.60 )
-	vlc? ( >=media-libs/phonon-vlc-0.9.60 )
+	vlc? ( >=media-libs/phonon-vlc-0.12.0[qt5?,qt6?] )
 "
 
 src_configure() {
@@ -41,6 +49,8 @@ src_configure() {
 		-DPHONON_BUILD_DESIGNER_PLUGIN=$(usex designer)
 		-DCMAKE_DISABLE_FIND_PACKAGE_GLIB2=$(usex !pulseaudio)
 		-DCMAKE_DISABLE_FIND_PACKAGE_PulseAudio=$(usex !pulseaudio)
+		-DPHONON_BUILD_QT5=$(usex qt5)
+		-DPHONON_BUILD_QT6=$(usex qt6)
 		-DPHONON_BUILD_SETTINGS=ON
 	)
 	ecm_src_configure
