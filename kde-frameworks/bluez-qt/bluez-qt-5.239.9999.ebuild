@@ -29,13 +29,12 @@ src_configure() {
 }
 
 src_test() {
-	# parallel tests fail, bug 609248; managertest hangs, bug 668196
-	local myctestargs=(
-		-j1
-		-E "(managertest)"
+	local CMAKE_SKIP_TESTS=(
+		# bug 668196, hangs
+		managertest
 	)
-
-	ecm_src_test
+	# parallel tests fail, bug 609248
+	ecm_src_test -j1
 }
 
 pkg_postinst() {
