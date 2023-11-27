@@ -8,6 +8,7 @@ QTMIN=5.15.9
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for converting units"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
@@ -19,11 +20,13 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_test() {
-	local myctestargs=(
-		# convertertest: bug 623938 - needs internet connection
-		# categorytest: bug 808216 - needs internet connection
-		# currencytableinittest: bug 808216 - unknown, reported upstream
-		-E "(convertertest|categorytest|currencytableinittest)"
+	local CMAKE_SKIP_TESTS=(
+		# bug 623938 - needs internet connection
+		convertertest
+		# bug 808216 - needs internet connection
+		categorytest
+		# bug 808216 - unknown, reported upstream
+		currencytableinittest
 	)
 
 	LC_NUMERIC="C" ecm_src_test # bug 694804
