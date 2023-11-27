@@ -24,17 +24,17 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+CMAKE_SKIP_TESTS=(
+	# bug 650214
+	plasma-plasmoidpackagetest
+	# requires network access
+	testpackage-appstream
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package man KF5DocTools)
 	)
 
 	ecm_src_configure
-}
-
-src_test() {
-	# plasma-plasmoidpackagetest bug 650214
-	# testpackage-appstream requires network access
-	local myctestargs=( -E "(plasma-plasmoidpackagetest|testpackage-appstream)" )
-	ecm_src_test
 }
