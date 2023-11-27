@@ -14,12 +14,12 @@ DESCRIPTION="Plasma library and runtime components based upon KF5 and Qt5"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="gles2-only man wayland"
+IUSE="gles2-only kf6compat man wayland"
 
 RESTRICT="test"
 
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5[gles2-only=,X]
@@ -54,14 +54,17 @@ RDEPEND="
 		media-libs/libglvnd
 	)
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
+"
+RDEPEND="${COMMON_DEPEND}
+	kf6compat? ( kde-plasma/libplasma:6 )
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${KFMIN}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_DESKTOPTHEMES=ON # TODO: switch for KF6 compat
+		-DBUILD_DESKTOPTHEMES=$(usex !kf6compat)
 		$(cmake_use_find_package !gles2-only OpenGL)
 		$(cmake_use_find_package man KF5DocTools)
 		$(cmake_use_find_package wayland EGL)
