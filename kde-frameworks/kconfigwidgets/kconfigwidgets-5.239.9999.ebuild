@@ -31,19 +31,15 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
 
+CMAKE_SKIP_TESTS=(
+	# bugs: 864250
+	kstandardactiontest
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package man KF5DocTools)
 	)
 
 	ecm_src_configure
-}
-
-src_test() {
-	# bugs: 864250
-	local myctestargs=(
-		-E "(kstandardactiontest)"
-	)
-
-	ecm_src_test
 }
