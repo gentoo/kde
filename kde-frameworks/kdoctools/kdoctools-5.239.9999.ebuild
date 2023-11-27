@@ -28,6 +28,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+CMAKE_SKIP_TESTS=(
+	# bug 665622
+	kdoctools_install
+)
+
 PATCHES=( "${FILESDIR}/${PN}-5.54.0-gentoo-docbundledir.patch" )
 
 src_configure() {
@@ -36,13 +41,4 @@ src_configure() {
 	)
 
 	ecm_src_configure
-}
-
-src_test() {
-	# bug 665622
-	local myctestargs=(
-		-E "(kdoctools_install)"
-	)
-
-	ecm_src_test
 }
