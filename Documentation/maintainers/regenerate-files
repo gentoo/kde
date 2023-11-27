@@ -78,7 +78,7 @@ if [[ -d .kde-frameworks-5-live.base ]]; then
 	echo -e "${HEADER}" > kde-frameworks-5-live.keywords
 	for file in .kde-frameworks-5-live.base/*; do
 		newfile=.kde-frameworks-5-live/$(basename "${file}")
-		sed -e '/^~.*[.-]5.9999$/s/$/ **/'  -e '/^@/d' "${file}" > "${newfile}"
+		sed -e '/^~.*[.-]5.239.9999$/s/$/ **/'  -e '/^@/d' "${file}" > "${newfile}"
 	done
 	cat .kde-frameworks-5-live/* >> kde-frameworks-5-live.keywords
 fi
