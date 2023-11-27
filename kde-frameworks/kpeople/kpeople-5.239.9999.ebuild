@@ -30,11 +30,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_test() {
-	# personsmodeltest segfaults, bug 668192
-	local myctestargs=(
-		-j1
-		-E "(persondatatest)"
+	local CMAKE_SKIP_TESTS=(
+		# bug 668192, segfaults
+		persondatatest
 	)
 
-	ecm_src_test
+	ecm_src_test -j1
 }
