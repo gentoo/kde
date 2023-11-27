@@ -11,6 +11,7 @@
 	</upstream>
 	<use>
 		<flag name="editorconfig">Enable support for EditorConfig configuration files</flag>
+		<flag name="kf6compat">Disable components colliding with KF6, depend on KF6 components instead</flag>
 	</use>
 	<slots>
 		<subslots>
