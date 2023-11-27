@@ -35,11 +35,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_test() {
-	# Files are missing; whatever. Bugs 650290, 668198, 808216
-	local myctestargs=(
-		-E "(ktoolbar_unittest|kxmlgui_unittest|ktooltiphelper_unittest)"
-	)
-
-	ecm_src_test
-}
+CMAKE_SKIP_TESTS=(
+	# bug 668198: files are missing; whatever.
+	ktoolbar_unittest
+	# bug 650290
+	kxmlgui_unittest
+	# bug 808216
+	ktooltiphelper_unittest
+)
