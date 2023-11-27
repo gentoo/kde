@@ -29,17 +29,18 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+CMAKE_SKIP_TESTS=(
+	# requires virtual dbus, otherwise hangs; bugs #630672
+	dbusrunnertest
+	# bug 789351
+	runnermanagersinglerunnermodetest
+	# bug 838502
+	runnermanagertest
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)
 	)
 	ecm_src_configure
-}
-
-src_test() {
-	# requires virtual dbus, otherwise hangs; bugs #630672, #789351, #838502
-	local myctestargs=(
-		-E "(dbusrunnertest|runnermanagersinglerunnermodetest|runnermanagertest)"
-	)
-	ecm_src_test
 }
