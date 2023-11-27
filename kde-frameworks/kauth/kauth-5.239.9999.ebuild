@@ -24,19 +24,15 @@ RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 PDEPEND="policykit? ( kde-plasma/polkit-kde-agent )"
 
+CMAKE_SKIP_TESTS=(
+	# KAuthHelperTest test fails, bug 654842
+	KAuthHelperTest
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package policykit PolkitQt5-1)
 	)
 
 	ecm_src_configure
-}
-
-src_test() {
-	# KAuthHelperTest test fails, bug 654842
-	local myctestargs=(
-		-E "(KAuthHelperTest)"
-	)
-
-	ecm_src_test
 }
