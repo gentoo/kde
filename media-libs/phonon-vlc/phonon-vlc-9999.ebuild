@@ -15,16 +15,29 @@ fi
 
 LICENSE="LGPL-2.1+ || ( LGPL-2.1 LGPL-3 )"
 SLOT="0"
-IUSE="debug"
+IUSE="+qt5 qt6"
+REQUIRED_USE="|| ( qt5 qt6 )"
 
-BDEPEND="
-	dev-qt/linguist-tools:5
-	virtual/pkgconfig
-"
 DEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	>=media-libs/phonon-4.11.0
+	>=media-libs/phonon-4.12.0[qt5=,qt6=]
 	media-video/vlc:=[dbus,ogg,vorbis(+)]
+	qt5? (
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
+	)
+	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	qt5? ( dev-qt/linguist-tools:5 )
+	qt6? ( dev-qt/qttools:6[linguist] )
+	virtual/pkgconfig
+"
+
+src_configure() {
+	local mycmakeargs=(
+		-DPHONON_BUILD_QT5=$(usex qt5)
+		-DPHONON_BUILD_QT6=$(usex qt6)
+	)
+	ecm_src_configure
+}
