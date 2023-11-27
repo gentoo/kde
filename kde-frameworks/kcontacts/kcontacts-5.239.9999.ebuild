@@ -25,11 +25,9 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
 "
 
-src_test() {
+CMAKE_SKIP_TESTS=(
 	# bug #566648 (access to /dev/dri/card0 denied)
+	kcontacts-picturetest
 	# bug #838502 (again some Qt translations loading related err...)
-	local myctestargs=(
-		-E "(kcontacts-addresstest|kcontacts-picturetest)"
-	)
-	ecm_src_test
-}
+	kcontacts-addresstest
+)
