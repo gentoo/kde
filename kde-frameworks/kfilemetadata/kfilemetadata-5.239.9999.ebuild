@@ -34,6 +34,11 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="test? ( ${PYTHON_DEPS} )"
 
+CMAKE_SKIP_TESTS=(
+	# FIXME: bug 644650, fails on tmpfs (but not for everyone)
+	usermetadatawritertest
+)
+
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
 	ecm_pkg_setup
@@ -50,12 +55,6 @@ src_configure() {
 	)
 
 	ecm_src_configure
-}
-
-src_test() {
-	# FIXME: bug 644650, fails on tmpfs (but not for everyone)
-	local myctestargs=( -E "(usermetadatawritertest)" )
-	ecm_src_test
 }
 
 pkg_postinst() {
