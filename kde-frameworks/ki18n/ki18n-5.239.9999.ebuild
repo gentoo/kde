@@ -26,6 +26,14 @@ RDEPEND="${COMMON_DEPEND}
 	app-text/iso-codes
 "
 
+CMAKE_SKIP_TESTS=(
+	# bug 876496
+	kcatalogtest
+	# requires LANG fr_CH. bugs 823816
+	kcountrytest
+	kcountrysubdivisiontest
+)
+
 pkg_setup() {
 	ecm_pkg_setup
 	python-single-r1_pkg_setup
@@ -36,10 +44,4 @@ src_configure() {
 		-DPYTHON_EXECUTABLE="${PYTHON}"
 	)
 	ecm_src_configure
-}
-
-src_test() {
-	# requires LANG fr_CH. bugs 823816, 879223
-	local myctestargs=( -E "(kcatalogtest|kcountrytest|kcountrysubdivisiontest)" )
-	ecm_src_test
 }
