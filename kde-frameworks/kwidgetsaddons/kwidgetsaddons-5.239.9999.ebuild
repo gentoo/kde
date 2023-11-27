@@ -20,8 +20,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
-src_test() {
-	# bug 650216, 653186, 697866, 808216
-	local myctestargs=( -E "(kdatecomboboxtest|ksqueezedtextlabelautotest|ktwofingertaptest|ktwofingerswipetest)" )
-	ecm_src_test
-}
+CMAKE_SKIP_TESTS=(
+	# bug 650216
+	kdatecomboboxtest
+	# bug 697866
+	ksqueezedtextlabelautotest
+	# bug 808216
+	ktwofingertaptest
+	ktwofingerswipetest
+)
