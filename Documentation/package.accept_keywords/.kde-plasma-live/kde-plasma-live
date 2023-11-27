@@ -12,6 +12,7 @@
 ~kde-plasma/kdecoration-9999 **
 ~kde-plasma/kdeplasma-addons-9999 **
 ~kde-plasma/kgamma-9999 **
+~kde-plasma/kglobalacceld-9999 **
 ~kde-plasma/khotkeys-9999 **
 ~kde-plasma/kinfocenter-9999 **
 ~kde-plasma/kmenuedit-9999 **
@@ -21,6 +22,7 @@
 ~kde-plasma/ksshaskpass-9999 **
 ~kde-plasma/ksystemstats-9999 **
 ~kde-plasma/kwallet-pam-9999 **
+~kde-plasma/kwayland-9999 **
 ~kde-plasma/kwayland-integration-9999 **
 ~kde-plasma/kwin-9999 **
 ~kde-plasma/kwrited-9999 **
@@ -28,9 +30,12 @@
 ~kde-plasma/libkscreen-9999 **
 ~kde-plasma/libksysguard-9999 **
 ~kde-plasma/libkworkspace-9999 **
+~kde-plasma/libplasma-9999 **
 ~kde-plasma/milou-9999 **
 ~kde-plasma/oxygen-9999 **
 ~kde-plasma/oxygen-sounds-9999 **
+~kde-plasma/plasma-activities-9999 **
+~kde-plasma/plasma-activities-stats-9999 **
 ~kde-plasma/plasma-browser-integration-9999 **
 ~kde-plasma/plasma-desktop-9999 **
 ~kde-plasma/plasma-disks-9999 **
