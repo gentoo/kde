@@ -24,13 +24,11 @@ RDEPEND="${DEPEND}
 		>=net-misc/networkmanager-1.4.0-r1[systemd]
 	)
 "
-BDEPEND="
-	virtual/pkgconfig
-"
+BDEPEND="virtual/pkgconfig"
 
-src_test() {
+CMAKE_SKIP_TESTS=(
 	# bug: 625276
-	local myctestargs=( -E "(managertest|settingstest|activeconnectiontest)" )
-
-	ecm_src_test
-}
+	managertest
+	settingstest
+	activeconnectiontest
+)
