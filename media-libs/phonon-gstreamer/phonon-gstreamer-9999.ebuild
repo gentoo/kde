@@ -30,7 +30,7 @@ DEPEND="
 	dev-qt/qtx11extras:5
 	media-libs/gst-plugins-base:1.0
 	media-libs/gstreamer:1.0
-	>=media-libs/phonon-4.11.0
+	>=media-libs/phonon-4.11.0[qt5(+)]
 	media-plugins/gst-plugins-meta:1.0[alsa?,ogg,vorbis]
 	virtual/opengl
 "

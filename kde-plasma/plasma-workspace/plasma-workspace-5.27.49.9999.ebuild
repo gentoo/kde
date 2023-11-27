@@ -85,7 +85,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libplasma-${KFMIN}:5
 	>=kde-plasma/plasma-activities-${KFMIN}:5
 	>=kde-plasma/plasma-activities-stats-${KFMIN}:5
-	>=media-libs/phonon-4.11.0
+	>=media-libs/phonon-4.11.0[qt5(+)]
 	sci-libs/libqalculate:=
 	sys-libs/zlib
 	x11-libs/libICE
