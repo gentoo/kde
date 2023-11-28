@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KDE_ORG_NAME="${PN}5"
 KFMIN=5.106.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
