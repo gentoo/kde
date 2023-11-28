@@ -5,36 +5,34 @@ EAPI=8
 
 KDE_ORG_NAME="kdegraphics-thumbnailers"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Thumbnail generators for Mobipocket, PDF/PS and RAW files"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
-IUSE="mobi raw"
+IUSE="mobi" # TODO: raw
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:5 )
-	raw? (
-		>=kde-apps/libkdcraw-${PVCUT}:5
-		>=kde-apps/libkexiv2-${PVCUT}:5
-	)
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:6 )
 "
-RDEPEND="${DEPEND}
-	mobi? ( !<kde-apps/kdegraphics-mobipocket-21.12.50:5[thumbnail] )
-"
+# 	raw? (
+# 		>=kde-apps/libkdcraw-${PVCUT}:6
+# 		>=kde-apps/libkexiv2-${PVCUT}:6
+# 	)
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_MOBIPOCKET=$(usex !mobi)
-		$(cmake_use_find_package raw KF5KExiv2)
-		$(cmake_use_find_package raw KF5KDcraw)
+# 		$(cmake_use_find_package raw KF6KExiv2)
+# 		$(cmake_use_find_package raw KF6KDcraw)
 	)
 
 	ecm_src_configure
