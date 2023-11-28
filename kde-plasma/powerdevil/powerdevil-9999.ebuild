@@ -60,8 +60,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DHAVE_DDCUTIL=$(usex brightness-control)
 		$(cmake_use_find_package caps Libcap)
-		$(cmake_use_find_package wireless KF5BluezQt)
-		$(cmake_use_find_package wireless KF5NetworkManagerQt)
+		$(cmake_use_find_package wireless KF6BluezQt)
+		$(cmake_use_find_package wireless KF6NetworkManagerQt)
 	)
 
 	ecm_src_configure

@@ -51,7 +51,7 @@ PATCHES=( "${FILESDIR}/${PN}-5.12.80-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package kdesu KF5Su)
+		$(cmake_use_find_package kdesu KF6Su)
 		$(cmake_use_find_package X X11)
 	)
 
