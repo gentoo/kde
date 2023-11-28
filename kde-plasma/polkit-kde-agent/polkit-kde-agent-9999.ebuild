@@ -26,7 +26,7 @@ DEPEND="
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
-	>=sys-auth/polkit-qt-0.113.0[qt6(-)]
+	>=sys-auth/polkit-qt-0.175[qt6]
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
