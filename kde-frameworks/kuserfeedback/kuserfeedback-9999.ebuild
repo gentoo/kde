@@ -6,39 +6,33 @@ EAPI=8
 ECM_QTHELP="false"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-2)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework to collect user feedback for applications via telemetry and surveys"
-EGIT_BRANCH="master" # TODO: drop on move to 9999
 
 LICENSE="MIT"
 KEYWORDS=""
 IUSE="doc"
 
 DEPEND="
-	>=dev-qt/qtcharts-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kdeclarative-${PVCUT}:5
-	>=kde-frameworks/kguiaddons-${PVCUT}:5
-	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,widgets]
+	>=dev-qt/qtcharts-${QTMIN}:6
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/kconfig-${PVCUT}:6
+	>=kde-frameworks/kcoreaddons-${PVCUT}:6
+	>=kde-frameworks/kdeclarative-${PVCUT}:6
+	>=kde-frameworks/kguiaddons-${PVCUT}:6
+	>=kde-frameworks/kwidgetsaddons-${PVCUT}:6
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+"
 BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
-	doc? (
-		>=dev-qt/qdoc-${QTMIN}:5
-		>=dev-qt/qthelp-${QTMIN}:5
-	)
+	doc? ( >=dev-qt/qttools-${QTMIN}:6[assistant,qdoc] )
 "
 
 src_configure() {
