@@ -3,24 +3,24 @@
 
 EAPI=8
 
-KFMIN=5.106.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma daemon listening for wall and write messages"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kpty-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kpty-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"

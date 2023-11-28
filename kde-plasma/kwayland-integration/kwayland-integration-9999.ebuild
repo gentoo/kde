@@ -3,16 +3,16 @@
 
 EAPI=8
 
-KFMIN=5.106.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Provides KWindowSystem integration plugin for Wayland"
 HOMEPAGE="https://invent.kde.org/plasma/kwayland-integration"
 
 LICENSE="LGPL-2.1"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
@@ -23,20 +23,19 @@ IUSE=""
 # kde-frameworks/kwindowsystem: Various private headers
 DEPEND="
 	>=dev-libs/wayland-1.15
-	>=dev-qt/qtgui-${QTMIN}:5=
+	>=dev-qt/qtbase-${QTMIN}:6=[gui,widgets]
 	|| (
-		>=dev-qt/qtgui-${QTMIN}:5[libinput]
-		>=dev-qt/qtgui-${QTMIN}:5[X]
+		>=dev-qt/qtbase-${QTMIN}:6[libinput]
+		>=dev-qt/qtbase-${QTMIN}:6[X]
 	)
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtwayland-${QTMIN}:5=
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5=
-	>=kde-plasma/kwayland-${PVCUT}:5
+	>=dev-qt/qtwayland-${QTMIN}:6=
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6=
+	>=kde-plasma/kwayland-${PVCUT}:6
 	x11-libs/libxkbcommon
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	>=dev-qt/qtwaylandscanner-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:6
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "

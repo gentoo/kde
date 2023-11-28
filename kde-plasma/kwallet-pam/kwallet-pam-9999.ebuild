@@ -3,20 +3,20 @@
 
 EAPI=8
 
-KFMIN=5.102.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
 inherit ecm plasma.kde.org
 
 DESCRIPTION="PAM module to not enter KWallet password again after login"
 
 LICENSE="LGPL-2.1"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
 	dev-libs/libgcrypt:0=
-	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:6
 	sys-libs/pam
 "
 RDEPEND="${DEPEND}
@@ -32,6 +32,6 @@ src_configure() {
 
 pkg_postinst() {
 	ecm_pkg_postinst
-	elog "This package enables auto-unlocking of kde-frameworks/kwallet:5."
+	elog "This package enables auto-unlocking of kde-frameworks/kwallet:6."
 	elog "See also: https://wiki.gentoo.org/wiki/KDE#KWallet_auto-unlocking"
 }

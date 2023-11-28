@@ -7,7 +7,7 @@ DESCRIPTION="Merge this to pull in all Plasma 5 packages"
 HOMEPAGE="https://kde.org/plasma-desktop/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +handbook
@@ -31,7 +31,7 @@ RDEPEND="
 	>=kde-plasma/ksshaskpass-${PV}:${SLOT}
 	>=kde-plasma/ksystemstats-${PV}:${SLOT}
 	>=kde-plasma/kwayland-${PV}:${SLOT}
-	>=kde-plasma/kwayland-integration-${PV}:${SLOT}
+	>=kde-plasma/kwayland-integration-5.27.9:5
 	>=kde-plasma/kwin-${PV}:${SLOT}[lock]
 	>=kde-plasma/kwrited-${PV}:${SLOT}
 	>=kde-plasma/layer-shell-qt-${PV}:${SLOT}
@@ -103,13 +103,3 @@ RDEPEND="
 RDEPEND="${RDEPEND}
 	accessibility? ( app-accessibility/orca )
 "
-
-pkg_postinst() {
-	has_version sys-auth/consolekit || return
-	ewarn "An existing installation of sys-auth/consolekit was detected even though"
-	ewarn "${PN} was configured with USE $(usex elogind elogind systemd)."
-	ewarn "There can only be one session manager at runtime, otherwise random issues"
-	ewarn "may occur. Please make sure USE consolekit is nowhere enabled in make.conf"
-	ewarn "or package.use and remove sys-auth/consolekit before raising bugs."
-	ewarn "For more information, visit https://wiki.gentoo.org/wiki/KDE"
-}

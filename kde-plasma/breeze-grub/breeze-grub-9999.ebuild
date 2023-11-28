@@ -9,7 +9,7 @@ inherit plasma.kde.org
 DESCRIPTION="Breeze theme for GRUB"
 
 LICENSE="GPL-3+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 

@@ -4,16 +4,17 @@
 EAPI=8
 
 PVCUT=$(ver_cut 1-3)
+QTMIN=6.6.0
 inherit cmake plasma.kde.org
 
 DESCRIPTION="Wallpapers for the Plasma workspace"
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 BDEPEND="
-	dev-qt/qtcore:5
+	>=dev-qt/qtbase-${QTMIN}:6
 	kde-frameworks/extra-cmake-modules:0
 "

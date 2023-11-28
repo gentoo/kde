@@ -3,14 +3,14 @@
 
 EAPI=8
 
-KFMIN=5.102.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
 inherit cmake plasma.kde.org
 
 DESCRIPTION="Breeze theme for Plymouth"
 
 LICENSE="GPL-2+ GPL-3+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 

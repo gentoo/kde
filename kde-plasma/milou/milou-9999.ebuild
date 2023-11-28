@@ -4,30 +4,29 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=5.106.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Dedicated search application built on top of Baloo"
 HOMEPAGE="https://invent.kde.org/plasma/milou"
 
 LICENSE="GPL-2 LGPL-2.1"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/krunner-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-plasma/libplasma-${PVCUT}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/krunner-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-plasma/libplasma-${PVCUT}:6
 "
 RDEPEND="${DEPEND}"

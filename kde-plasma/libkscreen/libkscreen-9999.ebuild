@@ -5,15 +5,15 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
-KFMIN=5.106.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Plasma screen management library"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5/8"
+SLOT="6/8"
 KEYWORDS=""
 IUSE=""
 
@@ -22,19 +22,17 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwayland-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-plasma/kwayland-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
+	>=dev-qt/qtwayland-${QTMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-plasma/kwayland-${KFMIN}:6
 	x11-libs/libxcb:=
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.10.0
+	>=dev-libs/plasma-wayland-protocols-1.11.1
 "
 BDEPEND="
-	>=dev-qt/linguist-tools-${QTMIN}:5
-	>=dev-qt/qtwaylandscanner-${QTMIN}:5
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
+	>=dev-qt/qtwayland-${QTMIN}:6
 	dev-util/wayland-scanner
 "

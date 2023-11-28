@@ -5,15 +5,15 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=5.106.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma workspace"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="appstream +calendar +fontconfig geolocation gps +policykit
 screencast +semantic-desktop telemetry +wallpaper-metadata"
@@ -26,66 +26,60 @@ RESTRICT="test"
 COMMON_DEPEND="
 	dev-libs/icu:=
 	>=dev-libs/wayland-1.15
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
-	>=dev-qt/qtgui-${QTMIN}:5=[jpeg,libinput]
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwayland-${QTMIN}:5=
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kauth-${KFMIN}:5
-	>=kde-frameworks/kbookmarks-${KFMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-frameworks/kded-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kidletime-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/knotifyconfig-${KFMIN}:5
-	>=kde-frameworks/kpackage-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kpeople-${KFMIN}:5
-	>=kde-frameworks/krunner-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kunitconversion-${KFMIN}:5
-	>=kde-frameworks/kwallet-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/prison-${KFMIN}:5[qml]
-	>=kde-frameworks/solid-${KFMIN}:5
-	>=kde-plasma/breeze-${PVCUT}:5
-	>=kde-plasma/kscreenlocker-${PVCUT}:5
-	>=kde-plasma/kwayland-${PVCUT}:5
-	>=kde-plasma/kwin-${PVCUT}:5
-	>=kde-plasma/layer-shell-qt-${PVCUT}:5
-	>=kde-plasma/libkscreen-${PVCUT}:5
-	>=kde-plasma/libksysguard-${PVCUT}:5
-	>=kde-plasma/libkworkspace-${PVCUT}:5
-	>=kde-plasma/libplasma-${PVCUT}:5
-	>=kde-plasma/plasma-activities-${PVCUT}:5
-	>=kde-plasma/plasma-activities-stats-${PVCUT}:5
-	>=media-libs/phonon-4.11.0[qt5(+)]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,libinput,network,sql,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=dev-qt/qtwayland-${QTMIN}:6=
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kauth-${KFMIN}:6
+	>=kde-frameworks/kbookmarks-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/kded-${KFMIN}:6
+	>=kde-frameworks/kglobalaccel-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kidletime-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/knewstuff-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/knotifyconfig-${KFMIN}:6
+	>=kde-frameworks/kpackage-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kpeople-${KFMIN}:6
+	>=kde-frameworks/krunner-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kunitconversion-${KFMIN}:6
+	>=kde-frameworks/kwallet-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/prison-${KFMIN}:6[qml]
+	>=kde-frameworks/solid-${KFMIN}:6
+	>=kde-plasma/breeze-${PVCUT}:6
+	>=kde-plasma/kscreenlocker-${PVCUT}:6
+	>=kde-plasma/kwayland-${PVCUT}:6
+	>=kde-plasma/kwin-${PVCUT}:6
+	>=kde-plasma/layer-shell-qt-${PVCUT}:6
+	>=kde-plasma/libkscreen-${PVCUT}:6
+	>=kde-plasma/libksysguard-${PVCUT}:6
+	>=kde-plasma/libkworkspace-${PVCUT}:6
+	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/plasma-activities-${PVCUT}:6
+	>=kde-plasma/plasma-activities-stats-${PVCUT}:6
+	>=media-libs/phonon-4.12.0[qt6]
 	sci-libs/libqalculate:=
 	sys-libs/zlib
 	x11-libs/libICE
@@ -98,35 +92,34 @@ COMMON_DEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/xcb-util
-	appstream? ( dev-libs/appstream[qt5] )
-	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
+	appstream? ( >=dev-libs/appstream-1[qt6] )
+	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:6 )
 	fontconfig? (
-		>=dev-qt/qtprintsupport-${QTMIN}:5
 		media-libs/fontconfig
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
-	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
+	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	gps? ( sci-geosciences/gpsd )
 	policykit? (
-		sys-auth/polkit-qt
+		>=sys-auth/polkit-qt-0.175[qt6]
 		virtual/libcrypt:=
 	)
 	screencast? (
-		>=dev-qt/qtgui-${QTMIN}:5=[egl]
-		>=kde-plasma/kpipewire-${PVCUT}:5
+		>=dev-qt/qtbase-${QTMIN}:6=[opengl]
+		>=kde-plasma/kpipewire-${PVCUT}:6
 		media-libs/libglvnd
 		>=media-video/pipewire-0.3:=
 		x11-libs/libdrm
 	)
-	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
-	telemetry? ( kde-frameworks/kuserfeedback:5 )
+	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
+	telemetry? ( kde-frameworks/kuserfeedback:6 )
 	wallpaper-metadata? ( kde-apps/libkexiv2:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.6.0
 	>=dev-libs/wayland-protocols-1.31
-	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	x11-base/xorg-proto
 	fontconfig? ( x11-libs/libXrender )
 "
@@ -134,15 +127,13 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/breeze-5.22.90:5
 	!<kde-plasma/plasma-desktop-5.27.0:5
 	app-text/iso-codes
-	>=dev-qt/qdbus-${QTMIN}:*
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=dev-qt/qtquickcontrols-${QTMIN}:5[widgets]
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qttools-${QTMIN}:*[qdbus]
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	kde-apps/kio-extras:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/kquickcharts-${KFMIN}:5
-	>=kde-plasma/milou-${PVCUT}:5
-	>=kde-plasma/plasma-integration-${PVCUT}:5
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kquickcharts-${KFMIN}:6
+	>=kde-plasma/milou-${PVCUT}:6
+	>=kde-plasma/plasma-integration-${PVCUT}:6
 	sys-apps/dbus
 	x11-apps/xmessage
 	x11-apps/xprop
@@ -151,9 +142,9 @@ RDEPEND="${COMMON_DEPEND}
 	policykit? ( sys-apps/accountsservice )
 "
 BDEPEND="
-	>=dev-qt/qtwaylandscanner-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:6
 	>=dev-util/wayland-scanner-1.19.0
-	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
@@ -197,12 +188,12 @@ src_configure() {
 		-DBUILD_xembed-sni-proxy=OFF
 		-DGLIBC_LOCALE_GEN=$(usex policykit)
 		$(cmake_use_find_package appstream AppStreamQt)
-		$(cmake_use_find_package calendar KF5Holidays)
+		$(cmake_use_find_package calendar KF6Holidays)
 		$(cmake_use_find_package fontconfig Fontconfig)
-		$(cmake_use_find_package geolocation KF5NetworkManagerQt)
-		$(cmake_use_find_package semantic-desktop KF5Baloo)
-		$(cmake_use_find_package telemetry KUserFeedback)
-		$(cmake_use_find_package wallpaper-metadata KF5KExiv2)
+		$(cmake_use_find_package geolocation KF6NetworkManagerQt)
+		$(cmake_use_find_package semantic-desktop KF6Baloo)
+		$(cmake_use_find_package telemetry KF6UserFeedback)
+		$(cmake_use_find_package wallpaper-metadata KF6KExiv2)
 	)
 
 	ecm_src_configure

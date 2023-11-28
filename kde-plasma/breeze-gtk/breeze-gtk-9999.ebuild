@@ -11,14 +11,14 @@ DESCRIPTION="Official GTK+ port of Plasma's Breeze widget style"
 HOMEPAGE="https://invent.kde.org/plasma/breeze-gtk"
 
 LICENSE="LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 BDEPEND="${PYTHON_DEPS}
 	dev-lang/sassc
 	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
-	>=kde-plasma/breeze-${PVCUT}:5
+	>=kde-plasma/breeze-${PVCUT}:6
 "
 
 python_check_deps() {

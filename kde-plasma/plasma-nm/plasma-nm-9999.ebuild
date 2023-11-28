@@ -4,62 +4,56 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=5.106.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma applet for NetworkManager"
 
 LICENSE="GPL-2 LGPL-2.1"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="openconnect teamd"
 
 DEPEND="
 	>=app-crypt/qca-2.3.0:2[qt5(+)]
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwallet-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/modemmanager-qt-${KFMIN}:5
-	>=kde-frameworks/networkmanager-qt-${KFMIN}:5[teamd=]
-	>=kde-frameworks/solid-${KFMIN}:5
-	>=kde-plasma/libplasma-${PVCUT}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kwallet-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/modemmanager-qt-${KFMIN}:6
+	>=kde-frameworks/networkmanager-qt-${KFMIN}:6[teamd=]
+	>=kde-frameworks/solid-${KFMIN}:6
+	>=kde-plasma/libplasma-${PVCUT}:6
 	net-misc/mobile-broadband-provider-info
 	net-misc/networkmanager[teamd=]
 	openconnect? (
-		>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+		>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 		net-vpn/networkmanager-openconnect
 		net-vpn/openconnect:=
 	)
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtquickcontrols-${QTMIN}:5
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/kquickcharts-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kquickcharts-${KFMIN}:6
 	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 "
 BDEPEND="
-	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
 "
 
@@ -76,8 +70,8 @@ src_configure() {
 pkg_postinst() {
 	ecm_pkg_postinst
 
-	if ! has_version "kde-plasma/plasma-workspace:5"; then
-		elog "${PN} is not terribly useful without kde-plasma/plasma-workspace:5."
+	if ! has_version "kde-plasma/plasma-workspace:6"; then
+		elog "${PN} is not terribly useful without kde-plasma/plasma-workspace:6."
 		elog "However, the networkmanagement KCM can be called from either systemsettings"
 		elog "or manually: $ kcmshell5 kcm_networkmanagement"
 	fi

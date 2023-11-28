@@ -4,8 +4,8 @@
 EAPI=8
 
 KDE_ORG_NAME="plasma-workspace"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit cmake plasma.kde.org
 
 DESCRIPTION="Legacy xembed tray icons support for SNI-only system trays"
@@ -13,15 +13,12 @@ HOMEPAGE="https://invent.kde.org/plasma/plasma-workspace/-/blob/master/xembed-sn
 CMAKE_USE_DIR="${S}/${PN}"
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 
 DEPEND="
-	>=dev-qt/qtcore-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	x11-libs/libxcb
 	x11-libs/libXtst
 	x11-libs/xcb-util-image

@@ -4,15 +4,15 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KFMIN=5.106.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm plasma.kde.org pam
 
 DESCRIPTION="Library and components for secure lock screen architecture"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
@@ -20,30 +20,26 @@ RESTRICT="test"
 
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5[qml]
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kidletime-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kpackage-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
-	>=kde-plasma/kwayland-${PVCUT}:5
-	>=kde-plasma/layer-shell-qt-${PVCUT}:5
-	>=kde-plasma/libkscreen-${PVCUT}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/kglobalaccel-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kidletime-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kpackage-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
+	>=kde-plasma/kwayland-${PVCUT}:6
+	>=kde-plasma/layer-shell-qt-${PVCUT}:6
+	>=kde-plasma/libkscreen-${PVCUT}:6
 	sys-libs/pam
 	x11-libs/libX11
 	x11-libs/libXi
@@ -54,13 +50,12 @@ DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-plasma/libplasma-${PVCUT}:5
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-plasma/libplasma-${PVCUT}:6
 "
 BDEPEND="
 	dev-util/wayland-scanner
-	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 

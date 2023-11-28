@@ -4,26 +4,25 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Components relating to Flatpak pipewire use in Plasma"
 
 LICENSE="LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwayland-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-plasma/kwayland-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtwayland-${QTMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-plasma/kwayland-${KFMIN}:6
 	media-libs/libepoxy
 	media-libs/libglvnd
 	media-video/ffmpeg:=
@@ -34,8 +33,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/plasma-wayland-protocols
 "
 RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:6
 	x11-themes/sound-theme-freedesktop
 "
-BDEPEND=">=dev-qt/qtwaylandscanner-${QTMIN}:5"
+BDEPEND=">=dev-qt/qtwayland-${QTMIN}:6"

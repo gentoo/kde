@@ -3,32 +3,31 @@
 
 EAPI=8
 
-KFMIN=5.106.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Flatpak Permissions Management KCM"
 HOMEPAGE="https://invent.kde.org/plasma/flatpak-kcm"
 
 LICENSE="GPL-2 LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
 	dev-libs/glib:2
-	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus]
+	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=sys-apps/flatpak-0.11.8
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:6
 "

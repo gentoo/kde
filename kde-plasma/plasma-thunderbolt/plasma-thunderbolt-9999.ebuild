@@ -4,16 +4,16 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=5.106.0
+KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Plasma integration for controlling Thunderbolt devices"
 HOMEPAGE="https://invent.kde.org/plasma/plasma-thunderbolt"
 
 LICENSE="|| ( GPL-2 GPL-3+ )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
@@ -21,19 +21,17 @@ IUSE=""
 RESTRICT="test"
 
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:6
 	sys-apps/bolt
 "
-BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
