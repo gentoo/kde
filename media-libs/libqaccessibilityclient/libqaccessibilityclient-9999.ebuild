@@ -6,7 +6,8 @@ EAPI=8
 ECM_KDEINSTALLDIRS="false"
 ECM_TEST="true"
 ECM_EXAMPLES="true"
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm kde.org
 
 DESCRIPTION="Library for writing accessibility clients such as screen readers"
@@ -19,15 +20,11 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="LGPL-2.1"
-SLOT="5"
+SLOT="6"
 IUSE=""
 
 # tests require DBus
 RESTRICT="test"
 
-DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-"
+DEPEND=">=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]"
 RDEPEND="${DEPEND}"
