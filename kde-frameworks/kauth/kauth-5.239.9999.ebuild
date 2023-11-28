@@ -22,7 +22,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
-PDEPEND="policykit? ( kde-plasma/polkit-kde-agent )"
+PDEPEND="policykit? ( kde-plasma/polkit-kde-agent:* )"
 
 CMAKE_SKIP_TESTS=(
 	# KAuthHelperTest test fails, bug 654842
