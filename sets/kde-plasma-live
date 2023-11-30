@@ -31,6 +31,7 @@
 ~kde-plasma/libkworkspace-9999
 ~kde-plasma/libplasma-9999
 ~kde-plasma/milou-9999
+~kde-plasma/ocean-sound-theme-9999
 ~kde-plasma/oxygen-9999
 ~kde-plasma/oxygen-sounds-9999
 ~kde-plasma/plasma-activities-9999
@@ -46,10 +47,11 @@
 ~kde-plasma/plasma-sdk-9999
 ~kde-plasma/plasma-systemmonitor-9999
 ~kde-plasma/plasma-thunderbolt-9999
-~kde-plasma/plasma-workspace-9999
-~kde-plasma/plasma-workspace-wallpapers-9999
 ~kde-plasma/plasma-vault-9999
 ~kde-plasma/plasma-welcome-9999
+~kde-plasma/plasma-workspace-9999
+~kde-plasma/plasma-workspace-wallpapers-9999
+~kde-plasma/plasma5support-9999
 ~kde-plasma/plymouth-kcm-9999
 ~kde-plasma/polkit-kde-agent-9999
 ~kde-plasma/powerdevil-9999
