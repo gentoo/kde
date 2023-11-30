@@ -20,9 +20,12 @@ IUSE=""
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
+	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kpackage-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/kscreenlocker-${PVCUT}:6
 	x11-libs/libICE
@@ -40,8 +43,8 @@ src_prepare() {
 	rm -rf po/*/docs || die
 	cp -a ../po ./ || die
 
-	eapply "${FILESDIR}/${PN}-5.27.9-standalone.patch"
-	sed -e "/set/s/GENTOO_PV/$(ver_cut 1-3)/" -i CMakeLists.txt || die
+	eapply "${FILESDIR}/${PN}-5.90.0-standalone.patch"
+# 	sed -e "/set/s/GENTOO_PV/$(ver_cut 1-3)/" -i CMakeLists.txt || die
 	cat >> CMakeLists.txt <<- _EOF_ || die
 		ki18n_install(po)
 	_EOF_
