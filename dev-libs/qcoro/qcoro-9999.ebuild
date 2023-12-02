@@ -13,7 +13,7 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
-DESCRIPTION="C++ Coroutine Library for Qt5"
+DESCRIPTION="C++ Coroutine Library for Qt"
 HOMEPAGE="https://qcoro.dvratil.cz/ https://github.com/danvratil/qcoro"
 
 LICENSE="MIT"
