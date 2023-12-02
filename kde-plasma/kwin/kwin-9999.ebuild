@@ -8,7 +8,7 @@ ECM_TEST="optional"
 KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.6.0
-inherit ecm plasma.kde.org optfeature
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 
@@ -96,7 +96,7 @@ PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
 src_prepare() {
 	ecm_src_prepare
-	use multimedia || eapply "${FILESDIR}/${PN}-5.26.80-gstreamer-optional.patch"
+	use multimedia || eapply "${FILESDIR}/${PN}-5.90.0-gstreamer-optional.patch"
 
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
@@ -114,17 +114,4 @@ src_configure() {
 	)
 
 	ecm_src_configure
-}
-
-pkg_postinst() {
-	ecm_pkg_postinst
-	optfeature "color management support" x11-misc/colord
-	elog
-	elog "In Plasma 5.20, default behavior of the Task Switcher to move minimised"
-	elog "windows to the end of the list was changed so that it remains in the"
-	elog "original order. To revert to the well established behavior:"
-	elog
-	elog " - Edit ~/.config/kwinrc"
-	elog " - Find [TabBox] section"
-	elog " - Add \"MoveMinimizedWindowsToEndOfTabBoxFocusChain=true\""
 }
