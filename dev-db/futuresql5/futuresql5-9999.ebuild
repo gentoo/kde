@@ -5,6 +5,7 @@ EAPI=8
 
 ECM_EXAMPLES="true"
 ECM_TEST="true"
+KDE_ORG_CATEGORY="libraries"
 KDE_ORG_NAME="${PN/5/}"
 inherit ecm kde.org
 
