@@ -12,7 +12,7 @@ inherit ecm frameworks.kde.org optfeature xdg-utils
 DESCRIPTION="Library for providing abstractions to get the developer's purposes fulfilled"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="bluetooth +kaccounts"
+IUSE="bluetooth +kaccounts kf6compat"
 
 # requires running environment
 RESTRICT="test"
@@ -37,6 +37,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	kf6compat? ( kde-frameworks/purpose:6 )
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${PVCUT}:5
@@ -57,6 +58,16 @@ src_configure() {
 	)
 
 	ecm_src_configure
+}
+
+src_install() {
+	ecm_src_install
+
+	if use kf6compat; then
+		rm "${D}"/usr/share/icons/hicolor/128x128/apps/{reviewboard,phabricator}-purpose.png \
+			"${D}"/usr/share/icons/hicolor/16x16/apps/{reviewboard,phabricator}-purpose.png \
+			|| die
+	fi
 }
 
 pkg_postinst() {
