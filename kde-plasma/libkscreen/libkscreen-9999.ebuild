@@ -29,7 +29,7 @@ RDEPEND="
 	x11-libs/libxcb:=
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.11.1
+	>=dev-libs/plasma-wayland-protocols-9999
 "
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
