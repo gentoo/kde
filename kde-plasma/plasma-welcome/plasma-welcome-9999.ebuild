@@ -43,7 +43,7 @@ src_prepare() {
 
 	if ! use discover; then
 		sed -e "s:pageStack.push(discover);:// & disabled by IUSE=discover:" \
-			-i src/contents/ui/main.qml || die
+			-i src/contents/ui/Main.qml || die
 	fi
 }
 
