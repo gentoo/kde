@@ -28,11 +28,11 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=kde-frameworks/extra-cmake-modules-${KFMIN}:0"
 
-PATCHES=( "${FILESDIR}/${PN}-5.24.80-standalone.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.90.0-standalone.patch" )
 
-src_prepare() {
-	cmake_src_prepare
-
-	sed -e "/set/s/GENTOO_PV/$(ver_cut 1-3)/" \
-		-i ${PN}/CMakeLists.txt || die "Failed to prepare CMakeLists.txt"
-}
+# src_prepare() {
+# 	cmake_src_prepare
+# 
+# 	sed -e "/set/s/GENTOO_PV/$(ver_cut 1-3)/" \
+# 		-i ${PN}/CMakeLists.txt || die "Failed to prepare CMakeLists.txt"
+# }
