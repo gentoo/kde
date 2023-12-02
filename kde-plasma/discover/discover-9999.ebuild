@@ -14,7 +14,7 @@ HOMEPAGE="https://userbase.kde.org/Discover"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="+firmware flatpak snap telemetry" # TODO: webengine
+IUSE="+firmware flatpak snap telemetry webengine"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
@@ -41,8 +41,8 @@ DEPEND="
 	flatpak? ( sys-apps/flatpak )
 	snap? ( sys-libs/snapd-glib:=[qt6(-)] )
 	telemetry? ( kde-frameworks/kuserfeedback:6 )
+	webengine? ( >=dev-qt/qtwebview-${QTMIN}:6 )
 "
-# 	webengine? ( >=dev-qt/qtwebview-${QTMIN}:6 )
 RDEPEND="${DEPEND}
 	snap? ( app-containers/snapd )
 "
@@ -74,7 +74,7 @@ src_configure() {
 		-DBUILD_SnapBackend=$(usex snap)
 		-DBUILD_SteamOSBackend=OFF
 		$(cmake_use_find_package telemetry KF6UserFeedback)
-# 		$(cmake_use_find_package webengine Qt6WebView)
+		$(cmake_use_find_package webengine Qt6WebView)
 	)
 
 	ecm_src_configure
