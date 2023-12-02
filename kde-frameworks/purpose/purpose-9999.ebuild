@@ -35,6 +35,7 @@ DEPEND="
 # 		net-libs/accounts-qt
 # 	)
 RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 	>=kde-frameworks/kdeclarative-${PVCUT}:6
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:6 )
 "
