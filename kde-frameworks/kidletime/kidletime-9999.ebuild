@@ -49,9 +49,8 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package wayland Qt6WaylandClient)
-		$(cmake_use_find_package X X11)
-		$(cmake_use_find_package X XCB)
+		-DWITH_WAYLAND=$(usex wayland)
+		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
