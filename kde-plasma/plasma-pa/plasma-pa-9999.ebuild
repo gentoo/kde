@@ -16,6 +16,8 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT="test" # missing selenium-webdriver-at-spi
+
 DEPEND="
 	dev-libs/glib:2
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
@@ -26,6 +28,9 @@ DEPEND="
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
+	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
 	media-libs/libcanberra
 	media-libs/libpulse
