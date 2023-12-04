@@ -1,0 +1,16 @@
+Unpackaged dependencies.
+
+https://bugs.gentoo.org/919236
+https://bugs.gentoo.org/919234
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -100,7 +100,7 @@ add_subdirectory(textgrammarcheck)
+ add_subdirectory(texttranslator)
+ add_subdirectory(textemoticons)
+ add_subdirectory(textutils)
+-if (QT_MAJOR_VERSION STREQUAL "6")
++if (FALSE)
+     find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED MultimediaWidgets)
+     add_subdirectory(textspeechtotext)
+ endif()
