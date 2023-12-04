@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm kde.org
 
 DESCRIPTION="QtQuick components providing basic image editing capabilities"
@@ -17,13 +17,14 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
+	!${CATEGORY}/${PN}:5
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
+	>=kde-frameworks/kirigami-${KFMIN}:6
 "
