@@ -6,8 +6,8 @@ EAPI=8
 ECM_NONGUI="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm kde.org
 
 DESCRIPTION="Library for retrieval of weather information including forecasts and alerts"
@@ -17,13 +17,13 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~arm64"
 fi
 LICENSE="LGPL-2+"
-SLOT="5"
+SLOT="6"
 
 DEPEND="
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtpositioning-${QTMIN}:5
-	>=kde-frameworks/kholidays-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[network]
+	>=dev-qt/qtpositioning-${QTMIN}:6
+	>=kde-frameworks/kholidays-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
 
