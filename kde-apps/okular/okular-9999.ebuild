@@ -49,10 +49,10 @@ DEPEND="
 	epub? ( app-text/ebook-tools )
 	image-backend? (
 		>=dev-qt/qtgui-${QTMIN}:5[gif(+),jpeg,png]
-		>=kde-apps/libkexiv2-${PVCUT}:5
+		>=kde-apps/libkexiv2-23.08.3:5
 	)
 	markdown? ( >=app-text/discount-2.2.7-r1:= )
-	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:5 )
+	mobi? ( >=kde-apps/kdegraphics-mobipocket-23.08.3:5 )
 	pdf? ( >=app-text/poppler-21.10.0[nss,qt5] )
 	phonon? ( >=media-libs/phonon-4.11.0[qt5(+)] )
 	plucker? ( media-libs/libjpeg-turbo:= )
