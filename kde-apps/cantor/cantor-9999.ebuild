@@ -51,7 +51,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
-	analitza? ( >=kde-apps/analitza-${PVCUT}:5 )
+	analitza? ( >=kde-apps/analitza-23.08.4:5 )
 	julia? ( dev-lang/julia )
 	lua? ( ${LUA_DEPS} )
 	qalculate? (
