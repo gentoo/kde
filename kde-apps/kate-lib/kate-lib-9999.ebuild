@@ -6,41 +6,37 @@ EAPI=8
 KDE_ORG_CATEGORY="utilities"
 KDE_ORG_NAME="kate"
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Shared library used by Kate/Kwrite and Kate-Addons"
 HOMEPAGE="https://kate-editor.org/ https://apps.kde.org/kate/"
 
 LICENSE="LGPL-2 LGPL-2+ MIT"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
-IUSE="activities telemetry"
+IUSE="telemetry"
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
-	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
-	telemetry? ( kde-frameworks/kuserfeedback:5 )
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
+	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/kate-22.08.0:5
@@ -59,9 +55,8 @@ src_configure() {
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
 		-DBUILD_kwrite=FALSE
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5DocTools=ON
-		$(cmake_use_find_package activities KF5Activities)
-		$(cmake_use_find_package telemetry KUserFeedback)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF6DocTools=ON
+		$(cmake_use_find_package telemetry KF6UserFeedback)
 	)
 
 	ecm_src_configure
