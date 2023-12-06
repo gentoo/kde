@@ -5,14 +5,14 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="KDE library for CDDB"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="musicbrainz"
 
@@ -21,19 +21,19 @@ IUSE="musicbrainz"
 RESTRICT="test"
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
-RDEPEND="${DEPEND}"
-BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+"
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
 src_prepare() {
 	ecm_src_prepare
