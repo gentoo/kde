@@ -5,55 +5,51 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Simple music player by KDE"
 HOMEPAGE="https://elisa.kde.org/ https://apps.kde.org/elisa/"
 
 LICENSE="LGPL-3+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
-IUSE="mpris semantic-desktop +vlc"
+IUSE="mpris +vlc"
 
 RESTRICT="test"
 
-BDEPEND="sys-devel/gettext"
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kfilemetadata-${KFMIN}:5[taglib]
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,sql,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
+	>=dev-qt/qtmultimedia-${QTMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kfilemetadata-${KFMIN}:6[taglib]
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	mpris? (
-		>=dev-qt/qtdbus-${QTMIN}:5
-		>=kde-frameworks/kdbusaddons-${KFMIN}:5
+		>=dev-qt/qtbase-${QTMIN}:6[dbus]
+		>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	)
-	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 	vlc? ( media-video/vlc:= )
-	!vlc? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer] )
+	!vlc? ( >=dev-qt/qtmultimedia-${QTMIN}:6[gstreamer] )
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=dev-qt/qtquickcontrols-${QTMIN}:5
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 "
+BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package mpris KF5DBusAddons)
-		$(cmake_use_find_package semantic-desktop KF5Baloo)
+		$(cmake_use_find_package mpris KF6DBusAddons)
 		$(cmake_use_find_package vlc LIBVLC)
 	)
 
