@@ -4,22 +4,22 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library for playing & ripping CDs"
 
 LICENSE="GPL-2+ LGPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="alsa"
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
-	>=media-libs/phonon-4.11.0[qt5(+)]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus]
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
+	>=media-libs/phonon-4.12.0[qt6]
 	alsa? ( media-libs/alsa-lib )
 "
 RDEPEND="${DEPEND}"
