@@ -5,39 +5,35 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm flag-o-matic gear.kde.org
 
 DESCRIPTION="MathML-based 2D and 3D graph calculator by KDE"
 HOMEPAGE="https://apps.kde.org/kalgebra/ https://edu.kde.org/kalgebra/"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="readline"
 
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/analitza-${PVCUT}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-plasma/libplasma-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
+	>=kde-apps/analitza-${PVCUT}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-plasma/libplasma-${KFMIN}:6
 	readline? ( sys-libs/readline:0= )
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtquickcontrols-${QTMIN}:5
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:6
 "
 
 src_configure() {
