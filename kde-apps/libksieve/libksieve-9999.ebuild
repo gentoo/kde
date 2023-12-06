@@ -7,14 +7,14 @@ ECM_HANDBOOK="forceoptional"
 ECM_QTHELP="true"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Common PIM libraries"
 
 LICENSE="GPL-2+ LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="speech"
 
@@ -22,38 +22,34 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-libs/cyrus-sasl
-	dev-libs/ktextaddons:5[speech?]
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
-	>=kde-apps/libkdepim-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/sonnet-${KFMIN}:5
-	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
+	dev-libs/ktextaddons:6[speech?]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
+	>=kde-apps/kidentitymanagement-${PVCUT}:6
+	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/kpimtextedit-${PVCUT}:6[speech=]
+	>=kde-apps/libkdepim-${PVCUT}:6
+	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/knewstuff-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/sonnet-${KFMIN}:6
+	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 "
 DEPEND="${RDEPEND}
-	>=kde-apps/kimap-${PVCUT}:5
-	>=kde-apps/kmailtransport-${PVCUT}:5
+	>=kde-apps/kimap-${PVCUT}:6
+	>=kde-apps/kmailtransport-${PVCUT}:6
 "
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package speech KF5TextEditTextToSpeech)
+		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
 	)
 
 	ecm_src_configure
