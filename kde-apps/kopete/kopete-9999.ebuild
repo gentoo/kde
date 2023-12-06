@@ -71,8 +71,8 @@ COMMON_DEPEND="
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/libkleo-${PVCUT}:5
+	>=kde-apps/kidentitymanagement-23.08.3:5
+	>=kde-apps/libkleo-23.08.3:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
@@ -99,10 +99,7 @@ COMMON_DEPEND="
 		dev-libs/libxml2
 		dev-libs/libxslt
 	)
-	zeroconf? (
-		>=kde-apps/kidentitymanagement-${PVCUT}:5
-		>=kde-frameworks/kdnssd-${KFMIN}:5
-	)
+	zeroconf? ( >=kde-frameworks/kdnssd-${KFMIN}:5 )
 "
 #	jingle? (
 #		dev-libs/expat
