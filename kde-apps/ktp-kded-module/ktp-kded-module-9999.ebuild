@@ -39,5 +39,5 @@ DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-apps/signon-kwallet-extension-${PVCUT}:5
+	>=kde-apps/signon-kwallet-extension-23.08.3:5
 "
