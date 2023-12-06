@@ -6,8 +6,8 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Assistant to backup and archive PIM data and configuration"
@@ -15,42 +15,41 @@ HOMEPAGE="https://apps.kde.org/pimdataexporter/
 https://userbase.kde.org/KMail/Backup_Options"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="telemetry"
 
 RESTRICT="test" # 11 out of 21 tests fail...
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/kmailtransport-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
-	>=kde-apps/mailcommon-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcontacts-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	telemetry? ( >=kde-frameworks/kuserfeedback-1.2.0:5 )
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=kde-apps/akonadi-${PVCUT}:6
+	>=kde-apps/kidentitymanagement-${PVCUT}:6
+	>=kde-apps/kmailtransport-${PVCUT}:6
+	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/kpimtextedit-${PVCUT}:6
+	>=kde-apps/libkdepim-${PVCUT}:6
+	>=kde-apps/mailcommon-${PVCUT}:6
+	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcontacts-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package telemetry KUserFeedback)
+		$(cmake_use_find_package telemetry KF6UserFeedback)
 	)
 
 	ecm_src_configure
