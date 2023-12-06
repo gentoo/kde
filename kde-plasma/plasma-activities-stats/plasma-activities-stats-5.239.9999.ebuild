@@ -6,6 +6,7 @@ EAPI=8
 ECM_NONGUI="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
+KDE_ORG_TAR_PN="kactivities-stats"
 KFMIN=$(ver_cut 1-2)
 QTMIN=5.15.9
 inherit ecm frameworks.kde.org
