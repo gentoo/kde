@@ -38,7 +38,7 @@ major_minor_version=$(echo ${VERSION} | cut -d "." -f 1-2)
 kfmv="kde-frameworks-${major_version}-${major_minor_version}"
 setname="kde-frameworks-${major_version}"
 if [[ ${major_version} == 5 ]]; then
-	base_version=5.9999
+	base_version=5.239.9999
 else
 	base_version=9999
 fi
