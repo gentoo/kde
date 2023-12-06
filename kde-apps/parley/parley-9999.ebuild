@@ -6,15 +6,15 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_HANDBOOK_DIR="docs"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Vocabulary trainer to help you memorize things"
 HOMEPAGE="https://apps.kde.org/parley/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
@@ -22,31 +22,28 @@ DEPEND="
 	app-i18n/translate-shell
 	dev-libs/libxml2:2
 	dev-libs/libxslt
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	>=kde-apps/libkeduvocdocument-${PVCUT}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/sonnet-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,widgets]
+	>=dev-qt/qtmultimedia-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
+	>=kde-apps/libkeduvocdocument-${PVCUT}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/knewstuff-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/sonnet-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
-	>=kde-apps/kdeedu-data-${PVCUT}:5
+	>=kde-apps/kdeedu-data-${PVCUT}:6
 "
 
 src_prepare() {
