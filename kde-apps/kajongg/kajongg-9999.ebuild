@@ -6,15 +6,15 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{10..11} )
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit python-single-r1 ecm gear.kde.org
 
 DESCRIPTION="Classical Mah Jongg for four players"
 HOMEPAGE="https://apps.kde.org/kajongg/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
@@ -22,19 +22,18 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}
 	dev-db/sqlite:3
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/libkdegames-${PVCUT}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-apps/libkdegames-${PVCUT}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
 	$(python_gen_cond_dep '
 		dev-python/QtPy[gui,svg,widgets,${PYTHON_USEDEP}]
 		>=dev-python/twisted-16.6.0[${PYTHON_USEDEP}]
 	')
 "
 RDEPEND="${DEPEND}
-	>=kde-apps/libkmahjongg-${PVCUT}:5
+	>=kde-apps/libkmahjongg-${PVCUT}:6
 "
 
 pkg_setup() {
