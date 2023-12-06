@@ -6,26 +6,25 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library for interacting with LDAP servers"
 HOMEPAGE="https://api.kde.org/kdepim/kldap/html/index.html"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
 	dev-libs/cyrus-sasl
-	dev-libs/qtkeychain:=[qt5(+)]
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	net-nds/openldap:=
 "
 RDEPEND="${DEPEND}"
