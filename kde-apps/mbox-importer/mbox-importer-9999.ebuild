@@ -5,30 +5,29 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Import mbox email archives from various sources into Akonadi"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/mailcommon-${PVCUT}:5
-	>=kde-apps/mailimporter-${PVCUT}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=kde-apps/akonadi-${PVCUT}:6
+	>=kde-apps/kidentitymanagement-${PVCUT}:6
+	>=kde-apps/mailcommon-${PVCUT}:6
+	>=kde-apps/mailimporter-${PVCUT}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
