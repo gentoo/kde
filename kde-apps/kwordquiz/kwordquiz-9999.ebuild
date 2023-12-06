@@ -6,38 +6,33 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Powerful flashcard and vocabulary learning program"
 HOMEPAGE="https://apps.kde.org/kwordquiz/ https://edu.kde.org/kwordquiz/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-libs/kirigami-addons-0.9.0:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-apps/libkeduvocdocument-${PVCUT}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/knotifyconfig-${KFMIN}:5
-	>=media-libs/phonon-4.11.0[qt5(+)]
+	dev-libs/kirigami-addons:6
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-apps/libkeduvocdocument-${PVCUT}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/knewstuff-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/knotifyconfig-${KFMIN}:6
+	>=media-libs/phonon-4.12.0[qt6]
 "
 RDEPEND="${DEPEND}"
