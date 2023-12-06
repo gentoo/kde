@@ -5,30 +5,27 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library for accessing Google calendar and contact resources"
 HOMEPAGE="https://api.kde.org/kdepim/libkgapi/html/index.html"
 
 LICENSE="LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
 	dev-libs/cyrus-sasl:2
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kcalendarcore-${KFMIN}:5
-	>=kde-frameworks/kcontacts-${KFMIN}:5
-	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
+	>=kde-frameworks/kcalendarcore-${KFMIN}:6
+	>=kde-frameworks/kcontacts-${KFMIN}:6
+	>=kde-frameworks/kwallet-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 src_test() {
 	local myctestargs=(
