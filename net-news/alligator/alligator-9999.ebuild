@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Convergent RSS/Atom feed reader for Plasma"
@@ -16,17 +16,13 @@ SLOT="0"
 KEYWORDS=""
 
 DEPEND="
-	>=dev-libs/kirigami-addons-0.6:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/syndication-${KFMIN}:5
+	dev-libs/kirigami-addons:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/syndication-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
