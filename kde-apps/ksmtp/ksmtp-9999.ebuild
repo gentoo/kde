@@ -5,15 +5,15 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Job-based library to send email through an SMTP server"
 HOMEPAGE="https://api.kde.org/kdepim/ksmtp/html/index.html"
 
 LICENSE="LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
@@ -21,9 +21,9 @@ RESTRICT="test" # bug 642410
 
 DEPEND="
 	dev-libs/cyrus-sasl
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[network]
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
