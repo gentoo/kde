@@ -7,25 +7,25 @@ ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 ECM_TEST="false"
 KDE_ORG_NAME="akonadi-calendar-tools"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Tool to scan calendar data for buggy instances"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-calendar-${PVCUT}:5
-	>=kde-apps/calendarsupport-${PVCUT}:5
-	>=kde-frameworks/kcalendarcore-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[widgets]
+	>=kde-apps/akonadi-${PVCUT}:6
+	>=kde-apps/akonadi-calendar-${PVCUT}:6
+	>=kde-apps/calendarsupport-${PVCUT}:6
+	>=kde-frameworks/kcalendarcore-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
 
