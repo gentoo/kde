@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Convergent podcast application for desktop and mobile"
@@ -16,35 +16,29 @@ KEYWORDS=""
 IUSE="gstreamer networkmanager vlc"
 
 DEPEND="
-	>=dev-libs/kirigami-addons-0.7.2:5
-	dev-libs/qtkeychain:=[qt5(+)]
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/syndication-${KFMIN}:5
-	>=kde-frameworks/threadweaver-${KFMIN}:5
+	dev-libs/kirigami-addons:6
+	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtmultimedia-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/syndication-${KFMIN}:6
+	>=kde-frameworks/threadweaver-${KFMIN}:6
 	media-libs/taglib
 	gstreamer? (
 		dev-libs/glib:2
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-good:1.0
 	)
-	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
+	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	vlc? ( media-video/vlc:= )
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 "
 BDEPEND="gstreamer? ( virtual/pkgconfig )"
 
@@ -57,7 +51,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLE_PLAYER=OFF
 		-DBUILD_GSTREAMER_BACKEND=$(usex gstreamer)
-		$(cmake_use_find_package networkmanager KF5NetworkManagerQt)
+		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
 		$(cmake_use_find_package vlc LIBVLC)
 	)
 	ecm_src_configure
