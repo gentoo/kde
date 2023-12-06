@@ -5,15 +5,15 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="optional"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://invent.kde.org/network/kio-extras"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="activities ios +man mtp nfs openexr phonon samba +sftp taglib X"
 
@@ -21,33 +21,29 @@ IUSE="activities ios +man mtp nfs openexr phonon samba +sftp taglib X"
 RESTRICT="test"
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	kde-apps/libkexiv2:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kbookmarks-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kdnssd-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
-	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	kde-apps/libkexiv2:6
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kbookmarks-${KFMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kdnssd-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
+	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	activities? (
-		>=dev-qt/qtsql-${QTMIN}:5
-		>=kde-plasma/plasma-activities-${KFMIN}:5
-		>=kde-plasma/plasma-activities-stats-${KFMIN}:5
+		>=dev-qt/qtbase-${QTMIN}:6[sql]
+		>=kde-plasma/plasma-activities-${KFMIN}:6
+		>=kde-plasma/plasma-activities-stats-${KFMIN}:6
 	)
 	ios? (
 		app-pda/libimobiledevice:=
@@ -56,7 +52,7 @@ DEPEND="
 	mtp? ( >=media-libs/libmtp-1.1.16:= )
 	nfs? ( net-libs/libtirpc:= )
 	openexr? ( media-libs/openexr:= )
-	phonon? ( >=media-libs/phonon-4.11.0[qt5(+)] )
+	phonon? ( >=media-libs/phonon-4.12.0[qt6] )
 	samba? (
 		net-fs/samba[client]
 		net-libs/kdsoap:=
@@ -70,22 +66,22 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	>=kde-frameworks/kded-${KFMIN}:5
+	>=kde-frameworks/kded-${KFMIN}:6
 "
 BDEPEND="man? ( dev-util/gperf )"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package activities KF5Activities)
-		$(cmake_use_find_package activities KF5ActivitiesStats)
-		$(cmake_use_find_package activities Qt5Sql)
+		$(cmake_use_find_package activities PlasmaActivities)
+		$(cmake_use_find_package activities PlasmaActivitiesStats)
+		$(cmake_use_find_package activities Qt6Sql)
 		$(cmake_use_find_package ios IMobileDevice)
 		$(cmake_use_find_package ios PList)
 		$(cmake_use_find_package man Gperf)
 		$(cmake_use_find_package mtp Libmtp)
 		$(cmake_use_find_package nfs TIRPC)
 		$(cmake_use_find_package openexr OpenEXR)
-		$(cmake_use_find_package phonon Phonon4Qt5)
+		$(cmake_use_find_package phonon Phonon4Qt6)
 		$(cmake_use_find_package samba Samba)
 		$(cmake_use_find_package sftp libssh)
 		$(cmake_use_find_package taglib Taglib)
