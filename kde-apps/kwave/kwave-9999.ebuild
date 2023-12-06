@@ -4,33 +4,33 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.115.0
-QTMIN=5.15.12
+ECM_TEST="true"
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm gear.kde.org
 
-DESCRIPTION="Sound editor built on KDE Frameworks 5 that can edit many types of audio files"
+DESCRIPTION="Sound editor built on KDE Frameworks that can edit many types of audio files"
 HOMEPAGE="https://apps.kde.org/kwave/"
 
 LICENSE="CC-BY-SA-3.0 CC0-1.0 GPL-2+ LGPL-2+ handbook? ( FDL-1.2 ) opus? ( BSD-2 )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="alsa flac mp3 opus oss pulseaudio +qtmedia vorbis"
 
 RDEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	media-libs/audiofile:=
 	>=sci-libs/fftw-3:=
 	media-libs/libsamplerate
@@ -45,7 +45,7 @@ RDEPEND="
 			media-sound/twolame
 		)
 	)
-	qtmedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5 )
+	qtmedia? ( >=dev-qt/qtmultimedia-${QTMIN}:6 )
 	opus? (
 		media-libs/libogg
 		media-libs/opus
@@ -57,7 +57,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
 BDEPEND="
 	sys-devel/gettext
