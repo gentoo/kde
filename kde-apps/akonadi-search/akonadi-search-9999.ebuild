@@ -6,15 +6,15 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Libraries and daemons to implement searching in Akonadi"
 HOMEPAGE="https://invent.kde.org/pim/akonadi-search"
 
 LICENSE="GPL-2+ LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
@@ -22,28 +22,26 @@ RESTRICT="test" # perpetually broken, bug 662378
 
 RDEPEND="
 	>=dev-libs/xapian-1.3:=[chert(+)]
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-mime-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-frameworks/kcalendarcore-${KFMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcontacts-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/krunner-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=kde-apps/akonadi-${PVCUT}:6
+	>=kde-apps/akonadi-mime-${PVCUT}:6
+	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-frameworks/kcalendarcore-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcontacts-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/krunner-${KFMIN}:6
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
-	test? ( >=kde-apps/akonadi-${PVCUT}:5[mysql,postgres,sqlite] )
+	test? ( >=kde-apps/akonadi-${PVCUT}:6[mysql,postgres,sqlite] )
 "
 BDEPEND="
-	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
+	test? ( >=kde-apps/akonadi-${PVCUT}:6[tools] )
 "
