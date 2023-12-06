@@ -6,8 +6,8 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Note taking application"
@@ -15,50 +15,45 @@ HOMEPAGE="https://apps.kde.org/knotes/
 https://kontact.kde.org/components/knotes/"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-libs/ktextaddons:5
+	dev-libs/ktextaddons:6
 	dev-libs/libxslt
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-notes-${PVCUT}:5
-	>=kde-apps/akonadi-search-${PVCUT}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
-	>=kde-apps/kcalutils-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=kde-frameworks/kcalendarcore-${KFMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcontacts-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdnssd-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
+	>=kde-apps/akonadi-${PVCUT}:6
+	>=kde-apps/akonadi-notes-${PVCUT}:6
+	>=kde-apps/akonadi-search-${PVCUT}:6
+	>=kde-apps/grantleetheme-${PVCUT}:6
+	>=kde-apps/kcalutils-${PVCUT}:6
+	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/kontactinterface-${PVCUT}:6
+	>=kde-apps/libkdepim-${PVCUT}:6
+	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-frameworks/kcalendarcore-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcontacts-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdnssd-${KFMIN}:6
+	>=kde-frameworks/kglobalaccel-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/knewstuff-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	x11-libs/libX11
 "
 RDEPEND="${DEPEND}
-	>=kde-apps/kdepim-runtime-${PVCUT}:5
+	>=kde-apps/kdepim-runtime-${PVCUT}:6
 "
