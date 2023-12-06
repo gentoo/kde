@@ -7,8 +7,8 @@ ECM_EXAMPLES="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="graphics"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm kde.org
 
 DESCRIPTION="Powerful libraries (KChart, KGantt) for creating business diagrams"
@@ -21,15 +21,13 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="GPL-2" # TODO CHECK
-SLOT="5"
+SLOT="6"
 
 REQUIRED_USE="test? ( examples )"
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtsvg-${QTMIN}:6
 "
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
