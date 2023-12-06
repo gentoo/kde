@@ -6,13 +6,12 @@ EAPI=8
 ECM_EXAMPLES="true"
 ECM_QTHELP="false"
 ECM_TEST="true"
-KDE_ORG_NAME="${PN}2"
+KDE_ORG_TAR_PN="${PN}2"
 QTMIN=5.15.9
 inherit ecm frameworks.kde.org toolchain-funcs
 
 DESCRIPTION="Lightweight user interface framework for mobile and convergent applications"
 HOMEPAGE="https://techbase.kde.org/Kirigami"
-EGIT_REPO_URI="${EGIT_REPO_URI/${PN}2/${PN}}"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
