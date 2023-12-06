@@ -3,7 +3,6 @@
 
 EAPI=8
 
-KDE_ORG_NAME="oxygen-icons"
 PVCUT=$(ver_cut 1-2)
 QTMIN=6.6.0
 inherit cmake frameworks.kde.org xdg-utils
@@ -20,7 +19,7 @@ DEPEND="test? ( >=dev-qt/qtbase-${QTMIN}:6[test] )"
 RDEPEND="!kde-frameworks/${PN}:5"
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6
-	>=kde-frameworks/extra-cmake-modules-${PVCUT}:*
+	>=kde-frameworks/extra-cmake-modules-${PVCUT}:0
 	test? ( app-misc/fdupes )
 "
 

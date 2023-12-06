@@ -3,7 +3,6 @@
 
 EAPI=8
 
-KDE_ORG_NAME="oxygen-icons5"
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.9
 inherit cmake frameworks.kde.org xdg-utils
@@ -16,12 +15,12 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
+DEPEND="test? ( >=dev-qt/qttest-${QTMIN}:5 )"
 BDEPEND="
 	>=dev-qt/qtcore-${QTMIN}:5
 	>=kde-frameworks/extra-cmake-modules-${PVCUT}:0
 	test? ( app-misc/fdupes )
 "
-DEPEND="test? ( >=dev-qt/qttest-${QTMIN}:5 )"
 
 src_prepare() {
 	cmake_src_prepare
