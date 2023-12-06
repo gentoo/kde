@@ -5,18 +5,18 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=5.104.0
+KFMIN=5.245.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Libary for handling mail messages and newsgroup articles"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
