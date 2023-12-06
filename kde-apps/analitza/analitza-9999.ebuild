@@ -4,27 +4,24 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="KDE library for mathematical features"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="eigen"
 
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5[-gles2-only]
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[-gles2-only,gui,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
 	eigen? ( dev-cpp/eigen:3 )
 "
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 src_prepare() {
 	ecm_src_prepare
