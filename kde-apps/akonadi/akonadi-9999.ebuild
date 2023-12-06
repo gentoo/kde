@@ -6,8 +6,8 @@ EAPI=8
 ECM_DESIGNERPLUGIN="true"
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 VIRTUALDBUS_TEST="true"
 inherit ecm gear.kde.org readme.gentoo-r1
 
@@ -15,7 +15,7 @@ DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
 
 LICENSE="LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="+kaccounts +mysql postgres sqlite tools xml"
 
@@ -26,24 +26,19 @@ RESTRICT="test"
 
 COMMON_DEPEND="
 	app-arch/xz-utils
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5[mysql?,postgres?,sqlite?]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,mysql?,network,postgres?,sql,sqlite?,widgets,xml]
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	kaccounts? (
-		>=kde-apps/kaccounts-integration-20.08.3:5
+		>=kde-apps/kaccounts-integration-20.08.3:6
 		>=net-libs/accounts-qt-1.16
 	)
 	xml? ( dev-libs/libxml2 )
@@ -77,7 +72,7 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package kaccounts AccountsQt5)
+		$(cmake_use_find_package kaccounts AccountsQt6)
 		$(cmake_use_find_package kaccounts KAccounts)
 		-DBUILD_TOOLS=$(usex tools)
 		$(cmake_use_find_package xml LibXml2)
