@@ -11,9 +11,9 @@ inherit ecm gear.kde.org
 DESCRIPTION="Library for accessing MBox format mail storages"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-DEPEND=">=kde-apps/kmime-${PVCUT}:5"
+DEPEND=">=kde-apps/kmime-${PVCUT}:6"
 RDEPEND="${DEPEND}"
