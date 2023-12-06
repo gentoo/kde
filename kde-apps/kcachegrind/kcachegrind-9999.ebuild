@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Frontend for Cachegrind by KDE"
@@ -13,26 +13,24 @@ HOMEPAGE="https://apps.kde.org/kcachegrind/
 https://kcachegrind.github.io/html/Home.html"
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
 	media-gfx/graphviz
 "
-BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
