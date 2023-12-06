@@ -5,31 +5,30 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="network"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="BitTorrent library based on KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/ktorrent/ https://userbase.kde.org/KTorrent"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	>=app-crypt/qca-2.3.0:2[qt5(+)]
+	>=app-crypt/qca-2.3.7:2[qt6]
 	>=dev-libs/gmp-6.0.0a:0=
 	dev-libs/libgcrypt:0=
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[network,xml]
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/boost-1.71
@@ -46,7 +45,7 @@ src_prepare() {
 	sed -i -e "/^find_package/ s/\"\${LibGMP_MIN_VERSION}\" //" \
 		CMakeLists.txt || die
 	sed -i -e "/^find_dependency/ s/ \"@LibGMP_MIN_VERSION@\"//" \
-		KF5TorrentConfig.cmake.in || die
+		KTorrent6Config.cmake.in || die
 }
 
 src_test() {
