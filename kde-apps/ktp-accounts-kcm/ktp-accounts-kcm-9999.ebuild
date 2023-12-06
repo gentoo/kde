@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-3)
 KFMIN=5.106.0
 QTMIN=5.15.9
 inherit ecm gear.kde.org
@@ -21,7 +20,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/kaccounts-integration-${PVCUT}:5
+	>=kde-apps/kaccounts-integration-23.08.3:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -42,7 +41,7 @@ DEPEND="${COMMON_DEPEND}
 	net-libs/libaccounts-glib
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-apps/kaccounts-providers-${PVCUT}:5
+	>=kde-apps/kaccounts-providers-23.08.3:5
 	net-im/telepathy-connection-managers
 "
 
