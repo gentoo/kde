@@ -6,69 +6,64 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="https://apps.kde.org/dolphin/ https://userbase.kde.org/Dolphin"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="activities semantic-desktop telemetry"
 
 DEPEND="
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kbookmarks-${KFMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5=
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
-	>=media-libs/phonon-4.11.0[qt5(+)]
-	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,widgets,xml]
+	>=kde-frameworks/kbookmarks-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6=
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/knewstuff-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
+	>=media-libs/phonon-4.12.0[qt6]
+	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:6 )
 	semantic-desktop? (
-		>=kde-apps/baloo-widgets-${PVCUT}:5
-		>=kde-frameworks/baloo-${KFMIN}:5
-		>=kde-frameworks/kfilemetadata-${KFMIN}:5
+		>=kde-apps/baloo-widgets-${PVCUT}:6
+		>=kde-frameworks/baloo-${KFMIN}:6
+		>=kde-frameworks/kfilemetadata-${KFMIN}:6
 	)
-	telemetry? ( kde-frameworks/kuserfeedback:5 )
+	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
-	>=kde-apps/kio-extras-${PVCUT}:5
+	>=kde-apps/kio-extras-${PVCUT}:6
 "
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON
-		$(cmake_use_find_package activities KF5Activities)
-		$(cmake_use_find_package semantic-desktop KF5Baloo)
-		$(cmake_use_find_package semantic-desktop KF5BalooWidgets)
-		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
-		$(cmake_use_find_package telemetry KUserFeedback)
+		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON
+		$(cmake_use_find_package activities PlasmaActivities)
+		$(cmake_use_find_package semantic-desktop KF6Baloo)
+		$(cmake_use_find_package semantic-desktop KF6BalooWidgets)
+		$(cmake_use_find_package semantic-desktop KF6FileMetaData)
+		$(cmake_use_find_package telemetry KF6UserFeedback)
 	)
 	ecm_src_configure
 }
@@ -85,11 +80,11 @@ src_test() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "compress/extract and other actions" kde-apps/ark:${SLOT}
-		optfeature "crypto actions" kde-apps/kleopatra:${SLOT}
-		optfeature "video file thumbnails" kde-apps/ffmpegthumbs:${SLOT}
-		optfeature "graphics file thumbnails" kde-apps/thumbnailers:${SLOT}
-		optfeature "'Share' context menu actions" kde-frameworks/purpose:${SLOT}
+		optfeature "compress/extract and other actions" "kde-apps/ark:${SLOT}"
+		optfeature "crypto actions" "kde-apps/kleopatra:${SLOT}"
+		optfeature "video file thumbnails" "kde-apps/ffmpegthumbs:${SLOT}"
+		optfeature "graphics file thumbnails" "kde-apps/thumbnailers:${SLOT}"
+		optfeature "'Share' context menu actions" "kde-frameworks/purpose:${SLOT}"
 	fi
 	ecm_pkg_postinst
 }
