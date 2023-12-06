@@ -6,66 +6,63 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Screenshot capture utility"
 HOMEPAGE="https://apps.kde.org/spectacle/"
 
 LICENSE="LGPL-2+ handbook? ( FDL-1.3 )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="share"
 
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwayland-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	kde-plasma/kpipewire:5
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtwayland-${QTMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kglobalaccel-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	kde-plasma/kpipewire:6
 	x11-libs/libxcb
 	x11-libs/xcb-util
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
-	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
+	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.9
+	>=dev-libs/plasma-wayland-protocols-1.11.1
 "
 RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qdbus-${QTMIN}:*
-	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
-	>=dev-qt/qtsvg-${QTMIN}:5
+	|| (
+		>=dev-qt/qttools-${QTMIN}:6[qdbus]
+		dev-qt/qdbus:0
+	)
+	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
+	>=dev-qt/qtsvg-${QTMIN}:6
 "
 BDEPEND="
-	>=dev-qt/qtwaylandscanner-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:6
 	dev-util/wayland-scanner
 "
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package share KF5Purpose)
+		$(cmake_use_find_package share KF6Purpose)
 	)
 	ecm_src_configure
 }
