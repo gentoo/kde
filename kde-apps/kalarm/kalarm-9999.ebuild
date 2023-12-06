@@ -5,77 +5,71 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Application to manage alarms and other timer based alerts for the desktop"
 HOMEPAGE="https://apps.kde.org/kalarm/ https://userbase.kde.org/KAlarm"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="+pim speech X"
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/kcalutils-${PVCUT}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=kde-frameworks/kauth-${KFMIN}:5
-	>=kde-frameworks/kcalendarcore-${KFMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcontacts-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/kholidays-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kidletime-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/knotifyconfig-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X?]
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=media-libs/phonon-4.11.0[qt5(+)]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+	>=kde-apps/kcalutils-${PVCUT}:6
+	>=kde-apps/kidentitymanagement-${PVCUT}:6
+	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/kontactinterface-${PVCUT}:6
+	>=kde-apps/kpimtextedit-${PVCUT}:6[speech=]
+	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-frameworks/kauth-${KFMIN}:6
+	>=kde-frameworks/kcalendarcore-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcontacts-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kglobalaccel-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/kholidays-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kidletime-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/knotifyconfig-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=media-libs/phonon-4.12.0[qt6]
 	pim? (
-		>=kde-apps/akonadi-${PVCUT}:5
-		>=kde-apps/akonadi-contacts-${PVCUT}:5
-		>=kde-apps/akonadi-mime-${PVCUT}:5
-		>=kde-apps/kmailtransport-${PVCUT}:5
+		>=kde-apps/akonadi-${PVCUT}:6
+		>=kde-apps/akonadi-contacts-${PVCUT}:6
+		>=kde-apps/akonadi-mime-${PVCUT}:6
+		>=kde-apps/kmailtransport-${PVCUT}:6
 	)
-	speech? ( dev-libs/ktextaddons:5[speech] )
-	X? (
-		>=dev-qt/qtx11extras-${QTMIN}:5
-		x11-libs/libX11
-	)
+	speech? ( dev-libs/ktextaddons:6[speech] )
+	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}
-	pim? ( >=kde-apps/kdepim-runtime-${PVCUT}:5 )
+	pim? ( >=kde-apps/kdepim-runtime-${PVCUT}:6 )
 "
 
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_AKONADI_PLUGIN=$(usex pim)
-		$(cmake_use_find_package speech KF5TextEditTextToSpeech)
+		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
 		-DWITHOUT_X11=$(usex !X)
 	)
 
