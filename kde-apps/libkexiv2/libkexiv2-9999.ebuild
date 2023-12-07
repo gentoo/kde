@@ -3,18 +3,19 @@
 
 EAPI=8
 
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Wrapper around exiv2 library"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="+xmp"
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=media-gfx/exiv2-0.25:=[xmp=]
 "
 RDEPEND="${DEPEND}"
