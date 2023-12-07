@@ -46,7 +46,7 @@ RDEPEND="
 		>=net-libs/libotr-4.0.0
 	)
 	sso? (
-		>=kde-apps/kaccounts-integration-${PVCUT}:5
+		>=kde-apps/kaccounts-integration-23.08.3:5
 		net-libs/accounts-qt
 		net-libs/telepathy-accounts-signon
 	)
