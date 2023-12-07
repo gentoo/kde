@@ -18,6 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
+	dev-libs/kirigami-addons:5
 	dev-libs/libsodium:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
