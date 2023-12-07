@@ -31,7 +31,7 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
-	telemetry? ( kde-frameworks/kuserfeedback:6 )
+	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 # 	kaccounts? ( kde-apps/kaccounts-integration:6 )
 RDEPEND="${DEPEND}
