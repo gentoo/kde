@@ -17,7 +17,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="ibus scim screencast sdl +semantic-desktop X" # +kaccounts
+IUSE="ibus +kaccounts scim screencast sdl +semantic-desktop X"
 
 RESTRICT="test" # missing selenium-webdriver-at-spi
 
@@ -84,14 +84,14 @@ COMMON_DEPEND="
 		dev-libs/glib:2
 		x11-libs/xcb-util-keysyms
 	)
+	kaccounts? (
+		kde-apps/kaccounts-integration:6
+		>=net-libs/accounts-qt-1.16-r1[qt6]
+	)
 	scim? ( app-i18n/scim )
 	sdl? ( media-libs/libsdl2[joystick] )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
 "
-# 	kaccounts? (
-# 		kde-apps/kaccounts-integration:6
-# 		net-libs/accounts-qt
-# 	)
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.25
 	dev-libs/boost
@@ -113,9 +113,9 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/util-linux
 	x11-apps/setxkbmap
 	x11-misc/xdg-user-dirs
+	kaccounts? ( >=net-libs/signon-oauth2-0.25-r1[qt6] )
 	screencast? ( >=kde-plasma/kpipewire-${PVCUT}:6 )
 "
-# 	kaccounts? ( net-libs/signon-oauth2 )
 BDEPEND="
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
@@ -147,8 +147,8 @@ src_configure() {
 		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		$(cmake_use_find_package ibus GLIB2)
-# 		$(cmake_use_find_package kaccounts AccountsQt6)
-# 		$(cmake_use_find_package kaccounts KAccounts)
+		$(cmake_use_find_package kaccounts AccountsQt6)
+		$(cmake_use_find_package kaccounts KAccounts)
 		$(cmake_use_find_package sdl SDL2)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		-DBUILD_KCM_MOUSE_X11=$(usex X)
