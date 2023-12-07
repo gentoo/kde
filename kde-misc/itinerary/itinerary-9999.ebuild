@@ -45,7 +45,7 @@ DEPEND="
 	>=kde-frameworks/kunitconversion-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	sys-libs/zlib
-	matrix? ( >=net-libs/libquotient-0.7.2:= )
+	matrix? ( >=net-libs/libquotient-0.7.2:=[qt5(+)] )
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
