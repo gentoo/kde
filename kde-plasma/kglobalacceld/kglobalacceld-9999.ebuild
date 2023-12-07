@@ -24,7 +24,10 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	X? (
 		>=dev-qt/qtbase-${QTMIN}:6=[gui]
