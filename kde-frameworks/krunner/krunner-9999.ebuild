@@ -11,7 +11,7 @@ DESCRIPTION="Framework for providing different actions given a string query"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="activities"
+IUSE=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
@@ -19,7 +19,6 @@ DEPEND="
 	=kde-frameworks/kcoreaddons-${PVCUT}*:6
 	=kde-frameworks/ki18n-${PVCUT}*:6
 	=kde-frameworks/kitemmodels-${PVCUT}*:6
-	activities? ( kde-plasma/plasma-activities:6 )
 "
 RDEPEND="${DEPEND}"
 
@@ -31,10 +30,3 @@ CMAKE_SKIP_TESTS=(
 	# bug 838502
 	runnermanagertest
 )
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package activities KActivities)
-	)
-	ecm_src_configure
-}
