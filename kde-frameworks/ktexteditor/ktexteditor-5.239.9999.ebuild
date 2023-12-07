@@ -11,7 +11,7 @@ DESCRIPTION="Framework providing a full text editor component"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="+editorconfig kf6compat"
+IUSE="+editorconfig"
 
 RESTRICT="test"
 
@@ -42,9 +42,7 @@ DEPEND="
 	=kde-frameworks/syntax-highlighting-${PVCUT}*:5
 	editorconfig? ( app-text/editorconfig-core-c )
 "
-RDEPEND="${DEPEND}
-	kf6compat? ( kde-frameworks/ktexteditor:6 )
-"
+RDEPEND="${DEPEND}"
 BDEPEND="test? ( >=kde-frameworks/kservice-${PVCUT}:5 )"
 
 src_configure() {
@@ -53,14 +51,4 @@ src_configure() {
 	)
 
 	ecm_src_configure
-}
-
-src_install() {
-	ecm_src_install
-
-	if use kf6compat; then
-	rm "${D}"/usr/share/polkit-1/actions/org.kde.ktexteditor.katetextbuffer.policy \
-		"${D}"/usr/share/dbus-1/system-services/org.kde.ktexteditor.katetextbuffer.service \
-		"${D}"/usr/share/dbus-1/system.d/org.kde.ktexteditor.katetextbuffer.conf || die
-	fi
 }

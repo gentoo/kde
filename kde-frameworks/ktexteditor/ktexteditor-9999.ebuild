@@ -41,9 +41,7 @@ DEPEND="
 	=kde-frameworks/syntax-highlighting-${PVCUT}*:6
 	editorconfig? ( app-text/editorconfig-core-c )
 "
-RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
-"
+RDEPEND="${DEPEND}"
 BDEPEND="test? ( >=kde-frameworks/kservice-${PVCUT}:6 )"
 
 src_configure() {
