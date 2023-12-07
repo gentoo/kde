@@ -14,7 +14,7 @@ HOMEPAGE="https://userbase.kde.org/Discover"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="+firmware flatpak snap telemetry webengine"
+IUSE="+firmware flatpak telemetry webengine" # snap: bug #919416
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
@@ -39,13 +39,12 @@ DEPEND="
 	>=kde-frameworks/purpose-${KFMIN}:6
 	firmware? ( >=sys-apps/fwupd-1.9.4 )
 	flatpak? ( sys-apps/flatpak )
-	snap? ( sys-libs/snapd-glib:=[qt6(-)] )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 	webengine? ( >=dev-qt/qtwebview-${QTMIN}:6 )
 "
-RDEPEND="${DEPEND}
-	snap? ( app-containers/snapd )
-"
+# 	snap? ( sys-libs/snapd-glib:=[qt6(-)] )
+RDEPEND="${DEPEND}"
+# 	snap? ( app-containers/snapd )
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
 PATCHES=( "${FILESDIR}/${PN}-5.25.90-tests-optional.patch" )
@@ -71,7 +70,7 @@ src_configure() {
 		-DBUILD_FlatpakBackend=$(usex flatpak)
 		-DBUILD_FwupdBackend=$(usex firmware)
 		-DBUILD_RpmOstreeBackend=OFF
-		-DBUILD_SnapBackend=$(usex snap)
+# 		-DBUILD_SnapBackend=$(usex snap)
 		-DBUILD_SteamOSBackend=OFF
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 		$(cmake_use_find_package webengine Qt6WebView)
