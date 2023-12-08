@@ -21,6 +21,7 @@ HOMEPAGE="https://accounts-sso.gitlab.io"
 LICENSE="LGPL-2.1"
 SLOT="0"
 IUSE="doc +qt5 qt6 test"
+REQUIRED_USE="|| ( qt5 qt6 )"
 
 # dbus problems
 RESTRICT="test"
@@ -79,10 +80,14 @@ src_prepare() {
 		sed -e '/^SUBDIRS/s/tests//' \
 			-i accounts-qt.pro || die "couldn't disable tests"
 	fi
+
+	multibuild_copy_sources
 }
 
 src_configure() {
 	my_src_configure() {
+		cd "${BUILD_DIR}" || die
+
 		if [[ ${MULTIBUILD_VARIANT} == qt6 ]]; then
 			eqmake6 PREFIX="${EPREFIX}"/usr LIBDIR=$(get_libdir)
 		else
@@ -94,9 +99,17 @@ src_configure() {
 }
 
 src_compile() {
-	multibuild_foreach_variant default
+	my_src_compile() {
+		emake -C "${BUILD_DIR}"
+	}
+
+	multibuild_foreach_variant my_src_compile
 }
 
 src_install() {
-	multibuild_foreach_variant emake INSTALL_ROOT="${D}" install
+	my_src_install() {
+		emake -C "${BUILD_DIR}" INSTALL_ROOT="${D}" install
+	}
+
+	multibuild_foreach_variant my_src_install
 }
