@@ -44,6 +44,8 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-qt/qtbase-${QTMIN}:6[network] )
 "
 RDEPEND="${COMMON_DEPEND}
+	dev-python/sentry-sdk
+	dev-python/pygdbmi
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
 	|| (
