@@ -20,7 +20,12 @@ HOMEPAGE="https://gitlab.com/accounts-sso"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
+# The qt5/qt6 situation is complicated: https://gitlab.com/accounts-sso/signon-plugin-oauth2/-/merge_requests/28#note_1689621252
+# 1) the library is coinstallable for qt5/qt6
+# 2) signond (the daemon) must be built for only one Qt version, matching the
+# Qt version of all consumer plugins.
 IUSE="doc +qt5 qt6 test"
+REQUIRED_USE="|| ( qt5 qt6 )"
 
 # tests are brittle; they all pass when stars align, bug 727666
 RESTRICT="test !test? ( test )"
@@ -90,10 +95,14 @@ src_prepare() {
 
 	use test || sed -e '/^SUBDIRS/s/tests//' \
 		-i signon.pro || die "couldn't disable tests"
+
+	multibuild_copy_sources
 }
 
 src_configure() {
 	my_src_configure() {
+		cd "${BUILD_DIR}" || die
+
 		local myqmakeargs=(
 			PREFIX="${EPREFIX}"/usr
 			LIBDIR=$(get_libdir)
@@ -110,9 +119,17 @@ src_configure() {
 }
 
 src_compile() {
-	multibuild_foreach_variant default
+	my_src_compile() {
+		emake -C "${BUILD_DIR}"
+	}
+
+	multibuild_foreach_variant my_src_compile
 }
 
 src_install() {
-	multibuild_foreach_variant emake INSTALL_ROOT="${D}" install
+	my_src_install() {
+		emake -C "${BUILD_DIR}" INSTALL_ROOT="${D}" install
+	}
+
+	multibuild_foreach_variant my_src_install
 }
