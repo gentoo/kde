@@ -25,6 +25,18 @@ esac
 if [[ -z ${_GEAR_KDE_ORG_ECLASS} ]]; then
 _GEAR_KDE_ORG_ECLASS=1
 
+# @ECLASS-VARIABLE: KDE_BLOCK_SLOT5
+# @PRE_INHERIT
+# @DESCRIPTION:
+# By default set to "true", which means for packages in SLOT 6, add RDEPEND
+# block against ${CATEGORY}/${PN}:5.
+# Set to "false" in order to enable side-by-side installability.
+if [[ ${SLOT} == 6 ]]; then
+: ${KDE_BLOCK_SLOT5:=true}
+else
+: ${KDE_BLOCK_SLOT5:=false}
+fi
+
 # @ECLASS_VARIABLE: KDE_PV_UNRELEASED
 # @INTERNAL
 # @DESCRIPTION:
@@ -62,5 +74,16 @@ elif [[ -z ${KDE_ORG_COMMIT} ]]; then
 
 	SRC_URI="${_KDE_SRC_URI}${KDE_ORG_TAR_PN}-${PV}.tar.xz"
 fi
+
+case ${KDE_BLOCK_SLOT5} in
+	true)
+		RDEPEND+=" !${CATEGORY}/${PN}:5"
+		;;
+	false) ;;
+	*)
+		eerror "Unknown value for \${KDE_BLOCK_SLOT5}"
+		die "Value ${KDE_BLOCK_SLOT5} is not supported"
+		;;
+esac
 
 fi
