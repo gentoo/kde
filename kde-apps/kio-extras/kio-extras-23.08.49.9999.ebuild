@@ -57,11 +57,7 @@ DEPEND="
 	nfs? ( net-libs/libtirpc:= )
 	openexr? ( media-libs/openexr:= )
 	phonon? ( >=media-libs/phonon-4.11.0[qt5(+)] )
-	samba? (
-		net-fs/samba[client]
-		net-libs/kdsoap:=
-		net-libs/kdsoap-ws-discovery-client
-	)
+	samba? ( net-fs/samba[client] )
 	sftp? ( net-libs/libssh:=[sftp] )
 	taglib? ( >=media-libs/taglib-1.11.1 )
 	X? (
@@ -90,9 +86,6 @@ src_configure() {
 		$(cmake_use_find_package sftp libssh)
 		$(cmake_use_find_package taglib Taglib)
 		-DWITHOUT_X11=$(usex !X)
-	)
-	use samba && mycmakeargs+=(
-		-DBUILD_KDSoapWSDiscoveryClient=OFF # disable bundled stuff
 	)
 
 	ecm_src_configure
