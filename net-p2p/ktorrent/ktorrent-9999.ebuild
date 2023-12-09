@@ -48,7 +48,6 @@ COMMON_DEPEND="
 		>=dev-qt/qtwebengine-${QTMIN}:6
 		>=kde-frameworks/syndication-${KFMIN}:6
 	)
-	shutdown? ( kde-plasma/libkworkspace:6 )
 	stats? ( >=kde-frameworks/kplotting-${KFMIN}:6 )
 	upnp? ( >=kde-frameworks/kcompletion-${KFMIN}:6 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )
