@@ -60,7 +60,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	>=kde-plasma/kwin-${PVCUT}:6
 	>=kde-plasma/libksysguard-${PVCUT}:6
-	>=kde-plasma/libkworkspace-${PVCUT}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
 	>=kde-plasma/plasma-activities-${PVCUT}:6
 	>=kde-plasma/plasma-activities-stats-${PVCUT}:6
