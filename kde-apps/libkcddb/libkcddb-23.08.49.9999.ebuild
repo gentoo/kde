@@ -14,7 +14,7 @@ DESCRIPTION="KDE library for CDDB"
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 SLOT="5"
 KEYWORDS=""
-IUSE="musicbrainz"
+IUSE="musicbrainz kf6compat"
 
 # tests require network access and compare static data with online data
 # bug 280996
@@ -32,7 +32,9 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	kf6compat? ( kde-apps/libkcddb:6 )
+"
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
 src_prepare() {
@@ -46,4 +48,17 @@ src_configure() {
 	)
 
 	ecm_src_configure
+}
+
+src_install() {
+	ecm_src_install
+
+	if use kf6compat; then
+		rm "${D}"/usr/share/applications/kcm_cddb.desktop \
+			"${D}"/usr/share/config.kcfg/libkcddb5.kcfg || die
+		if use handbook; then
+			rm -r "${D}"/usr/share/help || die
+		fi
+		rm -r "${D}"/usr/share/locale || die
+	fi
 }
