@@ -27,7 +27,7 @@ RESTRICT="test"
 DEPEND="
 	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
-	>=dev-qt/qtmultimedia-${QTMIN}:6[widgets]
+	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
