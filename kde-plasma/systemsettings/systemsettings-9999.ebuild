@@ -41,7 +41,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-plasma/libkworkspace-${PVCUT}:6
 	>=kde-plasma/plasma-activities-${PVCUT}:6
 "
 RDEPEND="${DEPEND}"
