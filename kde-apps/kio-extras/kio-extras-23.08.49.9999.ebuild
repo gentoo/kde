@@ -88,5 +88,11 @@ src_configure() {
 		-DWITHOUT_X11=$(usex !X)
 	)
 
+	use samba && mycmakeargs+=(
+		# do not attempt to find now Qt6-based system version
+		-DCMAKE_DISABLE_FIND_PACKAGE_KDSoapWSDiscoveryClient=ON
+	)
+
+
 	ecm_src_configure
 }
