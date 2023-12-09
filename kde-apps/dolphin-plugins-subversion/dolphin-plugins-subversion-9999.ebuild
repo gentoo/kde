@@ -7,30 +7,29 @@ ECM_HANDBOOK="false"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="svn"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Dolphin plugin for Subversion integration"
 HOMEPAGE="https://apps.kde.org/dolphin_plugins/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/dolphin-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=kde-apps/dolphin-${PVCUT}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
 	dev-vcs/subversion
-	>=kde-apps/kompare-${PVCUT}:5
+	>=kde-apps/kompare-${PVCUT}:*
 "
 
 src_prepare() {
