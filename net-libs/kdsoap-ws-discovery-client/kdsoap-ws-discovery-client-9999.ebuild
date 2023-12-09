@@ -5,6 +5,7 @@ EAPI=8
 
 ECM_QTHELP="false"
 ECM_TEST="forceoptional"
+KFMIN=5.245.0
 inherit ecm kde.org
 
 DESCRIPTION="WS-Discovery client library based on KDSoap"
@@ -18,12 +19,11 @@ IUSE="doc"
 RESTRICT="test"
 
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtnetwork:5
-	>=net-libs/kdsoap-2.0.0
+	dev-qt/qtbase:6[network]
+	>=net-libs/kdsoap-0.2.0
 "
 DEPEND="${RDEPEND}
-	test? ( dev-qt/qtxml:5 )
+	test? ( dev-qt/qtbase:6[xml] )
 "
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
 
