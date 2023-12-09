@@ -75,7 +75,6 @@ COMMON_DEPEND="
 	>=kde-plasma/layer-shell-qt-${PVCUT}:6
 	>=kde-plasma/libkscreen-${PVCUT}:6
 	>=kde-plasma/libksysguard-${PVCUT}:6
-	>=kde-plasma/libkworkspace-${PVCUT}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
 	>=kde-plasma/plasma-activities-${PVCUT}:6
 	>=kde-plasma/plasma-activities-stats-${PVCUT}:6
@@ -150,14 +149,12 @@ BDEPEND="
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-5.24.80-split-libkworkspace.patch" # downstream
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
 )
 
 src_prepare() {
 	ecm_src_prepare
 
-	cmake_comment_add_subdirectory libkworkspace
 	# delete colliding libkworkspace translations
 	find po -type f -name "*po" -and -name "libkworkspace*" -delete || die
 
