@@ -37,7 +37,6 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	>=kde-plasma/libkworkspace-${PVCUT}:6
 	>=kde-plasma/plasma-activities-${PVCUT}:6
 	kdesu? ( >=kde-frameworks/kdesu-${KFMIN}:6 )
 	X? ( x11-libs/libX11 )
