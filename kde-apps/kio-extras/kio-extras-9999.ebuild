@@ -5,6 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="optional"
+KDE_BLOCK_SLOT5="false"
 KFMIN=5.245.0
 QTMIN=6.6.0
 inherit ecm gear.kde.org
