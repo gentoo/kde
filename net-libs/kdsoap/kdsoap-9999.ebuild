@@ -20,11 +20,7 @@ LICENSE="GPL-3 AGPL-3"
 SLOT="0/2"
 IUSE=""
 
-RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtxml:5
-"
+RDEPEND="dev-qt/qtbase:6[network,xml]"
 DEPEND="${RDEPEND}
 	dev-libs/boost
 "
@@ -38,8 +34,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DKDSoap_DOCS=OFF
 		-DKDSoap_EXAMPLES=OFF # no install targets
+		-DKDSoap_QT6=ON
 		-DKDSoap_STATIC=OFF
-		-DKDSoap_QT6=OFF
 	)
 	cmake_src_configure
 }
