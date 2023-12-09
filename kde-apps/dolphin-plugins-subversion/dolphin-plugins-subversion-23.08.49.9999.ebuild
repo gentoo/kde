@@ -30,7 +30,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	dev-vcs/subversion
-	>=kde-apps/kompare-${PVCUT}:5
+	>=kde-apps/kompare-${PVCUT}:*
 "
 
 src_prepare() {
