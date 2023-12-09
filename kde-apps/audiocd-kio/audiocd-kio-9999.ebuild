@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
+KDE_BLOCK_SLOT5="false"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.245.0
 QTMIN=6.6.0
