@@ -17,6 +17,7 @@ RESTRICT="test"
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )
 	X? (
 		x11-libs/libX11
 		x11-libs/libXfixes
@@ -27,6 +28,10 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 	test? ( >=dev-qt/qtbase-${QTMIN}:6[widgets] )
+	wayland? (
+		dev-libs/plasma-wayland-protocols
+		>=dev-libs/wayland-protocols-1.21
+	)
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
