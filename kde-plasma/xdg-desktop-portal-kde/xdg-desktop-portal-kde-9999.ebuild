@@ -19,7 +19,7 @@ IUSE=""
 # dev-qt/qtgui: QtXkbCommonSupport is provided by either IUSE libinput or X
 COMMON_DEPEND="
 	>=dev-libs/wayland-1.15
-	>=dev-qt/qtbase-${QTMIN}:6[cups,dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	|| (
 		>=dev-qt/qtbase-${QTMIN}:6[libinput]
