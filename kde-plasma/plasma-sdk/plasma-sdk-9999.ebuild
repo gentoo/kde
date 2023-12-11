@@ -34,6 +34,7 @@ DEPEND="
 	>=kde-frameworks/ktexteditor-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/plasma5support-${PVCUT}:6
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
