@@ -57,8 +57,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.27.80-openconnect-optional.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_OPENCONNECT=$(usex openconnect)
