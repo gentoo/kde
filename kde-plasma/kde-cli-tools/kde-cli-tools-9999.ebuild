@@ -36,10 +36,8 @@ DEPEND="
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	>=kde-plasma/plasma-activities-${PVCUT}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	kdesu? ( >=kde-frameworks/kdesu-${KFMIN}:6 )
-	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}
 	kdesu? ( sys-apps/dbus[X] )
@@ -51,7 +49,7 @@ PATCHES=( "${FILESDIR}/${PN}-5.12.80-tests-optional.patch" )
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package kdesu KF6Su)
-		$(cmake_use_find_package X X11)
+		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
