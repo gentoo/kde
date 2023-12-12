@@ -26,6 +26,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-plasma/libksysguard-${PVCUT}:6
