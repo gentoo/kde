@@ -16,7 +16,7 @@ LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
 IUSE="appstream +calendar +fontconfig geolocation gps +policykit
-screencast +semantic-desktop telemetry +wallpaper-metadata"
+screencast +semantic-desktop systemd telemetry +wallpaper-metadata"
 
 REQUIRED_USE="gps? ( geolocation )"
 RESTRICT="test"
@@ -26,8 +26,10 @@ RESTRICT="test"
 COMMON_DEPEND="
 	dev-libs/icu:=
 	>=dev-libs/wayland-1.15
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,libinput,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
+	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwayland-${QTMIN}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
@@ -56,9 +58,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
-	>=kde-frameworks/kpeople-${KFMIN}:6
 	>=kde-frameworks/krunner-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
+	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/ktexteditor-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kunitconversion-${KFMIN}:6
@@ -78,9 +81,12 @@ COMMON_DEPEND="
 	>=kde-plasma/libplasma-${PVCUT}:6
 	>=kde-plasma/plasma-activities-${PVCUT}:6
 	>=kde-plasma/plasma-activities-stats-${PVCUT}:6
+	>=kde-plasma/plasma5support-${PVCUT}:6
+	media-libs/libcanberra
 	>=media-libs/phonon-4.12.0[qt6]
 	sci-libs/libqalculate:=
 	sys-libs/zlib
+	virtual/libudev:=
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -112,23 +118,24 @@ COMMON_DEPEND="
 		x11-libs/libdrm
 	)
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
+	systemd? ( sys-apps/systemd:= )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 	wallpaper-metadata? ( kde-apps/libkexiv2:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.6.0
-	>=dev-libs/wayland-protocols-1.31
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	x11-base/xorg-proto
 	fontconfig? ( x11-libs/libXrender )
 "
 RDEPEND="${COMMON_DEPEND}
+	!kde-plasma/libkworkspace:5
 	!<kde-plasma/breeze-5.22.90:5
 	!<kde-plasma/plasma-desktop-5.27.0:5
 	app-text/iso-codes
+	dev-libs/kirigami-addons:6
 	>=dev-qt/qttools-${QTMIN}:*[qdbus]
-	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	kde-apps/kio-extras:5
+	kde-apps/kio-extras:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
 	>=kde-plasma/milou-${PVCUT}:6
@@ -145,6 +152,7 @@ BDEPEND="
 	>=dev-util/wayland-scanner-1.19.0
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
+	test? ( >=dev-qt/qtwayland-${QTMIN}:6[compositor] )
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
@@ -178,11 +186,17 @@ src_prepare() {
 		ecm_punt_bogus_dep XCB IMAGE
 		sed -e "s/check_X11_lib(Xft)/#&/" -i CMakeLists.txt || die
 	fi
+
+	# TODO: try to get a build switch upstreamed
+	if use systemd; then
+		sed -e "s/^pkg_check_modules.*SYSTEMD/#&/" -i CMakeLists.txt || die
+	fi
 }
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_xembed-sni-proxy=OFF
+		-DWITH_X11=ON # TODO: broken upstream, fix it if you can
 		-DGLIBC_LOCALE_GEN=$(usex policykit)
 		$(cmake_use_find_package appstream AppStreamQt)
 		$(cmake_use_find_package calendar KF6Holidays)
