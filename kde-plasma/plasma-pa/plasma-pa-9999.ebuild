@@ -26,9 +26,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
-	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
@@ -36,7 +34,9 @@ DEPEND="
 	media-libs/libpulse
 "
 RDEPEND="${DEPEND}
+	dev-libs/kirigami-addons:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
 	x11-themes/sound-theme-freedesktop
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
