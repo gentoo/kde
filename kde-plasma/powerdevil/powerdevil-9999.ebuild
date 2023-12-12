@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
 KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.6.0
@@ -15,7 +16,7 @@ HOMEPAGE="https://invent.kde.org/plasma/powerdevil"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="brightness-control caps +wireless"
+IUSE="brightness-control caps"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
@@ -31,12 +32,14 @@ DEPEND="
 	>=kde-frameworks/kidletime-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
+	>=kde-plasma/layer-shell-qt-${PVCUT}:6
 	>=kde-plasma/libkscreen-${PVCUT}:6
 	>=kde-plasma/plasma-activities-${PVCUT}:6
 	>=kde-plasma/plasma-workspace-${PVCUT}:6
@@ -44,10 +47,6 @@ DEPEND="
 	x11-libs/libxcb
 	brightness-control? ( app-misc/ddcutil:= )
 	caps? ( sys-libs/libcap )
-	wireless? (
-		>=kde-frameworks/bluez-qt-${KFMIN}:6
-		>=kde-frameworks/networkmanager-qt-${KFMIN}:6
-	)
 "
 RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:*
@@ -60,8 +59,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DHAVE_DDCUTIL=$(usex brightness-control)
 		$(cmake_use_find_package caps Libcap)
-		$(cmake_use_find_package wireless KF6BluezQt)
-		$(cmake_use_find_package wireless KF6NetworkManagerQt)
 	)
 
 	ecm_src_configure
