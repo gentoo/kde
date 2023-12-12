@@ -68,6 +68,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kded-${KFMIN}:6
+	!kde-frameworks/kio:5[-kf6compat(-)]
 "
 BDEPEND="man? ( dev-util/gperf )"
 
