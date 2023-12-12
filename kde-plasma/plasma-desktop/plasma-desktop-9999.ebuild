@@ -15,11 +15,14 @@ DESCRIPTION="KDE Plasma desktop"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="ibus scim screencast +semantic-desktop" # +kaccounts
+IUSE="ibus scim screencast sdl +semantic-desktop" # +kaccounts
+
+RESTRICT="test" # missing selenium-webdriver-at-spi
 
 # kde-frameworks/kwindowsystem[X]: Uses KX11Extras
 COMMON_DEPEND="
 	dev-libs/wayland
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -36,7 +39,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
-	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kded-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
@@ -53,6 +55,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/krunner-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
@@ -64,6 +67,7 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma-activities-${PVCUT}:6
 	>=kde-plasma/plasma-activities-stats-${PVCUT}:6
 	>=kde-plasma/plasma-workspace-${PVCUT}:6[screencast?]
+	>=kde-plasma/plasma5support-${PVCUT}:6
 	media-libs/libcanberra
 	x11-libs/libX11
 	x11-libs/libXcursor
@@ -75,10 +79,10 @@ COMMON_DEPEND="
 	ibus? (
 		app-i18n/ibus
 		dev-libs/glib:2
-		x11-libs/libxcb
 		x11-libs/xcb-util-keysyms
 	)
 	scim? ( app-i18n/scim )
+	sdl? ( media-libs/libsdl2[joystick] )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
 "
 # 	kaccounts? (
@@ -89,10 +93,14 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.25
 	dev-libs/boost
 	x11-base/xorg-proto
+	test? (
+		>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
+		>=kde-plasma/kactivitymanagerd-${PVCUT}:6
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/kdeplasma-addons-5.25.50
-	>=dev-qt/qt5compat-${QTMIN}:6[qml]
+	dev-libs/kirigami-addons:6
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
@@ -131,6 +139,7 @@ src_configure() {
 		$(cmake_use_find_package ibus GLIB2)
 # 		$(cmake_use_find_package kaccounts AccountsQt6)
 # 		$(cmake_use_find_package kaccounts KAccounts)
+		$(cmake_use_find_package sdl SDL2)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 	)
 
@@ -151,7 +160,7 @@ src_test() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "screen reader support" app-accessibility/orca
+		optfeature "screen reader support" "app-accessibility/orca"
 	fi
 	ecm_pkg_postinst
 }

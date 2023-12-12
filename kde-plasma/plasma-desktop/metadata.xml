@@ -13,5 +13,6 @@
 		<flag name="kaccounts">Build the OpenDesktop integration plugin</flag>
 		<flag name="scim">Enable applets that use <pkg>app-i18n/scim</pkg></flag>
 		<flag name="screencast">Enable screencast portal thumbnails using <pkg>kde-plasma/kpipewire</pkg></flag>
+		<flag name="sdl">Enable gamepad support using <pkg>media-libs/libsdl2</pkg></flag>
 	</use>
 </pkgmetadata>
