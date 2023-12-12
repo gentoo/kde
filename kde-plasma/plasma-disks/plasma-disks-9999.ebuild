@@ -20,8 +20,8 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
@@ -36,3 +36,4 @@ DEPEND="
 RDEPEND="${DEPEND}
 	kde-plasma/kinfocenter:6
 "
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
