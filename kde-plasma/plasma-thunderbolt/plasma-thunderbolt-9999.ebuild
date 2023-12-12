@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=5.245.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
@@ -26,9 +25,9 @@ DEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
-	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
