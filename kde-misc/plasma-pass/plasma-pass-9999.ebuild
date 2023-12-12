@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm kde.org
 
 DESCRIPTION="Plasma applet to access password from pass"
@@ -16,23 +16,22 @@ if [[ ${KDE_BUILD_TYPE} != live ]] ; then
 fi
 
 LICENSE="LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 IUSE=""
 
 DEPEND="
-	app-crypt/gpgme:=[cxx,qt5]
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-plasma/libplasma-${KFMIN}:5
+	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	kde-plasma/libplasma:6
+	kde-plasma/plasma5support:6
 	sys-auth/oath-toolkit
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:6
 "
