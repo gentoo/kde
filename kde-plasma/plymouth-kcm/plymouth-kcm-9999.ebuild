@@ -23,7 +23,6 @@ DEPEND="
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
-	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
@@ -31,6 +30,8 @@ DEPEND="
 	sys-boot/plymouth
 "
 RDEPEND="${DEPEND}
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
