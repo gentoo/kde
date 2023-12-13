@@ -3,9 +3,11 @@
 
 EAPI=8
 
+KF5MIN=5.102.0
 KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.6.0
+QT5MIN=5.15.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Oxygen visual style for the Plasma desktop"
