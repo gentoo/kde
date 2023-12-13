@@ -55,7 +55,7 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
-src_preparesrc_configure() {
+src_configure() {
         local mycmakeargs=(
                 -DBUILD_QT6=ON
                 -DBUILD_QT5=$(usex qt5)
