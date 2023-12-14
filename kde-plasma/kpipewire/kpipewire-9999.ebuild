@@ -25,6 +25,7 @@ COMMON_DEPEND="
 	>=kde-plasma/kwayland-${KFMIN}:6
 	media-libs/libepoxy
 	media-libs/libglvnd
+	media-libs/libva
 	media-video/ffmpeg:=
 	>=media-video/pipewire-0.3:=
 	x11-libs/libdrm

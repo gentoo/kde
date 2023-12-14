@@ -22,6 +22,7 @@ IUSE="activities ios +man mtp nfs openexr phonon samba +sftp taglib X"
 RESTRICT="test"
 
 DEPEND="
+	dev-libs/qcoro
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	kde-apps/libkexiv2:6
