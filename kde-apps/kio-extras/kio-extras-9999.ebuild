@@ -16,12 +16,13 @@ HOMEPAGE="https://invent.kde.org/network/kio-extras"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="activities ios +man mtp nfs openexr phonon samba +sftp taglib X"
+IUSE="ios +man mtp nfs openexr phonon samba +sftp taglib X"
 
 # requires running Plasma environment
 RESTRICT="test"
 
 DEPEND="
+	dev-libs/qcoro
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	kde-apps/libkexiv2:6
@@ -41,11 +42,9 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	activities? (
-		>=dev-qt/qtbase-${QTMIN}:6[sql]
-		>=kde-plasma/plasma-activities-${KFMIN}:6
-		>=kde-plasma/plasma-activities-stats-${KFMIN}:6
-	)
+	>=kde-plasma/plasma-activities-${KFMIN}:6
+	>=kde-plasma/plasma-activities-stats-${KFMIN}:6
+
 	ios? (
 		app-pda/libimobiledevice:=
 		app-pda/libplist:=
@@ -74,9 +73,6 @@ BDEPEND="man? ( dev-util/gperf )"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package activities PlasmaActivities)
-		$(cmake_use_find_package activities PlasmaActivitiesStats)
-		$(cmake_use_find_package activities Qt6Sql)
 		$(cmake_use_find_package ios IMobileDevice)
 		$(cmake_use_find_package ios PList)
 		$(cmake_use_find_package man Gperf)
