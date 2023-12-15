@@ -28,6 +28,7 @@ RDEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
 	>=kde-plasma/plasma-activities-${PVCUT}:6
 	>=kde-plasma/plasma-workspace-${PVCUT}:6
