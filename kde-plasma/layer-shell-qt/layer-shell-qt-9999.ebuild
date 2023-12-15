@@ -14,15 +14,11 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-# dev-qt/qtgui: QtXkbCommonSupport is provided by either IUSE libinput or X
 # slot op: various private QtWaylandClient headers
 RDEPEND="
 	>=dev-libs/wayland-1.15
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	|| (
-		>=dev-qt/qtbase-${QTMIN}:6[libinput]
-		>=dev-qt/qtbase-${QTMIN}:6[X]
-	)
 	>=dev-qt/qtwayland-${QTMIN}:6=
 	x11-libs/libxkbcommon
 "
@@ -30,7 +26,6 @@ DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
 "
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
