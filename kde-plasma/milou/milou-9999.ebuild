@@ -20,13 +20,9 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-frameworks/kconfig-${KFMIN}:6
-	>=kde-frameworks/kcoreaddons-${KFMIN}:6
-	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/krunner-${KFMIN}:6
-	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
 "
 RDEPEND="${DEPEND}"
