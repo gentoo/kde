@@ -17,7 +17,8 @@ KEYWORDS=""
 IUSE="openconnect teamd"
 
 DEPEND="
-	>=app-crypt/qca-2.3.0:2[qt5(+)]
+	>=app-crypt/qca-2.3.7:2[qt6]
+	dev-libs/qcoro[dbus]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -30,6 +31,7 @@ DEPEND="
 	>=kde-frameworks/kitemviews-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
@@ -68,9 +70,9 @@ src_configure() {
 pkg_postinst() {
 	ecm_pkg_postinst
 
-	if ! has_version "kde-plasma/plasma-workspace:6"; then
-		elog "${PN} is not terribly useful without kde-plasma/plasma-workspace:6."
+	if ! has_version "kde-frameworks/kcmutils:6"; then
+		elog "${PN} is not terribly useful without kde-frameworks/kcmutils:6."
 		elog "However, the networkmanagement KCM can be called from either systemsettings"
-		elog "or manually: $ kcmshell5 kcm_networkmanagement"
+		elog "or manually: $ kcmshell6 kcm_networkmanagement"
 	fi
 }
