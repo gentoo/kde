@@ -14,7 +14,7 @@ DESCRIPTION="Task management and system monitoring library"
 LICENSE="LGPL-2+"
 SLOT="6/9"
 KEYWORDS=""
-IUSE="webengine"
+IUSE="webengine X"
 
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 RDEPEND="
@@ -38,16 +38,18 @@ RDEPEND="
 	net-libs/libpcap
 	sys-apps/lm-sensors:=
 	sys-libs/zlib
-	x11-libs/libX11
-	x11-libs/libXres
 	webengine? (
 		>=dev-qt/qtwebchannel-${QTMIN}:6
 		>=dev-qt/qtwebengine-${QTMIN}:6
 	)
+	X? (
+		x11-libs/libX11
+		x11-libs/libXres
+	)
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
-	x11-base/xorg-proto
+	X? ( x11-base/xorg-proto )
 "
 BDEPEND="sys-libs/libcap"
 
@@ -58,6 +60,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package webengine Qt6WebChannel)
 		$(cmake_use_find_package webengine Qt6WebEngineWidgets)
+		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
