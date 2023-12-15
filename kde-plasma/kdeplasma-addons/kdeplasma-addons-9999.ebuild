@@ -14,11 +14,12 @@ DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
 SLOT="6"
 KEYWORDS=""
-IUSE="+alternate-calendar networkmanager share webengine"
+IUSE="+alternate-calendar share webengine"
 
-RESTRICT="test" # bug 727846
+RESTRICT="test" # bug 727846, +missing selenium-webdriver-at-spi
 
 DEPEND="
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
@@ -26,6 +27,7 @@ DEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
@@ -39,17 +41,20 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/plasma5support-${PVCUT}:6
 	alternate-calendar? ( dev-libs/icu:= )
-	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	dev-libs/kirigami-addons:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
+"
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package alternate-calendar ICU)
-		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
 		$(cmake_use_find_package share KF6Purpose)
 		$(cmake_use_find_package webengine Qt6WebEngine)
 	)
@@ -59,7 +64,7 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "Disk quota applet" sys-fs/quota
+		optfeature "Disk quota applet" "sys-fs/quota"
 	fi
 	ecm_pkg_postinst
 }
