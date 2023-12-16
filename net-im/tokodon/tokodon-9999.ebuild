@@ -22,8 +22,9 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebsockets-${QTMIN}:6
-	media-video/mpv:=[libmpv]
+	>=dev-qt/qtwebview-${QTMIN}:6
 	>=kde-frameworks/breeze-icons-${KFMIN}:*
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -31,11 +32,14 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/purpose-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
+	media-libs/mpvqt
+"
+RDEPEND="${DEPEND}
+	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
 	>=kde-frameworks/sonnet-${KFMIN}:6[qml]
 "
-RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
