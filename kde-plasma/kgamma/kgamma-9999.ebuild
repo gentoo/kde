@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.245.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.6.0
 inherit ecm plasma.kde.org
 
@@ -18,6 +17,7 @@ IUSE=""
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
