@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm kde.org
 
 DESCRIPTION="Write hybrid ISO files onto a USB disk"
@@ -16,22 +16,19 @@ if [[ ${KDE_BUILD_TYPE} == release ]]; then
 fi
 
 LICENSE="GPL-3"
-SLOT="5"
+SLOT="6"
 IUSE=""
 
+# qtbase[test]: *actual* use of QSignalSpy
 DEPEND="
-	app-crypt/gpgme:=[cxx(+),qt5]
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qttest-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
+	>=app-crypt/gpgme-1.23.1-r1:=[cxx(+),qt6]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,test,widgets]
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
 	sys-fs/udisks:2
