@@ -16,6 +16,7 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	=kde-frameworks/kcodecs-${PVCUT}*:6
 	=kde-frameworks/kconfig-${PVCUT}*:6
 	=kde-frameworks/kcoreaddons-${PVCUT}*:6
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
