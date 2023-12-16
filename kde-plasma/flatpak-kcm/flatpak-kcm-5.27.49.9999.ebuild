@@ -26,6 +26,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
 	>=sys-apps/flatpak-0.11.8
 "
 RDEPEND="${DEPEND}
