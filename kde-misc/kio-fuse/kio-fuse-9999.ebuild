@@ -29,7 +29,9 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	sys-fs/fuse:3
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
+"
 
 pkg_setup() {
 	local CONFIG_CHECK="~FUSE_FS"
