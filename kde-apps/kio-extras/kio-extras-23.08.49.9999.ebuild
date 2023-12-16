@@ -93,6 +93,5 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_KDSoapWSDiscoveryClient=ON
 	)
 
-
 	ecm_src_configure
 }
