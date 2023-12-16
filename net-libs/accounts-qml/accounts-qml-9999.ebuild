@@ -67,11 +67,14 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	rm -v .gitignore doc/html/.gitignore || die
+	rm -v doc/html/.gitignore || die
+	multibuild_copy_sources
 }
 
 src_configure() {
 	my_src_configure() {
+		cd "${BUILD_DIR}" || die
+
 		local myqmakeargs=(
 			CONFIG+=no_docs \
 			PREFIX="${EPREFIX}"/usr
@@ -88,7 +91,12 @@ src_configure() {
 }
 
 src_compile() {
-	multibuild_foreach_variant default
+	my_src_compile() {
+		emake -C "${BUILD_DIR}"
+	}
+
+	multibuild_foreach_variant my_src_compile
+
 	if use doc; then
 		local qtanybindir
 		if has_version "dev-qt/qttools:6[qdoc]"; then
@@ -103,7 +111,11 @@ src_compile() {
 }
 
 src_install() {
-	multibuild_foreach_variant emake INSTALL_ROOT="${D}" install_subtargets
+	my_src_install() {
+		emake -C "${BUILD_DIR}" INSTALL_ROOT="${D}" install_subtargets
+	}
+
+	multibuild_foreach_variant my_src_install
 	use doc && local HTML_DOCS=( doc/html )
 	einstalldocs
 }
