@@ -19,9 +19,11 @@ IUSE="+firmware flatpak telemetry webengine" # snap: bug #919416
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
 	>=dev-libs/appstream-0.15.3:=
+	dev-libs/kirigami-addons:6
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/attica-${KFMIN}:6
+	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -34,6 +36,7 @@ DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
@@ -54,7 +57,8 @@ src_prepare() {
 	# we don't need it with PackageKitBackend off
 	ecm_punt_kf_module Archive
 	# we don't do anything with this
-	sed -e "s/^pkg_check_modules.*RpmOstree/#&/" \
+	sed -e "s/^pkg_check_modules.*Markdown/#&/" \
+		-e "s/^pkg_check_modules.*RpmOstree/#&/" \
 		-e "s/^pkg_check_modules.*Ostree/#&/" \
 		-i CMakeLists.txt || die
 }
