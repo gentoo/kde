@@ -78,9 +78,7 @@ BDEPEND="man? ( dev-util/gperf )"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package activities PlasmaActivities)
-		$(cmake_use_find_package activities PlasmaActivitiesStats)
-		$(cmake_use_find_package activities Qt6Sql)
+		-DBUILD_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package ios IMobileDevice)
 		$(cmake_use_find_package ios PList)
 		$(cmake_use_find_package man Gperf)
@@ -92,9 +90,6 @@ src_configure() {
 		$(cmake_use_find_package sftp libssh)
 		$(cmake_use_find_package taglib Taglib)
 		-DWITHOUT_X11=$(usex !X)
-	)
-	use samba && mycmakeargs+=(
-		-DBUILD_KDSoapWSDiscoveryClient=OFF # disable bundled stuff
 	)
 
 	ecm_src_configure
