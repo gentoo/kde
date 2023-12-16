@@ -18,7 +18,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/glib:2
-	>=dev-qt/qtbase-${QTMIN}:6[dbus]
+	>=dev-qt/qtbase-${QTMIN}:6
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
@@ -26,8 +26,10 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
 	>=sys-apps/flatpak-0.11.8
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
+BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"

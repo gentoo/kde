@@ -29,7 +29,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6[dbus]
 	>=kde-frameworks/kconfig-${KFMIN}:6
-	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
@@ -38,10 +37,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/kwayland-${PVCUT}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/plasma-workspace-${PVCUT}:6
 	x11-libs/libxkbcommon
 "
 DEPEND="${COMMON_DEPEND}
@@ -50,7 +50,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
 RDEPEND="${COMMON_DEPEND}
-	kde-misc/kio-fuse:5
+	kde-misc/kio-fuse:6
 	sys-apps/xdg-desktop-portal
 "
 BDEPEND="

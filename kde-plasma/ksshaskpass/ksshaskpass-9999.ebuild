@@ -46,7 +46,4 @@ pkg_postinst() {
 	elog "for Plasma 6 sessions."
 	elog "If that's not desired, select the one you want to use in"
 	elog "/etc/xdg/plasma-workspace/env/05-ksshaskpass.sh"
-
-	# Clean up pre-5.17.4 dirs
-	rmdir -v "${EROOT}"/etc/plasma{/startup,} 2> /dev/null
 }

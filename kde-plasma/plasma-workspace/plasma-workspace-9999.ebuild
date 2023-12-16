@@ -138,6 +138,7 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/kio-extras:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
+	>=kde-plasma/kactivitymanagerd-${PVCUT}:6
 	>=kde-plasma/milou-${PVCUT}:6
 	>=kde-plasma/plasma-integration-${PVCUT}:6
 	sys-apps/dbus

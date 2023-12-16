@@ -7,7 +7,7 @@ ECM_TEST="true"
 QTMIN=6.6.0
 inherit ecm frameworks.kde.org
 
-DESCRIPTION="Qt-style client and server library wrapper for Wayland libraries"
+DESCRIPTION="Qt-style API to interact with the wayland-client API"
 HOMEPAGE="https://invent.kde.org/frameworks/kwayland"
 
 LICENSE="LGPL-2.1"

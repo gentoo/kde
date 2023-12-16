@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm kde.org linux-info tmpfiles
 
 DESCRIPTION="FUSE interface for KIO"
@@ -17,18 +17,16 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="GPL-3+"
-SLOT="5"
+SLOT="6"
 IUSE=""
 
 RESTRICT="test" # depend on fuse kernel module
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
 	sys-fs/fuse:3
 "
 RDEPEND="${DEPEND}"

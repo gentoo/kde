@@ -24,12 +24,9 @@ DEPEND="
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
-	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
-	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
@@ -47,6 +44,7 @@ BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package usb USB1)
+		-DCMAKE_DISABLE_FIND_PACKAGE_SeleniumWebDriverATSPI=ON # missing
 	)
 
 	ecm_src_configure
