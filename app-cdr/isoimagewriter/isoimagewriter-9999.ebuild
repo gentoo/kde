@@ -5,15 +5,10 @@ EAPI=8
 
 KFMIN=5.245.0
 QTMIN=6.6.0
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Write hybrid ISO files onto a USB disk"
 HOMEPAGE="https://community.kde.org/ISOImageWriter"
-
-if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
 
 LICENSE="GPL-3"
 SLOT="6"
