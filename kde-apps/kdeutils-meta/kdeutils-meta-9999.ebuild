@@ -13,6 +13,7 @@ IUSE="7zip cups gpg lrz plasma rar +webengine"
 
 RDEPEND="
 	>=app-cdr/dolphin-plugins-mountiso-${PV}:*
+	>=app-cdr/isoimagewriter-${PV}:*
 	>=app-crypt/keysmith-${PV}
 	>=kde-apps/ark-${PV}:*
 	>=kde-apps/filelight-${PV}:*
