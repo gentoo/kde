@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Merge this to pull in all Plasma 5 packages"
+DESCRIPTION="Merge this to pull in all Plasma 6 packages"
 HOMEPAGE="https://kde.org/plasma-desktop/"
 
 LICENSE="metapackage"
@@ -79,7 +79,7 @@ RDEPEND="
 		>=kde-plasma/kde-gtk-config-${PV}:${SLOT}
 		x11-misc/appmenu-gtk-module
 	)
-	handbook? ( kde-apps/khelpcenter:5 )
+	handbook? ( kde-apps/khelpcenter:6 )
 	kwallet? ( >=kde-plasma/kwallet-pam-${PV}:${SLOT} )
 	legacy-systray? ( >=kde-plasma/xembed-sni-proxy-${PV}:${SLOT} )
 	networkmanager? (
