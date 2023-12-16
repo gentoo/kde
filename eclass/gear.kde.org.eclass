@@ -25,18 +25,6 @@ esac
 if [[ -z ${_GEAR_KDE_ORG_ECLASS} ]]; then
 _GEAR_KDE_ORG_ECLASS=1
 
-# @ECLASS-VARIABLE: KDE_BLOCK_SLOT5
-# @PRE_INHERIT
-# @DESCRIPTION:
-# By default set to "true", which means for packages in SLOT 6, add RDEPEND
-# block against ${CATEGORY}/${PN}:5.
-# Set to "false" in order to enable side-by-side installability.
-if [[ ${SLOT} == 6 ]]; then
-: ${KDE_BLOCK_SLOT5:=true}
-else
-: ${KDE_BLOCK_SLOT5:=false}
-fi
-
 # @ECLASS_VARIABLE: KDE_PV_UNRELEASED
 # @INTERNAL
 # @DESCRIPTION:
@@ -75,15 +63,118 @@ elif [[ -z ${KDE_ORG_COMMIT} ]]; then
 	SRC_URI="${_KDE_SRC_URI}${KDE_ORG_TAR_PN}-${PV}.tar.xz"
 fi
 
-case ${KDE_BLOCK_SLOT5} in
-	true)
-		RDEPEND+=" !${CATEGORY}/${PN}:5"
-		;;
-	false) ;;
-	*)
-		eerror "Unknown value for \${KDE_BLOCK_SLOT5}"
-		die "Value ${KDE_BLOCK_SLOT5} is not supported"
-		;;
-esac
+# list of applications ported to KF6 in SLOT=6 having to block SLOT=5
+if $(ver_test -gt 24.01.75); then
+	case ${PN} in
+		analitza | \
+		ark | \
+		baloo-widgets | \
+		blinken | \
+		bomber | \
+		bovo | \
+		dolphin | \
+		dolphin-plugins-dropbox | \
+		dolphin-plugins-git | \
+		dolphin-plugins-mercurial | \
+		dolphin-plugins-mountiso | \
+		dolphin-plugins-subversion | \
+		dragon | \
+		elisa | \
+		filelight | \
+		granatier | \
+		kajongg | \
+		kalgebra | \
+		kamera | \
+		kapman | \
+		kapptemplate | \
+		kate | \
+		kate-addons | \
+		kate-lib | \
+		katomic | \
+		kbackup | \
+		kblackbox | \
+		kblocks | \
+		kbounce | \
+		kbreakout | \
+		kbruch | \
+		kcachegrind | \
+		kcalc | \
+		kcharselect | \
+		kcolorchooser | \
+		kcron | \
+		kdebugsettings | \
+		kdegraphics-mobipocket | \
+		kdenetwork-filesharing | \
+		kdevelop | \
+		kdf | \
+		kdialog | \
+		kdiamond | \
+		keditbookmarks | \
+		kfind | \
+		kfourinline | \
+		kgeography | \
+		kget | \
+		kgoldrunner | \
+		khelpcenter | \
+		kigo | \
+		killbots | \
+		kio-extras | \
+		kiriki | \
+		kiten | \
+		kjumpingcube | \
+		klettres | \
+		klickety | \
+		klines | \
+		kmag | \
+		kmahjongg | \
+		kmines | \
+		kmousetool | \
+		kmouth | \
+		knavalbattle | \
+		knetwalk | \
+		knights | \
+		kolf | \
+		kollision | \
+		konqueror | \
+		konquest | \
+		konsole | \
+		kontrast | \
+		kpat | \
+		kpmcore | \
+		kreversi | \
+		kruler | \
+		kshisen | \
+		ksirk | \
+		ksnakeduel | \
+		kspaceduel | \
+		ksquares | \
+		ksudoku | \
+		ksystemlog | \
+		kteatime | \
+		ktimer | \
+		ktorrent | \
+		ktuberling | \
+		kturtle | \
+		kubrick | \
+		kwalletmanager | \
+		kweather | \
+		kwrite | \
+		libkdegames | \
+		libkmahjongg | \
+		libktorrent | \
+		lskat | \
+		markdownpart | \
+		palapeli | \
+		partitionmanager | \
+		picmi | \
+		spectacle | \
+		svgpart | \
+		sweeper | \
+		thumbnailers | \
+		yakuake)
+			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
+		*) ;;
+	esac
+fi
 
 fi
