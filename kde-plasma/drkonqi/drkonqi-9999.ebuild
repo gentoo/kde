@@ -4,10 +4,10 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
+PYTHON_COMPAT=( python3_{11..12} )
 KFMIN=5.245.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.6.0
-inherit ecm plasma.kde.org systemd
+inherit ecm plasma.kde.org python-single-r1 systemd
 
 DESCRIPTION="Plasma crash handler, gives the user feedback if a program crashed"
 SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-5.27.8-revert-add-sentry-support.patch.xz"
@@ -17,10 +17,12 @@ SLOT="6"
 KEYWORDS=""
 IUSE="systemd"
 
-COMMON_DEPEND="
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
@@ -29,6 +31,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
@@ -37,6 +40,7 @@ COMMON_DEPEND="
 		>=dev-qt/qtbase-${QTMIN}:6[network]
 		>=kde-frameworks/kservice-${KFMIN}:6
 		sys-apps/systemd:=
+		>=sys-auth/polkit-qt-0.175.0[qt6]
 	)
 "
 DEPEND="${COMMON_DEPEND}
@@ -46,14 +50,25 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
+	$(python_gen_cond_dep '
+		dev-python/psutil[${PYTHON_USEDEP}]
+		dev-python/pygdbmi[${PYTHON_USEDEP}]
+		dev-python/sentry-sdk[${PYTHON_USEDEP}]
+	')
 	|| (
 		sys-devel/gdb
 		dev-util/lldb
 	)
 "
 
+pkg_setup() {
+	ecm_pkg_setup
+	python-single-r1_pkg_setup
+}
+
 src_configure() {
 	local mycmakeargs=(
+		-DWITH_PYTHON_VENDORING=OFF
 		$(cmake_use_find_package systemd Systemd)
 	)
 	ecm_src_configure
