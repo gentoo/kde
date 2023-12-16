@@ -16,24 +16,27 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-plasma/kwayland-${KFMIN}:6
 	media-libs/libepoxy
 	media-libs/libglvnd
+	media-libs/libva:=
 	media-video/ffmpeg:=
 	>=media-video/pipewire-0.3:=
 	x11-libs/libdrm
 "
 DEPEND="${COMMON_DEPEND}
-	dev-libs/plasma-wayland-protocols
+	test? (
+		dev-libs/plasma-wayland-protocols
+		dev-libs/wayland
+		>=dev-qt/qtwayland-${QTMIN}:6
+		>=kde-plasma/kwayland-${KFMIN}:6
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	x11-themes/sound-theme-freedesktop
+	test? ( >=dev-qt/qtwayland-${QTMIN}:6 )
 "
-BDEPEND=">=dev-qt/qtwayland-${QTMIN}:6"
