@@ -15,17 +15,20 @@ HOMEPAGE="https://invent.kde.org/network/kio-extras"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="activities ios +man mtp nfs openexr phonon samba +sftp taglib X"
+IUSE="activities ios +man mtp openexr phonon samba +sftp taglib X"
+# disabled upstream: nfs
 
 # requires running Plasma environment
 RESTRICT="test"
 
 DEPEND="
+	dev-libs/qcoro
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	kde-apps/libkexiv2:6
 	>=kde-frameworks/karchive-${KFMIN}:6
-	>=kde-frameworks/kbookmarks-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -37,6 +40,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
@@ -50,7 +54,6 @@ DEPEND="
 		app-pda/libplist:=
 	)
 	mtp? ( >=media-libs/libmtp-1.1.16:= )
-	nfs? ( net-libs/libtirpc:= )
 	openexr? ( media-libs/openexr:= )
 	phonon? ( >=media-libs/phonon-4.12.0[qt6] )
 	samba? (
@@ -65,6 +68,7 @@ DEPEND="
 		x11-libs/libXcursor
 	)
 "
+# 	nfs? ( net-libs/libtirpc:= )
 RDEPEND="${DEPEND}
 	!kde-apps/kio-extras-kf5:5[-kf6compat]
 	!kde-frameworks/kio:5[-kf6compat(-)]
@@ -81,7 +85,7 @@ src_configure() {
 		$(cmake_use_find_package ios PList)
 		$(cmake_use_find_package man Gperf)
 		$(cmake_use_find_package mtp Libmtp)
-		$(cmake_use_find_package nfs TIRPC)
+# 		$(cmake_use_find_package nfs TIRPC)
 		$(cmake_use_find_package openexr OpenEXR)
 		$(cmake_use_find_package phonon Phonon4Qt6)
 		$(cmake_use_find_package samba Samba)
