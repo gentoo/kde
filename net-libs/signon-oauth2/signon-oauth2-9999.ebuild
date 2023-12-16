@@ -23,6 +23,7 @@ HOMEPAGE="https://gitlab.com/accounts-sso/signon-plugin-oauth2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
+# TODO: drop USE=qt5 and just have USE=qt6 to control which qt?
 IUSE="+qt5 qt6 test"
 REQUIRED_USE="|| ( qt5 qt6 )"
 RESTRICT="!test? ( test )"
