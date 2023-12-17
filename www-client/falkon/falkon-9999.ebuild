@@ -59,8 +59,6 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
-PATCHES=( "${FILESDIR}/${PN}-23.07.80-python3.patch" )
-
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 	ecm_pkg_setup
