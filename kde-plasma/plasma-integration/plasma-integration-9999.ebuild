@@ -65,10 +65,12 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.11.1
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-plasma/xdg-desktop-portal-kde-${PVCUT}:6
 	media-fonts/hack
 	media-fonts/noto
 	media-fonts/noto-emoji
+"
+PDEPEND="
+	>=kde-plasma/xdg-desktop-portal-kde-${PVCUT}:6
 "
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
