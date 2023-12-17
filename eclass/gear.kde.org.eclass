@@ -105,7 +105,6 @@ if $(ver_test -gt 24.01.75); then
 		kdebugsettings | \
 		kdegraphics-mobipocket | \
 		kdenetwork-filesharing | \
-		kdevelop | \
 		kdf | \
 		kdialog | \
 		kdiamond | \
