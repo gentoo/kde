@@ -1,0 +1,5 @@
+@kde-frameworks-tier1-5.246
+@kde-frameworks-tier2-5.246
+@kde-frameworks-tier3-5.246
+# Tier 4: Provide extra features to other Frameworks to integrate with Plasma.
+<kde-frameworks/frameworkintegration-5.246.50
