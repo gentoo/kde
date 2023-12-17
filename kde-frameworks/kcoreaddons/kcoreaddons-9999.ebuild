@@ -10,12 +10,12 @@ DESCRIPTION="Framework for solving common problems such as caching, randomisatio
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="dbus qml"
+IUSE="dbus"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus?,icu]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	virtual/libudev:=
-	qml? ( >=dev-qt/qtdeclarative-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qttranslations-${QTMIN}:6
@@ -24,8 +24,8 @@ BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 src_configure() {
 	local mycmakeargs=(
+		-DKCOREADDONS_USE_QML=ON
 		$(cmake_use_find_package dbus Qt6DBus)
-		-DKCOREADDONS_USE_QML=$(usex qml)
 	)
 
 	ecm_src_configure
