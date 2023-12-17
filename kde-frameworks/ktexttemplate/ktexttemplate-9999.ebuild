@@ -8,7 +8,7 @@ PVCUT=$(ver_cut 1-2)
 QTMIN=6.6.0
 inherit ecm frameworks.kde.org
 
-DESCRIPTION="Library to allow separating the structure of documents from the data they contain"
+DESCRIPTION="Library to allow separating the structure of documents from data they contain"
 
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
