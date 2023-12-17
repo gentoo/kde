@@ -12,7 +12,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="MpvQt is a libmpv wrapper for QtQuick2 and QML"
+DESCRIPTION="libmpv wrapper for QtQuick2 and QML"
 HOMEPAGE="https://invent.kde.org/libraries/mpvqt"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-3 LGPL-2.1 ) CC-BY-SA-4.0 MIT BSD"
@@ -20,8 +20,8 @@ SLOT="6"
 IUSE=""
 
 DEPEND="
-	media-video/mpv:=[libmpv]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,opengl]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	media-video/mpv:=[libmpv]
 "
 RDEPEND="${DEPEND}"
