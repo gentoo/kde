@@ -13,7 +13,7 @@ HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="ipod lastfm mariadb mtp ofa podcast wikipedia"
+IUSE="ipod lastfm mariadb mtp podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 BDEPEND="virtual/pkgconfig"
@@ -67,10 +67,6 @@ DEPEND="
 		dev-libs/glib:2
 		media-libs/libgpod[gtk]
 	)
-	ofa? (
-		media-libs/libofa
-		media-video/ffmpeg:=
-	)
 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
 	mariadb? ( dev-db/mariadb-connector-c:= )
 	!mariadb? ( dev-db/mysql-connector-c:= )
@@ -81,7 +77,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
-	!ofa? ( media-video/ffmpeg )
+	media-video/ffmpeg
 "
 
 src_configure() {
@@ -90,12 +86,12 @@ src_configure() {
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_LibOFA=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_MySQLe=ON
 		-DWITH_IPOD=$(usex ipod)
 		$(cmake_use_find_package lastfm LibLastFm)
 		$(cmake_use_find_package !mariadb MySQL)
 		$(cmake_use_find_package mtp Mtp)
-		$(cmake_use_find_package ofa LibOFA)
 		$(cmake_use_find_package podcast Mygpo-qt5)
 		$(cmake_use_find_package wikipedia Qt5WebEngine)
 	)
