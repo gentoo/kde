@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=app-crypt/qca-2.3.0:2[qt5(+)]
+	>=app-crypt/qca-2.3.7:2[qt5(-)]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -30,10 +30,10 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	net-libs/accounts-qt
-	net-libs/signond
+	>=net-libs/accounts-qt-1.16-r1[qt5(-)]
+	>=net-libs/signond-8.61-r1[qt5(-)]
 	>=net-libs/telepathy-qt-0.9.8
 "
 RDEPEND="${DEPEND}
-	>=app-crypt/qca-2.3.0:2[qt5(+),ssl]
+	>=app-crypt/qca-2.3.0:2[ssl]
 "
