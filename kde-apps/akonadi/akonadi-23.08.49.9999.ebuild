@@ -44,7 +44,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-20.08.3:5
-		>=net-libs/accounts-qt-1.16
+		>=net-libs/accounts-qt-1.16-r1[qt5]
 	)
 	xml? ( dev-libs/libxml2 )
 "
