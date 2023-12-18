@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.245.0
 QTMIN=6.6.0
