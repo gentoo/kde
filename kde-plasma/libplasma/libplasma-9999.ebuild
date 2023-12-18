@@ -9,11 +9,12 @@ ECM_TEST="true"
 KFMIN=5.245.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.6.0
-inherit ecm frameworks.kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Plasma library and runtime components based upon KF6 and Qt6"
 
 LICENSE="LGPL-2+"
+SLOT="6"
 KEYWORDS=""
 IUSE="gles2-only wayland"
 
