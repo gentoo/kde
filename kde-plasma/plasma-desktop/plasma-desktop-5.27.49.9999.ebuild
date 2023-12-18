@@ -93,7 +93,7 @@ COMMON_DEPEND="
 	)
 	kaccounts? (
 		kde-apps/kaccounts-integration:5
-		net-libs/accounts-qt
+		>=net-libs/accounts-qt-1.16-r1[qt5(-)]
 	)
 	scim? ( app-i18n/scim )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
