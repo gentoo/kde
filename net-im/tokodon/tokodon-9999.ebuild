@@ -39,7 +39,7 @@ DEPEND="
 	media-libs/mpvqt
 "
 RDEPEND="${DEPEND}
-	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6[qml]
 "
 BDEPEND="virtual/pkgconfig"
