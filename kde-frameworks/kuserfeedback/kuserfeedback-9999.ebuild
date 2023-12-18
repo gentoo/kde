@@ -16,15 +16,10 @@ KEYWORDS=""
 IUSE="doc"
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtcharts-${QTMIN}:6
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	>=kde-frameworks/kconfig-${PVCUT}:6
-	>=kde-frameworks/kcoreaddons-${PVCUT}:6
-	>=kde-frameworks/kdeclarative-${PVCUT}:6
-	>=kde-frameworks/kguiaddons-${PVCUT}:6
-	>=kde-frameworks/kwidgetsaddons-${PVCUT}:6
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
