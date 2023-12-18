@@ -5,6 +5,7 @@
 		<email>kde@gentoo.org</email>
 	</maintainer>
 	<upstream>
+		<remote-id type="github">wjwwood/parse_cmake</remote-id>
 		<remote-id type="pypi">parse_cmake</remote-id>
 	</upstream>
 </pkgmetadata>

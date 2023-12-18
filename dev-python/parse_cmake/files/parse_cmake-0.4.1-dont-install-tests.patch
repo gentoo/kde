@@ -1,0 +1,19 @@
+https://github.com/wjwwood/parse_cmake/commit/fcc77a5e104040ef074dec5b538e635b63e1dad1
+https://github.com/wjwwood/parse_cmake/pull/6
+
+From fcc77a5e104040ef074dec5b538e635b63e1dad1 Mon Sep 17 00:00:00 2001
+From: Timon Engelke <timonegk@users.noreply.github.com>
+Date: Tue, 1 Mar 2022 23:53:29 +0100
+Subject: [PATCH] Do not install tests folder (#6)
+
+--- a/setup.py
++++ b/setup.py
+@@ -7,7 +7,7 @@
+     author_email='itrotts@willowgarage.com, william@osrfoundation.org',
+     url='http://github.com/wjwwood/parse_cmake',
+     description='Parser for CMakeLists.txt files',
+-    packages=find_packages(),
++    packages=find_packages(exclude=['tests']),
+     install_requires=['pyPEG2'],
+     tests_require=['nose', 'flake8'],
+     test_suite='nose.collector',
