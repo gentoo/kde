@@ -11,5 +11,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://bugs.kde.org/</bugs-to>
+		<remote-id type="kde-invent">games/kmuddy</remote-id>
 	</upstream>
 </pkgmetadata>
