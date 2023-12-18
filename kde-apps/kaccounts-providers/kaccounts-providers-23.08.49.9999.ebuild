@@ -30,7 +30,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=net-libs/signon-oauth2-0.25-r1[qt5]
-	>=net-libs/signon-ui-0.17[!qt6]
+	>=net-libs/signon-ui-0.17[-qt6]
 "
 BDEPEND="
 	dev-util/intltool
