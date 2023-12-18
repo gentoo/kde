@@ -36,7 +36,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	dev-libs/kirigami-addons:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	x11-themes/sound-theme-freedesktop
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"

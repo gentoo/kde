@@ -49,7 +49,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	$(python_gen_cond_dep '
 		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/pygdbmi[${PYTHON_USEDEP}]

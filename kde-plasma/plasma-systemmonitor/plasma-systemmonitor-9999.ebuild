@@ -36,7 +36,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
 	>=kde-plasma/ksystemstats-${PVCUT}:6
 "

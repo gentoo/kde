@@ -31,6 +31,6 @@ DEPEND="
 	media-libs/mpvqt
 "
 RDEPEND="${DEPEND}
-	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	net-misc/yt-dlp
 "

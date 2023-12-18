@@ -79,7 +79,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdeplasma-addons:5
 	!kde-plasma/kwayland-server
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-frameworks/kitemmodels-${KFMIN}:6[qml]
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
 	sys-apps/hwdata
 	x11-base/xwayland
