@@ -42,7 +42,7 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${PVCUT}:5
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:5 )
-	kaccounts? ( net-libs/accounts-qml )
+	kaccounts? ( >=net-libs/accounts-qml-0.7-r3[qt5(-)] )
 "
 
 src_prepare() {
