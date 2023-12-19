@@ -79,7 +79,7 @@ RDEPEND="
 		>=kde-plasma/kde-gtk-config-${PV}:${SLOT}
 		x11-misc/appmenu-gtk-module
 	)
-	handbook? ( kde-apps/khelpcenter:6 )
+	handbook? ( kde-apps/khelpcenter:* )
 	kwallet? ( >=kde-plasma/kwallet-pam-${PV}:${SLOT} )
 	legacy-systray? ( >=kde-plasma/xembed-sni-proxy-${PV}:${SLOT} )
 	networkmanager? (
