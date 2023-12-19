@@ -4,10 +4,12 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
+KF5MIN=5.106.0
 KFMIN=5.246.0
+QT5MIN=5.15.9
 QTMIN=6.6.0
 VIRTUALDBUS_TEST="true"
-inherit ecm gear.kde.org
+inherit ecm gear.kde.org multibuild
 
 DESCRIPTION="Administer web accounts for the sites and services across the Plasma desktop"
 HOMEPAGE="https://community.kde.org/KTp"
@@ -15,7 +17,7 @@ HOMEPAGE="https://community.kde.org/KTp"
 LICENSE="LGPL-2.1"
 SLOT="6"
 KEYWORDS=""
-IUSE=""
+IUSE="qt5"
 
 # bug #549444
 RESTRICT="test"
@@ -31,13 +33,29 @@ COMMON_DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
-	>=net-libs/accounts-qt-1.16-r1[qt6]
-	>=net-libs/signond-8.61-r1[qt6]
+	>=net-libs/accounts-qt-1.16-r1[qt5?,qt6]
+	>=net-libs/signond-8.61-r1[qt5?,qt6]
+	qt5? (
+		>=dev-qt/qtdeclarative-${QT5MIN}:5
+		>=dev-qt/qtgui-${QT5MIN}:5
+		>=dev-qt/qtwidgets-${QT5MIN}:5
+		>=kde-frameworks/kconfig-${KF5MIN}:5
+		>=kde-frameworks/kcoreaddons-${KF5MIN}:5
+		>=kde-frameworks/kdbusaddons-${KF5MIN}:5
+		>=kde-frameworks/kdeclarative-${KF5MIN}:5
+		>=kde-frameworks/ki18n-${KF5MIN}:5
+		>=kde-frameworks/kio-${KF5MIN}:5
+		>=kde-frameworks/kwallet-${KF5MIN}:5
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/qcoro
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	kde-plasma/kde-cli-tools:*
+	qt5? (
+		dev-libs/qcoro5
+		>=kde-frameworks/kcmutils-${KF5MIN}:5
+	)
 "
 # KAccountsMacros.cmake needs intltool
 RDEPEND="${COMMON_DEPEND}
@@ -46,4 +64,33 @@ RDEPEND="${COMMON_DEPEND}
 BDEPEND="
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	sys-devel/gettext
+	qt5? ( >=kde-frameworks/kpackage-${KF5MIN}:5 )
 "
+
+pkg_setup() {
+	MULTIBUILD_VARIANTS=( $(usev qt5) default )
+}
+
+src_configure() {
+	my_src_configure() {
+		if [[ ${MULTIBUILD_VARIANT} == qt5 ]]; then
+			local mycmakeargs=( -DKF6_COMPAT_BUILD=ON )
+		fi
+
+		ecm_src_configure
+	}
+
+	multibuild_foreach_variant my_src_configure
+}
+
+src_compile() {
+	multibuild_foreach_variant cmake_src_compile
+}
+
+src_test() {
+	multibuild_foreach_variant ecm_src_test
+}
+
+src_install() {
+	multibuild_foreach_variant ecm_src_install
+}
