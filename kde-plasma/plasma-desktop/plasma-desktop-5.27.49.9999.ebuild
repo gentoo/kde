@@ -116,7 +116,7 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/util-linux
 	x11-apps/setxkbmap
 	x11-misc/xdg-user-dirs
-	kaccounts? ( net-libs/signon-oauth2 )
+	kaccounts? ( >=net-libs/signon-oauth2-0.25[qt5(-)] )
 	screencast? ( >=kde-plasma/kpipewire-${PVCUT}:5 )
 "
 BDEPEND="
