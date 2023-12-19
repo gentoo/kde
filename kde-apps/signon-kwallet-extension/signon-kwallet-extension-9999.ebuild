@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.104.0
+KFMIN=5.106.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="KWallet extension for signond"
@@ -15,6 +15,6 @@ KEYWORDS=""
 
 DEPEND="
 	>=kde-frameworks/kwallet-${KFMIN}:5
-	net-libs/signond
+	>=net-libs/signond-8.61-r1[qt5(-)]
 "
 RDEPEND="${DEPEND}"
