@@ -4,7 +4,7 @@
 EAPI=8
 
 KDE_ORG_CATEGORY=utilities
-KFMIN=5.245.0
+KFMIN=5.246.0
 QTMIN=6.6.0
 inherit ecm gear.kde.org
 

@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="network"
-KFMIN=5.245.0
+KFMIN=5.246.0
 QTMIN=6.6.0
 inherit ecm gear.kde.org
 
