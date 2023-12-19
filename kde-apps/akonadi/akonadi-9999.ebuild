@@ -39,7 +39,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-20.08.3:6
-		>=net-libs/accounts-qt-1.16
+		>=net-libs/accounts-qt-1.16-r1[qt6]
 	)
 	xml? ( dev-libs/libxml2 )
 "
@@ -73,7 +73,7 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package kaccounts AccountsQt6)
-		$(cmake_use_find_package kaccounts KAccounts)
+		$(cmake_use_find_package kaccounts KAccounts6)
 		-DBUILD_TOOLS=$(usex tools)
 		$(cmake_use_find_package xml LibXml2)
 	)
