@@ -46,7 +46,10 @@ RDEPEND="
 		>=net-libs/libotr-4.0.0
 	)
 	sso? (
-		>=kde-apps/kaccounts-integration-23.08.3:5
+		|| (
+			kde-apps/kaccounts-integration:6[qt5]
+			kde-apps/kaccounts-integration:5
+		)
 		>=net-libs/accounts-qt-1.16-r1[qt5(-)]
 		net-libs/telepathy-accounts-signon
 	)
