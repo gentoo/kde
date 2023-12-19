@@ -21,8 +21,11 @@ IUSE="+share"
 COMMON_DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/kaccounts-integration-20.08.3:5
-	>=kde-apps/libkgapi-19.08.0:5
+	|| (
+		kde-apps/kaccounts-integration:6[qt5]
+		kde-apps/kaccounts-integration:5
+	)
+	kde-apps/libkgapi:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
@@ -33,7 +36,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtnetwork-${QTMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-apps/kaccounts-providers-20.08.3:5
+	kde-apps/kaccounts-providers:5
 "
 BDEPEND="dev-util/intltool"
 
