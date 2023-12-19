@@ -163,6 +163,7 @@ if $(ver_test -gt 24.01.75); then
 		libktorrent | \
 		lskat | \
 		markdownpart | \
+		okular | \
 		palapeli | \
 		partitionmanager | \
 		picmi | \
