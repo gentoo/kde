@@ -22,7 +22,10 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/kaccounts-integration-23.08.3:5
+	|| (
+		kde-apps/kaccounts-integration:6[qt5]
+		kde-apps/kaccounts-integration:5
+	)
 	>=kde-apps/ktp-common-internals-${PVCUT}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
