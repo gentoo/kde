@@ -9,5 +9,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Run pkgcheck
         uses: pkgcore/pkgcheck-action@v1
