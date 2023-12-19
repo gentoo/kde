@@ -32,7 +32,10 @@ DEPEND="
 	=kde-frameworks/kservice-${PVCUT}*:5
 	=kde-frameworks/prison-${PVCUT}*:5
 	kaccounts? (
-		>=kde-apps/kaccounts-integration-19.04.3:5
+		|| (
+			kde-apps/kaccounts-integration:6[qt5]
+			kde-apps/kaccounts-integration:5
+		)
 		>=net-libs/accounts-qt-1.16-r1[qt5(-)]
 	)
 "
