@@ -143,17 +143,22 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
-		-DEVDEV_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
-		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
-		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		$(cmake_use_find_package ibus GLIB2)
 		$(cmake_use_find_package kaccounts AccountsQt6)
-		$(cmake_use_find_package kaccounts KAccounts)
+		$(cmake_use_find_package kaccounts KAccounts6)
 		$(cmake_use_find_package sdl SDL2)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		-DBUILD_KCM_MOUSE_X11=$(usex X)
 		-DBUILD_KCM_TOUCHPAD_X11=$(usex X)
 	)
+
+	if use X; then
+		mycmakeargs+=(
+			-DEVDEV_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
+			-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
+			-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
+		)
+	fi
 
 	ecm_src_configure
 }
