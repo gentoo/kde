@@ -132,6 +132,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/libkworkspace:5
 	!<kde-plasma/breeze-5.22.90:5
 	!<kde-plasma/plasma-desktop-5.27.0:5
+	!kde-plasma/xembed-sni-proxy:*
 	app-text/iso-codes
 	dev-libs/kirigami-addons:6
 	>=dev-qt/qttools-${QTMIN}:*[qdbus]
@@ -164,9 +165,6 @@ PATCHES=(
 src_prepare() {
 	ecm_src_prepare
 
-	# delete colliding libkworkspace translations
-	find po -type f -name "*po" -and -name "libkworkspace*" -delete || die
-
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
 		ecm_punt_bogus_dep KPipeWire
@@ -196,7 +194,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_xembed-sni-proxy=OFF
 		-DWITH_X11=ON # TODO: broken upstream, fix it if you can
 		-DGLIBC_LOCALE_GEN=$(usex policykit)
 		$(cmake_use_find_package appstream AppStreamQt)
