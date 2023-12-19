@@ -11,8 +11,8 @@ SLOT="6"
 KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +handbook
-+kwallet +legacy-systray +networkmanager plymouth pulseaudio +sddm sdk +smart
-systemd thunderbolt wacom +wallpapers"
++kwallet +networkmanager plymouth pulseaudio +sddm sdk +smart systemd
+thunderbolt wacom +wallpapers"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -81,7 +81,6 @@ RDEPEND="
 	)
 	handbook? ( kde-apps/khelpcenter:* )
 	kwallet? ( >=kde-plasma/kwallet-pam-${PV}:${SLOT} )
-	legacy-systray? ( >=kde-plasma/xembed-sni-proxy-${PV}:${SLOT} )
 	networkmanager? (
 		>=kde-plasma/plasma-nm-${PV}:${SLOT}
 		net-misc/networkmanager[elogind?,systemd?]
