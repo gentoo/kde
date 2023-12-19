@@ -37,5 +37,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
-	>=kde-apps/kdeedu-data-${PVCUT}:6
+	>=kde-apps/kdeedu-data-${PVCUT}:*
 "
