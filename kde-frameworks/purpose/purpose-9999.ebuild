@@ -31,14 +31,14 @@ DEPEND="
 	=kde-frameworks/prison-${PVCUT}*:6
 	kaccounts? (
 		kde-apps/kaccounts-integration:6
-		net-libs/accounts-qt
+		>=net-libs/accounts-qt-1.16-r1[qt6]
 	)
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 	>=kde-frameworks/kdeclarative-${PVCUT}:6
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:6 )
-	kaccounts? ( net-libs/accounts-qml )
+	kaccounts? ( >=net-libs/accounts-qml-0.7-r3[qt6] )
 "
 
 src_prepare() {
@@ -50,7 +50,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package kaccounts KAccounts)
+		$(cmake_use_find_package kaccounts KAccounts6)
 	)
 
 	ecm_src_configure
