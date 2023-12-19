@@ -20,7 +20,10 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-apps/kaccounts-integration-${PVCUT}:5
+	|| (
+		kde-apps/kaccounts-integration:6[qt5]
+		>=kde-apps/kaccounts-integration-${PVCUT}:5
+	)
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
