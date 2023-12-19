@@ -35,7 +35,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
-	>=kde-apps/kdeedu-data-${PVCUT}:6
+	>=kde-apps/kdeedu-data-${PVCUT}:*
 "
 
 src_configure() {
