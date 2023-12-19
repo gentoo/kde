@@ -66,12 +66,23 @@ fi
 # list of applications ported to KF6 in SLOT=6 having to block SLOT=5
 if $(ver_test -gt 24.01.75); then
 	case ${PN} in
+		akonadi | \
+		akonadi-calendar | \
+		akonadi-contacts | \
+		akonadi-import-wizard | \
+		akonadi-mime | \
+		akonadi-notes | \
+		akonadi-search | \
+		akonadiconsole | \
+		akregator | \
 		analitza | \
 		ark | \
 		baloo-widgets | \
 		blinken | \
 		bomber | \
 		bovo | \
+		calendarjanitor | \
+		calendarsupport | \
 		dolphin | \
 		dolphin-plugins-dropbox | \
 		dolphin-plugins-git | \
@@ -80,11 +91,20 @@ if $(ver_test -gt 24.01.75); then
 		dolphin-plugins-subversion | \
 		dragon | \
 		elisa | \
+		eventviews | \
 		filelight | \
 		granatier | \
+		grantlee-editor | \
+		grantleetheme | \
+		incidenceeditor | \
+		kaccounts-integration | \
+		kaccounts-providers | \
+		kaddressbook | \
 		kajongg | \
+		kalarm | \
 		kalgebra | \
 		kamera | \
+		kanagram | \
 		kapman | \
 		kapptemplate | \
 		kate | \
@@ -99,12 +119,15 @@ if $(ver_test -gt 24.01.75); then
 		kbruch | \
 		kcachegrind | \
 		kcalc | \
+		kcalutils | \
 		kcharselect | \
 		kcolorchooser | \
 		kcron | \
 		kdebugsettings | \
 		kdegraphics-mobipocket | \
 		kdenetwork-filesharing | \
+		kdepim-addons | \
+		kdepim-runtime | \
 		kdf | \
 		kdialog | \
 		kdiamond | \
@@ -114,36 +137,55 @@ if $(ver_test -gt 24.01.75); then
 		kgeography | \
 		kget | \
 		kgoldrunner | \
+		khangman | \
 		khelpcenter | \
+		kidentitymanagement | \
 		kigo | \
 		killbots | \
+		kimap | \
 		kio-extras | \
 		kiriki | \
 		kiten | \
+		kitinerary | \
 		kjumpingcube | \
+		kldap | \
+		kleopatra | \
 		klettres | \
 		klickety | \
 		klines | \
 		kmag | \
 		kmahjongg | \
+		kmail | \
+		kmail-account-wizard | \
+		kmailtransport | \
+		kmbox | \
+		kmime | \
 		kmines | \
 		kmousetool | \
 		kmouth | \
 		knavalbattle | \
 		knetwalk | \
 		knights | \
+		knotes | \
 		kolf | \
 		kollision | \
 		konqueror | \
 		konquest | \
 		konsole | \
+		konsolekalendar | \
+		kontact | \
+		kontactinterface | \
 		kontrast | \
+		korganizer | \
 		kpat | \
+		kpimtextedit | \
+		kpkpass | \
 		kpmcore | \
 		kreversi | \
 		kruler | \
 		kshisen | \
 		ksirk | \
+		ksmtp | \
 		ksnakeduel | \
 		kspaceduel | \
 		ksquares | \
@@ -157,21 +199,38 @@ if $(ver_test -gt 24.01.75); then
 		kubrick | \
 		kwalletmanager | \
 		kweather | \
+		kwordquiz | \
 		kwrite | \
+		libgravatar | \
 		libkdegames | \
+		libkdepim | \
+		libkgapi | \
+		libkleo | \
 		libkmahjongg | \
+		libksieve | \
+		libktnef | \
 		libktorrent | \
 		lskat | \
+		mailcommon | \
+		mailimporter | \
 		markdownpart | \
+		mbox-importer | \
+		merkuro | \
+		messagelib | \
 		okular | \
 		palapeli | \
+		parley | \
 		partitionmanager | \
 		picmi | \
+		pim-data-exporter | \
+		pim-sieve-editor | \
+		pimcommon | \
 		spectacle | \
 		svgpart | \
 		sweeper | \
 		thumbnailers | \
-		yakuake)
+		yakuake | \
+		zanshin)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;
 	esac
