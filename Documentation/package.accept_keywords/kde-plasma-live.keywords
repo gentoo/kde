@@ -62,4 +62,5 @@
 ~kde-plasma/systemsettings-9999 **
 ~kde-plasma/wacomtablet-9999 **
 ~kde-plasma/xdg-desktop-portal-kde-9999 **
-~dev-libs/plasma-wayland-protocols-9999 **
+~dev-libs/plasma-wayland-protocols-1.12.0
+~dev-libs/appstream-9999 **
