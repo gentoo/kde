@@ -77,10 +77,10 @@
 ~kde-frameworks/kxmlgui-9999 **
 ~kde-frameworks/purpose-9999 **
 ~kde-frameworks/qqc2-desktop-style-9999 **
-~kde-apps/kdegraphics-mobipocket-24.01.80
-~kde-apps/kio-extras-24.01.80
-~kde-apps/kio-extras-kf5-24.01.80
-~kde-apps/libkexiv2-24.01.80
+~kde-apps/kdegraphics-mobipocket-24.01.85
+~kde-apps/kio-extras-24.01.85
+~kde-apps/kio-extras-kf5-24.01.85
+~kde-apps/libkexiv2-24.01.85
 ~kde-frameworks/kuserfeedback-1.3.0
 ~media-libs/phonon-4.12.0
 ~media-libs/phonon-vlc-0.12.0
