@@ -74,6 +74,8 @@ src_test() {
 src_install() {
 	ecm_src_install
 
-	newpamd "${FILESDIR}/kde.pam" kde
-	newpamd "${FILESDIR}/kde-np.pam" kde-np
+	local config
+	for config in kscreenlocker-{fingerprint,password,smartcard} ; do
+		newpamd "${FILESDIR}/${config}.pam" ${config}
+	done
 }
