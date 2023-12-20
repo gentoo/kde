@@ -75,7 +75,7 @@ src_install() {
 	ecm_src_install
 
 	local config
-	for config in kde-{fingerprint,password,smartcard} ; do
-		newpamd "${FILESDIR}/${config}.pam" ${config}
+	for config in kde6{,-fingerprint,-smartcard} ; do
+		newpamd "${FILESDIR}/${config}.pam" ${config/6}
 	done
 }
