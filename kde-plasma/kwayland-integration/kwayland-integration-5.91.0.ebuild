@@ -41,3 +41,5 @@ BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
+
+PATCHES=( "${FILESDIR}/${P}-kwindowsystem-no-widgets.patch" )
