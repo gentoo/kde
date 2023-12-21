@@ -29,7 +29,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-plasma/libplasma-${KFMIN}:6
+	kde-plasma/libplasma:6
 	readline? ( sys-libs/readline:0= )
 "
 RDEPEND="${DEPEND}
