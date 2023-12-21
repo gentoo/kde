@@ -34,7 +34,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-	>=kde-plasma/libplasma-${KFMIN}:6
+	kde-plasma/libplasma:6
 "
 DEPEND="${COMMON_DEPEND}
 	test? (
