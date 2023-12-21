@@ -40,7 +40,6 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		qt5? ( dev-qt/qttest:5 )
-		qt6? ( dev-qt/qtbase:6[test] )
 	)
 "
 
