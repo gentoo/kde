@@ -5,12 +5,13 @@ EAPI=8
 
 ECM_TEST="true"
 QTMIN=6.6.0
-inherit ecm frameworks.kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Qt-style API to interact with the wayland-client API"
 HOMEPAGE="https://invent.kde.org/frameworks/kwayland"
 
 LICENSE="LGPL-2.1"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
