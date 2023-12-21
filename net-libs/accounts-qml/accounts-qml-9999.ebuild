@@ -43,7 +43,7 @@ DEPEND="${RDEPEND}
 			dev-qt/qtgui:5
 			dev-qt/qttest:5
 		)
-		qt6? ( dev-qt/qtbase:6[gui,test] )
+		qt6? ( dev-qt/qtbase:6[gui] )
 	)
 "
 BDEPEND="
