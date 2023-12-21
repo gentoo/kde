@@ -15,7 +15,6 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-DEPEND="test? ( >=dev-qt/qtbase-${QTMIN}:6[test] )"
 RDEPEND="!kde-frameworks/${PN}:5"
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6
