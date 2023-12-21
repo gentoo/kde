@@ -36,9 +36,7 @@ RDEPEND="
 	qt6? ( dev-qt/qtbase:6 )
 	systemd? ( sys-apps/systemd:= )
 "
-DEPEND="${RDEPEND}
-	test? ( qt6? ( dev-qt/qtbase:6[test] ) )
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-libs/appstream-glib
 	dev-libs/libxslt
