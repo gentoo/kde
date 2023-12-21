@@ -37,7 +37,7 @@ DEPEND="
 	>=kde-frameworks/kpty-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/threadweaver-${KFMIN}:6
-	>=kde-plasma/plasma-activities-${KFMIN}:6
+	kde-plasma/plasma-activities:6
 	media-libs/freetype
 	media-libs/libjpeg-turbo:=
 	sys-libs/zlib
