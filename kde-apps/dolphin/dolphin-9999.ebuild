@@ -44,7 +44,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=media-libs/phonon-4.12.0[qt6]
-	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:6 )
+	activities? ( kde-plasma/plasma-activities:6 )
 	semantic-desktop? (
 		>=kde-apps/baloo-widgets-${PVCUT}:6
 		>=kde-frameworks/baloo-${KFMIN}:6
