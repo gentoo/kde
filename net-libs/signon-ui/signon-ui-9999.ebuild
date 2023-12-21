@@ -54,7 +54,6 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	test? (
 		!qt6? ( dev-qt/qttest:5 )
-		qt6? ( dev-qt/qtbase:6[test] )
 	)
 "
 
