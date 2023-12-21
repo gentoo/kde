@@ -40,7 +40,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	x11-libs/libX11
-	absolute-position? ( >=kde-plasma/kwayland-${KFMIN}:6 )
+	absolute-position? ( kde-plasma/kwayland:6 )
 "
 RDEPEND="${DEPEND}"
 
