@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
 KFMIN=5.247.0
 QTMIN=6.6.0
 inherit ecm plasma.kde.org
@@ -32,7 +33,7 @@ DEPEND="${COMMON_DEPEND}
 		dev-libs/plasma-wayland-protocols
 		dev-libs/wayland
 		>=dev-qt/qtwayland-${QTMIN}:6
-		>=kde-plasma/kwayland-${KFMIN}:6
+		>=kde-plasma/kwayland-${PVCUT}:6
 	)
 "
 RDEPEND="${COMMON_DEPEND}
