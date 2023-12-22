@@ -50,7 +50,10 @@ RDEPEND="${DEPEND}"
 # 	snap? ( app-containers/snapd )
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
-PATCHES=( "${FILESDIR}/${PN}-5.25.90-tests-optional.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.25.90-tests-optional.patch"
+	"${FILESDIR}/${PN}-5.91.0-kuserfeedback-optional.patch"
+)
 
 src_prepare() {
 	ecm_src_prepare
