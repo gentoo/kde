@@ -63,4 +63,6 @@
 <kde-plasma/wacomtablet-5.91.50:6
 <kde-plasma/xdg-desktop-portal-kde-5.91.50:6
 ~dev-libs/plasma-wayland-protocols-1.12.0
-~dev-libs/appstream-9999 **
+~dev-libs/appstream-1.0.0
+~dev-libs/kirigami-addons-0.11.76
+~kde-misc/kio-fuse-5.1.0

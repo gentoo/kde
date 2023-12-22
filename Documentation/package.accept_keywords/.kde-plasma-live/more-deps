@@ -1,2 +1,3 @@
 ~dev-libs/plasma-wayland-protocols-1.12.0
-~dev-libs/appstream-9999 **
+~dev-libs/appstream-1.0.0
+~kde-misc/kio-fuse-5.1.0
