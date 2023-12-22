@@ -21,7 +21,6 @@ IUSE="brightness-control caps"
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6[policykit]
-	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -34,9 +33,7 @@ DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
-	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/layer-shell-qt-${PVCUT}:6
@@ -49,6 +46,7 @@ DEPEND="
 	caps? ( sys-libs/libcap )
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 	sys-power/power-profiles-daemon
 	>=sys-power/upower-0.9.23
