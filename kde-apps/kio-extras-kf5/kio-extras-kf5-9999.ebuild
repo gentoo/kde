@@ -66,7 +66,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kio-extras:5
+	!<kde-apps/kio-extras-23.08.5-r100:5
 	>=kde-frameworks/kded-${KFMIN}:5
 	kf6compat? ( kde-apps/kio-extras:6 )
 "
