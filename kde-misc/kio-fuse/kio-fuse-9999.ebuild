@@ -12,8 +12,8 @@ DESCRIPTION="FUSE interface for KIO"
 HOMEPAGE="https://feverfew.home.blog/2019/12/24/kiofuse-beta-4-9-0-released/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-3+"
