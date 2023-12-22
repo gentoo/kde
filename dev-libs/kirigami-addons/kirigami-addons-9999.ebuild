@@ -10,7 +10,7 @@ QTMIN=6.6.0
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
