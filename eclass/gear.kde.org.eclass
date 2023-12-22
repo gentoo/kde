@@ -143,7 +143,6 @@ if $(ver_test -gt 24.01.75); then
 		kigo | \
 		killbots | \
 		kimap | \
-		kio-extras | \
 		kiriki | \
 		kiten | \
 		kitinerary | \
