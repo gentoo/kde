@@ -12,7 +12,7 @@ QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
-HOMEPAGE="https://invent.kde.org/network/kio-extras"
+HOMEPAGE="https://invent.kde.org/network/kio-extras/-/tree/kf5"
 EGIT_BRANCH="kf5"
 
 LICENSE="GPL-2" # TODO: CHECK
