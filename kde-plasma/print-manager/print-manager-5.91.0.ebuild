@@ -37,6 +37,7 @@ DEPEND="
 	net-print/cups
 "
 RDEPEND="${DEPEND}
+	!<kde-plasma/print-manager-23.08.5-r100:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	kde-plasma/kde-cli-tools:*
 	gtk? ( app-admin/system-config-printer )
