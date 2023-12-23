@@ -11,7 +11,7 @@ QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="Calendar application using Akonadi"
-HOMEPAGE="https://apps.kde.org/kalendar/"
+HOMEPAGE="https://apps.kde.org/merkuro.calendar/"
 
 LICENSE="|| ( GPL-2 GPL-3 ) CC0-1.0"
 SLOT="5"
