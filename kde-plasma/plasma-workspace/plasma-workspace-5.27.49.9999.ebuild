@@ -131,7 +131,6 @@ DEPEND="${COMMON_DEPEND}
 	fontconfig? ( x11-libs/libXrender )
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-plasma/breeze-5.22.90:5
 	!<kde-plasma/plasma-desktop-5.27.0:5
 	app-text/iso-codes
 	>=dev-qt/qdbus-${QTMIN}:*

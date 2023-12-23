@@ -130,7 +130,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/libkworkspace:5
-	!<kde-plasma/breeze-5.22.90:5
 	!<kde-plasma/plasma-desktop-5.27.0:5
 	!kde-plasma/xembed-sni-proxy:*
 	app-text/iso-codes
