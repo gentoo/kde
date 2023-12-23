@@ -17,6 +17,7 @@ thunderbolt wacom +wallpapers"
 REQUIRED_USE="^^ ( elogind systemd )"
 
 RDEPEND="
+	!${CATEGORY}/${PN}:5
 	>=kde-plasma/breeze-${PV}:${SLOT}
 	>=kde-plasma/kactivitymanagerd-${PV}:${SLOT}
 	>=kde-plasma/kde-cli-tools-${PV}:${SLOT}
