@@ -13,7 +13,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Elegant dock, based on KDE Frameworks"
-HOMEPAGE="https://apps.kde.org/latte-dock/"
+HOMEPAGE="https://invent.kde.org/plasma/latte-dock"
 
 LICENSE="GPL-2+"
 SLOT="0"
