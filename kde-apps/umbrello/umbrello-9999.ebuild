@@ -11,7 +11,7 @@ QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="KDE UML Modeller"
-HOMEPAGE="https://apps.kde.org/umbrello/ https://umbrello.kde.org"
+HOMEPAGE="https://apps.kde.org/umbrello/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
