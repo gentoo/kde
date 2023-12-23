@@ -63,5 +63,7 @@
 <kde-plasma/wacomtablet-5.91.50:6
 <kde-plasma/xdg-desktop-portal-kde-5.91.50:6
 ~dev-libs/appstream-1.0.0
-~dev-libs/kirigami-addons-0.11.76
+~dev-libs/kirigami-addons-0.11.76_p20231222
 ~kde-misc/kio-fuse-5.1.0
+=kde-plasma/print-manager-23.08.5-r100
+~media-libs/libqaccessibilityclient-0.6.0
