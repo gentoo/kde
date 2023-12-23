@@ -8,7 +8,7 @@ QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="Application to read documentation for KDE Plasma, Applications, Utilities"
-HOMEPAGE="https://apps.kde.org/help/ https://userbase.kde.org/KHelpCenter"
+HOMEPAGE="https://apps.kde.org/khelpcenter/ https://userbase.kde.org/KHelpCenter"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
