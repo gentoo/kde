@@ -8,8 +8,10 @@ QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="Can be used to show nice dialog boxes from shell scripts"
-HOMEPAGE="https://userbase.kde.org/Kdialog
-https://develop.kde.org/deploy/kdialog/"
+HOMEPAGE="
+	https://develop.kde.org/docs/administration/kdialog/
+	https://invent.kde.org/utilities/kdialog
+"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
