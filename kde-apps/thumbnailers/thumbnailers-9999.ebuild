@@ -14,25 +14,25 @@ DESCRIPTION="Thumbnail generators for Mobipocket, PDF/PS and RAW files"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="mobi" # TODO: raw
+IUSE="mobi raw"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:6 )
+	raw? (
+		>=kde-apps/libkdcraw-${PVCUT}:6
+		>=kde-apps/libkexiv2-${PVCUT}:6
+	)
 "
-# 	raw? (
-# 		>=kde-apps/libkdcraw-${PVCUT}:6
-# 		>=kde-apps/libkexiv2-${PVCUT}:6
-# 	)
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_MOBIPOCKET=$(usex !mobi)
-# 		$(cmake_use_find_package raw KF6KExiv2)
-# 		$(cmake_use_find_package raw KF6KDcraw)
+		$(cmake_use_find_package raw KF6KExiv2)
+		$(cmake_use_find_package raw KF6KDcraw)
 	)
 
 	ecm_src_configure
