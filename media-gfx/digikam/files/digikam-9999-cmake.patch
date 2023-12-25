@@ -1,72 +1,80 @@
-From 05b6e81bd4ceca8d6166aa0a000919cde2bfde3e Mon Sep 17 00:00:00 2001
+From 945c59d7dd66ccb89910db7b560206550fe0fe69 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 Date: Sun, 17 Feb 2019 23:51:03 +0100
-Subject: [PATCH] Un-break optional Qt/KF5 detection
+Subject: [PATCH] Un-break optional Qt/KF detection
 
 And if we enable an option, make the necessary libraries REQUIRED.
 ---
- core/cmake/rules/RulesKDEFramework.cmake | 34 +++-----------
- core/cmake/rules/RulesQtFramework.cmake  | 58 +++++-------------------
+ core/cmake/rules/RulesKDEFramework.cmake | 41 +++-------------
+ core/cmake/rules/RulesQtFramework.cmake  | 61 +++++-------------------
  core/cmake/rules/RulesX11.cmake          |  7 +--
- 3 files changed, 18 insertions(+), 81 deletions(-)
+ 3 files changed, 20 insertions(+), 89 deletions(-)
 
 diff --git a/core/cmake/rules/RulesKDEFramework.cmake b/core/cmake/rules/RulesKDEFramework.cmake
-index 610033425c..2d8acc7956 100644
+index 996de43d6a..34698eb2b8 100644
 --- a/core/cmake/rules/RulesKDEFramework.cmake
 +++ b/core/cmake/rules/RulesKDEFramework.cmake
-@@ -26,19 +26,15 @@ find_package(KF5 ${KF5_MIN_VERSION} QUIET
+@@ -26,24 +26,15 @@ find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} QUIET
  )
  
  if(ENABLE_KFILEMETADATASUPPORT)
 -
--    find_package(KF5 ${KF5_MIN_VERSION} QUIET
+-    find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} QUIET
 -                                        OPTIONAL_COMPONENTS
--                                        FileMetaData            # For Plasma destop file indexer support.
+-                                        FileMetaData            # For Plasma desktop file indexer support.
 -    )
 -
 +    # For Plasma desktop file indexer support.
-+    find_package(KF5FileMetaData ${KF5_MIN_VERSION} REQUIRED)
++    find_package(KF${QT_VERSION_MAJOR}FileMetaData ${KF${QT_VERSION_MAJOR}_MIN_VERSION} REQUIRED)
  endif()
  
  
  if(ENABLE_AKONADICONTACTSUPPORT)
- 
--    find_package(KF5 ${AKONADI_MIN_VERSION} QUIET
+-
+-    find_package(KF${QT_VERSION_MAJOR} ${AKONADI_MIN_VERSION} QUIET
 -                                            OPTIONAL_COMPONENTS
-+    find_package(KF5 ${AKONADI_MIN_VERSION} REQUIRED
-+                                            COMPONENTS
-                                             Akonadi
-                                             AkonadiContact      # For KDE Mail Contacts support.
-                                             Contacts            # API for contacts/address book data.
-@@ -46,15 +42,9 @@ if(ENABLE_AKONADICONTACTSUPPORT)
+-                                            Akonadi
+-                                            AkonadiContact      # For KDE Mail Contacts support.
+-                                            Contacts            # API for contacts/address book data.
+-    )
+-
++    find_package(KF${QT_VERSION_MAJOR}Contacts ${KF${QT_VERSION_MAJOR}_MIN_VERSION} REQUIRED) # API for contacts/address book data.
++    find_package(KPim${QT_VERSION_MAJOR}Akonadi ${AKONADI_MIN_VERSION} REQUIRED)
++    find_package(KPim${QT_VERSION_MAJOR}AkonadiContact ${AKONADI_MIN_VERSION} REQUIRED) # For KDE Mail Contacts support.
+ endif()
+ 
+ if(Qt6_FOUND)
+@@ -52,17 +43,11 @@ if(Qt6_FOUND)
+ 
+ else()
+ 
+-    find_package(KF${QT_VERSION_MAJOR} ${KSANE_MIN_VERSION} QUIET
+-                                       OPTIONAL_COMPONENTS
+-                                       Sane                      # For digital scanner support.
+-    )
++    find_package(KF${QT_VERSION_MAJOR}Sane ${KSANE_MIN_VERSION} QUIET) # For digital scanner support.
  
  endif()
  
--find_package(KF5 ${KSANE_MIN_VERSION} QUIET
--                                      OPTIONAL_COMPONENTS
--                                      Sane                      # For digital scanner support.
--)
-+find_package(KF5Sane ${KSANE_MIN_VERSION} QUIET) # For digital scanner support.
- 
--find_package(KF5 ${CALENDAR_MIN_VERSION} QUIET
+-find_package(KF${QT_VERSION_MAJOR} ${CALENDAR_MIN_VERSION} QUIET
 -                                         OPTIONAL_COMPONENTS
 -                                         CalendarCore           # For Calendar tool.
 -)
-+find_package(KF5CalendarCore ${CALENDAR_MIN_VERSION} QUIET) # For Calendar tool.
++find_package(KF${QT_VERSION_MAJOR}CalendarCore ${CALENDAR_MIN_VERSION} QUIET) # For Calendar tool.
  
- if ("${KF5CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
+ if ("${KF${QT_VERSION_MAJOR}CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
  
-@@ -62,18 +52,6 @@ if ("${KF5CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
+@@ -70,18 +55,6 @@ if ("${KF${QT_VERSION_MAJOR}CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
  
  endif()
  
--if(ENABLE_AKONADICONTACTSUPPORT AND (NOT KF5AkonadiContact_FOUND OR NOT KF5Contacts_FOUND))
+-if(ENABLE_AKONADICONTACTSUPPORT AND (NOT KF${QT_VERSION_MAJOR}AkonadiContact_FOUND OR NOT KF${QT_VERSION_MAJOR}Contacts_FOUND))
 -
 -    set(ENABLE_AKONADICONTACTSUPPORT OFF)
 -
 -endif()
 -
--if(ENABLE_KFILEMETADATASUPPORT AND NOT KF5FileMetaData_FOUND)
+-if(ENABLE_KFILEMETADATASUPPORT AND NOT KF${QT_VERSION_MAJOR}FileMetaData_FOUND)
 -
 -    set(ENABLE_KFILEMETADATASUPPORT OFF)
 -
@@ -74,12 +82,12 @@ index 610033425c..2d8acc7956 100644
 -
  # Check if KIO have been compiled with KIOWidgets. digiKam only needs this one.
  
- if(KF5KIO_FOUND)
+ if(KF${QT_VERSION_MAJOR}KIO_FOUND)
 diff --git a/core/cmake/rules/RulesQtFramework.cmake b/core/cmake/rules/RulesQtFramework.cmake
-index e6e1670ed3..1ab57af4d4 100644
+index 469ca8f14a..c4b67cfdca 100644
 --- a/core/cmake/rules/RulesQtFramework.cmake
 +++ b/core/cmake/rules/RulesQtFramework.cmake
-@@ -18,47 +18,19 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED
+@@ -19,49 +19,20 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED
  )
  
  if(ENABLE_QWEBENGINE)
@@ -115,13 +123,16 @@ index e6e1670ed3..1ab57af4d4 100644
 -    find_package(Qt${QT_VERSION_MAJOR} REQUIRED
 -                 NO_MODULE COMPONENTS
 -                 StateMachine
+-                 SvgWidgets
 -    )
+-
 -    find_package(Qt${QT_VERSION_MAJOR}
 -                 OPTIONAL_COMPONENTS
 -                 OpenGLWidgets
 -    )
 -
 +    find_package(Qt${QT_VERSION_MAJOR}StateMachine REQUIRED NO_MODULE)
++    find_package(Qt${QT_VERSION_MAJOR}SvgWidgets REQUIRED NO_MODULE)
 +    find_package(Qt${QT_VERSION_MAJOR}OpenGLWidgets)
  else()
 -
@@ -134,7 +145,7 @@ index e6e1670ed3..1ab57af4d4 100644
  endif()
  
  if(ENABLE_DBUS)
-@@ -74,17 +46,9 @@ endif()
+@@ -77,17 +48,9 @@ endif()
  # Qt Dependencies For unit tests and CLI test tools
  
  if(BUILD_TESTING)
@@ -175,5 +186,5 @@ index d7659eed34..9c145970b2 100644
  
      set(HAVE_X11 TRUE)
 -- 
-2.41.0
+2.43.0
 

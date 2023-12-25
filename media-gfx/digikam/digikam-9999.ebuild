@@ -107,7 +107,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-8.1.0-cmake.patch" )
+PATCHES=( "${FILESDIR}/${P}-9999-cmake.patch" )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
