@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-PVCUT=$(ver_cut 1-3)
 KFMIN=5.106.0
 QTMIN=5.15.9
 inherit ecm gear.kde.org optfeature
@@ -57,7 +56,7 @@ COMMON_DEPEND="
 	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
 	fits? ( sci-libs/cfitsio )
 	mpris? ( >=dev-qt/qtdbus-${QTMIN}:5 )
-	raw? ( >=kde-apps/libkdcraw-${PVCUT}:5 )
+	raw? ( kde-apps/libkdcraw:5 )
 	semantic-desktop? (
 		>=kde-frameworks/baloo-${KFMIN}:5
 		>=kde-frameworks/kfilemetadata-${KFMIN}:5
