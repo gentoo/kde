@@ -3,18 +3,18 @@
 
 EAPI=8
 
-QTMIN=5.15.9
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Digital camera raw image library wrapper"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=media-libs/libraw-0.16:=
 "
 RDEPEND="${DEPEND}"
