@@ -67,7 +67,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons:5
-	dev-libs/kpeoplevcard
+	dev-libs/kpeoplevcard:5
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
