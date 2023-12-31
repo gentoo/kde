@@ -6,7 +6,8 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_QTHELP="true"
 ECM_TEST="optional"
-QTMIN=5.15.9
+KFMIN=5.247.0
+QTMIN=6.6.0
 inherit ecm kde.org
 
 DESCRIPTION="Qt bindings for libpulse"
@@ -21,14 +22,10 @@ LICENSE="LGPL-2.1"
 SLOT="0/3"
 
 RDEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,dbus]
 	media-libs/libpulse
 "
 DEPEND="${RDEPEND}
-	test? (
-		>=dev-qt/qtdeclarative-${QTMIN}:5
-		>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	)
+	test? ( >=dev-qt/qtdeclarative-${QTMIN}:6 )
 "
 BDEPEND="virtual/pkgconfig"
