@@ -97,6 +97,7 @@ if $(ver_test -gt 24.01.75); then
 		grantlee-editor | \
 		grantleetheme | \
 		incidenceeditor | \
+		juk | \
 		kaccounts-integration | \
 		kaccounts-providers | \
 		kaddressbook | \
@@ -124,6 +125,7 @@ if $(ver_test -gt 24.01.75); then
 		kcolorchooser | \
 		kcron | \
 		kdebugsettings | \
+		kdeconnect | \
 		kdegraphics-mobipocket | \
 		kdenetwork-filesharing | \
 		kdepim-addons | \
