@@ -54,7 +54,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libplasma-${KFMIN}:5
 	x11-libs/libxkbcommon
 	bluetooth? ( >=dev-qt/qtbluetooth-${QTMIN}:5 )
-	pulseaudio? ( media-libs/pulseaudio-qt:= )
+	pulseaudio? ( <media-libs/pulseaudio-qt-1.4:= )
 	telephony? ( >=kde-frameworks/modemmanager-qt-${KFMIN}:5 )
 	X? (
 		x11-libs/libfakekey
