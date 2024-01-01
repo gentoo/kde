@@ -47,9 +47,9 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 	activities? (
-		>=dev-qt/qtbase-${QTMIN}:6[sql]
-		kde-plasma/plasma-activities:6
-		kde-plasma/plasma-activities-stats:6
+		>=dev-qt/qtsql-${QTMIN}:5
+		>=kde-plasma/plasma-activities-${KFMIN}:5
+		>=kde-plasma/plasma-activities-stats-${KFMIN}:5
 	)
 	ios? (
 		app-pda/libimobiledevice:=
