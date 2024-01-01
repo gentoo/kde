@@ -15,7 +15,7 @@ HOMEPAGE="https://techbase.kde.org/Kirigami"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="+openmp"
+IUSE="openmp"
 
 # requires package to already be installed
 RESTRICT="test"
