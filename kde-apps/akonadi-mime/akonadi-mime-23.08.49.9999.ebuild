@@ -21,7 +21,6 @@ IUSE=""
 RESTRICT="test"
 
 DEPEND="
-	dev-libs/libxslt
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -36,3 +35,4 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND="dev-libs/libxslt"
