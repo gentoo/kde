@@ -19,17 +19,17 @@ KEYWORDS=""
 IUSE="speech telemetry"
 
 RDEPEND="
-	>=dev-libs/ktextaddons-1.4.42:6
+	>=dev-libs/ktextaddons-1.4.42:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
-	>=dev-qt/qtwebengine-${QTMIN}:6
+	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/grantleetheme-${PVCUT}:6
 	>=kde-apps/kontactinterface-${PVCUT}:6
-	>=kde-apps/kpimtextedit-${PVCUT}:6[speech=]
 	>=kde-apps/libkdepim-${PVCUT}:6
 	>=kde-apps/messagelib-${PVCUT}:6
 	>=kde-apps/pimcommon-${PVCUT}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -46,12 +46,13 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/syndication-${KFMIN}:6
-	telemetry? ( >=kde-frameworks/syndication-${KFMIN}:6 )
+	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 	)
 
