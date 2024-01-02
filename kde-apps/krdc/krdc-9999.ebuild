@@ -17,6 +17,7 @@ KEYWORDS=""
 IUSE="activities +rdp +vnc"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 2016-01-24
+# TODO: in port to KF6: >=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -29,6 +30,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdnssd-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
@@ -38,17 +40,17 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
+	rdp? ( >=net-misc/freerdp-2.1.0:= )
 	vnc? (
 		net-libs/libssh:=
 		>=net-libs/libvncserver-0.9
 	)
 "
-RDEPEND="${DEPEND}
-	rdp? ( >=net-misc/freerdp-1.1.0_beta1[X] )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		# TODO: in port to KF6: PlasmaActivities
 		$(cmake_use_find_package activities KF5Activities)
 		-DWITH_RDP=$(usex rdp)
 		-DWITH_VNC=$(usex vnc)
