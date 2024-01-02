@@ -20,9 +20,9 @@ IUSE="speech"
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	dev-libs/ktextaddons:6[speech?]
+	>=dev-qt/qtbase-${QTMIN}:6[widgets]
 	>=kde-frameworks/kcodecs-${KFMIN}:6
-	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
@@ -32,11 +32,8 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	speech? ( dev-libs/ktextaddons:6[speech=] )
 "
-DEPEND="${RDEPEND}
-	test? ( >=kde-frameworks/ktextwidgets-${KFMIN}:6 )
-"
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
