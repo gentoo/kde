@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE="speech"
 
 DEPEND="
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/libkdegames-${PVCUT}:6
@@ -31,6 +32,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kplotting-${KFMIN}:6
+	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
