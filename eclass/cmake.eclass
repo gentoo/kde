@@ -458,6 +458,7 @@ cmake_src_configure() {
 		set(CMAKE_INSTALL_DOCDIR "${EPREFIX}/usr/share/doc/${PF}" CACHE PATH "")
 		set(BUILD_SHARED_LIBS ON CACHE BOOL "")
 		set(Python3_FIND_UNVERSIONED_NAMES FIRST CACHE STRING "")
+		set(FETCHCONTENT_FULLY_DISCONNECTED ON CACHE BOOL "")
 	_EOF_
 
 	if [[ -n ${_ECM_ECLASS} ]]; then
