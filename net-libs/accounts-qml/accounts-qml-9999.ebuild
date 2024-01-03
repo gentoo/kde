@@ -21,6 +21,7 @@ HOMEPAGE="https://accounts-sso.gitlab.io/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 IUSE="doc +qt5 qt6 test"
+REQUIRED_USE="|| ( qt5 qt6 )"
 
 # dbus problems
 RESTRICT="test"
