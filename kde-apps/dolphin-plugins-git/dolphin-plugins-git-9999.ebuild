@@ -38,9 +38,8 @@ src_prepare() {
 	# solid, qtdbus only required by mountiso
 	ecm_punt_qt_module DBus
 	ecm_punt_kf_module Solid
-	# kxmlgui, qtnetwork only required by dropbox
+	# qtnetwork only required by dropbox
 	ecm_punt_qt_module Network
-	ecm_punt_kf_module XmlGui
 	# delete non-${PN} translations
 	find po -type f -name "*po" -and -not -name "*${MY_PLUGIN_NAME}plugin" -delete || die
 }
