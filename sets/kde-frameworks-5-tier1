@@ -8,7 +8,6 @@ kde-frameworks/extra-cmake-modules:0
 kde-frameworks/kapidox:5
 kde-frameworks/karchive:5
 kde-frameworks/kcalendarcore:5
-# TODO: future: kcgroups (not packaged)
 kde-frameworks/kcodecs:5
 kde-frameworks/kconfig:5
 kde-frameworks/kcoreaddons:5
@@ -23,7 +22,6 @@ kde-frameworks/kitemmodels:5
 kde-frameworks/kitemviews:5
 kde-frameworks/kplotting:5
 kde-frameworks/kquickcharts:5
-# FIXME: uncomment: kde-frameworks/kuserfeedback:6
 kde-frameworks/kwidgetsaddons:5
 kde-frameworks/kwindowsystem:5
 kde-frameworks/modemmanager-qt:5

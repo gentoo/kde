@@ -12,7 +12,6 @@ kde-frameworks/knotifications:5
 kde-frameworks/kpackage:5
 kde-frameworks/kpeople:5
 kde-frameworks/kpty:5
-# TODO: future: kquickimageeditor (not packaged)
 kde-frameworks/kunitconversion:5
 kde-frameworks/syndication:5
 kde-plasma/plasma-activities:5
