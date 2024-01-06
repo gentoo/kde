@@ -139,6 +139,7 @@ if $(ver_test -gt 24.01.75); then
 		kgeography | \
 		kget | \
 		kgoldrunner | \
+		kgpg | \
 		khangman | \
 		khelpcenter | \
 		kidentitymanagement | \
