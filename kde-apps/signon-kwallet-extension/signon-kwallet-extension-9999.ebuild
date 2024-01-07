@@ -3,18 +3,18 @@
 
 EAPI=8
 
-KFMIN=5.106.0
+KFMIN=5.245.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="KWallet extension for signond"
 HOMEPAGE="https://accounts-sso.gitlab.io/"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 
 DEPEND="
-	>=kde-frameworks/kwallet-${KFMIN}:5
-	>=net-libs/signond-8.61-r1[qt5(-)]
+	>=kde-frameworks/kwallet-${KFMIN}:6
+	>=net-libs/signond-8.61-r1[qt6]
 "
 RDEPEND="${DEPEND}"
