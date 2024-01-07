@@ -99,6 +99,7 @@ if $(ver_test -gt 24.01.75); then
 		grantlee-editor | \
 		grantleetheme | \
 		incidenceeditor | \
+		isoimagewriter | \
 		juk | \
 		kaccounts-integration | \
 		kaccounts-providers | \
