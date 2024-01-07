@@ -3,16 +3,16 @@
 
 EAPI=8
 
-inherit gear.kde.org cmake
+inherit cmake gear.kde.org
 
 DESCRIPTION="Shared icons, artwork and data files for educational applications"
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 BDEPEND="
-	dev-qt/qtcore:5
+	dev-qt/qtbase:6
 	kde-frameworks/extra-cmake-modules:0
 "
