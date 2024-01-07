@@ -64,7 +64,7 @@ for release in $GEAR_RELEASES; do
 		echo -e "${HEADER}" > "kde-gear-${release}.49.9999.keywords"
 		for file in ".kde-gear-${release}"/*; do
 			newfile=".kde-gear-${release}.49.9999"/$(basename "${file}")
-			sed -e "/^<[a-z-]*\/.*\.50$/{s/\.50/.49.9999/;s/^</~/};/^~.*[.-]9999$/s/$/ **/" \
+			sed -e "/^<[a-z0-9-]*\/.*\.50$/{s/\.50/.49.9999/;s/^</~/};/^~.*[.-]9999$/s/$/ **/" \
 				-e "/^@/d" "${file}" > "${newfile}"
 			# echo "${newfile}"
 		done
