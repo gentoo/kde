@@ -13,7 +13,7 @@ DESCRIPTION="Library for playing & ripping CDs"
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="alsa"
+IUSE="alsa kf6compat"
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -22,11 +22,21 @@ DEPEND="
 	>=media-libs/phonon-4.11.0[qt5(+)]
 	alsa? ( media-libs/alsa-lib )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	kf6compat? ( kde-apps/libkcompactdisc:6 )
+"
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package alsa ALSA)
 	)
 	ecm_src_configure
+}
+
+src_install() {
+	ecm_src_install
+
+	if use kf6compat; then
+		rm -r "${D}"/usr/share/locale || die
+	fi
 }
