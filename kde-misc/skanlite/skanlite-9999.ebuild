@@ -7,29 +7,28 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="graphics"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Simple image scanning application based on libksane and KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/skanlite/"
 
 LICENSE="|| ( GPL-2 GPL-3 ) handbook? ( FDL-1.2+ )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/libksane-${PVCUT}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=kde-apps/libksane-${PVCUT}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
