@@ -40,6 +40,7 @@ DEPEND="
 	>=kde-apps/libgravatar-${PVCUT}:6
 	>=kde-apps/libkdepim-${PVCUT}:6
 	>=kde-apps/libkleo-${PVCUT}:6
+	>=kde-apps/mimetreeparser-${PVCUT}:6
 	>=kde-apps/pimcommon-${PVCUT}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
