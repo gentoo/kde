@@ -144,7 +144,7 @@
 ~net-libs/libktorrent-24.02.49.9999 **
 ~net-misc/kio-zeroconf-24.02.49.9999 **
 ~net-news/alligator-24.02.49.9999 **
-<net-p2p/ktorrent-24.02.50
+~net-p2p/ktorrent-24.02.49.9999 **
 ~app-office/merkuro-24.02.49.9999 **
 ~dev-libs/kopeninghours-24.02.49.9999 **
 ~dev-libs/kosmindoormap-24.02.49.9999 **
