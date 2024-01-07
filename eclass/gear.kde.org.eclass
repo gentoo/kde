@@ -241,4 +241,35 @@ if $(ver_test -gt 24.01.75); then
 	esac
 fi
 
+# list of applications ported to KF6 post-24.02 in SLOT=6 having to block SLOT=5
+if $(ver_test -gt 24.03.75); then
+	case ${PN} in
+		ffmpegthumbs | \
+		gwenview | \
+		itinerary | \
+		k3b | \
+		kdeedu-data | \
+		kimagemapeditor | \
+		kio-gdrive | \
+		kmplot | \
+		kolourpaint | \
+		kompare | \
+		kopeninghours | \
+		kosmindoormap | \
+		kpublictransport | \
+		krdc | \
+		ksanecore | \
+		libkeduvocdocument | \
+		libkomparediff2 | \
+		libksane | \
+		minuet | \
+		signon-kwallet-extension | \
+		skanlite | \
+		skanpage | \
+		step)
+			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
+		*) ;;
+	esac
+fi
+
 fi
