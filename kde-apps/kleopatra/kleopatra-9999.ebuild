@@ -28,6 +28,7 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-apps/kmime-${PVCUT}:6
 	>=kde-apps/libkleo-${PVCUT}:6
+	>=kde-apps/mimetreeparser-${PVCUT}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
