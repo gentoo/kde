@@ -33,6 +33,7 @@ DEPEND="
 	>=kde-apps/kcalutils-${PVCUT}:6
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
 	>=kde-apps/mailcommon-${PVCUT}:6
+	>=kde-apps/mimetreeparser-${PVCUT}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
