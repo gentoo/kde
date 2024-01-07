@@ -29,8 +29,3 @@ DEPEND="${RDEPEND}
 	dev-libs/boost
 	test? ( =kde-frameworks/kwindowsystem-${KFMIN}*:5 )
 "
-
-src_prepare() {
-	ecm_src_prepare
-	cmake_run_in src/cli ecm_punt_kf_module WindowSystem # bug 920164
-}
