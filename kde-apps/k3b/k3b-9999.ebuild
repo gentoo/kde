@@ -6,45 +6,41 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Full-featured burning and ripping application based on KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/k3b/ https://userbase.kde.org/K3b"
 
 LICENSE="GPL-2 FDL-1.2"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="dvd ffmpeg flac lame mad musepack sndfile sox taglib vcd vorbis webengine"
 
 REQUIRED_USE="flac? ( taglib ) lame? ( taglib ) sox? ( taglib )"
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-apps/libkcddb-23.08.4:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kbookmarks-${KFMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kfilemetadata-${KFMIN}:5[taglib?]
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/knotifyconfig-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
+	>=kde-apps/libkcddb-${PVCUT}:6
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kbookmarks-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kfilemetadata-${KFMIN}:6[taglib?]
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/knewstuff-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/knotifyconfig-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread:= )
 	ffmpeg? ( media-video/ffmpeg:0= )
@@ -58,7 +54,7 @@ DEPEND="
 		media-libs/libogg
 		media-libs/libvorbis
 	)
-	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}
 	app-cdr/cdrdao
@@ -91,7 +87,7 @@ src_configure() {
 		-DK3B_ENABLE_TAGLIB=$(usex taglib)
 		-DK3B_BUILD_OGGVORBIS_DECODER_PLUGIN=$(usex vorbis)
 		-DK3B_BUILD_OGGVORBIS_ENCODER_PLUGIN=$(usex vorbis)
-		$(cmake_use_find_package webengine Qt5WebEngineWidgets)
+		$(cmake_use_find_package webengine Qt6WebEngine)
 	)
 
 	ecm_src_configure
