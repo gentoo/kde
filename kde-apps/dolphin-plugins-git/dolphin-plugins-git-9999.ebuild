@@ -51,6 +51,7 @@ src_configure() {
 		-DBUILD_bazaar=OFF
 		-DBUILD_dropbox=OFF
 		-DBUILD_hg=OFF
+		-DBUILD_makefileactions=OFF
 		-DBUILD_mountiso=OFF
 		-DBUILD_svn=OFF
 	)
