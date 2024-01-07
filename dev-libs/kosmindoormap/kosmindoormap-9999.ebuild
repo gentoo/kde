@@ -5,33 +5,29 @@ EAPI=8
 
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Data Model and Extraction System for Travel Reservation information"
 HOMEPAGE="https://invent.kde.org/libraries/kosmindoormap"
 
 LICENSE="LGPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="+openinghours"
 
-COMMON_DEPEND="
-	>=dev-libs/kpublictransport-${PVCUT}:5
+RDEPEND="
+	>=dev-libs/kpublictransport-${PVCUT}:6
 	dev-libs/protobuf:=
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
 	sys-libs/zlib
-	openinghours? ( >=dev-libs/kopeninghours-${PVCUT}:5 )
+	openinghours? ( >=dev-libs/kopeninghours-${PVCUT}:6 )
 "
-DEPEND="${COMMON_DEPEND}
-	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
-"
-RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+DEPEND="${RDEPEND}
+	test? ( >=dev-qt/qtbase-${QTMIN}:6[widgets] )
 "
 BDEPEND="
 	sys-devel/bison
