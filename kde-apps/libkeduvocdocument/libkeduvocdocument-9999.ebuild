@@ -4,22 +4,22 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library for reading/writing KVTML"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[xml]
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
