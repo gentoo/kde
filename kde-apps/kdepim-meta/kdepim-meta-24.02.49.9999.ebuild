@@ -61,6 +61,7 @@ RDEPEND="
 	>=kde-apps/mailimporter-${PV}:*
 	>=kde-apps/mbox-importer-${PV}:*
 	>=kde-apps/messagelib-${PV}:*
+	>=kde-apps/mimetreeparser-${PV}:*
 	>=kde-apps/pim-data-exporter-${PV}:*
 	>=kde-apps/pim-sieve-editor-${PV}:*
 	>=kde-apps/pimcommon-${PV}:*
