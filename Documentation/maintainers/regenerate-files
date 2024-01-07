@@ -36,7 +36,7 @@ if [[ -n ${KF6_RELEASES} ]]; then
 		if [[ -d ".kde-frameworks-${release}" ]]; then
 			echo -e "${HEADER}" > "kde-frameworks-${release}.keywords"
 			cat ".kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' | \
-				sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-frameworks-${release}.keywords"
+				sed -e '/^~.*[.-]9999\:[0-9]*$/s/$/ **/' -e '/^@/d' >> "kde-frameworks-${release}.keywords"
 		fi
 	done
 fi
@@ -89,7 +89,7 @@ if [[ -d .kde-frameworks-live.base ]]; then
 	echo -e "${HEADER}" > kde-frameworks-live.keywords
 	for file in .kde-frameworks-live.base/*; do
 		newfile=.kde-frameworks-live/$(basename "${file}")
-		sed -e '/^~.*[.-]9999$/s/$/ **/'  -e '/^@/d' "${file}" > "${newfile}"
+		sed -e '/^~.*[.-]9999\:[0-9]*$/s/$/ **/'  -e '/^@/d' "${file}" > "${newfile}"
 	done
 	cat .kde-frameworks-live/* >> kde-frameworks-live.keywords
 fi
