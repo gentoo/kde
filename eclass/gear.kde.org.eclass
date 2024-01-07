@@ -124,6 +124,7 @@ if $(ver_test -gt 24.01.75); then
 		kcharselect | \
 		kcolorchooser | \
 		kcron | \
+		kde-dev-utils | \
 		kdebugsettings | \
 		kdeconnect | \
 		kdegraphics-mobipocket | \
