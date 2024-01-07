@@ -19,6 +19,7 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	=kde-frameworks/kconfig-${PVCUT}*:6
+	=kde-frameworks/kcontacts-${PVCUT}*:6
 	=kde-frameworks/kcoreaddons-${PVCUT}*:6
 	=kde-frameworks/ki18n-${PVCUT}*:6
 	=kde-frameworks/kitemviews-${PVCUT}*:6
