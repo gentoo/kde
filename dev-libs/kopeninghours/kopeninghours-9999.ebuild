@@ -6,8 +6,8 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 PYTHON_COMPAT=( python3_{10..12} )
 inherit ecm gear.kde.org python-single-r1
 
@@ -16,17 +16,17 @@ HOMEPAGE="https://api.kde.org/kopeninghours/html/index.html
 https://invent.kde.org/libraries/kopeninghours"
 
 LICENSE="LGPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="python"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="
-	>=dev-libs/kpublictransport-${PVCUT}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=kde-frameworks/kholidays-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-libs/kpublictransport-${PVCUT}:6
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kholidays-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
 	sys-libs/zlib
 	python? (
 		$(python_gen_cond_dep '
@@ -36,7 +36,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	${PYTHON_DEPS}
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "
 BDEPEND="
 	sys-devel/bison
