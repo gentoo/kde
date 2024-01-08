@@ -29,9 +29,9 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 "
 BDEPEND="
+	app-alternatives/lex
 	>=dev-qt/linguist-tools-${QTMIN}:5
 	sys-devel/bison
-	sys-devel/flex
 "
 
 src_configure() {
