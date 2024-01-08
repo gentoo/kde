@@ -28,8 +28,8 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	app-alternatives/lex
+	app-alternatives/yacc
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
-	sys-devel/bison
 "
 
 src_configure() {
