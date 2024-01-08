@@ -4,36 +4,34 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="VNC-compatible server to share Plasma desktops"
 HOMEPAGE="https://apps.kde.org/krfb/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="wayland"
 
 COMMON_DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kdnssd-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kwallet-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,network,widgets]
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kdnssd-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
+	>=kde-frameworks/kwallet-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=net-libs/libvncserver-0.9.9
 	x11-libs/libX11
 	x11-libs/libxcb
@@ -42,12 +40,12 @@ COMMON_DEPEND="
 	wayland? (
 		dev-libs/wayland
 		|| (
-			>=dev-qt/qtgui-${QTMIN}:5[libinput]
-			>=dev-qt/qtgui-${QTMIN}:5[X]
+			>=dev-qt/qtbase-${QTMIN}:6[libinput]
+			>=dev-qt/qtbase-${QTMIN}:6[X]
 		)
-		>=dev-qt/qtwayland-${QTMIN}:5
-		kde-plasma/kpipewire:5
-		>=kde-plasma/kwayland-${KFMIN}:5
+		>=dev-qt/qtwayland-${QTMIN}:6
+		kde-plasma/kpipewire:6
+		>=kde-plasma/kwayland-${KFMIN}:6
 	)
 "
 DEPEND="${COMMON_DEPEND}
@@ -56,7 +54,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast(+)] )
 "
-BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
+BDEPEND="wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
 
 src_configure() {
 	local mycmakeargs=(
