@@ -39,8 +39,8 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "
 BDEPEND="
+	app-alternatives/lex
 	sys-devel/bison
-	sys-devel/flex
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-22.04.0-boostpython.patch )

@@ -38,8 +38,8 @@ RDEPEND="${DEPEND}
 	${PYTHON_DEPS}
 "
 BDEPEND="
+	app-alternatives/lex
 	sys-devel/bison
-	sys-devel/flex
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-22.04.0-boostpython.patch )
