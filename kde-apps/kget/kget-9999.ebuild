@@ -32,9 +32,7 @@ RDEPEND="
 	>=kde-frameworks/kitemviews-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
-	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
-	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
@@ -53,6 +51,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package bittorrent KTorrent6)
 		$(cmake_use_find_package gpg Gpgmepp)
+		$(cmake_use_find_package gpg QGpgmeQt6)
 		$(cmake_use_find_package mms LibMms)
 		$(cmake_use_find_package sqlite SQLite3)
 	)
