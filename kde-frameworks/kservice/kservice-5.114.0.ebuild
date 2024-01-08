@@ -29,7 +29,7 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	app-alternatives/lex
-	sys-devel/bison
+	app-alternatives/yacc
 	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 
