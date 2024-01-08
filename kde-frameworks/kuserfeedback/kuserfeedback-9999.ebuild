@@ -26,7 +26,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	app-alternatives/lex
-	sys-devel/bison
+	app-alternatives/yacc
 	doc? ( >=dev-qt/qttools-${QTMIN}:6[assistant,qdoc] )
 "
 
