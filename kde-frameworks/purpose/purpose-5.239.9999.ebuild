@@ -47,6 +47,7 @@ RDEPEND="${DEPEND}
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:5 )
 	kaccounts? ( >=net-libs/accounts-qml-0.7-r3[qt5(-)] )
 "
+BDEPEND="kaccounts? ( dev-util/intltool )"
 
 src_prepare() {
 	ecm_src_prepare
