@@ -30,8 +30,8 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtbase-${QTMIN}:6[widgets] )
 "
 BDEPEND="
+	app-alternatives/lex
 	sys-devel/bison
-	sys-devel/flex
 "
 
 src_configure() {
