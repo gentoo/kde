@@ -16,11 +16,6 @@ IUSE="+man"
 # requires running kde environment
 RESTRICT="test"
 
-BDEPEND="
-	sys-devel/bison
-	sys-devel/flex
-	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
-"
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
@@ -31,6 +26,11 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
+"
+BDEPEND="
+	app-alternatives/lex
+	sys-devel/bison
+	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 
 src_configure() {
