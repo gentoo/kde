@@ -22,5 +22,5 @@ IUSE=""
 
 BDEPEND="
 	sys-devel/bison
-	sys-devel/flex
+	app-alternatives/lex
 "
