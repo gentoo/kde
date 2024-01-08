@@ -25,8 +25,8 @@ RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 "
 BDEPEND="
+	app-alternatives/lex
 	sys-devel/bison
-	sys-devel/flex
 	doc? ( >=dev-qt/qttools-${QTMIN}:6[assistant,qdoc] )
 "
 
