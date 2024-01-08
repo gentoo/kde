@@ -43,6 +43,12 @@ RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 "
 
+# https://invent.kde.org/libraries/ktextaddons/-/merge_requests/9
+PATCHES=(
+	"${FILESDIR}/${P}-kf-5.247.patch"
+	"${FILESDIR}/${P}-no-xmlgui.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package speech Qt6TextToSpeech)

@@ -1,0 +1,136 @@
+From 70e1ce4050953f46ba4ccb1a8acb232386017be7 Mon Sep 17 00:00:00 2001
+From: Antonio Rojas <arojas@archlinux.org>
+Date: Sat, 25 Nov 2023 10:00:30 +0100
+Subject: [PATCH] Drop unused kxmlgui dependency
+
+---
+ .kde-ci.yml                                            | 2 --
+ CMakeLists.txt                                         | 1 -
+ textcustomeditor/CMakeLists.txt                        | 2 +-
+ textedittexttospeech/CMakeLists.txt                    | 3 ++-
+ textemoticons/widgets/CMakeLists.txt                   | 2 +-
+ textgrammarcheck/common/autotests/CMakeLists.txt       | 2 +-
+ textgrammarcheck/grammalecte/autotests/CMakeLists.txt  | 2 +-
+ textgrammarcheck/languagetool/autotests/CMakeLists.txt | 2 +-
+ 8 files changed, 7 insertions(+), 9 deletions(-)
+
+diff --git a/.kde-ci.yml b/.kde-ci.yml
+index d63f0964..15851653 100644
+--- a/.kde-ci.yml
++++ b/.kde-ci.yml
+@@ -13,7 +13,6 @@ Dependencies:
+     'frameworks/kconfig': '@latest-kf6'
+     'frameworks/kconfigwidgets': '@latest-kf6'
+     'frameworks/karchive': '@latest-kf6'
+-    'frameworks/kxmlgui': '@latest-kf6'
+     'frameworks/kcoreaddons': '@latest-kf6'
+     'frameworks/kio': '@latest-kf6'
+     'frameworks/sonnet': '@latest-kf6'
+@@ -28,7 +27,6 @@ Dependencies:
+     'frameworks/kconfig': '@latest'
+     'frameworks/kconfigwidgets': '@latest'
+     'frameworks/karchive': '@latest'
+-    'frameworks/kxmlgui': '@stable'
+     'frameworks/kcoreaddons': '@stable'
+     'frameworks/kio': '@stable'
+     'frameworks/sonnet': '@stable'
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 65fe206d..d2df4a28 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -44,7 +44,6 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
+     I18n
+     ConfigWidgets
+     Archive
+-    XmlGui
+     CoreAddons
+     Sonnet
+     KIO
+diff --git a/textcustomeditor/CMakeLists.txt b/textcustomeditor/CMakeLists.txt
+index 5b00684d..e6d60d3e 100644
+--- a/textcustomeditor/CMakeLists.txt
++++ b/textcustomeditor/CMakeLists.txt
+@@ -59,11 +59,11 @@ target_sources(KF${KF_MAJOR_VERSION}TextCustomEditor PRIVATE
+ 
+ target_link_libraries(KF${KF_MAJOR_VERSION}TextCustomEditor
+     PRIVATE
++    KF${KF_MAJOR_VERSION}::ConfigWidgets
+     KF${KF_MAJOR_VERSION}::SonnetUi
+     KF${KF_MAJOR_VERSION}::SonnetCore
+     KF${KF_MAJOR_VERSION}::WidgetsAddons
+     KF${KF_MAJOR_VERSION}::KIOWidgets
+-    KF${KF_MAJOR_VERSION}::XmlGui
+     KF${KF_MAJOR_VERSION}::I18n
+     KF${KF_MAJOR_VERSION}::SyntaxHighlighting
+     KF${KF_MAJOR_VERSION}::TextUtils
+diff --git a/textedittexttospeech/CMakeLists.txt b/textedittexttospeech/CMakeLists.txt
+index 3693eb01..22066727 100644
+--- a/textedittexttospeech/CMakeLists.txt
++++ b/textedittexttospeech/CMakeLists.txt
+@@ -44,8 +44,9 @@ target_sources(KF${KF_MAJOR_VERSION}TextEditTextToSpeech PRIVATE
+ 
+ target_link_libraries(KF${KF_MAJOR_VERSION}TextEditTextToSpeech
+     PRIVATE
++    KF${KF_MAJOR_VERSION}::ConfigCore
++    KF${KF_MAJOR_VERSION}::ConfigGui
+     KF${KF_MAJOR_VERSION}::WidgetsAddons
+-    KF${KF_MAJOR_VERSION}::XmlGui
+     KF${KF_MAJOR_VERSION}::I18n
+     Qt::TextToSpeech
+ )
+diff --git a/textemoticons/widgets/CMakeLists.txt b/textemoticons/widgets/CMakeLists.txt
+index e255cfbd..5dfcece6 100644
+--- a/textemoticons/widgets/CMakeLists.txt
++++ b/textemoticons/widgets/CMakeLists.txt
+@@ -30,8 +30,8 @@ target_sources(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets PRIVATE
+ 
+ target_link_libraries(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets
+     PUBLIC
++    KF${KF_MAJOR_VERSION}::WidgetsAddons
+     KF${KF_MAJOR_VERSION}::TextEmoticonsCore
+-    KF${KF_MAJOR_VERSION}::XmlGui
+     PRIVATE
+     Qt::Widgets
+ )
+diff --git a/textgrammarcheck/common/autotests/CMakeLists.txt b/textgrammarcheck/common/autotests/CMakeLists.txt
+index 50815b8c..ccbbc032 100644
+--- a/textgrammarcheck/common/autotests/CMakeLists.txt
++++ b/textgrammarcheck/common/autotests/CMakeLists.txt
+@@ -8,7 +8,7 @@ macro(add_kmail_grammarcommon_unittest _source)
+     add_test(NAME ${_name} COMMAND ${_name} )
+ 
+     ecm_mark_as_test(kmail_grammalecte-${_name})
+-    target_link_libraries( ${_name} Qt::Test KF${KF_MAJOR_VERSION}::XmlGui KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}TextGrammarCheck)
++    target_link_libraries( ${_name} Qt::Test KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}TextGrammarCheck)
+ endmacro ()
+ 
+ add_kmail_grammarcommon_unittest(grammarresulttextedittest.cpp)
+diff --git a/textgrammarcheck/grammalecte/autotests/CMakeLists.txt b/textgrammarcheck/grammalecte/autotests/CMakeLists.txt
+index 16e219d4..4304c673 100644
+--- a/textgrammarcheck/grammalecte/autotests/CMakeLists.txt
++++ b/textgrammarcheck/grammalecte/autotests/CMakeLists.txt
+@@ -10,7 +10,7 @@ macro(add_grammalecte_unittest _source)
+     add_test(NAME ${_name} COMMAND ${_name} )
+ 
+     ecm_mark_as_test(kmail_grammalecte-${_name})
+-    target_link_libraries( ${_name} Qt::Test KF${KF_MAJOR_VERSION}::XmlGui KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}::TextGrammarCheck)
++    target_link_libraries( ${_name} Qt::Test KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}::TextGrammarCheck)
+ endmacro ()
+ 
+ add_grammalecte_unittest(grammalecteparsertest.cpp)
+diff --git a/textgrammarcheck/languagetool/autotests/CMakeLists.txt b/textgrammarcheck/languagetool/autotests/CMakeLists.txt
+index e88788cb..0e2558f8 100644
+--- a/textgrammarcheck/languagetool/autotests/CMakeLists.txt
++++ b/textgrammarcheck/languagetool/autotests/CMakeLists.txt
+@@ -9,7 +9,7 @@ macro(add_languagetool_unittest _source)
+     add_test(NAME ${_name} COMMAND ${_name} )
+ 
+     ecm_mark_as_test(kmail_grammalecte-${_name})
+-    target_link_libraries( ${_name} Qt::Test KF${KF_MAJOR_VERSION}::XmlGui KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}::TextGrammarCheck Qt::Network)
++    target_link_libraries( ${_name} Qt::Test KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}::TextGrammarCheck Qt::Network)
+ endmacro ()
+ 
+ add_languagetool_unittest(languagetoolconfigdialogtest.cpp)
+-- 
+GitLab
+
