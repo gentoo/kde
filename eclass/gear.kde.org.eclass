@@ -188,6 +188,7 @@ if $(ver_test -gt 24.01.75); then
 		kpkpass | \
 		kpmcore | \
 		kreversi | \
+		krfb | \
 		kruler | \
 		kshisen | \
 		ksirk | \
