@@ -102,8 +102,8 @@ RDEPEND="${COMMON_DEPEND}
 BDEPEND="
 	sys-devel/gettext
 	panorama? (
+		app-alternatives/lex
 		sys-devel/bison
-		sys-devel/flex
 	)
 "
 
