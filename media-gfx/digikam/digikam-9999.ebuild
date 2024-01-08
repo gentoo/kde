@@ -103,7 +103,7 @@ BDEPEND="
 	sys-devel/gettext
 	panorama? (
 		app-alternatives/lex
-		sys-devel/bison
+		app-alternatives/yacc
 	)
 "
 
