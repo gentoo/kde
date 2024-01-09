@@ -182,6 +182,7 @@ if $(ver_test -gt 24.01.75); then
 		kontact | \
 		kontactinterface | \
 		kontrast | \
+		konversation | \
 		korganizer | \
 		kpat | \
 		kpimtextedit | \
