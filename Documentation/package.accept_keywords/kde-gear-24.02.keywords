@@ -248,9 +248,11 @@
 <sys-libs/kpmcore-24.02.50
 =dev-libs/kdiagram-3.0.1
 ~dev-libs/kirigami-addons-0.11.76_p20231222
-~dev-libs/ktextaddons-1.5.2_p20240107
+~dev-libs/ktextaddons-1.5.2_p20240108
+~dev-libs/kweathercore-0.8
 ~media-libs/libqaccessibilityclient-0.6.0
 ~media-libs/mpvqt-1.0.0
 ~media-libs/phonon-4.12.0
 ~media-libs/phonon-vlc-0.12.0
+~media-libs/pulseaudio-qt-1.4.0
 ~sys-auth/polkit-qt-0.175.0
