@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_CATEGORY="office"
 ECM_HANDBOOK="optional"
-KFMIN=5.106.0
+KFMIN=5.113.0
 QTMIN=5.15.9
 inherit ecm gear.kde.org
 
