@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_QTHELP="false"
-KFMIN=5.245.0
 PVCUT=$(ver_cut 1-2)
 QTMIN=6.6.0
 inherit ecm frameworks.kde.org
