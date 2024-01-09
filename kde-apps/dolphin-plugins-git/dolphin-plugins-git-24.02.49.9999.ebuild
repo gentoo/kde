@@ -7,7 +7,7 @@ ECM_HANDBOOK="false"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="git"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.246.0
+KFMIN=5.248.0
 QTMIN=6.6.0
 inherit ecm gear.kde.org
 

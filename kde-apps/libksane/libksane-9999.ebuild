@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.245.0
+KFMIN=5.248.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.6.0
 inherit ecm gear.kde.org

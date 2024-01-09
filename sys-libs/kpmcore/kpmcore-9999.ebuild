@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_NONGUI="true"
-KFMIN=5.246.0
+KFMIN=5.248.0
 QTMIN=6.6.0
 inherit ecm gear.kde.org
 
