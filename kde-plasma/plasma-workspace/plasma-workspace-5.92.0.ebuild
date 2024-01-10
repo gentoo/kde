@@ -120,7 +120,7 @@ COMMON_DEPEND="
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
 	systemd? ( sys-apps/systemd:= )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
-	wallpaper-metadata? ( kde-apps/libkexiv2:5 )
+	wallpaper-metadata? ( kde-apps/libkexiv2:6 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.6.0
