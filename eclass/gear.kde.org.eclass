@@ -85,6 +85,7 @@ if $(ver_test -gt 24.01.75); then
 		bovo | \
 		calendarjanitor | \
 		calendarsupport | \
+		colord-kde | \
 		dolphin | \
 		dolphin-plugins-dropbox | \
 		dolphin-plugins-git | \
@@ -98,6 +99,7 @@ if $(ver_test -gt 24.01.75); then
 		granatier | \
 		grantlee-editor | \
 		grantleetheme | \
+		gwenview | \
 		incidenceeditor | \
 		isoimagewriter | \
 		juk | \
@@ -132,6 +134,7 @@ if $(ver_test -gt 24.01.75); then
 		kdeconnect | \
 		kdegraphics-mobipocket | \
 		kdenetwork-filesharing | \
+		kdenlive | \
 		kdepim-addons | \
 		kdepim-runtime | \
 		kdf | \
@@ -248,7 +251,6 @@ fi
 if $(ver_test -gt 24.03.75); then
 	case ${PN} in
 		ffmpegthumbs | \
-		gwenview | \
 		itinerary | \
 		k3b | \
 		kdeedu-data | \
