@@ -5,15 +5,16 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KFMIN=5.113.0
-QTMIN=5.15.9
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.248.0
+QTMIN=6.6.0
 inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Image viewer by KDE"
 HOMEPAGE="https://apps.kde.org/gwenview/ https://userbase.kde.org/Gwenview"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="activities fits +mpris raw semantic-desktop share X"
 
@@ -21,63 +22,57 @@ IUSE="activities fits +mpris raw semantic-desktop share X"
 RESTRICT="test"
 
 # slot op: includes qpa/qplatformnativeinterface.h
+# TODO: When Qt6 version available: >=media-libs/kimageannotator-0.5.0, media-libs/kcolorpicker
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtgui-${QTMIN}:5=
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwayland-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6=[gui,widgets]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=dev-qt/qtwayland-${QTMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
 	media-gfx/exiv2:=
-	media-libs/kcolorpicker
-	>=media-libs/kimageannotator-0.5.0
 	media-libs/lcms:2
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
-	>=media-libs/phonon-4.11.0[qt5(+)]
+	>=media-libs/phonon-4.12.0[qt6]
 	media-libs/tiff:=
-	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
+	activities? ( kde-plasma/plasma-activities:6 )
 	fits? ( sci-libs/cfitsio )
-	mpris? ( >=dev-qt/qtdbus-${QTMIN}:5 )
-	raw? ( kde-apps/libkdcraw:5 )
+	mpris? ( >=dev-qt/qtbase-${QTMIN}:6[dbus] )
+	raw? ( >=kde-apps/libkdcraw-${PVCUT}:6 )
 	semantic-desktop? (
-		>=kde-frameworks/baloo-${KFMIN}:5
-		>=kde-frameworks/kfilemetadata-${KFMIN}:5
+		>=kde-frameworks/baloo-${KFMIN}:6
+		>=kde-frameworks/kfilemetadata-${KFMIN}:6
 	)
-	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
-	X? (
-		>=dev-qt/qtx11extras-${QTMIN}:5
-		x11-libs/libX11
-	)
+	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
+	X? ( x11-libs/libX11 )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/wayland-protocols
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 "
 RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtimageformats-${QTMIN}:5
-	>=kde-frameworks/kimageformats-${KFMIN}:5
+	>=dev-qt/qtimageformats-${QTMIN}:6
+	>=kde-frameworks/kimageformats-${KFMIN}:6
 "
 BDEPEND="
-	>=dev-qt/qtwaylandscanner-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:6
 	dev-util/wayland-scanner
 "
 
@@ -85,17 +80,17 @@ src_prepare() {
 	ecm_src_prepare
 	if ! use mpris; then
 		# FIXME: upstream a better solution
-		sed -e "/set(HAVE_QTDBUS/s/\${Qt5DBus_FOUND}/0/" -i CMakeLists.txt || die
+		sed -e "/set(HAVE_QTDBUS/s/\${Qt6DBus_FOUND}/0/" -i CMakeLists.txt || die
 	fi
 }
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package activities KF5Activities)
+		$(cmake_use_find_package activities PlasmaActivities)
 		$(cmake_use_find_package fits CFitsio)
-		$(cmake_use_find_package raw KF5KDcraw)
+		$(cmake_use_find_package raw KF6KDcraw)
 		-DGWENVIEW_SEMANTICINFO_BACKEND=$(usex semantic-desktop Baloo None)
-		$(cmake_use_find_package share KF5Purpose)
+		$(cmake_use_find_package share KF6Purpose)
 		-DWITHOUT_X11=$(usex !X)
 	)
 	ecm_src_configure
