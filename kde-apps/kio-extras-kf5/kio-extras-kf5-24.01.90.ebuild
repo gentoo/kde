@@ -48,8 +48,8 @@ DEPEND="
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 	activities? (
 		>=dev-qt/qtsql-${QTMIN}:5
-		kde-plasma/plasma-activities:5
-		kde-plasma/plasma-activities-stats:5
+		>=kde-plasma/plasma-activities-${KFMIN}:5
+		>=kde-plasma/plasma-activities-stats-${KFMIN}:5
 	)
 	ios? (
 		app-pda/libimobiledevice:=
