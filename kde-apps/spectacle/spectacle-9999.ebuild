@@ -38,6 +38,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	kde-plasma/kpipewire:6
+	kde-plasma/layer-shell-qt:6
 	x11-libs/libxcb
 	x11-libs/xcb-util
 	x11-libs/xcb-util-cursor
