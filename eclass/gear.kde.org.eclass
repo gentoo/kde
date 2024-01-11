@@ -48,9 +48,7 @@ KDE_ORG_SCHEDULE_URI+="/KDE_Gear_${PV:0:5}_Schedule"
 _KDE_SRC_URI="mirror://kde/"
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
-	if [[ ${PV} == 24.02.49.9999 ]]; then
-		EGIT_BRANCH="master" # drop after 24.02 branching
-	elif [[ ${PV} == ??.??.49.9999 ]]; then
+	if [[ ${PV} == ??.??.49.9999 ]]; then
 		EGIT_BRANCH="release/$(ver_cut 1-2)"
 	fi
 elif [[ -z ${KDE_ORG_COMMIT} ]]; then
