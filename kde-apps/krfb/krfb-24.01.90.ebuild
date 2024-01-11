@@ -45,7 +45,7 @@ COMMON_DEPEND="
 		)
 		>=dev-qt/qtwayland-${QTMIN}:6
 		kde-plasma/kpipewire:6
-		>=kde-plasma/kwayland-${KFMIN}:6
+		kde-plasma/kwayland:6
 	)
 "
 DEPEND="${COMMON_DEPEND}
