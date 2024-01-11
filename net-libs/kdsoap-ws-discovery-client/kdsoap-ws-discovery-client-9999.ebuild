@@ -5,22 +5,26 @@ EAPI=8
 
 ECM_QTHELP="false"
 ECM_TEST="forceoptional"
-KFMIN=5.245.0
+KFMIN=5.248.0
 inherit ecm kde.org
 
 DESCRIPTION="WS-Discovery client library based on KDSoap"
 HOMEPAGE="https://invent.kde.org/libraries/kdsoap-ws-discovery-client"
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+fi
+
 LICENSE="CC0-1.0 GPL-3+"
 SLOT="0"
-KEYWORDS=""
 IUSE="doc"
 
 RESTRICT="test"
 
 RDEPEND="
 	dev-qt/qtbase:6[network]
-	>=net-libs/kdsoap-0.2.0
+	>=net-libs/kdsoap-2.2.0[qt6]
 "
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qtbase:6[xml] )
