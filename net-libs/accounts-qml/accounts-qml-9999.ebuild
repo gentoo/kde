@@ -9,9 +9,17 @@ if [[ ${PV} = *9999* ]] ; then
 	EGIT_REPO_URI="https://gitlab.com/accounts-sso/accounts-qml-module.git/"
 	inherit git-r3
 else
-	SRC_URI="https://gitlab.com/accounts-sso/${PN}-module/-/archive/VERSION_${PV}/${PN}-module-VERSION_${PV}.tar.gz
-		https://dev.gentoo.org/~asturm/distfiles/${P}-patches-1.tar.xz"
-	S="${WORKDIR}/${PN}-module-VERSION_${PV}"
+	COMMIT=05e79ebbbf3784a87f72b7be571070125c10dfe3
+	if [[ -n ${COMMIT} ]] ; then
+		SRC_URI="https://gitlab.com/accounts-sso/${PN}-module/-/archive/${COMMIT}/${PN}-module-${COMMIT}.tar.bz2 -> ${P}.tar.bz2"
+		S="${WORKDIR}/${PN}-module-${COMMIT}"
+	else
+		SRC_URI="
+			https://gitlab.com/accounts-sso/${PN}-module/-/archive/VERSION_${PV}/${PN}-module-VERSION_${PV}.tar.bz2
+			https://dev.gentoo.org/~asturm/distfiles/${P}-patches-1.tar.xz
+		"
+		S="${WORKDIR}/${PN}-module-VERSION_${PV}"
+	fi
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
@@ -35,8 +43,8 @@ RDEPEND="
 		dev-qt/qtbase:6
 		dev-qt/qtdeclarative:6
 	)
-	>=net-libs/accounts-qt-1.16-r1[qt5?,qt6?]
-	>=net-libs/signond-8.61-r1[qt5?,qt6?]
+	>=net-libs/accounts-qt-1.16_p20220803[qt5?,qt6?]
+	>=net-libs/signond-8.61-r100[qt5?,qt6?]
 "
 DEPEND="${RDEPEND}
 	test? (
