@@ -10,7 +10,7 @@ if [[ ${PV} = *9999* ]] ; then
 	EGIT_BRANCH="qt6"
 	inherit git-r3
 else
-	SRC_URI="https://gitlab.com/accounts-sso/${PN}/-/archive/VERSION_${PV}/${PN}-VERSION_${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.com/accounts-sso/${PN}/-/archive/VERSION_${PV}/${PN}-VERSION_${PV}.tar.bz2 -> ${P}.tar.bz2"
 	S="${WORKDIR}/${PN}-VERSION_${PV}"
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
