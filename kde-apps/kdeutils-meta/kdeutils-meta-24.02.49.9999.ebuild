@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/categories/utilities/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="7zip cups gpg lrz plasma rar +webengine"
+IUSE="7zip gpg lrz plasma rar +webengine"
 
 RDEPEND="
 	>=app-cdr/dolphin-plugins-mountiso-${PV}:*
@@ -32,7 +32,6 @@ RDEPEND="
 	>=kde-misc/markdownpart-${PV}:*
 	>=sys-block/partitionmanager-${PV}:*
 	>=sys-libs/kpmcore-${PV}:*
-	cups? ( >=kde-plasma/print-manager-${PV}:* )
 	gpg? ( >=kde-apps/kgpg-${PV}:* )
 	plasma? ( >=kde-misc/kclock-${PV} )
 	webengine? (
