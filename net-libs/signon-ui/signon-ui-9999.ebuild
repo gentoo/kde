@@ -9,7 +9,7 @@ if [[ ${PV} = *9999* ]] ; then
 	EGIT_REPO_URI="https://gitlab.com/accounts-sso/signon-ui.git/"
 	inherit git-r3
 else
-	COMMIT=4368bb77d9d1abc2978af514225ba4a42c29a646
+	COMMIT=eef943f0edf3beee8ecb85d4a9dae3656002fc24
 	SRC_URI="https://gitlab.com/accounts-sso/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.bz2 -> ${P}.tar.bz2"
 	S="${WORKDIR}/${PN}-${COMMIT}"
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
@@ -34,15 +34,15 @@ COMMON_DEPEND="
 		dev-qt/qtnetwork:5[ssl]
 		dev-qt/qtwebengine:5
 		dev-qt/qtwidgets:5
-		>=net-libs/accounts-qt-1.16-r1[qt5]
-		>=net-libs/signond-8.61-r1[qt5]
+		>=net-libs/accounts-qt-1.16_p20220803[qt5]
+		>=net-libs/signond-8.61-r100[qt5]
 	)
 	qt6? (
 		dev-qt/qtbase:6[dbus,gui,network,ssl,widgets]
 		dev-qt/qtdeclarative:6
 		dev-qt/qtwebengine:6
-		>=net-libs/accounts-qt-1.16-r1[qt6]
-		>=net-libs/signond-8.61-r1[qt6]
+		>=net-libs/accounts-qt-1.16_p20220803[qt6]
+		>=net-libs/signond-8.61-r100[qt6]
 	)
 	net-libs/libproxy
 	x11-libs/libnotify
