@@ -13,8 +13,14 @@ if [[ ${PV} = *9999* ]] ; then
 	EGIT_BRANCH="qt6"
 	inherit git-r3
 else
-	SRC_URI="https://gitlab.com/accounts-sso/${MY_PN}/-/archive/${MY_PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${MY_P}"
+	COMMIT=d759439066f0a34e5ad352ebab0b3bb2790d429e
+	if [[ -n ${COMMIT} ]] ; then
+		SRC_URI="https://gitlab.com/accounts-sso/${MY_PN}/-/archive/${COMMIT}/${MY_PN}-${COMMIT}.tar.bz2 -> ${P}.tar.bz2"
+		S="${WORKDIR}/${MY_PN}-${COMMIT}"
+	else
+		SRC_URI="https://gitlab.com/accounts-sso/${MY_PN}/-/archive/${MY_PV}/${MY_P}.tar.bz2 -> ${P}.tar.bz2"
+		S="${WORKDIR}/${MY_P}"
+	fi
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
@@ -34,7 +40,7 @@ RDEPEND="
 		dev-qt/qtnetwork:5[ssl]
 	)
 	qt6? ( dev-qt/qtbase:6[network,ssl] )
-	>=net-libs/signond-8.61-r1[qt5=,qt6=]
+	>=net-libs/signond-8.61-r100[qt5=,qt6=]
 "
 DEPEND="
 	${RDEPEND}
