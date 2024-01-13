@@ -51,7 +51,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	doc? ( app-doc/doxygen )
+	doc? ( app-text/doxygen )
 "
 
 PATCHES=( "${FILESDIR}/${PN}-8.1.0-cmake.patch" )
