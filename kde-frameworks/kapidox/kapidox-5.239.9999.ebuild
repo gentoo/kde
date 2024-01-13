@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	app-doc/doxygen
+	app-text/doxygen
 	$(python_gen_cond_dep '
 		dev-python/jinja[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
