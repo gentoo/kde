@@ -30,7 +30,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	sys-devel/gdb
+	dev-debug/gdb
 "
 
 src_prepare() {
