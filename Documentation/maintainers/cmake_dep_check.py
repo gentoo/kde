@@ -41,7 +41,7 @@ PACKAGE_MAP = {
 	'DBusGLib': 'dev-libs/dbus-glib',
 	'dbusmenu-qt5': 'dev-libs/libdbusmenu-qt',
 	'DDCUtil': 'app-misc/ddcutil',
-	'Doxygen': 'app-doc/doxygen',
+	'Doxygen': 'app-text/doxygen',
 	'DvdRead': 'media-libs/libdvdread',
 	'ECM': 'kde-frameworks/extra-cmake-modules',
 	'EGL': 'media-libs/mesa[egl]',
