@@ -243,7 +243,7 @@ case ${ECM_QTHELP} in
 	true)
 		IUSE+=" doc"
 		COMMONDEPEND+=" doc? ( dev-qt/qt-docs:${_KFSLOT} )"
-		BDEPEND+=" doc? ( >=app-doc/doxygen-1.8.13-r1 )"
+		BDEPEND+=" doc? ( >=app-text/doxygen-1.8.13-r1 )"
 		if [[ ${_KFSLOT} == 6 ]]; then
 			BDEPEND+=" dev-qt/qttools:${_KFSLOT}[assistant]"
 		else
