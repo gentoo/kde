@@ -21,7 +21,7 @@ IUSE="doc gui test"
 
 BDEPEND="
 	>=dev-qt/linguist-tools-${QTMIN}:5
-	doc? ( app-doc/doxygen[dot] )
+	doc? ( app-text/doxygen[dot] )
 "
 DEPEND="
 	>=dev-qt/qtcharts-${QTMIN}:5
