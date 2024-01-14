@@ -38,7 +38,7 @@ RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 	>=kde-frameworks/kdeclarative-${PVCUT}:6
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:6 )
-	kaccounts? ( >=net-libs/accounts-qml-0.7-r3[qt6] )
+	kaccounts? ( >=net-libs/accounts-qml-0.7_p20231028[qt6] )
 "
 BDEPEND="kaccounts? ( dev-util/intltool )"
 
