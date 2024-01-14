@@ -16,7 +16,6 @@ KEYWORDS=""
 IUSE="+gtk"
 
 DEPEND="
-	dev-libs/kirigami-addons:6
 	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
