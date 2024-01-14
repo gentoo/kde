@@ -33,8 +33,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
-	>=net-libs/accounts-qt-1.16-r1[qt5?,qt6]
-	>=net-libs/signond-8.61-r1[qt5?,qt6]
+	>=net-libs/accounts-qt-1.16_p20220803[qt5?,qt6]
+	>=net-libs/signond-8.61-r100[qt5?,qt6]
 	qt5? (
 		>=dev-qt/qtdeclarative-${QT5MIN}:5
 		>=dev-qt/qtgui-${QT5MIN}:5

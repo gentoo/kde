@@ -31,8 +31,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
-	>=net-libs/accounts-qt-1.16-r1[qt5]
-	>=net-libs/signond-8.61-r1[qt5]
+	net-libs/accounts-qt[qt5(+)]
+	net-libs/signond[qt5(+)]
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/qcoro5
