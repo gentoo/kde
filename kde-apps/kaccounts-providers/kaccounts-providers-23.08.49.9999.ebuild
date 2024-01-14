@@ -32,8 +32,8 @@ DEPEND="
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}
-	>=net-libs/signon-oauth2-0.25-r1[qt5]
-	>=net-libs/signon-ui-0.17[-qt6]
+	net-libs/signon-oauth2[qt5(+)]
+	net-libs/signon-ui
 "
 BDEPEND="
 	dev-util/intltool
