@@ -40,7 +40,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	kf6compat? ( kde-frameworks/purpose:6 )
+	kf6compat? ( kde-frameworks/purpose:6[kaccounts?] )
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${PVCUT}:5
