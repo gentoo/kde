@@ -15,6 +15,6 @@ KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 DEPEND="
 	>=kde-frameworks/kwallet-${KFMIN}:5
-	>=net-libs/signond-8.61-r1[qt5(-)]
+	>=net-libs/signond-8.61-r100[qt5(-)]
 "
 RDEPEND="${DEPEND}"

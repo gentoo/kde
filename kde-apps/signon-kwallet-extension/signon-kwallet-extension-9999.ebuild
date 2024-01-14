@@ -15,6 +15,6 @@ KEYWORDS=""
 
 DEPEND="
 	>=kde-frameworks/kwallet-${KFMIN}:6
-	>=net-libs/signond-8.61-r1[qt6]
+	>=net-libs/signond-8.61-r100[qt6]
 "
 RDEPEND="${DEPEND}"
