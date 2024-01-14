@@ -36,7 +36,7 @@ DEPEND="
 			kde-apps/kaccounts-integration:6[qt5]
 			kde-apps/kaccounts-integration:5
 		)
-		>=net-libs/accounts-qt-1.16-r1[qt5(-)]
+		net-libs/accounts-qt[qt5(+)]
 	)
 "
 RDEPEND="${DEPEND}
@@ -45,7 +45,7 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${PVCUT}:5
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:5 )
-	kaccounts? ( >=net-libs/accounts-qml-0.7-r3[qt5(-)] )
+	kaccounts? ( net-libs/accounts-qml[qt5(+)] )
 "
 BDEPEND="kaccounts? ( dev-util/intltool )"
 

@@ -36,7 +36,7 @@ DEPEND="
 			kde-apps/kaccounts-integration:6[qt5]
 			kde-apps/kaccounts-integration:5
 		)
-		>=net-libs/accounts-qt-1.16-r1[qt5(-)]
+		>=net-libs/accounts-qt-1.16_p20220803[qt5(-)]
 	)
 "
 RDEPEND="${DEPEND}

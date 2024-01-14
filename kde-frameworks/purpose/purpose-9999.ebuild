@@ -31,7 +31,7 @@ DEPEND="
 	=kde-frameworks/prison-${PVCUT}*:6
 	kaccounts? (
 		kde-apps/kaccounts-integration:6
-		>=net-libs/accounts-qt-1.16-r1[qt6]
+		>=net-libs/accounts-qt-1.16_p20220803[qt6]
 	)
 "
 RDEPEND="${DEPEND}
