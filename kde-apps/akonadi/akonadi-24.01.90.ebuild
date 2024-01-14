@@ -38,8 +38,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	kaccounts? (
-		>=kde-apps/kaccounts-integration-20.08.3:6
-		>=net-libs/accounts-qt-1.16-r1[qt6]
+		kde-apps/kaccounts-integration:6
+		>=net-libs/accounts-qt-1.16_p20220803[qt6]
 	)
 	xml? ( dev-libs/libxml2 )
 "
