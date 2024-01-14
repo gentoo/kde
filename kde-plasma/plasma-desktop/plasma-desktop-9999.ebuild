@@ -86,7 +86,7 @@ COMMON_DEPEND="
 	)
 	kaccounts? (
 		kde-apps/kaccounts-integration:6
-		>=net-libs/accounts-qt-1.16-r1[qt6]
+		>=net-libs/accounts-qt-1.16_p20220803[qt6]
 	)
 	scim? ( app-i18n/scim )
 	sdl? ( media-libs/libsdl2[joystick] )
@@ -113,7 +113,7 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/util-linux
 	x11-apps/setxkbmap
 	x11-misc/xdg-user-dirs
-	kaccounts? ( >=net-libs/signon-oauth2-0.25-r1[qt6] )
+	kaccounts? ( >=net-libs/signon-oauth2-0.25_p20210102[qt6] )
 	screencast? ( >=kde-plasma/kpipewire-${PVCUT}:6 )
 "
 BDEPEND="
