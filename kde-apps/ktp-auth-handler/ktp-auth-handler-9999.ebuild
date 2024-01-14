@@ -33,8 +33,8 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=net-libs/accounts-qt-1.16-r1[qt5(-)]
-	>=net-libs/signond-8.61-r1[qt5(-)]
+	>=net-libs/accounts-qt-1.16_p20220803[qt5(-)]
+	>=net-libs/signond-8.61-r100[qt5(-)]
 	>=net-libs/telepathy-qt-0.9.8
 "
 RDEPEND="${DEPEND}
