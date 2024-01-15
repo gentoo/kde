@@ -1,6 +1,12 @@
 ~dev-libs/appstream-1.0.1
 ~dev-libs/kirigami-addons-0.11.90
+~kde-apps/kaccounts-integration-24.01.90
 ~kde-apps/spectacle-24.01.90
 ~kde-misc/kio-fuse-5.1.0
 =kde-plasma/print-manager-23.08.5-r100
 ~media-libs/libqaccessibilityclient-0.6.0
+~net-libs/accounts-qml-0.7_p20231028
+~net-libs/accounts-qt-1.16_p20220803
+~net-libs/signond-8.61-r100
+~net-libs/signon-oauth2-0.25_p20210102
+~net-libs/signon-ui-0.15_p20231016
