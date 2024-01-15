@@ -1,0 +1,28 @@
+From f23a2448b00e1aa83158bfdb66a1f981afe61938 Mon Sep 17 00:00:00 2001
+From: Nicolas Fella <nicolas.fella@gmx.de>
+Date: Fri, 12 Jan 2024 01:02:46 +0100
+Subject: [PATCH] Fix loading okularpart
+
+Adapt to the new location
+
+(cherry picked from commit 53fb06d6b4a931b87364a87fcced459b5824b678)
+---
+ shell/shell.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/shell/shell.cpp b/shell/shell.cpp
+index 0a006d5cad..9074a16037 100644
+--- a/shell/shell.cpp
++++ b/shell/shell.cpp
+@@ -201,7 +201,7 @@ Shell::Shell(const QString &serializedOptions)
+     // name which is a bad idea usually.. but it's alright in this
+     // case since our Part is made for this Shell
+ 
+-    const auto result = KPluginFactory::loadFactory(KPluginMetaData(QStringLiteral("okularpart")));
++    const auto result = KPluginFactory::loadFactory(KPluginMetaData(QStringLiteral("kf6/parts/okularpart")));
+ 
+     if (!result) {
+         // if we couldn't find our Part, we exit since the Shell by
+-- 
+GitLab
+

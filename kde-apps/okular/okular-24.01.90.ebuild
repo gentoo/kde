@@ -61,6 +61,8 @@ RDEPEND="${DEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-24.01.80-tests.patch" # bug 734138
 	"${FILESDIR}/${PN}-20.08.2-hide-mobile-app.patch" # avoid same-name entry
+	"${FILESDIR}/${P}-fix-compile-path.patch"
+	"${FILESDIR}/${P}-fix-loading-okularpart.patch"
 )
 
 src_configure() {
