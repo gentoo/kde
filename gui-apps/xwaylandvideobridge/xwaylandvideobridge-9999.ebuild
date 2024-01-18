@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.245.0
+QTMIN=6.6.0
 KDE_ORG_CATEGORY="system"
 inherit ecm kde.org
 
@@ -21,16 +21,14 @@ LICENSE="GPL-2+"
 SLOT="0"
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
-	>=kde-plasma/kpipewire-5.27.4:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	kde-plasma/kpipewire:6
 	media-libs/freetype
 	x11-libs/libxcb:=
 	x11-libs/xcb-util
