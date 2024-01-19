@@ -37,5 +37,5 @@ DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	dev-util/valgrind
+	dev-debug/valgrind
 "
