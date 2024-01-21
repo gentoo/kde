@@ -68,7 +68,7 @@ RDEPEND="${PYTHON_DEPS}
 	fftw? ( sci-libs/fftw:3.0= )
 	gif? ( media-libs/giflib )
 	gsl? ( sci-libs/gsl:= )
-	jpegxl? ( >=media-libs/libjxl-0.7.0_pre20220825 )
+	jpegxl? ( >=media-libs/libjxl-0.7.0_pre20220825:= )
 	heif? ( >=media-libs/libheif-1.11:=[x265] )
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? ( media-libs/openexr:= )
