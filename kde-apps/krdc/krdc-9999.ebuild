@@ -37,7 +37,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	activities? ( kde-plasma/plasma-activities:6 )
-	rdp? ( >=net-misc/freerdp-2.1.0:= )
+	rdp? ( >=net-misc/freerdp-2.1.0:= <net-misc/freerdp-3 )
 	vnc? (
 		net-libs/libssh:=
 		>=net-libs/libvncserver-0.9
