@@ -7,7 +7,7 @@ ECM_QTHELP="true"
 ECM_TEST="true"
 KDE_ORG_NAME="ktnef"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.248.0
+KFMIN=5.249.0
 QTMIN=6.6.0
 inherit ecm gear.kde.org
 

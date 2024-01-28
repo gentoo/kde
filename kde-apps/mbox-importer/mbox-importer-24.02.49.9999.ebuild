@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.248.0
+KFMIN=5.249.0
 QTMIN=6.6.0
 inherit ecm gear.kde.org
 
