@@ -41,7 +41,7 @@ RDEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=media-libs/phonon-4.11.0[qt5(+)]
-	>=media-libs/taglib-1.6
+	>=media-libs/taglib-1.6:=
 "
 DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5

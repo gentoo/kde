@@ -40,7 +40,7 @@ DEPEND="
 	exif? ( media-gfx/exiv2:= )
 	office? ( >=kde-frameworks/karchive-${KFMIN}:5 )
 	pdf? ( app-text/podofo:= )
-	taglib? ( media-libs/taglib )
+	taglib? ( media-libs/taglib:= )
 	truetype? ( media-libs/freetype:2 )
 "
 RDEPEND="${DEPEND}"

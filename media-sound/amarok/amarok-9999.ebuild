@@ -58,7 +58,7 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
 	>=media-libs/phonon-4.11.0[qt5(+)]
-	media-libs/taglib
+	media-libs/taglib:=
 	media-libs/taglib-extras
 	sci-libs/fftw:3.0
 	sys-libs/zlib

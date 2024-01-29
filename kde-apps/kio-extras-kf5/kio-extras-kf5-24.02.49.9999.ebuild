@@ -64,7 +64,7 @@ DEPEND="
 		net-libs/kdsoap:=[qt5(+)]
 	)
 	sftp? ( net-libs/libssh:=[sftp] )
-	taglib? ( >=media-libs/taglib-1.11.1 )
+	taglib? ( >=media-libs/taglib-1.11.1:= )
 	X? (
 		x11-libs/libX11
 		x11-libs/libXcursor

@@ -62,7 +62,7 @@ DEPEND="
 		>=net-libs/kdsoap-ws-discovery-client-0.3.0
 	)
 	sftp? ( net-libs/libssh:=[sftp] )
-	taglib? ( >=media-libs/taglib-1.11.1 )
+	taglib? ( >=media-libs/taglib-1.11.1:= )
 	X? (
 		x11-libs/libX11
 		x11-libs/libXcursor

@@ -34,7 +34,7 @@ DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/syndication-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
-	media-libs/taglib
+	media-libs/taglib:=
 	gstreamer? (
 		dev-libs/glib:2
 		media-libs/gstreamer:1.0

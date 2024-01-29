@@ -49,7 +49,7 @@ RDEPEND="
 	mp3? ( media-libs/id3lib )
 	mp4? ( media-libs/libmp4v2 )
 	mpris? ( dev-qt/qtdbus:5 )
-	taglib? ( >=media-libs/taglib-1.9.1 )
+	taglib? ( >=media-libs/taglib-1.9.1:= )
 	vorbis? (
 		media-libs/libogg
 		media-libs/libvorbis

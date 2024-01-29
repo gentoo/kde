@@ -42,7 +42,7 @@ COMMON_DEPEND="
 	ipfilter? ( >=kde-frameworks/karchive-${KFMIN}:6 )
 	mediaplayer? (
 		>=media-libs/phonon-4.12.0[qt6]
-		>=media-libs/taglib-1.5
+		>=media-libs/taglib-1.5:=
 	)
 	rss? (
 		>=dev-qt/qtwebengine-${QTMIN}:6
