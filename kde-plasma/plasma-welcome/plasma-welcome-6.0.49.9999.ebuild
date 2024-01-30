@@ -40,15 +40,6 @@ RDEPEND="${DEPEND}
 	discover? ( kde-plasma/discover:6 )
 "
 
-src_prepare() {
-	ecm_src_prepare
-
-	if ! use discover; then
-		sed -e "s:pageStack.push(discover);:// & disabled by IUSE=discover:" \
-			-i src/contents/ui/Main.qml || die
-	fi
-}
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package telemetry KF6UserFeedback)
