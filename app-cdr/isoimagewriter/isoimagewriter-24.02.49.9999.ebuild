@@ -12,6 +12,7 @@ HOMEPAGE="https://community.kde.org/ISOImageWriter"
 
 LICENSE="GPL-3"
 SLOT="6"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
