@@ -60,7 +60,10 @@ DEPEND="
 		>=net-libs/kdsoap-2.2.0:=[qt6]
 		>=net-libs/kdsoap-ws-discovery-client-0.3.0
 	)
-	sftp? ( net-libs/libssh:=[sftp] )
+	sftp? (
+		dev-cpp/ms-gsl
+		net-libs/libssh:=[sftp]
+	)
 	taglib? ( >=media-libs/taglib-1.11.1:= )
 	X? (
 		x11-libs/libX11
