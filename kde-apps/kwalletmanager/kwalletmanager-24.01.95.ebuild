@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.249.0
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Tool to manage the passwords on your system using KDE Wallet"

@@ -7,7 +7,7 @@ ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="pim"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.249.0
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Digital travel assistant with a priority on protecting your privacy"

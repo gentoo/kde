@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_CATEGORY=graphics
 KFMIN=5.249.0
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Provides interfaces and session daemon to colord"

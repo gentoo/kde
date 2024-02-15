@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="network"
 KFMIN=5.249.0
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="BitTorrent library based on KDE Frameworks"

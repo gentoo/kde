@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Integrate Chrome/Firefox better into Plasma through browser extensions"

@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_NAME="kate"
 ECM_HANDBOOK="optional"
 KFMIN=5.249.0
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm flag-o-matic gear.kde.org
 
 DESCRIPTION="Simple text editor based on KDE Frameworks"

@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_NAME="kdegraphics-thumbnailers"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.249.0
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Thumbnail generators for Mobipocket, PDF/PS and RAW files"

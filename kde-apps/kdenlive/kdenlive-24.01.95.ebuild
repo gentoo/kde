@@ -8,7 +8,7 @@ ECM_HANDBOOK="optional"
 ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=5.249.0
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Non-linear video editing suite by KDE"

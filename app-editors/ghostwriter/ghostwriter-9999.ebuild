@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_CATEGORY="office"
 ECM_HANDBOOK="optional"
 KFMIN=5.249.0
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Cross-platform, aesthetic, distraction-free markdown editor"

@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="false"
 KFMIN=5.240.0
-QTMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm kde.org
 
 DESCRIPTION="Breeze inspired QQC2 Style"
