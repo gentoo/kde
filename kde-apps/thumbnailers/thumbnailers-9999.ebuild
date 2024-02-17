@@ -31,8 +31,8 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_MOBIPOCKET=$(usex !mobi)
-		$(cmake_use_find_package raw KF6KExiv2)
-		$(cmake_use_find_package raw KF6KDcraw)
+		$(cmake_use_find_package raw KExiv2Qt6)
+		$(cmake_use_find_package raw KDcrawQt6)
 	)
 
 	ecm_src_configure
