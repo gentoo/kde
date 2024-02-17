@@ -201,7 +201,7 @@ src_configure() {
 		$(cmake_use_find_package geolocation KF6NetworkManagerQt)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
-		$(cmake_use_find_package wallpaper-metadata KF6KExiv2)
+		$(cmake_use_find_package wallpaper-metadata KExiv2Qt6)
 	)
 
 	ecm_src_configure
