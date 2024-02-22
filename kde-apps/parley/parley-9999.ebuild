@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/parley/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE=""
+IUSE="webengine"
 
 DEPEND="
 	app-i18n/translate-shell
@@ -25,7 +25,6 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/libkeduvocdocument-${PVCUT}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -41,6 +40,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
 "
 RDEPEND="${DEPEND}
 	>=kde-apps/kdeedu-data-${PVCUT}:*
@@ -49,6 +49,14 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	ecm_src_prepare
 	cmake_comment_add_subdirectory plugins
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_BROWSERINTEGRATION=$(usex webengine)
+	)
+
+	ecm_src_configure
 }
 
 pkg_postinst() {
