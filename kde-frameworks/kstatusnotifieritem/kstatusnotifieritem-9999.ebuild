@@ -13,8 +13,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="X"
 
+# slot op: Qt6::WidgetsPrivate use
 RDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
 	=kde-frameworks/kwindowsystem-${PVCUT}*:6[X?]
 "
 DEPEND="${RDEPEND}"
