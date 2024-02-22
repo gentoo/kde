@@ -12,4 +12,4 @@
 ~net-libs/signond-8.61-r100
 ~net-libs/signon-oauth2-0.25_p20210102
 ~net-libs/signon-ui-0.15_p20231016
-~sys-auth/polkit-qt-0.175.0
+~sys-auth/polkit-qt-0.200.0
