@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-libs/kirigami-addons:6
+	>=dev-libs/kirigami-addons-0.9.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
@@ -31,8 +31,5 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
-	>=kde-frameworks/knotifications-${KFMIN}:6
-	>=kde-frameworks/knotifyconfig-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6]
 "
 RDEPEND="${DEPEND}"
