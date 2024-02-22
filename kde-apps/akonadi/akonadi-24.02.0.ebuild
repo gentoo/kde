@@ -6,7 +6,7 @@ EAPI=8
 ECM_DESIGNERPLUGIN="true"
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
-KFMIN=5.249.0
+KFMIN=6.0
 QTMIN=6.6.2
 VIRTUALDBUS_TEST="true"
 inherit ecm gear.kde.org readme.gentoo-r1
