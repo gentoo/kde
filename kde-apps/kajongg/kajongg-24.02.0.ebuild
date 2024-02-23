@@ -25,7 +25,6 @@ DEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/libkdegames-${PVCUT}:6
-	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	$(python_gen_cond_dep '
 		dev-python/QtPy[gui,svg,widgets,${PYTHON_USEDEP}]
