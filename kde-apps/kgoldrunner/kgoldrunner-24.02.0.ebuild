@@ -36,3 +36,4 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
+BDEPEND="app-alternatives/gzip"
