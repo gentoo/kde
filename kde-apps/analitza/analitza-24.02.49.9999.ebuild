@@ -16,6 +16,7 @@ IUSE="eigen"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[-gles2-only,gui,widgets,xml]
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	eigen? ( dev-cpp/eigen:3 )
