@@ -18,8 +18,10 @@ KEYWORDS="~amd64"
 IUSE="readline"
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[gui,opengl,widgets]
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/analitza-${PVCUT}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
