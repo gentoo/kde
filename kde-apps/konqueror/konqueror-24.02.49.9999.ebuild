@@ -42,10 +42,12 @@ COMMON_DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/sonnet-${KFMIN}:6
 	sys-libs/zlib
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )
 "
