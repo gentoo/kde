@@ -16,9 +16,13 @@ SLOT="6"
 KEYWORDS="~amd64"
 IUSE="+man"
 
+# TODO: X handling?
+# 51228bab29102d03f2f973ca5c34500de8d908a8
+# fa227b2f1c94c11486cc696c728c8ac4781d4ed8
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
