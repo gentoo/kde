@@ -22,7 +22,6 @@ IUSE="activities fits +mpris raw semantic-desktop share X"
 RESTRICT="test"
 
 # slot op: includes qpa/qplatformnativeinterface.h
-# TODO: When Qt6 version available: >=media-libs/kimageannotator-0.5.0, media-libs/kcolorpicker
 COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[gui,widgets]
@@ -46,11 +45,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	media-gfx/exiv2:=
+	>=media-libs/kimageannotator-0.7.0
+	>=media-libs/kcolorpicker-0.3.0
 	media-libs/lcms:2
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
-	>=media-libs/kimageannotator-0.7.0
-	>=media-libs/kcolorpicker-0.3.0
 	>=media-libs/phonon-4.12.0[qt6]
 	media-libs/tiff:=
 	activities? ( kde-plasma/plasma-activities:6 )
