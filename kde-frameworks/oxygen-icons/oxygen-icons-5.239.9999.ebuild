@@ -8,6 +8,7 @@ QTMIN=5.15.9
 inherit cmake frameworks.kde.org xdg-utils
 
 DESCRIPTION="Oxygen SVG icon theme"
+HOMEPAGE="https://develop.kde.org/frameworks/oxygen-icons/"
 
 LICENSE="LGPL-3"
 KEYWORDS=""
