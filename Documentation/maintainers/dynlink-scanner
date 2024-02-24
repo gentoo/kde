@@ -16,11 +16,6 @@ get_link_deps()
 # Print linking deps for given executable or shared object in alphabetical order.
 # Also try to dlopen shared objects in order to detect missing/broken dependencies.
 if [[ "$1" = --linking-deps ]]; then
-	# Sanity check, file-5.12 is broken, bail out early
-	if [[ `file --version | grep --color=never file- | cut -d'-' -f2` == '5.12' ]]; then
-		echo "file-5.12 is broken, bailing out"
-		exit 1
-	fi
 	mime=`file -b --mime-type "$2"`
 	if [[ "$mime" == 'application/x-pie-executable' ]] || [[ "$mime" == 'application/x-executable' ]] || [[ "${mime}" == 'application/x-sharedlib' ]]; then
 		LINK=`get_link_deps "$2"`
@@ -39,6 +34,12 @@ if ! portageq has_version $ROOT/ $1; then
 	exit 1
 fi
 
+# Sanity check, file-5.12 is broken, bail out early
+if [[ `file --version | grep --color=never file- | cut -d'-' -f2` == '5.12' ]]; then
+	echo "file-5.12 is broken, bailing out"
+	exit 1
+fi
+
 # Compile dlopen test application, we will use it to check for broken linking dependencies
 gcc "`dirname $0`/try_dlopen.c" -o /tmp/try_dlopen -ldl
 
@@ -48,7 +49,7 @@ for cpv in `portageq match $ROOT/ $1`; do
 	# For each file that belongs to package
 	#     run dynlink-scanner --linking-deps <file> to obtain its linking dependencies
 	# Assign all linking deps to packages and print package names
-	qfile -R $ROOT `portageq contents $ROOT/ $cpv | xargs -r -L 1 "$0" --linking-deps` | cut -f1 -d' ' | sort -u
+	qfile -R $ROOT `portageq contents $ROOT/ $cpv | xargs -r -L 1 "$0" --linking-deps` | cut -f1 -d':' | sort -u
 done
 
 # Cleanup
