@@ -16,8 +16,8 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="!kde-frameworks/${PN}:5"
+DEPEND="test? ( >=dev-qt/qtbase-${QTMIN}:6 )"
 BDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6
 	>=kde-frameworks/extra-cmake-modules-${PVCUT}:0
 	test? ( app-misc/fdupes )
 "
