@@ -16,15 +16,19 @@ LICENSE="GPL-3+ handbook? ( CC-BY-SA-4.0 )"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# TODO: Wire up kunifiedpush once packaged? (1a3055df8673802076bc0c269ec24274abef375b)
 DEPEND="
 	app-text/cmark:=
 	dev-libs/kirigami-addons:6
-	dev-libs/qcoro
+	>=dev-libs/icu-61.0:=
+	dev-libs/qcoro[network]
 	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[gstreamer]
 	>=dev-qt/qtsvg-${QTMIN}:6
+	>=dev-qt/qtwebview-${QTMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -47,5 +51,6 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtpositioning-${QTMIN}:6[qml]
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
+	>=kde-frameworks/prison-${KFMIN}:6[qml]
 "
 BDEPEND="virtual/pkgconfig"
