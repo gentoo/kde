@@ -18,10 +18,13 @@ SLOT="6"
 KEYWORDS=""
 IUSE="share"
 
+# TODO: Check if qtsvg is still needed after upstream commit f851494a9f3f550842c5bf1b55442313ab300b22
+# I think it is b/c qml?
 COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -40,6 +43,7 @@ COMMON_DEPEND="
 	kde-plasma/kpipewire:6
 	kde-plasma/layer-shell-qt:6
 	x11-libs/libxcb
+	x11-libs/libXrandr
 	x11-libs/xcb-util
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
@@ -53,7 +57,6 @@ RDEPEND="${COMMON_DEPEND}
 		>=dev-qt/qttools-${QTMIN}:6[qdbus]
 		dev-qt/qdbus:0
 	)
-	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
 BDEPEND="
