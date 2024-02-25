@@ -14,7 +14,7 @@ HOMEPAGE="https://invent.kde.org/libraries/kpublictransport
 	https://www.volkerkrause.eu/2019/03/02/kpublictransport-introduction.html"
 
 LICENSE="LGPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS="~amd64"
 IUSE="networkmanager"
 
