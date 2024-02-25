@@ -17,6 +17,8 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
+# TODO: could use BUILD_SASL_PLUGIN option if needed for coinstallability
+# see upstream commit f9027dc020566c02be6b6d942a9bf20f3f097564
 DEPEND="
 	dev-libs/cyrus-sasl:2
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
