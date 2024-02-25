@@ -17,7 +17,9 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
+# TODO: Do we want to wire up BUILD_QUICK_SUPPORT?
 DEPEND="
+	>=dev-libs/ktextaddons-1.4.42:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-apps/kpimtextedit-${PVCUT}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -25,7 +27,6 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
-	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
