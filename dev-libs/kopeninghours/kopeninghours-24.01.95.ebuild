@@ -16,7 +16,7 @@ HOMEPAGE="https://api.kde.org/kopeninghours/html/index.html
 https://invent.kde.org/libraries/kopeninghours"
 
 LICENSE="LGPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS="~amd64"
 IUSE="python"
 
