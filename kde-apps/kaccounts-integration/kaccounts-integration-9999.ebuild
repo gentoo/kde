@@ -28,10 +28,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
-	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
-	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=net-libs/accounts-qt-1.16_p20220803[qt5?,qt6]
 	>=net-libs/signond-8.61-r100[qt5?,qt6]
@@ -42,7 +40,6 @@ COMMON_DEPEND="
 		>=kde-frameworks/kconfig-${KF5MIN}:5
 		>=kde-frameworks/kcoreaddons-${KF5MIN}:5
 		>=kde-frameworks/kdbusaddons-${KF5MIN}:5
-		>=kde-frameworks/kdeclarative-${KF5MIN}:5
 		>=kde-frameworks/ki18n-${KF5MIN}:5
 		>=kde-frameworks/kio-${KF5MIN}:5
 		>=kde-frameworks/kwallet-${KF5MIN}:5
@@ -62,9 +59,7 @@ RDEPEND="${COMMON_DEPEND}
 	dev-util/intltool
 "
 BDEPEND="
-	>=kde-frameworks/kpackage-${KFMIN}:6
 	sys-devel/gettext
-	qt5? ( >=kde-frameworks/kpackage-${KF5MIN}:5 )
 "
 
 pkg_setup() {
