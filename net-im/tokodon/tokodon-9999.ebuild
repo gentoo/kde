@@ -15,6 +15,7 @@ LICENSE="CC-BY-SA-4.0 GPL-2+ GPL-3+ || ( LGPL-2.1+ LGPL-3+ ) MIT"
 SLOT="0"
 KEYWORDS=""
 
+# TODO: Add kunifiedpush support once packaged (cd01eb31d1ec298d4c1e10d25a0781d799161bfc)
 DEPEND="
 	dev-libs/kirigami-addons:6
 	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
