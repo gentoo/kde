@@ -21,7 +21,6 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-apps/kaccounts-integration-${PVCUT}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
-	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kpackage-${KFMIN}:6
@@ -35,7 +34,7 @@ BDEPEND="dev-util/intltool"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package webengine Qt6WebEngine)
+		$(cmake_use_find_package webengine Qt6WebEngineQuick)
 	)
 	ecm_src_configure
 }
