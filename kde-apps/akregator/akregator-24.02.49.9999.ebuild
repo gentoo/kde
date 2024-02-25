@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE="speech telemetry"
 
 RDEPEND="
+	>=dev-libs/ktextaddons-1.4.42:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6
 	>=kde-apps/grantleetheme-${PVCUT}:6
@@ -40,6 +41,7 @@ RDEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
