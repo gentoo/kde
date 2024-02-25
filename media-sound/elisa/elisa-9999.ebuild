@@ -20,6 +20,7 @@ IUSE="mpris +vlc"
 RESTRICT="test"
 
 DEPEND="
+	>=dev-libs/kirigami-addons-0.11.76:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,sql,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
