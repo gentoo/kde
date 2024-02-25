@@ -191,6 +191,7 @@ if $(ver_test -gt 24.01.75); then
 		kpimtextedit | \
 		kpkpass | \
 		kpmcore | \
+		kpublictransport | \
 		kreversi | \
 		krfb | \
 		kruler | \
@@ -259,7 +260,6 @@ if $(ver_test -gt 24.03.75); then
 		kmplot | \
 		kolourpaint | \
 		kompare | \
-		kpublictransport | \
 		krdc | \
 		ksanecore | \
 		libkeduvocdocument | \
