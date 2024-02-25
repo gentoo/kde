@@ -19,17 +19,16 @@ IUSE=""
 
 DEPEND="
 	dev-libs/libical
+	>=dev-libs/ktextaddons-1.4.42:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qttools-${QTMIN}:6[designer]
 	>=kde-apps/akonadi-${PVCUT}:6
 	>=kde-apps/akonadi-calendar-${PVCUT}:6
-	>=kde-apps/akonadi-mime-${PVCUT}:6
 	>=kde-apps/akonadi-notes-${PVCUT}:6
 	>=kde-apps/kcalutils-${PVCUT}:6
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
 	>=kde-apps/kmime-${PVCUT}:6
 	>=kde-apps/libkdepim-${PVCUT}:6
-	>=kde-apps/kpimtextedit-${PVCUT}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
