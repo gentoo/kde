@@ -22,6 +22,7 @@ RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
