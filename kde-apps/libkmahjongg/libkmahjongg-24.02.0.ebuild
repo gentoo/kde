@@ -11,7 +11,7 @@ DESCRIPTION="Mahjongg library based on Qt/KDE Frameworks"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
