@@ -22,7 +22,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
-	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kdnssd-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
@@ -46,6 +45,7 @@ COMMON_DEPEND="
 		>=dev-qt/qtwayland-${QTMIN}:6
 		kde-plasma/kpipewire:6
 		kde-plasma/kwayland:6
+		>=media-video/pipewire-0.3
 	)
 "
 DEPEND="${COMMON_DEPEND}
