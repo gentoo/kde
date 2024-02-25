@@ -21,6 +21,7 @@ IUSE=""
 # All of the tests involve interacting with akonadi right now (as of 22.04)
 RESTRICT="test"
 
+# TODO: Needs messagecomposer
 DEPEND="
 	app-crypt/gpgme:=[cxx]
 	dev-libs/kirigami-addons:6
@@ -32,6 +33,9 @@ DEPEND="
 	>=kde-apps/akonadi-mime-${PVCUT}:6
 	>=kde-apps/kcalutils-${PVCUT}:6
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
+	>=kde-apps/kmailtransport-${PVCUT}:6
+	>=kde-apps/kmbox-${PVCUT}:6
+	>=kde-apps/kmime-${PVCUT}:6
 	>=kde-apps/mailcommon-${PVCUT}:6
 	>=kde-apps/mimetreeparser-${PVCUT}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
@@ -47,6 +51,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
+# TODO: is qt5compat still needed? 578c2acf4da3e7b26206a9834a79928630f76ecf
 # qtlocation is needed at runtime only or fails to start
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
