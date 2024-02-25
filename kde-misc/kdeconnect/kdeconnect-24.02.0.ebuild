@@ -17,12 +17,11 @@ HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect/"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64"
-IUSE="bluetooth pulseaudio telephony X"
+IUSE="bluetooth pulseaudio telephony zeroconf X"
 
 RESTRICT="test"
 
 COMMON_DEPEND="
-	dev-libs/glib:2
 	dev-libs/openssl:=
 	>=dev-libs/wayland-1.15.0
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
@@ -34,7 +33,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
-	>=kde-frameworks/kdnssd-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
@@ -53,6 +51,7 @@ COMMON_DEPEND="
 	bluetooth? ( >=dev-qt/qtconnectivity-${QTMIN}:6[bluetooth] )
 	pulseaudio? ( >=media-libs/pulseaudio-qt-1.4:= )
 	telephony? ( >=kde-frameworks/modemmanager-qt-${KFMIN}:6 )
+	zeroconf? ( >=kde-frameworks/kdnssd-${KFMIN}:6 )
 	X? (
 		x11-libs/libfakekey
 		x11-libs/libX11
@@ -78,7 +77,7 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		-DMDNS_ENABLED=ON
+		-DMDNS_ENABLED=$(usex zeroconf)
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
 		-DWITH_PULSEAUDIO=$(usex pulseaudio)
 		$(cmake_use_find_package telephony KF6ModemManagerQt)
