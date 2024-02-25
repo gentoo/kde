@@ -22,7 +22,6 @@ DEPEND="
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/grantleetheme-${PVCUT}:6
 	>=kde-apps/kontactinterface-${PVCUT}:6
-	>=kde-apps/kpimtextedit-${PVCUT}:6
 	>=kde-apps/libkdepim-${PVCUT}:6
 	>=kde-apps/mailcommon-${PVCUT}:6
 	>=kde-apps/pimcommon-${PVCUT}:6
