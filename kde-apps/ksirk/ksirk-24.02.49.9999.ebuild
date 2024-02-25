@@ -15,11 +15,11 @@ HOMEPAGE="https://apps.kde.org/ksirk/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE=""
+IUSE="xmpp"
 
 DEPEND="
-	>=app-crypt/qca-2.3.7:2[qt6]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
+	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/libkdegames-${PVCUT}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -28,12 +28,22 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
-	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6]
 	sys-libs/zlib
+	xmpp? (
+		>=app-crypt/qca-2.3.7:2[qt6]
+		>=kde-frameworks/kio-${KFMIN}:6
+		>=kde-frameworks/kwallet-${KFMIN}:6
+	)
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_JABBER_SUPPORT=$(usex xmpp)
+	)
+
+	ecm_src_configure
+}
