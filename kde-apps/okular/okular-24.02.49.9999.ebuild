@@ -20,7 +20,7 @@ IUSE="crypt djvu epub markdown mobi +pdf phonon +postscript qml share speech +ti
 
 # slot op: Uses Qt6::CorePrivate
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/libkexiv2-${PVCUT}:6
@@ -36,6 +36,7 @@ DEPEND="
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kpty-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/threadweaver-${KFMIN}:6
 	kde-plasma/plasma-activities:6
 	media-libs/freetype
