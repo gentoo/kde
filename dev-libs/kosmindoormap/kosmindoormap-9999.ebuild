@@ -15,16 +15,21 @@ HOMEPAGE="https://invent.kde.org/libraries/kosmindoormap"
 LICENSE="LGPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="+openinghours"
+IUSE="+gui"
 
+# kservice is optional and only used to find and open josm
 RDEPEND="
-	>=dev-libs/kpublictransport-${PVCUT}:6
 	dev-libs/protobuf:=
-	>=dev-qt/qtbase-${QTMIN}:6[gui,network]
-	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui?,network]
 	sys-libs/zlib
-	openinghours? ( >=dev-libs/kopeninghours-${PVCUT}:6 )
+	gui? (
+		>=dev-libs/kopeninghours-${PVCUT}:6
+		>=dev-libs/kpublictransport-${PVCUT}:6
+		>=dev-qt/qtdeclarative-${QTMIN}:6
+		>=kde-frameworks/kcoreaddons-${KFMIN}:6
+		>=kde-frameworks/ki18n-${KFMIN}:6
+		>=kde-frameworks/kservice-${KFMIN}:6
+	)
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtbase-${QTMIN}:6[widgets] )
@@ -36,8 +41,8 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_TOOLS_ONLY=$(usex !gui)
 		-DCMAKE_DISABLE_FIND_PACKAGE_OsmTools=ON # we have no use for it
-		$(cmake_use_find_package openinghours KOpeningHours)
 	)
 	ecm_src_configure
 }
