@@ -185,6 +185,7 @@ if $(ver_test -gt 24.01.75); then
 		kontrast | \
 		konversation | \
 		korganizer | \
+		kosmindoormap | \
 		kpat | \
 		kpimtextedit | \
 		kpkpass | \
@@ -258,7 +259,6 @@ if $(ver_test -gt 24.03.75); then
 		kolourpaint | \
 		kompare | \
 		kopeninghours | \
-		kosmindoormap | \
 		kpublictransport | \
 		krdc | \
 		ksanecore | \
