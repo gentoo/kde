@@ -46,6 +46,8 @@ RDEPEND="${DEPEND}
 		games-board/sjeng
 	)
 "
+# TODO: || ( 7zip gzip )
+BDEPEND="app-alternatives/gzip"
 
 src_configure() {
 	local mycmakeargs=(
