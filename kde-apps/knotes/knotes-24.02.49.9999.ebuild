@@ -20,7 +20,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-libs/ktextaddons:6
+	>=dev-libs/ktextaddons-1.5.3:6
 	dev-libs/libxslt
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=kde-apps/akonadi-${PVCUT}:6
