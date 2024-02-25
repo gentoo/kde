@@ -20,7 +20,7 @@ IUSE="speech"
 RESTRICT="test"
 
 RDEPEND="
-	dev-libs/ktextaddons:6[speech?]
+	>=dev-libs/ktextaddons-1.4.42:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
