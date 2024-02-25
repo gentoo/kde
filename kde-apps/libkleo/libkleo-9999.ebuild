@@ -19,6 +19,7 @@ IUSE="+fancyviewer"
 
 RDEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
+	>=dev-libs/libgpg-error-1.36
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
