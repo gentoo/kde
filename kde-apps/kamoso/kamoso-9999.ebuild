@@ -13,7 +13,7 @@ DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
 HOMEPAGE="https://apps.kde.org/kamoso/ https://userbase.kde.org/Kamoso"
 
 LICENSE="GPL-2+"
-SLOT="6"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
