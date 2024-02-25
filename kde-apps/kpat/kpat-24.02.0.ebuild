@@ -38,6 +38,8 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
+# TODO: || ( 7zip gzip )
+BDEPEND="app-alternatives/gzip"
 
 src_configure() {
 	local mycmakeargs=(
