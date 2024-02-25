@@ -18,6 +18,7 @@ IUSE="flac vorbis"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=kde-apps/libkcddb-${PVCUT}:6
 	>=kde-apps/libkcompactdisc-${PVCUT}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
