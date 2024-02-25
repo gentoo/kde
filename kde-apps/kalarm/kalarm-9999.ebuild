@@ -23,11 +23,9 @@ DEPEND="
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
 	>=kde-apps/kmime-${PVCUT}:6
 	>=kde-apps/kontactinterface-${PVCUT}:6
-	>=kde-apps/kpimtextedit-${PVCUT}:6[speech=]
 	>=kde-apps/pimcommon-${PVCUT}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
-	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -41,18 +39,18 @@ DEPEND="
 	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
-	>=kde-frameworks/kidletime-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6]
+	media-libs/libcanberra
 	pim? (
 		>=kde-apps/akonadi-${PVCUT}:6
 		>=kde-apps/akonadi-contacts-${PVCUT}:6
