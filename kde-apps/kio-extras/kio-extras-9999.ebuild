@@ -16,7 +16,6 @@ LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
 IUSE="activities ios +man mtp openexr phonon samba +sftp taglib X"
-# disabled upstream: nfs
 
 # requires running Plasma environment
 RESTRICT="test"
@@ -68,7 +67,6 @@ DEPEND="
 		x11-libs/libXcursor
 	)
 "
-# 	nfs? ( net-libs/libtirpc:= )
 RDEPEND="${DEPEND}
 	!<kde-apps/kio-extras-23.08.5-r100:5
 	!kde-apps/kio-extras-kf5:5[-kf6compat]
@@ -84,7 +82,6 @@ src_configure() {
 		$(cmake_use_find_package ios PList)
 		$(cmake_use_find_package man Gperf)
 		$(cmake_use_find_package mtp Libmtp)
-# 		$(cmake_use_find_package nfs TIRPC)
 		$(cmake_use_find_package openexr OpenEXR)
 		$(cmake_use_find_package phonon Phonon4Qt6)
 		$(cmake_use_find_package samba Samba)
