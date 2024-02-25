@@ -22,12 +22,11 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-libs/cyrus-sasl
-	dev-libs/ktextaddons:6[speech?]
+	>=dev-libs/ktextaddons-1.5.3:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
 	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/kpimtextedit-${PVCUT}:6[speech=]
 	>=kde-apps/libkdepim-${PVCUT}:6
 	>=kde-apps/pimcommon-${PVCUT}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
