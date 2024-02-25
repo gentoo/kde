@@ -24,7 +24,7 @@ RESTRICT="test" # bug 616878
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 COMMON_DEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
-	dev-libs/ktextaddons:6[speech?]
+	>=dev-libs/ktextaddons-1.3.50:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6
@@ -64,6 +64,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
