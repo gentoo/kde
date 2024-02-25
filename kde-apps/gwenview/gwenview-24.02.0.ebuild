@@ -24,7 +24,7 @@ RESTRICT="test"
 # slot op: includes qpa/qplatformnativeinterface.h
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[gui,opengl,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
