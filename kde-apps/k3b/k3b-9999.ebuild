@@ -22,6 +22,7 @@ REQUIRED_USE="flac? ( taglib ) lame? ( taglib ) sox? ( taglib )"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=kde-apps/libkcddb-${PVCUT}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
@@ -43,7 +44,7 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:6
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread:= )
-	ffmpeg? ( media-video/ffmpeg:0= )
+	ffmpeg? ( >=media-video/ffmpeg-4.4.0:0= )
 	flac? ( >=media-libs/flac-1.2:=[cxx] )
 	lame? ( media-sound/lame )
 	mad? ( media-libs/libmad )
