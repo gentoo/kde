@@ -21,7 +21,6 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-frameworks/kcompletion-${KFMIN}:6
-	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
