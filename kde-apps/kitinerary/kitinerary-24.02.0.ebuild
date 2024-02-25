@@ -33,7 +33,7 @@ DEPEND="
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=media-libs/zxing-cpp-1.1.0:=
+	>=media-libs/zxing-cpp-1.1.1:=
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"
