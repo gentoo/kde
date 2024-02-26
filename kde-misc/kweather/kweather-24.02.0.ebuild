@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	dev-libs/kirigami-addons:6
 	dev-libs/kweathercore:6
-	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,opengl,widgets]
 	>=dev-qt/qtcharts-${QTMIN}:6[qml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
