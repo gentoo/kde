@@ -36,6 +36,7 @@ DEPEND="
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
@@ -45,6 +46,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
+	# TODO: start to use WITH_X11 option? but there's still the
+	# KX11Extras use...
 	local mycmakeargs=(
 		$(cmake_use_find_package absolute-position KWayland)
 	)
