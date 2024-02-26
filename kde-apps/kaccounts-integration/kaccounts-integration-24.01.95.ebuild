@@ -16,7 +16,7 @@ HOMEPAGE="https://community.kde.org/KTp"
 
 LICENSE="LGPL-2.1"
 SLOT="6"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64"
 IUSE="qt5"
 
 # bug #549444
