@@ -12,7 +12,7 @@ HOMEPAGE="https://apps.kde.org/khelpcenter/ https://userbase.kde.org/KHelpCenter
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
