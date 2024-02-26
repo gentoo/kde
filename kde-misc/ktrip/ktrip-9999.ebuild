@@ -3,31 +3,29 @@
 
 EAPI=8
 
-KFMIN=5.82.0
+KFMIN=6.0.0
 inherit ecm kde.org
 
 DESCRIPTION="Public transport assistant targeted towards mobile Linux and Android"
 HOMEPAGE="https://apps.kde.org/ktrip/"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-libs/kpublictransport:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcontacts-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	dev-libs/kirigami-addons:6
+	dev-libs/kpublictransport:6
+	dev-qt/qtbase:6[gui,widgets]
+	dev-qt/qtdeclarative:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcontacts-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
-	dev-qt/qtquickcontrols:5
-	dev-qt/qtquickcontrols2:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-plasma/libplasma-${KFMIN}:5
+	!${CATEGORY}/${PN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-plasma/libplasma-${KFMIN}:6
 "
