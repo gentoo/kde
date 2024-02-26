@@ -33,6 +33,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
+	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	kde-plasma/libplasma:6
 "
