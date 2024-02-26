@@ -15,20 +15,17 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="6"
 IUSE="acoustid flac kde mp3 mp4 +mpris +taglib test vorbis"
 
 REQUIRED_USE="flac? ( vorbis )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtmultimedia:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	!media-sound/kid3:5
+	dev-qt/qtbase:6[gui,network,widgets,xml]
+	dev-qt/qtdeclarative:6
+	dev-qt/qtmultimedia:6
 	sys-libs/readline:=
 	acoustid? (
 		media-libs/chromaprint:=
@@ -39,12 +36,12 @@ RDEPEND="
 		media-libs/libvorbis
 	)
 	kde? (
-		kde-frameworks/kconfig:5
-		kde-frameworks/kconfigwidgets:5
-		kde-frameworks/kcoreaddons:5
-		kde-frameworks/kio:5
-		kde-frameworks/kwidgetsaddons:5
-		kde-frameworks/kxmlgui:5
+		kde-frameworks/kconfig:6
+		kde-frameworks/kconfigwidgets:6
+		kde-frameworks/kcoreaddons:6
+		kde-frameworks/kio:6
+		kde-frameworks/kwidgetsaddons:6
+		kde-frameworks/kxmlgui:6
 	)
 	mp3? ( media-libs/id3lib )
 	mp4? ( media-libs/libmp4v2 )
@@ -55,11 +52,9 @@ RDEPEND="
 		media-libs/libvorbis
 	)
 "
-DEPEND="${RDEPEND}
-	test? ( dev-qt/qttest:5 )
-"
+DEPEND="${RDEPEND}"
 BDEPEND="${PYTHON_DEPS}
-	dev-qt/linguist-tools:5
+	dev-qt/qttools:6[linguist]
 	kde? ( kde-frameworks/extra-cmake-modules:0 )
 "
 
@@ -76,7 +71,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_WITH_QT6=OFF
+		-DBUILD_WITH_QT6=ON
 		-DWITH_QAUDIODECODER=ON # bug 855281
 		-DWITH_CHROMAPRINT=$(usex acoustid)
 		-DWITH_DBUS=$(usex mpris)
