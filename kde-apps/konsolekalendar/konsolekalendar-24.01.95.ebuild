@@ -14,7 +14,7 @@ HOMEPAGE+=" https://userbase.kde.org/KonsoleKalendar"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="6"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
