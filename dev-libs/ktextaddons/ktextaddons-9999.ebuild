@@ -36,10 +36,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	speech? (
-		>=dev-qt/qtmultimedia-${QTMIN}:6[widgets]
-		>=dev-qt/qtspeech-${QTMIN}:6
-	)
+	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
