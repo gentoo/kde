@@ -19,12 +19,14 @@ HOMEPAGE="https://apps.kde.org/cantor/ https://edu.kde.org/cantor/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+analitza julia lua postscript python qalculate R"
+# TODO: restore +analitza once cantor is ported to Qt6
+IUSE="julia lua postscript python qalculate R"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} ) python? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="test"
 
 # TODO Add Sage Mathematics Software backend (https://www.sagemath.org)
+# analitza? ( >=kde-apps/analitza-23.08.4:5 )
 DEPEND="
 	app-text/poppler[qt5]
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -51,7 +53,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
-	analitza? ( >=kde-apps/analitza-23.08.4:5 )
 	julia? ( dev-lang/julia )
 	lua? ( ${LUA_DEPS} )
 	qalculate? (
@@ -65,13 +66,14 @@ DEPEND="
 	)
 	R? ( dev-lang/R )
 "
+# !analitza?
 RDEPEND="${DEPEND}
-	!analitza? ( !julia? ( !lua? ( !python? ( !qalculate? ( !R? (
+	!julia? ( !lua? ( !python? ( !qalculate? ( !R? (
 		|| (
 			sci-mathematics/maxima
 			sci-mathematics/octave
 		)
-	) ) ) ) ) )
+	) ) ) ) )
 "
 BDEPEND="x11-misc/shared-mime-info"
 
@@ -85,7 +87,7 @@ src_configure() {
 	use julia && addpredict /proc/self/mem # bug 602894
 
 	local mycmakeargs=(
-		$(cmake_use_find_package analitza Analitza5)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Analitza5=ON
 		$(cmake_use_find_package julia Julia)
 		$(cmake_use_find_package lua LuaJIT)
 		-DUSE_LIBSPECTRE=$(usex postscript)
