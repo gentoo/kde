@@ -77,6 +77,7 @@ if $(ver_test -gt 24.01.75); then
 		akregator | \
 		analitza | \
 		ark | \
+		audiocd-kio | \
 		baloo-widgets | \
 		blinken | \
 		bomber | \
