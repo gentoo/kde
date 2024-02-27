@@ -215,6 +215,7 @@ if $(ver_test -gt 24.01.75); then
 		kwordquiz | \
 		kwrite | \
 		libgravatar | \
+		libkeduvocdocument | \
 		libkdegames | \
 		libkdepim | \
 		libkgapi | \
@@ -263,7 +264,6 @@ if $(ver_test -gt 24.03.75); then
 		kompare | \
 		krdc | \
 		ksanecore | \
-		libkeduvocdocument | \
 		libkomparediff2 | \
 		libksane | \
 		minuet | \
