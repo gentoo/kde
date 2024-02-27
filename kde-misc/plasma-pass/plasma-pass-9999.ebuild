@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.245.0
+KFMIN=5.249.0
 QTMIN=6.6.2
 inherit ecm kde.org
 
@@ -33,5 +33,6 @@ DEPEND="
 	sys-auth/oath-toolkit
 "
 RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
