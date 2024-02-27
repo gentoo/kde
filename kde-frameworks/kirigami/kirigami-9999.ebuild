@@ -25,6 +25,7 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
 RDEPEND="${DEPEND}
+	examples? ( !${CATEGORY}/${PN}:5[examples] )
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
