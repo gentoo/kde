@@ -111,7 +111,7 @@ pkg_postinst() {
 		use mariadb && echo "MariaDB" || echo "MySQL"
 	}
 
-	optfeature "Audio CD support" kde-apps/audiocd-kio
+	optfeature "Audio CD support" "kde-apps/audiocd-kio:5"
 
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog "You must configure ${PN} to use an external database server."
