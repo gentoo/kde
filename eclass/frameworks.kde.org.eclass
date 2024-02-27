@@ -69,13 +69,7 @@ case ${KDE_BUILD_TYPE} in
 		;;
 	*)
 		if [[ -z ${KDE_ORG_COMMIT} ]]; then
-			case ${PV} in
-				5.2[4-9]?.? )
-					_KDE_SRC_URI+="unstable/frameworks/$(ver_cut 1-3)/"
-					RESTRICT+=" mirror"
-					;;
-				*) _KDE_SRC_URI+="stable/frameworks/$(ver_cut 1-2)/" ;;
-			esac
+			_KDE_SRC_URI+="stable/frameworks/$(ver_cut 1-2)/"
 			case ${KDE_ORG_NAME} in
 				kdelibs4support | \
 				kdesignerplugin | \
