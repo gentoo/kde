@@ -53,10 +53,6 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.11.1
 "
 RDEPEND="${COMMON_DEPEND}
-	|| (
-		>=dev-qt/qttools-${QTMIN}:6[qdbus]
-		dev-qt/qdbus:0
-	)
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
 BDEPEND="
