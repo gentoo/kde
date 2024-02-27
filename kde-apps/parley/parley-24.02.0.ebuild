@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/parley/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="webengine"
 
 DEPEND="
