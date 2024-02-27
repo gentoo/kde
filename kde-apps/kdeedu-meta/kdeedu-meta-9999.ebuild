@@ -7,7 +7,7 @@ DESCRIPTION="KDE educational apps - merge this to pull in all kdeedu-derived pac
 HOMEPAGE="https://edu.kde.org"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE="+webengine"
 
