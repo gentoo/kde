@@ -4,7 +4,6 @@
 EAPI=8
 
 KFMIN=5.113.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
 inherit ecm gear.kde.org
 
@@ -21,10 +20,12 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=media-libs/ksanecore-${PVCUT}:5
+	>=media-libs/ksanecore-23.08.5:5
 	kwallet? ( >=kde-frameworks/kwallet-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-24.02.0-ksanecore-23.08.patch" )
 
 src_configure() {
 	local mycmakeargs=(
