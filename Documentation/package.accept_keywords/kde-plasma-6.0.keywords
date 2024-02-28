@@ -62,10 +62,10 @@
 <kde-plasma/systemsettings-6.0.50
 <kde-plasma/wacomtablet-6.0.50
 <kde-plasma/xdg-desktop-portal-kde-6.0.50
-~dev-libs/appstream-1.0.1
-~dev-libs/kirigami-addons-1.0.0
-~kde-apps/kaccounts-integration-24.01.95
-~kde-apps/spectacle-24.01.95
+~dev-libs/appstream-1.0.2
+~dev-libs/kirigami-addons-1.0.1
+~kde-apps/kaccounts-integration-24.02.0
+~kde-apps/spectacle-24.02.0
 ~kde-misc/kio-fuse-5.1.0
 =kde-plasma/print-manager-23.08.5-r100
 ~media-libs/libqaccessibilityclient-0.6.0
