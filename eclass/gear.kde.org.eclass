@@ -218,7 +218,6 @@ if $(ver_test -gt 24.01.75); then
 		libkeduvocdocument | \
 		libkdegames | \
 		libkdepim | \
-		libkgapi | \
 		libkleo | \
 		libkmahjongg | \
 		libksieve | \
@@ -258,7 +257,6 @@ if $(ver_test -gt 24.03.75); then
 		k3b | \
 		kdeedu-data | \
 		kimagemapeditor | \
-		kio-gdrive | \
 		kmplot | \
 		kolourpaint | \
 		kompare | \
