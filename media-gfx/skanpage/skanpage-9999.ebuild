@@ -20,7 +20,6 @@ IUSE="ocr"
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-apps/libksane-${PVCUT}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
