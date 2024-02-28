@@ -46,6 +46,8 @@ RDEPEND="${DEPEND}
 	>=kde-apps/kdeedu-data-${PVCUT}:*
 "
 
+PATCHES=( "${FILESDIR}/${P}-webengine-optional.patch" )
+
 src_prepare() {
 	ecm_src_prepare
 	cmake_comment_add_subdirectory plugins
