@@ -32,6 +32,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[network]
 "
 RDEPEND="${COMMON_DEPEND}
+	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 	kde-apps/kaccounts-providers:6
 "
 BDEPEND="dev-util/intltool"
