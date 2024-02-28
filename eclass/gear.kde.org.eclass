@@ -261,7 +261,6 @@ if $(ver_test -gt 24.03.75); then
 		kolourpaint | \
 		kompare | \
 		krdc | \
-		ksanecore | \
 		libkomparediff2 | \
 		libksane | \
 		minuet | \

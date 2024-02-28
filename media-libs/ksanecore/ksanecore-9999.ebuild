@@ -20,4 +20,6 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	media-gfx/sane-backends
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+"
