@@ -238,6 +238,7 @@ if $(ver_test -gt 24.01.75); then
 		pim-data-exporter | \
 		pim-sieve-editor | \
 		pimcommon | \
+		skanpage | \
 		spectacle | \
 		svgpart | \
 		sweeper | \
@@ -266,7 +267,6 @@ if $(ver_test -gt 24.03.75); then
 		minuet | \
 		signon-kwallet-extension | \
 		skanlite | \
-		skanpage | \
 		step)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;
