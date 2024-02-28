@@ -7,7 +7,7 @@ DESCRIPTION="kdegames - merge this to pull in all kdegames-derived packages"
 HOMEPAGE="https://apps.kde.org/categories/games/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE="opengl python"
 

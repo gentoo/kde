@@ -7,7 +7,7 @@ DESCRIPTION="kdemultimedia - merge this to pull in all kdemultimedia-derived pac
 HOMEPAGE="https://apps.kde.org/categories/multimedia/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE="+cdrom +ffmpeg gstreamer"
 

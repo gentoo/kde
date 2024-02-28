@@ -7,7 +7,7 @@ DESCRIPTION="kdenetwork - merge this to pull in all kdenetwork-derived packages"
 HOMEPAGE="https://apps.kde.org/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE="+bittorrent dropbox samba +screencast +webengine"
 

@@ -7,7 +7,7 @@ DESCRIPTION="KDE SDK - merge this to pull in all kdesdk-derived packages"
 HOMEPAGE="https://apps.kde.org/categories/development/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE="cvs git mercurial perl php python subversion webengine"
 

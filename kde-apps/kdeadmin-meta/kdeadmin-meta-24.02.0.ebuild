@@ -7,7 +7,7 @@ DESCRIPTION="KDE administration tools - merge this to pull in all kdeadmin-deriv
 HOMEPAGE="https://apps.kde.org/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+cron"
 

@@ -7,7 +7,7 @@ DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived package
 HOMEPAGE="https://apps.kde.org/graphics/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="color-management scanner +screencast"
 

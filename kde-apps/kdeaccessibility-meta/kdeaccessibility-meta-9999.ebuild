@@ -7,7 +7,7 @@ DESCRIPTION="kdeaccessibility - merge this to pull in all kdeaccessiblity-derive
 HOMEPAGE="https://apps.kde.org/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE=""
 

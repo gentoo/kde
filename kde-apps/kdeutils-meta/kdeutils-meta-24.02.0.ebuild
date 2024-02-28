@@ -7,7 +7,7 @@ DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
 HOMEPAGE="https://apps.kde.org/categories/utilities/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="7zip gpg lrz plasma rar +webengine"
 

@@ -7,7 +7,7 @@ DESCRIPTION="Meta package for the KDE Release Service collection"
 HOMEPAGE="https://apps.kde.org/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="accessibility +admin +education +games +graphics +multimedia +network pim sdk +utils"
 

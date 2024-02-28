@@ -7,7 +7,7 @@ DESCRIPTION="KDE PIM - merge this to pull in all kdepim-derived packages"
 HOMEPAGE="https://apps.kde.org/kontact/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE="bogofilter clamav spamassassin"
 

@@ -7,7 +7,7 @@ DESCRIPTION="kdecore - merge this to pull in the most basic applications"
 HOMEPAGE="https://apps.kde.org/"
 
 LICENSE="metapackage"
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE="+handbook +share +thumbnail +webengine"
 
@@ -26,7 +26,7 @@ RDEPEND="
 "
 # Optional runtime deps: kde-apps/dolphin
 RDEPEND="${RDEPEND}
-	share? ( kde-frameworks/purpose:${SLOT} )
+	share? ( kde-frameworks/purpose:6 )
 	thumbnail? (
 		>=kde-apps/ffmpegthumbs-${PV}:*
 		>=kde-apps/thumbnailers-${PV}:*
