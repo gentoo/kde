@@ -22,6 +22,7 @@ RESTRICT="test"
 
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,ssl,widgets]
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	=kde-frameworks/kauth-${PVCUT}*:6
 	=kde-frameworks/kbookmarks-${PVCUT}*:6
