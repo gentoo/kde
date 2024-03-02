@@ -9,7 +9,7 @@ ECM_TEST="forceoptional"
 KFMIN=6.0.0
 QTMIN=6.6.2
 VIRTUALDBUS_TEST="true"
-inherit ecm gear.kde.org readme.gentoo-r1
+inherit ecm gear.kde.org
 
 DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
@@ -17,7 +17,7 @@ HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
 LICENSE="LGPL-2.1+"
 SLOT="6"
 KEYWORDS=""
-IUSE="+kaccounts +mysql postgres sqlite tools xml"
+IUSE="+kaccounts mysql postgres +sqlite tools xml"
 
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
 
@@ -55,17 +55,11 @@ RDEPEND="${COMMON_DEPEND}
 PATCHES=( "${FILESDIR}/${PN}-21.03.80-mysql56-crash.patch" )
 
 pkg_setup() {
-	# Set default storage backend in order: MySQL, PostgreSQL, SQLite
+	# Set default storage backend in order: SQLite, MySQL, PostgreSQL
 	# reverse driver check to keep the order
-	use sqlite && DRIVER="QSQLITE"
 	use postgres && DRIVER="QPSQL"
 	use mysql && DRIVER="QMYSQL"
-
-	if use mysql && has_version "${CATEGORY}/${PN}[mysql]" && has_version "dev-db/mariadb"; then
-		ewarn
-		ewarn "Attention: Make sure to read README.gentoo after install."
-		ewarn
-	fi
+	use sqlite && DRIVER="QSQLITE"
 
 	ecm_pkg_setup
 }
@@ -91,17 +85,14 @@ EOF
 	doins "${T}"/akonadiserverrc
 
 	ecm_src_install
-	readme.gentoo_create_doc
 }
 
 pkg_postinst() {
 	ecm_pkg_postinst
 	elog "You can select the storage backend in ~/.config/akonadi/akonadiserverrc."
 	elog "Available drivers are:"
+	use sqlite && elog "  QSQLITE"
 	use mysql && elog "  QMYSQL"
 	use postgres && elog "  QPSQL"
-	use sqlite && elog "  QSQLITE"
 	elog "${DRIVER} has been set as your default akonadi storage backend."
-	use mysql && elog
-	use mysql && FORCE_PRINT_ELOG=1 readme.gentoo_print_elog
 }
