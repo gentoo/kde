@@ -9,7 +9,7 @@ ECM_TEST="forceoptional"
 KFMIN=6.0.0
 QTMIN=6.6.2
 VIRTUALDBUS_TEST="true"
-inherit ecm gear.kde.org readme.gentoo-r1
+inherit ecm gear.kde.org
 
 DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
@@ -61,12 +61,6 @@ pkg_setup() {
 	use postgres && DRIVER="QPSQL"
 	use mysql && DRIVER="QMYSQL"
 
-	if use mysql && has_version "${CATEGORY}/${PN}[mysql]" && has_version "dev-db/mariadb"; then
-		ewarn
-		ewarn "Attention: Make sure to read README.gentoo after install."
-		ewarn
-	fi
-
 	ecm_pkg_setup
 }
 
@@ -91,7 +85,6 @@ EOF
 	doins "${T}"/akonadiserverrc
 
 	ecm_src_install
-	readme.gentoo_create_doc
 }
 
 pkg_postinst() {
@@ -102,6 +95,4 @@ pkg_postinst() {
 	use postgres && elog "  QPSQL"
 	use sqlite && elog "  QSQLITE"
 	elog "${DRIVER} has been set as your default akonadi storage backend."
-	use mysql && elog
-	use mysql && FORCE_PRINT_ELOG=1 readme.gentoo_print_elog
 }
