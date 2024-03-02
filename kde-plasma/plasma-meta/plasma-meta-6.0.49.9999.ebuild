@@ -10,9 +10,9 @@ LICENSE="metapackage"
 SLOT="6"
 KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
-cups discover +display-manager +elogind +firewall flatpak grub gtk +handbook
-+kwallet +networkmanager oxygen-theme plymouth pulseaudio qt5 +sddm sdk +smart
-systemd thunderbolt unsupported wacom +wallpapers +xwayland"
+cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
++networkmanager oxygen-theme plymouth pulseaudio qt5 +sddm sdk +smart systemd
+thunderbolt unsupported wacom +wallpapers webengine +xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -79,7 +79,6 @@ RDEPEND="
 		>=kde-plasma/kde-gtk-config-${PV}:${SLOT}
 		x11-misc/appmenu-gtk-module
 	)
-	handbook? ( kde-apps/khelpcenter:* )
 	kwallet? ( >=kde-plasma/kwallet-pam-${PV}:${SLOT} )
 	networkmanager? (
 		>=kde-plasma/plasma-nm-${PV}:${SLOT}
@@ -109,6 +108,7 @@ RDEPEND="
 	)
 	wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
+	webengine? ( kde-apps/khelpcenter:6 )
 	xwayland? ( >=gui-apps/xwaylandvideobridge-0.4.0 )
 "
 # Optional runtime deps: kde-plasma/plasma-desktop
