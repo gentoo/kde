@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +handbook
 +kwallet +networkmanager oxygen-theme plymouth pulseaudio qt5 +sddm sdk +smart
-systemd thunderbolt unsupported wacom +wallpapers +xwayland"
+systemd thunderbolt unsupported wacom +wallpapers webengine +xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -79,7 +79,10 @@ RDEPEND="
 		>=kde-plasma/kde-gtk-config-${PV}:${SLOT}
 		x11-misc/appmenu-gtk-module
 	)
-	handbook? ( kde-apps/khelpcenter:* )
+	handbook? (
+		!webengine? ( kde-apps/khelpcenter:5 )
+		webengine? ( kde-apps/khelpcenter:6 )
+	)
 	kwallet? ( >=kde-plasma/kwallet-pam-${PV}:${SLOT} )
 	networkmanager? (
 		>=kde-plasma/plasma-nm-${PV}:${SLOT}
