@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="optional"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=6.0.0
+QTMIN=6.6.2
 inherit ecm kde.org optfeature
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
@@ -15,56 +15,52 @@ HOMEPAGE="https://apps.kde.org/kbibtex/ https://userbase.kde.org/KBibTeX"
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/KBibTeX/${PV}/${P}.tar.xz"
 	S="${WORKDIR}/${P/_/-}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="0"
 IUSE="webengine"
 
 RESTRICT="test"
 
 COMMON_DEPEND="
-	app-text/poppler[qt5]
+	app-text/poppler[qt6]
 	dev-libs/icu:=
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtnetworkauth-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwallet-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
+	>=dev-qt/qtnetworkauth-${QTMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwallet-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	virtual/tex-base
-	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-tex/bibtex2html
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebKitWidgets=ON
-		$(cmake_use_find_package webengine Qt5WebEngineWidgets)
+		-DQT_MAJOR_VERSION=6 # TODO: re-add KDocTools search to this awful piece of cmake...
+		$(cmake_use_find_package webengine Qt6WebEngineWidgets)
 	)
 
 	ecm_src_configure
@@ -72,7 +68,7 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "PDF or PostScript document previews" "kde-apps/okular:${SLOT}"
+		optfeature "PDF or PostScript document previews" "kde-apps/okular:6"
 	fi
 	ecm_pkg_postinst
 }
