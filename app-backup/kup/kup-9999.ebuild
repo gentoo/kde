@@ -4,44 +4,41 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.113.0
-QTMIN=5.15.9
+KFMIN=6.0.0
+QTMIN=6.6.2
 inherit ecm kde.org
 
 DESCRIPTION="Backup scheduler for the Plasma desktop"
 HOMEPAGE="https://apps.kde.org/kup/"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-# TODO: in port to KF6:
-# >=kde-frameworks/kcmutils-${KFMIN}:6
-# kde-plasma/plasma5support:6
 DEPEND="
 	dev-libs/libgit2:=
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kidletime-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
-	kde-plasma/libplasma:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kidletime-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
+	kde-plasma/libplasma:6
+	kde-plasma/plasma5support:6
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
+	!${CATEGORY}/${PN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
 	net-misc/rsync
 "
