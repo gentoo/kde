@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="true"
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.113.0
-QTMIN=6.6.2
+QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
@@ -21,8 +21,9 @@ RESTRICT="test" # bug 653674
 
 COMMON_DEPEND="
 	dev-libs/glib:2
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
-	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
@@ -33,10 +34,10 @@ COMMON_DEPEND="
 	virtual/opengl
 "
 DEPEND="${COMMON_DEPEND}
-	test? ( >=dev-qt/qtbase-${QTMIN}:6[opengl] )
+	test? ( >=dev-qt/qtopengl-${QTMIN}:5 )
 "
 RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	media-plugins/gst-plugins-jpeg:1.0
 	media-plugins/gst-plugins-libpng:1.0
