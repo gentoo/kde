@@ -8,7 +8,7 @@ KFMIN=6.6.0
 QTMIN=6.6.2
 inherit ecm kde.org
 
-DESCRIPTION="KIO Slave and daemon to stash discontinuous file selections"
+DESCRIPTION="KIO worker and daemon to stash discontinuous file selections"
 HOMEPAGE="https://arnavdhamija.com/2017/07/04/kio-stash-shipped/ https://invent.kde.org/utilities/kio-stash"
 
 LICENSE="GPL-2+"
