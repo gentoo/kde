@@ -4,7 +4,8 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-QTMIN=5.15.12
+KFMIN=6.6.0
+QTMIN=6.6.2
 inherit ecm kde.org
 
 DESCRIPTION="KIO Slave and daemon to stash discontinuous file selections"
@@ -18,11 +19,11 @@ IUSE=""
 RESTRICT="test"
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	kde-frameworks/kconfig:5
-	kde-frameworks/kcoreaddons:5
-	kde-frameworks/kdbusaddons:5
-	kde-frameworks/ki18n:5
-	kde-frameworks/kio:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus]
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
