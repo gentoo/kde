@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=6.0.0
+QTMIN=6.6.2
 inherit ecm kde.org
 
 DESCRIPTION="Text-based subtitles editor"
@@ -17,30 +17,31 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="0"
 IUSE="unicode"
 
 DEPEND="
 	dev-libs/openssl:=
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/sonnet-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/sonnet-${KFMIN}:6
 	media-libs/openal
 	media-video/ffmpeg:0=
 	unicode? ( dev-libs/icu:= )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
+"
 BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
@@ -48,6 +49,7 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
+		-DQT_MAJOR_VERSION=6
 		-DCMAKE_DISABLE_FIND_PACKAGE_PocketSphinx=ON # bugs 616706, 610434
 		$(cmake_use_find_package unicode ICU)
 	)
