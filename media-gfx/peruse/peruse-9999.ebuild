@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.82.0
+KFMIN=5.115.0
 inherit ecm kde.org
 
 DESCRIPTION="Comic book reader"

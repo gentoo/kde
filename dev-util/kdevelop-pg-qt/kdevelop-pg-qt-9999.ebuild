@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
-KFMIN=5.99.0
+KFMIN=5.115.0
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then

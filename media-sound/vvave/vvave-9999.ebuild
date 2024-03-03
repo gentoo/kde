@@ -4,8 +4,8 @@
 EAPI=8
 
 KDE_ORG_CATEGORY="maui"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm kde.org
 
 DESCRIPTION="Tiny Qt music player by KDE"

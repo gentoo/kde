@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-QTMIN=5.15.9
+QTMIN=5.15.12
 inherit ecm kde.org
 
 DESCRIPTION="Full featured educational application for children from 2 to 10"

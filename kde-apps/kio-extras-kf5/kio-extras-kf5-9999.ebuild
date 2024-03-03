@@ -7,8 +7,8 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="optional"
 KDE_ORG_NAME="kio-extras"
 KDE_ORG_TAR_PN="kio-extras-kf5"
-KFMIN=5.113.0
-QTMIN=5.15.9
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm gear.kde.org
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"

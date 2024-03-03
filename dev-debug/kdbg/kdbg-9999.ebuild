@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm git-r3
 
 DESCRIPTION="Graphical debugger interface"
