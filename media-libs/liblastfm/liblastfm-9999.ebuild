@@ -10,8 +10,8 @@ HOMEPAGE="https://github.com/lastfm/liblastfm"
 EGIT_REPO_URI=( "https://github.com/lastfm/${PN}" )
 
 LICENSE="GPL-3"
-KEYWORDS=""
 SLOT="0/0"
+KEYWORDS=""
 IUSE="fingerprint test"
 
 RDEPEND="
