@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +handbook
 +kwallet +networkmanager oxygen-theme plymouth pulseaudio +sddm sdk +smart
-systemd thunderbolt unsupported wacom +wallpapers"
+systemd thunderbolt unsupported wacom +wallpapers +xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -109,6 +109,7 @@ RDEPEND="
 	)
 	wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
+	xwayland? ( >=gui-apps/xwaylandvideobridge-0.4.0 )
 "
 # Optional runtime deps: kde-plasma/plasma-desktop
 RDEPEND="${RDEPEND}
