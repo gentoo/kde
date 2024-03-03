@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN="5.240.0"
+KFMIN=6.0.0
 inherit ecm kde.org
 
 DESCRIPTION="GUI for creating and editing regular expressions"

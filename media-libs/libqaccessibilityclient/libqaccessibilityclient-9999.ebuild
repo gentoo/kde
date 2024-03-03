@@ -6,7 +6,7 @@ EAPI=8
 ECM_KDEINSTALLDIRS="false"
 ECM_TEST="true"
 ECM_EXAMPLES="true"
-KFMIN=5.245.0
+KFMIN=6.0.0
 QTMIN=6.6.2
 inherit ecm kde.org
 

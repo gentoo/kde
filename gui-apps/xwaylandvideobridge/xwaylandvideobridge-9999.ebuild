@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=5.245.0
+KFMIN=6.0.0
 QTMIN=6.6.2
 KDE_ORG_CATEGORY="system"
 inherit ecm kde.org
