@@ -15,10 +15,7 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-DEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtnetwork:5
-"
+DEPEND="dev-qt/qtbase:6[network]"
 RDEPEND="${DEPEND}"
 
 src_configure() {
