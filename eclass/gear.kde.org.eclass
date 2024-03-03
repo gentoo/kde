@@ -94,6 +94,7 @@ if $(ver_test -gt 24.01.75); then
 		dragon | \
 		elisa | \
 		eventviews | \
+		ffmpegthumbs | \
 		filelight | \
 		granatier | \
 		grantlee-editor | \
@@ -253,7 +254,6 @@ fi
 # list of applications ported to KF6 post-24.02 in SLOT=6 having to block SLOT=5
 if $(ver_test -gt 24.03.75); then
 	case ${PN} in
-		ffmpegthumbs | \
 		itinerary | \
 		k3b | \
 		kdeedu-data | \
