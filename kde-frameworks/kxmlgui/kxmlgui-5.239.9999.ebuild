@@ -10,8 +10,8 @@ inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for managing menu and toolbar actions in an abstract way"
 
-KEYWORDS=""
 LICENSE="LGPL-2+"
+KEYWORDS=""
 IUSE=""
 
 # slot op: includes QtCore/private/qlocale_p.h
