@@ -15,6 +15,7 @@ HOMEPAGE="https://apps.kde.org/kile/ https://kile.sourceforge.io/"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
+	S="${WORKDIR}/${MY_P}"
 	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 fi
 
@@ -59,8 +60,6 @@ RDEPEND="${DEPEND}
 "
 
 DOCS=( kile-remote-control.txt )
-
-S=${WORKDIR}/${MY_P}
 
 PATCHES=( "${FILESDIR}/${PN}-2.9.93_p20221123-cmake.patch" )
 
