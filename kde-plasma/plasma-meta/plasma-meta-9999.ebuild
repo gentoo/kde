@@ -27,6 +27,7 @@ RDEPEND="
 	>=kde-plasma/kglobalacceld-${PV}:${SLOT}
 	>=kde-plasma/kinfocenter-${PV}:${SLOT}
 	>=kde-plasma/kmenuedit-${PV}:${SLOT}
+	>=kde-plasma/kpipewire-${PV}:${SLOT}
 	>=kde-plasma/kscreen-${PV}:${SLOT}
 	>=kde-plasma/kscreenlocker-${PV}:${SLOT}
 	>=kde-plasma/ksshaskpass-${PV}:${SLOT}
@@ -51,6 +52,7 @@ RDEPEND="
 	>=kde-plasma/plasma5support-${PV}:${SLOT}
 	>=kde-plasma/polkit-kde-agent-${PV}:*
 	>=kde-plasma/powerdevil-${PV}:${SLOT}
+	>=kde-plasma/qqc2-breeze-style-${PV}:${SLOT}
 	>=kde-plasma/systemsettings-${PV}:${SLOT}
 	>=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT}
 	sys-apps/dbus[elogind?,systemd?]
