@@ -88,7 +88,10 @@ COMMON_DEPEND="
 		media-libs/libvisio
 	)
 	lcms? ( media-libs/lcms:2 )
-	okular? ( kde-apps/okular:5 )
+	okular? ( || (
+		media-gfx/okularpart:5
+		kde-apps/okular:5
+	) )
 	pdf? ( app-text/poppler:=[qt5] )
 	phonon? ( >=media-libs/phonon-4.11.0[qt5(+)] )
 	spacenav? ( dev-libs/libspnav )
