@@ -64,6 +64,7 @@
 ~kde-plasma/xdg-desktop-portal-kde-9999 **
 ~dev-libs/appstream-1.0.2
 ~dev-libs/kirigami-addons-1.0.1
+~dev-python/pygdbmi-0.11.0.0
 ~kde-apps/kaccounts-integration-24.02.0
 ~kde-apps/spectacle-24.02.0
 ~kde-misc/kio-fuse-5.1.0

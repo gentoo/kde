@@ -2,6 +2,9 @@
 ~dev-libs/kirigami-addons-1.0.1
 ~dev-libs/ktextaddons-1.5.3
 ~dev-libs/kweathercore-0.8.0
+~dev-libs/qcoro-0.10.0
+~media-libs/kcolorpicker-0.3.0
+~media-libs/kimageannotator-0.7.0
 ~media-libs/kquickimageeditor-0.3.0
 ~media-libs/libqaccessibilityclient-0.6.0
 ~media-libs/mpvqt-1.0.0
