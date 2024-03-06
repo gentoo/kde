@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="false"
 KFMIN=6.0.0
 QTMIN=6.6.2
-inherit ecm kde.org
+inherit ecm plasma.kde.org
 
 DESCRIPTION="Breeze inspired QQC2 Style"
 
