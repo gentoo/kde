@@ -58,6 +58,7 @@
 ~kde-plasma/polkit-kde-agent-9999 **
 ~kde-plasma/powerdevil-9999 **
 ~kde-plasma/print-manager-9999 **
+~kde-plasma/qqc2-breeze-style-9999 **
 ~kde-plasma/sddm-kcm-9999 **
 ~kde-plasma/systemsettings-9999 **
 ~kde-plasma/wacomtablet-9999 **
@@ -65,6 +66,7 @@
 ~dev-libs/appstream-1.0.2
 ~dev-libs/kirigami-addons-1.0.1
 ~dev-python/pygdbmi-0.11.0.0
+~gui-apps/xwaylandvideobridge-0.4.0
 ~kde-apps/kaccounts-integration-24.02.0
 ~kde-apps/spectacle-24.02.0
 ~kde-misc/kio-fuse-5.1.0
