@@ -16,8 +16,8 @@ HOMEPAGE="https://www.kdevelop.org/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-IUSE=""
 KEYWORDS=""
+IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test"
