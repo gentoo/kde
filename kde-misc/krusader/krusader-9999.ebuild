@@ -59,6 +59,7 @@ RDEPEND="${COMMON_DEPEND}
 		kde-apps/kio-extras-kf5:5
 		kde-apps/kio-extras:5
 	)
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
 "
 
 src_prepare() {
