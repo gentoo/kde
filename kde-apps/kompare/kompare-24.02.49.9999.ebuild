@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.113.0
-QTMIN=5.15.9
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm gear.kde.org
 
 DESCRIPTION="A program to view the differences between files"

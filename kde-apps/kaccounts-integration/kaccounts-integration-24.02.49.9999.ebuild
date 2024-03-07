@@ -4,9 +4,9 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KF5MIN=5.113.0
+KF5MIN=5.115.0
 KFMIN=6.0.0
-QT5MIN=5.15.9
+QT5MIN=5.15.12
 QTMIN=6.6.2
 VIRTUALDBUS_TEST="true"
 inherit ecm gear.kde.org multibuild

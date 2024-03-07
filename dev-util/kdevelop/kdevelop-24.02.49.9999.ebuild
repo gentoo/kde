@@ -6,9 +6,9 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
-KFMIN=5.113.0
+KFMIN=5.115.0
 LLVM_MAX_SLOT=17
-QTMIN=5.15.9
+QTMIN=5.15.12
 VIRTUALDBUS_TEST="true"
 inherit ecm gear.kde.org llvm optfeature
 

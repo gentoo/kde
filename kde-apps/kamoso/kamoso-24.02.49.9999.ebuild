@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_TEST="true"
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.113.0
-QTMIN=5.15.9
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm gear.kde.org
 
 DESCRIPTION="Application to take pictures and videos from your webcam by KDE"

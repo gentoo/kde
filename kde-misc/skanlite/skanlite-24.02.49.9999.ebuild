@@ -7,8 +7,8 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="graphics"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.113.0
-QTMIN=5.15.9
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm gear.kde.org
 
 DESCRIPTION="Simple image scanning application based on libksane and KDE Frameworks"
