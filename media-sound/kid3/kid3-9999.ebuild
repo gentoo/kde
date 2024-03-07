@@ -21,8 +21,7 @@ IUSE="acoustid flac kde mp3 mp4 +mpris +taglib test vorbis"
 REQUIRED_USE="flac? ( vorbis )"
 RESTRICT="!test? ( test )"
 
-RDEPEND="
-	!media-sound/kid3:5
+DEPEND="
 	dev-qt/qtbase:6[gui,network,widgets,xml]
 	dev-qt/qtdeclarative:6
 	dev-qt/qtmultimedia:6
@@ -52,7 +51,9 @@ RDEPEND="
 		media-libs/libvorbis
 	)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	!media-sound/kid3:5
+"
 BDEPEND="${PYTHON_DEPS}
 	dev-qt/qttools:6[linguist]
 	kde? ( kde-frameworks/extra-cmake-modules:0 )
