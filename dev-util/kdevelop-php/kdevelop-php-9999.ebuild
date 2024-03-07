@@ -17,8 +17,8 @@ HOMEPAGE="https://www.kdevelop.org/"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="5"
-IUSE=""
 KEYWORDS=""
+IUSE=""
 
 # remaining tests fail for some, bug 668530
 RESTRICT="test"
