@@ -257,6 +257,7 @@ if $(ver_test -gt 24.03.75); then
 		itinerary | \
 		k3b | \
 		kdeedu-data | \
+		kdesdk-thumbnailers | \
 		kimagemapeditor | \
 		kmplot | \
 		kolourpaint | \

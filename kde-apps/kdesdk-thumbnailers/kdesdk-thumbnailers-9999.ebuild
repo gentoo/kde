@@ -3,24 +3,23 @@
 
 EAPI=8
 
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.0.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Thumbnail generator for PO files"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	sys-devel/gettext
 "
 RDEPEND="${DEPEND}"
