@@ -256,6 +256,7 @@ if $(ver_test -gt 24.03.75); then
 	case ${PN} in
 		itinerary | \
 		k3b | \
+		kalzium | \
 		kdeedu-data | \
 		kdesdk-thumbnailers | \
 		kimagemapeditor | \
