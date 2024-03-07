@@ -51,6 +51,7 @@ COMMON_DEPEND="
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
 "
 RDEPEND="${COMMON_DEPEND}
+	!${CATEGORY}/${PN}:5
 	dev-tex/bibtex2html
 "
 DEPEND="${COMMON_DEPEND}
