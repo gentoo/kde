@@ -259,6 +259,7 @@ if $(ver_test -gt 24.03.75); then
 		kdeedu-data | \
 		kdesdk-thumbnailers | \
 		kimagemapeditor | \
+		kio-perldoc | \
 		kmplot | \
 		kolourpaint | \
 		kompare | \
