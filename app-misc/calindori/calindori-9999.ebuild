@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=6.6.0
+KFMIN=6.0.0
 QTMIN=6.6.2
 inherit ecm plasma-mobile.kde.org
 
