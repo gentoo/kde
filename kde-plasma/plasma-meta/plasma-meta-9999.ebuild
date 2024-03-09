@@ -11,14 +11,14 @@ SLOT="6"
 KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +handbook
-+kwallet +networkmanager oxygen-theme plymouth pulseaudio +sddm sdk +smart
++kwallet +networkmanager oxygen-theme plymouth pulseaudio qt5 +sddm sdk +smart
 systemd thunderbolt unsupported wacom +wallpapers +xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
 RDEPEND="
 	!${CATEGORY}/${PN}:5
-	>=kde-plasma/breeze-${PV}:${SLOT}
+	>=kde-plasma/breeze-${PV}:${SLOT}[qt5?]
 	>=kde-plasma/kactivitymanagerd-${PV}:${SLOT}
 	>=kde-plasma/kde-cli-tools-${PV}:${SLOT}
 	>=kde-plasma/kdecoration-${PV}:${SLOT}
@@ -33,7 +33,6 @@ RDEPEND="
 	>=kde-plasma/ksshaskpass-${PV}:${SLOT}
 	>=kde-plasma/ksystemstats-${PV}:${SLOT}
 	>=kde-plasma/kwayland-${PV}:${SLOT}
-	>=kde-plasma/kwayland-integration-${PV}:5
 	>=kde-plasma/kwin-${PV}:${SLOT}[lock]
 	>=kde-plasma/kwrited-${PV}:${SLOT}
 	>=kde-plasma/layer-shell-qt-${PV}:${SLOT}
@@ -45,7 +44,7 @@ RDEPEND="
 	>=kde-plasma/plasma-activities-${PV}:${SLOT}
 	>=kde-plasma/plasma-activities-stats-${PV}:${SLOT}
 	>=kde-plasma/plasma-desktop-${PV}:${SLOT}
-	>=kde-plasma/plasma-integration-${PV}:${SLOT}
+	>=kde-plasma/plasma-integration-${PV}:${SLOT}[qt5?]
 	>=kde-plasma/plasma-systemmonitor-${PV}:${SLOT}
 	>=kde-plasma/plasma-welcome-${PV}:${SLOT}
 	>=kde-plasma/plasma-workspace-${PV}:${SLOT}
@@ -88,7 +87,7 @@ RDEPEND="
 	)
 	oxygen-theme? (
 		>=kde-frameworks/oxygen-icons-6.0.0:*
-		>=kde-plasma/oxygen-${PV}:${SLOT}
+		>=kde-plasma/oxygen-${PV}:${SLOT}[qt5?]
 		>=kde-plasma/oxygen-sounds-${PV}:${SLOT}
 	)
 	plymouth? (
@@ -96,6 +95,7 @@ RDEPEND="
 		>=kde-plasma/plymouth-kcm-${PV}:${SLOT}
 	)
 	pulseaudio? ( >=kde-plasma/plasma-pa-${PV}:${SLOT} )
+	qt5? ( >=kde-plasma/kwayland-integration-${PV}:5 )
 	sdk? ( >=kde-plasma/plasma-sdk-${PV}:${SLOT} )
 	smart? ( >=kde-plasma/plasma-disks-${PV}:${SLOT} )
 	systemd? (
@@ -115,3 +115,14 @@ RDEPEND="
 RDEPEND="${RDEPEND}
 	accessibility? ( app-accessibility/orca )
 "
+
+pkg_postinst() {
+	if ! use qt5 && has_version dev-qt/qtgui; then
+		ewarn "KF5- and Qt5-based applications will exhibit various integration bugs"
+		ewarn "and generally look out of place in Plasma 6 without the dependencies"
+		ewarn "enforced by kde-plasma/plasma-meta[qt5]."
+		ewarn
+		ewarn "This warning message is being displayed because dev-qt/qtgui:5 is"
+		ewarn "currently installed which indicates the use of such applications."
+	fi
+}
