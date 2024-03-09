@@ -23,7 +23,7 @@ SLOT="0/3"
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,dbus]
-	media-libs/libpulse
+	media-libs/libpulse[glib]
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtdeclarative-${QTMIN}:6 )
