@@ -20,6 +20,7 @@ IUSE=""
 RDEPEND="
 	dev-libs/kirigami-addons:6
 	dev-libs/libsodium:=
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
