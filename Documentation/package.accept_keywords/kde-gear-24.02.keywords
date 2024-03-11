@@ -248,11 +248,13 @@
 <sys-block/partitionmanager-24.02.50
 <sys-libs/kpmcore-24.02.50
 ~dev-db/futuresql-0.1.1
-=dev-libs/kdiagram-3.0.1
+~dev-libs/kdiagram-3.0.1
 ~dev-libs/kirigami-addons-1.0.1
 ~dev-libs/ktextaddons-1.5.3
 ~dev-libs/kweathercore-0.8.0
 ~dev-libs/qcoro-0.10.0
+~kde-apps/konsolepart-23.08.5
+~media-gfx/okularpart-23.08.5
 ~media-libs/kcolorpicker-0.3.1
 ~media-libs/kimageannotator-0.7.1
 ~media-libs/kquickimageeditor-0.3.0

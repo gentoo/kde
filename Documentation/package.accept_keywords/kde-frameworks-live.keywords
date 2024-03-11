@@ -91,3 +91,4 @@
 ~net-libs/signon-oauth2-0.25_p20210102
 ~net-libs/signon-ui-0.15_p20231016
 ~sys-auth/polkit-qt-0.200.0
+~x11-misc/xdg-utils-1.2.1
