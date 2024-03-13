@@ -15,7 +15,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility caps gles2-only lock screencast +shortcuts"
+IUSE="accessibility caps gles2-only lock screencast +shortcuts systemd"
 
 RESTRICT="test"
 
@@ -30,6 +30,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -116,6 +117,11 @@ src_prepare() {
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
 		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
+	fi
+
+	# TODO: try to get a build switch upstreamed
+	if ! use systemd; then
+		sed -e "s/^pkg_check_modules.*libsystemd/#&/" -i CMakeLists.txt || die
 	fi
 }
 
