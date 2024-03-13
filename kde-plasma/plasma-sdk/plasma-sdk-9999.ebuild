@@ -17,7 +17,6 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
@@ -38,5 +37,6 @@ DEPEND="
 	>=kde-plasma/plasma5support-${PVCUT}:6
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
