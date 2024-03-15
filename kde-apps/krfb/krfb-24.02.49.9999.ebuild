@@ -16,6 +16,7 @@ SLOT="6"
 KEYWORDS=""
 IUSE="wayland"
 
+# slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,network,widgets]
 	>=kde-frameworks/kcompletion-${KFMIN}:6
