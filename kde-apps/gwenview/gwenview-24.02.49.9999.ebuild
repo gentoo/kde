@@ -21,7 +21,7 @@ IUSE="activities fits +mpris raw semantic-desktop share X"
 # requires running environment
 RESTRICT="test"
 
-# slot op: includes qpa/qplatformnativeinterface.h
+# slot op: includes qpa/qplatformnativeinterface.h, qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[gui,opengl,widgets]
@@ -61,7 +61,10 @@ COMMON_DEPEND="
 		>=kde-frameworks/kfilemetadata-${KFMIN}:6
 	)
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
-	X? ( x11-libs/libX11 )
+	X? (
+		>=dev-qt/qtbase-${QTMIN}:6=[gui]
+		x11-libs/libX11
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/wayland-protocols
