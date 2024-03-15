@@ -20,8 +20,9 @@ IUSE="activities speech"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
