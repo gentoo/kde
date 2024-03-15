@@ -21,10 +21,11 @@ IUSE="bluetooth pulseaudio telephony zeroconf X"
 
 RESTRICT="test"
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/openssl:=
 	>=dev-libs/wayland-1.15.0
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtwayland-${QTMIN}:6
