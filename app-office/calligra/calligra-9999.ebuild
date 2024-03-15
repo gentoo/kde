@@ -130,6 +130,10 @@ pkg_setup() {
 }
 
 src_prepare() {
+	if has_version "media-gfx/okularpart:5"; then
+		eapply "${FILESDIR}/${PN}-3.2.1-okularpart.patch"
+	fi
+
 	ecm_src_prepare
 
 	# Unconditionally disable deprecated deps (required by QtQuick1)
