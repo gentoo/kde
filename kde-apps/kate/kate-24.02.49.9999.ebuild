@@ -16,9 +16,10 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,widgets]
 	~kde-apps/kate-lib-${PV}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
