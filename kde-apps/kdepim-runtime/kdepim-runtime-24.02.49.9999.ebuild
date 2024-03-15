@@ -25,7 +25,7 @@ RDEPEND="
 	dev-libs/cyrus-sasl:2
 	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
 	>=dev-libs/ktextaddons-1.5.3:6
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets,xml]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6
