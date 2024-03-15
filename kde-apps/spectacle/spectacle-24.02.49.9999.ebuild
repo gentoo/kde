@@ -18,11 +18,10 @@ SLOT="6"
 KEYWORDS=""
 IUSE="share"
 
-# TODO: Check if qtsvg is still needed after upstream commit f851494a9f3f550842c5bf1b55442313ab300b22
-# I think it is b/c qml?
+# slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qtwayland-${QTMIN}:6
