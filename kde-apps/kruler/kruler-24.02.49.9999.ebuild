@@ -16,6 +16,7 @@ SLOT="6"
 KEYWORDS=""
 IUSE="X"
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -27,7 +28,10 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	X? ( x11-libs/libxcb )
+	X? (
+		>=dev-qt/qtbase-${QTMIN}:6=[gui]
+		x11-libs/libxcb
+	)
 "
 RDEPEND="${DEPEND}"
 
