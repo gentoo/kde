@@ -4,7 +4,6 @@
 EAPI=8
 
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 inherit ecm plasma.kde.org
 
 DESCRIPTION="PAM module to not enter KWallet password again after login"
