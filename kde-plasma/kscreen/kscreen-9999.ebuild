@@ -15,14 +15,14 @@ HOMEPAGE="https://invent.kde.org/plasma/kscreen"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE=""
+IUSE="X"
 
 # bug #580440, last checked 5.6.3
 RESTRICT="test"
 
 # qtbase slot up: GuiPrivate use in kded daemon
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
@@ -37,12 +37,22 @@ DEPEND="
 	>=kde-plasma/layer-shell-qt-${PVCUT}:6
 	>=kde-plasma/libkscreen-${PVCUT}:6=
 	>=kde-plasma/libplasma-${PVCUT}:6
-	x11-libs/libX11
-	x11-libs/libxcb:=
-	x11-libs/libXi
+	X? (
+		>=dev-qt/qtbase-${QTMIN}:6=
+		x11-libs/libX11
+		x11-libs/libxcb:=
+		x11-libs/libXi
+	)
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
+
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_X11=$(usex X) # Pending: https://invent.kde.org/plasma/kscreen/-/merge_requests/295
+	)
+	ecm_src_configure
+}
