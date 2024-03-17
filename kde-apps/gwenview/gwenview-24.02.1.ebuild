@@ -92,7 +92,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities PlasmaActivities)
 		$(cmake_use_find_package fits CFitsio)
-		$(cmake_use_find_package raw KF6KDcraw)
+		$(cmake_use_find_package raw KDcrawQt6)
 		-DGWENVIEW_SEMANTICINFO_BACKEND=$(usex semantic-desktop Baloo None)
 		$(cmake_use_find_package share KF6Purpose)
 		-DWITHOUT_X11=$(usex !X)
