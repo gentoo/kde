@@ -42,12 +42,11 @@ RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 "
 
-# TODO: unpackaged vosk, kaldi (bugs #919236, 919234)
-PATCHES=( "${FILESDIR}/${P}-no-textspeechtotext.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package speech Qt6TextToSpeech)
+		# TODO: unpackaged vosk, kaldi (bugs #919236, 919234)
+		-DSPEAK_TO_TEXT_VOSK_PLUGIN=OFF
 	)
 	ecm_src_configure
 }
