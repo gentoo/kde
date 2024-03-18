@@ -11,12 +11,13 @@ inherit ecm kde.org
 
 DESCRIPTION="Templated convergent controls and multiplatform utilities for Maui applications"
 
-LICENSE="GPL-3"
+LICENSE="LGPL-3"
 SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-libs/mauiman-${KFMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
