@@ -178,6 +178,16 @@ src_test() {
 	ecm_src_test
 }
 
+src_install() {
+	ecm_src_install
+
+	# TODO: Should we just remove the upstream one in /usr/share?
+	# /etc/xdg should really be available for site-local overrides, but then
+	# again we have CONFIG_PROTECT...
+	insinto /etc/xdg/mimeapps.list
+	doins "${FILESDIR}"/mimeapps.list
+}
+
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "screen reader support" "app-accessibility/orca"
