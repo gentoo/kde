@@ -8,14 +8,12 @@ QTMIN=5.15.12
 inherit ecm kde.org toolchain-funcs
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
+	TARNAME="digiKam-${PV/_/-}"
 	if [[ ${PV} =~ beta[0-9]$ ]]; then
-		SRC_URI="mirror://kde/unstable/${PN}/"
+		SRC_URI="mirror://kde/unstable/${PN}/${TARNAME}.tar.xz"
 	else
-		SRC_URI="mirror://kde/stable/${PN}/${PV}/"
+		SRC_URI="mirror://kde/stable/${PN}/${PV}/${TARNAME}.tar.xz"
 	fi
-	SRC_URI+="digiKam-${PV/_/-}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-	S="${WORKDIR}/${PN}-${PV/_/-}"
 fi
 
 DESCRIPTION="Digital photo management application"
@@ -64,7 +62,7 @@ COMMON_DEPEND="
 	media-libs/tiff:=
 	x11-libs/libX11
 	addressbook? (
-		>=kde-apps/akonadi-contacts-19.04.3:5
+		>=kde-apps/akonadi-contacts-23.08.3:5
 		>=kde-frameworks/kcontacts-${KFMIN}:5
 	)
 	calendar? ( >=kde-frameworks/kcalendarcore-${KFMIN}:5 )
@@ -77,7 +75,7 @@ COMMON_DEPEND="
 	lensfun? ( media-libs/lensfun )
 	marble? (
 		>=dev-qt/qtconcurrent-${QTMIN}:5
-		>=kde-apps/marble-19.04.3:5
+		>=kde-apps/marble-23.08.3:5
 		>=kde-frameworks/kbookmarks-${KFMIN}:5
 	)
 	opengl? (
@@ -85,14 +83,14 @@ COMMON_DEPEND="
 		virtual/opengl
 	)
 	panorama? ( >=kde-frameworks/threadweaver-${KFMIN}:5 )
-	scanner? ( >=kde-apps/libksane-19.04.3:5 )
+	scanner? ( >=kde-apps/libksane-23.08.3:5 )
 	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
 	spell? ( >=kde-frameworks/sonnet-${KFMIN}:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:3
 	dev-libs/boost
-	addressbook? ( >=kde-apps/akonadi-19.04.3:5 )
+	addressbook? ( >=kde-apps/akonadi-23.08.3:5 )
 "
 RDEPEND="${COMMON_DEPEND}
 	media-libs/exiftool
@@ -107,7 +105,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
+PATCHES=( "${FILESDIR}/${PN}-8.3.0-cmake.patch" )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp

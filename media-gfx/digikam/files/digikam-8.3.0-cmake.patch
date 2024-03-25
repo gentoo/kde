@@ -1,20 +1,20 @@
-From 945c59d7dd66ccb89910db7b560206550fe0fe69 Mon Sep 17 00:00:00 2001
+From c6ae81abf56851c818285d555e192c660635247b Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 Date: Sun, 17 Feb 2019 23:51:03 +0100
 Subject: [PATCH] Un-break optional Qt/KF detection
 
 And if we enable an option, make the necessary libraries REQUIRED.
 ---
- core/cmake/rules/RulesKDEFramework.cmake | 41 +++-------------
+ core/cmake/rules/RulesKDEFramework.cmake | 43 +++--------------
  core/cmake/rules/RulesQtFramework.cmake  | 61 +++++-------------------
  core/cmake/rules/RulesX11.cmake          |  7 +--
- 3 files changed, 20 insertions(+), 89 deletions(-)
+ 3 files changed, 20 insertions(+), 91 deletions(-)
 
 diff --git a/core/cmake/rules/RulesKDEFramework.cmake b/core/cmake/rules/RulesKDEFramework.cmake
-index 996de43d6a..34698eb2b8 100644
+index e34e5f4a8d..3cde25928f 100644
 --- a/core/cmake/rules/RulesKDEFramework.cmake
 +++ b/core/cmake/rules/RulesKDEFramework.cmake
-@@ -26,24 +26,15 @@ find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} QUIET
+@@ -26,26 +26,15 @@ find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} QUIET
  )
  
  if(ENABLE_KFILEMETADATASUPPORT)
@@ -37,6 +37,8 @@ index 996de43d6a..34698eb2b8 100644
 -                                            AkonadiContact      # For KDE Mail Contacts support.
 -                                            Contacts            # API for contacts/address book data.
 -    )
+-    find_package(KPim${QT_VERSION_MAJOR}Akonadi ${AKONADI_MIN_VERSION} QUIET)
+-    find_package(KPim${QT_VERSION_MAJOR}AkonadiContact ${AKONADI_MIN_VERSION} QUIET)
 -
 +    find_package(KF${QT_VERSION_MAJOR}Contacts ${KF${QT_VERSION_MAJOR}_MIN_VERSION} REQUIRED) # API for contacts/address book data.
 +    find_package(KPim${QT_VERSION_MAJOR}Akonadi ${AKONADI_MIN_VERSION} REQUIRED)
@@ -44,7 +46,7 @@ index 996de43d6a..34698eb2b8 100644
  endif()
  
  if(Qt6_FOUND)
-@@ -52,17 +43,11 @@ if(Qt6_FOUND)
+@@ -54,17 +43,11 @@ if(Qt6_FOUND)
  
  else()
  
@@ -64,11 +66,11 @@ index 996de43d6a..34698eb2b8 100644
  
  if ("${KF${QT_VERSION_MAJOR}CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
  
-@@ -70,18 +55,6 @@ if ("${KF${QT_VERSION_MAJOR}CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
+@@ -72,18 +55,6 @@ if ("${KF${QT_VERSION_MAJOR}CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
  
  endif()
  
--if(ENABLE_AKONADICONTACTSUPPORT AND (NOT KF${QT_VERSION_MAJOR}AkonadiContact_FOUND OR NOT KF${QT_VERSION_MAJOR}Contacts_FOUND))
+-if(ENABLE_AKONADICONTACTSUPPORT AND (NOT KPim${QT_VERSION_MAJOR}AkonadiContact_FOUND OR NOT KPim${QT_VERSION_MAJOR}Contacts_FOUND))
 -
 -    set(ENABLE_AKONADICONTACTSUPPORT OFF)
 -
@@ -82,9 +84,9 @@ index 996de43d6a..34698eb2b8 100644
 -
  # Check if KIO have been compiled with KIOWidgets. digiKam only needs this one.
  
- if(KF${QT_VERSION_MAJOR}KIO_FOUND)
+ if(ENABLE_KIO)
 diff --git a/core/cmake/rules/RulesQtFramework.cmake b/core/cmake/rules/RulesQtFramework.cmake
-index 469ca8f14a..c4b67cfdca 100644
+index 6f233ccfbc..7e29a09a40 100644
 --- a/core/cmake/rules/RulesQtFramework.cmake
 +++ b/core/cmake/rules/RulesQtFramework.cmake
 @@ -19,49 +19,20 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED
@@ -168,7 +170,7 @@ index 469ca8f14a..c4b67cfdca 100644
 +    find_package(Qt${QT_VERSION_MAJOR}WebView QUIET NO_MODULE)
  endif()
 diff --git a/core/cmake/rules/RulesX11.cmake b/core/cmake/rules/RulesX11.cmake
-index d7659eed34..9c145970b2 100644
+index d7830f3923..4401a57c87 100644
 --- a/core/cmake/rules/RulesX11.cmake
 +++ b/core/cmake/rules/RulesX11.cmake
 @@ -11,12 +11,7 @@ find_package(X11)
@@ -186,5 +188,5 @@ index d7659eed34..9c145970b2 100644
  
      set(HAVE_X11 TRUE)
 -- 
-2.43.0
+2.44.0
 
