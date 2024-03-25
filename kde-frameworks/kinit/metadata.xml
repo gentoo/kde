@@ -10,7 +10,6 @@
 	</upstream>
 	<use>
 		<flag name="caps">Capabilities support for improved security and better OOM handling</flag>
-		<flag name="man">Build and install man pages</flag>
 	</use>
 	<slots>
 		<subslots>
