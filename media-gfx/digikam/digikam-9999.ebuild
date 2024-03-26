@@ -21,7 +21,7 @@ HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mysql opengl openmp +panorama scanner semantic-desktop spell"
+IUSE="addressbook calendar geolocation gphoto2 heif +imagemagick +lensfun mysql opengl openmp +panorama scanner semantic-desktop spell"
 
 # bug 366505
 RESTRICT="test"
@@ -73,11 +73,6 @@ COMMON_DEPEND="
 	)
 	imagemagick? ( media-gfx/imagemagick:= )
 	lensfun? ( media-libs/lensfun )
-	marble? (
-		>=dev-qt/qtconcurrent-${QTMIN}:5
-		>=kde-apps/marble-23.08.3:5
-		>=kde-frameworks/kbookmarks-${KFMIN}:5
-	)
 	opengl? (
 		>=dev-qt/qtopengl-${QTMIN}:5
 		virtual/opengl
@@ -129,11 +124,11 @@ src_configure() {
 		-DENABLE_QWEBENGINE=ON
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
 		$(cmake_use_find_package calendar KF5CalendarCore)
+		-DENABLE_GEOLOCATION=$(usex geolocation)
 		$(cmake_use_find_package gphoto2 Gphoto2)
 		$(cmake_use_find_package heif Libheif)
 		$(cmake_use_find_package imagemagick ImageMagick)
 		$(cmake_use_find_package lensfun LensFun)
-		$(cmake_use_find_package marble Marble)
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
 		-DENABLE_INTERNALMYSQL=$(usex mysql)
 		$(cmake_use_find_package opengl OpenGL)
