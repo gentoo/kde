@@ -51,8 +51,6 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
-PATCHES=( "${FILESDIR}/${PN}-6.0.80-tests-optional.patch" )
-
 src_prepare() {
 	ecm_src_prepare
 	# we don't need it with PackageKitBackend off
