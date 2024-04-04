@@ -64,7 +64,7 @@
 ~kde-plasma/wacomtablet-9999
 ~kde-plasma/xdg-desktop-portal-kde-9999
 ~dev-libs/appstream-1.0.2
-~dev-libs/kirigami-addons-1.0.1
+~dev-libs/kirigami-addons-1.1.0
 ~gui-apps/xwaylandvideobridge-0.4.0
 ~kde-apps/kaccounts-integration-24.02.0
 ~kde-apps/spectacle-24.02.0
