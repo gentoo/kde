@@ -33,6 +33,7 @@ DEPEND="
 	>=kde-plasma/libplasma-${PVCUT}:6
 	media-libs/libcanberra
 	media-libs/libpulse
+	>=media-libs/pulseaudio-qt-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
 	dev-libs/kirigami-addons:6
