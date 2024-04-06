@@ -6,8 +6,7 @@ EAPI=8
 inherit qmake-utils multibuild
 
 if [[ ${PV} = *9999* ]] ; then
-	EGIT_REPO_URI="https://gitlab.com/nicolasfella/lib${PN}.git/"
-	EGIT_BRANCH="qt6"
+	EGIT_REPO_URI="https://gitlab.com/accounts-sso/lib${PN}.git/"
 	inherit git-r3
 else
 	COMMIT=c86db79be389601bf6798f815ca5b8f78a524156
