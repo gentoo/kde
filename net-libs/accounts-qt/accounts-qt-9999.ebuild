@@ -6,18 +6,11 @@ EAPI=8
 inherit qmake-utils multibuild
 
 if [[ ${PV} = *9999* ]] ; then
-	EGIT_REPO_URI="https://gitlab.com/nicolasfella/lib${PN}.git/"
-	EGIT_BRANCH="qt6"
+	EGIT_REPO_URI="https://gitlab.com/accounts-sso/lib${PN}.git/"
 	inherit git-r3
 else
-	COMMIT=c86db79be389601bf6798f815ca5b8f78a524156
-	if [[ -n ${COMMIT} ]] ; then
-		SRC_URI="https://gitlab.com/accounts-sso/lib${PN}/-/archive/${COMMIT}/lib${PN}-${COMMIT}.tar.bz2 -> ${P}.tar.bz2"
-		S="${WORKDIR}/lib${PN}-${COMMIT}"
-	else
-		SRC_URI="https://gitlab.com/accounts-sso/lib${PN}/-/archive/VERSION_${PV}/lib${PN}-VERSION_${PV}.tar.bz2 -> ${P}a.tar.bz2"
-		S="${WORKDIR}/lib${PN}-VERSION_${PV}"
-	fi
+	SRC_URI="https://gitlab.com/accounts-sso/lib${PN}/-/archive/VERSION_${PV}/lib${PN}-VERSION_${PV}.tar.bz2 -> ${P}.tar.bz2"
+	S="${WORKDIR}/lib${PN}-VERSION_${PV}"
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
@@ -42,9 +35,7 @@ RDEPEND="
 	>=net-libs/libaccounts-glib-1.23:=
 "
 DEPEND="${RDEPEND}
-	test? (
-		qt5? ( dev-qt/qttest:5 )
-	)
+	test? ( qt5? ( dev-qt/qttest:5 ) )
 "
 BDEPEND="
 	doc? (
