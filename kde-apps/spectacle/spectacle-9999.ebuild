@@ -25,6 +25,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qtwayland-${QTMIN}:6
+	media-libs/opencv[qt6]
 	media-libs/zxing-cpp:=
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
