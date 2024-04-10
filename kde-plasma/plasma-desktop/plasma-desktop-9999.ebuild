@@ -126,7 +126,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-5.90.0-override-include-dirs.patch" # downstream patch
+	"${FILESDIR}/${PN}-6.0.80-override-include-dirs.patch" # downstream patch
 )
 
 src_prepare() {
