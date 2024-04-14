@@ -14,7 +14,8 @@ LICENSE="|| ( GPL-2+ LGPL-3+ )"
 KEYWORDS=""
 IUSE=""
 
-# FIXME: Qt_6_PRIVATE_API matches org.kde.desktop.so, but where is it coming from?
+# Qt_6_PRIVATE_API matches org.kde.desktop.so, see also:
+# https://invent.kde.org/frameworks/qqc2-desktop-style/-/merge_requests/379
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6=
@@ -27,3 +28,4 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6
 "
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
