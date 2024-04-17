@@ -4,6 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
+KFMIN=6.1.0
+QTMIN=6.6.2
 inherit ecm kde.org
 
 DESCRIPTION="Graphviz dot graph file viewer"
@@ -15,24 +17,25 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="GPL-2 GPL-2+ LGPL-2+ LGPL-2.1+ handbook? ( FDL-1.2 )"
-SLOT="5"
+SLOT="0"
 IUSE=""
 
-RDEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	kde-frameworks/kconfig:5
-	kde-frameworks/kconfigwidgets:5
-	kde-frameworks/kcoreaddons:5
-	kde-frameworks/ki18n:5
-	kde-frameworks/kparts:5
-	kde-frameworks/kwidgetsaddons:5
-	kde-frameworks/kxmlgui:5
+COMMON_DEPEND="
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=media-gfx/graphviz-2.30
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
+"
+RDEPEND="${COMMON_DEPEND}
+	!${CATEGORY}/${PN}:5
 "
