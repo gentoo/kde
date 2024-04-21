@@ -252,17 +252,26 @@ if $(ver_test -gt 24.01.75); then
 fi
 
 # list of applications ported to KF6 post-24.02 in SLOT=6 having to block SLOT=5
-if $(ver_test -gt 24.03.75); then
+if $(ver_test -gt 24.04.75); then
 	case ${PN} in
+		audex | \
 		itinerary | \
+		kio-perldoc | \
+		kolourpaint)
+			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
+		*) ;;
+	esac
+fi
+
+# list of applications ported to KF6 post-24.05 in SLOT=6 having to block SLOT=5
+if $(ver_test -gt 24.07.75); then
+	case ${PN} in
 		k3b | \
 		kalzium | \
 		kdeedu-data | \
 		kdesdk-thumbnailers | \
 		kimagemapeditor | \
-		kio-perldoc | \
 		kmplot | \
-		kolourpaint | \
 		kompare | \
 		krdc | \
 		libkomparediff2 | \
