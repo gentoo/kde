@@ -38,6 +38,4 @@ DEPEND="
 	dev-libs/libcdio:=
 	dev-libs/libcdio-paranoia:=
 "
-RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5
-"
+RDEPEND="${DEPEND}"
