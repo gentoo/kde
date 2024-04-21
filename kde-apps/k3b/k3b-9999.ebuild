@@ -22,7 +22,6 @@ REQUIRED_USE="flac? ( taglib ) lame? ( taglib ) sox? ( taglib )"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=kde-apps/libkcddb-${PVCUT}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
