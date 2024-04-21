@@ -4,12 +4,13 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
+PVCUT=$(ver_cut 1-3)
 KFMIN=6.0.0
 QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="The Japanese warehouse keeper sokoban game"
-HOMEPAGE="https://invent.kde.org/games/skladnik"
+HOMEPAGE="https://apps.kde.org/skladnik/ https://invent.kde.org/games/skladnik"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,7 +18,7 @@ KEYWORDS=""
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
-	>=kde-apps/libkdegames-24.02.0:6
+	>=kde-apps/libkdegames-${PVCUT}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
