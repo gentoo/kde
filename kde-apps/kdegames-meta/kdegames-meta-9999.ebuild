@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="opengl python"
 
 RDEPEND="
+	>=games-puzzle/skladnik-${PV}
 	>=kde-apps/bomber-${PV}:*
 	>=kde-apps/bovo-${PV}:*
 	>=kde-apps/granatier-${PV}:*
