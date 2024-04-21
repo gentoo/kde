@@ -21,6 +21,7 @@ RDEPEND="
 	>=media-sound/kasts-${PV}
 	>=media-sound/krecorder-${PV}
 	cdrom? (
+		>=media-sound/audex-${PV}
 		>=kde-apps/audiocd-kio-${PV}:*
 		>=kde-apps/k3b-${PV}:*
 		>=kde-apps/libkcddb-${PV}:*
