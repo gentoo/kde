@@ -4,12 +4,13 @@
 EAPI=8
 
 ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
 KFMIN=6.0.0
 QTMIN=6.6.2
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Tool for ripping compact discs"
-HOMEPAGE="https://userbase.kde.org/Audex"
+HOMEPAGE="https://apps.kde.org/audex/ https://userbase.kde.org/Audex"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -20,7 +21,7 @@ DEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-apps/libkcddb-24.02.0:6
+	>=kde-apps/libkcddb-${PVCUT}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
