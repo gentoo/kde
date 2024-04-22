@@ -257,7 +257,8 @@ if $(ver_test -gt 24.04.75); then
 		audex | \
 		itinerary | \
 		kio-perldoc | \
-		kolourpaint)
+		kolourpaint | \
+		signon-kwallet-extension)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;
 	esac
@@ -277,7 +278,6 @@ if $(ver_test -gt 24.07.75); then
 		libkomparediff2 | \
 		libksane | \
 		minuet | \
-		signon-kwallet-extension | \
 		skanlite | \
 		step)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
