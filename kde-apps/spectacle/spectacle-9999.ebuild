@@ -42,6 +42,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	kde-plasma/kpipewire:6
 	kde-plasma/layer-shell-qt:6
+	media-libs/opencv:=
 	x11-libs/libxcb
 	x11-libs/libXrandr
 	x11-libs/xcb-util
