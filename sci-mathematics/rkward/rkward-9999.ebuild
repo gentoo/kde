@@ -4,6 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
+KFMIN=6.1.0
+QTMIN=6.6.2
 inherit ecm kde.org optfeature
 
 DESCRIPTION="IDE for the R-project"
@@ -15,41 +17,40 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="GPL-2+ LGPL-2"
-SLOT="5"
+SLOT="0"
 IUSE=""
 
 DEPEND="
 	dev-lang/R
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwebengine:5[widgets]
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
-	kde-frameworks/karchive:5
-	kde-frameworks/kcompletion:5
-	kde-frameworks/kconfig:5
-	kde-frameworks/kconfigwidgets:5
-	kde-frameworks/kcoreaddons:5
-	kde-frameworks/kcrash:5
-	kde-frameworks/ki18n:5
-	kde-frameworks/kio:5
-	kde-frameworks/kjobwidgets:5
-	kde-frameworks/knotifications:5
-	kde-frameworks/kparts:5
-	kde-frameworks/kservice:5
-	kde-frameworks/ktexteditor:5
-	kde-frameworks/kwidgetsaddons:5
-	kde-frameworks/kwindowsystem:5
-	kde-frameworks/kxmlgui:5
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
+"
 BDEPEND="sys-devel/gettext"
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "kate plugins support" "kde-apps/kate-addons:${SLOT}"
+		optfeature "kate plugins support" "kde-apps/kate-addons:6"
 		optfeature "prendering (or previewing) R markdown (.Rmd) files" "app-text/pandoc"
 		optfeature "managing citations while writing articles" "app-text/kbibtex"
 	fi
