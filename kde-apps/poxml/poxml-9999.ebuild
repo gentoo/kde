@@ -4,18 +4,18 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-QTMIN=5.15.12
+QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="KDE utility to translate DocBook XML files using gettext po files"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[xml]
 	sys-devel/gettext
 "
 RDEPEND="${DEPEND}"
