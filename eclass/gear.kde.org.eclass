@@ -268,11 +268,21 @@ fi
 if $(ver_test -gt 24.07.75); then
 	case ${PN} in
 		k3b | \
-		kalzium | \
 		kdeedu-data | \
-		kdesdk-thumbnailers | \
 		kimagemapeditor | \
 		kmplot | \
+		poxml)
+			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
+		*) ;;
+	esac
+fi
+
+# list of applications ported to KF6 post-24.08 in SLOT=6 having to block SLOT=5
+# (option to build with KF6 in master, but default remains KF5)
+if $(ver_test -gt 24.10.75); then
+	case ${PN} in
+		kalzium | \
+		kdesdk-thumbnailers | \
 		kompare | \
 		krdc | \
 		libkomparediff2 | \
