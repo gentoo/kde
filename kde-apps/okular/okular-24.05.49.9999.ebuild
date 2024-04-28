@@ -63,7 +63,7 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-24.01.80-tests.patch" # bug 734138
+	"${FILESDIR}/${PN}-24.04.80-tests.patch" # bug 734138
 	"${FILESDIR}/${PN}-20.08.2-hide-mobile-app.patch" # avoid same-name entry
 )
 
