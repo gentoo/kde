@@ -37,5 +37,5 @@ src_configure() {
 	# https://invent.kde.org/utilities/kfloppy/-/merge_requests/8
 	filter-lto
 
-	cmake_src_configure
+	ecm_src_configure
 }
