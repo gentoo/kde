@@ -14,7 +14,6 @@ HOMEPAGE="https://apps.kde.org/kfloppy/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="0"
 KEYWORDS=""
-IUSE=""
 
 DEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6
