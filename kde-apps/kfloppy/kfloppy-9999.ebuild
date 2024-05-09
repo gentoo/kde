@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.0.0
 QTMIN=6.6.2
-inherit ecm kde.org
+inherit ecm flag-o-matic kde.org
 
 DESCRIPTION="Straightforward graphical means to format 3.5\" and 5.25\" floppy disks"
 HOMEPAGE="https://apps.kde.org/kfloppy/"
@@ -31,3 +31,12 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 "
+
+src_configure() {
+	# -Werror=odr
+	# https://bugs.gentoo.org/926320
+	# https://invent.kde.org/utilities/kfloppy/-/merge_requests/8
+	filter-lto
+
+	cmake_src_configure
+}
