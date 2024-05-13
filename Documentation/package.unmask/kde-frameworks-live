@@ -47,7 +47,6 @@
 ~kde-frameworks/kjobwidgets-9999:6
 ~kde-frameworks/knotifications-9999:6
 ~kde-frameworks/kpackage-9999:6
-~kde-frameworks/kpeople-9999:6
 ~kde-frameworks/kpty-9999:6
 ~kde-frameworks/kstatusnotifieritem-9999:6
 ~kde-frameworks/ksvg-9999:6
@@ -68,6 +67,7 @@
 ~kde-frameworks/knewstuff-9999:6
 ~kde-frameworks/knotifyconfig-9999:6
 ~kde-frameworks/kparts-9999:6
+~kde-frameworks/kpeople-9999:6
 ~kde-frameworks/krunner-9999:6
 ~kde-frameworks/kservice-9999:6
 ~kde-frameworks/ktexteditor-9999:6
