@@ -40,7 +40,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DPython_EXECUTABLE="${PYTHON}"
 		-DBINARY_ICONS_RESOURCE=ON # TODO: remove when kexi was ported away
-		-DICONS_LIBRARY=ON
 		-DSKIP_INSTALL_ICONS=OFF
 	)
 	cmake_src_configure
