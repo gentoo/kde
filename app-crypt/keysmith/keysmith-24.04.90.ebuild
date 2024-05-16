@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	dev-libs/kirigami-addons:6
 	dev-libs/libsodium:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
@@ -28,6 +28,9 @@ RDEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
+"
+RDEPEND="${COMMON_DEPEND}
+	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 "
