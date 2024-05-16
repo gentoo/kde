@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.0.0
+QTMIN=6.6.2
 inherit ecm kde.org
 
 DESCRIPTION="Powerful batch file renamer"
@@ -17,28 +17,27 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="6"
 IUSE="exif office pdf taglib truetype"
 
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	exif? ( media-gfx/exiv2:= )
-	office? ( >=kde-frameworks/karchive-${KFMIN}:5 )
+	office? ( >=kde-frameworks/karchive-${KFMIN}:6 )
 	pdf? ( app-text/podofo:= )
 	taglib? ( media-libs/taglib:= )
 	truetype? ( media-libs/freetype:2 )
@@ -49,7 +48,7 @@ BDEPEND="sys-devel/gettext"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package exif LibExiv2)
-		$(cmake_use_find_package office KF5Archive)
+		$(cmake_use_find_package office KF6Archive)
 		$(cmake_use_find_package pdf PoDoFo)
 		$(cmake_use_find_package taglib Taglib)
 		$(cmake_use_find_package truetype Freetype)
