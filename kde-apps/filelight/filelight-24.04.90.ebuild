@@ -33,6 +33,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-frameworks/kquickcharts-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 "
