@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/graphics/"
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="color-management scanner +screencast"
+IUSE="color-management scanner +screencast +webengine"
 
 RDEPEND="
 	>=kde-apps/gwenview-${PV}:*
@@ -27,7 +27,7 @@ RDEPEND="
 	scanner? (
 		>=kde-apps/libksane-${PV}:*
 		>=kde-misc/skanlite-${PV}:*
-		>=media-gfx/skanpage-${PV}:*
+		webengine? ( >=media-gfx/skanpage-${PV}:* )
 	)
 	screencast? ( >=kde-apps/spectacle-${PV}:* )
 "
