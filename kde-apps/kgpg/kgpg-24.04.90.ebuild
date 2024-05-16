@@ -19,7 +19,6 @@ KEYWORDS="~amd64"
 IUSE=""
 
 COMMON_DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6
 	>=kde-apps/akonadi-contacts-${PVCUT}:6
