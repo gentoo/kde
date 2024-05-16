@@ -6,7 +6,8 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.115.0
 QTMIN=5.15.12
-inherit ecm kde.org optfeature
+PYTHON_COMPAT=( python3_{10..12} )
+inherit ecm kde.org optfeature python-any-r1
 
 DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
@@ -16,8 +17,7 @@ SLOT="5"
 IUSE="ipod lastfm mariadb mtp podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
-BDEPEND="virtual/pkgconfig"
-DEPEND="
+COMMON_DEPEND="
 	>=app-crypt/qca-2.3.0:2[qt5(+)]
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -58,7 +58,7 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
 	>=media-libs/phonon-4.11.0[qt5(+)]
-	media-libs/taglib:=
+	>=media-libs/taglib-1.12:=
 	media-libs/taglib-extras
 	sci-libs/fftw:3.0
 	sys-libs/zlib
@@ -74,11 +74,22 @@ DEPEND="
 	podcast? ( >=media-libs/libmygpo-qt-1.0.9_p20180307 )
 	wikipedia? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	>=dev-qt/linguist-tools-${QTMIN}:5
+"
+RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	media-video/ffmpeg
 "
+BDEPEND="${PYTHON_DEPS}
+	virtual/pkgconfig
+"
+
+pkg_setup() {
+	python-any-r1_pkg_setup
+	ecm_pkg_setup
+}
 
 src_configure() {
 	local mycmakeargs=(
