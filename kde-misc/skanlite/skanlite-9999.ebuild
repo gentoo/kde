@@ -21,7 +21,6 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=kde-apps/libksane-${PVCUT}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
