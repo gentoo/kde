@@ -60,6 +60,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_SeleniumWebDriverATSPI=ON # not packaged
 		$(cmake_use_find_package activities PlasmaActivities)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		$(cmake_use_find_package semantic-desktop KF6BalooWidgets)
