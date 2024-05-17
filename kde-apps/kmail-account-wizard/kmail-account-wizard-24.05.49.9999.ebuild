@@ -20,7 +20,7 @@ IUSE=""
 
 DEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
-	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-libs/qtkeychain-0.14.2:=[qt6]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=kde-apps/akonadi-${PVCUT}:6
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
