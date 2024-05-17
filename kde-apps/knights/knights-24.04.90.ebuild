@@ -19,7 +19,6 @@ KEYWORDS="~amd64"
 IUSE="speech"
 
 DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/libkdegames-${PVCUT}:6
