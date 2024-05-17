@@ -21,7 +21,7 @@ IUSE=""
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-libs/ktextaddons-1.5.3:6
+	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6
 	>=kde-apps/grantleetheme-${PVCUT}:6
