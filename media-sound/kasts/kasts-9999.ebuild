@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=6.0.0
+KFMIN=6.2.0
 QTMIN=6.6.2
 inherit ecm gear.kde.org
 
@@ -22,6 +22,7 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/breeze-icons-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
