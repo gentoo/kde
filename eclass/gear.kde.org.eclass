@@ -285,7 +285,6 @@ if $(ver_test -gt 24.10.75); then
 		kdesdk-thumbnailers | \
 		kompare | \
 		krdc | \
-		libkomparediff2 | \
 		libksane | \
 		minuet | \
 		skanlite | \
