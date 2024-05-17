@@ -40,11 +40,3 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		-DWITH_JABBER_SUPPORT=$(usex xmpp)
-	)
-
-	ecm_src_configure
-}
