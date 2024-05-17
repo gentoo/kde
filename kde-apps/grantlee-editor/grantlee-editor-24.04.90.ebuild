@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
-	>=dev-libs/ktextaddons-1.4.42:6
+	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-contacts-${PVCUT}:6
