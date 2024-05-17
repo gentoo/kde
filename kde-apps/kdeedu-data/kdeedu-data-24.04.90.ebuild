@@ -3,16 +3,24 @@
 
 EAPI=8
 
-inherit gear.kde.org cmake
+inherit cmake gear.kde.org
 
 DESCRIPTION="Shared icons, artwork and data files for educational applications"
 
 LICENSE="GPL-2"
-SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
+SLOT="0"
+KEYWORDS="~amd64"
 IUSE=""
 
 BDEPEND="
-	dev-qt/qtcore:5
+	dev-qt/qtbase:6
 	kde-frameworks/extra-cmake-modules:0
 "
+
+src_prepare() {
+	cmake_src_prepare
+
+	# default in git master/>=24.08, no code change since 2023
+	# this is a better fit since all revdeps are already KF6
+	sed -e "/find_package.*ECM/s/5\.90/6.0/" -i CMakeLists.txt || die
+}

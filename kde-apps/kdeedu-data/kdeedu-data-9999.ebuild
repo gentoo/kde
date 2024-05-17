@@ -8,7 +8,7 @@ inherit cmake gear.kde.org
 DESCRIPTION="Shared icons, artwork and data files for educational applications"
 
 LICENSE="GPL-2"
-SLOT="6"
+SLOT="0"
 KEYWORDS=""
 IUSE=""
 
