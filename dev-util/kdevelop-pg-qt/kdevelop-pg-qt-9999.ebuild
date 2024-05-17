@@ -5,21 +5,22 @@ EAPI=8
 
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
-KFMIN=5.115.0
+KFMIN=6.0.0
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="LL(1) parser generator used mainly by KDevelop language plugins"
 HOMEPAGE="https://www.kdevelop.org/"
 
 LICENSE="LGPL-2+ LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 IUSE=""
 
+RDEPEND+=" !${CATEGORY}/${PN}:5"
 BDEPEND="
 	app-alternatives/lex
 	app-alternatives/yacc
