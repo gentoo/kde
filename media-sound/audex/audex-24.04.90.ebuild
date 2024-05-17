@@ -18,7 +18,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-apps/libkcddb-${PVCUT}:6
