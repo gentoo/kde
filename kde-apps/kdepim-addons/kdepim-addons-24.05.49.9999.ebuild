@@ -21,7 +21,7 @@ RESTRICT="test"
 
 RDEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
-	dev-libs/ktextaddons:6
+	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
 	>=kde-apps/akonadi-${PVCUT}:6
 	>=kde-apps/akonadi-contacts-${PVCUT}:6
