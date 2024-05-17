@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.0.0
 QTMIN=6.6.2
@@ -16,7 +17,7 @@ SLOT="0"
 KEYWORDS=""
 
 DEPEND="
-	dev-libs/kirigami-addons:6
+	>=dev-libs/kirigami-addons-1.1.0:6
 	dev-libs/qtkeychain[qt6]
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,widgets]
