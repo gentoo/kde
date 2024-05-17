@@ -18,7 +18,6 @@ KEYWORDS=""
 IUSE="+pim speech X"
 
 DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-apps/kcalutils-${PVCUT}:6
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
@@ -56,7 +55,7 @@ DEPEND="
 		>=kde-apps/akonadi-mime-${PVCUT}:6
 		>=kde-apps/kmailtransport-${PVCUT}:6
 	)
-	speech? ( dev-libs/ktextaddons:6[speech] )
+	speech? ( >=dev-libs/ktextaddons-1.5.4:6[speech] )
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}
