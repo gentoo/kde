@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/ksirk/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS="~amd64"
-IUSE="xmpp"
+IUSE=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
@@ -33,18 +33,5 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	sys-libs/zlib
-	xmpp? (
-		>=app-crypt/qca-2.3.7:2[qt6]
-		>=kde-frameworks/kio-${KFMIN}:6
-		>=kde-frameworks/kwallet-${KFMIN}:6
-	)
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		-DWITH_JABBER_SUPPORT=$(usex xmpp)
-	)
-
-	ecm_src_configure
-}
