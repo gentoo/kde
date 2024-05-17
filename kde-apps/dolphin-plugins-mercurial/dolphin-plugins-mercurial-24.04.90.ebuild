@@ -38,6 +38,8 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	ecm_src_prepare
+	# qtconcurrent only required by git
+	ecm_punt_qt_module Concurrent
 	# solid, qtdbus only required by mountiso
 	ecm_punt_qt_module DBus
 	ecm_punt_kf_module Solid

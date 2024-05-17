@@ -20,7 +20,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui,widgets]
 	>=kde-apps/dolphin-${PVCUT}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6

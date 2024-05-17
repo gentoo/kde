@@ -35,6 +35,8 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	ecm_src_prepare
+	# qtconcurrent only required by git
+	ecm_punt_qt_module Concurrent
 	# kxmlgui, qtnetwork only required by dropbox
 	ecm_punt_qt_module Network
 	ecm_punt_kf_module XmlGui
