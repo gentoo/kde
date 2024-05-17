@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 IUSE="speech telemetry"
 
 RDEPEND="
-	>=dev-libs/ktextaddons-1.4.42:6[speech?]
+	>=dev-libs/ktextaddons-1.5.4:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/grantleetheme-${PVCUT}:6
