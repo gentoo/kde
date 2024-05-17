@@ -19,7 +19,7 @@ IUSE="speech"
 
 RESTRICT="test"
 
-# TODO etebase, kolab
+# TODO kolab
 RDEPEND="
 	>=app-crypt/qca-2.3.7:2[qt6]
 	dev-libs/cyrus-sasl:2
