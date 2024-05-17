@@ -39,10 +39,6 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-image
 	wayland? (
 		dev-libs/wayland
-		|| (
-			>=dev-qt/qtbase-${QTMIN}:6[libinput]
-			>=dev-qt/qtbase-${QTMIN}:6[X]
-		)
 		>=dev-qt/qtwayland-${QTMIN}:6
 		kde-plasma/kpipewire:6
 		kde-plasma/kwayland:6
