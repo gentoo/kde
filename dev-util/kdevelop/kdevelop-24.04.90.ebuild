@@ -18,7 +18,7 @@ HOMEPAGE="https://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 SLOT="5/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="+gdbui hex +plasma +qmake reviewboard subversion"
+IUSE="+gdbui hex +plasma +qmake subversion"
 
 # see bug 366471
 RESTRICT="test"
@@ -73,7 +73,6 @@ COMMON_DEPEND="
 		>=kde-plasma/libplasma-${KFMIN}:5
 	)
 	qmake? ( dev-util/kdevelop-pg-qt:5 )
-	reviewboard? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	subversion? (
 		dev-libs/apr:1
 		dev-libs/apr-util:1
@@ -95,7 +94,6 @@ RDEPEND="${COMMON_DEPEND}
 		kde-apps/kio-extras:5
 	)
 	>=dev-debug/gdb-7.0[python]
-	reviewboard? ( kde-apps/ktp-accounts-kcm:5 )
 "
 
 llvm_check_deps() {
@@ -104,18 +102,17 @@ llvm_check_deps() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Purpose=ON
 		-DLLVM_ROOT="$(get_llvm_prefix ${LLVM_SLOT})"
 		$(cmake_use_find_package gdbui KSysGuard)
 		-DBUILD_executeplasmoid=$(usex plasma)
 		$(cmake_use_find_package plasma KF5Plasma)
 		$(cmake_use_find_package hex OktetaKastenControllers)
 		$(cmake_use_find_package qmake KDevelop-PG-Qt)
-		$(cmake_use_find_package reviewboard KF5Purpose)
 		$(cmake_use_find_package subversion SubversionLibrary)
 	)
 
 	use gdbui || mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_KF5SysGuard=ON )
-	use reviewboard || mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_KDEExperimentalPurpose=ON )
 
 	ecm_src_configure
 }
