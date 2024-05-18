@@ -23,7 +23,9 @@ DEPEND="
 	>=media-libs/ksanecore-${PVCUT}:6
 	kwallet? ( >=kde-frameworks/kwallet-${KFMIN}:6 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+"
 
 src_configure() {
 	local mycmakeargs=(
