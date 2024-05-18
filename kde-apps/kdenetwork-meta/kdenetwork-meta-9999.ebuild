@@ -15,7 +15,6 @@ RDEPEND="
 	>=kde-apps/kget-${PV}:*
 	>=kde-apps/krdc-${PV}:*
 	>=kde-misc/kdeconnect-${PV}:*
-	>=net-im/neochat-${PV}
 	>=net-im/tokodon-${PV}
 	>=net-irc/konversation-${PV}:*
 	>=net-misc/kio-zeroconf-${PV}:*
@@ -32,5 +31,6 @@ RDEPEND="
 		>=kde-apps/kaccounts-providers-${PV}:*
 		>=kde-apps/signon-kwallet-extension-${PV}:*
 		>=kde-misc/kio-gdrive-${PV}:*
+		>=net-im/neochat-${PV}
 	)
 "
