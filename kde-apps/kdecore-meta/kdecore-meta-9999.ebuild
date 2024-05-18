@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/"
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS=""
-IUSE="+handbook +share +thumbnail +webengine"
+IUSE="+share +thumbnail +webengine"
 
 RDEPEND="
 	>=kde-apps/dolphin-${PV}:*
@@ -18,11 +18,13 @@ RDEPEND="
 	>=kde-apps/kfind-${PV}:*
 	>=kde-apps/konsole-${PV}:*
 	>=kde-apps/kwrite-${PV}:*
-	handbook? ( >=kde-apps/khelpcenter-${PV}:* )
-	webengine? ( || (
-		>=www-client/falkon-${PV}
-		>=kde-apps/konqueror-${PV}:*
-	) )
+	webengine? (
+		>=kde-apps/khelpcenter-${PV}:*
+		|| (
+			>=www-client/falkon-${PV}
+			>=kde-apps/konqueror-${PV}:*
+		)
+	)
 "
 # Optional runtime deps: kde-apps/dolphin
 RDEPEND="${RDEPEND}
