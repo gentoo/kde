@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="optional"
-KDE_ORG_NAME="kio-extras"
 KDE_ORG_TAR_PN="kio-extras-kf5"
 KFMIN=5.115.0
 QTMIN=5.15.12
@@ -71,7 +70,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kio-extras-23.08.5-r100:5
+	!kde-apps/kio-extras-kf5:5
 	>=kde-frameworks/kded-${KFMIN}:5
 	kf6compat? ( kde-apps/kio-extras:6 )
 "
