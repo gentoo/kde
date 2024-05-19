@@ -17,10 +17,13 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-# TODO: Do we want to wire up BUILD_QUICK_SUPPORT?
+RESTRICT="test"
+
 DEPEND="
+	>=dev-libs/kirigami-addons-1.0:6
 	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-apps/kpimtextedit-${PVCUT}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -31,5 +34,3 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT="test"
