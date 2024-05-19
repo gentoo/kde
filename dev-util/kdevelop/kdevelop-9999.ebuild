@@ -84,16 +84,13 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
+	dev-build/ninja
+	>=dev-debug/gdb-7.0[python]
 	>=dev-qt/qdbus-${QTMIN}:*
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	dev-build/ninja
 	kde-apps/kapptemplate:*
-	|| (
-		kde-apps/kio-extras-kf5:5
-		kde-apps/kio-extras:5
-	)
-	>=dev-debug/gdb-7.0[python]
+	kde-apps/kio-extras:5
 "
 
 llvm_check_deps() {
