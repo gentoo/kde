@@ -282,7 +282,6 @@ if $(ver_test -gt 24.10.75); then
 	case ${PN} in
 		kalzium | \
 		kdesdk-thumbnailers | \
-		kompare | \
 		krdc | \
 		minuet | \
 		skanlite | \
