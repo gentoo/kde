@@ -30,17 +30,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 DEPEND="${COMMON_DEPEND}
-	dev-libs/boost
+	>=dev-libs/boost-1.82
 "
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 	sys-apps/diffutils
 "
 
-src_configure() {
-	local mycmakeargs=(
-		-DBUILD_WITH_QT6=ON
-		# TODO: -DENABLE_GDBINDEX?
-	)
-	ecm_src_configure
-}
+# TODO: -DENABLE_GDBINDEX?
