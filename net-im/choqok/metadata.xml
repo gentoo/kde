@@ -11,6 +11,5 @@
 	<use>
 		<flag name="attica">Build Open Collaboration Services plugin using <pkg>kde-frameworks/attica</pkg></flag>
 		<flag name="share">Enable support for a share menu using <pkg>kde-frameworks/purpose</pkg></flag>
-		<flag name="telepathy">Enable support for the real-time communication framework telepathy</flag>
 	</use>
 </pkgmetadata>

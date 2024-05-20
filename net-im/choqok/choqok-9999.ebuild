@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-2+"
 SLOT="5"
-IUSE="attica share telepathy"
+IUSE="attica share"
 
 DEPEND="
 	>=app-crypt/qca-2.3.0:2[qt5(+)]
@@ -47,7 +47,6 @@ DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	attica? ( >=kde-frameworks/attica-${KFMIN}:5 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
-	telepathy? ( >=net-libs/telepathy-qt-0.9.8 )
 "
 RDEPEND="${DEPEND}"
 
@@ -55,10 +54,10 @@ DOCS=( AUTHORS README changelog )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package attica KF5Attica)
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5WebKit=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_TelepathyQt5=ON
+		$(cmake_use_find_package attica KF5Attica)
 		$(cmake_use_find_package share KF5Purpose)
-		$(cmake_use_find_package telepathy TelepathyQt5)
 	)
 
 	ecm_src_configure
