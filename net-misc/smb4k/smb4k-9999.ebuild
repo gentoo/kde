@@ -51,7 +51,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
-	plasma? ( >=kde-plasma/libplasma-${KFMIN}:6 )
+	plasma? (
+		>=kde-frameworks/kirigami-${KFMIN}:6
+		>=kde-plasma/libplasma-${KFMIN}:6
+	)
 "
 
 src_configure() {
