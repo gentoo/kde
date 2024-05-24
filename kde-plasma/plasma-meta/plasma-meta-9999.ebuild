@@ -11,7 +11,7 @@ SLOT="6"
 KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
-+networkmanager oxygen-theme plymouth pulseaudio qt5 +sddm sdk +smart systemd
++networkmanager oxygen-theme plymouth pulseaudio qt5 rdp +sddm sdk +smart systemd
 thunderbolt unsupported wacom +wallpapers webengine +xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd )"
@@ -95,6 +95,7 @@ RDEPEND="
 	)
 	pulseaudio? ( >=kde-plasma/plasma-pa-${PV}:${SLOT} )
 	qt5? ( >=kde-plasma/kwayland-integration-${PV}:5 )
+	rdp? ( >=kde-plasma/krdp-${PV}:${SLOT} )
 	sdk? ( >=kde-plasma/plasma-sdk-${PV}:${SLOT} )
 	smart? ( >=kde-plasma/plasma-disks-${PV}:${SLOT} )
 	systemd? (
