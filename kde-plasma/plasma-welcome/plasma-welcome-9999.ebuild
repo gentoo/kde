@@ -13,10 +13,9 @@ DESCRIPTION="Friendly onboarding wizard for Plasma"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="discover telemetry"
+IUSE=""
 
 DEPEND="
-	dev-libs/kirigami-addons:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -33,16 +32,5 @@ DEPEND="
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
-	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
-RDEPEND="${DEPEND}
-	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	discover? ( kde-plasma/discover:6 )
-"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package telemetry KF6UserFeedback)
-	)
-	ecm_src_configure
-}
+RDEPEND="${DEPEND}"
