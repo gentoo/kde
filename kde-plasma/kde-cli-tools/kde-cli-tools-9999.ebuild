@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.6.2
+QTMIN=6.7.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Tools based on KDE Frameworks 6 to better interact with the system"

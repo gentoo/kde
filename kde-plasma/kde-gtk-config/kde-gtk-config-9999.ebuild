@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.6.2
+QTMIN=6.7.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Syncs KDE Plasma theme settings to GTK applications"
