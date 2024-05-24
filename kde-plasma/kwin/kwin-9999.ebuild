@@ -21,6 +21,7 @@ RESTRICT="test"
 
 # qtbase slot up: GuiPrivate use in tabbox
 COMMON_DEPEND="
+	dev-libs/libei
 	>=dev-libs/libinput-1.19:=
 	>=dev-libs/wayland-1.22.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
@@ -63,7 +64,7 @@ COMMON_DEPEND="
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libXi
-	>=x11-libs/libdrm-2.4.112
+	>=x11-libs/libdrm-2.4.116
 	>=x11-libs/libxcb-1.10:=
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
@@ -94,11 +95,11 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6[wayland]
 	sys-apps/hwdata
-	x11-base/xwayland
+	x11-base/xwayland[libei]
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.11.1
-	>=dev-libs/wayland-protocols-1.32
+	>=dev-libs/wayland-protocols-1.34
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	>=dev-qt/qtwayland-${QTMIN}:6
@@ -130,6 +131,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		# TODO: KWIN_BUILD_X11?
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
