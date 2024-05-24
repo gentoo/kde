@@ -43,6 +43,14 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
+	)
+
+	ecm_src_configure
+}
+
 pkg_postinst() {
 	ecm_pkg_postinst
 
