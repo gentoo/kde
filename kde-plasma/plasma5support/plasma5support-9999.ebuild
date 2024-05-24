@@ -33,4 +33,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-plasma/plasma-workspace:5
+	!<kde-plasma/plasma-workspace-6.0.80:6
 "
