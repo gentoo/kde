@@ -11,6 +11,7 @@ QTMIN=6.7.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Library and examples for creating an RDP server"
+HOMEPAGE+=" https://quantumproductions.info/articles/2023-08/remote-desktop-using-rdp-protocol-plasma-wayland"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
