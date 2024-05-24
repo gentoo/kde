@@ -19,6 +19,7 @@
 ~kde-plasma/kinfocenter-9999
 ~kde-plasma/kmenuedit-9999
 ~kde-plasma/kpipewire-9999
+~kde-plasma/krdp-9999
 ~kde-plasma/kscreen-9999
 ~kde-plasma/kscreenlocker-9999
 ~kde-plasma/ksshaskpass-9999
@@ -66,8 +67,8 @@
 ~dev-libs/appstream-1.0.3
 ~dev-libs/kirigami-addons-1.2.1
 ~gui-apps/xwaylandvideobridge-0.4.0
-~kde-apps/kaccounts-integration-24.02.2
-~kde-apps/spectacle-24.02.2
+~kde-apps/kaccounts-integration-24.05.0
+~kde-apps/spectacle-24.05.0
 ~kde-misc/kio-fuse-5.1.0
 =kde-plasma/print-manager-23.08.5-r100
 ~media-libs/libqaccessibilityclient-0.6.0
