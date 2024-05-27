@@ -20,7 +20,7 @@ IUSE="X"
 # bug #580440, last checked 5.6.3
 RESTRICT="test"
 
-# qtbase slot up: GuiPrivate use in kded daemon
+# qtbase slot op: GuiPrivate use in kded daemon
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
@@ -52,7 +52,7 @@ BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_X11=$(usex X) # Pending: https://invent.kde.org/plasma/kscreen/-/merge_requests/295
+		-DWITH_X11=$(usex X)
 	)
 	ecm_src_configure
 }
