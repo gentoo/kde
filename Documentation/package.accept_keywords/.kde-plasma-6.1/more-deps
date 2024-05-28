@@ -1,6 +1,7 @@
 ~dev-libs/appstream-1.0.3
 ~dev-libs/kirigami-addons-1.2.1
 ~dev-libs/plasma-wayland-protocols-1.13.0
+~dev-libs/wayland-protocols-1.36
 ~dev-python/pygdbmi-0.11.0.0
 ~gui-apps/xwaylandvideobridge-0.4.0
 ~kde-apps/kaccounts-integration-24.05.0
@@ -13,3 +14,4 @@
 =net-libs/signond-8.61-r100
 ~net-libs/signon-oauth2-0.25_p20210102
 ~net-libs/signon-ui-0.15_p20231016
+~x11-misc/sddm-0.21.0_p20240302
