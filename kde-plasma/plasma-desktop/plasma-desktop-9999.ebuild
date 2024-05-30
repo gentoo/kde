@@ -110,6 +110,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 	>=kde-plasma/oxygen-${PVCUT}:6
+	kde-plasma/plasma-mimeapps-list
 	media-fonts/noto-emoji
 	sys-apps/util-linux
 	x11-apps/setxkbmap
