@@ -55,6 +55,7 @@ declare -A KDE_ORG_CATEGORIES=(
 	[games-board]=games
 	[games-kids]=education
 	[games-mud]=games
+	[games-puzzle]=games
 	[kde-frameworks]=frameworks
 	[kde-plasma]=plasma
 	[mail-client]=pim
