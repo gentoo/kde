@@ -15,7 +15,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility gles2-only lock screencast +shortcuts systemd"
+IUSE="accessibility +caps gles2-only lock screencast +shortcuts systemd"
 
 RESTRICT="test"
 
@@ -103,9 +103,9 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	>=dev-qt/qtwayland-${QTMIN}:6
-	sys-libs/libcap
 	x11-base/xorg-proto
 	x11-libs/xcb-util-image
+	caps? ( sys-libs/libcap )
 	test? ( screencast? ( >=kde-plasma/kpipewire-${PVCUT}:6 ) )
 "
 BDEPEND="
@@ -134,6 +134,7 @@ src_configure() {
 		# TODO: KWIN_BUILD_X11?
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
+		$(cmake_use_find_package caps Libcap)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
 	)
