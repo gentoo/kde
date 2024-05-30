@@ -28,7 +28,6 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	gles2-only? ( || (
 		>=media-libs/mesa-24.1.0_rc1[opengl]
