@@ -24,12 +24,9 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
-	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/libksysguard-${PVCUT}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
 "
 RDEPEND="${DEPEND}
 	!kde-plasma/plasma-workspace:5
