@@ -1,4 +1,4 @@
-# Tier 5.116.50: Depend only on Qt and possibly a few third-party libraries.
+# Tier 1: Depend only on Qt and possibly a few third-party libraries.
 <kde-frameworks/attica-5.116.50
 <kde-frameworks/bluez-qt-5.116.50
 <kde-frameworks/breeze-icons-5.116.50
