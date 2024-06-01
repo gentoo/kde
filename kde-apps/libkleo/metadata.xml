@@ -9,6 +9,6 @@
 		<bugs-to>https://bugs.kde.org/</bugs-to>
 	</upstream>
 	<use>
-		<flag name="fancyviewer">Use <pkg>kde-apps/kpimtextedit</pkg> for an improved audit log viewer</flag>
+		<flag name="fancyviewer">Use <pkg>dev-libs/ktextaddons</pkg> for an improved audit log viewer</flag>
 	</use>
 </pkgmetadata>

@@ -30,7 +30,7 @@ RDEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	fancyviewer? ( >=kde-apps/kpimtextedit-${PVCUT}:6 )
+	fancyviewer? ( dev-libs/ktextaddons:6 )
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
@@ -38,7 +38,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package fancyviewer KPim6TextEdit)
+		$(cmake_use_find_package fancyviewer KF6TextCustomEditor)
 	)
 
 	ecm_src_configure
