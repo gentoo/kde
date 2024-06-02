@@ -28,7 +28,7 @@ DOCS=( DESIGN docs/{DESIGN.kconfig,options.md} )
 
 src_configure() {
 	local mycmakeargs=(
-		-DKCONFIG_USE_DBUS=$(usex dbus)
+		-DUSE_DBUS=$(usex dbus)
 		-DKCONFIG_USE_QML=$(usex qml)
 	)
 	ecm_src_configure
