@@ -16,14 +16,13 @@ IUSE=""
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	=kde-frameworks/kcodecs-${PVCUT}*:6
 	=kde-frameworks/kconfig-${PVCUT}*:6
 	=kde-frameworks/kcoreaddons-${PVCUT}*:6
 	=kde-frameworks/ki18n-${PVCUT}*:6
 "
-DEPEND="${RDEPEND}
-	test? ( >=dev-qt/qtdeclarative-${QTMIN}:6 )
-"
+DEPEND="${RDEPEND}"
 
 CMAKE_SKIP_TESTS=(
 	# bug #566648 (access to /dev/dri/card0 denied)
