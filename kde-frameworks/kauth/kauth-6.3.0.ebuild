@@ -16,7 +16,10 @@ IUSE="+policykit"
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
 	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	policykit? ( >=sys-auth/polkit-qt-0.113.0[qt6(-)] )
+	policykit? (
+		=kde-frameworks/kwindowsystem-${PVCUT}*:6
+		>=sys-auth/polkit-qt-0.113.0[qt6(-)]
+	)
 "
 RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
