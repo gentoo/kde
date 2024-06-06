@@ -126,7 +126,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${WORKDIR}/${XORGHDRS}/${PN}-6.0.80-override-include-dirs.patch" # downstream patch
+	"${FILESDIR}/${PN}-6.1.80-override-include-dirs.patch" # downstream patch
 )
 
 src_prepare() {
