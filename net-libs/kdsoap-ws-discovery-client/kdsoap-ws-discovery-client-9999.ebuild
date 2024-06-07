@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="false"
 ECM_TEST="forceoptional"
-KFMIN=6.0.0
+KFMIN=6.3.0
 inherit ecm kde.org
 
 DESCRIPTION="WS-Discovery client library based on KDSoap"

@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=6.0.0
+KFMIN=6.3.0
 inherit ecm kde.org
 
 DESCRIPTION="Collection manager based on KDE Frameworks"

@@ -6,7 +6,7 @@ EAPI=8
 ECM_EXAMPLES="true"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="libraries"
-KFMIN=6.0.0
+KFMIN=6.3.0
 inherit ecm kde.org
 
 DESCRIPTION="Non-blocking Qt database framework"
