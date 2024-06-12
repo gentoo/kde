@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 KFMIN=5.115.0
 QTMIN=5.15.12
 inherit ecm gear.kde.org python-single-r1
@@ -44,6 +44,8 @@ RDEPEND="${DEPEND}
 		dev-python/pycodestyle[${PYTHON_USEDEP}]
 	')
 "
+
+PATCHES=( "${FILESDIR}/${PN}-24.05.1-python3.12.patch" ) # bug 929546
 
 pkg_setup() {
 	python-single-r1_pkg_setup
