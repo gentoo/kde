@@ -11,7 +11,4 @@
 	<slots>
 		<subslots>Reflects ABI compatibility by soname version</subslots>
 	</slots>
-	<use>
-		<flag name="designer">Build plugins for <pkg>dev-qt/designer</pkg></flag>
-	</use>
 </pkgmetadata>
