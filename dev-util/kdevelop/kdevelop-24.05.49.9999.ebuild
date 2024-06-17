@@ -7,10 +7,10 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KFMIN=5.115.0
-LLVM_MAX_SLOT=17
+LLVM_COMPAT=( 15 16 17 18 )
 QTMIN=5.15.12
 VIRTUALDBUS_TEST="true"
-inherit ecm gear.kde.org llvm optfeature
+inherit ecm gear.kde.org llvm-r1 optfeature
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 HOMEPAGE="https://www.kdevelop.org/"
@@ -65,7 +65,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
-	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
+	$(llvm_gen_dep 'sys-devel/clang:${LLVM_SLOT}')
 	gdbui? ( kde-plasma/libksysguard:5= )
 	hex? ( app-editors/okteta:5 )
 	plasma? (
@@ -93,15 +93,16 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/kio-extras:5
 "
 
-llvm_check_deps() {
-	has_version -d "sys-devel/clang:${LLVM_SLOT}"
+pkg_setup() {
+	ecm_pkg_setup
+	llvm-r1_pkg_setup
 }
 
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_KDEExperimentalPurpose=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Purpose=ON
-		-DLLVM_ROOT="$(get_llvm_prefix ${LLVM_SLOT})"
+		-DLLVM_ROOT="$(get_llvm_prefix)"
 		$(cmake_use_find_package gdbui KSysGuard)
 		-DBUILD_executeplasmoid=$(usex plasma)
 		$(cmake_use_find_package plasma KF5Plasma)
