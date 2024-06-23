@@ -18,7 +18,7 @@ IUSE=""
 
 RESTRICT="test"
 
-# qtbase slot up: GuiPrivate use in greeter
+# qtbase slot op: GuiPrivate use in greeter
 COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,widgets]
