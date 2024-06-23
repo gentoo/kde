@@ -93,7 +93,7 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
-	>=kde-plasma/libplasma-${PVCUT}:6[wayland]
+	>=kde-plasma/libplasma-${PVCUT}:6[wayland(+)]
 	sys-apps/hwdata
 	x11-base/xwayland[libei]
 "
