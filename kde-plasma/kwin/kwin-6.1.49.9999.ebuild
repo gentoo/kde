@@ -19,7 +19,7 @@ IUSE="accessibility +caps gles2-only lock screencast +shortcuts systemd"
 
 RESTRICT="test"
 
-# qtbase slot up: GuiPrivate use in tabbox
+# qtbase slot op: GuiPrivate use in tabbox
 COMMON_DEPEND="
 	dev-libs/libei
 	>=dev-libs/libinput-1.19:=
