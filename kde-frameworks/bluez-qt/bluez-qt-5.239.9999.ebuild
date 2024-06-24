@@ -13,6 +13,8 @@ LICENSE="LGPL-2"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT="test" # bugs 668196, 924708; they all hang
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -29,10 +31,6 @@ src_configure() {
 }
 
 src_test() {
-	local CMAKE_SKIP_TESTS=(
-		# bug 668196, hangs
-		managertest
-	)
 	# parallel tests fail, bug 609248
 	ecm_src_test -j1
 }
