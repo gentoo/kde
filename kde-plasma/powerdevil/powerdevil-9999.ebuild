@@ -18,8 +18,11 @@ SLOT="6"
 KEYWORDS=""
 IUSE="brightness-control caps"
 
+RESTRICT="test" # bug 926513
+
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 DEPEND="
+	dev-libs/qcoro[dbus]
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6[policykit]
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -34,6 +37,7 @@ DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/krunner-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
@@ -41,13 +45,14 @@ DEPEND="
 	>=kde-plasma/layer-shell-qt-${PVCUT}:6
 	>=kde-plasma/libkscreen-${PVCUT}:6
 	>=kde-plasma/plasma-activities-${PVCUT}:6
-	>=kde-plasma/plasma-workspace-${PVCUT}:6
+	>=kde-plasma/libplasma-${PVCUT}:6
 	virtual/libudev:=
 	x11-libs/libxcb
 	brightness-control? ( app-misc/ddcutil:= )
 	caps? ( sys-libs/libcap )
 "
 RDEPEND="${DEPEND}
+	!<kde-plasma/plasma-workspace-6.1.50:6
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 	sys-power/power-profiles-daemon
@@ -57,9 +62,15 @@ BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_SeleniumWebDriverATSPI=ON # not packaged
 		$(cmake_use_find_package brightness-control DDCUtil)
 		$(cmake_use_find_package caps Libcap)
 	)
 
 	ecm_src_configure
+}
+
+src_test() {
+	# bug 926513
+	ecm_src_test -j1
 }
