@@ -6,6 +6,7 @@ EAPI=8
 ECM_TEST="forceoptional"
 KF5MIN=5.115.0
 KFMIN=6.3.0
+PVCUT=$(ver_cut 1-3)
 QT5MIN=5.15.12
 QTMIN=6.6.2
 VIRTUALDBUS_TEST="true"
@@ -58,9 +59,8 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	dev-util/intltool
 "
-BDEPEND="
-	sys-devel/gettext
-"
+BDEPEND="sys-devel/gettext"
+PDEPEND=">=kde-apps/kaccounts-providers-${PVCUT}:6"
 
 pkg_setup() {
 	MULTIBUILD_VARIANTS=( $(usev qt5) default )
