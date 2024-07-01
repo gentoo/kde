@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/elisa/"
 LICENSE="LGPL-3+"
 SLOT="6"
 KEYWORDS=""
-IUSE="mpris vlc"
+IUSE="+mpris vlc"
 
 RESTRICT="test"
 
