@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/dolphin/ https://userbase.kde.org/Dolphin"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="activities semantic-desktop telemetry"
+IUSE="semantic-desktop telemetry"
 
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 DEPEND="
@@ -45,7 +45,6 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=media-libs/phonon-4.12.0[qt6]
-	activities? ( kde-plasma/plasma-activities:6 )
 	semantic-desktop? (
 		>=kde-apps/baloo-widgets-${PVCUT}:6
 		>=kde-frameworks/baloo-${KFMIN}:6
@@ -61,7 +60,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_SeleniumWebDriverATSPI=ON # not packaged
-		$(cmake_use_find_package activities PlasmaActivities)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		$(cmake_use_find_package semantic-desktop KF6BalooWidgets)
 		$(cmake_use_find_package semantic-desktop KF6FileMetaData)
