@@ -73,12 +73,12 @@ src_configure() {
 		if [[ ${MULTIBUILD_VARIANT} == qt6 ]]; then
 			mycmakeargs+=(
 				-DPHONON_BUILD_QT5=OFF
-				-DPHONON_BUILD_SETTINGS=ON
+				-DPHONON_BUILD_SETTINGS=$(usex !minimal)
 			)
 		else
 			mycmakeargs+=(
 				-DPHONON_BUILD_QT6=OFF
-				-DPHONON_BUILD_SETTINGS=$(usex !qt6)
+				-DPHONON_BUILD_SETTINGS=$(usex !qt6 $(usex !minimal ON OFF) OFF)
 			)
 		fi
 
