@@ -8,16 +8,14 @@ ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=6.3.0
 QTMIN=6.6.2
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Library for retrieval of weather information including forecasts and alerts"
+HOMEPAGE="https://invent.kde.org/libraries/kweathercore"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
 LICENSE="LGPL-2+"
 SLOT="6"
+KEYWORDS=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[network]
