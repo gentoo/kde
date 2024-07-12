@@ -76,9 +76,9 @@
 <kde-frameworks/kxmlgui-6.4.50:6
 <kde-frameworks/purpose-6.4.50:6
 <kde-frameworks/qqc2-desktop-style-6.4.50:6
-~kde-apps/kaccounts-integration-24.05.1
-~kde-apps/kaccounts-providers-24.05.1
-~kde-apps/signon-kwallet-extension-24.05.1
-~kde-apps/kdegraphics-mobipocket-24.05.1
-~kde-apps/kio-extras-24.05.1
-~kde-apps/libkexiv2-24.05.1
+~kde-apps/kaccounts-integration-24.05.2
+~kde-apps/kaccounts-providers-24.05.2
+~kde-apps/signon-kwallet-extension-24.05.2
+~kde-apps/kdegraphics-mobipocket-24.05.2
+~kde-apps/kio-extras-24.05.2
+~kde-apps/libkexiv2-24.05.2

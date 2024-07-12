@@ -68,10 +68,10 @@
 ~dev-libs/kirigami-addons-1.3.0
 ~dev-python/pygdbmi-0.11.0.0
 ~gui-apps/xwaylandvideobridge-0.4.0
-~kde-apps/kaccounts-integration-24.05.1
-~kde-apps/kaccounts-providers-24.05.1
-~kde-apps/signon-kwallet-extension-24.05.1
-~kde-apps/spectacle-24.05.1
+~kde-apps/kaccounts-integration-24.05.2
+~kde-apps/kaccounts-providers-24.05.2
+~kde-apps/signon-kwallet-extension-24.05.2
+~kde-apps/spectacle-24.05.2
 ~kde-misc/kio-fuse-5.1.0
 =kde-plasma/print-manager-23.08.5-r100
 ~media-libs/libqaccessibilityclient-0.6.0

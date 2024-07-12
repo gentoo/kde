@@ -76,8 +76,3 @@
 ~kde-frameworks/kxmlgui-9999:6
 ~kde-frameworks/purpose-9999:6
 ~kde-frameworks/qqc2-desktop-style-9999:6
-~kde-apps/kaccounts-integration-24.05.1
-~kde-apps/kdegraphics-mobipocket-24.05.1
-=kde-apps/kio-extras-23.08.5-r100
-~kde-apps/kio-extras-24.05.1
-~kde-apps/libkexiv2-24.05.1
