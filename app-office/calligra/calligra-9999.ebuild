@@ -6,8 +6,8 @@ EAPI=8
 CHECKREQS_DISK_BUILD="4G"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.3.0
+QTMIN=6.6.2
 inherit check-reqs ecm kde.org
 
 DESCRIPTION="KDE Office Suite"
@@ -24,8 +24,8 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz"
 CAL_FTS=( karbon sheets stage words )
 
 LICENSE="GPL-2"
-SLOT="5"
-IUSE="activities +charts +crypt +fontconfig gemini gsl +import-filter +lcms
+SLOT="0"
+IUSE="+charts +crypt +fontconfig gemini gsl +import-filter +lcms
 	okular +pdf phonon spacenav +truetype X
 	$(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
@@ -35,48 +35,39 @@ RESTRICT="test"
 # Required for the matlab/octave formula tool
 COMMON_DEPEND="
 	dev-lang/perl
-	>=dev-qt/designer-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdelibs4support-${KFMIN}:5
-	>=kde-frameworks/kemoticons-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/knotifyconfig-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwallet-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/sonnet-${KFMIN}:5
+	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=dev-qt/qttools-${QTMIN}:6[designer]
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/knotifyconfig-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/sonnet-${KFMIN}:6
 	sys-libs/zlib
 	virtual/libiconv
-	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
-	charts? ( dev-libs/kdiagram:5 )
-	crypt? ( >=app-crypt/qca-2.3.0:2[qt5(+)] )
+	charts? ( dev-libs/kdiagram:6 )
+	crypt? ( dev-libs/openssl:= )
 	fontconfig? ( media-libs/fontconfig )
-	gemini? ( >=dev-qt/qtdeclarative-${QTMIN}:5[widgets] )
+	gemini? ( >=dev-qt/qtdeclarative-${QTMIN}:6[widgets] )
 	gsl? ( sci-libs/gsl:= )
 	import-filter? (
 		app-text/libetonyek
@@ -88,33 +79,23 @@ COMMON_DEPEND="
 		media-libs/libvisio
 	)
 	lcms? ( media-libs/lcms:2 )
-	okular? ( || (
-		media-gfx/okularpart:5
-		kde-apps/okular:5
-	) )
-	pdf? ( app-text/poppler:=[qt5] )
-	phonon? ( >=media-libs/phonon-4.11.0[qt5(+)] )
+	okular? ( kde-apps/okular:6 )
+	pdf? ( app-text/poppler:=[qt6] )
+	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	spacenav? ( dev-libs/libspnav )
 	truetype? ( media-libs/freetype:2 )
-	X? (
-		>=dev-qt/qtx11extras-${QTMIN}:5
-		x11-libs/libX11
-	)
 	calligra_features_sheets? ( dev-cpp/eigen:3 )
 	calligra_features_words? ( dev-libs/libxslt )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	lcms? ( dev-libs/imath:3 )
-	test? ( >=kde-frameworks/threadweaver-${KFMIN}:5 )
+	test? ( >=kde-frameworks/threadweaver-${KFMIN}:6 )
 "
 RDEPEND="${COMMON_DEPEND}
+	!${CATEGORY}/${PN}:5
 	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
-	gemini? (
-		>=dev-qt/qtquickcontrols-${QTMIN}:5
-		>=dev-qt/qtquickcontrols2-${QTMIN}:5
-		>=kde-frameworks/kirigami-${KFMIN}:5
-	)
+	gemini? ( >=kde-frameworks/kirigami-${KFMIN}:6 )
 "
 BDEPEND="sys-devel/gettext"
 
@@ -130,10 +111,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	if has_version "media-gfx/okularpart:5"; then
-		eapply "${FILESDIR}/${PN}-3.2.1-okularpart.patch"
-	fi
-
 	ecm_src_prepare
 
 	# Unconditionally disable deprecated deps (required by QtQuick1)
@@ -159,15 +136,12 @@ src_configure() {
 		-DWITH_Iconv=ON
 		-DWITH_Imath=ON # w/ LCMS: 16 bit floating point Grayscale colorspace
 		-DCMAKE_DISABLE_FIND_PACKAGE_Cauchy=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5CalendarCore=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Kross=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF6CalendarCore=ON
 		-DPRODUCTSET="${myproducts[*]}"
-		$(cmake_use_find_package activities KF5Activities)
-		$(cmake_use_find_package charts KChart)
-		-DWITH_Qca-qt5=$(usex crypt)
+		$(cmake_use_find_package charts KChartQt6)
+		$(cmake_use_find_package crypt OpenSSL)
 		-DWITH_Fontconfig=$(usex fontconfig)
-		$(cmake_use_find_package gemini Libgit2)
-		$(cmake_use_find_package gemini Qt5QuickWidgets)
+		$(cmake_use_find_package gemini LibGit2)
 		-DWITH_GSL=$(usex gsl)
 		-DWITH_LibEtonyek=$(usex import-filter)
 		-DWITH_LibOdfGen=$(usex import-filter)
@@ -176,9 +150,9 @@ src_configure() {
 		-DWITH_LibWpd=$(usex import-filter)
 		-DWITH_LibWpg=$(usex import-filter)
 		-DWITH_LibWps=$(usex import-filter)
-		$(cmake_use_find_package phonon Phonon4Qt5)
+		$(cmake_use_find_package phonon Phonon4Qt6)
 		-DWITH_LCMS2=$(usex lcms)
-		-DWITH_Okular5=$(usex okular)
+		-DWITH_Okular6=$(usex okular)
 		-DWITH_Poppler=$(usex pdf)
 		-DWITH_Eigen3=$(usex calligra_features_sheets)
 		-DBUILD_UNMAINTAINED=$(usex calligra_features_stage)

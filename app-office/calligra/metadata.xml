@@ -14,7 +14,6 @@
 		<remote-id type="cpe">cpe:/a:calligra:calligra</remote-id>
 	</upstream>
 	<use>
-		<flag name="activities">Enable kactivities support</flag>
 		<flag name="charts">Build chartshape plugin for creating business charts with <pkg>dev-libs/kdiagram</pkg></flag>
 		<flag name="gemini">Enable tablet and 2:1 devices support</flag>
 		<flag name="import-filter">Enable support for various import filter file formats like WordPerfect, Visio and Apple Keynote</flag>
