@@ -6,21 +6,17 @@ EAPI=8
 ECM_HANDBOOK="optional"
 KFMIN=6.3.0
 QTMIN=6.6.2
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Graphviz dot graph file viewer"
 HOMEPAGE="https://apps.kde.org/kgraphviewer/"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
-
 LICENSE="GPL-2 GPL-2+ LGPL-2+ LGPL-2.1+ handbook? ( FDL-1.2 )"
 SLOT="0"
+KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -33,9 +29,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=media-gfx/graphviz-2.30
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/boost
-"
-RDEPEND="${COMMON_DEPEND}
-	!${CATEGORY}/${PN}:5
 "

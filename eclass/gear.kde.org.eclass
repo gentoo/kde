@@ -268,6 +268,7 @@ fi
 if $(ver_test -gt 24.07.75); then
 	case ${PN} in
 		k3b | \
+		kgraphviewer | \
 		kimagemapeditor | \
 		kmplot | \
 		lokalize | \
