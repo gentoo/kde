@@ -272,6 +272,7 @@ if $(ver_test -gt 24.07.75); then
 		kimagemapeditor | \
 		kmplot | \
 		lokalize | \
+		massif-visualizer | \
 		poxml)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;

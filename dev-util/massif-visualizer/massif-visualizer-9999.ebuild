@@ -6,18 +6,14 @@ EAPI=8
 ECM_TEST="forceoptional"
 KFMIN=6.3.0
 QTMIN=6.6.2
-inherit ecm kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Tool visualising massif data"
-HOMEPAGE="https://apps.kde.org/massif-visualizer/"
-
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
+HOMEPAGE="https://apps.kde.org/massif_visualizer/"
 
 LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="0"
+KEYWORDS=""
 IUSE="+callgraph"
 
 DEPEND="
@@ -37,9 +33,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	callgraph? ( >=media-gfx/kgraphviewer-2.5.0:0 )
 "
-RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
