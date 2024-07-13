@@ -1,20 +1,20 @@
-From c6ae81abf56851c818285d555e192c660635247b Mon Sep 17 00:00:00 2001
+From c498aad87e42405ca25cb6f2f1b4068ed1862c27 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 Date: Sun, 17 Feb 2019 23:51:03 +0100
 Subject: [PATCH] Un-break optional Qt/KF detection
 
 And if we enable an option, make the necessary libraries REQUIRED.
 ---
- core/cmake/rules/RulesKDEFramework.cmake | 43 +++--------------
- core/cmake/rules/RulesQtFramework.cmake  | 61 +++++-------------------
+ core/cmake/rules/RulesKDEFramework.cmake | 60 ++++--------------------
+ core/cmake/rules/RulesQtFramework.cmake  | 51 +++++---------------
  core/cmake/rules/RulesX11.cmake          |  7 +--
- 3 files changed, 20 insertions(+), 91 deletions(-)
+ 3 files changed, 20 insertions(+), 98 deletions(-)
 
 diff --git a/core/cmake/rules/RulesKDEFramework.cmake b/core/cmake/rules/RulesKDEFramework.cmake
-index e34e5f4a8d..3cde25928f 100644
+index 775ae32fec..ec438f9673 100644
 --- a/core/cmake/rules/RulesKDEFramework.cmake
 +++ b/core/cmake/rules/RulesKDEFramework.cmake
-@@ -26,26 +26,15 @@ find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} QUIET
+@@ -26,43 +26,18 @@ find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} QUIET
  )
  
  if(ENABLE_KFILEMETADATASUPPORT)
@@ -28,25 +28,43 @@ index e34e5f4a8d..3cde25928f 100644
 +    find_package(KF${QT_VERSION_MAJOR}FileMetaData ${KF${QT_VERSION_MAJOR}_MIN_VERSION} REQUIRED)
  endif()
  
- 
  if(ENABLE_AKONADICONTACTSUPPORT)
--
--    find_package(KF${QT_VERSION_MAJOR} ${AKONADI_MIN_VERSION} QUIET
--                                            OPTIONAL_COMPONENTS
--                                            Akonadi
--                                            AkonadiContact      # For KDE Mail Contacts support.
--                                            Contacts            # API for contacts/address book data.
--    )
--    find_package(KPim${QT_VERSION_MAJOR}Akonadi ${AKONADI_MIN_VERSION} QUIET)
--    find_package(KPim${QT_VERSION_MAJOR}AkonadiContact ${AKONADI_MIN_VERSION} QUIET)
 -
 +    find_package(KF${QT_VERSION_MAJOR}Contacts ${KF${QT_VERSION_MAJOR}_MIN_VERSION} REQUIRED) # API for contacts/address book data.
 +    find_package(KPim${QT_VERSION_MAJOR}Akonadi ${AKONADI_MIN_VERSION} REQUIRED)
-+    find_package(KPim${QT_VERSION_MAJOR}AkonadiContact ${AKONADI_MIN_VERSION} REQUIRED) # For KDE Mail Contacts support.
+     if(Qt6_FOUND)
+-
+-        find_package(KPim${QT_VERSION_MAJOR} ${AKONADI_MIN_VERSION} QUIET
+-                                                OPTIONAL_COMPONENTS
+-                                                Akonadi
+-                                                AkonadiContactCore  # For KDE Mail Contacts support.
+-        )
+-        find_package(KF${QT_VERSION_MAJOR} ${AKONADI_MIN_VERSION} QUIET
+-                                                OPTIONAL_COMPONENTS
+-                                                Contacts            # API for contacts/address book data.
+-        )
+-        find_package(KPim${QT_VERSION_MAJOR}Akonadi ${AKONADI_MIN_VERSION} QUIET)
+-        find_package(KPim${QT_VERSION_MAJOR}AkonadiContactCore ${AKONADI_MIN_VERSION} QUIET)
+-
++        find_package(KPim${QT_VERSION_MAJOR}AkonadiContactCore ${AKONADI_MIN_VERSION} REQUIRED)
+     else()
+-
+-        find_package(KF${QT_VERSION_MAJOR} ${AKONADI_MIN_VERSION} QUIET
+-                                                OPTIONAL_COMPONENTS
+-                                                Akonadi
+-                                                AkonadiContact      # For KDE Mail Contacts support.
+-                                                Contacts            # API for contacts/address book data.
+-        )
+-        find_package(KPim${QT_VERSION_MAJOR}Akonadi ${AKONADI_MIN_VERSION} QUIET)
+-        find_package(KPim${QT_VERSION_MAJOR}AkonadiContact ${AKONADI_MIN_VERSION} QUIET)
+-
++        find_package(KPim${QT_VERSION_MAJOR}AkonadiContact ${AKONADI_MIN_VERSION} REQUIRED) # For KDE Mail Contacts support.
+     endif()
+-
  endif()
  
  if(Qt6_FOUND)
-@@ -54,17 +43,11 @@ if(Qt6_FOUND)
+@@ -71,17 +46,11 @@ if(Qt6_FOUND)
  
  else()
  
@@ -66,11 +84,12 @@ index e34e5f4a8d..3cde25928f 100644
  
  if ("${KF${QT_VERSION_MAJOR}CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
  
-@@ -72,18 +55,6 @@ if ("${KF${QT_VERSION_MAJOR}CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
+@@ -89,19 +58,6 @@ if ("${KF${QT_VERSION_MAJOR}CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
  
  endif()
  
--if(ENABLE_AKONADICONTACTSUPPORT AND (NOT KPim${QT_VERSION_MAJOR}AkonadiContact_FOUND OR NOT KPim${QT_VERSION_MAJOR}Contacts_FOUND))
+-if(ENABLE_AKONADICONTACTSUPPORT AND
+-   (NOT (KPim${QT_VERSION_MAJOR}AkonadiContact_FOUND OR KPim${QT_VERSION_MAJOR}AkonadiContactCore_FOUND) OR NOT KF${QT_VERSION_MAJOR}Contacts_FOUND))
 -
 -    set(ENABLE_AKONADICONTACTSUPPORT OFF)
 -
@@ -86,31 +105,19 @@ index e34e5f4a8d..3cde25928f 100644
  
  if(ENABLE_KIO)
 diff --git a/core/cmake/rules/RulesQtFramework.cmake b/core/cmake/rules/RulesQtFramework.cmake
-index 6f233ccfbc..7e29a09a40 100644
+index 9fa839c414..9267c6651e 100644
 --- a/core/cmake/rules/RulesQtFramework.cmake
 +++ b/core/cmake/rules/RulesQtFramework.cmake
-@@ -19,49 +19,20 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED
+@@ -18,38 +18,17 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED
+              Svg
  )
  
- if(ENABLE_QWEBENGINE)
--
--    find_package(Qt${QT_VERSION_MAJOR} REQUIRED
--                                       NO_MODULE
--                                       COMPONENTS
--                                       WebEngineWidgets
--    )
--
-+    find_package(Qt${QT_VERSION_MAJOR}WebEngineWidgets REQUIRED NO_MODULE)
- else()
--
--    find_package(Qt${QT_VERSION_MAJOR} REQUIRED
--                                       NO_MODULE
--                                       COMPONENTS
--                                       WebKitWidgets
--    )
--
-+    find_package(Qt${QT_VERSION_MAJOR}WebKitWidgets REQUIRED NO_MODULE)
- endif()
+-find_package(Qt${QT_VERSION_MAJOR} REQUIRED
+-                                   NO_MODULE
+-                                   COMPONENTS
+-                                   WebEngineWidgets
+-)
++find_package(Qt${QT_VERSION_MAJOR}WebEngineWidgets REQUIRED NO_MODULE)
  
 -find_package(Qt${QT_VERSION_MAJOR}
 -             OPTIONAL_COMPONENTS
@@ -147,7 +154,7 @@ index 6f233ccfbc..7e29a09a40 100644
  endif()
  
  if(ENABLE_DBUS)
-@@ -77,17 +48,9 @@ endif()
+@@ -65,17 +44,9 @@ endif()
  # Qt Dependencies For unit tests and CLI test tools
  
  if(BUILD_TESTING)
@@ -188,5 +195,5 @@ index d7830f3923..4401a57c87 100644
  
      set(HAVE_X11 TRUE)
 -- 
-2.44.0
+2.45.2
 

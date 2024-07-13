@@ -14,6 +14,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	else
 		SRC_URI="mirror://kde/stable/${PN}/${PV}/${TARNAME}.tar.xz"
 	fi
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 DESCRIPTION="Digital photo management application"
@@ -100,7 +101,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-8.3.0-cmake.patch" )
+PATCHES=( "${FILESDIR}/${PN}-8.4.0-cmake.patch" )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -121,7 +122,6 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
 		-DENABLE_MEDIAPLAYER=OFF # bug 758641; bundled as of 8.0, KDE-bug 448681
 		-DENABLE_SHOWFOTO=ON # built unconditionally so far, new option since 8.0
-		-DENABLE_QWEBENGINE=ON
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
 		$(cmake_use_find_package calendar KF5CalendarCore)
 		-DENABLE_GEOLOCATION=$(usex geolocation)
