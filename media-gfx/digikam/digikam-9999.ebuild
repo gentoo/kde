@@ -22,7 +22,7 @@ HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="addressbook calendar geolocation gphoto2 heif +imagemagick +lensfun mysql opengl openmp +panorama scanner semantic-desktop spell"
+IUSE="addressbook calendar geolocation gphoto2 heif +imagemagick jpegxl +lensfun mysql opengl openmp +panorama scanner semantic-desktop spell"
 
 # bug 366505
 RESTRICT="test"
@@ -73,6 +73,7 @@ COMMON_DEPEND="
 		media-libs/x265:=
 	)
 	imagemagick? ( media-gfx/imagemagick:= )
+	jpegxl? ( media-libs/libjxl:= )
 	lensfun? ( media-libs/lensfun )
 	opengl? (
 		>=dev-qt/qtopengl-${QTMIN}:5
@@ -128,6 +129,7 @@ src_configure() {
 		$(cmake_use_find_package gphoto2 Gphoto2)
 		$(cmake_use_find_package heif Libheif)
 		$(cmake_use_find_package imagemagick ImageMagick)
+		$(cmake_use_find_package jpegxl Libjxl)
 		$(cmake_use_find_package lensfun LensFun)
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
 		-DENABLE_INTERNALMYSQL=$(usex mysql)
