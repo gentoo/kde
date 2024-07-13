@@ -102,7 +102,10 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-8.4.0-cmake.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-8.4.0-cmake.patch"
+	"${FILESDIR}/${PN}-8.3.0-cmake-addressbook.patch"
+)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
