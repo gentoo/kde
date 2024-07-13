@@ -76,5 +76,15 @@ index 88c0516360..01f2383ddb 100644
 +if(BUILD_TESTING)
 +    add_subdirectory(tests)
 +endif()
--- 
-2.27.0
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1246,7 +1246,9 @@
+                            ${CMAKE_CURRENT_BINARY_DIR}
+ )
+ 
++if(BUILD_TESTING)
+ add_subdirectory(sdk/tests)
++endif()
+ 
+ add_subdirectory(libs)
+ add_subdirectory(plugins)

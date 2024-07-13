@@ -4,14 +4,14 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 KFMIN=5.115.0
 QTMIN=5.15.12
 inherit ecm kde.org python-single-r1
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
@@ -19,7 +19,7 @@ HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
 
 LICENSE="GPL-3"
 SLOT="5"
-IUSE="color-management fftw gif +gsl heif jpegxl +mypaint-brush-engine openexr pdf qtmedia +raw webp"
+IUSE="color-management fftw gif +gsl heif jpeg2k jpegxl +mypaint-brush-engine openexr pdf media +raw +xsimd webp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # bug 630508
@@ -27,6 +27,7 @@ RESTRICT="test"
 
 RDEPEND="${PYTHON_DEPS}
 	dev-libs/boost:=
+	dev-libs/libunibreak:=
 	dev-libs/quazip:0=[qt5(+)]
 	$(python_gen_cond_dep '
 		dev-python/PyQt5[declarative,gui,widgets,${PYTHON_USEDEP}]
@@ -68,23 +69,34 @@ RDEPEND="${PYTHON_DEPS}
 	fftw? ( sci-libs/fftw:3.0= )
 	gif? ( media-libs/giflib )
 	gsl? ( sci-libs/gsl:= )
+	jpeg2k? ( media-libs/openjpeg:= )
 	jpegxl? ( >=media-libs/libjxl-0.7.0_pre20220825:= )
 	heif? ( >=media-libs/libheif-1.11:=[x265] )
+	media? ( media-libs/mlt:= )
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? ( media-libs/openexr:= )
 	pdf? ( app-text/poppler[qt5] )
-	qtmedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5 )
-	raw? ( media-libs/libraw:= )
+	raw? ( kde-apps/libkdcraw:5 )
 	webp? ( >=media-libs/libwebp-1.2.0:= )
+	xsimd? ( >=dev-cpp/xsimd-13.0.0 )
+
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-libs/immer
+	dev-libs/lager
+	dev-libs/zug
+"
 BDEPEND="
 	dev-cpp/eigen:3
 	dev-lang/perl
 	sys-devel/gettext
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-4.3.1-tests-optional.patch )
+PATCHES=(
+	# downstream
+	"${FILESDIR}"/${PN}-5.2.3-tests-optional.patch
+	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
+)
 
 pkg_setup() {
 	python-single-r1_pkg_setup
@@ -100,19 +112,20 @@ src_configure() {
 		-DENABLE_UPDATERS=OFF
 		-DKRITA_ENABLE_PCH=OFF # big mess.
 		-DCMAKE_DISABLE_FIND_PACKAGE_KSeExpr=ON # not packaged
-		-DCMAKE_DISABLE_FIND_PACKAGE_xsimd=ON # not packaged
 		$(cmake_use_find_package color-management OpenColorIO)
 		$(cmake_use_find_package fftw FFTW3)
 		$(cmake_use_find_package gif GIF)
 		$(cmake_use_find_package gsl GSL)
 		$(cmake_use_find_package heif HEIF)
+		$(cmake_use_find_package jpeg2k OpenJPEG)
 		$(cmake_use_find_package jpegxl JPEGXL)
+		$(cmake_use_find_package media Mlt7)
 		$(cmake_use_find_package mypaint-brush-engine LibMyPaint)
 		$(cmake_use_find_package openexr OpenEXR)
 		$(cmake_use_find_package pdf Poppler)
-		$(cmake_use_find_package qtmedia Qt5Multimedia)
-		$(cmake_use_find_package raw LibRaw)
+		$(cmake_use_find_package raw KF5KDcraw)
 		$(cmake_use_find_package webp WebP)
+		$(cmake_use_find_package xsimd xsimd)
 	)
 
 	ecm_src_configure
