@@ -271,6 +271,7 @@ if $(ver_test -gt 24.07.75); then
 		kgraphviewer | \
 		kimagemapeditor | \
 		kmplot | \
+		libkomparediff2 | \
 		lokalize | \
 		massif-visualizer | \
 		poxml)
