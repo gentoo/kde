@@ -43,7 +43,6 @@ RDEPEND="
 	>=kde-apps/kmailtransport-${PV}:*
 	>=kde-apps/kmbox-${PV}:*
 	>=kde-apps/kmime-${PV}:*
-	>=kde-apps/knotes-${PV}:*
 	>=kde-apps/konsolekalendar-${PV}:*
 	>=kde-apps/kontact-${PV}:*
 	>=kde-apps/kontactinterface-${PV}:*
