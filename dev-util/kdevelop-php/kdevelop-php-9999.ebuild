@@ -8,15 +8,15 @@ ECM_HANDBOOK_DIR="docs"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-php"
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.3.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="PHP plugin for KDevelop"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 LICENSE="GPL-2 LGPL-2"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
@@ -24,25 +24,23 @@ IUSE=""
 RESTRICT="test"
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-util/kdevelop-pg-qt:5
-	dev-util/kdevelop:5=
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/threadweaver-${KFMIN}:5
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	dev-util/kdevelop:6=
+	>=dev-util/kdevelop-pg-qt-2.2.2-r1:*
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/threadweaver-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	test? ( dev-util/kdevelop:5[test] )
-"
+BDEPEND="test? ( dev-util/kdevelop:6[test] )"
 
 src_test() {
 	# tests hang, bug 667922
