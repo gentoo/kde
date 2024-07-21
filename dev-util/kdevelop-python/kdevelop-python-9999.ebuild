@@ -7,15 +7,15 @@ ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
 PYTHON_COMPAT=( python3_{10..12} )
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.3.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org python-single-r1
 
 DESCRIPTION="Python plugin for KDevelop"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
@@ -23,21 +23,18 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test"
 
 DEPEND="${PYTHON_DEPS}
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-util/kdevelop:5=
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/threadweaver-${KFMIN}:5
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	dev-util/kdevelop:6=
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/threadweaver-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
 	$(python_gen_cond_dep '
