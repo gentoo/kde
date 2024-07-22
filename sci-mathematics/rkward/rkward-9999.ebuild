@@ -23,9 +23,10 @@ IUSE=""
 DEPEND="
 	dev-lang/R
 	>=dev-qt/qt5compat-${QTMIN}:6
-	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
+	>=kde-frameworks/breeze-icons-${KFMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
