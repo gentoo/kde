@@ -16,7 +16,14 @@ HOMEPAGE="https://apps.kde.org/umbrello/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="php"
+
+# TODO: Re-enable when ported to KF6
+# IUSE="php"
+# 	php? (
+# 		dev-util/kdevelop:5=
+# 		dev-util/kdevelop-pg-qt:5
+# 		dev-util/kdevelop-php:5
+# 	)
 
 RDEPEND="
 	dev-libs/libxml2
@@ -41,11 +48,6 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	php? (
-		dev-util/kdevelop:5=
-		dev-util/kdevelop-pg-qt:5
-		dev-util/kdevelop-php:5
-	)
 "
 DEPEND="${RDEPEND}"
 
@@ -57,7 +59,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Doxygen=ON # broken, re-enable w/ ECM_QTHELP
 		-DBUILD_APIDOC=OFF
-		-DBUILD_PHP_IMPORT=$(usex php)
+		-DBUILD_PHP_IMPORT=OFF # $(usex php)
 	)
 	use test && mycmakeargs+=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_LLVM=ON
