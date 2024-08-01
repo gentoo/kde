@@ -22,7 +22,7 @@ HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="addressbook calendar geolocation gphoto2 heif +imagemagick jpegxl +lensfun mysql opengl openmp +panorama scanner semantic-desktop spell"
+IUSE="addressbook calendar geolocation gphoto2 heif +imagemagick jpegxl +lensfun mysql opengl openmp +panorama scanner semantic-desktop spell video"
 
 # bug 366505
 RESTRICT="test"
@@ -74,6 +74,7 @@ COMMON_DEPEND="
 	scanner? ( >=kde-apps/libksane-24.05.2:6 )
 	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:6 )
 	spell? ( >=kde-frameworks/sonnet-${KFMIN}:6 )
+	video? ( >=dev-qt/qtmultimedia-${QTMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:3
@@ -116,7 +117,6 @@ src_configure() {
 		-DBUILD_TESTING=OFF # bug 698192
 		-DENABLE_APPSTYLES=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
-		-DENABLE_MEDIAPLAYER=OFF # bug 758641; bundled as of 8.0, KDE-bug 448681
 		-DENABLE_SHOWFOTO=ON # built unconditionally so far, new option since 8.0
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
 		$(cmake_use_find_package calendar KF6CalendarCore)
@@ -133,6 +133,7 @@ src_configure() {
 		$(cmake_use_find_package scanner KSaneWidgets6)
 		-DENABLE_KFILEMETADATASUPPORT=$(usex semantic-desktop)
 		$(cmake_use_find_package spell KF6Sonnet)
+		-DENABLE_MEDIAPLAYER=$(usex video)
 	)
 
 	ecm_src_configure
