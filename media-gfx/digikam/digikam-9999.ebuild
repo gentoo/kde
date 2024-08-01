@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.3.0
+QTMIN=6.6.2
 inherit ecm kde.org toolchain-funcs
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
@@ -21,7 +21,7 @@ DESCRIPTION="Digital photo management application"
 HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="0"
 IUSE="addressbook calendar geolocation gphoto2 heif +imagemagick jpegxl +lensfun mysql opengl openmp +panorama scanner semantic-desktop spell"
 
 # bug 366505
@@ -29,31 +29,22 @@ RESTRICT="test"
 
 COMMON_DEPEND="
 	dev-libs/expat
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5[-gles2-only]
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtnetworkauth-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5[mysql?]
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/knotifyconfig-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,-gles2-only,gui,mysql?,network,sql,widgets,xml]
+	>=dev-qt/qtnetworkauth-${QTMIN}:6
+	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/knotifyconfig-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
 	>=media-gfx/exiv2-0.27.1:=[xmp]
 	media-libs/lcms:2
 	media-libs/libjpeg-turbo:=
@@ -63,10 +54,10 @@ COMMON_DEPEND="
 	media-libs/tiff:=
 	x11-libs/libX11
 	addressbook? (
-		>=kde-apps/akonadi-contacts-23.08.3:5
-		>=kde-frameworks/kcontacts-${KFMIN}:5
+		>=kde-apps/akonadi-contacts-24.05.2:6
+		>=kde-frameworks/kcontacts-${KFMIN}:6
 	)
-	calendar? ( >=kde-frameworks/kcalendarcore-${KFMIN}:5 )
+	calendar? ( >=kde-frameworks/kcalendarcore-${KFMIN}:6 )
 	gphoto2? ( media-libs/libgphoto2:= )
 	heif? (
 		media-libs/libheif:=
@@ -76,20 +67,21 @@ COMMON_DEPEND="
 	jpegxl? ( media-libs/libjxl:= )
 	lensfun? ( media-libs/lensfun )
 	opengl? (
-		>=dev-qt/qtopengl-${QTMIN}:5
+		>=dev-qt/qtbase-${QTMIN}:6[opengl]
 		virtual/opengl
 	)
-	panorama? ( >=kde-frameworks/threadweaver-${KFMIN}:5 )
-	scanner? ( >=kde-apps/libksane-23.08.3:5 )
-	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
-	spell? ( >=kde-frameworks/sonnet-${KFMIN}:5 )
+	panorama? ( >=kde-frameworks/threadweaver-${KFMIN}:6 )
+	scanner? ( >=kde-apps/libksane-24.05.2:6 )
+	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:6 )
+	spell? ( >=kde-frameworks/sonnet-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:3
 	dev-libs/boost
-	addressbook? ( >=kde-apps/akonadi-23.08.3:5 )
+	addressbook? ( >=kde-apps/akonadi-24.05.2:6 )
 "
 RDEPEND="${COMMON_DEPEND}
+	!${CATEGORY}/${PN}:5
 	media-libs/exiftool
 	mysql? ( virtual/mysql[server(+)] )
 	panorama? ( media-gfx/hugin )
@@ -120,14 +112,14 @@ pkg_setup() {
 # FIXME: Unbundle libraw (libs/rawengine/libraw)
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_WITH_QT6=OFF # KF6 not stable upstream yet
+		-DBUILD_WITH_QT6=ON
 		-DBUILD_TESTING=OFF # bug 698192
 		-DENABLE_APPSTYLES=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
 		-DENABLE_MEDIAPLAYER=OFF # bug 758641; bundled as of 8.0, KDE-bug 448681
 		-DENABLE_SHOWFOTO=ON # built unconditionally so far, new option since 8.0
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
-		$(cmake_use_find_package calendar KF5CalendarCore)
+		$(cmake_use_find_package calendar KF6CalendarCore)
 		-DENABLE_GEOLOCATION=$(usex geolocation)
 		$(cmake_use_find_package gphoto2 Gphoto2)
 		$(cmake_use_find_package heif Libheif)
@@ -137,10 +129,10 @@ src_configure() {
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
 		-DENABLE_INTERNALMYSQL=$(usex mysql)
 		$(cmake_use_find_package opengl OpenGL)
-		$(cmake_use_find_package panorama KF5ThreadWeaver)
-		$(cmake_use_find_package scanner KF5Sane)
-		$(cmake_use_find_package spell KF5Sonnet)
+		$(cmake_use_find_package panorama KF6ThreadWeaver)
+		$(cmake_use_find_package scanner KSaneWidgets6)
 		-DENABLE_KFILEMETADATASUPPORT=$(usex semantic-desktop)
+		$(cmake_use_find_package spell KF6Sonnet)
 	)
 
 	ecm_src_configure
