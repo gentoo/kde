@@ -16,6 +16,7 @@ IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="${PYTHON_DEPS}
+	>=dev-qt/qtbase-${QTMIN}:6[widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	sys-devel/gettext
 	virtual/libintl
