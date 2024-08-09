@@ -6,8 +6,8 @@ EAPI=8
 ECM_DESIGNERPLUGIN="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.4.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Various text handling addons"
@@ -25,7 +25,7 @@ IUSE="speech"
 RESTRICT="test"
 
 DEPEND="
-	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-libs/qtkeychain-0.14.2:=[qt6]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
