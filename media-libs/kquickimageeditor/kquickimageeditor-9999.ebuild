@@ -25,6 +25,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
-	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
