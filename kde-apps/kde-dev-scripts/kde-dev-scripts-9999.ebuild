@@ -4,13 +4,13 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=5.115.0
+KFMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="KDE Development Scripts"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
