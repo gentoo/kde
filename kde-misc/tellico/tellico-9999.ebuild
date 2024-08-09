@@ -18,13 +18,11 @@ fi
 
 LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="0"
-IUSE="bibtex cddb discid pdf semantic-desktop taglib v4l xmp yaz"
+IUSE="bibtex cddb discid pdf scanner semantic-desktop taglib v4l xmp yaz"
 
 # tests need network access
 RESTRICT="test"
 
-# TODO:	IUSE="scanner"
-# scanner? ( kde-apps/libksane:6 )
 DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
@@ -56,6 +54,7 @@ DEPEND="
 	cddb? ( kde-apps/libkcddb:6 )
 	discid? ( dev-libs/libcdio:= )
 	pdf? ( app-text/poppler[qt6] )
+	scanner? ( kde-apps/libksane:6 )
 	semantic-desktop? ( kde-frameworks/kfilemetadata:6 )
 	taglib? ( >=media-libs/taglib-1.5:= )
 	v4l? ( >=media-libs/libv4l-0.8.3 )
@@ -74,7 +73,7 @@ src_configure() {
 		$(cmake_use_find_package cddb KCddb6)
 		$(cmake_use_find_package discid CDIO)
 		$(cmake_use_find_package pdf Poppler)
-# 		$(cmake_use_find_package scanner KF5Sane)
+		$(cmake_use_find_package scanner KSaneWidgets6)
 		$(cmake_use_find_package semantic-desktop KF6FileMetaData)
 		$(cmake_use_find_package taglib Taglib)
 		-DENABLE_WEBCAM=$(usex v4l)
