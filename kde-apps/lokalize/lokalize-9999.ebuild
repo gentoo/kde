@@ -23,7 +23,6 @@ RESTRICT="test" # tests are broken, bug 739734
 
 DEPEND="${PYTHON_DEPS}
 	>=app-text/hunspell-1.2.8:=
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,widgets,xml]
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
