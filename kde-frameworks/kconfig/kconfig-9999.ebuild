@@ -11,6 +11,7 @@ DESCRIPTION="Framework for reading and writing configuration"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="dbus qml"
+REQUIRED_USE="test? ( qml )"
 
 # bug 560086
 RESTRICT="test"
