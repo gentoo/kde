@@ -26,7 +26,7 @@ CAL_FTS=( karbon sheets stage words )
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="+charts +crypt +fontconfig gemini gsl +import-filter +lcms
-	okular +pdf phonon spacenav +truetype X
+	okular +pdf phonon spacenav +truetype webengine X
 	$(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
 RESTRICT="test"
@@ -84,6 +84,7 @@ COMMON_DEPEND="
 	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	spacenav? ( dev-libs/libspnav )
 	truetype? ( media-libs/freetype:2 )
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
 	calligra_features_sheets? ( dev-cpp/eigen:3 )
 	calligra_features_words? ( dev-libs/libxslt )
 "
@@ -108,14 +109,6 @@ pkg_pretend() {
 pkg_setup() {
 	ecm_pkg_setup
 	check-reqs_pkg_setup
-}
-
-src_prepare() {
-	ecm_src_prepare
-
-	# Unconditionally disable deprecated deps (required by QtQuick1)
-	ecm_punt_qt_module Declarative
-	ecm_punt_qt_module OpenGL
 }
 
 src_configure() {
@@ -157,6 +150,7 @@ src_configure() {
 		-DWITH_Eigen3=$(usex calligra_features_sheets)
 		-DBUILD_UNMAINTAINED=$(usex calligra_features_stage)
 		-DWITH_Freetype=$(usex truetype)
+		$(cmake_use_find_package webengine Qt6WebEngineWidgets)
 	)
 
 	ecm_src_configure
