@@ -21,7 +21,6 @@ DEPEND="
 	kde-frameworks/kcoreaddons:6
 	kde-frameworks/kcrash:6
 	kde-frameworks/ki18n:6
-	kde-frameworks/kiconthemes:6
 	kde-frameworks/ktextwidgets:6
 	kde-frameworks/kwidgetsaddons:6
 "
