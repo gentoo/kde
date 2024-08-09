@@ -26,10 +26,10 @@ COMMON_DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qtwayland-${QTMIN}:6
-	media-libs/zxing-cpp:=
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
@@ -42,6 +42,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/prison-${KFMIN}:6
 	kde-plasma/kpipewire:6
 	kde-plasma/layer-shell-qt:6
 	media-libs/opencv:=
