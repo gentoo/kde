@@ -33,4 +33,3 @@ RDEPEND="${COMMON_DEPEND}
 	>=net-libs/signon-oauth2-0.25_p20210102[qt6]
 	>=net-libs/signon-ui-0.15_p20231016
 "
-BDEPEND="dev-util/intltool"
