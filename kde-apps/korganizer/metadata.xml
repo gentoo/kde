@@ -9,4 +9,7 @@
 		<bugs-to>https://bugs.kde.org/</bugs-to>
 		<remote-id type="kde-invent">pim/korganizer</remote-id>
 	</upstream>
+	<use>
+		<flag name="activities">Enable Plasma Activities support via <pkg>kde-plasma/plasma-activities</pkg></flag>
+	</use>
 </pkgmetadata>

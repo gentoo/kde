@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/korganizer/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="6"
 KEYWORDS=""
-IUSE="telemetry"
+IUSE="activities telemetry"
 
 # testkodaymatrix is broken, akonadi* tests need DBus, bug #665686
 RESTRICT="test"
@@ -58,6 +58,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	x11-libs/libX11
+	activities? ( kde-plasma/plasma-activities:6 )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -71,6 +72,7 @@ BDEPEND="test? ( >=kde-apps/akonadi-${PVCUT}:6[tools] )"
 
 src_configure() {
 	local mycmakeargs=(
+		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 	)
 
