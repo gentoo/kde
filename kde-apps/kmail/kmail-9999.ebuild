@@ -17,7 +17,7 @@ https://kontact.kde.org/components/kmail/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="6"
 KEYWORDS=""
-IUSE="pch speech telemetry"
+IUSE="activities pch speech telemetry"
 
 RESTRICT="test" # bug 616878
 
@@ -76,6 +76,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
+	activities? ( kde-plasma/plasma-activities:6 )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -99,6 +100,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		-DUSE_PRECOMPILED_HEADERS=$(usex pch)
 		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
