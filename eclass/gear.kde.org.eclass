@@ -281,7 +281,8 @@ if $(ver_test -gt 24.07.75); then
 		libkomparediff2 | \
 		lokalize | \
 		massif-visualizer | \
-		poxml)
+		poxml | \
+		skanlite)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;
 	esac
@@ -293,7 +294,6 @@ if $(ver_test -gt 24.10.75); then
 	case ${PN} in
 		kalzium | \
 		minuet | \
-		skanlite | \
 		step)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;
