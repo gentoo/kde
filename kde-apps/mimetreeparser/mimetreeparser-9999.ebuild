@@ -26,7 +26,6 @@ DEPEND="
 	>=kde-apps/kmime-${PVCUT}:6
 	>=kde-apps/libkleo-${PVCUT}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
-	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
