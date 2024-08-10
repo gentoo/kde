@@ -7,8 +7,8 @@ ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KDE_GCC_MINIMAL=13
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Screenshot capture utility"

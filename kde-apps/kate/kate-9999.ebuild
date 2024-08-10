@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm flag-o-matic gear.kde.org
 
 DESCRIPTION="Multi-document editor with network transparency, Plasma integration and more"

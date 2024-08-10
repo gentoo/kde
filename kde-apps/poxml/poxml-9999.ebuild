@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-QTMIN=6.6.2
+QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="KDE utility to translate DocBook XML files using gettext po files"

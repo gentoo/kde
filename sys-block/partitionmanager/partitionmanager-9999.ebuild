@@ -4,9 +4,9 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=6.3.0
+KFMIN=6.5.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.6.2
+QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Utility for management of disks, partitions and file systems"

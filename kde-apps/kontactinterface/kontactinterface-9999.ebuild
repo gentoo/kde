@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_QTHELP="true"
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library for embedding KParts in a Kontact component"
