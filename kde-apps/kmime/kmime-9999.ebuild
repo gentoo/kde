@@ -15,10 +15,7 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	>=kde-frameworks/kcodecs-${KFMIN}:6
-	>=kde-frameworks/ki18n-${KFMIN}:6
-"
+DEPEND=">=kde-frameworks/kcodecs-${KFMIN}:6"
 RDEPEND="${DEPEND}"
 
 CMAKE_SKIP_TESTS=(
