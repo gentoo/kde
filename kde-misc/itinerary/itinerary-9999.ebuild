@@ -23,6 +23,7 @@ DEPEND="
 	>=dev-libs/kirigami-addons-0.9:6
 	>=dev-libs/kosmindoormap-${PVCUT}:6
 	>=dev-libs/kpublictransport-${PVCUT}:6
+	>=dev-libs/qtkeychain-0.14.2:=[qt6]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtlocation-${QTMIN}:6
