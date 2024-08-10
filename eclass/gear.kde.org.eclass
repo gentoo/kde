@@ -276,6 +276,7 @@ if $(ver_test -gt 24.07.75); then
 		kimagemapeditor | \
 		kmplot | \
 		kompare | \
+		krdc | \
 		libkomparediff2 | \
 		lokalize | \
 		massif-visualizer | \
@@ -291,7 +292,6 @@ if $(ver_test -gt 24.10.75); then
 	case ${PN} in
 		kalzium | \
 		kdesdk-thumbnailers | \
-		krdc | \
 		minuet | \
 		skanlite | \
 		step)
