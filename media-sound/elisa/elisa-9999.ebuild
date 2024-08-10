@@ -3,7 +3,6 @@
 
 EAPI=8
 
-ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=6.5.0
 QTMIN=6.7.2
@@ -26,7 +25,6 @@ DEPEND="
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kfilemetadata-${KFMIN}:6[taglib]
