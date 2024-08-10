@@ -16,7 +16,7 @@ DESCRIPTION="Common PIM libraries"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="6"
 KEYWORDS=""
-IUSE=""
+IUSE="activities"
 
 RDEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6
@@ -42,8 +42,17 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
+	activities? ( kde-plasma/plasma-activities:6 )
 "
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
+	)
+
+	ecm_src_configure
+}
 
 src_test() {
 	# bugs 641730, 661330
