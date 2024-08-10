@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/akregator/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="6"
 KEYWORDS=""
-IUSE="speech telemetry"
+IUSE="activities speech telemetry"
 
 RDEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6[speech?]
@@ -26,7 +26,7 @@ RDEPEND="
 	>=kde-apps/kontactinterface-${PVCUT}:6
 	>=kde-apps/libkdepim-${PVCUT}:6
 	>=kde-apps/messagelib-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -47,12 +47,14 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/syndication-${KFMIN}:6
+	activities? ( kde-plasma/plasma-activities:6 )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 	)
