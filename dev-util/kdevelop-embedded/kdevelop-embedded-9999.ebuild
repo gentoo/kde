@@ -20,7 +20,7 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-util/kdevelop-pg-qt:5
+	dev-util/kdevelop-pg-qt:0
 	dev-util/kdevelop:5=
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5

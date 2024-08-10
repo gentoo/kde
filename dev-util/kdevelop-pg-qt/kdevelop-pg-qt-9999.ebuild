@@ -10,17 +10,17 @@ inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 DESCRIPTION="LL(1) parser generator used mainly by KDevelop language plugins"
 HOMEPAGE="https://www.kdevelop.org/"
 
 LICENSE="LGPL-2+ LGPL-2.1+"
-SLOT="6"
+SLOT="0"
 IUSE=""
 
-RDEPEND+=" !${CATEGORY}/${PN}:5"
+RDEPEND+=" !${CATEGORY}/${PN}:6"
 BDEPEND="
 	app-alternatives/lex
 	app-alternatives/yacc

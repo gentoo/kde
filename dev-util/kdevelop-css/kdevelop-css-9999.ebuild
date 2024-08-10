@@ -21,7 +21,7 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-util/kdevelop-pg-qt:5
+	dev-util/kdevelop-pg-qt:0
 	>=dev-util/kdevelop-5.1.80:5=
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
