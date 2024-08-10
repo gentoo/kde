@@ -23,7 +23,7 @@ RESTRICT="test"
 
 DEPEND="
 	app-crypt/gpgme:=[cxx]
-	dev-libs/kirigami-addons:6
+	>=dev-libs/kirigami-addons-1.4.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -35,9 +35,11 @@ DEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:6
 	>=kde-apps/kmbox-${PVCUT}:6
 	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/libkdepim-${PVCUT}:6
 	>=kde-apps/mailcommon-${PVCUT}:6
 	>=kde-apps/messagelib-${PVCUT}:6
 	>=kde-apps/mimetreeparser-${PVCUT}:6
+	>=kde-apps/pimcommon-${PVCUT}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
@@ -48,6 +50,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
