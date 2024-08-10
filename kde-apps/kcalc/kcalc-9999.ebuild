@@ -21,6 +21,7 @@ DEPEND="
 	dev-libs/gmp:0=
 	dev-libs/mpfr:0=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
