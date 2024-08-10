@@ -68,7 +68,7 @@ COMMON_DEPEND="
 		>=kde-frameworks/krunner-${KFMIN}:6
 		kde-plasma/libplasma:6
 	)
-	qmake? ( dev-util/kdevelop-pg-qt:* )
+	qmake? ( >=dev-util/kdevelop-pg-qt-2.3.0:0 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	subversion? (
 		dev-libs/apr:1
