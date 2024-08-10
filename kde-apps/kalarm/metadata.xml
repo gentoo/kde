@@ -7,6 +7,7 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://bugs.kde.org/</bugs-to>
+		<remote-id type="kde-invent">pim/kalarm</remote-id>
 	</upstream>
 	<use>
 		<flag name="pim">Enable birthday import, email functions etc. using <pkg>kde-apps/akonadi</pkg></flag>

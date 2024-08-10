@@ -37,6 +37,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
@@ -48,7 +49,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	media-libs/libcanberra
+	media-video/vlc:=
 	pim? (
 		>=kde-apps/akonadi-${PVCUT}:6
 		>=kde-apps/akonadi-contacts-${PVCUT}:6
