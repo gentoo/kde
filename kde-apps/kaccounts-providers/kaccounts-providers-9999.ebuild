@@ -16,7 +16,7 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[qml]
@@ -26,7 +26,10 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kpackage-${KFMIN}:6
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	dev-libs/qcoro[network]
+"
+RDEPEND="${COMMON_DEPEND}
 	>=net-libs/signon-oauth2-0.25_p20210102[qt6]
 	>=net-libs/signon-ui-0.15_p20231016
 "
