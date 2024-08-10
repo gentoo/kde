@@ -269,6 +269,7 @@ if $(ver_test -gt 24.07.75); then
 	case ${PN} in
 		k3b | \
 		kde-dev-scripts | \
+		kdesdk-thumbnailers | \
 		kdevelop | \
 		kdevelop-php | \
 		kdevelop-python | \
@@ -291,7 +292,6 @@ fi
 if $(ver_test -gt 24.10.75); then
 	case ${PN} in
 		kalzium | \
-		kdesdk-thumbnailers | \
 		minuet | \
 		skanlite | \
 		step)
