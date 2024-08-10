@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="true"
-PVCUT=$(ver_cut 1-3)
 KFMIN=6.5.0
 QTMIN=6.7.2
 inherit ecm gear.kde.org
@@ -15,7 +14,7 @@ DESCRIPTION="Library for encryption handling"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="+fancyviewer"
+IUSE=""
 
 RDEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
@@ -31,16 +30,7 @@ RDEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	fancyviewer? ( dev-libs/ktextaddons:6 )
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package fancyviewer KF6TextCustomEditor)
-	)
-
-	ecm_src_configure
-}
