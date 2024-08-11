@@ -84,7 +84,6 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "compress/extract and other actions" "kde-apps/ark:${SLOT}"
 		optfeature "crypto actions" "kde-apps/kleopatra:${SLOT}"
-		optfeature "video file thumbnails" "kde-apps/ffmpegthumbs:${SLOT}"
 		optfeature "'Share' context menu actions" "kde-frameworks/purpose:${SLOT}"
 	fi
 	ecm_pkg_postinst
