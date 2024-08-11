@@ -22,4 +22,15 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	sys-devel/gettext
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-apps/${PN}-common-${PV}
+"
+
+ECM_REMOVE_FROM_INSTALL=(
+	/usr/share/config.kcfg/pocreatorsettings.kcfg
+)
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_po_install
+}
