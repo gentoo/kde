@@ -3,7 +3,6 @@
 
 EAPI=8
 
-ECM_HANDBOOK="false"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="git"
 PVCUT=$(ver_cut 1-3)
@@ -31,18 +30,18 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	dev-vcs/git
+	>=kde-apps/dolphin-plugins-common-${PV}
 "
 
 src_prepare() {
 	ecm_src_prepare
+	ecm_punt_po_install
 	# solid, qtdbus only required by mountiso
 	ecm_punt_qt_module DBus
 	ecm_punt_kf_module Solid
 	# kxmlgui, qtnetwork only required by dropbox
 	ecm_punt_qt_module Network
 	ecm_punt_kf_module XmlGui
-	# delete non-${PN} translations
-	find po -type f -name "*po" -and -not -name "*${MY_PLUGIN_NAME}plugin" -delete || die
 }
 
 src_configure() {
