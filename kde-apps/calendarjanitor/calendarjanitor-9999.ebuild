@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="false"
+ECM_HANDBOOK="forceoff"
 ECM_TEST="false"
 KDE_ORG_NAME="akonadi-calendar-tools"
 PVCUT=$(ver_cut 1-3)
@@ -27,17 +27,14 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-apps/akonadi-calendar-tools-common-${PV}
+"
 
 PATCHES=( "${FILESDIR}/${PN}-24.05.2-loggingcategory.patch" )
 
 src_prepare() {
 	ecm_src_prepare
-	ecm_punt_kf_module DocTools
-	sed -i -e "/kdoctools_install/I s/^/#DONT/" CMakeLists.txt || die
-	cmake_comment_add_subdirectory doc konsolekalendar
-
-	# delete colliding konsolekalendar translations
-	rm -f po/*/konsolekalendar.po || die
-	rm -rf po/*/docs/konsolekalendar || die
+	ecm_punt_po_install
+	cmake_comment_add_subdirectory konsolekalendar
 }
