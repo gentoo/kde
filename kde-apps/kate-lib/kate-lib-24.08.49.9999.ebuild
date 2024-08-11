@@ -39,15 +39,12 @@ DEPEND="
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kate-22.08.0:5
+	>=kde-apps/kate-common-${PV}
 "
 
 src_prepare() {
 	ecm_src_prepare
-
-	# delete colliding kate/kwrite translations
-	find po -type f -name "*po" -and ! -name 'kate.po' -delete || die
-	rm -rf po/*/docs || die
+	ecm_punt_po_install
 }
 
 src_configure() {
