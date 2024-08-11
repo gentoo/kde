@@ -3,7 +3,6 @@
 
 EAPI=8
 
-ECM_HANDBOOK="false"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="hg"
 PVCUT=$(ver_cut 1-3)
@@ -34,10 +33,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	dev-vcs/mercurial
+	>=kde-apps/dolphin-plugins-common-${PV}
 "
 
 src_prepare() {
 	ecm_src_prepare
+	ecm_punt_po_install
 	# qtconcurrent only required by git
 	ecm_punt_qt_module Concurrent
 	# solid, qtdbus only required by mountiso
@@ -46,8 +47,6 @@ src_prepare() {
 	# kxmlgui, qtnetwork only required by dropbox
 	ecm_punt_qt_module Network
 	ecm_punt_kf_module XmlGui
-	# delete non-${PN} translations
-	find po -type f -name "*po" -and -not -name "*${MY_PLUGIN_NAME}plugin" -delete || die
 }
 
 src_configure() {
