@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="optional"
+ECM_HANDBOOK="forceoff"
 KFMIN=6.5.0
 QTMIN=6.7.2
 inherit ecm flag-o-matic gear.kde.org
@@ -29,17 +29,15 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	~kde-apps/kate-addons-${PV}:6
+	>=kde-apps/kate-common-${PV}
 "
 
 src_prepare() {
 	ecm_src_prepare
+	ecm_punt_po_install
 
 	# these tests are run in kde-apps/kate-lib
 	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
-
-	# delete colliding kwrite translations
-	rm -f po/*/*.po || die # installed by kde-apps/kate-lib
-	rm -rf po/*/docs/kwrite || die
 }
 
 src_configure() {
