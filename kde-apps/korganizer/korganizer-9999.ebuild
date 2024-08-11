@@ -66,6 +66,7 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=kde-apps/akonadi-${PVCUT}:6[sqlite] )
 "
 RDEPEND="${COMMON_DEPEND}
+	!<kde-apps/kdepim-addons-24.07.50:*
 	>=kde-apps/kdepim-runtime-${PVCUT}:6
 "
 BDEPEND="test? ( >=kde-apps/akonadi-${PVCUT}:6[tools] )"
