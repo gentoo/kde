@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="forceoff"
 KDE_ORG_NAME="akonadi-calendar-tools"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.5.0
@@ -12,7 +12,7 @@ inherit ecm gear.kde.org
 DESCRIPTION="Command line interface to KDE calendars"
 HOMEPAGE+=" https://userbase.kde.org/KonsoleKalendar"
 
-LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
+LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64"
 IUSE=""
@@ -26,13 +26,12 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-apps/akonadi-calendar-tools-common-${PV}
+"
 
 src_prepare() {
 	ecm_src_prepare
-
-	# delete colliding calendarjanitor translations
-	rm -f po/*/calendarjanitor.po || die
-
+	ecm_punt_po_install
 	cmake_comment_add_subdirectory calendarjanitor
 }
