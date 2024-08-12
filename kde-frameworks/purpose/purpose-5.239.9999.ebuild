@@ -44,7 +44,10 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${PVCUT}:5
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:5 )
-	kaccounts? ( >=net-libs/accounts-qml-0.7_p20231028[qt5(-)] )
+	kaccounts? (
+		kde-frameworks/purpose-kaccounts-services
+		>=net-libs/accounts-qml-0.7_p20231028[qt5(-)]
+	)
 "
 BDEPEND="kaccounts? ( dev-util/intltool )"
 
@@ -60,6 +63,14 @@ src_configure() {
 		$(cmake_use_find_package kaccounts KAccounts)
 	)
 	ecm_src_configure
+}
+
+src_install() {
+	# Shipped by kde-frameworks/purpose-kaccounts-services package for shared use w/ SLOT 5
+	use kaccounts && ECM_REMOVE_FROM_INSTALL=(
+		/usr/share/accounts/services/kde/{google-youtube,nextcloud-upload}.service
+	)
+	ecm_src_install
 }
 
 pkg_postinst() {
