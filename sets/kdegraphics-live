@@ -3,11 +3,13 @@
 ~kde-apps/kcolorchooser-9999
 ~kde-apps/kdegraphics-meta-9999
 ~kde-apps/kdegraphics-mobipocket-9999
+~kde-apps/kdegraphics-thumbnailers-common-9999
 ~kde-apps/kolourpaint-9999
 ~kde-apps/kruler-9999
 ~kde-apps/libkdcraw-9999
 ~kde-apps/libkexiv2-9999
 ~kde-apps/libksane-9999
+~kde-apps/libksane-common-9999
 ~kde-apps/okular-9999
 ~kde-apps/spectacle-9999
 ~kde-apps/svgpart-9999
@@ -21,3 +23,4 @@
 ~media-gfx/kio-raw-thumbnailer-9999
 ~media-gfx/skanpage-9999
 ~media-libs/ksanecore-9999
+~media-libs/ksanecore-common-9999
