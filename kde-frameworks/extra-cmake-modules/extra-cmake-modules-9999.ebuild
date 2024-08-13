@@ -34,6 +34,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.93.0-skip-ecm_add_test-early.patch"
 	"${FILESDIR}/${PN}-5.112.0-disable-tests-requiring-PyQt5.patch" # bug 680256
 	"${FILESDIR}/${PN}-5.245.0-disable-qmlplugindump.patch"
+	"${FILESDIR}/${PN}-6.5.0-disable-appstreamtest.patch"
 )
 
 python_check_deps() {
