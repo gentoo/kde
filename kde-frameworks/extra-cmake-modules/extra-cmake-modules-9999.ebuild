@@ -35,6 +35,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.112.0-disable-tests-requiring-PyQt5.patch" # bug 680256
 	"${FILESDIR}/${PN}-5.245.0-disable-qmlplugindump.patch"
 	"${FILESDIR}/${PN}-6.5.0-disable-appstreamtest.patch"
+	"${FILESDIR}/${PN}-6.5.0-disable-git-commit-hooks.patch"
 )
 
 python_check_deps() {
