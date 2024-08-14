@@ -4,7 +4,7 @@
 EAPI=8
 
 KDE_ORG_NAME="kate"
-ECM_HANDBOOK="optional"
+ECM_HANDBOOK="forceoff"
 KFMIN=6.5.0
 QTMIN=6.7.2
 inherit ecm flag-o-matic gear.kde.org
@@ -17,7 +17,7 @@ SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	~kde-apps/kate-lib-${PV}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -25,17 +25,16 @@ RDEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	virtual/libintl
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-apps/kate-common-${PV}
+"
 
 src_prepare() {
 	ecm_src_prepare
+	ecm_punt_po_install
 
 	# these tests are run in kde-apps/kate-lib
 	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
-
-	# delete colliding kate translations
-	find po -type f -name "*po" -and -not -name "kwrite*" -delete || die
-	rm -rf po/*/docs/kate* || die
 }
 
 src_configure() {
@@ -43,7 +42,6 @@ src_configure() {
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
 	)
-	use handbook && mycmakeargs+=( -DBUILD_katepart=FALSE )
 
 	# provided by kde-apps/kate-lib
 	append-libs -lkateprivate
