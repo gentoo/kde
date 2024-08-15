@@ -21,5 +21,10 @@ DEPEND="
 	media-gfx/sane-backends
 "
 RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+	>=media-libs/${PN}-common-${PV}
 "
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_po_install
+}
