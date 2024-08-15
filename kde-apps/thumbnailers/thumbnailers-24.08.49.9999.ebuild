@@ -3,37 +3,19 @@
 
 EAPI=8
 
-KDE_ORG_NAME="kdegraphics-thumbnailers"
-PVCUT=$(ver_cut 1-3)
-KFMIN=6.5.0
-QTMIN=6.7.2
-inherit ecm gear.kde.org
+DESCRIPTION="Metapackage for KIO thumbnail generators"
+HOMEPAGE="https://apps.kde.org/kdegraphics_thumbnailers/"
 
-DESCRIPTION="Thumbnail generators for Mobipocket, PDF/PS and RAW files"
-
-LICENSE="GPL-2+"
+LICENSE="metapackage"
 SLOT="6"
 KEYWORDS=""
-IUSE="mobi raw"
+IUSE="blender gettext mobi pdf raw video"
 
-DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui]
-	>=kde-frameworks/karchive-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
-	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:6 )
-	raw? (
-		>=kde-apps/libkdcraw-${PVCUT}:6
-		>=kde-apps/libkexiv2-${PVCUT}:6
-	)
+RDEPEND="
+	blender? ( >=media-gfx/kio-blender-thumbnailer-${PV}:6 )
+	gettext? ( >=kde-apps/kdesdk-thumbnailers-${PV}:6 )
+	mobi? ( >=media-gfx/kio-mobi-thumbnailer-${PV}:6 )
+	pdf? ( >=media-gfx/kio-ps-thumbnailer-${PV}:6 )
+	raw? ( >=media-gfx/kio-raw-thumbnailer-${PV}:6 )
+	video? ( >=kde-apps/ffmpegthumbs-${PV}:6 )
 "
-RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		-DDISABLE_MOBIPOCKET=$(usex !mobi)
-		$(cmake_use_find_package raw KExiv2Qt6)
-		$(cmake_use_find_package raw KDcrawQt6)
-	)
-
-	ecm_src_configure
-}
