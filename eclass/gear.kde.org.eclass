@@ -132,7 +132,6 @@ if $(ver_test -gt 24.01.75); then
 		kde-dev-utils | \
 		kdebugsettings | \
 		kdeconnect | \
-		kdegraphics-mobipocket | \
 		kdenetwork-filesharing | \
 		kdenlive | \
 		kdepim-addons | \
