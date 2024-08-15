@@ -242,7 +242,6 @@ if $(ver_test -gt 24.01.75); then
 		spectacle | \
 		svgpart | \
 		sweeper | \
-		thumbnailers | \
 		yakuake | \
 		zanshin)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
