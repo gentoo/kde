@@ -12,12 +12,12 @@
 ~kde-apps/spectacle-9999
 ~kde-apps/svgpart-9999
 ~kde-apps/thumbnailers-9999
+~kde-misc/colord-kde-9999
+~kde-misc/skanlite-9999
+~media-gfx/kgraphviewer-9999
 ~media-gfx/kio-blender-thumbnailer-9999
 ~media-gfx/kio-mobi-thumbnailer-9999
 ~media-gfx/kio-ps-thumbnailer-9999
 ~media-gfx/kio-raw-thumbnailer-9999
-~kde-misc/colord-kde-9999
-~kde-misc/skanlite-9999
-~media-gfx/kgraphviewer-9999
 ~media-gfx/skanpage-9999
 ~media-libs/ksanecore-9999
