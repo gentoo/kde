@@ -6,6 +6,7 @@
 ~kde-apps/cervisia-24.08.49.9999 **
 ~kde-apps/dolphin-plugins-git-24.08.49.9999 **
 ~kde-apps/dolphin-plugins-mercurial-24.08.49.9999 **
+~kde-apps/dolphin-plugins-common-24.08.49.9999 **
 ~kde-apps/dolphin-plugins-subversion-24.08.49.9999 **
 ~kde-apps/kapptemplate-24.08.49.9999 **
 ~kde-apps/kcachegrind-24.08.49.9999 **
@@ -13,6 +14,7 @@
 ~kde-apps/kde-dev-utils-24.08.49.9999 **
 ~kde-apps/kdesdk-meta-24.08.49.9999 **
 ~kde-apps/kdesdk-thumbnailers-24.08.49.9999 **
+~kde-apps/kdesdk-thumbnailers-common-24.08.49.9999 **
 ~kde-apps/kompare-24.08.49.9999 **
 ~kde-apps/libkomparediff2-24.08.49.9999 **
 ~kde-apps/lokalize-24.08.49.9999 **

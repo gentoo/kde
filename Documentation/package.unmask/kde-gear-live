@@ -89,11 +89,13 @@
 ~kde-apps/kcolorchooser-9999
 ~kde-apps/kdegraphics-meta-9999
 ~kde-apps/kdegraphics-mobipocket-9999
+~kde-apps/kdegraphics-thumbnailers-common-9999
 ~kde-apps/kolourpaint-9999
 ~kde-apps/kruler-9999
 ~kde-apps/libkdcraw-9999
 ~kde-apps/libkexiv2-9999
 ~kde-apps/libksane-9999
+~kde-apps/libksane-common-9999
 ~kde-apps/okular-9999
 ~kde-apps/spectacle-9999
 ~kde-apps/svgpart-9999
@@ -107,9 +109,11 @@
 ~media-gfx/kio-raw-thumbnailer-9999
 ~media-gfx/skanpage-9999
 ~media-libs/ksanecore-9999
+~media-libs/ksanecore-common-9999
 ~kde-apps/audiocd-kio-9999
 ~kde-apps/dragon-9999
 ~kde-apps/ffmpegthumbs-9999
+~kde-apps/ffmpegthumbs-common-9999
 ~kde-apps/juk-9999
 ~kde-apps/k3b-9999
 ~kde-apps/kamoso-9999
@@ -118,6 +122,7 @@
 ~kde-apps/kmix-9999
 ~kde-apps/kwave-9999
 ~kde-apps/libkcddb-9999
+~kde-apps/libkcddb-common-9999
 ~kde-apps/libkcompactdisc-9999
 ~media-sound/audex-9999
 ~media-sound/elisa-9999
@@ -135,6 +140,7 @@
 ~kde-apps/signon-kwallet-extension-9999
 ~kde-misc/kdeconnect-9999
 ~kde-misc/kio-gdrive-9999
+~kde-misc/kio-gdrive-common-9999
 ~net-im/neochat-9999
 ~net-im/tokodon-9999
 ~net-irc/konversation-9999
@@ -148,6 +154,7 @@
 ~dev-libs/kpublictransport-9999
 ~kde-apps/akonadi-9999
 ~kde-apps/akonadi-calendar-9999
+~kde-apps/akonadi-calendar-tools-common-9999
 ~kde-apps/akonadi-contacts-9999
 ~kde-apps/akonadi-import-wizard-9999
 ~kde-apps/akonadi-mime-9999
@@ -207,6 +214,7 @@
 ~kde-apps/cervisia-9999
 ~kde-apps/dolphin-plugins-git-9999
 ~kde-apps/dolphin-plugins-mercurial-9999
+~kde-apps/dolphin-plugins-common-9999
 ~kde-apps/dolphin-plugins-subversion-9999
 ~kde-apps/kapptemplate-9999
 ~kde-apps/kcachegrind-9999
@@ -214,6 +222,7 @@
 ~kde-apps/kde-dev-utils-9999
 ~kde-apps/kdesdk-meta-9999
 ~kde-apps/kdesdk-thumbnailers-9999
+~kde-apps/kdesdk-thumbnailers-common-9999
 ~kde-apps/kompare-9999
 ~kde-apps/libkomparediff2-9999
 ~kde-apps/lokalize-9999

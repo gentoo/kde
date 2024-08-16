@@ -4,6 +4,7 @@
 ~dev-libs/kpublictransport-9999 **
 ~kde-apps/akonadi-9999 **
 ~kde-apps/akonadi-calendar-9999 **
+~kde-apps/akonadi-calendar-tools-common-9999 **
 ~kde-apps/akonadi-contacts-9999 **
 ~kde-apps/akonadi-import-wizard-9999 **
 ~kde-apps/akonadi-mime-9999 **
