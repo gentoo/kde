@@ -12,7 +12,7 @@ inherit ecm frameworks.kde.org optfeature xdg-utils
 DESCRIPTION="Library for providing abstractions to get the developer's purposes fulfilled"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="bluetooth kaccounts kf6compat"
+IUSE="bluetooth kaccounts"
 
 # requires running environment
 RESTRICT="test"
@@ -40,7 +40,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	kf6compat? ( kaccounts? ( >=kde-frameworks/purpose-6.3.0-r1:6[webengine] ) )
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${PVCUT}:5
@@ -60,22 +59,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package kaccounts KAccounts)
 	)
-
 	ecm_src_configure
-}
-
-src_install() {
-	ecm_src_install
-
-	if use kf6compat; then
-		rm "${D}"/usr/share/icons/hicolor/128x128/apps/{reviewboard,phabricator}-purpose.png \
-			"${D}"/usr/share/icons/hicolor/16x16/apps/{reviewboard,phabricator}-purpose.png \
-			|| die
-		if use kaccounts; then
-			rm "${D}"/usr/share/accounts/services/kde/{google-youtube,nextcloud-upload}.service \
-			|| die
-		fi
-	fi
 }
 
 pkg_postinst() {
