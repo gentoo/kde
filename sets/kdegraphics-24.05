@@ -8,6 +8,7 @@
 <kde-apps/libkdcraw-24.05.50
 <kde-apps/libkexiv2-24.05.50
 <kde-apps/libksane-24.05.50
+<kde-apps/libksane-common-24.05.50
 <kde-apps/okular-24.05.50
 <kde-apps/spectacle-24.05.50
 <kde-apps/svgpart-24.05.50
@@ -21,3 +22,4 @@
 <media-gfx/kio-raw-thumbnailer-24.05.50
 <media-gfx/skanpage-24.05.50
 <media-libs/ksanecore-24.05.50
+<media-libs/ksanecore-common-24.05.50

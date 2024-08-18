@@ -10,10 +10,12 @@
 <kde-apps/signon-kwallet-extension-24.05.50
 <kde-misc/kdeconnect-24.05.50
 <kde-misc/kio-gdrive-24.05.50
+<kde-misc/kio-gdrive-common-24.05.50
 <net-im/neochat-24.05.50
 <net-im/tokodon-24.05.50
 <net-irc/konversation-24.05.50
 <net-libs/libktorrent-24.05.50
 <net-misc/kio-zeroconf-24.05.50
+<net-misc/kio-zeroconf-common-24.05.50
 <net-news/alligator-24.05.50
 <net-p2p/ktorrent-24.05.50
