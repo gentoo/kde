@@ -33,7 +33,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-apps/kdeedu-data-${PVCUT}:*
 "
