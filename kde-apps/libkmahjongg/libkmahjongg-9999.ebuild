@@ -23,3 +23,5 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
+# TODO: 7zip
+BDEPEND="app-alternatives/gzip"
