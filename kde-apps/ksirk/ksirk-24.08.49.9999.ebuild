@@ -9,7 +9,7 @@ KFMIN=6.5.0
 QTMIN=6.7.2
 inherit ecm gear.kde.org
 
-DESCRIPTION="Port of the board game risk"
+DESCRIPTION="Port of the board game Risk"
 HOMEPAGE="https://apps.kde.org/ksirk/"
 
 LICENSE="GPL-2" # TODO: CHECK
