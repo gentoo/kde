@@ -23,7 +23,6 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/libkdegames-${PVCUT}:6
 	>=kde-apps/libkmahjongg-${PVCUT}:6
-	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
