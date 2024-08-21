@@ -37,3 +37,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	games-board/gnugo
 "
+# TODO: 7zip
+BDEPEND="app-alternatives/gzip"
