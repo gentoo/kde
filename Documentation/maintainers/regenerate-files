@@ -72,17 +72,6 @@ for release in $GEAR_RELEASES; do
 	fi
 done
 
-if [[ -d .kde-frameworks-5-live.base ]]; then
-	rm -rf .kde-frameworks-5-live
-	mkdir -p .kde-frameworks-5-live
-	echo -e "${HEADER}" > kde-frameworks-5-live.keywords
-	for file in .kde-frameworks-5-live.base/*; do
-		newfile=.kde-frameworks-5-live/$(basename "${file}")
-		sed -e '/^~.*[.-]5.239.9999$/s/$/ **/'  -e '/^@/d' "${file}" > "${newfile}"
-	done
-	cat .kde-frameworks-5-live/* >> kde-frameworks-5-live.keywords
-fi
-
 if [[ -d .kde-frameworks-live.base ]]; then
 	rm -rf .kde-frameworks-live
 	mkdir -p .kde-frameworks-live
@@ -119,7 +108,7 @@ popd > /dev/null
 
 # regenerate unmask entries (base for package mask)
 pushd ../package.unmask/ > /dev/null
-for release in $KF5_RELEASES 5-live; do
+for release in $KF5_RELEASES; do
 	if [[ -d ".kde-frameworks-5-${release}" ]]; then
 		echo -e "${HEADER}" > "kde-frameworks-${release}"
 		cat ".kde-frameworks-5-${release}/"* | \
@@ -155,7 +144,7 @@ popd > /dev/null
 
 # regenerate mask entries (base for package mask)
 pushd ../package.mask/ > /dev/null
-for release in $KF5_RELEASES 5-live; do
+for release in $KF5_RELEASES; do
 	if [[ -d "../package.unmask/.kde-frameworks-5-${release}" ]]; then
 		echo -e "${HEADER}" > "kde-frameworks-${release}"
 		cat "../package.unmask/.kde-frameworks-5-${release}/"* | \
