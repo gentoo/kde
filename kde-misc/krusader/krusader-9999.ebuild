@@ -59,6 +59,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 	kde-apps/kio-extras:6
+	kde-apps/thumbnailers:6
 	>=kde-frameworks/ktexteditor-${KFMIN}:6
 	kde-plasma/kdesu-gui:*
 "
@@ -77,8 +78,6 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "konsole view" "kde-apps/konsole:6"
 		optfeature "Markdown text previews" "kde-misc/markdownpart:6"
-		optfeature "PDF/PS and RAW image thumbnails" "kde-apps/thumbnailers:6"
-		optfeature "video thumbnails" "kde-apps/ffmpegthumbs:6"
 		optfeature "bookmarks support" "kde-apps/keditbookmarks:6"
 	fi
 	ecm_pkg_postinst
