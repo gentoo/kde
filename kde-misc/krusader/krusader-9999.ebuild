@@ -49,6 +49,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	sys-apps/acl
+	sys-apps/attr
 	sys-libs/zlib
 "
 DEPEND="${COMMON_DEPEND}
