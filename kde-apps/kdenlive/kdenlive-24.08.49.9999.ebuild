@@ -61,6 +61,7 @@ RDEPEND="${DEPEND}
 	media-video/mediainfo
 "
 BDEPEND="sys-devel/gettext"
+DEPEND+=" sys-kernel/linux-headers"
 
 src_configure() {
 	local mycmakeargs=(
