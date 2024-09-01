@@ -13,10 +13,12 @@ SLOT="0"
 KEYWORDS=""
 
 RDEPEND="
-	!<net-misc/kio-zeroconf-23.08.5-r1:5
-	!<net-misc/kio-zeroconf-24.05.2-r1:6
+	!<net-misc/kio-zeroconf-23.08.5-r2:5
+	!<net-misc/kio-zeroconf-24.08.0-r1:6
 "
 
 ECM_INSTALL_FILES=(
 	kdedmodule/org.kde.kdnssd.xml:\${KDE_INSTALL_DBUSINTERFACEDIR}
+	kioworker/zeroconf.desktop:\${KDE_INSTALL_DATADIR}/remoteview
+	org.kde.kio_zeroconf.metainfo.xml:\${KDE_INSTALL_METAINFODIR}
 )
