@@ -89,7 +89,6 @@
 ~kde-apps/kcolorchooser-9999
 ~kde-apps/kdegraphics-meta-9999
 ~kde-apps/kdegraphics-mobipocket-9999
-~kde-apps/kdegraphics-thumbnailers-common-9999
 ~kde-apps/kolourpaint-9999
 ~kde-apps/kruler-9999
 ~kde-apps/libkdcraw-9999
@@ -146,6 +145,7 @@
 ~net-irc/konversation-9999
 ~net-libs/libktorrent-9999
 ~net-misc/kio-zeroconf-9999
+~net-misc/kio-zeroconf-common-9999
 ~net-news/alligator-9999
 ~net-p2p/ktorrent-9999
 ~app-office/merkuro-9999

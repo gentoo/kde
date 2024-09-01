@@ -100,7 +100,6 @@
 ~kde-apps/kcolorchooser-24.08.49.9999 **
 ~kde-apps/kdegraphics-meta-24.08.49.9999 **
 ~kde-apps/kdegraphics-mobipocket-24.08.49.9999 **
-~kde-apps/kdegraphics-thumbnailers-common-24.08.49.9999 **
 ~kde-apps/kolourpaint-24.08.49.9999 **
 ~kde-apps/kruler-24.08.49.9999 **
 ~kde-apps/libkdcraw-24.08.49.9999 **
@@ -157,6 +156,7 @@
 ~net-irc/konversation-24.08.49.9999 **
 ~net-libs/libktorrent-24.08.49.9999 **
 ~net-misc/kio-zeroconf-24.08.49.9999 **
+~net-misc/kio-zeroconf-common-24.08.49.9999 **
 ~net-news/alligator-24.08.49.9999 **
 ~net-p2p/ktorrent-24.08.49.9999 **
 ~app-office/merkuro-24.08.49.9999 **
