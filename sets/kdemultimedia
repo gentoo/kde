@@ -2,6 +2,7 @@
 kde-apps/audiocd-kio
 kde-apps/dragon
 kde-apps/ffmpegthumbs
+kde-apps/ffmpegthumbs-common
 kde-apps/juk
 kde-apps/k3b
 kde-apps/kamoso
@@ -10,7 +11,9 @@ kde-apps/kdenlive
 kde-apps/kmix
 kde-apps/kwave
 kde-apps/libkcddb
+kde-apps/libkcddb-common
 kde-apps/libkcompactdisc
+media-sound/audex
 media-sound/elisa
 media-sound/kasts
 media-sound/krecorder

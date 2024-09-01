@@ -11,10 +11,12 @@ kde-apps/krfb
 kde-apps/signon-kwallet-extension
 kde-misc/kdeconnect
 kde-misc/kio-gdrive
+kde-misc/kio-gdrive-common
 net-im/neochat
 net-im/tokodon
 net-irc/konversation
 net-libs/libktorrent
 net-misc/kio-zeroconf
+net-misc/kio-zeroconf-common
 net-news/alligator
 net-p2p/ktorrent
