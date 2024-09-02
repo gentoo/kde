@@ -58,7 +58,10 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	kde-apps/kio-extras:5
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	kde-plasma/kde-cli-tools:*[kdesu]
+	|| (
+		kde-plasma/kdesu-gui:*
+		kde-plasma/kde-cli-tools:*[kdesu(-)]
+	)
 "
 
 src_prepare() {
