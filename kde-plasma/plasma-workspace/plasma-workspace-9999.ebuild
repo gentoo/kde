@@ -142,6 +142,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
 	>=kde-plasma/kactivitymanagerd-${PVCUT}:6
+	kde-plasma/kde-cli-tools:*
 	>=kde-plasma/milou-${PVCUT}:6
 	>=kde-plasma/plasma-integration-${PVCUT}:6
 	sys-apps/dbus
@@ -158,7 +159,7 @@ BDEPEND="
 	virtual/pkgconfig
 	test? ( >=dev-qt/qtwayland-${QTMIN}:6[compositor] )
 "
-PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
+PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*[kdesu]"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
