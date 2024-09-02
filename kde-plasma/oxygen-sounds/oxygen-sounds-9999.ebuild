@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=9999
-QTMIN=6.7.1
+QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Oxygen sound theme for the Plasma desktop"

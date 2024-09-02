@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 KFMIN=9999
-QTMIN=6.7.1
+QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Plasma screen management library"

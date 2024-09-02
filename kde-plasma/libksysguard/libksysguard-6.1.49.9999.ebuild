@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=6.3.0
-QTMIN=6.7.1
+QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Task management and system monitoring library"

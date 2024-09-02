@@ -7,7 +7,7 @@ ECM_EXAMPLES="true"
 ECM_TEST="true"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.7.1
+QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Library and examples for creating an RDP server"
