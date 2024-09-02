@@ -3,10 +3,9 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="forceoff"
 ECM_TEST="true"
 KFMIN=6.5.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -16,7 +15,7 @@ HOMEPAGE="https://invent.kde.org/plasma/kde-cli-tools"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="kdesu X"
+IUSE="X"
 
 # requires running kde environment
 RESTRICT="test"
@@ -36,24 +35,23 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
-	kdesu? ( >=kde-frameworks/kdesu-${KFMIN}:6 )
 	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui] )
 "
 RDEPEND="${DEPEND}
-	kdesu? ( sys-apps/dbus[X] )
+	>=${CATEGORY}/${PN}-common-${PV}
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_po_install
+}
+
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package kdesu KF6Su)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF6Su=ON
 		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
-}
-
-src_install() {
-	ecm_src_install
-	use kdesu && dosym ../libexec/kf6/kdesu /usr/bin/kdesu
 }

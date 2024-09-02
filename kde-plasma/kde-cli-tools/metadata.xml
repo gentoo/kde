@@ -9,7 +9,4 @@
 		<bugs-to>https://bugs.kde.org/</bugs-to>
 		<remote-id type="kde-invent">plasma/kde-cli-tools</remote-id>
 	</upstream>
-	<use>
-		<flag name="kdesu">Build graphical frontend for <pkg>kde-frameworks/kdesu</pkg></flag>
-	</use>
 </pkgmetadata>
