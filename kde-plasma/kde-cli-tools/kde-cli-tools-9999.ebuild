@@ -18,7 +18,6 @@ SLOT="6"
 KEYWORDS=""
 IUSE="kdesu X"
 
-REQUIRED_USE="kdesu? ( X )"
 # requires running kde environment
 RESTRICT="test"
 
