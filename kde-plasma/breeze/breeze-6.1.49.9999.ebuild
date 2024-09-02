@@ -58,10 +58,7 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	qt5? ( >=kde-frameworks/kcmutils-${KF5MIN}:5 )
 "
-PDEPEND="
-	>=kde-frameworks/breeze-icons-${KFMIN}:*
-	>=kde-plasma/kde-cli-tools-${PVCUT}:*
-"
+PDEPEND=">=kde-frameworks/breeze-icons-${KFMIN}:*"
 
 src_configure() {
 	local mycmakeargs=(

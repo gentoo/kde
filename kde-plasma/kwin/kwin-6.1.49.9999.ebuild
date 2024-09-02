@@ -113,7 +113,6 @@ BDEPEND="
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
-PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
 src_prepare() {
 	ecm_src_prepare

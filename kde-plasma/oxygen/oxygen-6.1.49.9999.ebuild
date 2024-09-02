@@ -58,7 +58,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=kde-frameworks/kservice-${KFMIN}:6
 "
-PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
 src_configure() {
 	local mycmakeargs=(

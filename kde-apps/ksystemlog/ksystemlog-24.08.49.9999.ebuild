@@ -36,9 +36,7 @@ DEPEND="
 		sys-apps/systemd:=
 	)
 "
-RDEPEND="${DEPEND}
-	kdesu? ( kde-plasma/kde-cli-tools:*[kdesu] )
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	ecm_src_prepare

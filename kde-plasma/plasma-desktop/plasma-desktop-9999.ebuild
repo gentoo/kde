@@ -108,7 +108,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 	>=kde-plasma/oxygen-${PVCUT}:6
 	kde-plasma/plasma-mimeapps-list
 	media-fonts/noto-emoji

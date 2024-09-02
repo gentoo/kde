@@ -46,7 +46,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 

@@ -42,9 +42,7 @@ DEPEND="
 		media-libs/libpulse
 	)
 "
-RDEPEND="${DEPEND}
-	kde-plasma/kde-cli-tools:*
-"
+RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-23.04.2-autostart_disable.patch" ) # TODO: upstream
 

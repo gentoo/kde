@@ -49,7 +49,6 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/qcoro
 	>=kde-frameworks/kcmutils-${KFMIN}:6
-	kde-plasma/kde-cli-tools:*
 	qt5? (
 		dev-libs/qcoro5
 		>=kde-frameworks/kcmutils-${KF5MIN}:5

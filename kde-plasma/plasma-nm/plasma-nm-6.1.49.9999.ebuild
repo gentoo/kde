@@ -52,7 +52,6 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
-	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 "
 BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6

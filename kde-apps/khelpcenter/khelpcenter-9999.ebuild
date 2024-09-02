@@ -38,6 +38,4 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
-RDEPEND="${DEPEND}
-	kde-plasma/kde-cli-tools:*
-"
+RDEPEND="${DEPEND}"

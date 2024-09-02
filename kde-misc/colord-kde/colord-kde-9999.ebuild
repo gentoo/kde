@@ -39,7 +39,6 @@ RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons:6
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	kde-plasma/kde-cli-tools:*
 	x11-misc/colord
 "
 

@@ -54,7 +54,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<kde-plasma/plasma-workspace-6.1.50:6
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 	sys-power/power-profiles-daemon
 	>=sys-power/upower-0.9.23
 "

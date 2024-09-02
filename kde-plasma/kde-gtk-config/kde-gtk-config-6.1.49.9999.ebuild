@@ -31,7 +31,6 @@ DEPEND="
 	x11-libs/gtk+:3[X]
 "
 RDEPEND="${DEPEND}
-	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 	x11-misc/xsettingsd
 "
 BDEPEND="dev-lang/sassc"

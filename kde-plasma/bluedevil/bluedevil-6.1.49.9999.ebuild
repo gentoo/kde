@@ -38,6 +38,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-plasma/kde-cli-tools-${PVCUT}:*
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
