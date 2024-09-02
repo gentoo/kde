@@ -1,0 +1,23 @@
+https://invent.kde.org/maui/clip/-/merge_requests/2
+---
+ src/backends/mpv/mpvobject.cpp | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/src/backends/mpv/mpvobject.cpp b/src/backends/mpv/mpvobject.cpp
+index 557bd48..c9017f7 100644
+--- a/src/backends/mpv/mpvobject.cpp
++++ b/src/backends/mpv/mpvobject.cpp
+@@ -73,7 +73,9 @@ QOpenGLFramebufferObject * MpvRenderer::createFramebufferObject(const QSize &siz
+     // init mpv_gl:
+     if (!obj->mpv_gl)
+     {
+-        mpv_opengl_init_params gl_init_params{get_proc_address_mpv, nullptr, nullptr};
++        mpv_opengl_init_params gl_init_params;
++        gl_init_params.get_proc_address = get_proc_address_mpv;
++        gl_init_params.get_proc_address_ctx = nullptr;
+         mpv_render_param params[]{
+             {MPV_RENDER_PARAM_API_TYPE, const_cast<char *>(MPV_RENDER_API_TYPE_OPENGL)},
+             {MPV_RENDER_PARAM_OPENGL_INIT_PARAMS, &gl_init_params},
+-- 
+2.35.1
+
