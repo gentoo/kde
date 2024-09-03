@@ -1,48 +1,50 @@
-From 8d6837131706bd0f5dbd573726e7c01775f8256c Mon Sep 17 00:00:00 2001
+From dfa2433dc58ddb24f7d9070c963d0267edf9e4b0 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Wed, 4 Sep 2024 08:03:09 +0200
 Subject: [PATCH] Revert "When we click on "Audio Setup", calls kcm_pulseaudio"
 
 This reverts commit a54f760987557036b90888a3efa7ad17346a00ed.
 ---
- apps/kmixwindow.cpp | 22 +---------------------
+ apps/kmixwindow.cpp | 24 ------------------------
  apps/kmixwindow.h   |  2 --
  desktop/kmixui.rc   |  1 -
- 3 files changed, 1 insertion(+), 24 deletions(-)
+ 3 files changed, 27 deletions(-)
 
 diff --git a/apps/kmixwindow.cpp b/apps/kmixwindow.cpp
-index fa727f39..fb182f49 100644
+index f548edd3..ae86d653 100644
 --- a/apps/kmixwindow.cpp
 +++ b/apps/kmixwindow.cpp
-@@ -37,7 +37,6 @@
+@@ -38,8 +38,6 @@
  #include <klocalizedstring.h>
  #include <kstandardaction.h>
  #include <kxmlguifactory.h>
--#include <KProcess>
+-#include <kprocess.h>
+-#include <kcoreaddons_version.h>
  
  // KMix
  #include "kmix_debug.h"
-@@ -164,11 +163,7 @@ void KMixWindow::initActions()
- 
+@@ -172,11 +170,6 @@ void KMixWindow::initActions()
+ 	KStandardAction::preferences(this, &KMixWindow::showSettings, actionCollection());
  	KStandardAction::keyBindings(guiFactory(), &KXMLGUIFactory::showConfigureShortcutsDialog, actionCollection());
  
--	QAction* action = actionCollection()->addAction(QStringLiteral("launch_kdesoundsetup"));
+-	action = actionCollection()->addAction(QStringLiteral("launch_kdesoundsetup"));
 -	action->setText(i18n("Audio Setup..."));
--	connect(action, SIGNAL(triggered(bool)), SLOT(slotKdeAudioSetupExec()));
+-	action->setIcon(QIcon::fromTheme("speaker"));
+-	connect(action, &QAction::triggered, this, &KMixWindow::slotKdeAudioSetupExec);
 -
--	action = actionCollection()->addAction(QStringLiteral("hide_kmixwindow"));
-+	QAction* action = actionCollection()->addAction(QStringLiteral("hide_kmixwindow"));
- 	action->setText(i18n("Hide Mixer Window"));
- 	connect(action, SIGNAL(triggered(bool)), SLOT(hideOrClose()));
- 	actionCollection()->setDefaultShortcut(action, Qt::Key_Escape);
-@@ -1174,21 +1169,6 @@ void KMixWindow::toggleMenuBar()
+ 	action = actionCollection()->addAction(QStringLiteral("toggle_channels_currentview"));
+ 	action->setText(i18n("Configure &Channels..."));
+ 	action->setIcon(QIcon::fromTheme("settings-channels"));
+@@ -1171,23 +1164,6 @@ void KMixWindow::toggleMenuBar()
  	menuBar()->setVisible(_actionShowMenubar->isChecked());
  }
  
+-
 -void KMixWindow::slotKdeAudioSetupExec()
 -{
--    forkExec(QStringList() << "kcmshell5" << "kcm_pulseaudio");
+-    forkExec(QStringList() << QString("kcmshell%1").arg(KCOREADDONS_VERSION_MAJOR) << "kcm_pulseaudio");
 -}
+-
 -
 -void KMixWindow::forkExec(const QStringList& args)
 -{
@@ -56,20 +58,20 @@ index fa727f39..fb182f49 100644
 -
  void KMixWindow::slotConfigureCurrentView()
  {
- 	KMixerWidget *mw = qobject_cast<KMixerWidget *>(m_wsMixers->currentWidget());
+ 	const KMixerWidget *mw = qobject_cast<const KMixerWidget  *>(m_wsMixers->currentWidget());
 diff --git a/apps/kmixwindow.h b/apps/kmixwindow.h
-index 67560723..0bcb04ed 100644
+index 8e0a04cc..5711d452 100644
 --- a/apps/kmixwindow.h
 +++ b/apps/kmixwindow.h
-@@ -86,7 +86,6 @@ protected Q_SLOTS:
+@@ -88,7 +88,6 @@ protected Q_SLOTS:
  
  private:
      KMixerWidget* findKMWforTab( const QString& tabId );
 -    void forkExec(const QStringList& args);
      KToggleAction* _actionShowMenubar;
  
-    bool m_startVisible;
-@@ -117,7 +116,6 @@ private:
+     bool m_startVisible;
+@@ -120,7 +119,6 @@ private:
      static QString getKmixctrlRcFilename(const QString &postfix);
  
  private Q_SLOTS:
@@ -90,5 +92,5 @@ index 5c53281a..27ca3351 100644
   <Menu name="help" append="about_merge"><text>&amp;Help</text>
    <Action name="hwinfo"/>
 -- 
-2.46.0
+GitLab
 
