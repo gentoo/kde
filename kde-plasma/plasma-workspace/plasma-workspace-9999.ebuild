@@ -142,10 +142,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
 	>=kde-plasma/kactivitymanagerd-${PVCUT}:6
-	|| (
-		>=kde-plasma/kdesu-gui-${PVCUT}:*
-		>=kde-plasma/kde-cli-tools-6.1.4-r2:*[kdesu(-)]
-	)
+	>=kde-plasma/kdesu-gui-${PVCUT}:*
 	>=kde-plasma/milou-${PVCUT}:6
 	>=kde-plasma/plasma-integration-${PVCUT}:6
 	sys-apps/dbus
