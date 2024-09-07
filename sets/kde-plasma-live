@@ -8,9 +8,11 @@
 ~kde-plasma/flatpak-kcm-9999
 ~kde-plasma/kactivitymanagerd-9999
 ~kde-plasma/kde-cli-tools-9999
+~kde-plasma/kde-cli-tools-common-9999
 ~kde-plasma/kde-gtk-config-9999
 ~kde-plasma/kdecoration-9999
 ~kde-plasma/kdeplasma-addons-9999
+~kde-plasma/kdesu-gui-9999
 ~kde-plasma/kgamma-9999
 ~kde-plasma/kglobalacceld-9999
 ~kde-plasma/kinfocenter-9999

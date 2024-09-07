@@ -9,9 +9,11 @@ kde-plasma/drkonqi
 kde-plasma/flatpak-kcm
 kde-plasma/kactivitymanagerd
 kde-plasma/kde-cli-tools
+kde-plasma/kde-cli-tools-common
 kde-plasma/kde-gtk-config
 kde-plasma/kdecoration
 kde-plasma/kdeplasma-addons
+kde-plasma/kdesu-gui
 kde-plasma/kgamma
 kde-plasma/kglobalacceld
 kde-plasma/kinfocenter
