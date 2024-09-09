@@ -51,7 +51,7 @@ DEPEND="
 		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
 	pbf? ( dev-libs/protobuf:= )
-	phonon? ( >=media-libs/phonon-4.11.0[qt5(+)] )
+	phonon? ( >=media-libs/phonon-4.12.0[qt5(-)] )
 	shapefile? ( sci-libs/shapelib:= )
 	webengine? (
 		>=dev-qt/qtwebchannel-${QTMIN}:5

@@ -84,7 +84,7 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma-activities-stats-${PVCUT}:6
 	>=kde-plasma/plasma5support-${PVCUT}:6
 	media-libs/libcanberra
-	>=media-libs/phonon-4.12.0[qt6]
+	>=media-libs/phonon-4.12.0[qt6(+)]
 	sci-libs/libqalculate:=
 	sys-libs/zlib
 	virtual/libudev:=

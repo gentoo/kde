@@ -51,7 +51,7 @@ DEPEND="
 	markdown? ( >=app-text/discount-2.2.7-r1:= )
 	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:6 )
 	pdf? ( >=app-text/poppler-23.12.0[nss,qt6] )
-	phonon? ( >=media-libs/phonon-4.12.0[qt6] )
+	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	postscript? ( app-text/libspectre )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )

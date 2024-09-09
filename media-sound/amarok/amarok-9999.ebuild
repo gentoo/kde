@@ -57,7 +57,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
-	>=media-libs/phonon-4.11.0[qt5(+)]
+	>=media-libs/phonon-4.12.0[qt5(-)]
 	>=media-libs/taglib-1.12:=
 	media-libs/taglib-extras
 	sci-libs/fftw:3.0

@@ -32,7 +32,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6]
+	>=media-libs/phonon-4.12.0[qt6(+)]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/gettext"

@@ -43,7 +43,7 @@ COMMON_DEPEND="
 	infowidget? ( dev-libs/geoip )
 	ipfilter? ( >=kde-frameworks/karchive-${KFMIN}:6 )
 	mediaplayer? (
-		>=media-libs/phonon-4.12.0[qt6]
+		>=media-libs/phonon-4.12.0[qt6(+)]
 		>=media-libs/taglib-1.5:=
 	)
 	rss? (

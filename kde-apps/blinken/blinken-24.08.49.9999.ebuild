@@ -26,7 +26,7 @@ DEPEND="
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6]
+	>=media-libs/phonon-4.12.0[qt6(+)]
 "
 RDEPEND="${DEPEND}"
 

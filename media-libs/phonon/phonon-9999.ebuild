@@ -49,7 +49,7 @@ BDEPEND="
 	qt6? ( dev-qt/qttools:6[linguist] )
 "
 PDEPEND="
-	!minimal? ( >=media-libs/phonon-vlc-0.12.0[qt5?,qt6?] )
+	!minimal? ( >=media-libs/phonon-vlc-0.12.0[qt5(-)?,qt6(+)?] )
 "
 
 pkg_setup() {
