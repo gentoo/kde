@@ -4,26 +4,28 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-ECM_TEST="forceoptional"
-KFMIN=5.115.0
-QTMIN=5.15.12
+ECM_TEST="true"
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Commandline interface for accessing Akonadi"
 HOMEPAGE="https://invent.kde.org/pim/akonadiclient/"
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	kde-apps/akonadi:5[xml]
-	kde-apps/kmime:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kcontacts-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[widgets]
+	kde-apps/akonadi:6[xml]
+	kde-apps/kmime:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcontacts-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
+"
