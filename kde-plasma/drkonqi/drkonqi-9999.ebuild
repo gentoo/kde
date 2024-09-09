@@ -39,7 +39,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		>=dev-qt/qtbase-${QTMIN}:6[network]
 		>=kde-frameworks/kservice-${KFMIN}:6
 		sys-apps/systemd:=
-		>=sys-auth/polkit-qt-0.175.0[qt6]
+		>=sys-auth/polkit-qt-0.175.0[qt6(+)]
 	)
 "
 DEPEND="${COMMON_DEPEND}

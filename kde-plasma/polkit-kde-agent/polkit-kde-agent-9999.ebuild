@@ -25,7 +25,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
-	>=sys-auth/polkit-qt-0.175[qt6]
+	>=sys-auth/polkit-qt-0.175[qt6(+)]
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]

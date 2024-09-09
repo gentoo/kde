@@ -19,7 +19,7 @@ RDEPEND="
 	policykit? (
 		>=dev-qt/qtbase-${QTMIN}:6[dbus]
 		=kde-frameworks/kwindowsystem-${PVCUT}*:6[wayland]
-		>=sys-auth/polkit-qt-0.113.0[qt6(-)]
+		>=sys-auth/polkit-qt-0.175.0[qt6(+)]
 	)
 "
 DEPEND="${RDEPEND}

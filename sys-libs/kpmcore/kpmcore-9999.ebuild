@@ -25,7 +25,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=sys-apps/util-linux-2.33.2
-	>=sys-auth/polkit-qt-0.175.0[qt6]
+	>=sys-auth/polkit-qt-0.175.0[qt6(+)]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
