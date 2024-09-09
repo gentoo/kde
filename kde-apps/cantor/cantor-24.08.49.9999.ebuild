@@ -14,7 +14,7 @@ QTMIN=5.15.12
 inherit ecm gear.kde.org lua-single optfeature python-single-r1
 
 DESCRIPTION="Interface for doing mathematics and scientific computing"
-HOMEPAGE="https://apps.kde.org/cantor/ https://edu.kde.org/cantor/"
+HOMEPAGE="https://apps.kde.org/cantor/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

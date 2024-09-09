@@ -11,7 +11,7 @@ QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Powerful flashcard and vocabulary learning program"
-HOMEPAGE="https://apps.kde.org/kwordquiz/ https://edu.kde.org/kwordquiz/"
+HOMEPAGE="https://apps.kde.org/kwordquiz/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"

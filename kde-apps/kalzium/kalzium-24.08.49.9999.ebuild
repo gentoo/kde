@@ -9,7 +9,7 @@ QTMIN=5.15.12
 inherit ecm gear.kde.org flag-o-matic
 
 DESCRIPTION="Periodic table of the elements"
-HOMEPAGE="https://apps.kde.org/kalzium/ https://edu.kde.org/kalzium/"
+HOMEPAGE="https://apps.kde.org/kalzium/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

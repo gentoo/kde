@@ -9,7 +9,7 @@ QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Memory enhancement game based on KDE Frameworks"
-HOMEPAGE="https://apps.kde.org/blinken/ https://edu.kde.org/blinken/"
+HOMEPAGE="https://apps.kde.org/blinken/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"

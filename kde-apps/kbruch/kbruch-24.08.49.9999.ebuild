@@ -9,7 +9,7 @@ QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Educational application to learn calculating with fractions"
-HOMEPAGE="https://apps.kde.org/kbruch/ https://edu.kde.org/kbruch/"
+HOMEPAGE="https://apps.kde.org/kbruch/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"

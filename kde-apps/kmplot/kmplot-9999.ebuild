@@ -9,7 +9,7 @@ QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Mathematical function plotter"
-HOMEPAGE="https://apps.kde.org/kmplot/ https://edu.kde.org/kmplot/"
+HOMEPAGE="https://apps.kde.org/kmplot/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"

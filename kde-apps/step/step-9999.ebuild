@@ -10,7 +10,7 @@ QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Interactive physics simulator"
-HOMEPAGE="https://apps.kde.org/step/ https://edu.kde.org/step/"
+HOMEPAGE="https://apps.kde.org/step/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"

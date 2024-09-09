@@ -9,7 +9,7 @@ QTMIN=6.7.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Educational programming environment using the Logo programming language"
-HOMEPAGE="https://apps.kde.org/kturtle/ https://edu.kde.org/kturtle/"
+HOMEPAGE="https://apps.kde.org/kturtle/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"

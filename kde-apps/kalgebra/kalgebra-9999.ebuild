@@ -10,7 +10,7 @@ QTMIN=6.7.2
 inherit ecm flag-o-matic gear.kde.org
 
 DESCRIPTION="MathML-based 2D and 3D graph calculator by KDE"
-HOMEPAGE="https://apps.kde.org/kalgebra/ https://edu.kde.org/kalgebra/"
+HOMEPAGE="https://apps.kde.org/kalgebra/"
 
 LICENSE="GPL-2+"
 SLOT="6"
