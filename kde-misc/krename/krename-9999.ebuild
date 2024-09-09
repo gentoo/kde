@@ -42,7 +42,9 @@ DEPEND="
 	taglib? ( media-libs/taglib:= )
 	truetype? ( media-libs/freetype:2 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
+"
 BDEPEND="sys-devel/gettext"
 
 src_configure() {
