@@ -3,10 +3,11 @@
 
 EAPI=8
 
+EGIT_BRANCH="kf6"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Tool for indexing, searching, and viewing images"
@@ -18,36 +19,32 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2+ FDL-1.2 CC-BY-SA-4.0"
-SLOT="5"
+SLOT="0"
 IUSE="map phonon +raw share +vlc"
 
 REQUIRED_USE="|| ( phonon vlc )"
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5[jpeg]
-	>=dev-qt/qtsql-${QTMIN}:5[sqlite]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,sqlite,widgets,xml]
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	media-gfx/exiv2:=
 	media-libs/libjpeg-turbo:=
-	map? ( kde-apps/marble:5 )
-	phonon? ( >=media-libs/phonon-4.12.0[qt5(-)] )
-	raw? ( kde-apps/libkdcraw:5 )
-	share? ( >=kde-frameworks/kxmlgui-${KFMIN}:5 )
+	map? ( kde-apps/marble:6 )
+	phonon? ( >=media-libs/phonon-4.12.0[qt6(-)] )
+	raw? ( kde-apps/libkdcraw:6 )
+	share? ( >=kde-frameworks/kxmlgui-${KFMIN}:6 )
 	vlc? ( media-video/vlc:= )
 "
 RDEPEND="${DEPEND}
@@ -58,11 +55,10 @@ DOCS=( CHANGELOG.{md,old} README.md )
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_QtAV=ON # bug 758641, last-rited
 		$(cmake_use_find_package map Marble)
-		$(cmake_use_find_package phonon Phonon4Qt5)
-		$(cmake_use_find_package raw KF5KDcraw)
-		$(cmake_use_find_package share KF5Purpose)
+		$(cmake_use_find_package phonon Phonon4Qt6)
+		$(cmake_use_find_package raw KDcrawQt6)
+		$(cmake_use_find_package share KF6Purpose)
 		$(cmake_use_find_package vlc LIBVLC)
 	)
 
