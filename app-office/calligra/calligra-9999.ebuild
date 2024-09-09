@@ -14,7 +14,7 @@ DESCRIPTION="KDE Office Suite"
 HOMEPAGE="https://calligra.org/"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~ppc64 ~x86"
 fi
 
@@ -25,9 +25,8 @@ CAL_FTS=( karbon sheets stage words )
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+charts +crypt +fontconfig gemini gsl +import-filter +lcms
-	okular +pdf phonon spacenav +truetype webengine X
-	$(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
+IUSE="+charts +crypt +fontconfig gsl +import-filter +lcms okular +pdf phonon
+	+truetype webengine X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
 RESTRICT="test"
 
@@ -35,9 +34,9 @@ RESTRICT="test"
 # Required for the matlab/octave formula tool
 COMMON_DEPEND="
 	dev-lang/perl
-	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
+	>=dev-libs/qtkeychain-0.14.2:=[qt6(-)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
-	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qttools-${QTMIN}:6[designer]
 	>=kde-frameworks/karchive-${KFMIN}:6
@@ -52,11 +51,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemviews-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
-	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
@@ -67,7 +66,6 @@ COMMON_DEPEND="
 	charts? ( dev-libs/kdiagram:6 )
 	crypt? ( dev-libs/openssl:= )
 	fontconfig? ( media-libs/fontconfig )
-	gemini? ( >=dev-qt/qtdeclarative-${QTMIN}:6[widgets] )
 	gsl? ( sci-libs/gsl:= )
 	import-filter? (
 		app-text/libetonyek
@@ -81,8 +79,7 @@ COMMON_DEPEND="
 	lcms? ( media-libs/lcms:2 )
 	okular? ( kde-apps/okular:6 )
 	pdf? ( app-text/poppler:=[qt6] )
-	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
-	spacenav? ( dev-libs/libspnav )
+	phonon? ( >=media-libs/phonon-4.12.0[qt6(-)] )
 	truetype? ( media-libs/freetype:2 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
 	calligra_features_sheets? ( dev-cpp/eigen:3 )
@@ -96,9 +93,11 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
-	gemini? ( >=kde-frameworks/kirigami-${KFMIN}:6 )
 "
-BDEPEND="sys-devel/gettext"
+BDEPEND="
+	sys-devel/gettext
+	virtual/pkgconfig
+"
 
 PATCHES=( "${WORKDIR}"/${PATCHSET}/${PN}-3.1.89-no-arch-detection.patch ) # downstream
 
@@ -121,7 +120,6 @@ src_configure() {
 
 	use lcms && myproducts+=( PLUGIN_COLORENGINES )
 	use okular && myproducts+=( OKULAR )
-	use spacenav && myproducts+=( PLUGIN_SPACENAVIGATOR )
 
 	local mycmakeargs=(
 		-DPACKAGERS_BUILD=OFF
@@ -129,12 +127,10 @@ src_configure() {
 		-DWITH_Iconv=ON
 		-DWITH_Imath=ON # w/ LCMS: 16 bit floating point Grayscale colorspace
 		-DCMAKE_DISABLE_FIND_PACKAGE_Cauchy=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF6CalendarCore=ON
 		-DPRODUCTSET="${myproducts[*]}"
-		$(cmake_use_find_package charts KChartQt6)
+		$(cmake_use_find_package charts KChart6)
 		$(cmake_use_find_package crypt OpenSSL)
 		-DWITH_Fontconfig=$(usex fontconfig)
-		$(cmake_use_find_package gemini LibGit2)
 		-DWITH_GSL=$(usex gsl)
 		-DWITH_LibEtonyek=$(usex import-filter)
 		-DWITH_LibOdfGen=$(usex import-filter)
