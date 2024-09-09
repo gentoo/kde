@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="KDE educational apps - merge this to pull in all kdeedu-derived packages"
-HOMEPAGE="https://edu.kde.org"
+HOMEPAGE="https://apps.kde.org/categories/education/"
 
 LICENSE="metapackage"
 SLOT="0"
