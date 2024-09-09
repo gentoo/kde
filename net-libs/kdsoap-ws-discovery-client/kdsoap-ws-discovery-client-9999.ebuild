@@ -24,7 +24,7 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-qt/qtbase:6[network]
-	>=net-libs/kdsoap-2.2.0[qt6]
+	>=net-libs/kdsoap-2.2.0[qt6(+)]
 "
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qtbase:6[xml] )

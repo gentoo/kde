@@ -46,7 +46,7 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:6
 	net-fs/samba[cups]
 	discovery? (
-		>=net-libs/kdsoap-2.2.0:=[qt6]
+		>=net-libs/kdsoap-2.2.0:=[qt6(+)]
 		>=net-libs/kdsoap-ws-discovery-client-0.4.0
 	)
 "
