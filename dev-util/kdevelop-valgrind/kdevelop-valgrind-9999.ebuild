@@ -5,37 +5,32 @@ EAPI=8
 
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-valgrind"
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Plugin offering full integration of the valgrind suite to KDevelop"
 HOMEPAGE="https://www.kdevelop.org/"
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-util/kdevelop:5=
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/threadweaver-${KFMIN}:5
+DEPEND="
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
+	dev-util/kdevelop:6=
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
-DEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
 	dev-debug/valgrind
 "
