@@ -15,7 +15,7 @@ fi
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) !pulseaudio? ( || ( GPL-2 GPL-3 ) )"
 SLOT="0"
-IUSE="debug designer minimal pulseaudio +qt5 qt6"
+IUSE="debug designer minimal pulseaudio qt5 +qt6"
 REQUIRED_USE="|| ( qt5 qt6 )"
 
 DEPEND="
