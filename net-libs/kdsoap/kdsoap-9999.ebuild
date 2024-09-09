@@ -18,7 +18,7 @@ HOMEPAGE="https://www.kdab.com/development-resources/qt-tools/kd-soap/"
 
 LICENSE="GPL-3 AGPL-3"
 SLOT="0/2"
-IUSE="+qt5 qt6"
+IUSE="qt5 +qt6"
 REQUIRED_USE="|| ( qt5 qt6 )"
 
 RDEPEND="
