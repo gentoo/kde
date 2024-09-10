@@ -82,7 +82,6 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdeplasma-addons:5
-	!kde-plasma/kwayland-server
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	|| (
 		dev-qt/qtmultimedia:6[ffmpeg]
