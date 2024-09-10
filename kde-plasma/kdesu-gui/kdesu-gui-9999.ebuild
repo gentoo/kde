@@ -33,7 +33,7 @@ RDEPEND="${DEPEND}
 	sys-apps/dbus[X]
 "
 
-PATCHES=( "${FILESDIR}/${PN}-6.1.5-build-only-kdesu.patch" )
+PATCHES=( "${FILESDIR}/${PN}-6.1.80-build-only-kdesu.patch" )
 
 src_prepare() {
 	ecm_src_prepare
