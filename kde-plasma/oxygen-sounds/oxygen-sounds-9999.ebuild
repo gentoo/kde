@@ -13,5 +13,3 @@ HOMEPAGE="https://invent.kde.org/plasma/oxygen-sounds"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-
-RDEPEND="!<kde-plasma/oxygen-5.24.80"
