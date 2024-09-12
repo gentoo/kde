@@ -1,4 +1,3 @@
 move kde-misc/yakuake kde-apps/yakuake
-move media-sound/babe media-sound/vvave
 move kde-apps/kjots app-text/kjots
 move kde-misc/plasma-thunderbolt kde-plasma/plasma-thunderbolt
