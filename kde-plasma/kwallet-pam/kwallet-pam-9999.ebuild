@@ -21,6 +21,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	net-misc/socat
 "
+BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
