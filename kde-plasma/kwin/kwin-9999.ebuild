@@ -23,12 +23,13 @@ RESTRICT="test"
 COMMON_DEPEND="
 	dev-libs/libei
 	>=dev-libs/libinput-1.19:=
-	>=dev-libs/wayland-1.22.0
+	>=dev-libs/wayland-1.23.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -57,6 +58,7 @@ COMMON_DEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/lcms:2
+	media-libs/libcanberra
 	media-libs/libdisplay-info:=
 	media-libs/libepoxy
 	media-libs/libglvnd
@@ -77,7 +79,7 @@ COMMON_DEPEND="
 		<media-libs/mesa-24.1.0_rc1[gles2]
 	) )
 	lock? ( >=kde-plasma/kscreenlocker-${PVCUT}:6 )
-	screencast? ( >=media-video/pipewire-0.3:= )
+	screencast? ( >=media-video/pipewire-0.3.65:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${PVCUT}:6 )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -98,7 +100,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.14.0
-	>=dev-libs/wayland-protocols-1.34
+	>=dev-libs/wayland-protocols-1.36
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	>=dev-qt/qtwayland-${QTMIN}:6
@@ -129,7 +131,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		# TODO: KWIN_BUILD_X11?
+		# TODO: KWIN_BUILD_X11=$(usex xwayland) KWIN_BUILD_X11_BACKEND=$(usex X)
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		$(cmake_use_find_package caps Libcap)
