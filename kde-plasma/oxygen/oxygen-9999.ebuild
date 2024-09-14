@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="qt5 X"
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/frameworkintegration-${KFMIN}:6
@@ -55,8 +55,12 @@ RDEPEND="
 		x11-libs/libxcb
 	)
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kservice-${KFMIN}:6
+"
+RDEPEND="${COMMON_DEPEND}
+	!<kde-plasma/libplasma-6.1.90:*[-kf6compat(-)]
+	>=dev-qt/qtsvg-${QTMIN}:6
 "
 
 src_configure() {
