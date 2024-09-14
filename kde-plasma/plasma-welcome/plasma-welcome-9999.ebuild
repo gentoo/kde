@@ -16,6 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-libs/kirigami-addons-1.2.0
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
