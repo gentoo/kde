@@ -23,7 +23,9 @@ RESTRICT="test" # bug 926513
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 DEPEND="
 	dev-libs/qcoro[dbus]
+	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
+	>=dev-qt/qtwayland-${QTMIN}:6=
 	>=kde-frameworks/kauth-${KFMIN}:6[policykit]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -42,7 +44,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=kde-plasma/layer-shell-qt-${PVCUT}:6
 	>=kde-plasma/libkscreen-${PVCUT}:6
 	>=kde-plasma/plasma-activities-${PVCUT}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
@@ -53,11 +54,15 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!<kde-plasma/plasma-workspace-6.1.50:6
+	>=dev-libs/plasma-wayland-protocols-1.14.0
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	sys-power/power-profiles-daemon
 	>=sys-power/upower-0.9.23
 "
-BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
+BDEPEND="
+	>=dev-qt/qtwayland-${QTMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+"
 
 src_configure() {
 	local mycmakeargs=(
