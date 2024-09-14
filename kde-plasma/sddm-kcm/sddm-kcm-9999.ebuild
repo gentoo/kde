@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
