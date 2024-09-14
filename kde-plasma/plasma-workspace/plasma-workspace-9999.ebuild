@@ -87,6 +87,7 @@ COMMON_DEPEND="
 	media-libs/libcanberra
 	>=media-libs/phonon-4.12.0[qt6(+)]
 	sci-libs/libqalculate:=
+	sys-apps/dbus
 	sys-libs/zlib
 	virtual/libudev:=
 	x11-libs/libICE
@@ -197,6 +198,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_X11=ON # TODO: broken upstream, fix it if you can
+		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		-DGLIBC_LOCALE_GEN=$(usex policykit)
 		$(cmake_use_find_package appstream AppStreamQt)
 		$(cmake_use_find_package calendar KF6Holidays)
