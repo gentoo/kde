@@ -45,8 +45,9 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/libkscreen-${PVCUT}:6
-	>=kde-plasma/plasma-activities-${PVCUT}:6
 	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/plasma-activities-${PVCUT}:6
+	>=kde-plasma/plasma-workspace-${PVCUT}:6
 	virtual/libudev:=
 	x11-libs/libxcb
 	brightness-control? ( app-misc/ddcutil:= )
