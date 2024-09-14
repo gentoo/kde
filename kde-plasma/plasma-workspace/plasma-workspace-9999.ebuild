@@ -135,6 +135,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/libkworkspace:5
 	!<kde-plasma/plasma-desktop-5.27.0:5
+	!<kde-plasma/xdg-desktop-portal-kde-6.1.90
 	!kde-plasma/xembed-sni-proxy:*
 	app-text/iso-codes
 	dev-libs/kirigami-addons:6
