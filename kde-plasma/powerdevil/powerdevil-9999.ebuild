@@ -53,7 +53,7 @@ DEPEND="
 	caps? ( sys-libs/libcap )
 "
 RDEPEND="${DEPEND}
-	!<kde-plasma/plasma-workspace-6.1.50:6
+	!<kde-plasma/plasma-workspace-6.1.90:6
 	>=dev-libs/plasma-wayland-protocols-1.14.0
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	sys-power/power-profiles-daemon
