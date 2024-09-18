@@ -33,6 +33,7 @@ RDEPEND="${DEPEND}
 	sys-apps/dbus[X]
 "
 
+# downstream split
 PATCHES=( "${FILESDIR}/${PN}-6.1.80-build-only-kdesu.patch" )
 
 src_prepare() {
