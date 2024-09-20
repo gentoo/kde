@@ -1,2 +1,2 @@
-~media-libs/pulseaudio-qt-9999 **
-~dev-libs/plasma-wayland-protocols-9999 **
+~media-libs/pulseaudio-qt-1.6.0
+~dev-libs/plasma-wayland-protocols-1.14.0
