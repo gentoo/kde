@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Program to create cross stitch patterns"
@@ -17,27 +17,25 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="0"
 IUSE=""
 
-BDEPEND="
-	sys-devel/gettext
-"
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	media-gfx/imagemagick[cxx]
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	sys-devel/gettext
+	virtual/pkgconfig
+"
