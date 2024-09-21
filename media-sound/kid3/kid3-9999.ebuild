@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit cmake kde.org python-any-r1 xdg
 
 DESCRIPTION="Simple tag editor based on Qt"
@@ -15,7 +15,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2+"
-SLOT="6"
+SLOT="0"
 IUSE="acoustid flac kde mp3 mp4 +mpris +taglib test vorbis"
 
 REQUIRED_USE="flac? ( vorbis )"
