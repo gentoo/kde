@@ -291,6 +291,7 @@ if $(ver_test -gt 24.10.75); then
 	case ${PN} in
 		kalzium | \
 		kwave | \
+		marble | \
 		minuet | \
 		step)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
