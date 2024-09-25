@@ -23,7 +23,7 @@ RDEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	wayland? ( >=dev-qt/qtwayland-${QTMIN}:6= )
 	X? (
-		>=dev-qt/qtbase-${QTMIN}:6=[gui]
+		>=dev-qt/qtbase-${QTMIN}:6=[gui,X]
 		x11-base/xorg-proto
 		x11-libs/libX11
 		x11-libs/libXfixes
