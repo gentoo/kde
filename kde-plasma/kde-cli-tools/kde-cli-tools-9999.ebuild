@@ -20,6 +20,7 @@ IUSE="kdesu X"
 # requires running kde environment
 RESTRICT="test"
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -35,7 +36,7 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
-	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui] )
+	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui,X] )
 "
 RDEPEND="${DEPEND}
 	>=${CATEGORY}/${PN}-common-${PV}
