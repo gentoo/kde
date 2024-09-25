@@ -16,7 +16,7 @@ IUSE="X"
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus]
-	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui] )
+	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui,X] )
 "
 RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
