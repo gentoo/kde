@@ -37,6 +37,24 @@ for release in "${PLASMA_RELEASES[@]}"; do
 	fi
 done
 
+# ... and for completely unkeyworded packages, add "**"
+# for plasma, we just want the latest release, as there won't be a branch
+# for the older version (nor ebuilds for live)
+for release in "${PLASMA_RELEASES[-1]}"; do
+	if [[ -d ".kde-plasma-${release}" ]]; then
+		rm -rf ".kde-plasma-${release}.49.9999"
+		mkdir -p ".kde-plasma-${release}.49.9999"
+		echo -e "${HEADER}" > "kde-plasma-${release}.49.9999.keywords"
+		for file in ".kde-plasma-${release}"/*; do
+			newfile=".kde-plasma-${release}.49.9999"/$(basename "${file}")
+			sed -e "/^<[a-z0-9-]*\/.*\.50$/{s/\.50/.49.9999/;s/^</~/};/^~.*[.-]9999$/s/$/ **/" \
+				-e "/^@/d" "${file}" > "${newfile}"
+			# echo "${newfile}"
+		done
+		cat ".kde-plasma-${release}.49.9999"/* >> "kde-plasma-${release}.49.9999.keywords"
+	fi
+done
+
 for release in "${GEAR_RELEASES[@]}"; do
 	echo -e "${HEADER}" > "kde-gear-${release}.keywords"
 	if [[ -d ".kde-gear-${release}" ]]; then
