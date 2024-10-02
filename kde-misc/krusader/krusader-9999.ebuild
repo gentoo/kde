@@ -11,8 +11,6 @@ inherit ecm kde.org optfeature
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-else
-	EGIT_BRANCH="work/kf6"
 fi
 
 DESCRIPTION="Advanced twin-panel (commander-style) file-manager with many extras"
