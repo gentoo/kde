@@ -48,8 +48,11 @@ if ! [[ -f sets/kde-plasma-${major_version} ]]; then
 	Documentation/maintainers/regenerate-files
 fi
 
-mask_from_set kde-plasma-${major_version} ${VERSION} ${kfv}
-mark_unreleased plasma ${VERSION}
+# only .0 version gets non public tarballs pre-release
+if [[ ${VERSION} == *.0 ]]; then
+	mask_from_set kde-plasma-${major_version} ${VERSION} ${kfv}
+	mark_unreleased plasma ${VERSION}
+fi
 
 bump_packages_from_set kde-plasma-${major_version} ${major_version}.49.9999 ${VERSION}
 commit_packages ${kfmv} "${VERSION} version bump"
