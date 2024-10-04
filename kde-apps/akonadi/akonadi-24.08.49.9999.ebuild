@@ -38,7 +38,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	webengine? (
 		kde-apps/kaccounts-integration:6
-		>=net-libs/accounts-qt-1.16_p20220803[qt6]
+		>=net-libs/accounts-qt-1.17[qt6(+)]
 	)
 	xml? ( dev-libs/libxml2 )
 "
