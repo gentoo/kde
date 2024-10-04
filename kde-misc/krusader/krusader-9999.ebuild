@@ -76,6 +76,7 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "konsole view" "kde-apps/konsole:6"
 		optfeature "Markdown text previews" "kde-misc/markdownpart:6"
+		optfeature "Google Drive service" "kde-misc/kio-gdrive:6"
 		optfeature "bookmarks support" "kde-apps/keditbookmarks:6"
 	fi
 	ecm_pkg_postinst
