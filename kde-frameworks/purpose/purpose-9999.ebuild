@@ -31,7 +31,7 @@ DEPEND="
 	=kde-frameworks/prison-${PVCUT}*:6
 	webengine? (
 		kde-apps/kaccounts-integration:6
-		>=net-libs/accounts-qt-1.16_p20220803[qt6]
+		>=net-libs/accounts-qt-1.17[qt6(+)]
 	)
 "
 RDEPEND="${DEPEND}
@@ -39,7 +39,7 @@ RDEPEND="${DEPEND}
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:6 )
 	webengine? (
 		>=kde-frameworks/purpose-kaccounts-services-${PVCUT}
-		>=net-libs/accounts-qml-0.7_p20231028[qt6]
+		>=net-libs/accounts-qml-0.7_p20231028[qt6(+)]
 	)
 "
 BDEPEND="webengine? ( dev-util/intltool )"
