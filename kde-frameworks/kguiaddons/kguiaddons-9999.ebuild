@@ -16,6 +16,7 @@ IUSE="dbus wayland X"
 # slot op: includes qpa/qplatformnativeinterface.h
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus?,gui]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	wayland? (
 		dev-libs/wayland
 		>=dev-qt/qtbase-${QTMIN}:6=[wayland]
