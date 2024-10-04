@@ -62,8 +62,6 @@ src_prepare() {
 	ecm_src_prepare
 
 	rm -rf src/3rdparty/zlib || die "Failed to remove bundled libs"
-
-	use kde && cmake_run_in src/apps cmake_comment_add_subdirectory marble-qt
 }
 
 src_configure() {
