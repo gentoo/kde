@@ -33,7 +33,6 @@ DEPEND="
 	=kde-frameworks/kitemviews-${PVCUT}*:6
 	=kde-frameworks/kjobwidgets-${PVCUT}*:6
 	=kde-frameworks/kparts-${PVCUT}*:6
-	=kde-frameworks/ktextwidgets-${PVCUT}*:6
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
 	=kde-frameworks/kwindowsystem-${PVCUT}*:6
 	=kde-frameworks/kxmlgui-${PVCUT}*:6
