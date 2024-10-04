@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="dbus"
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus?,icu]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus?,icu,network]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	virtual/libudev:=
 "
