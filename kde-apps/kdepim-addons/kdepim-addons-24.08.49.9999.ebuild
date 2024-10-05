@@ -65,6 +65,7 @@ DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_Corrosion=YES
 		$(cmake_use_find_package importwizard KPim6ImportWizard)
 		$(cmake_use_find_package markdown Discount)
 	)
