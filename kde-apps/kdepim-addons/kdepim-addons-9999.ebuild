@@ -65,6 +65,7 @@ DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		# not packaged (bug 911819), but if present leads to rust shenanigans (bug 940898)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Corrosion=YES
 		$(cmake_use_find_package importwizard KPim6ImportWizard)
 		$(cmake_use_find_package markdown Discount)
