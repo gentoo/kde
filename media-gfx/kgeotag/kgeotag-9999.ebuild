@@ -34,4 +34,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( ChangeLog.rst README.md )
+DOCS=( CHANGELOG.rst README.md )
