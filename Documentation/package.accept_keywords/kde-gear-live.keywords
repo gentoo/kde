@@ -217,6 +217,7 @@
 ~kde-apps/pim-sieve-editor-9999 **
 ~kde-apps/pimcommon-9999 **
 ~kde-misc/zanshin-9999 **
+~dev-build/dolphin-plugins-makefileactions-9999 **
 ~dev-util/kdevelop-9999 **
 ~dev-util/kdevelop-php-9999 **
 ~dev-util/kdevelop-python-9999 **
