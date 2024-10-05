@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="cvs git mercurial perl php python subversion webengine"
 
 RDEPEND="
+	>=dev-build/dolphin-plugins-makefileactions-${PV}:*
 	>=dev-util/massif-visualizer-${PV}:*
 	>=kde-apps/kapptemplate-${PV}:*
 	>=kde-apps/kcachegrind-${PV}:*
