@@ -11,7 +11,7 @@ DESCRIPTION="Basic desktop shell using QtWidgets"
 HOMEPAGE="https://invent.kde.org/system/liquidshell"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -20,7 +20,7 @@ SLOT="0"
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-frameworks/bluez-qt-${KFMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
