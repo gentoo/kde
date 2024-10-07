@@ -67,7 +67,10 @@ RDEPEND="
 	colord? ( x11-misc/colord )
 	crash-handler? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
-	cups? ( >=kde-plasma/print-manager-${PV}:${SLOT} )
+	cups? (
+		>=kde-plasma/print-manager-${PV}:${SLOT}
+		net-print/cups-meta
+	)
 	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
 	display-manager? (
 		sddm? (
