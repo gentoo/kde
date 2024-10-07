@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/kmix/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="alsa plasma pulseaudio"
+IUSE="alsa pulseaudio"
 
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 DEPEND="
@@ -36,7 +36,6 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )
-	plasma? ( >=kde-plasma/libplasma-${KFMIN}:5 )
 	pulseaudio? (
 		media-libs/libcanberra
 		media-libs/libpulse
@@ -49,7 +48,7 @@ PATCHES=( "${FILESDIR}/${PN}-23.04.2-autostart_disable.patch" ) # TODO: upstream
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package alsa ALSA)
-		-DBUILD_DATAENGINE=$(usex plasma)
+		-DBUILD_DATAENGINE=OFF
 		$(cmake_use_find_package pulseaudio Canberra)
 		$(cmake_use_find_package pulseaudio PulseAudio)
 	)
