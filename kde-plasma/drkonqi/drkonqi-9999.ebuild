@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 KFMIN=9999
 QTMIN=6.7.2
 inherit ecm plasma.kde.org python-single-r1 systemd
@@ -52,7 +52,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(python_gen_cond_dep '
 		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/pygdbmi[${PYTHON_USEDEP}]
-		dev-python/sentry-sdk[${PYTHON_USEDEP}]
 	')
 	|| (
 		dev-debug/gdb
