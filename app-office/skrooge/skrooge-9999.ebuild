@@ -14,12 +14,12 @@ HOMEPAGE="https://skrooge.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS=""
 fi
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities kde ofx"
+IUSE="activities ofx"
 
 # hangs + installs files (also requires KF5DesignerPlugin)
 RESTRICT="test"
@@ -61,7 +61,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
-	kde? ( >=kde-frameworks/krunner-${KFMIN}:5 )
 	ofx? ( dev-libs/libofx:= )
 "
 DEPEND="${COMMON_DEPEND}
@@ -83,7 +82,7 @@ src_configure() {
 		-DSKG_WEBKIT=OFF
 		-DSKG_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
-		$(cmake_use_find_package kde KF5Runner)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Runner=ON
 		$(cmake_use_find_package ofx LibOfx)
 		-DSKG_BUILD_TEST=$(usex test)
 	)
