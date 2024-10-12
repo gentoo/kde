@@ -17,16 +17,16 @@ HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
 LICENSE="LGPL-2.1+"
 SLOT="6"
 KEYWORDS=""
-IUSE="+mysql postgres sqlite tools +webengine xml"
+IUSE="tools +webengine xml"
 
-REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
+REQUIRED_USE="test? ( tools )"
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
 
 COMMON_DEPEND="
 	app-arch/xz-utils
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,mysql?,network,postgres?,sql,sqlite?,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets,xml]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -47,19 +47,8 @@ DEPEND="${COMMON_DEPEND}
 	test? ( sys-apps/dbus )
 "
 RDEPEND="${COMMON_DEPEND}
-	mysql? ( virtual/mysql )
-	postgres? ( dev-db/postgresql )
+	kde-apps/akonadi-config
 "
-
-pkg_setup() {
-	# Set default storage backend in order: MySQL, PostgreSQL, SQLite
-	# reverse driver check to keep the order
-	use sqlite && DRIVER="QSQLITE"
-	use postgres && DRIVER="QPSQL"
-	use mysql && DRIVER="QMYSQL"
-
-	ecm_pkg_setup
-}
 
 src_configure() {
 	local mycmakeargs=(
@@ -70,26 +59,4 @@ src_configure() {
 	)
 
 	ecm_src_configure
-}
-
-src_install() {
-	# Who knows, maybe it accidentally fixes our permission issues
-	cat <<-EOF > "${T}"/akonadiserverrc
-[%General]
-Driver=${DRIVER}
-EOF
-	insinto /usr/share/config/akonadi
-	doins "${T}"/akonadiserverrc
-
-	ecm_src_install
-}
-
-pkg_postinst() {
-	ecm_pkg_postinst
-	elog "You can select the storage backend in ~/.config/akonadi/akonadiserverrc."
-	elog "Available drivers are:"
-	use mysql && elog "  QMYSQL"
-	use postgres && elog "  QPSQL"
-	use sqlite && elog "  QSQLITE"
-	elog "${DRIVER} has been set as your default akonadi storage backend."
 }
