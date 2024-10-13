@@ -96,7 +96,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/libplasma-${PVCUT}:6[wayland(+)]
 	sys-apps/hwdata
-	x11-base/xwayland[libei]
+	>=x11-base/xwayland-23.1.0[libei]
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.14.0
