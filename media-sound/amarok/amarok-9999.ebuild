@@ -13,7 +13,7 @@ DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="0"
 IUSE="ipod lastfm mariadb mtp podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
