@@ -4,60 +4,58 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.115.0
-QTMIN=5.15.12
-PYTHON_COMPAT=( python3_{10..12} )
+KFMIN=6.5.0
+QTMIN=6.7.2
+PYTHON_COMPAT=( python3_{10..13} )
 inherit ecm kde.org optfeature python-any-r1
 
-DESCRIPTION="Advanced audio player based on KDE frameworks"
+DESCRIPTION="Advanced audio player based on KDE Frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="ipod lastfm mariadb mtp podcast wikipedia"
+IUSE="ipod mariadb mtp wikipedia" # lastfm podcast
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
-COMMON_DEPEND="
-	>=app-crypt/qca-2.3.0:2[qt5(+)]
-	>=dev-qt/designer-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/attica-${KFMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-frameworks/kdnssd-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kpackage-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/solid-${KFMIN}:5
-	>=kde-frameworks/threadweaver-${KFMIN}:5
-	>=media-libs/phonon-4.12.0[qt5(-)]
+DEPEND="
+	>=app-crypt/qca-2.3.9:2[qt6(+)]
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=dev-qt/qttools-${QTMIN}:6[designer]
+	>=kde-frameworks/attica-${KFMIN}:6
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/kdnssd-${KFMIN}:6
+	>=kde-frameworks/kglobalaccel-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/knewstuff-${KFMIN}:6
+	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kpackage-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
+	>=kde-frameworks/threadweaver-${KFMIN}:6
+	>=media-libs/phonon-4.12.0[qt6(+)]
 	>=media-libs/taglib-1.12:=
 	media-libs/taglib-extras
 	sci-libs/fftw:3.0
@@ -67,22 +65,19 @@ COMMON_DEPEND="
 		dev-libs/glib:2
 		media-libs/libgpod[gtk]
 	)
-	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
 	mariadb? ( dev-db/mariadb-connector-c:= )
 	!mariadb? ( dev-db/mysql-connector-c:= )
 	mtp? ( media-libs/libmtp )
-	podcast? ( >=media-libs/libmygpo-qt-1.0.9_p20180307 )
-	wikipedia? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
+	wikipedia? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
 "
-DEPEND="${COMMON_DEPEND}
-	>=dev-qt/linguist-tools-${QTMIN}:5
-"
-RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
+# 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
+# 	podcast? ( >=media-libs/libmygpo-qt-1.0.9_p20180307 )
+RDEPEND="${DEPEND}
+	>=kde-frameworks/kirigami-${KFMIN}:6
 	media-video/ffmpeg
 "
 BDEPEND="${PYTHON_DEPS}
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	virtual/pkgconfig
 "
 
@@ -93,6 +88,7 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_WITH_QT6=ON
 		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=ON
@@ -100,11 +96,11 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibOFA=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_MySQLe=ON
 		-DWITH_IPOD=$(usex ipod)
-		$(cmake_use_find_package lastfm LibLastFm)
+# 		$(cmake_use_find_package lastfm LibLastFm)
 		$(cmake_use_find_package !mariadb MySQL)
 		$(cmake_use_find_package mtp Mtp)
-		$(cmake_use_find_package podcast Mygpo-qt5)
-		$(cmake_use_find_package wikipedia Qt5WebEngine)
+# 		$(cmake_use_find_package podcast Mygpo-qt5)
+		$(cmake_use_find_package wikipedia Qt6WebEngineWidgets)
 	)
 	use ipod && mycmakeargs+=( DWITH_GDKPixBuf=ON )
 
@@ -122,7 +118,7 @@ pkg_postinst() {
 		use mariadb && echo "MariaDB" || echo "MySQL"
 	}
 
-	optfeature "Audio CD support" "kde-apps/audiocd-kio:5"
+	optfeature "Audio CD support" "kde-apps/audiocd-kio:6"
 
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog "You must configure ${PN} to use an external database server."
