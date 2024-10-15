@@ -102,7 +102,7 @@ src_configure() {
 # 		$(cmake_use_find_package podcast Mygpo-qt5)
 		$(cmake_use_find_package wikipedia Qt6WebEngineWidgets)
 	)
-	use ipod && mycmakeargs+=( DWITH_GDKPixBuf=ON )
+	use ipod && mycmakeargs+=( -DWITH_GDKPixBuf=ON )
 
 	ecm_src_configure
 }
