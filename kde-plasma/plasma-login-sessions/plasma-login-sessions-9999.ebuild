@@ -27,6 +27,7 @@ ecm-common_inject_heredoc() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DKDE_INSTALL_LIBEXECDIR=/usr/libexec # temp. workaround, bug 941502
 		-DPLASMA_X11_DEFAULT_SESSION=$(usex !wayland)
 	)
 	ecm-common_src_configure
