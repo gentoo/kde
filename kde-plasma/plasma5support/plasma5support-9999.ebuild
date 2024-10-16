@@ -43,7 +43,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package geolocation KF6NetworkManagerQt)
-		$(cmake_use_find_package X X11)
+		-DWITH_X11=$(usex X)
 	)
 	ecm_src_configure
 }
