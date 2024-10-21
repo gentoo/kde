@@ -23,7 +23,7 @@ DEPEND="
 	>=dev-libs/kirigami-addons-0.9:6
 	>=dev-libs/kosmindoormap-${PVCUT}:6
 	>=dev-libs/kpublictransport-${PVCUT}:6
-	>=dev-libs/qtkeychain-0.14.2:=[qt6]
+	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtlocation-${QTMIN}:6
@@ -42,7 +42,7 @@ DEPEND="
 	>=kde-frameworks/kunitconversion-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	sys-libs/zlib
-	matrix? ( >=net-libs/libquotient-0.8.1.2-r1:=[qt6] )
+	matrix? ( >=net-libs/libquotient-0.8.1.2-r1:=[qt6(+)] )
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
