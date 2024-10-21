@@ -21,9 +21,14 @@ fi
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities addressbook calendar hbci holidays"
+IUSE="activities calendar hbci holidays" # addressbook
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
+# 	addressbook? (
+# 		>=kde-apps/akonadi-23.04:5
+# 		>=kde-apps/kidentitymanagement-23.04:5
+# 		>=kde-frameworks/kcontacts-${KFMIN}:5
+# 	)
 RDEPEND="
 	>=app-crypt/gpgme-1.7.1-r1:=[cxx]
 	>=app-office/libalkimia-7.0.0:=
@@ -62,11 +67,6 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
-	addressbook? (
-		>=kde-apps/akonadi-23.04:5
-		>=kde-apps/kidentitymanagement-23.04:5
-		>=kde-frameworks/kcontacts-${KFMIN}:5
-	)
 	calendar? ( dev-libs/libical:= )
 	hbci? (
 		>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -96,9 +96,9 @@ src_configure() {
 		-DENABLE_WOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
-		$(cmake_use_find_package addressbook KF5Contacts)
-		$(cmake_use_find_package addressbook KPim5Akonadi)
-		$(cmake_use_find_package addressbook KPim5IdentityManagement)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Contacts=ON # $(usex addressbook)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KPim5Akonadi=ON # $(usex addressbook)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KPim5IdentityManagement=ON # $(usex addressbook)
 		-DENABLE_LIBICAL=$(usex calendar)
 		-DENABLE_KBANKING=$(usex hbci)
 		$(cmake_use_find_package holidays KF5Holidays)
