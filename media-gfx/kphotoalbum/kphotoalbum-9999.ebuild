@@ -3,7 +3,6 @@
 
 EAPI=8
 
-EGIT_BRANCH="kf6"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=6.5.0
@@ -48,6 +47,7 @@ DEPEND="
 	vlc? ( media-video/vlc:= )
 "
 RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
 	media-video/ffmpeg
 "
 
