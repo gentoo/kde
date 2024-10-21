@@ -289,6 +289,7 @@ fi
 # (option to build with KF6 in master, but default remains KF5)
 if $(ver_test -gt 24.10.75); then
 	case ${PN} in
+		cantor | \
 		kalzium | \
 		kwave | \
 		marble | \
