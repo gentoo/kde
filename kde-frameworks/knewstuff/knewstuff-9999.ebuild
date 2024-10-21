@@ -28,6 +28,7 @@ DEPEND="
 	opds? ( =kde-frameworks/syndication-${PVCUT}*:6 )
 "
 RDEPEND="${DEPEND}
+	>=kde-frameworks/kcmutils-${PVCUT}:6
 	>=kde-frameworks/kirigami-${PVCUT}:6
 "
 
