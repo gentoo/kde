@@ -15,6 +15,7 @@ RDEPEND="
 	>=kde-apps/analitza-${PV}:*
 	>=kde-apps/artikulate-${PV}:*
 	>=kde-apps/blinken-${PV}:*
+	>=kde-apps/cantor-${PV}:*
 	>=kde-apps/kalzium-${PV}:*
 	>=kde-apps/kanagram-${PV}:*
 	>=kde-apps/kbruch-${PV}:*
@@ -35,7 +36,6 @@ RDEPEND="
 	>=kde-apps/rocs-${PV}:*
 	>=kde-apps/step-${PV}:*
 	webengine? (
-		>=kde-apps/cantor-${PV}:*
 		>=kde-apps/kalgebra-${PV}:*
 		>=kde-apps/parley-${PV}:*
 	)
