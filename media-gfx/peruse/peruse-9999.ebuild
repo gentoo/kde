@@ -16,6 +16,7 @@ KEYWORDS=""
 
 # 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 DEPEND="
+	dev-libs/kirigami-addons:5
 	dev-qt/qtdeclarative:5=
 	dev-qt/qtgui:5
 	dev-qt/qtopengl:5
