@@ -12,8 +12,9 @@ HOMEPAGE="https://peruse.kde.org/"
 LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
-IUSE="+semantic-desktop"
+# IUSE="+semantic-desktop"
 
+# 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 DEPEND="
 	dev-qt/qtdeclarative:5=
 	dev-qt/qtgui:5
@@ -33,7 +34,6 @@ DEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	sys-libs/zlib
-	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	dev-qt/qtquickcontrols2:5
@@ -43,7 +43,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package semantic-desktop KF5Baloo)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Baloo=ON # $(usex semantic-desktop)
 	)
 	ecm_src_configure
 }
