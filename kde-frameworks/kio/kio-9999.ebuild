@@ -23,7 +23,6 @@ RESTRICT="test"
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,ssl,widgets,X?]
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	=kde-frameworks/kauth-${PVCUT}*:6
 	=kde-frameworks/kbookmarks-${PVCUT}*:6
