@@ -20,7 +20,5 @@ RDEPEND="
 	=kde-frameworks/kiconthemes-${PVCUT}*:6
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
 "
-DEPEND="${RDEPEND}
-	>=kde-frameworks/kconfigwidgets-${PVCUT}:6
-"
+DEPEND="${RDEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
