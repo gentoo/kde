@@ -31,7 +31,6 @@ COMMON_DEPEND="
 	=kde-frameworks/kcolorscheme-${PVCUT}*:6
 	=kde-frameworks/kcompletion-${PVCUT}*:6
 	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kconfigwidgets-${PVCUT}*:6
 	=kde-frameworks/kcoreaddons-${PVCUT}*:6
 	=kde-frameworks/kcrash-${PVCUT}*:6
 	=kde-frameworks/kdbusaddons-${PVCUT}*:6
