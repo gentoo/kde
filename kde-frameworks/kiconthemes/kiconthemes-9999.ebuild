@@ -25,7 +25,6 @@ RDEPEND="
 	=kde-frameworks/karchive-${PVCUT}*:6
 	=kde-frameworks/kcolorscheme-${PVCUT}*:6
 	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kconfigwidgets-${PVCUT}*:6
 	=kde-frameworks/ki18n-${PVCUT}*:6
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
 "
