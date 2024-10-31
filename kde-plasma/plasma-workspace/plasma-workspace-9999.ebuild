@@ -149,7 +149,6 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xmessage
 	x11-apps/xprop
 	x11-apps/xrdb
-	x11-apps/xsetroot
 	policykit? ( sys-apps/accountsservice )
 "
 BDEPEND="
