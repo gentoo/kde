@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-2)
-QTMIN=6.6.2
+QTMIN=6.7.2
 inherit ecm flag-o-matic frameworks.kde.org
 
 DESCRIPTION="Library to allow separating the structure of documents from data they contain"

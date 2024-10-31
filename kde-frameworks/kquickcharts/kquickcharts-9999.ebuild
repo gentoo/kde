@@ -7,7 +7,7 @@ ECM_EXAMPLES="true"
 ECM_QTHELP="false"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-2)
-QTMIN=6.6.2
+QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="QtQuick plugin providing high-performance charts"
