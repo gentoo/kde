@@ -5,6 +5,7 @@ dev-libs/kosmindoormap
 dev-libs/kpublictransport
 kde-apps/akonadi
 kde-apps/akonadi-calendar
+kde-apps/akonadi-calendar-tools-common
 kde-apps/akonadi-contacts
 kde-apps/akonadi-import-wizard
 kde-apps/akonadi-mime
@@ -34,7 +35,6 @@ kde-apps/kmail-account-wizard
 kde-apps/kmailtransport
 kde-apps/kmbox
 kde-apps/kmime
-kde-apps/knotes
 kde-apps/konsolekalendar
 kde-apps/kontact
 kde-apps/kontactinterface
