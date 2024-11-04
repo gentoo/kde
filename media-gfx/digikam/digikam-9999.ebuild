@@ -27,9 +27,10 @@ IUSE="addressbook calendar geolocation gphoto2 heif +imagemagick jpegxl +lensfun
 # bug 366505
 RESTRICT="test"
 
+# slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/expat
-	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,-gles2-only,gui,mysql?,network,opengl,sql,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,-gles2-only,gui,mysql?,network,opengl,sql,widgets,X,xml]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	>=dev-qt/qtscxml-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -110,6 +111,8 @@ pkg_setup() {
 }
 
 # FIXME: Unbundle libraw (libs/rawengine/libraw)
+# TODO: adding IUSE X requires upstreaming WITH_X11 option for libX11,
+#       see core/cmake/rules/RulesX11.cmake; only used in core/libs/dimg/filters/icc
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_WITH_QT6=ON
