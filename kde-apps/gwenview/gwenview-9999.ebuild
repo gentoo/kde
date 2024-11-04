@@ -62,7 +62,7 @@ COMMON_DEPEND="
 	)
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	X? (
-		>=dev-qt/qtbase-${QTMIN}:6=[gui]
+		>=dev-qt/qtbase-${QTMIN}:6=[X]
 		x11-libs/libX11
 	)
 "
