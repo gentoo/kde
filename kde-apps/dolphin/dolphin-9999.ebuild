@@ -30,6 +30,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kfilemetadata-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
@@ -49,7 +50,6 @@ DEPEND="
 	semantic-desktop? (
 		>=kde-apps/baloo-widgets-${PVCUT}:6
 		>=kde-frameworks/baloo-${KFMIN}:6
-		>=kde-frameworks/kfilemetadata-${KFMIN}:6
 	)
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
@@ -64,7 +64,6 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_SeleniumWebDriverATSPI=ON # not packaged
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		$(cmake_use_find_package semantic-desktop KF6BalooWidgets)
-		$(cmake_use_find_package semantic-desktop KF6FileMetaData)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 	)
 	ecm_src_configure
