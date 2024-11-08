@@ -61,7 +61,7 @@ DEPEND="
 	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	kwallet? (
-		>=app-crypt/qca-2.3.0:2[qt5(+)]
+		>=app-crypt/qca-2.3.7:2[qt5(-)]
 		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
 	X? (
