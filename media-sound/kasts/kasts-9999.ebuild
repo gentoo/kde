@@ -17,7 +17,7 @@ IUSE="gstreamer vlc"
 
 DEPEND="
 	dev-libs/kirigami-addons:6
-	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6

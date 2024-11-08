@@ -19,7 +19,7 @@ IUSE="+mpv webengine"
 # TODO: Add kunifiedpush support once packaged (cd01eb31d1ec298d4c1e10d25a0781d799161bfc)
 DEPEND="
 	>=dev-libs/kirigami-addons-1.1.0:6
-	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6

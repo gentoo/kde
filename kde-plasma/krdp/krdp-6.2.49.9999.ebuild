@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtwayland-${QTMIN}:6

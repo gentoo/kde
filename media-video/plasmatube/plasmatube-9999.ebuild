@@ -18,7 +18,7 @@ KEYWORDS=""
 
 DEPEND="
 	>=dev-libs/kirigami-addons-1.1.0:6
-	dev-libs/qtkeychain[qt6]
+	>=dev-libs/qtkeychain-0.14.2[qt6(+)]
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6

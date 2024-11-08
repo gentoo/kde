@@ -23,7 +23,7 @@ RESTRICT="test"
 RDEPEND="
 	>=app-crypt/qca-2.3.7:2[qt6]
 	dev-libs/cyrus-sasl:2
-	>=dev-libs/qtkeychain-0.14.2:=[qt6]
+	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets,xml]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
