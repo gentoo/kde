@@ -41,7 +41,7 @@ DEPEND="
 	media-gfx/exiv2:=
 	media-libs/libjpeg-turbo:=
 	map? ( kde-apps/marble:6 )
-	phonon? ( >=media-libs/phonon-4.12.0[qt6(-)] )
+	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	raw? ( kde-apps/libkdcraw:6 )
 	share? ( >=kde-frameworks/kxmlgui-${KFMIN}:6 )
 	vlc? ( media-video/vlc:= )

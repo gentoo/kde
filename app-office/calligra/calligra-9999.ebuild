@@ -35,7 +35,7 @@ RESTRICT="test"
 COMMON_DEPEND="
 	dev-lang/perl
 	dev-libs/openssl:=
-	>=dev-libs/qtkeychain-0.14.2:=[qt6(-)]
+	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
