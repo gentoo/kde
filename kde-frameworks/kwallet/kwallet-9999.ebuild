@@ -11,10 +11,10 @@ DESCRIPTION="Framework providing desktop-wide storage for passwords"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="gpg +man"
+IUSE="gpg +man X"
 
 DEPEND="
-	>=app-crypt/qca-2.3.1:2[qt6(-)]
+	>=app-crypt/qca-2.3.9:2[qt6(+)]
 	dev-libs/libgcrypt:0=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	=kde-frameworks/kcolorscheme-${PVCUT}*:6
@@ -26,7 +26,7 @@ DEPEND="
 	=kde-frameworks/knotifications-${PVCUT}*:6
 	=kde-frameworks/kservice-${PVCUT}*:6
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
-	=kde-frameworks/kwindowsystem-${PVCUT}*:6[X]
+	=kde-frameworks/kwindowsystem-${PVCUT}*:6[X?]
 	gpg? ( app-crypt/gpgme:=[qt6(-)] )
 "
 RDEPEND="${DEPEND}
@@ -38,6 +38,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package gpg Gpgmepp)
 		$(cmake_use_find_package man KF6DocTools)
+		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
