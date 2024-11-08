@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="openconnect teamd"
 
 DEPEND="
-	>=app-crypt/qca-2.3.7:2[qt6]
+	>=app-crypt/qca-2.3.7:2[qt6(+)]
 	dev-libs/qcoro[dbus]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]

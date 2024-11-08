@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	>=app-crypt/qca-2.3.7:2[qt6]
+	>=app-crypt/qca-2.3.7:2[qt6(+)]
 	>=dev-libs/gmp-6.0.0a:0=
 	dev-libs/libgcrypt:0=
 	>=dev-qt/qtbase-${QTMIN}:6[network,xml]

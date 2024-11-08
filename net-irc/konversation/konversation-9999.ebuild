@@ -46,7 +46,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	crypt? ( >=app-crypt/qca-2.3.7:2[qt6] )
+	crypt? ( >=app-crypt/qca-2.3.7:2[qt6(+)] )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6

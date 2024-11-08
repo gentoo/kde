@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE="bittorrent gpg mms sqlite"
 
 RDEPEND="
-	>=app-crypt/qca-2.3.7:2[qt6]
+	>=app-crypt/qca-2.3.7:2[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets,xml]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
