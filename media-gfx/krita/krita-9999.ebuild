@@ -28,7 +28,7 @@ RESTRICT="test"
 RDEPEND="${PYTHON_DEPS}
 	dev-libs/boost:=
 	dev-libs/libunibreak:=
-	dev-libs/quazip:0=[qt5(+)]
+	>=dev-libs/quazip-1.3-r2:0=[qt5(-)]
 	$(python_gen_cond_dep '
 		dev-python/PyQt5[declarative,gui,widgets,${PYTHON_USEDEP}]
 		dev-python/sip:=[${PYTHON_USEDEP}]
@@ -75,7 +75,7 @@ RDEPEND="${PYTHON_DEPS}
 	media? ( media-libs/mlt:= )
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? ( media-libs/openexr:= )
-	pdf? ( app-text/poppler[qt5] )
+	pdf? ( app-text/poppler[qt5(-)] )
 	raw? ( kde-apps/libkdcraw:5 )
 	webp? ( >=media-libs/libwebp-1.2.0:= )
 	xsimd? ( >=dev-cpp/xsimd-13.0.0 )
