@@ -32,7 +32,6 @@ RDEPEND="
 	>=kde-apps/akonadi-calendar-${PVCUT}:6
 	>=kde-apps/akonadi-contacts-${PVCUT}:6
 	>=kde-apps/akonadi-mime-${PVCUT}:6
-	>=kde-apps/akonadi-notes-${PVCUT}:6
 	>=kde-apps/kcalutils-${PVCUT}:6
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
 	>=kde-apps/kimap-${PVCUT}:6
