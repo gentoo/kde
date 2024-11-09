@@ -54,10 +54,7 @@ DEPEND="${COMMON_DEPEND}
 		>=kde-frameworks/kcmutils-${KF5MIN}:5
 	)
 "
-# KAccountsMacros.cmake needs intltool; TODO: Watch:
-# https://invent.kde.org/network/kaccounts-integration/-/merge_requests/61
 RDEPEND="${COMMON_DEPEND}
-	dev-util/intltool
 	kde-apps/signon-kwallet-extension:6
 "
 BDEPEND="sys-devel/gettext"
