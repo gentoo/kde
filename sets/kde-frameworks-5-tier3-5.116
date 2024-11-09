@@ -1,9 +1,7 @@
 # Tier 3: More powerful, comprehensive packages, with complex dependencies.
-<kde-frameworks/baloo-5.116.50
 <kde-frameworks/kbookmarks-5.116.50
 <kde-frameworks/kcmutils-5.116.50
 <kde-frameworks/kconfigwidgets-5.116.50
-<kde-frameworks/kdav-5.116.50
 <kde-frameworks/kdeclarative-5.116.50
 <kde-frameworks/kded-5.116.50
 <kde-frameworks/kdesu-5.116.50
@@ -15,7 +13,6 @@
 <kde-frameworks/knewstuff-5.116.50
 <kde-frameworks/knotifyconfig-5.116.50
 <kde-frameworks/kparts-5.116.50
-<kde-frameworks/krunner-5.116.50
 <kde-frameworks/kservice-5.116.50
 <kde-frameworks/ktexteditor-5.116.50
 <kde-frameworks/ktextwidgets-5.116.50
