@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_HANDBOOK="false"
 KDE_ORG_NAME="${PN/-common/}"
-KFMIN=5.115.0
 inherit ecm-common gear.kde.org
 
 LICENSE="GPL-2"
