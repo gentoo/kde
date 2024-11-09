@@ -50,7 +50,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6
-	crypt? ( >=app-crypt/qca-2.3.7:2[qt6,ssl] )
+	crypt? ( >=app-crypt/qca-2.3.7:2[qt6(+),ssl] )
 "
 BDEPEND="sys-devel/gettext"
 
