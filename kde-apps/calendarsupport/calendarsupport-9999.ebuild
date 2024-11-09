@@ -23,7 +23,6 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6
 	>=kde-apps/akonadi-calendar-${PVCUT}:6
-	>=kde-apps/akonadi-notes-${PVCUT}:6
 	>=kde-apps/kcalutils-${PVCUT}:6
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
 	>=kde-apps/kmime-${PVCUT}:6
