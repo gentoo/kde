@@ -5,7 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-QTMIN=5.15.12
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Full featured educational application for children from 2 to 10"
@@ -22,20 +23,18 @@ SLOT="0"
 IUSE="kiosk"
 
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtsensors-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
+	>=dev-qt/qtcharts-${QTMIN}:6
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtmultimedia-${QTMIN}:6
+	>=dev-qt/qtsensors-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml]
-	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 "
 BDEPEND="
-	>=dev-qt/linguist-tools-${QTMIN}:5
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	test? (
 		dev-util/cppcheck
 		sys-devel/clang
@@ -44,6 +43,7 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
+		-DCOMPILE_DOC=ON
 		-DQML_BOX2D_MODULE=disabled
 		-DWITH_KIOSK_MODE=$(usex kiosk)
 	)
