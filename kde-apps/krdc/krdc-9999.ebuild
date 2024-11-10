@@ -49,6 +49,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
+BDEPEND="x11-misc/shared-mime-info"
 
 src_configure() {
 	local mycmakeargs=(
