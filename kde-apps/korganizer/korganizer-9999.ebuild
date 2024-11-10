@@ -36,7 +36,7 @@ COMMON_DEPEND="
 	>=kde-apps/kmime-${PVCUT}:6
 	>=kde-apps/kontactinterface-${PVCUT}:6
 	>=kde-apps/libkdepim-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -61,7 +61,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-apps/kldap-${PVCUT}:6
-	test? ( >=kde-apps/akonadi-${PVCUT}:6[sqlite] )
+	test? ( kde-apps/akonadi-config[sqlite] )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-addons-24.07.50:*
