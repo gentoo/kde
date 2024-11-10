@@ -27,6 +27,7 @@ DEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	media-sound/cdparanoia
 	flac? ( >=media-libs/flac-1.1.2:= )
 	vorbis? (
