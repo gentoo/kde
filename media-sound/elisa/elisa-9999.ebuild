@@ -23,6 +23,7 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,sql,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
