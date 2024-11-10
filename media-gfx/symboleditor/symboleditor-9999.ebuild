@@ -13,28 +13,27 @@ https://userbase.kde.org/SymbolEditor"
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	MY_P=SymbolEditor-${PV}
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${MY_P}.tar.bz2"
-	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}"/${MY_P}
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="0"
 
-BDEPEND="
-	sys-devel/gettext
-"
 DEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	kde-frameworks/kconfig:5
-	kde-frameworks/kconfigwidgets:5
-	kde-frameworks/kcoreaddons:5
-	kde-frameworks/ki18n:5
-	kde-frameworks/kio:5
-	kde-frameworks/kwidgetsaddons:5
-	kde-frameworks/kxmlgui:5
+	dev-qt/qtbase:6[gui,widgets]
+	kde-frameworks/kconfig:6
+	kde-frameworks/kconfigwidgets:6
+	kde-frameworks/kcoreaddons:6
+	kde-frameworks/ki18n:6
+	kde-frameworks/kio:6
+	kde-frameworks/kwidgetsaddons:6
+	kde-frameworks/kxmlgui:6
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
+"
+BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
