@@ -51,7 +51,7 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 DEPEND="${RDEPEND}
-	test? ( >=kde-apps/akonadi-${PVCUT}:6[mysql,postgres,sqlite] )
+	test? ( kde-apps/akonadi-config[mysql,postgres,sqlite] )
 "
 BDEPEND="
 	test? ( >=kde-apps/akonadi-${PVCUT}:6[tools] )
