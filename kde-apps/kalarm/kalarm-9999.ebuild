@@ -49,7 +49,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	mpv? ( media-video/mpv:=[libmpv] )
+	mpv? ( >=media-video/mpv-0.37.0:=[libmpv] )
 	!mpv? ( media-video/vlc:= )
 	pim? (
 		>=kde-apps/akonadi-${PVCUT}:6
