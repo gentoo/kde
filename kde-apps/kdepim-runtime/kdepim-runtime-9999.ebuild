@@ -56,7 +56,6 @@ RDEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
-	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
