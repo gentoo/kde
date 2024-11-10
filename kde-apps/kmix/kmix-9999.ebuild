@@ -46,7 +46,6 @@ PATCHES=( "${FILESDIR}/${PN}-23.04.2-autostart_disable.patch" ) # TODO: upstream
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package alsa ALSA)
-		-DBUILD_DATAENGINE=OFF
 		$(cmake_use_find_package pulseaudio Canberra)
 		$(cmake_use_find_package pulseaudio PulseAudio)
 	)
