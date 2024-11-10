@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/kontact/"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="6"
 KEYWORDS=""
-IUSE="speech"
+IUSE="activities speech"
 
 RESTRICT="test"
 
@@ -40,6 +40,7 @@ RDEPEND="
 	>=kde-apps/kmbox-${PVCUT}:6
 	>=kde-apps/kmime-${PVCUT}:6
 	>=kde-apps/libkgapi-${PVCUT}:6
+	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -60,6 +61,7 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	activities? ( kde-plasma/plasma-activities:6 )
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )
 "
 DEPEND="${RDEPEND}
@@ -71,10 +73,11 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
+		$(cmake_use_find_package speech Qt6TextToSpeech)
 		-DKDEPIM_RUN_AKONADI_TEST=$(usex test)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Etebase=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Libkolabxml=ON
-		$(cmake_use_find_package speech Qt6TextToSpeech)
 	)
 	ecm_src_configure
 }
