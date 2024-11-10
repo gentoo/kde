@@ -29,7 +29,7 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebview-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
-	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
@@ -46,7 +46,7 @@ DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6[qml]
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	media-libs/kquickimageeditor:6
-	>=net-libs/libquotient-0.8.2:=[qt6(+)]
+	>=net-libs/libquotient-0.9.0:=
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
