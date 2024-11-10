@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="+cron"
 
 RDEPEND="
+	>=app-admin/kio-admin-${PV}:*
 	>=kde-apps/ksystemlog-${PV}:*
 	cron? ( >=kde-apps/kcron-${PV}:* )
 "
