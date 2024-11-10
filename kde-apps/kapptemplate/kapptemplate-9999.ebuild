@@ -18,11 +18,12 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-libs/kirigami-addons-1.4.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
-	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
