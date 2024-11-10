@@ -18,8 +18,9 @@ IUSE=""
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
+# TODO: replace HAVE_X11 and __has_include with explicit WITH_X11 option
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,widgets,X]
 	~kde-apps/kate-lib-${PV}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
