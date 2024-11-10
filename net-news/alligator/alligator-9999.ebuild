@@ -19,6 +19,7 @@ DEPEND="
 	dev-libs/kirigami-addons:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
