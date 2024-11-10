@@ -43,7 +43,6 @@ RDEPEND="
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
-	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/syndication-${KFMIN}:6
