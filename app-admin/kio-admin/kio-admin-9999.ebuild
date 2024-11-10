@@ -20,6 +20,6 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
-	sys-auth/polkit-qt[qt6]
+	>=sys-auth/polkit-qt-0.175[qt6(+)]
 "
 RDEPEND="${DEPEND}"
