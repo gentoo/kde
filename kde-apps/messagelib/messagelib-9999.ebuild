@@ -22,7 +22,7 @@ RESTRICT="test"
 
 DEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
-	>=app-crypt/qca-2.3.7:2[qt6(+)]
+	>=dev-libs/openssl-3.0.0:=
 	>=dev-libs/ktextaddons-1.5.4:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
