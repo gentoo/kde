@@ -4,6 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Application to create libraries of QPainterPath objects with rendering hints"
@@ -21,14 +23,14 @@ LICENSE="GPL-2"
 SLOT="0"
 
 DEPEND="
-	dev-qt/qtbase:6[gui,widgets]
-	kde-frameworks/kconfig:6
-	kde-frameworks/kconfigwidgets:6
-	kde-frameworks/kcoreaddons:6
-	kde-frameworks/ki18n:6
-	kde-frameworks/kio:6
-	kde-frameworks/kwidgetsaddons:6
-	kde-frameworks/kxmlgui:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
