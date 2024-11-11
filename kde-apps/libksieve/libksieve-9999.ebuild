@@ -30,6 +30,7 @@ RDEPEND="
 	>=kde-apps/libkdepim-${PVCUT}:6
 	>=kde-apps/pimcommon-${PVCUT}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
