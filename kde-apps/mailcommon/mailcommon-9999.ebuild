@@ -16,7 +16,7 @@ DESCRIPTION="Common mail library"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="6"
 KEYWORDS=""
-IUSE=""
+IUSE="activities"
 
 RESTRICT="test"
 
@@ -34,7 +34,7 @@ DEPEND="
 	>=kde-apps/libkdepim-${PVCUT}:6
 	>=kde-apps/mailimporter-${PVCUT}:6
 	>=kde-apps/messagelib-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -47,11 +47,18 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kitemviews-${KFMIN}:6
-	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	>=media-libs/phonon-4.12.0[qt6(+)]
+	activities? ( kde-plasma/plasma-activities:6 )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
+	)
+	ecm_src_configure
+}
