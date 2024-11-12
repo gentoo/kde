@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KFMIN=6.5.0
 QTMIN=6.7.2
-inherit ecm gear.kde.org
+inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://invent.kde.org/network/kio-extras"
@@ -90,6 +90,10 @@ src_configure() {
 		$(cmake_use_find_package taglib Taglib)
 		-DWITHOUT_X11=$(usex !X)
 	)
-
 	ecm_src_configure
+}
+
+pkg_postinst() {
+	optfeature "alternative filename search backend" sys-apps/ripgrep
+	ecm_pkg_postinst
 }
