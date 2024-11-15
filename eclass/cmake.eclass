@@ -730,7 +730,9 @@ cmake_src_test() {
 			eerror "--END TEST LOG----------------------------------------------------------------"
 			die -n "Tests failed."
 		else
-			die -n "Tests failed. When you file a bug, please attach the following file: \n\t${BUILD_DIR}/Testing/Temporary/LastTest.log"
+			eerror "Tests failed. When you file a bug, please attach the following file:"
+			eerror "\t${BUILD_DIR}/Testing/Temporary/LastTest.log"
+			die -n "Tests failed."
 		fi
 
 		# die might not die due to nonfatal
