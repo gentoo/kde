@@ -45,11 +45,11 @@ fi
 # @ECLASS_VARIABLE: ECM_NONGUI
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# By default, for all release groups except KDE Frameworks, assume we are
-# building a GUI application. Add dependency on kde-frameworks/breeze-icons or
+# By default, for all CATEGORIES except kde-frameworks, assume we are building
+# a GUI application. Add dependency on kde-frameworks/breeze-icons or
 # kde-frameworks/oxygen-icons and run the xdg.eclass routines for pkg_preinst,
 # pkg_postinst and pkg_postrm. If set to "true", do nothing.
-if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]] ; then
+if [[ ${CATEGORY} = kde-frameworks ]] ; then
 	: "${ECM_NONGUI:=true}"
 fi
 : "${ECM_NONGUI:=false}"
@@ -119,11 +119,11 @@ fi
 # @ECLASS_VARIABLE: ECM_QTHELP
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# Default value for all release groups except KDE Frameworks is "false".
+# Default value for all CATEGORIES except kde-frameworks is "false".
 # If set to "true", add "doc" to IUSE, add the appropriate dependency, let
 # -DBUILD_QCH=ON generate and install Qt compressed help files when USE=doc.
 # If set to "false", do nothing.
-if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]]; then
+if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: "${ECM_QTHELP:=true}"
 fi
 : "${ECM_QTHELP:=false}"
@@ -142,8 +142,8 @@ fi
 # @DESCRIPTION:
 # Will accept "true", "false", "forceoptional", and "forceoptional-recursive".
 # For KF5-based ebuilds, additionally accepts "optional".
-# Default value is "false", except for KDE Frameworks where it is set to
-# "true". If set to "false", do nothing.
+# Default value is "false", except for CATEGORY=kde-frameworks where it is
+# set to "true". If set to "false", do nothing.
 # For any other value, add "test" to IUSE. If set to "forceoptional", ignore
 # "autotests", "test", "tests" subdirs from top-level CMakeLists.txt when
 # USE=!test. If set to "forceoptional-recursive", make autotest(s), unittest(s)
@@ -155,7 +155,7 @@ fi
 # dependency if set to "forceoptional*" with USE=!test.
 # If set to "optional", build with -DCMAKE_DISABLE_FIND_PACKAGE_Qt5Test=ON
 # when USE=!test.
-if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]]; then
+if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: "${ECM_TEST:=true}"
 fi
 : "${ECM_TEST:=false}"
@@ -168,7 +168,7 @@ fi
 # is ${PV} and 5.116.0 baseline for everything else.
 # If set to >=5.240, KF6/Qt6 is assumed thus SLOT=6 dependencies added and
 # -DQT_MAJOR_VERSION=6 added to cmake args.
-if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]]; then
+if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: "${KFMIN:=$(ver_cut 1-2)}"
 fi
 : "${KFMIN:=5.116.0}"
@@ -181,7 +181,7 @@ fi
 # depend on either :5 or :6 Qt/KF packages as well as setting correctly
 # prefixed cmake args.
 : "${_KFSLOT:=5}"
-if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]]; then
+if [[ ${CATEGORY} == kde-frameworks ]]; then
 	ver_test ${KFMIN} -ge 5.240 && _KFSLOT=6
 else
 	if [[ ${KFMIN/.*} == 6 ]] || $(ver_test ${KFMIN} -ge 5.240); then
