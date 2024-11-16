@@ -13,7 +13,6 @@
 		<flag name="scim">Enable applets that use <pkg>app-i18n/scim</pkg></flag>
 		<flag name="screencast">Enable screencast portal thumbnails using <pkg>kde-plasma/kpipewire</pkg></flag>
 		<flag name="sdl">Enable gamepad support using <pkg>media-libs/libsdl2</pkg></flag>
-		<flag name="tablet">Build system settings module for tablets using <pkg>dev-libs/libwacom</pkg></flag>
 		<flag name="webengine">Build the OpenDesktop integration plugin</flag>
 	</use>
 </pkgmetadata>

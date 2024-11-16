@@ -17,7 +17,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="ibus scim screencast sdl +semantic-desktop +tablet webengine"
+IUSE="ibus input_devices_wacom scim screencast sdl +semantic-desktop webengine"
 
 RESTRICT="test" # missing selenium-webdriver-at-spi
 
@@ -82,14 +82,14 @@ COMMON_DEPEND="
 		dev-libs/glib:2
 		x11-libs/xcb-util-keysyms
 	)
-	scim? ( app-i18n/scim )
-	sdl? ( media-libs/libsdl2[joystick] )
-	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
-	tablet? (
+	input_devices_wacom? (
 		dev-libs/wayland
 		dev-libs/libwacom:=
 		>=dev-qt/qtwayland-${QTMIN}:6
 	)
+	scim? ( app-i18n/scim )
+	sdl? ( media-libs/libsdl2[joystick] )
+	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
 	webengine? (
 		kde-apps/kaccounts-integration:6
 		>=net-libs/accounts-qt-1.17[qt6(+)]
@@ -98,7 +98,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	x11-base/xorg-proto
-	tablet? ( >=dev-libs/wayland-protocols-1.25 )
+	input_devices_wacom? ( >=dev-libs/wayland-protocols-1.25 )
 	test? (
 		>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 		>=kde-plasma/kactivitymanagerd-${PVCUT}:6
@@ -124,7 +124,7 @@ BDEPEND="
 	dev-util/intltool
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
-	tablet? ( dev-util/wayland-scanner )
+	input_devices_wacom? ( dev-util/wayland-scanner )
 "
 
 PATCHES=(
@@ -153,9 +153,9 @@ src_configure() {
 		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		$(cmake_use_find_package ibus GLIB2)
+		-DBUILD_KCM_TABLET=$(usex input_devices_wacom)
 		$(cmake_use_find_package sdl SDL2)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
-		-DBUILD_KCM_TABLET=$(usex tablet)
 		$(cmake_use_find_package webengine AccountsQt6)
 		$(cmake_use_find_package webengine KAccounts6)
 	)
