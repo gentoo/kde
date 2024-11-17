@@ -17,7 +17,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="ibus scim screencast sdl +semantic-desktop webengine"
+IUSE="ibus input_devices_wacom scim screencast sdl +semantic-desktop webengine"
 
 RESTRICT="test" # missing selenium-webdriver-at-spi
 
@@ -25,12 +25,10 @@ RESTRICT="test" # missing selenium-webdriver-at-spi
 # kde-frameworks/kwindowsystem[X]: Uses KX11Extras
 COMMON_DEPEND="
 	dev-libs/icu:=
-	dev-libs/wayland
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/attica-${KFMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
@@ -84,6 +82,10 @@ COMMON_DEPEND="
 		dev-libs/glib:2
 		x11-libs/xcb-util-keysyms
 	)
+	input_devices_wacom? (
+		dev-libs/wayland
+		>=dev-qt/qtwayland-${QTMIN}:6
+	)
 	scim? ( app-i18n/scim )
 	sdl? ( media-libs/libsdl2[joystick] )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
@@ -93,9 +95,9 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/wayland-protocols-1.25
 	dev-libs/boost
 	x11-base/xorg-proto
+	input_devices_wacom? ( >=dev-libs/wayland-protocols-1.25 )
 	test? (
 		>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 		>=kde-plasma/kactivitymanagerd-${PVCUT}:6
@@ -119,13 +121,14 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="
 	dev-util/intltool
-	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
+	input_devices_wacom? ( dev-util/wayland-scanner )
 "
 
 PATCHES=(
 	"${FILESDIR}/${PN}-6.1.80-override-include-dirs.patch" # downstream patch
+	"${FILESDIR}/${PN}-6.2.3-tablet-kcm-optional.patch" # bug 942817
 )
 
 src_prepare() {
@@ -150,6 +153,7 @@ src_configure() {
 		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		$(cmake_use_find_package ibus GLIB2)
+		-DBUILD_KCM_TABLET=$(usex input_devices_wacom)
 		$(cmake_use_find_package sdl SDL2)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		$(cmake_use_find_package webengine AccountsQt6)
