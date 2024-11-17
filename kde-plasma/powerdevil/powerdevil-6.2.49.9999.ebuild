@@ -8,7 +8,7 @@ ECM_TEST="forceoptional"
 KFMIN=6.6.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm fcaps plasma.kde.org
 
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://invent.kde.org/plasma/powerdevil"
@@ -16,7 +16,7 @@ HOMEPAGE="https://invent.kde.org/plasma/powerdevil"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="brightness-control caps"
+IUSE="brightness-control"
 
 RESTRICT="test" # bug 926513
 
@@ -51,7 +51,6 @@ DEPEND="
 	virtual/libudev:=
 	x11-libs/libxcb
 	brightness-control? ( app-misc/ddcutil:= )
-	caps? ( sys-libs/libcap )
 "
 RDEPEND="${DEPEND}
 	!<kde-plasma/plasma-workspace-6.1.90:6
@@ -65,11 +64,16 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
 
+# -m 0755 to avoid suid with USE="-filecaps"
+FILECAPS=( -m 0755 cap_sys_nice=ep usr/libexec/org_kde_powerdevil )
+
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_SeleniumWebDriverATSPI=ON # not packaged
+		-DCMAKE_DISABLE_FIND_PACKAGE_Libcap=ON
 		$(cmake_use_find_package brightness-control DDCUtil)
-		$(cmake_use_find_package caps Libcap)
+	)
+	use test && mycmakeargs+=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_SeleniumWebDriverATSPI=ON # not packaged
 	)
 
 	ecm_src_configure
@@ -78,4 +82,9 @@ src_configure() {
 src_test() {
 	# bug 926513
 	ecm_src_test -j1
+}
+
+pkg_postinst() {
+	ecm_pkg_postinst
+	fcaps_pkg_postinst
 }
