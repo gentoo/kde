@@ -1,4 +1,4 @@
-From 999deeefddc9482e9e360643578442b958a9c2ef Mon Sep 17 00:00:00 2001
+From 5296ef03a9b14a6a9324d506d04f78e61e8512f6 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Mon, 4 Nov 2024 23:15:19 +0100
 Subject: [PATCH] cmake: Add BUILD_KCM_TABLET option to conditionalise Wayland
@@ -9,12 +9,12 @@ Follow-up to 240ca31717ebed55e43ffaf6ac906dea07e9f4c6
 Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
 (cherry picked from commit 8f0e9b4d625024469b4fbd0468e767e45b464872)
 ---
- CMakeLists.txt      | 31 +++++++++++++++++++------------
+ CMakeLists.txt      | 30 ++++++++++++++++++------------
  kcms/CMakeLists.txt |  5 ++++-
- 2 files changed, 23 insertions(+), 13 deletions(-)
+ 2 files changed, 22 insertions(+), 13 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 6f764d1ef4..a76dd3ff2f 100644
+index 6f764d1ef4..8222cfaed5 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -40,6 +40,7 @@ option(BUILD_KCM_MOUSE_KWIN_WAYLAND "Build the Mouse KCM's KWin+Wayland backend"
@@ -37,7 +37,7 @@ index 6f764d1ef4..a76dd3ff2f 100644
  
  find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
      Auth
-@@ -139,17 +143,20 @@ set_package_properties(KF6QQC2DesktopStyle PROPERTIES
+@@ -139,17 +143,19 @@ set_package_properties(KF6QQC2DesktopStyle PROPERTIES
      TYPE RUNTIME
  )
  
@@ -64,7 +64,6 @@ index 6f764d1ef4..a76dd3ff2f 100644
 +        TYPE REQUIRED
 +        PURPOSE "Required for building Tablet input KCM"
 +    )
-+    pkg_check_modules(LIBWACOM libwacom REQUIRED IMPORTED_TARGET)
 +endif()
  
  find_package(SDL2 2.0.16)
