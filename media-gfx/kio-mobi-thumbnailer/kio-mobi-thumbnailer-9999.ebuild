@@ -25,18 +25,12 @@ RDEPEND="${DEPEND}
 	!<kde-apps/thumbnailers-24.05.2-r1:6
 "
 
-src_prepare() {
-	ecm_src_prepare
-	ecm_punt_kf_module Archive
-}
-
 src_configure() {
 	local mycmakeargs=(
+		-DDISABLE_BLENDER=ON
 		-DBUILD_ps=OFF
-		-DBUILD_blend=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_KExiv2Qt6=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_KDcrawQt6=ON
 	)
-
 	ecm_src_configure
 }

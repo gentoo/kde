@@ -25,19 +25,13 @@ RDEPEND="${DEPEND}
 	app-text/ghostscript-gpl
 "
 
-src_prepare() {
-	ecm_src_prepare
-	ecm_punt_kf_module Archive
-}
-
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_blend=OFF
+		-DDISABLE_BLENDER=ON
 		-DDISABLE_MOBIPOCKET=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_QMobipocket6=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_KExiv2Qt6=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_KDcrawQt6=ON
 	)
-
 	ecm_src_configure
 }
