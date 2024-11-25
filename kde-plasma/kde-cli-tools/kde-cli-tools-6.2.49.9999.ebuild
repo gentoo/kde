@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoff"
-ECM_TEST="true"
+ECM_TEST="false"
 KFMIN=6.6.0
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
@@ -17,25 +17,14 @@ SLOT="6"
 KEYWORDS=""
 IUSE="kdesu X"
 
-# requires running kde environment
-RESTRICT="test"
-
-# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
+# slot op: kstart Uses Qt6::GuiPrivate for qtx11extras_p.h
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
-	>=kde-frameworks/kcmutils-${KFMIN}:6
-	>=kde-frameworks/kcompletion-${KFMIN}:6
-	>=kde-frameworks/kconfig-${KFMIN}:6
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
-	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui,X] )
 "
 RDEPEND="${DEPEND}
@@ -47,6 +36,7 @@ BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 src_prepare() {
 	ecm_src_prepare
 	ecm_punt_po_install
+	cmake_comment_add_subdirectory keditfiletype # split package
 }
 
 src_configure() {
