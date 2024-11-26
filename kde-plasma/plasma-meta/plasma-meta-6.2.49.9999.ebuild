@@ -28,6 +28,7 @@ RDEPEND="
 	>=kde-plasma/kdecoration-${PV}:${SLOT}
 	>=kde-plasma/kdeplasma-addons-${PV}:${SLOT}
 	>=kde-plasma/kdesu-gui-${PV}
+	>=kde-plasma/keditfiletype-${PV}
 	>=kde-plasma/kgamma-${PV}:${SLOT}
 	>=kde-plasma/kglobalacceld-${PV}:${SLOT}
 	>=kde-plasma/kinfocenter-${PV}:${SLOT}
