@@ -259,6 +259,34 @@ cmake_punt_find_package() {
 	fi
 }
 
+# @FUNCTION: cmake_unrequire_find_package
+# @USAGE: <pkg>
+# @DESCRIPTION:
+# Remove REQUIRED attribute from a given find_package(<pkg>) call inside CMakeLists.txt
+cmake_unrequire_find_package() {
+	local cmpnt="REQUIRED"
+	if [[ -z ${1} ]]; then
+		die "${FUNCNAME[0]} must be passed exactly one argument"
+	fi
+
+	[[ -e "CMakeLists.txt" ]] || return
+
+	pcre2grep -Mni "(?s)find_package\s*\(\s*${1}.*?REQUIRED.*?\)" \
+	CMakeLists.txt > "${T}/bogus${cmpnt}"
+
+	# pcre2grep returns non-zero on no matches/error
+	if [[ $? -ne 0 ]]; then
+		eqawarn "QA Notice: ${FUNCNAME}(${1}) called, but no matches found!"
+		return
+	fi
+
+	local length=$(wc -l "${T}/bogus${cmpnt}" | cut -d " " -f 1)
+	local first=$(head -n 1 "${T}/bogus${cmpnt}" | cut -d ":" -f 1)
+	local last=$(( length + first - 1))
+
+	sed -e "${first},${last}s/${cmpnt}//" -i CMakeLists.txt || die
+}
+
 # @FUNCTION: cmake_use_find_package
 # @USAGE: <USE flag> <package name>
 # @DESCRIPTION:
