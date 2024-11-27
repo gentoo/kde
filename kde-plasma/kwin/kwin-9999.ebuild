@@ -79,7 +79,7 @@ COMMON_DEPEND="
 		<media-libs/mesa-24.1.0_rc1[gles2]
 	) )
 	lock? ( >=kde-plasma/kscreenlocker-${PVCUT}:6 )
-	screencast? ( >=media-video/pipewire-0.3.65:= )
+	screencast? ( >=media-video/pipewire-1.2.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${PVCUT}:6 )
 "
 RDEPEND="${COMMON_DEPEND}
