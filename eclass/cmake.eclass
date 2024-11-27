@@ -194,6 +194,66 @@ cmake_comment_add_subdirectory() {
 	done
 }
 
+# @FUNCTION: cmake_punt_find_package
+# @USAGE: [-f <filename>] <pkg> [<components>...]
+# @DESCRIPTION:
+# Default value for <filename> is CMakeLists.txt if not set.
+# In <filename> below current directory, remove a find_package(<pkg>) call.
+# If given one or more <components>, remove those from COMPONENTS instead.
+cmake_punt_find_package() {
+	local pkg filename="CMakeLists.txt"
+	if [[ $# -lt 1 ]]; then
+		die "${FUNCNAME} must be passed at least one argument"
+	fi
+	case ${1} in
+		-f)
+			if [[ $# -ge 2 ]]; then
+				filename="${2}"
+			else
+				die "${FUNCNAME}: bad number of arguments"
+			fi
+			shift 2 ;&
+		*)
+			pkg="${1}"
+			shift ;;
+	esac
+
+	if [[ ! -e ${filename} ]]; then
+		die "${FUNCNAME}: called on non-existing ${filename}"
+		return
+	fi
+
+	if [[ $# -ge 1 ]]; then
+		local cmpnt length first last
+		for cmpnt in $@; do
+			# FIXME: cmpnt=WebKit will result in 'Widgets' over 'WebKitWidgets'
+			# (no regression over ecm.eclass implementation)
+			pcre2grep -Mni "(?s)find_package\s*\(\s*${pkg}(\d+|\\$\{\w*\})[^)]*?${cmpnt}.*?\)" \
+				${filename} > "${T}/bogus${cmpnt}"
+
+			# pcre2grep returns non-zero on no matches/error
+			if [[ $? -ne 0 ]]; then
+				eqawarn "QA Notice: ${FUNCNAME}(${pkg}, ${cmpnt}) called, but no matches found!"
+				continue
+			fi
+
+			length=$(wc -l "${T}/bogus${cmpnt}" | cut -d " " -f 1)
+			first=$(head -n 1 "${T}/bogus${cmpnt}" | cut -d ":" -f 1)
+			last=$(( length + first - 1))
+
+			sed -e "${first},${last}s/${cmpnt}//" -i ${filename} || die
+
+			if [[ ${length} -eq 1 ]] ; then
+				sed -e "/find_package\s*(\s*${pkg}\([0-9]\|\${[A-Z0-9_]*}\)\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${[A-Z0-9_]*}\)\)\+\s*)/Is/^/# '${cmpnt}' removed by cmake.eclass - /" \
+					-i ${filename} || die
+			fi
+		done
+	else
+		sed -e "/find_package\s*(\s*${pkg}\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${[A-Z0-9_]*}\)\)\+\s*)/Is/^/# removed by cmake.eclass - /" \
+			-i ${filename} || die
+	fi
+}
+
 # @FUNCTION: cmake_use_find_package
 # @USAGE: <USE flag> <package name>
 # @DESCRIPTION:
