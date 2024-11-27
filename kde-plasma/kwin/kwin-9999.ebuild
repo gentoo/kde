@@ -59,7 +59,7 @@ COMMON_DEPEND="
 	media-libs/freetype
 	media-libs/lcms:2
 	media-libs/libcanberra
-	media-libs/libdisplay-info:=
+	>=media-libs/libdisplay-info-0.2.0:=
 	media-libs/libepoxy
 	media-libs/libglvnd
 	>=media-libs/mesa-21.3[egl(+),gbm(+),wayland,X]
