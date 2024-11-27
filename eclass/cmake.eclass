@@ -197,7 +197,8 @@ cmake_comment_add_subdirectory() {
 # @FUNCTION: cmake_punt_find_package
 # @USAGE: [-f <filename>] <pkg> [<components>...]
 # @DESCRIPTION:
-# Default value for <filename> is CMakeLists.txt if not set.
+# Default value for <filename> is CMakeLists.txt if not set.  If given a
+# directory instead, will try to modify a CMakeLists.txt below, if exists.
 # In <filename> below current directory, remove a find_package(<pkg>) call.
 # If given one or more <components>, remove those from COMPONENTS instead.
 cmake_punt_find_package() {
@@ -218,6 +219,10 @@ cmake_punt_find_package() {
 			shift ;;
 	esac
 
+	if [[ -d ${filename} ]]; then
+		filename+="/CMakeLists.txt"
+		einfo "modifying ${filename}!"
+	fi
 	if [[ ! -e ${filename} ]]; then
 		die "${FUNCNAME}: called on non-existing ${filename}"
 		return
