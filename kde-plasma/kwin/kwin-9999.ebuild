@@ -100,7 +100,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.14.0
-	>=dev-libs/wayland-protocols-1.36
+	>=dev-libs/wayland-protocols-1.38
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	>=dev-qt/qtwayland-${QTMIN}:6
