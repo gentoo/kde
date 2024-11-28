@@ -19,7 +19,7 @@ fi
 
 LICENSE="GPL-2+ FDL-1.2 CC-BY-SA-4.0"
 SLOT="0"
-IUSE="map phonon +raw share +vlc"
+IUSE="+map phonon +raw share +vlc"
 
 REQUIRED_USE="|| ( phonon vlc )"
 
