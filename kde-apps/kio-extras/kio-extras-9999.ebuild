@@ -15,7 +15,7 @@ HOMEPAGE="https://invent.kde.org/network/kio-extras"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="activities ios +man mtp nfs openexr phonon samba +sftp taglib X"
+IUSE="activities ios +man mtp nfs +libproxy openexr phonon samba +sftp taglib X"
 
 # requires running Plasma environment
 RESTRICT="test"
@@ -52,6 +52,10 @@ DEPEND="
 		app-pda/libimobiledevice:=
 		app-pda/libplist:=
 	)
+	libproxy? (
+		>=kde-frameworks/knotifications-${KFMIN}:6
+		net-libs/libproxy
+	)
 	mtp? ( >=media-libs/libmtp-1.1.16:= )
 	nfs? ( net-libs/libtirpc:= )
 	openexr? ( media-libs/openexr:= )
@@ -82,6 +86,7 @@ src_configure() {
 		-DBUILD_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package ios IMobileDevice)
 		$(cmake_use_find_package ios PList)
+		-DWITH_LIBPROXY=$(usex libproxy)
 		$(cmake_use_find_package man Gperf)
 		$(cmake_use_find_package mtp Libmtp)
 		$(cmake_use_find_package nfs TIRPC)
