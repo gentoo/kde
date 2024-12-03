@@ -80,6 +80,10 @@ CMAKE_SKIP_TESTS=(
 	TestEkos{Capture,FilterWheel,Focus,Mount,Scheduler{,Ops},Simulator}
 )
 
+PATCHES=(
+	"${FILESDIR}/${PN}-3.7.4-cmake.patch" # bug 895892
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibXISF=ON # not packaged
