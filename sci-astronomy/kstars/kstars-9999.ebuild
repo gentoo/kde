@@ -19,7 +19,7 @@ fi
 
 LICENSE="GPL-2+ GPL-3+"
 SLOT="0"
-IUSE="+password raw wcs"
+IUSE="opencv +password raw wcs"
 
 # IUSE wcs needed by TestPolarAlign
 REQUIRED_USE="${PYTHON_REQUIRED_USE} test? ( wcs )"
@@ -49,6 +49,13 @@ COMMON_DEPEND="
 	sci-libs/libnova:=
 	>=sci-libs/stellarsolver-2.2
 	sys-libs/zlib
+	opencv? (
+		media-libs/opencv:=[ffmpeg]
+		|| (
+			media-libs/opencv[qt6(-)]
+			media-libs/opencv[gtk3(-)]
+		)
+	)
 	password? ( >=dev-libs/qtkeychain-0.14.2:=[qt6(+)] )
 	raw? ( media-libs/libraw:= )
 	wcs? ( sci-astronomy/wcslib:= )
@@ -79,6 +86,7 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibXISF=ON # not packaged
 		-DBUILD_QT5=OFF # KF6 please
 		-DBUILD_DOC=$(usex handbook)
+		$(cmake_use_find_package opencv OpenCV)
 		$(cmake_use_find_package password Qt6Keychain)
 		$(cmake_use_find_package raw LibRaw)
 		$(cmake_use_find_package wcs WCSLIB)
