@@ -14,6 +14,7 @@ kde-plasma/kde-gtk-config
 kde-plasma/kdecoration
 kde-plasma/kdeplasma-addons
 kde-plasma/kdesu-gui
+kde-plasma/keditfiletype
 kde-plasma/kgamma
 kde-plasma/kglobalacceld
 kde-plasma/kinfocenter
@@ -44,6 +45,7 @@ kde-plasma/plasma-desktop
 kde-plasma/plasma-disks
 kde-plasma/plasma-firewall
 kde-plasma/plasma-integration
+kde-plasma/plasma-login-sessions
 kde-plasma/plasma-meta
 kde-plasma/plasma-nm
 kde-plasma/plasma-pa
