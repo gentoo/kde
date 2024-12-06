@@ -4,7 +4,6 @@
 EAPI=8
 
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -30,8 +29,8 @@ RDEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
-	>=kde-plasma/plasma-activities-${PVCUT}:6
-	>=kde-plasma/plasma-workspace-${PVCUT}:6
+	>=kde-plasma/plasma-activities-${KDE_CATV}:6
+	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/krunner-${KFMIN}:6

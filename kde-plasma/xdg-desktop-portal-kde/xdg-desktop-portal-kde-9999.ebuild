@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -42,8 +41,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	>=kde-plasma/kwayland-${PVCUT}:6
-	>=kde-plasma/plasma-workspace-${PVCUT}:6
+	>=kde-plasma/kwayland-${KDE_CATV}:6
+	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
 	x11-libs/libxkbcommon
 "
 DEPEND="${COMMON_DEPEND}

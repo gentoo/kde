@@ -5,7 +5,6 @@ EAPI=8
 
 KF5MIN=5.115.0
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QT5MIN=5.15.12
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
@@ -33,7 +32,7 @@ RDEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
-	>=kde-plasma/kdecoration-${PVCUT}:6
+	>=kde-plasma/kdecoration-${KDE_CATV}:6
 	qt5? (
 		>=dev-qt/qtdbus-${QT5MIN}:5
 		>=dev-qt/qtdeclarative-${QT5MIN}:5

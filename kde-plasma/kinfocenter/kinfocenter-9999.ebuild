@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org optfeature
 
@@ -37,7 +36,7 @@ RDEPEND="${DEPEND}
 		dev-qt/qdbus:*
 	)
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-plasma/systemsettings-${PVCUT}:6
+	>=kde-plasma/systemsettings-${KDE_CATV}:6
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 

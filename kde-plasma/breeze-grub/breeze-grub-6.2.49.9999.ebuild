@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-3)
 inherit plasma.kde.org
 
 DESCRIPTION="Breeze theme for GRUB"

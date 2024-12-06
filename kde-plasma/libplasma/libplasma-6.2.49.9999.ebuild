@@ -7,7 +7,6 @@ ECM_NONGUI="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -42,7 +41,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
-	=kde-plasma/plasma-activities-${PVCUT}*:6
+	=kde-plasma/plasma-activities-${KDE_CATV}*:6
 	media-libs/libglvnd
 	x11-libs/libX11
 	x11-libs/libxcb

@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -39,7 +38,7 @@ DEPEND="
 	>=kde-frameworks/modemmanager-qt-${KFMIN}:6
 	>=kde-frameworks/networkmanager-qt-${KFMIN}:6[teamd=]
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
 	net-misc/mobile-broadband-provider-info
 	net-misc/networkmanager[teamd=]
 	openconnect? (

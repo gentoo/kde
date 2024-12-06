@@ -4,7 +4,6 @@
 EAPI=8
 
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm flag-o-matic plasma.kde.org
 
@@ -29,9 +28,9 @@ DEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-plasma/libksysguard-${PVCUT}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
-	>=kde-plasma/plasma-activities-${PVCUT}:6
+	>=kde-plasma/libksysguard-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-${KDE_CATV}:6
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}

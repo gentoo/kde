@@ -6,7 +6,6 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -31,7 +30,7 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=kde-plasma/libksysguard-${PVCUT}:6
+	>=kde-plasma/libksysguard-${KDE_CATV}:6
 	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	X? ( x11-libs/libX11 )
 "

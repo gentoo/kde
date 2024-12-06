@@ -6,7 +6,6 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org optfeature
 
@@ -63,13 +62,13 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
-	>=kde-plasma/kwin-${PVCUT}:6
-	>=kde-plasma/libksysguard-${PVCUT}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
-	>=kde-plasma/plasma-activities-${PVCUT}:6
-	>=kde-plasma/plasma-activities-stats-${PVCUT}:6
-	>=kde-plasma/plasma-workspace-${PVCUT}:6[screencast?]
-	>=kde-plasma/plasma5support-${PVCUT}:6
+	>=kde-plasma/kwin-${KDE_CATV}:6
+	>=kde-plasma/libksysguard-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
+	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?]
+	>=kde-plasma/plasma5support-${KDE_CATV}:6
 	media-libs/libcanberra
 	x11-libs/libX11
 	x11-libs/libxcb
@@ -100,7 +99,7 @@ DEPEND="${COMMON_DEPEND}
 	input_devices_wacom? ( >=dev-libs/wayland-protocols-1.25 )
 	test? (
 		>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-		>=kde-plasma/kactivitymanagerd-${PVCUT}:6
+		>=kde-plasma/kactivitymanagerd-${KDE_CATV}:6
 	)
 "
 RDEPEND="${COMMON_DEPEND}
@@ -110,13 +109,13 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-	>=kde-plasma/oxygen-${PVCUT}:6
+	>=kde-plasma/oxygen-${KDE_CATV}:6
 	kde-plasma/plasma-mimeapps-list
 	media-fonts/noto-emoji
 	sys-apps/util-linux
 	x11-apps/setxkbmap
 	x11-misc/xdg-user-dirs
-	screencast? ( >=kde-plasma/kpipewire-${PVCUT}:6 )
+	screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 )
 	webengine? ( >=net-libs/signon-oauth2-0.25_p20210102[qt6(+)] )
 "
 BDEPEND="

@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -34,9 +33,9 @@ DEPEND="
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-plasma/layer-shell-qt-${PVCUT}:6
-	>=kde-plasma/libkscreen-${PVCUT}:6=
-	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
+	>=kde-plasma/libkscreen-${KDE_CATV}:6=
+	>=kde-plasma/libplasma-${KDE_CATV}:6
 	X? (
 		>=dev-qt/qtbase-${QTMIN}:6=[X]
 		x11-libs/libX11

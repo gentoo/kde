@@ -6,7 +6,6 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -73,17 +72,17 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6[qml]
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=kde-plasma/breeze-${PVCUT}:6
-	>=kde-plasma/kscreenlocker-${PVCUT}:6
-	>=kde-plasma/kwayland-${PVCUT}:6
-	>=kde-plasma/kwin-${PVCUT}:6
-	>=kde-plasma/layer-shell-qt-${PVCUT}:6
-	>=kde-plasma/libkscreen-${PVCUT}:6
-	>=kde-plasma/libksysguard-${PVCUT}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
-	>=kde-plasma/plasma-activities-${PVCUT}:6
-	>=kde-plasma/plasma-activities-stats-${PVCUT}:6
-	>=kde-plasma/plasma5support-${PVCUT}:6
+	>=kde-plasma/breeze-${KDE_CATV}:6
+	>=kde-plasma/kscreenlocker-${KDE_CATV}:6
+	>=kde-plasma/kwayland-${KDE_CATV}:6
+	>=kde-plasma/kwin-${KDE_CATV}:6
+	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
+	>=kde-plasma/libkscreen-${KDE_CATV}:6
+	>=kde-plasma/libksysguard-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
+	>=kde-plasma/plasma5support-${KDE_CATV}:6
 	media-libs/libcanberra
 	>=media-libs/phonon-4.12.0[qt6(+)]
 	sci-libs/libqalculate:=
@@ -115,7 +114,7 @@ COMMON_DEPEND="
 	)
 	screencast? (
 		>=dev-qt/qtbase-${QTMIN}:6=[opengl]
-		>=kde-plasma/kpipewire-${PVCUT}:6
+		>=kde-plasma/kpipewire-${KDE_CATV}:6
 		media-libs/libglvnd
 		>=media-video/pipewire-0.3:=
 		x11-libs/libdrm
@@ -143,11 +142,11 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/kio-extras:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
-	>=kde-plasma/kactivitymanagerd-${PVCUT}:6
-	>=kde-plasma/kdesu-gui-${PVCUT}:*
-	>=kde-plasma/milou-${PVCUT}:6
-	>=kde-plasma/plasma-integration-${PVCUT}:6
-	>=kde-plasma/plasma-login-sessions-${PVCUT}:6
+	>=kde-plasma/kactivitymanagerd-${KDE_CATV}:6
+	>=kde-plasma/kdesu-gui-${KDE_CATV}:*
+	>=kde-plasma/milou-${KDE_CATV}:6
+	>=kde-plasma/plasma-integration-${KDE_CATV}:6
+	>=kde-plasma/plasma-login-sessions-${KDE_CATV}:6
 	sys-apps/dbus
 	x11-apps/xmessage
 	x11-apps/xprop

@@ -5,7 +5,6 @@ EAPI=8
 
 KF5MIN=5.115.0
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QT5MIN=5.15.12
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
@@ -72,7 +71,7 @@ RDEPEND="${COMMON_DEPEND}
 	media-fonts/noto-emoji
 "
 PDEPEND="
-	>=kde-plasma/xdg-desktop-portal-kde-${PVCUT}:6
+	>=kde-plasma/xdg-desktop-portal-kde-${KDE_CATV}:6
 "
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6

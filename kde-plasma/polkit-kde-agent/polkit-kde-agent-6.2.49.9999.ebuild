@@ -5,7 +5,6 @@ EAPI=8
 
 KDE_ORG_NAME="${PN}-1"
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -30,5 +29,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
 "

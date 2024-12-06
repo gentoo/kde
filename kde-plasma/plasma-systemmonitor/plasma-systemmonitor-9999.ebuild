@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-3)
 KFMIN=9999
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
@@ -33,11 +32,11 @@ DEPEND="
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	>=kde-plasma/libksysguard-${PVCUT}:6
+	>=kde-plasma/libksysguard-${KDE_CATV}:6
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
-	>=kde-plasma/ksystemstats-${PVCUT}:6
+	>=kde-plasma/ksystemstats-${KDE_CATV}:6
 "

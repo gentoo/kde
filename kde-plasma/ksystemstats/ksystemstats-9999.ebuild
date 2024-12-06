@@ -6,7 +6,6 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -26,7 +25,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=kde-plasma/libksysguard-${PVCUT}:6
+	>=kde-plasma/libksysguard-${KDE_CATV}:6
 	net-libs/libpcap
 	sys-apps/lm-sensors:=
 	sys-libs/libcap

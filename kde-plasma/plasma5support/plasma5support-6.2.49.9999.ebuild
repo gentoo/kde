@@ -6,7 +6,6 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -30,7 +29,7 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=kde-plasma/libksysguard-${PVCUT}:6
+	>=kde-plasma/libksysguard-${KDE_CATV}:6
 "
 RDEPEND="${DEPEND}
 	!kde-plasma/plasma-workspace:5
