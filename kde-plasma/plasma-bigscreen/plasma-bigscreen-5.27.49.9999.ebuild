@@ -4,7 +4,6 @@
 EAPI=8
 
 KFMIN=6.5.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -30,11 +29,11 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	>=kde-plasma/kwayland-${PVCUT}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
-	>=kde-plasma/plasma-activities-${PVCUT}:6
-	>=kde-plasma/plasma-activities-stats-${PVCUT}:6
-	>=kde-plasma/plasma-workspace-${PVCUT}:6
+	>=kde-plasma/kwayland-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
+	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6

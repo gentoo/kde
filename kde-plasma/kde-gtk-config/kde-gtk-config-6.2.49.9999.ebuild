@@ -4,7 +4,6 @@
 EAPI=8
 
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -27,7 +26,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	>=kde-plasma/kdecoration-${PVCUT}:6
+	>=kde-plasma/kdecoration-${KDE_CATV}:6
 	x11-libs/gtk+:3[X]
 "
 RDEPEND="${DEPEND}

@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org pam
 
@@ -36,9 +35,9 @@ COMMON_DEPEND="
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=kde-plasma/layer-shell-qt-${PVCUT}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
-	>=kde-plasma/libkscreen-${PVCUT}:6
+	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libkscreen-${KDE_CATV}:6
 	sys-libs/pam
 	x11-libs/libX11
 	x11-libs/libXi
@@ -50,7 +49,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
 "
 BDEPEND="
 	dev-util/wayland-scanner
