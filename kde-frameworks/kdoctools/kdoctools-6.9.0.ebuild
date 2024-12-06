@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_QTHELP="false"
-PVCUT=$(ver_cut 1-2)
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Tools to generate documentation in various formats from DocBook files"
@@ -19,13 +18,13 @@ DEPEND="
 	app-text/sgml-common
 	dev-libs/libxml2:2
 	dev-libs/libxslt
-	=kde-frameworks/karchive-${PVCUT}*:6
+	=kde-frameworks/karchive-${KDE_CATV}*:6
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-lang/perl
 	dev-perl/URI
-	nls? ( >=kde-frameworks/ki18n-${PVCUT}:6 )
+	nls? ( >=kde-frameworks/ki18n-${KDE_CATV}:6 )
 "
 
 CMAKE_SKIP_TESTS=(

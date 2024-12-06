@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_QTHELP="false"
 ECM_TEST="false"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -17,14 +16,14 @@ IUSE="+man"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
-	=kde-frameworks/kconfig-${PVCUT}*:6[dbus]
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/kcrash-${PVCUT}*:6
-	=kde-frameworks/kdbusaddons-${PVCUT}*:6
-	=kde-frameworks/kservice-${PVCUT}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6[dbus]
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/kcrash-${KDE_CATV}*:6
+	=kde-frameworks/kdbusaddons-${KDE_CATV}*:6
+	=kde-frameworks/kservice-${KDE_CATV}*:6
 "
 RDEPEND="${DEPEND}"
-BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:6 )"
+BDEPEND="man? ( >=kde-frameworks/kdoctools-${KDE_CATV}:6 )"
 
 src_configure() {
 	local mycmakeargs=(
