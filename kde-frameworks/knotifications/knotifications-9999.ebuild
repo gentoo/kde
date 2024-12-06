@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_PYTHON_BINDINGS="off"
 ECM_TEST="false"
 PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
