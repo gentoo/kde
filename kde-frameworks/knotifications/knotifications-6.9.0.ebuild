@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_PYTHON_BINDINGS="off"
 ECM_TEST="false"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -17,7 +16,7 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
 	media-libs/libcanberra
 "
 DEPEND="${RDEPEND}"

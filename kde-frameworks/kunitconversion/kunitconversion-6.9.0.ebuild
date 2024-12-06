@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_PYTHON_BINDINGS="off"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -16,7 +15,7 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[network]
-	=kde-frameworks/ki18n-${PVCUT}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
 "
 RDEPEND="${DEPEND}"
 

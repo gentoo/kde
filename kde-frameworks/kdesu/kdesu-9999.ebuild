@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_TEST="true"
-PVCUT=$(ver_cut 1-2)
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework to handle super user actions"
@@ -14,10 +13,10 @@ KEYWORDS=""
 IUSE="X"
 
 RDEPEND="
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/kpty-${PVCUT}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/kpty-${KDE_CATV}*:6
 	X? ( x11-libs/libX11 )
 "
 DEPEND="${RDEPEND}

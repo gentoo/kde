@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
 ECM_TEST="false"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -18,18 +17,18 @@ IUSE="opds"
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
-	=kde-frameworks/attica-${PVCUT}*:6
-	=kde-frameworks/karchive-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/kpackage-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
-	opds? ( =kde-frameworks/syndication-${PVCUT}*:6 )
+	=kde-frameworks/attica-${KDE_CATV}*:6
+	=kde-frameworks/karchive-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/kpackage-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
+	opds? ( =kde-frameworks/syndication-${KDE_CATV}*:6 )
 "
 RDEPEND="${DEPEND}
-	>=kde-frameworks/kcmutils-${PVCUT}:6
-	>=kde-frameworks/kirigami-${PVCUT}:6
+	>=kde-frameworks/kcmutils-${KDE_CATV}:6
+	>=kde-frameworks/kirigami-${KDE_CATV}:6
 "
 
 src_configure() {

@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_QTHELP="false"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -19,11 +18,11 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6=
-	=kde-frameworks/kcolorscheme-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kiconthemes-${PVCUT}*:6
-	=kde-frameworks/kirigami-${PVCUT}*:6
-	=kde-frameworks/sonnet-${PVCUT}*:6[qml]
+	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kiconthemes-${KDE_CATV}*:6
+	=kde-frameworks/kirigami-${KDE_CATV}*:6
+	=kde-frameworks/sonnet-${KDE_CATV}*:6[qml]
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6

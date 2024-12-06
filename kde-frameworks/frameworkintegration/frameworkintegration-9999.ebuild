@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_QTHELP="false"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -19,16 +18,16 @@ RESTRICT="test"
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
-	=kde-frameworks/kcolorscheme-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/kiconthemes-${PVCUT}*:6
-	=kde-frameworks/knewstuff-${PVCUT}*:6
-	=kde-frameworks/knotifications-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
+	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/kiconthemes-${KDE_CATV}*:6
+	=kde-frameworks/knewstuff-${KDE_CATV}*:6
+	=kde-frameworks/knotifications-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
 "
 DEPEND="${RDEPEND}
-	=kde-frameworks/kpackage-${PVCUT}*:6
+	=kde-frameworks/kpackage-${KDE_CATV}*:6
 "
 
 src_configure() {

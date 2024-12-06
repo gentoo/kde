@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -23,14 +22,14 @@ CMAKE_SKIP_TESTS=(
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
-	=kde-frameworks/kcodecs-${PVCUT}*:6
-	=kde-frameworks/kcolorscheme-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/kguiaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
+	=kde-frameworks/kcodecs-${KDE_CATV}*:6
+	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/kguiaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
 "
 DEPEND="${RDEPEND}
-	test? ( =kde-frameworks/kconfig-${PVCUT}*:6[dbus] )
+	test? ( =kde-frameworks/kconfig-${KDE_CATV}*:6[dbus] )
 "

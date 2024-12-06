@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -18,15 +17,15 @@ RESTRICT="test"
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,xml]
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/kdbusaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/kdbusaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtbase-${QTMIN}:6[concurrent] )
 "
-BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:6 )"
+BDEPEND="man? ( >=kde-frameworks/kdoctools-${KDE_CATV}:6 )"
 
 src_configure() {
 	local mycmakeargs=(

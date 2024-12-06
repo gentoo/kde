@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for pseudo terminal devices and running child processes"
@@ -13,8 +12,8 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
 
 DEPEND="
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
 	sys-libs/libutempter
 "
 RDEPEND="${DEPEND}"

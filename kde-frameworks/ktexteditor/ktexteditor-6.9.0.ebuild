@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -19,29 +18,29 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtspeech-${QTMIN}:6
-	=kde-frameworks/karchive-${PVCUT}*:6
-	=kde-frameworks/kauth-${PVCUT}*:6
-	=kde-frameworks/kcodecs-${PVCUT}*:6
-	=kde-frameworks/kcompletion-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kconfigwidgets-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/kguiaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/kiconthemes-${PVCUT}*:6
-	=kde-frameworks/kio-${PVCUT}*:6
-	=kde-frameworks/kitemviews-${PVCUT}*:6
-	=kde-frameworks/kjobwidgets-${PVCUT}*:6
-	=kde-frameworks/kparts-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
-	=kde-frameworks/kwindowsystem-${PVCUT}*:6
-	=kde-frameworks/kxmlgui-${PVCUT}*:6
-	=kde-frameworks/sonnet-${PVCUT}*:6
-	=kde-frameworks/syntax-highlighting-${PVCUT}*:6
+	=kde-frameworks/karchive-${KDE_CATV}*:6
+	=kde-frameworks/kauth-${KDE_CATV}*:6
+	=kde-frameworks/kcodecs-${KDE_CATV}*:6
+	=kde-frameworks/kcompletion-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kconfigwidgets-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/kguiaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/kiconthemes-${KDE_CATV}*:6
+	=kde-frameworks/kio-${KDE_CATV}*:6
+	=kde-frameworks/kitemviews-${KDE_CATV}*:6
+	=kde-frameworks/kjobwidgets-${KDE_CATV}*:6
+	=kde-frameworks/kparts-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
+	=kde-frameworks/kwindowsystem-${KDE_CATV}*:6
+	=kde-frameworks/kxmlgui-${KDE_CATV}*:6
+	=kde-frameworks/sonnet-${KDE_CATV}*:6
+	=kde-frameworks/syntax-highlighting-${KDE_CATV}*:6
 	editorconfig? ( app-text/editorconfig-core-c )
 "
 RDEPEND="${DEPEND}"
-BDEPEND="test? ( >=kde-frameworks/kservice-${PVCUT}:6 )"
+BDEPEND="test? ( >=kde-frameworks/kservice-${KDE_CATV}:6 )"
 
 src_configure() {
 	local mycmakeargs=(

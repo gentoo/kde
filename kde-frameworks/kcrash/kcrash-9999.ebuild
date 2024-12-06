@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -19,7 +18,7 @@ RESTRICT="test"
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,opengl]
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
 	X? ( x11-libs/libX11 )
 "
 DEPEND="${RDEPEND}

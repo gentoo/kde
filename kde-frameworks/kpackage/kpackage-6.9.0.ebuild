@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -15,12 +14,12 @@ IUSE="man"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus]
-	=kde-frameworks/karchive-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
+	=kde-frameworks/karchive-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
 "
 RDEPEND="${DEPEND}"
-BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:6 )"
+BDEPEND="man? ( >=kde-frameworks/kdoctools-${KDE_CATV}:6 )"
 
 CMAKE_SKIP_TESTS=(
 	# bugs 650214, 939041

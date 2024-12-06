@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -16,9 +15,9 @@ IUSE="X"
 # slot op: WITH_X11 uses Qt6::GuiPrivate for qtx11extras_p.h
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/knotifications-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/knotifications-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
 	X? ( >=dev-qt/qtbase-${QTMIN}:6=[X] )
 "
 DEPEND="${RDEPEND}"

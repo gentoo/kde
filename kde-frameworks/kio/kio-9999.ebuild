@@ -7,7 +7,6 @@ ECM_DESIGNERPLUGIN="true"
 ECM_HANDBOOK="optional"
 ECM_HANDBOOK_DIR="docs"
 ECM_TEST="forceoptional"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org xdg-utils
 
@@ -24,27 +23,27 @@ RESTRICT="test"
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,ssl,widgets,X?]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	=kde-frameworks/kauth-${PVCUT}*:6
-	=kde-frameworks/kbookmarks-${PVCUT}*:6
-	=kde-frameworks/kcodecs-${PVCUT}*:6
-	=kde-frameworks/kcolorscheme-${PVCUT}*:6
-	=kde-frameworks/kcompletion-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/kcrash-${PVCUT}*:6
-	=kde-frameworks/kdbusaddons-${PVCUT}*:6
-	=kde-frameworks/kguiaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/kiconthemes-${PVCUT}*:6
-	=kde-frameworks/kitemviews-${PVCUT}*:6
-	=kde-frameworks/kjobwidgets-${PVCUT}*:6
-	=kde-frameworks/knotifications-${PVCUT}*:6
-	=kde-frameworks/kservice-${PVCUT}*:6
-	=kde-frameworks/ktextwidgets-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
-	=kde-frameworks/kwindowsystem-${PVCUT}*:6[wayland?,X?]
-	=kde-frameworks/kxmlgui-${PVCUT}*:6
-	=kde-frameworks/solid-${PVCUT}*:6
+	=kde-frameworks/kauth-${KDE_CATV}*:6
+	=kde-frameworks/kbookmarks-${KDE_CATV}*:6
+	=kde-frameworks/kcodecs-${KDE_CATV}*:6
+	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
+	=kde-frameworks/kcompletion-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/kcrash-${KDE_CATV}*:6
+	=kde-frameworks/kdbusaddons-${KDE_CATV}*:6
+	=kde-frameworks/kguiaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/kiconthemes-${KDE_CATV}*:6
+	=kde-frameworks/kitemviews-${KDE_CATV}*:6
+	=kde-frameworks/kjobwidgets-${KDE_CATV}*:6
+	=kde-frameworks/knotifications-${KDE_CATV}*:6
+	=kde-frameworks/kservice-${KDE_CATV}*:6
+	=kde-frameworks/ktextwidgets-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
+	=kde-frameworks/kwindowsystem-${KDE_CATV}*:6[wayland?,X?]
+	=kde-frameworks/kxmlgui-${KDE_CATV}*:6
+	=kde-frameworks/solid-${KDE_CATV}*:6
 	sys-power/switcheroo-control
 	acl? (
 		sys-apps/attr
@@ -53,10 +52,10 @@ COMMON_DEPEND="
 	handbook? (
 		dev-libs/libxml2
 		dev-libs/libxslt
-		=kde-frameworks/karchive-${PVCUT}*:6
-		=kde-frameworks/kdoctools-${PVCUT}*:6
+		=kde-frameworks/karchive-${KDE_CATV}*:6
+		=kde-frameworks/kdoctools-${KDE_CATV}*:6
 	)
-	kwallet? ( =kde-frameworks/kwallet-${PVCUT}*:6 )
+	kwallet? ( =kde-frameworks/kwallet-${KDE_CATV}*:6 )
 	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui] )
 "
 DEPEND="${COMMON_DEPEND}
@@ -70,7 +69,7 @@ RDEPEND="${COMMON_DEPEND}
 # provides access to keditfiletype binary via KWidgetsAddons (Tier1)
 # Typical KIO revdeps (dolphin, krusader et al.) can rely on this dep
 PDEPEND="
-	>=kde-frameworks/kded-${PVCUT}:6
+	>=kde-frameworks/kded-${KDE_CATV}:6
 	kde-plasma/keditfiletype
 "
 

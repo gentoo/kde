@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_QTHELP="false"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -16,7 +15,7 @@ IUSE="avif eps heif jpegxl openexr raw"
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
-	=kde-frameworks/karchive-${PVCUT}*:6
+	=kde-frameworks/karchive-${KDE_CATV}*:6
 	avif? ( >=media-libs/libavif-0.8.2:= )
 	eps? ( >=dev-qt/qtbase-${QTMIN}:6[widgets] )
 	heif? ( >=media-libs/libheif-1.10.0:= )

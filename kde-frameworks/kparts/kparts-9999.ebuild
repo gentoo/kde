@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -15,14 +14,14 @@ IUSE=""
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/kiconthemes-${PVCUT}*:6
-	=kde-frameworks/kio-${PVCUT}*:6
-	=kde-frameworks/kjobwidgets-${PVCUT}*:6
-	=kde-frameworks/kservice-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
-	=kde-frameworks/kxmlgui-${PVCUT}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/kiconthemes-${KDE_CATV}*:6
+	=kde-frameworks/kio-${KDE_CATV}*:6
+	=kde-frameworks/kjobwidgets-${KDE_CATV}*:6
+	=kde-frameworks/kservice-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
+	=kde-frameworks/kxmlgui-${KDE_CATV}*:6
 "
 DEPEND="${RDEPEND}"

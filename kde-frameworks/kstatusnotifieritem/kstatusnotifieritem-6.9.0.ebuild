@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -16,7 +15,7 @@ IUSE="X"
 # slot op: Qt6::WidgetsPrivate use
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
-	=kde-frameworks/kwindowsystem-${PVCUT}*:6[X?]
+	=kde-frameworks/kwindowsystem-${KDE_CATV}*:6[X?]
 "
 DEPEND="${RDEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
