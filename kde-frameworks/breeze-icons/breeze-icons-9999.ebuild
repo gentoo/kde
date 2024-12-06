@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 PYTHON_COMPAT=( python3_{10..13} )
 inherit cmake frameworks.kde.org python-any-r1 xdg
 
@@ -23,7 +22,7 @@ RDEPEND="
 BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/lxml[${PYTHON_USEDEP}]')
 	dev-qt/qtbase:6[gui]
-	>=kde-frameworks/extra-cmake-modules-${PVCUT}:*
+	>=kde-frameworks/extra-cmake-modules-${KDE_CATV}:*
 	test? ( app-misc/fdupes )
 "
 

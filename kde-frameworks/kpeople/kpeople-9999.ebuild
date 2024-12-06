@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 VIRTUALX_REQUIRED="test" # bug 816588 (test fails)
 inherit ecm frameworks.kde.org
@@ -18,12 +17,12 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcontacts-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/kitemviews-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcontacts-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/kitemviews-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
 "
 RDEPEND="${DEPEND}"
 

@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -16,14 +15,14 @@ IUSE="speech"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
-	=kde-frameworks/kcompletion-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcolorscheme-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/kservice-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
-	=kde-frameworks/sonnet-${PVCUT}*:6
+	=kde-frameworks/kcompletion-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/kservice-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
+	=kde-frameworks/sonnet-${KDE_CATV}*:6
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}"

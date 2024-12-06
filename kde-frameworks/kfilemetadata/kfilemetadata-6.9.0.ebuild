@@ -4,7 +4,6 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org optfeature python-any-r1
 
@@ -18,10 +17,10 @@ RESTRICT="test"
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,xml]
-	=kde-frameworks/karchive-${PVCUT}*:6
-	=kde-frameworks/kcodecs-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
+	=kde-frameworks/karchive-${KDE_CATV}*:6
+	=kde-frameworks/kcodecs-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? ( media-video/ffmpeg:0= )
