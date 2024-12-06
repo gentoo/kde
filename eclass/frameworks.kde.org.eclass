@@ -25,6 +25,15 @@ esac
 if [[ -z ${_FRAMEWORKS_KDE_ORG_ECLASS} ]]; then
 _FRAMEWORKS_KDE_ORG_ECLASS=1
 
+# @ECLASS_VARIABLE: KDE_CATV
+# @DESCRIPTION:
+# Holds main Frameworks release number (major.minor) for use on same-category
+# dependencies.
+KDE_CATV=${PV}
+if [[ ${PV} =~ ([^.]+\.[^.]+) ]]; then
+	KDE_CATV=${BASH_REMATCH[1]}
+fi
+
 # @ECLASS_VARIABLE: KDE_PV_UNRELEASED
 # @INTERNAL
 # @DESCRIPTION:
