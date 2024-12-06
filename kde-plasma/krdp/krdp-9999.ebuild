@@ -6,7 +6,6 @@ EAPI=8
 ECM_EXAMPLES="true"
 ECM_TEST="true"
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm flag-o-matic plasma.kde.org toolchain-funcs
 
@@ -30,7 +29,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
-	>=kde-plasma/kpipewire-${PVCUT}:6
+	>=kde-plasma/kpipewire-${KDE_CATV}:6
 	>=net-misc/freerdp-2.10:2[server]
 	x11-libs/libxkbcommon
 "

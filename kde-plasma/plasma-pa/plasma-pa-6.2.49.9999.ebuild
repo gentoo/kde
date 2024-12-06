@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
@@ -30,7 +29,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
 	media-libs/libcanberra
 	media-libs/libpulse
 	>=media-libs/pulseaudio-qt-1.6.0:=
