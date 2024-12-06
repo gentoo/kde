@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
+ECM_PYTHON_BINDINGS="off"
 PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
