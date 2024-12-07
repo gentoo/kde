@@ -15,7 +15,10 @@ fi
 
 LICENSE="LGPL-2.1"
 SLOT="0"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
+DEPEND="test? ( dev-libs/wayland )"
 BDEPEND="
 	dev-libs/libpcre2:*
 	>=kde-frameworks/extra-cmake-modules-5.115.0:*
@@ -23,12 +26,14 @@ BDEPEND="
 		dev-qt/qtbase:6
 		dev-qt/qtcore:5
 	)
+	test? ( dev-util/wayland-scanner )
 "
 
 ecm_src_configure() {
 	local mycmakeargs=(
 		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON # ecm.eclass
 		-DKDE_INSTALL_DOCBUNDLEDIR="${EPREFIX}/usr/share/help" # ecm.eclass
+		-DBUILD_TESTING=$(usex test)
 	)
 
 	cmake_src_configure
