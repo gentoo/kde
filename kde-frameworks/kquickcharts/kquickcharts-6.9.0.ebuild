@@ -6,7 +6,6 @@ EAPI=8
 ECM_EXAMPLES="true"
 ECM_QTHELP="false"
 ECM_TEST="true"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -23,8 +22,8 @@ DEPEND="
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	examples? (
 		>=dev-qt/qtbase-${QTMIN}:6[widgets]
-		=kde-frameworks/kdeclarative-${PVCUT}*:6
-		=kde-frameworks/kirigami-${PVCUT}*:6
+		=kde-frameworks/kdeclarative-${KDE_CATV}*:6
+		=kde-frameworks/kirigami-${KDE_CATV}*:6
 	)
 "
 RDEPEND="${DEPEND}

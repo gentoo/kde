@@ -5,7 +5,6 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm plasma.kde.org optfeature
 
@@ -42,8 +41,8 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
-	>=kde-plasma/libplasma-${PVCUT}:6
-	>=kde-plasma/plasma5support-${PVCUT}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/plasma5support-${KDE_CATV}:6
 	alternate-calendar? ( dev-libs/icu:= )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )

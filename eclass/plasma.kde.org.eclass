@@ -25,6 +25,15 @@ esac
 if [[ -z ${_PLASMA_KDE_ORG_ECLASS} ]]; then
 _PLASMA_KDE_ORG_ECLASS=1
 
+# @ECLASS_VARIABLE: KDE_CATV
+# @DESCRIPTION:
+# Holds main Plasma release number (major.minor.micro) for use on same-category
+# dependencies.
+KDE_CATV=${PV}
+if [[ ${PV} =~ ([^.]+\.[^.]+\.[^.]+) ]]; then
+	KDE_CATV=${BASH_REMATCH[1]}
+fi
+
 # @ECLASS_VARIABLE: KDE_PV_UNRELEASED
 # @INTERNAL
 # @DESCRIPTION:
