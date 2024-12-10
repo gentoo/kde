@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_TEST="true"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -17,10 +16,10 @@ IUSE=""
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	=kde-frameworks/kcodecs-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
+	=kde-frameworks/kcodecs-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
 "
 DEPEND="${RDEPEND}"
 

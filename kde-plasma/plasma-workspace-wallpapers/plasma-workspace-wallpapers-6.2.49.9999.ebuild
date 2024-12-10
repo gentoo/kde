@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit cmake plasma.kde.org
 

@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -15,10 +14,10 @@ IUSE="+policykit"
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
 	policykit? (
 		>=dev-qt/qtbase-${QTMIN}:6[dbus]
-		=kde-frameworks/kwindowsystem-${PVCUT}*:6[wayland]
+		=kde-frameworks/kwindowsystem-${KDE_CATV}*:6[wayland]
 		>=sys-auth/polkit-qt-0.175.0[qt6(+)]
 	)
 "

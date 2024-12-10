@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -17,11 +16,11 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	=kde-frameworks/karchive-${PVCUT}*:6
-	=kde-frameworks/kcolorscheme-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/kguiaddons-${PVCUT}*:6
-	=kde-frameworks/kirigami-${PVCUT}*:6
+	=kde-frameworks/karchive-${KDE_CATV}*:6
+	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/kguiaddons-${KDE_CATV}*:6
+	=kde-frameworks/kirigami-${KDE_CATV}*:6
 "
 RDEPEND="${DEPEND}"

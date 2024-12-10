@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_TEST="true"
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org
 
@@ -16,7 +15,7 @@ IUSE=""
 
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[xml]
-	=kde-frameworks/kcodecs-${PVCUT}*:6
+	=kde-frameworks/kcodecs-${KDE_CATV}*:6
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtbase-${QTMIN}:6[network] )

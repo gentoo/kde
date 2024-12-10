@@ -4,7 +4,6 @@
 EAPI=8
 
 KFMIN=6.5.0
-PVCUT=$(ver_cut 1-3)
 PYTHON_COMPAT=( python3_{10..13} )
 inherit ecm plasma.kde.org python-any-r1
 
@@ -19,7 +18,7 @@ IUSE=""
 BDEPEND="${PYTHON_DEPS}
 	dev-lang/sassc
 	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
-	>=kde-plasma/breeze-${PVCUT}:6
+	>=kde-plasma/breeze-${KDE_CATV}:6
 "
 
 python_check_deps() {

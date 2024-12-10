@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PVCUT=$(ver_cut 1-2)
 QTMIN=6.7.2
 inherit ecm frameworks.kde.org optfeature
 
@@ -17,22 +16,22 @@ DEPEND="
 	>=app-crypt/qca-2.3.9:2[qt6(+)]
 	dev-libs/libgcrypt:0=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
-	=kde-frameworks/kcolorscheme-${PVCUT}*:6
-	=kde-frameworks/kconfig-${PVCUT}*:6
-	=kde-frameworks/kcoreaddons-${PVCUT}*:6
-	=kde-frameworks/kcrash-${PVCUT}*:6
-	=kde-frameworks/kdbusaddons-${PVCUT}*:6
-	=kde-frameworks/ki18n-${PVCUT}*:6
-	=kde-frameworks/knotifications-${PVCUT}*:6
-	=kde-frameworks/kservice-${PVCUT}*:6
-	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
-	=kde-frameworks/kwindowsystem-${PVCUT}*:6[X?]
+	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
+	=kde-frameworks/kconfig-${KDE_CATV}*:6
+	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
+	=kde-frameworks/kcrash-${KDE_CATV}*:6
+	=kde-frameworks/kdbusaddons-${KDE_CATV}*:6
+	=kde-frameworks/ki18n-${KDE_CATV}*:6
+	=kde-frameworks/knotifications-${KDE_CATV}*:6
+	=kde-frameworks/kservice-${KDE_CATV}*:6
+	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
+	=kde-frameworks/kwindowsystem-${KDE_CATV}*:6[X?]
 	gpg? ( app-crypt/gpgme:=[qt6(-)] )
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 "
-BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:6 )"
+BDEPEND="man? ( >=kde-frameworks/kdoctools-${KDE_CATV}:6 )"
 
 src_configure() {
 	local mycmakeargs=(
