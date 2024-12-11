@@ -37,7 +37,7 @@ BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	test? (
 		dev-util/cppcheck
-		sys-devel/clang
+		llvm-core/clang
 	)
 "
 
