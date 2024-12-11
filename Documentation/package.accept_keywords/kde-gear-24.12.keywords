@@ -266,3 +266,6 @@
 <kde-misc/markdownpart-24.12.50
 <sys-block/partitionmanager-24.12.50
 <sys-libs/kpmcore-24.12.50
+~app-text/poppler-24.11.0
+~kde-apps/akonadi-config-0
+~media-libs/mlt-7.28.0
