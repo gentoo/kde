@@ -15,6 +15,7 @@ RDEPEND="
 	>=app-cdr/dolphin-plugins-mountiso-${PV}:*
 	>=app-cdr/isoimagewriter-${PV}:*
 	>=app-crypt/keysmith-${PV}
+	>=app-misc/francis-${PV}
 	>=dev-libs/kweathercore-${PV}:*
 	>=kde-apps/ark-${PV}:*
 	>=kde-apps/filelight-${PV}:*
