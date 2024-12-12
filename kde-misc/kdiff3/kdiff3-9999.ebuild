@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.6.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Frontend to diff3 based on KDE Frameworks"
@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-libs/icu-70.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
