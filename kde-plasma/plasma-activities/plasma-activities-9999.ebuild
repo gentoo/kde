@@ -3,7 +3,6 @@
 
 EAPI=8
 
-ECM_NONGUI="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=9999
