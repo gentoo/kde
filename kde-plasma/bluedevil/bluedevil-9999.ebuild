@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Bluetooth stack for KDE Plasma"
 HOMEPAGE="https://invent.kde.org/plasma/bluedevil"

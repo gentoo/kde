@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="true"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Monitors S.M.A.R.T. capable devices for imminent failure"
 HOMEPAGE="https://invent.kde.org/plasma/plasma-disks"

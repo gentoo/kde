@@ -31,7 +31,6 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
 	elog "This package enables auto-unlocking of kde-frameworks/kwallet:6."
 	elog "See also: https://wiki.gentoo.org/wiki/KDE#KWallet_auto-unlocking"
 }

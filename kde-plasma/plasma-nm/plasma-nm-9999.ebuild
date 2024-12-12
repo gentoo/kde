@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="true"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="KDE Plasma applet for NetworkManager"
 
@@ -66,7 +66,7 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 
 	if ! has_version "kde-frameworks/kcmutils:6"; then
 		elog "${PN} is not terribly useful without kde-frameworks/kcmutils:6."

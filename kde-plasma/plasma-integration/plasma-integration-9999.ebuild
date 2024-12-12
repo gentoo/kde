@@ -7,7 +7,7 @@ KF5MIN=5.115.0
 KFMIN=9999
 QT5MIN=5.15.12
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Qt Platform Theme integration plugins for the Plasma workspaces"
 

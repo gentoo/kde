@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org optfeature
+inherit ecm plasma.kde.org optfeature xdg
 
 DESCRIPTION="Extra Plasma applets and engines"
 
@@ -68,5 +68,5 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "Disk quota applet" "sys-fs/quota"
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="forceoptional"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="KDE Plasma screen management"
 HOMEPAGE="https://invent.kde.org/plasma/kscreen"

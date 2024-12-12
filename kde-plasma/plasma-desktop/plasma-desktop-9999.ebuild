@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org optfeature
+inherit ecm plasma.kde.org optfeature xdg
 
 DESCRIPTION="KDE Plasma desktop"
 XORGHDRS="${PN}-override-include-dirs-4"
@@ -178,5 +178,5 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "screen reader support" "app-accessibility/orca"
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

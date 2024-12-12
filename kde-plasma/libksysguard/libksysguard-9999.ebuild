@@ -52,8 +52,3 @@ src_test() {
 	)
 	LC_NUMERIC="C" ecm_src_test # bug 695514
 }
-
-pkg_postinst() {
-	ecm_pkg_postinst
-	fcaps_pkg_postinst
-}

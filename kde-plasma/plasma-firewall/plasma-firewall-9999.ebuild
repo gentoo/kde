@@ -7,7 +7,7 @@ ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{10..13} )
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org python-single-r1
+inherit ecm plasma.kde.org python-single-r1 xdg
 
 DESCRIPTION="Plasma frontend for Firewalld or UFW"
 HOMEPAGE="https://invent.kde.org/network/plasma-firewall"
@@ -51,7 +51,7 @@ src_configure() {
 }
 
 pkg_postinst () {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 
 	if ! has_version sys-apps/systemd; then
 		ewarn "${PN} is not functional without sys-apps/systemd at this point."

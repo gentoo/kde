@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Implementation of ssh-askpass with KDE Wallet integration"
 HOMEPAGE+=" https://invent.kde.org/plasma/ksshaskpass"
@@ -32,7 +32,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 
 	elog "In order to have ssh-agent start with Plasma 6,"
 	elog "edit /etc/xdg/plasma-workspace/env/10-agent-startup.sh"

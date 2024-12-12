@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoff"
 ECM_TEST="false"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Tools based on KDE Frameworks 6 to better interact with the system"
 HOMEPAGE="https://invent.kde.org/plasma/kde-cli-tools"

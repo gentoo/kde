@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Manage CUPS print jobs and printers in Plasma"
 
@@ -50,7 +50,7 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]] && ! use gtk ; then
 		ewarn "By switching off \"gtk\" USE flag, you have chosen to do without"

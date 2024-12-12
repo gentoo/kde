@@ -8,7 +8,7 @@ ECM_TEST="true"
 KDE_ORG_NAME="kde-cli-tools"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="File Type Editor"
 HOMEPAGE="https://invent.kde.org/plasma/kde-cli-tools"

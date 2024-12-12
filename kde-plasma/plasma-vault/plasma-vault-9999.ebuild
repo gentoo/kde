@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm flag-o-matic plasma.kde.org
+inherit ecm flag-o-matic plasma.kde.org xdg
 
 DESCRIPTION="Plasma applet and services for creating encrypted vaults"
 HOMEPAGE+=" https://cukic.co/2017/02/03/vaults-encryption-in-plasma/"

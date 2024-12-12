@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org optfeature
+inherit ecm plasma.kde.org optfeature xdg
 
 DESCRIPTION="Control Center to configure KDE Plasma desktop"
 
@@ -47,5 +47,5 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "Configure looks for GTK+" kde-plasma/kde-gtk-config
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

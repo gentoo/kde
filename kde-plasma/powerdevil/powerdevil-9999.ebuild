@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm fcaps plasma.kde.org
+inherit ecm fcaps plasma.kde.org xdg
 
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://invent.kde.org/plasma/powerdevil"
@@ -87,6 +87,6 @@ src_test() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 	fcaps_pkg_postinst
 }

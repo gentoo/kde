@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Monitor system sensors, process information and other system resources"
 HOMEPAGE="https://apps.kde.org/plasma-systemmonitor/"

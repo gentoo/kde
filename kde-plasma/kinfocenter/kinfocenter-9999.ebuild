@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org optfeature
+inherit ecm plasma.kde.org optfeature xdg
 
 DESCRIPTION="Utility providing information about the computer hardware"
 HOMEPAGE="https://userbase.kde.org/KInfoCenter"
@@ -86,5 +86,5 @@ pkg_postinst() {
 		optfeature "Wayland information module" app-misc/wayland-utils
 		optfeature "X Server information module" x11-apps/xdpyinfo
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

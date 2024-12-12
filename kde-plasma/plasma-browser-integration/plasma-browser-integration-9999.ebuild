@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Integrate Chrome/Firefox better into Plasma through browser extensions"
 HOMEPAGE+=" https://community.kde.org/Plasma/Browser_Integration"

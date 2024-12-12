@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="KDE Plasma workspace"
 
@@ -217,7 +217,7 @@ src_install() {
 }
 
 pkg_postinst () {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 
 	elog "To enable gpg-agent and/or ssh-agent in Plasma sessions,"
 	elog "edit ${EPREFIX}/etc/xdg/plasma-workspace/env/10-agent-startup.sh"

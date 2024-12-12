@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm fcaps plasma.kde.org
+inherit ecm fcaps plasma.kde.org xdg
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 
@@ -142,6 +142,6 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 	fcaps_pkg_postinst
 }

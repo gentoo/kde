@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=9999
 QTMIN=6.7.2
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Syncs KDE Plasma theme settings to GTK applications"
 HOMEPAGE="https://invent.kde.org/plasma/kde-gtk-config"
@@ -35,7 +35,7 @@ RDEPEND="${DEPEND}
 BDEPEND="dev-lang/sassc"
 
 pkg_postinst() {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 	elog "If you notice missing icons in your GTK applications, you may have to install"
 	elog "the corresponding themes for GTK. A good guess would be x11-themes/oxygen-gtk"
 	elog "for example."
