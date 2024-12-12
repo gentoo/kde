@@ -3,10 +3,9 @@
 
 EAPI=8
 
-ECM_NONGUI="false"
 ECM_PYTHON_BINDINGS="off"
 QTMIN=6.7.2
-inherit ecm frameworks.kde.org
+inherit ecm frameworks.kde.org xdg
 
 DESCRIPTION="Framework providing assorted high-level user interface components"
 
