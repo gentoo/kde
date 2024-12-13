@@ -12,7 +12,7 @@ S=${WORKDIR}
 LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="+mysql postgres sqlite"
+IUSE="mysql postgres +sqlite"
 
 REQUIRED_USE="|| ( mysql postgres sqlite )"
 
@@ -42,11 +42,11 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	# Set default storage backend in order: MySQL, SQLite, PostgreSQL
+	# Set default storage backend in order: SQLite, MySQL, PostgreSQL
 	# reverse driver check to keep the order
 	use postgres && DRIVER="QPSQL"
-	use sqlite && DRIVER="QSQLITE"
 	use mysql && DRIVER="QMYSQL"
+	use sqlite && DRIVER="QSQLITE"
 }
 
 src_unpack() { :; }
@@ -66,8 +66,8 @@ src_install() {
 pkg_postinst() {
 	elog "You can select the storage backend in ~/.config/akonadi/akonadiserverrc."
 	elog "Available drivers (by enabled USE flags) are:"
-	use mysql && elog "  QMYSQL"
 	use sqlite && elog "  QSQLITE"
+	use mysql && elog "  QMYSQL"
 	use postgres && elog "  QPSQL"
 	elog "${DRIVER} has been set as your default akonadi storage backend."
 	elog
