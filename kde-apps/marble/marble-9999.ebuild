@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="optional" # see src/apps/marble-kde/CMakeLists.txt
-ECM_TEST="forceoptional"
+ECM_TEST="true"
 KFMIN=6.5.0
 QTMIN=6.7.2
 inherit ecm gear.kde.org
@@ -68,7 +68,6 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package aprs Perl)
 		$(cmake_use_find_package geolocation Qt6Positioning)
-		-DBUILD_MARBLE_TESTS=$(usex test)
 		-DBUILD_WITH_DBUS=$(usex dbus)
 		-DWITH_DESIGNER_PLUGIN=$(usex designer)
 		-DWITH_libgps=$(usex gps)
