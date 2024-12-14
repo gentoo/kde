@@ -38,11 +38,8 @@ DEPEND="
 		>=kde-frameworks/kcrash-${KFMIN}:6
 		>=kde-frameworks/ki18n-${KFMIN}:6
 		>=kde-frameworks/kio-${KFMIN}:6
-		>=kde-frameworks/knewstuff-${KFMIN}:6
 		>=kde-frameworks/kparts-${KFMIN}:6
 		>=kde-frameworks/krunner-${KFMIN}:6
-		>=kde-frameworks/kservice-${KFMIN}:6
-		>=kde-frameworks/kwallet-${KFMIN}:6
 	)
 	pbf? ( dev-libs/protobuf:= )
 	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
@@ -61,7 +58,7 @@ BDEPEND="
 src_prepare() {
 	ecm_src_prepare
 
-	rm -rf src/3rdparty/zlib || die "Failed to remove bundled libs"
+	rm -r src/3rdparty/zlib || die "Failed to remove bundled libs"
 }
 
 src_configure() {
@@ -71,7 +68,6 @@ src_configure() {
 		-DBUILD_WITH_DBUS=$(usex dbus)
 		-DWITH_DESIGNER_PLUGIN=$(usex designer)
 		-DWITH_libgps=$(usex gps)
-		-DWITH_KF6=$(usex kde)
 		$(cmake_use_find_package pbf Protobuf)
 		-DWITH_Phonon4Qt6=$(usex phonon)
 		-DWITH_libshp=$(usex shapefile)
@@ -80,9 +76,10 @@ src_configure() {
 		# bug 608890
 		-DKDE_INSTALL_CONFDIR="/etc/xdg"
 	)
-	if use kde; then
-		ecm_src_configure
-	else
-		cmake_src_configure
-	fi
+	# KF6KIO: src/thumbnailer/CMakeLists.txt
+	# KF6Runner: src/plasmarunner/CMakeLists.txt
+	for x in CoreAddons I18n Config Crash KIO Parts Runner; do
+		mycmakeargs+=( $(cmake_use_find_package kde KF6${x}) )
+	done
+	ecm_src_configure
 }
