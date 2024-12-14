@@ -20,7 +20,7 @@ IUSE="brightness-control"
 RESTRICT="test" # bug 926513
 
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
-DEPEND="
+COMMON_DEPEND="
 	dev-libs/qcoro[dbus]
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
@@ -51,9 +51,11 @@ DEPEND="
 	x11-libs/libxcb
 	brightness-control? ( app-misc/ddcutil:= )
 "
-RDEPEND="${DEPEND}
-	!<kde-plasma/plasma-workspace-6.1.90:*
+DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.14.0
+"
+RDEPEND="${COMMON_DEPEND}
+	!<kde-plasma/plasma-workspace-6.1.90:*
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	|| (
 		sys-power/power-profiles-daemon
