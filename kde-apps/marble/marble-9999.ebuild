@@ -49,7 +49,13 @@ DEPEND="
 		>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	kde? (
+		dev-libs/kirigami-addons:6
+		>=dev-qt/qt5compat-${QTMIN}:6[qml]
+		>=kde-frameworks/kirigami-${KFMIN}:6
+	)
+"
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	aprs? ( dev-lang/perl )
