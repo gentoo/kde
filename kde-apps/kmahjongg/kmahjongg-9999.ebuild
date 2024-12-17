@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 KDE_SELINUX_MODULE="games"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.5.0
