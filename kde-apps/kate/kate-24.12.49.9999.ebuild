@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoff"
-KFMIN=6.5.0
+KFMIN=6.7.0
 QTMIN=6.7.2
 inherit ecm flag-o-matic gear.kde.org
 

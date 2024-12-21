@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
-KFMIN=6.5.0
+KFMIN=6.7.0
 QTMIN=6.7.2
 inherit ecm flag-o-matic gear.kde.org
 
