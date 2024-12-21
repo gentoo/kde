@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
-KFMIN=6.5.0
+KFMIN=6.9.0
 LLVM_COMPAT=( 15 16 17 18 )
 QTMIN=6.7.2
 inherit ecm gear.kde.org llvm-r1 optfeature

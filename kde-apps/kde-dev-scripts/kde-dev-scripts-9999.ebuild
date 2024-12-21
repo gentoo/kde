@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=6.5.0
+KFMIN=6.9.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="KDE Development Scripts"
