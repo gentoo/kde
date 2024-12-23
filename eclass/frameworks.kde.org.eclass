@@ -65,6 +65,10 @@ KDE_ORG_SCHEDULE_URI+="/Frameworks"
 # @INTERNAL
 # @DESCRIPTION:
 # Helper variable to construct release group specific SRC_URI.
-_KDE_SRC_URI="mirror://kde/"
+_KDE_SRC_URI="mirror://kde/stable/frameworks/${KDE_CATV}/"
+
+if [[ ${KDE_BUILD_TYPE} != live && -z ${KDE_ORG_COMMIT} ]]; then
+	SRC_URI="${_KDE_SRC_URI}${KDE_ORG_TAR_PN}-${PV}.tar.xz"
+fi
 
 fi
