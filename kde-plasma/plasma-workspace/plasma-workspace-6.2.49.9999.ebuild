@@ -27,7 +27,7 @@ COMMON_DEPEND="
 	dev-libs/icu:=
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,libinput,network,sql,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,libinput,network,opengl,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtpositioning-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
@@ -113,7 +113,7 @@ COMMON_DEPEND="
 		virtual/libcrypt:=
 	)
 	screencast? (
-		>=dev-qt/qtbase-${QTMIN}:6=[opengl]
+		>=dev-qt/qtbase-${QTMIN}:6=
 		>=kde-plasma/kpipewire-${KDE_CATV}:6
 		media-libs/libglvnd
 		>=media-video/pipewire-0.3:=
