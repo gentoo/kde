@@ -111,12 +111,6 @@ COMMON_DEPEND="
 		>=sys-auth/polkit-qt-0.175[qt6(+)]
 		virtual/libcrypt:=
 	)
-	screencast? (
-		>=dev-qt/qtbase-${QTMIN}:6=
-		media-libs/libglvnd
-		>=media-video/pipewire-0.3:=
-		x11-libs/libdrm
-	)
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
 	systemd? ( sys-apps/systemd:= )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
@@ -128,6 +122,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	x11-base/xorg-proto
 	fontconfig? ( x11-libs/libXrender )
+	test? ( screencast? ( >=media-video/pipewire-0.3:* ) )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/libkworkspace:5
@@ -150,6 +145,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xprop
 	x11-apps/xrdb
 	policykit? ( sys-apps/accountsservice )
+	screencast? ( >=media-video/pipewire-0.3:* )
 "
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
@@ -167,11 +163,6 @@ src_prepare() {
 	ecm_src_prepare
 
 	cmake_comment_add_subdirectory login-sessions
-
-	# TODO: try to get a build switch upstreamed
-	if ! use screencast; then
-		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
-	fi
 
 	if ! use policykit; then
 		cmake_run_in kcms cmake_comment_add_subdirectory users
@@ -196,6 +187,7 @@ src_configure() {
 		$(cmake_use_find_package appstream AppStreamQt)
 		$(cmake_use_find_package calendar KF6Holidays)
 		$(cmake_use_find_package fontconfig Fontconfig)
+		-DBUILD_CAMERAINDICATOR=$(usex screencast)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 		$(cmake_use_find_package wallpaper-metadata KExiv2Qt6)
