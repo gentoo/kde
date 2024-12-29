@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.5.0
+QTMIN=6.7.2
 KDE_ORG_CATEGORY="system"
 inherit ecm kde.org
 
@@ -14,7 +14,7 @@ https://invent.kde.org/system/xwaylandvideobridge"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-2+"
@@ -22,7 +22,7 @@ SLOT="0"
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
