@@ -107,10 +107,7 @@ COMMON_DEPEND="
 		x11-libs/xcb-util-image
 	)
 	gps? ( sci-geosciences/gpsd )
-	policykit? (
-		>=sys-auth/polkit-qt-0.175[qt6(+)]
-		virtual/libcrypt:=
-	)
+	policykit? ( virtual/libcrypt:= )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
 	systemd? ( sys-apps/systemd:= )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
@@ -183,7 +180,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DWITH_X11=ON # TODO: broken upstream, fix it if you can
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
-		-DGLIBC_LOCALE_GEN=$(usex policykit)
+		-DGLIBC_LOCALE_GEN=OFF
+		-DGLIBC_LOCALE_PREGENERATED=$(usex elibc_glibc)
 		$(cmake_use_find_package appstream AppStreamQt)
 		$(cmake_use_find_package calendar KF6Holidays)
 		$(cmake_use_find_package fontconfig Fontconfig)
