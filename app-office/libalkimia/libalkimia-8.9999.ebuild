@@ -49,7 +49,7 @@ BDEPEND="
 	doc? ( app-text/doxygen )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-8.1.0-cmake.patch" )
+PATCHES=( "${FILESDIR}"/${PN}-8.1.2-{cmake,pkgconfig}.patch )
 
 src_configure() {
 	local mycmakeargs=(
