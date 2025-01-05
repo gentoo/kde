@@ -37,7 +37,12 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 "
-BDEPEND="wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
+BDEPEND="
+	wayland? (
+		>=dev-qt/qtwayland-${QTMIN}:6
+		dev-util/wayland-scanner
+	)
+"
 
 src_configure() {
 	local mycmakeargs=(
