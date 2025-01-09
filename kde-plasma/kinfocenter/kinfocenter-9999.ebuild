@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 KFMIN=9999
 QTMIN=6.7.2
 inherit ecm plasma.kde.org optfeature xdg
@@ -38,7 +38,10 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-plasma/systemsettings-${KDE_CATV}:6
 "
-BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
+BDEPEND="
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	virtual/pkgconfig
+"
 
 CMAKE_SKIP_TESTS=(
 	# bug 816591
