@@ -40,6 +40,7 @@ DEPEND="
 		>=kde-frameworks/kio-${KFMIN}:6
 		>=kde-frameworks/kparts-${KFMIN}:6
 		>=kde-frameworks/krunner-${KFMIN}:6
+		webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[qml] )
 	)
 	pbf? ( dev-libs/protobuf:= )
 	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
