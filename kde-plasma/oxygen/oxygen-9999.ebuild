@@ -6,7 +6,7 @@ EAPI=8
 KF5MIN=5.115.0
 KFMIN=9999
 QT5MIN=5.15.12
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Oxygen visual style for the Plasma desktop"

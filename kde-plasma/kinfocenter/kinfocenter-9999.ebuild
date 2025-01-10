@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 KFMIN=9999
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm plasma.kde.org optfeature xdg
 
 DESCRIPTION="Utility providing information about the computer hardware"
