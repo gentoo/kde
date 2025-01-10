@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,8 +14,8 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="appstream +calendar +fontconfig gps +policykit screencast
-+semantic-desktop systemd telemetry +wallpaper-metadata"
+IUSE="appstream +calendar +fontconfig gps networkmanager +policykit
+screencast +semantic-desktop systemd telemetry +wallpaper-metadata"
 
 RESTRICT="test"
 
@@ -108,6 +108,7 @@ COMMON_DEPEND="
 	)
 	gps? ( sci-geosciences/gpsd )
 	policykit? ( virtual/libcrypt:= )
+	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
 	systemd? ( sys-apps/systemd:= )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
@@ -185,6 +186,7 @@ src_configure() {
 		$(cmake_use_find_package appstream AppStreamQt)
 		$(cmake_use_find_package calendar KF6Holidays)
 		$(cmake_use_find_package fontconfig Fontconfig)
+		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
 		-DBUILD_CAMERAINDICATOR=$(usex screencast)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
