@@ -21,8 +21,8 @@ RESTRICT="test"
 # qtbase slot op: GuiPrivate use in tabbox
 COMMON_DEPEND="
 	dev-libs/libei
-	>=dev-libs/libinput-1.19:=
-	>=dev-libs/wayland-1.23.0
+	>=dev-libs/libinput-1.27:=
+	>=dev-libs/wayland-1.24.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
