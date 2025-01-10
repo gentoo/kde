@@ -14,8 +14,8 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="appstream +calendar +fontconfig gps networkmanager +policykit
-screencast +semantic-desktop systemd telemetry +wallpaper-metadata"
+IUSE="appstream +calendar +fontconfig networkmanager +policykit screencast
++semantic-desktop systemd telemetry +wallpaper-metadata"
 
 RESTRICT="test"
 
@@ -106,7 +106,6 @@ COMMON_DEPEND="
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
-	gps? ( sci-geosciences/gpsd )
 	policykit? ( virtual/libcrypt:= )
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
