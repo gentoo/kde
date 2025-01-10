@@ -16,6 +16,7 @@
 ~kde-plasma/kdecoration-6.2.90
 ~kde-plasma/kdeplasma-addons-6.2.90
 ~kde-plasma/kdesu-gui-6.2.90
+~kde-plasma/keditfiletype-6.2.90
 ~kde-plasma/kgamma-6.2.90
 ~kde-plasma/kglobalacceld-6.2.90
 ~kde-plasma/kinfocenter-6.2.90
@@ -66,4 +67,4 @@
 ~kde-plasma/sddm-kcm-6.2.90
 ~kde-plasma/systemsettings-6.2.90
 ~kde-plasma/wacomtablet-6.2.90
-~kde-plasma/xdg-desktop-portal-kde-6.2.90
+~kde-plasma/xdg-desktop-portal-kde-6.2.90.2
