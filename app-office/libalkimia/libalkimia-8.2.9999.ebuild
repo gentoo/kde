@@ -1,9 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-EGIT_BRANCH="8.1"
 ECM_TEST="forceoptional"
 KDE_ORG_NAME="alkimia"
 KFMIN=5.115.0
@@ -36,7 +35,6 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
@@ -49,16 +47,19 @@ BDEPEND="
 	doc? ( app-text/doxygen )
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-8.1.2-{cmake,pkgconfig}.patch )
+PATCHES=(
+	"${FILESDIR}/${PN}-8.1.2-cmake.patch"
+	"${FILESDIR}/${PN}-8.1.92-pkgconfig.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_FINANCEQUOTE=OFF
+		-DBUILD_APPLETS=OFF
 		-DBUILD_TOOLS=ON
 		-DBUILD_WITH_WEBKIT=OFF
-		$(cmake_use_find_package doc Doxygen)
 		-DCMAKE_DISABLE_FIND_PACKAGE_MPIR=ON
-		-DBUILD_APPLETS=OFF
+		$(cmake_use_find_package doc Doxygen)
 		-DBUILD_WITH_WEBENGINE=$(usex webengine)
 	)
 	ecm_src_configure
