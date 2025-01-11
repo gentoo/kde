@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -50,7 +50,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:6 )
+	activities? ( kde-plasma/plasma-activities:6 )
 	kde? ( >=kde-frameworks/krunner-${KFMIN}:6 )
 	ofx? ( dev-libs/libofx:= )
 "
