@@ -1,9 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-EGIT_BRANCH="5.1"
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=5.115.0
@@ -21,29 +20,24 @@ fi
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities calendar hbci holidays" # addressbook
+IUSE="activities calendar hbci holidays"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
-# 	addressbook? (
-# 		>=kde-apps/akonadi-23.04:5
-# 		>=kde-apps/kidentitymanagement-23.04:5
-# 		>=kde-frameworks/kcontacts-${KFMIN}:5
-# 	)
 RDEPEND="
-	>=app-crypt/gpgme-1.7.1-r1:=[cxx]
-	>=app-office/libalkimia-7.0.0:=
+	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt5(-)]
+	=app-office/libalkimia-8.2*:=
 	dev-db/sqlcipher
 	dev-libs/gmp:0=[cxx(+)]
 	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
 	dev-libs/libofx:=
+	>=dev-libs/qtkeychain-0.14.2:=[qt5(-)]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
@@ -54,7 +48,6 @@ RDEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
@@ -62,7 +55,6 @@ RDEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
@@ -70,8 +62,8 @@ RDEPEND="
 	calendar? ( dev-libs/libical:= )
 	hbci? (
 		>=dev-qt/qtdeclarative-${QTMIN}:5
-		>=net-libs/aqbanking-6.0.1
-		>=sys-libs/gwenhywfar-5.1.2:=[qt5]
+		>=net-libs/aqbanking-6.5.0
+		>=sys-libs/gwenhywfar-5.10.1:=[qt5(-)]
 	)
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 "
@@ -89,22 +81,25 @@ pkg_setup() {
 	fi
 }
 
+src_prepare() {
+	ecm_src_prepare
+
+	sed -e "/find_program.*CCACHE_PROGRAM/s/^/# /" \
+		-e "/if.*CCACHE_PROGRAM/s/CCACHE_PROGRAM/0/" \
+		-i CMakeLists.txt # no, no no.
+}
+
 src_configure() {
 	local mycmakeargs=(
-		-DENABLE_OFXIMPORTER=ON
-		-DENABLE_WEBENGINE=ON
 		-DENABLE_WOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities KF5Activities)
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Contacts=ON # $(usex addressbook)
-		-DCMAKE_DISABLE_FIND_PACKAGE_KPim5Akonadi=ON # $(usex addressbook)
-		-DCMAKE_DISABLE_FIND_PACKAGE_KPim5IdentityManagement=ON # $(usex addressbook)
 		-DENABLE_LIBICAL=$(usex calendar)
 		-DENABLE_KBANKING=$(usex hbci)
 		$(cmake_use_find_package holidays KF5Holidays)
 	)
 	[[ ${KDE_BUILD_TYPE} = live ]] &&
-		mycmakeargs+=( -DENABLE_UNFINISHEDFEATURES=$(usex experimental) )
+		mycmakeargs+=( -DENABLE_COSTCENTER=$(usex experimental) )
 
 	ecm_src_configure
 }
@@ -121,12 +116,6 @@ src_test() {
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "more options for online stock quote retrieval" dev-perl/Finance-Quote
-	fi
-	if has_version "app-office/kmymoney[quotes]"; then
-		elog "Please note: IUSE=quotes flag is gone in ${PN}-5.1.1. ${PN} still"
-		elog "does online stock quote retrieval without it, but dev-perl/Finance-Quote"
-		elog "may provide additional sources. To keep the functionality, run:"
-		elog "  emerge --noreplace dev-perl/Finance-Quote"
 	fi
 	ecm_pkg_postinst
 }
