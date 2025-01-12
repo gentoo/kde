@@ -7,7 +7,7 @@ ECM_HANDBOOK="true"
 ECM_HANDBOOK_DIR=( kcmcddb/doc )
 ECM_KCM_TARGETS=( kcm_cddb:kcmcddb/ )
 KDE_ORG_NAME="${PN/-common/}"
-KFMIN=5.115.0
+KFMIN=6.9.0
 inherit ecm-common gear.kde.org
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
