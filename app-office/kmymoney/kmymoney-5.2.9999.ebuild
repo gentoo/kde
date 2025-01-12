@@ -20,13 +20,14 @@ fi
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities calendar hbci holidays"
+IUSE="activities calendar hbci holidays sql sqlcipher"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
+
+REQUIRED_USE="sqlcipher? ( sql )"
 
 RDEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt5(-)]
 	=app-office/libalkimia-8.2*:=
-	dev-db/sqlcipher
 	dev-libs/gmp:0=[cxx(+)]
 	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
@@ -36,7 +37,6 @@ RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
@@ -66,6 +66,8 @@ RDEPEND="
 		>=sys-libs/gwenhywfar-5.10.1:=[qt5(-)]
 	)
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
+	sql? ( >=dev-qt/qtsql-${QTMIN}:5[sqlite] )
+	sqlcipher? ( dev-db/sqlcipher )
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
@@ -97,6 +99,9 @@ src_configure() {
 		-DENABLE_LIBICAL=$(usex calendar)
 		-DENABLE_KBANKING=$(usex hbci)
 		$(cmake_use_find_package holidays KF5Holidays)
+		-DENABLE_SQLSTORAGE=$(usex sql)
+		$(cmake_use_find_package sql Qt5Sql)
+		-DENABLE_SQLCIPHER=$(usex sqlcipher)
 	)
 	[[ ${KDE_BUILD_TYPE} = live ]] &&
 		mycmakeargs+=( -DENABLE_COSTCENTER=$(usex experimental) )
