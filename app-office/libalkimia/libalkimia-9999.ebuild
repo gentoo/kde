@@ -1,12 +1,12 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 ECM_TEST="forceoptional"
 KDE_ORG_NAME="alkimia"
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=6.5.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -20,27 +20,28 @@ https://community.kde.org/Alkimia"
 
 LICENSE="LGPL-2.1"
 SLOT="0/8"
-IUSE="doc webengine"
+IUSE="doc plasma webengine"
 
 DEPEND="
 	dev-libs/gmp:0=[cxx(+)]
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/knewstuff-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	plasma? (
+		>=kde-frameworks/kpackage-${KFMIN}:6
+		kde-plasma/libplasma:6
+	)
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -58,9 +59,9 @@ src_configure() {
 		-DENABLE_FINANCEQUOTE=OFF
 		-DBUILD_TOOLS=ON
 		-DBUILD_WITH_WEBKIT=OFF
-		$(cmake_use_find_package doc Doxygen)
 		-DCMAKE_DISABLE_FIND_PACKAGE_MPIR=ON
-		-DBUILD_APPLETS=OFF
+		$(cmake_use_find_package doc Doxygen)
+		-DBUILD_APPLETS=$(usex plasma)
 		-DBUILD_WITH_WEBENGINE=$(usex webengine)
 	)
 	ecm_src_configure
