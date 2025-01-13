@@ -19,7 +19,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
-SLOT="6"
+SLOT="0"
 IUSE=""
 
 DEPEND="
