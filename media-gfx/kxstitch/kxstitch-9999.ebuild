@@ -34,7 +34,9 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	media-gfx/imagemagick[cxx]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
+"
 BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
