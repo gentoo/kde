@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_CATEGORY=graphics
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm gear.kde.org
+inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Provides interfaces and session daemon to colord"
 HOMEPAGE="https://invent.kde.org/graphics/colord-kde"
@@ -50,7 +50,7 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 	if ! has_version "gnome-extra/gnome-color-manager"; then
 		elog "You may want to install gnome-extra/gnome-color-manager to add support for"
 		elog "colorhug calibration devices."

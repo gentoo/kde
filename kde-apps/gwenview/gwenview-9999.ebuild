@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm gear.kde.org optfeature
+inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Image viewer by KDE"
 HOMEPAGE="https://apps.kde.org/gwenview/ https://userbase.kde.org/Gwenview"
@@ -106,5 +106,5 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "SVG support" "kde-apps/svgpart:${SLOT}"
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

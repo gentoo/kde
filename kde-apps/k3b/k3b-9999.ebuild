@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm flag-o-matic gear.kde.org
+inherit ecm flag-o-matic gear.kde.org xdg
 
 DESCRIPTION="Full-featured burning and ripping application based on KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/k3b/ https://userbase.kde.org/K3b"
@@ -98,7 +98,7 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 
 	elog "If you get warnings on start-up, uncheck the \"Check system"
 	elog "configuration\" option in the \"Misc\" settings window."

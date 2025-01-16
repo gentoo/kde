@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit flag-o-matic ecm gear.kde.org optfeature
+inherit flag-o-matic ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Web browser and file manager based on KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/konqueror/"
@@ -81,5 +81,5 @@ pkg_postinst() {
 		optfeature "filemanager component" "kde-apps/dolphin:${SLOT}"
 		optfeature "SVG support" "kde-apps/svg:${SLOT}"
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

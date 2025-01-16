@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ KDE_ORG_CATEGORY="utilities"
 ECM_TEST="false"
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm gear.kde.org
+inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Weather forecast application for Plasma with flat and dynamic/animated views"
 HOMEPAGE="https://apps.kde.org/kweather/"

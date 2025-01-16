@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ KDE_ORG_CATEGORY="kdevelop"
 KFMIN=6.9.0
 LLVM_COMPAT=( 15 16 17 18 )
 QTMIN=6.7.2
-inherit ecm gear.kde.org llvm-r1 optfeature
+inherit ecm gear.kde.org llvm-r1 optfeature xdg
 
 DESCRIPTION="Integrated Development Environment, supporting KF6/Qt, C/C++ and much more"
 HOMEPAGE="https://kdevelop.org/"
@@ -118,5 +118,5 @@ pkg_postinst() {
 		optfeature "formatting configurations via customscript plugin" dev-util/indent
 		optfeature "formatting configurations via customscript plugin" dev-util/uncrustify
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }
