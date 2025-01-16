@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{10..12} )
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit python-single-r1 ecm gear.kde.org optfeature
+inherit python-single-r1 ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Localization tool for KDE software and other free and open source software"
 HOMEPAGE="https://apps.kde.org/lokalize/ https://l10n.kde.org/tools/"
@@ -62,5 +62,5 @@ pkg_postinst() {
 		optfeature "autofetch kde.org translations in new project wizard" dev-vcs/subversion
 		optfeature "spell and grammar checking" app-text/languagetool
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

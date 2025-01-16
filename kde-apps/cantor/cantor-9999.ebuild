@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ PYTHON_COMPAT=( python3_{10..12} )
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm gear.kde.org lua-single optfeature python-single-r1
+inherit ecm gear.kde.org lua-single optfeature python-single-r1 xdg
 
 DESCRIPTION="Interface for doing mathematics and scientific computing"
 HOMEPAGE="https://apps.kde.org/cantor/"
@@ -113,5 +113,5 @@ pkg_postinst() {
 		optfeature "Octave backend" sci-mathematics/octave
 		optfeature "LaTeX support" virtual/latex-base
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

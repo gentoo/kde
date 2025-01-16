@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ KDE_ORG_CATEGORY="pim"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm gear.kde.org optfeature
+inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Digital travel assistant with a priority on protecting your privacy"
 HOMEPAGE="https://apps.kde.org/itinerary/
@@ -64,5 +64,5 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "screen brightness control to aid barcode scanning" "kde-frameworks/solid:6"
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

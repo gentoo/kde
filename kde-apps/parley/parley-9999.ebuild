@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ ECM_HANDBOOK_DIR="docs"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm gear.kde.org optfeature
+inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Vocabulary trainer to help you memorize things"
 HOMEPAGE="https://apps.kde.org/parley/"
@@ -61,5 +61,5 @@ src_configure() {
 
 pkg_postinst() {
 	optfeature "online access to translations" app-i18n/translate-shell
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }

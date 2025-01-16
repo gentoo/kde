@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ KDE_ORG_NAME="kate"
 ECM_HANDBOOK="forceoff"
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm flag-o-matic gear.kde.org
+inherit ecm flag-o-matic gear.kde.org xdg
 
 DESCRIPTION="Simple text editor based on KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/kwrite/"

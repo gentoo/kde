@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{10..12} )
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit python-single-r1 ecm gear.kde.org
+inherit python-single-r1 ecm gear.kde.org xdg
 
 DESCRIPTION="Classical Mah Jongg for four players"
 HOMEPAGE="https://apps.kde.org/kajongg/"
