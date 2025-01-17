@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -42,8 +42,6 @@ BDEPEND="
 	app-alternatives/yacc
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-22.04.0-boostpython.patch )
-
 pkg_setup() {
 	ecm_pkg_setup
 	python_setup
@@ -51,7 +49,8 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBOOSTPYTHON_VERSION_MAJOR_MINOR=${EPYTHON}
+		-DPython_LIBRARY=$(python_get_library_path)
+		-DPython_INCLUDE_DIR=$(python_get_includedir)
 		$(cmake_use_find_package python Boost)
 	)
 	ecm_src_configure
