@@ -79,7 +79,6 @@ BDEPEND="x11-misc/shared-mime-info"
 pkg_setup() {
 	use lua && lua-single_pkg_setup
 	use python && python-single-r1_pkg_setup
-	ecm_pkg_setup
 }
 
 src_configure() {

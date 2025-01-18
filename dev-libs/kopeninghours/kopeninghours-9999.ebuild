@@ -42,11 +42,6 @@ BDEPEND="
 	app-alternatives/yacc
 "
 
-pkg_setup() {
-	ecm_pkg_setup
-	python_setup
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DPython_LIBRARY=$(python_get_library_path)
