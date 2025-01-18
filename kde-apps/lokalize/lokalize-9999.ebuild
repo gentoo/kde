@@ -46,11 +46,6 @@ RDEPEND="${DEPEND}
 	')
 "
 
-pkg_setup() {
-	python-single-r1_pkg_setup
-	ecm_pkg_setup
-}
-
 src_install() {
 	ecm_src_install
 	rm "${ED}"/usr/share/lokalize/scripts/msgmerge.{py,rc} || die

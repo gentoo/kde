@@ -62,7 +62,6 @@ BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
-	ecm_pkg_setup
 }
 
 src_configure() {

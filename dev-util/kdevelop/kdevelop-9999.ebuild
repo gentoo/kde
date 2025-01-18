@@ -88,11 +88,6 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/kio-extras:6
 "
 
-pkg_setup() {
-	ecm_pkg_setup
-	llvm-r1_pkg_setup
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DLLVM_ROOT="$(get_llvm_prefix)"

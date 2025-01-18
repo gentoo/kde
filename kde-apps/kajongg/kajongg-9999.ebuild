@@ -36,11 +36,6 @@ RDEPEND="${DEPEND}
 	>=kde-apps/libkmahjongg-${PVCUT}:6
 "
 
-pkg_setup() {
-	python-single-r1_pkg_setup
-	ecm_pkg_setup
-}
-
 src_prepare() {
 	python_fix_shebang src
 	ecm_src_prepare
