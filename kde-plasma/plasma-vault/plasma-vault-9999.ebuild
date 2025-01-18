@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,7 +34,11 @@ DEPEND="
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
-	|| ( >=sys-fs/cryfs-0.9.9 >=sys-fs/encfs-1.9.2 )
+	|| (
+		>=sys-fs/cryfs-0.9.9
+		>=sys-fs/encfs-1.9.2
+		>=app-crypt/gocryptfs-1.8
+	)
 "
 
 src_configure() {
