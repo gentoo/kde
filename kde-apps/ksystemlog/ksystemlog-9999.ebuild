@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -56,7 +56,6 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
 	use kdesu || elog "Will show only user readable logs without USE=kdesu (only in X)."
 	use kdesu && elog "Cannot be launched from application menu in Wayland with USE=kdesu."
 }
