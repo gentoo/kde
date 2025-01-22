@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,6 +32,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
+	>=dev-qt/qtsensors-${QTMIN}:6[qml]
 "
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
