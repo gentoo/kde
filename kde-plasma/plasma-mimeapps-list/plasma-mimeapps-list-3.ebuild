@@ -10,7 +10,7 @@ S=${WORKDIR}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
 # 6.2.4 and 6.2.5 both modified with a new revision to stop installing kde-mimeapps.list.
