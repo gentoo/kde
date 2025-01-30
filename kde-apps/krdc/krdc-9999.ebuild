@@ -41,7 +41,7 @@ DEPEND="
 	activities? ( kde-plasma/plasma-activities:6 )
 	rdp? (
 		>=kde-frameworks/kio-${KFMIN}:6
-		>=net-misc/freerdp-2.1.0:2=
+		>=net-misc/freerdp-2.10:3
 	)
 	vnc? (
 		net-libs/libssh:=
