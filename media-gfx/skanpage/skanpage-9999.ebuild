@@ -15,9 +15,10 @@ HOMEPAGE="https://apps.kde.org/skanpage/"
 LICENSE="|| ( GPL-2 GPL-3 ) CC0-1.0"
 SLOT="6"
 KEYWORDS=""
-IUSE="ocr"
+IUSE=""
 
 DEPEND="
+	>=app-text/tesseract-5:=
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[pdfium]
@@ -33,17 +34,6 @@ DEPEND="
 	>=kde-frameworks/purpose-${KFMIN}:6
 	media-libs/kquickimageeditor:6
 	>=media-libs/ksanecore-${PVCUT}:6
-	ocr? (
-		>=app-text/tesseract-5:=
-		media-libs/leptonica:=
-	)
+	media-libs/leptonica:=
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package ocr Tesseract)
-		$(cmake_use_find_package ocr Leptonica)
-	)
-	ecm_src_configure
-}
