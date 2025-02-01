@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -81,7 +81,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
 RDEPEND="${COMMON_DEPEND}
-	dev-build/ninja
+	app-alternatives/ninja
 	>=dev-debug/gdb-7.0[python]
 	>=dev-qt/qttools-${QTMIN}:6[qdbus]
 	kde-apps/kapptemplate:*
