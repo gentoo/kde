@@ -81,7 +81,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
 RDEPEND="${COMMON_DEPEND}
-	dev-build/ninja
+	app-alternatives/ninja
 	>=dev-debug/gdb-7.0[python]
 	>=dev-qt/qttools-${QTMIN}:6[qdbus]
 	kde-apps/kapptemplate:*
