@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -35,11 +35,6 @@ CMAKE_SKIP_TESTS=(
 	kcountrytest
 	kcountrysubdivisiontest
 )
-
-pkg_setup() {
-	ecm_pkg_setup
-	python-single-r1_pkg_setup
-}
 
 src_configure() {
 	local mycmakeargs=(
