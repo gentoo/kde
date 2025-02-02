@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,6 +25,7 @@ RESTRICT="test" # bug 616878
 COMMON_DEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
 	>=dev-libs/ktextaddons-1.5.4:6[speech?]
+	>=dev-libs/libgpg-error-1.36
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
