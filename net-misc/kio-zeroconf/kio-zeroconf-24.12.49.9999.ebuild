@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,17 +23,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
-	>=net-misc/${PN}-common-${PV}
+	!<net-misc/kio-zeroconf-23.08.5-r2:5
+	!net-misc/kio-zeroconf-common
 "
-
-# Shipped by net-misc/kio-zeroconf-common package for shared use w/ SLOT 5
-ECM_REMOVE_FROM_INSTALL=(
-	/usr/share/dbus-1/interfaces/org.kde.kdnssd.xml
-	/usr/share/remoteview/zeroconf.desktop
-	/usr/share/metainfo/org.kde.kio_zeroconf.metainfo.xml
-)
-
-src_prepare() {
-	ecm_src_prepare
-	ecm_punt_po_install
-}
