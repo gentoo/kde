@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: ecm-common.eclass
@@ -28,13 +28,9 @@ inherit cmake
 # @ECLASS_VARIABLE: KFMIN
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# Minimum version of Frameworks to require.  Default value for kde-frameworks
-# is ${PV} and 6.0.0 baseline for everything else.
+# Minimum version of Frameworks to require.  Default value is 6.0.0.
 # If set to <5.240, it is assumed dependencies are fulfilled by KF5/Qt5
 # alternatively, thus a block of SLOT=5 shadow dependencies added.
-if [[ ${CATEGORY} = kde-frameworks ]]; then
-	: "${KFMIN:=$(ver_cut 1-2)}"
-fi
 : "${KFMIN:=6.0.0}"
 
 # @ECLASS_VARIABLE: _KFSLOT
