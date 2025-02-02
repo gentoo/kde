@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,15 +21,10 @@ DEPEND="
 	media-video/ffmpeg:0=
 "
 RDEPEND="${DEPEND}
-	>=kde-apps/${PN}-common-${PV}
+	!<kde-apps/ffmpegthumbs-23.08.5-r1:5
+	!kde-apps/ffmpegthumbs-common
 "
 BDEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	virtual/pkgconfig
 "
-
-# Shipped by kde-apps/ffmpegthumbs-common package for shared use w/ SLOT 5
-ECM_REMOVE_FROM_INSTALL=(
-	/usr/share/config.kcfg/ffmpegthumbnailersettings5.kcfg
-	/usr/share/metainfo/org.kde.ffmpegthumbs.metainfo.xml
-)
