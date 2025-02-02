@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,6 +19,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/gmp:0=
+	dev-libs/mpc:=
 	dev-libs/mpfr:0=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
