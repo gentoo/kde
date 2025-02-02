@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 ECM_PYTHON_BINDINGS="off"
 QTMIN=6.7.2
-inherit ecm frameworks.kde.org xdg-utils
+inherit ecm frameworks.kde.org xdg
 
 DESCRIPTION="Framework for solving common problems such as caching, randomisation, and more"
 
@@ -47,14 +47,4 @@ src_test() {
 	)
 	# bug 619656
 	ecm_src_test -j1
-}
-
-pkg_postinst() {
-	ecm_pkg_postinst
-	xdg_mimeinfo_database_update
-}
-
-pkg_postrm() {
-	ecm_pkg_postrm
-	xdg_mimeinfo_database_update
 }
