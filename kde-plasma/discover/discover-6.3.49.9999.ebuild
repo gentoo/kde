@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,6 +20,7 @@ IUSE="+firmware flatpak snap telemetry webengine"
 COMMON_DEPEND="
 	>=dev-libs/appstream-1.0.0:=[qt6]
 	dev-libs/kirigami-addons:6
+	dev-libs/qcoro
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/attica-${KFMIN}:6
