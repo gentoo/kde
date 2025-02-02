@@ -60,5 +60,4 @@ pkg_postinst() {
 		optfeature "Microsoft Word/Powerpoint file indexing" app-text/catdoc
 		optfeature "Microsoft Excel file indexing" dev-libs/libxls
 	fi
-	ecm_pkg_postinst
 }
