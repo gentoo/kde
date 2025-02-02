@@ -17,7 +17,7 @@ https://kontact.kde.org/components/kmail/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="6"
 KEYWORDS=""
-IUSE="activities pch speech telemetry"
+IUSE="activities speech telemetry"
 
 RESTRICT="test" # bug 616878
 
@@ -99,7 +99,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
-		-DUSE_PRECOMPILED_HEADERS=$(usex pch)
 		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 	)
