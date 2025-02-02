@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,14 +23,6 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="${DEPEND}
-	>=kde-apps/${PN}-common-${PV}
+	!<kde-apps/kdesdk-thumbnailers-24.05.2-r1:5
+	!kde-apps/kdesdk-thumbnailers-common
 "
-
-ECM_REMOVE_FROM_INSTALL=(
-	/usr/share/config.kcfg/pocreatorsettings.kcfg
-)
-
-src_prepare() {
-	ecm_src_prepare
-	ecm_punt_po_install
-}
