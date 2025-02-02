@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/tokodon/"
 LICENSE="CC-BY-SA-4.0 GPL-2+ GPL-3+ || ( LGPL-2.1+ LGPL-3+ ) MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="+mpv webengine"
+IUSE="webengine"
 
 # TODO: Add kunifiedpush support once packaged (cd01eb31d1ec298d4c1e10d25a0781d799161bfc)
 DEPEND="
@@ -22,6 +22,7 @@ DEPEND="
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebsockets-${QTMIN}:6
 	>=kde-frameworks/breeze-icons-${KFMIN}:*
@@ -38,8 +39,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-	mpv? ( media-libs/mpvqt )
-	!mpv? ( >=dev-qt/qtmultimedia-${QTMIN}:6[qml] )
 	webengine? ( >=dev-qt/qtwebview-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}
@@ -50,7 +49,6 @@ BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_QTMULTIMEDIA=$(usex !mpv)
 		$(cmake_use_find_package webengine Qt6WebView) # "only makes sense on mobile"
 	)
 
