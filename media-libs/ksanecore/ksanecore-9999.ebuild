@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,10 +21,6 @@ DEPEND="
 	media-gfx/sane-backends
 "
 RDEPEND="${DEPEND}
-	>=media-libs/${PN}-common-${PV}
+	!<media-libs/ksanecore-23.08.5-r2:5
+	!media-libs/ksanecore-common
 "
-
-src_prepare() {
-	ecm_src_prepare
-	ecm_punt_po_install
-}
