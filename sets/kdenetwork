@@ -17,6 +17,5 @@ net-im/tokodon
 net-irc/konversation
 net-libs/libktorrent
 net-misc/kio-zeroconf
-net-misc/kio-zeroconf-common
 net-news/alligator
 net-p2p/ktorrent
