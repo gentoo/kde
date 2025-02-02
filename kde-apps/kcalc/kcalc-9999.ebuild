@@ -18,9 +18,9 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-libs/gmp:0=
+	dev-libs/gmp:=
 	dev-libs/mpc:=
-	dev-libs/mpfr:0=
+	dev-libs/mpfr:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
