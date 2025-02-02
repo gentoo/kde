@@ -17,7 +17,7 @@ https://www.volkerkrause.eu/2018/08/19/kde-itinerary-introduction.html"
 LICENSE="LGPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="matrix +networkmanager"
+IUSE="matrix"
 
 DEPEND="
 	>=dev-libs/kirigami-addons-0.9:6
@@ -43,7 +43,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	sys-libs/zlib
 	matrix? ( >=net-libs/libquotient-0.8.1.2-r1:=[qt6(+)] )
-	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
@@ -54,7 +53,6 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_SeleniumWebDriverATSPI=ON # not packaged
-		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
 		$(cmake_use_find_package matrix QuotientQt6)
 	)
 	ecm_src_configure

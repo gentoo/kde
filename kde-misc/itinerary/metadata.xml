@@ -10,6 +10,5 @@
 	</upstream>
 	<use>
 		<flag name="matrix">Enable Matrix decentraliced protocol support via <pkg>net-libs/libquotient</pkg></flag>
-		<flag name="networkmanager">Defer map downloads based on network status using <pkg>kde-frameworks/networkmanager-qt</pkg></flag>
 	</use>
 </pkgmetadata>
