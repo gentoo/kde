@@ -20,6 +20,7 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
 	kde-apps/akonadi:6[xml]
+	kde-apps/akonadi-contacts:6
 	kde-apps/kmime:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
