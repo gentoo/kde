@@ -7,6 +7,7 @@ ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.9.0
 QTMIN=6.7.2
+VIRTUALDBUS_TEST=1
 inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Plugins for KDE Personal Information Management Suite"
@@ -15,9 +16,9 @@ HOMEPAGE="https://apps.kde.org/kontact/"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="6"
 KEYWORDS=""
-IUSE="activities importwizard markdown"
+IUSE="activities importwizard markdown test"
 
-RESTRICT="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
@@ -75,6 +76,7 @@ RDEPEND="
 	markdown? ( app-text/discount:= )
 "
 DEPEND="${RDEPEND}"
+BDEPEND="test? ( sys-apps/dbus )"
 
 src_configure() {
 	local mycmakeargs=(
@@ -84,9 +86,28 @@ src_configure() {
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package importwizard KPim6ImportWizard)
 		$(cmake_use_find_package markdown Discount)
+		-DKDEPIM_RUN_AKONADI_TEST=OFF # tests need database software and networking
 	)
 
 	ecm_src_configure
+}
+
+src_test() {
+	local CMAKE_SKIP_TESTS=(
+		# Locale differences in date display.
+		"fancyheaderstyleplugintest"
+		"grantleeheaderstyleplugintest"
+		# Comparison files outdated, also affected by changes in other packages.
+		"messageviewerplugins-rendertest"
+		# Tests pass but segfault when they exit.
+		"kdepim-addons-eventedittest"
+		"messageviewer-dkimauthenticationverifiedserverdialogtest"
+		# Test pass but get stuck indefinetly afterwards.
+		"kdepim-addons-todoedittest"
+	)
+
+	# tests can get stuck with spawned processes, 4 minutes is a reasonable timeout
+	ecm_src_test --timeout $(( 60 * 4 )) # seconds
 }
 
 pkg_postinst() {
