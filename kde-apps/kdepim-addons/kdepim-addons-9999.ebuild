@@ -50,6 +50,7 @@ RDEPEND="
 	>=kde-apps/messagelib-${PVCUT}:6
 	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
