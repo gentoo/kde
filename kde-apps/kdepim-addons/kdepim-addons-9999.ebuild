@@ -15,9 +15,9 @@ HOMEPAGE="https://apps.kde.org/kontact/"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="6"
 KEYWORDS=""
-IUSE="activities importwizard markdown"
+IUSE="activities importwizard markdown test"
 
-RESTRICT="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
@@ -75,6 +75,11 @@ RDEPEND="
 	markdown? ( app-text/discount:= )
 "
 DEPEND="${RDEPEND}"
+BDEPEND="
+	test? (
+		sys-apps/dbus
+	)
+"
 
 src_configure() {
 	local mycmakeargs=(
@@ -84,9 +89,37 @@ src_configure() {
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package importwizard KPim6ImportWizard)
 		$(cmake_use_find_package markdown Discount)
+		-DKDEPIM_RUN_AKONADI_TEST=OFF # tests need database software and networking
 	)
 
 	ecm_src_configure
+}
+
+src_test() {
+	local dbus_params=(
+		$(dbus-daemon --session --print-address --fork --print-pid)
+	)
+	local -x DBUS_SESSION_BUS_ADDRESS=${dbus_params[0]}
+
+	local CMAKE_SKIP_TESTS=(
+		# Locale differences in date display.
+		"fancyheaderstyleplugintest"
+		"grantleeheaderstyleplugintest"
+		# Comparison files outdated, also affected by changes in other packages.
+		"messageviewerplugins-rendertest"
+		# Tests pass but segfault when they exit.
+		"kdepim-addons-eventedittest"
+		"messageviewer-dkimauthenticationverifiedserverdialogtest"
+		# Test pass but get stuck indefinetly afterwards.
+		"kdepim-addons-todoedittest"
+	)
+
+	local -x QT_QPA_PLATFORM=offscreen
+
+	# tests can get stuck with spawned processes, 4 minutes is a reasonable timeout
+	cmake_src_test --timeout $(( 60 * 4 )) # seconds
+
+	kill "${dbus_params[1]}" || die
 }
 
 pkg_postinst() {
