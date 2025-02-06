@@ -5,9 +5,10 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KFMIN=6.3.0
-QTMIN=6.6.2
-inherit ecm kde.org optfeature
+PYTHON_COMPAT=( python3_{10..13} )
+KFMIN=6.9.0
+QTMIN=6.7.2
+inherit ecm kde.org optfeature python-any-r1 xdg
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
 HOMEPAGE="https://apps.kde.org/kbibtex/ https://userbase.kde.org/KBibTeX"
@@ -55,12 +56,13 @@ RDEPEND="${COMMON_DEPEND}
 	dev-tex/bibtex2html
 "
 DEPEND="${COMMON_DEPEND}
+	${PYTHON_DEPS}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
 
 src_configure() {
 	local mycmakeargs=(
-		-DQT_MAJOR_VERSION=6 # TODO: re-add KDocTools search to this awful piece of cmake...
+		-DQT_MAJOR_VERSION=6
 		$(cmake_use_find_package webengine Qt6WebEngineWidgets)
 	)
 
@@ -71,5 +73,5 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "PDF or PostScript document previews" "kde-apps/okular:6"
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }
