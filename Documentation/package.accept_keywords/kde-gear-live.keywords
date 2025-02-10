@@ -120,11 +120,9 @@
 ~media-gfx/kio-raw-thumbnailer-9999 **
 ~media-gfx/skanpage-9999 **
 ~media-libs/ksanecore-9999 **
-~media-libs/ksanecore-common-9999 **
 ~kde-apps/audiocd-kio-9999 **
 ~kde-apps/dragon-9999 **
 ~kde-apps/ffmpegthumbs-9999 **
-~kde-apps/ffmpegthumbs-common-9999 **
 ~kde-apps/juk-9999 **
 ~kde-apps/k3b-9999 **
 ~kde-apps/kamoso-9999 **
@@ -157,7 +155,6 @@
 ~net-irc/konversation-9999 **
 ~net-libs/libktorrent-9999 **
 ~net-misc/kio-zeroconf-9999 **
-~net-misc/kio-zeroconf-common-9999 **
 ~net-news/alligator-9999 **
 ~net-p2p/ktorrent-9999 **
 ~app-office/merkuro-9999 **
@@ -234,7 +231,6 @@
 ~kde-apps/kde-dev-utils-9999 **
 ~kde-apps/kdesdk-meta-9999 **
 ~kde-apps/kdesdk-thumbnailers-9999 **
-~kde-apps/kdesdk-thumbnailers-common-9999 **
 ~kde-apps/kompare-9999 **
 ~kde-apps/libkomparediff2-9999 **
 ~kde-apps/lokalize-9999 **

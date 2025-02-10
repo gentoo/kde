@@ -119,11 +119,9 @@
 ~media-gfx/kio-raw-thumbnailer-24.08.49.9999 **
 ~media-gfx/skanpage-24.08.49.9999 **
 ~media-libs/ksanecore-24.08.49.9999 **
-~media-libs/ksanecore-common-24.08.49.9999 **
 ~kde-apps/audiocd-kio-24.08.49.9999 **
 ~kde-apps/dragon-24.08.49.9999 **
 ~kde-apps/ffmpegthumbs-24.08.49.9999 **
-~kde-apps/ffmpegthumbs-common-24.08.49.9999 **
 ~kde-apps/juk-24.08.49.9999 **
 ~kde-apps/k3b-24.08.49.9999 **
 ~kde-apps/kamoso-24.08.49.9999 **
@@ -156,7 +154,6 @@
 ~net-irc/konversation-24.08.49.9999 **
 ~net-libs/libktorrent-24.08.49.9999 **
 ~net-misc/kio-zeroconf-24.08.49.9999 **
-~net-misc/kio-zeroconf-common-24.08.49.9999 **
 ~net-news/alligator-24.08.49.9999 **
 ~net-p2p/ktorrent-24.08.49.9999 **
 ~app-office/merkuro-24.08.49.9999 **
@@ -234,7 +231,6 @@
 ~kde-apps/kde-dev-utils-24.08.49.9999 **
 ~kde-apps/kdesdk-meta-24.08.49.9999 **
 ~kde-apps/kdesdk-thumbnailers-24.08.49.9999 **
-~kde-apps/kdesdk-thumbnailers-common-24.08.49.9999 **
 ~kde-apps/kompare-24.08.49.9999 **
 ~kde-apps/libkomparediff2-24.08.49.9999 **
 ~kde-apps/lokalize-24.08.49.9999 **
