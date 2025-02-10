@@ -17,7 +17,7 @@ IUSE="X"
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,opengl]
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
 	X? ( x11-libs/libX11 )
 "
