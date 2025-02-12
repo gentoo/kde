@@ -97,14 +97,6 @@ BDEPEND="
 
 PATCHES=( "${WORKDIR}"/${PATCHSET}/${PN}-3.1.89-no-arch-detection.patch ) # downstream
 
-pkg_pretend() {
-	check-reqs_pkg_pretend
-}
-
-pkg_setup() {
-	check-reqs_pkg_setup
-}
-
 src_configure() {
 	local cal_ft myproducts
 
