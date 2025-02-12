@@ -47,10 +47,7 @@ BDEPEND="
 	doc? ( app-text/doxygen )
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-8.1.2-cmake.patch"
-	"${FILESDIR}/${PN}-8.1.92-pkgconfig.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-8.1.92-pkgconfig.patch" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -63,12 +60,4 @@ src_configure() {
 		-DBUILD_WITH_WEBENGINE=$(usex webengine)
 	)
 	ecm_src_configure
-}
-
-src_test() {
-	# Depends on BUILD_WITH_WEBKIT, bug 736128
-	local myctestargs=(
-		-E "(alkonlinequotestest)"
-	)
-	ecm_src_test
 }
