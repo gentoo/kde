@@ -8,23 +8,19 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=6.9.0
 QTMIN=6.8.0
-inherit check-reqs ecm kde.org xdg
+inherit check-reqs ecm gear.kde.org xdg
 
 DESCRIPTION="KDE Office Suite"
 HOMEPAGE="https://calligra.org/"
-
-if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~ppc64 ~x86"
-fi
-
 PATCHSET="${PN}-3.2.1-patchset-1"
 SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz"
 
-CAL_FTS=( karbon sheets stage words )
-
 LICENSE="GPL-2"
 SLOT="0"
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	KEYWORDS="~amd64 ~ppc64 ~x86"
+fi
+CAL_FTS=( karbon sheets stage words )
 IUSE="+charts +fontconfig gsl +import-filter +lcms okular +pdf phonon
 	+truetype webengine X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
