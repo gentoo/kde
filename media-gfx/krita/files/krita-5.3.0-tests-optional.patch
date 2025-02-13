@@ -2,7 +2,7 @@ From 2e9369281d44a2701ac7364568d381cca0d92ec5 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Sun, 12 Jul 2020 18:55:31 +0200
 Subject: [PATCH] KritaAddBrokenUnitTest.cmake, MacroKritaAddBenchmark.cmake:
- Skip ecm_add_test early if Qt5::Test is not available
+ Skip ecm_add_test early if Qt${QT_MAJOR_VERSION}Test is not available
 
 Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
 ---
@@ -18,7 +18,7 @@ index b7d0e8d852..901a0a1f99 100644
      message(FATAL_ERROR "ecm_add_test() called with multiple source files but without setting \"TEST_NAME\"")
    endif()
  
-+  if(NOT TARGET Qt5::Test)
++  if(NOT TARGET Qt${QT_MAJOR_VERSION}Test)
 +    return()
 +  endif()
 +
@@ -33,7 +33,7 @@ index c748d8e319..f804d9b8f4 100644
          set(_nogui "NOGUI")
      endif()
  
-+    if(NOT TARGET Qt5::Test)
++    if(NOT TARGET Qt${QT_MAJOR_VERSION}Test)
 +        return()
 +    endif()
 +

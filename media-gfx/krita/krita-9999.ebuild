@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{10..13} )
-KFMIN=5.115.0
-QTMIN=5.15.12
-inherit ecm kde.org python-single-r1
+KFMIN=6.9.0
+QTMIN=6.8.0
+inherit ecm kde.org python-single-r1 xdg
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
@@ -18,44 +18,37 @@ DESCRIPTION="Free digital painting application. Digital Painting, Creative Freed
 HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
 
 LICENSE="GPL-3"
-SLOT="5"
+SLOT="0"
 IUSE="color-management fftw gif +gsl heif jpeg2k jpegxl +mypaint-brush-engine openexr pdf media +raw +xsimd webp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # bug 630508
 RESTRICT="test"
 
-RDEPEND="${PYTHON_DEPS}
+COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/boost:=
 	dev-libs/libunibreak:=
-	>=dev-libs/quazip-1.3-r2:0=[qt5(-)]
+	>=dev-libs/quazip-1.3-r2:0=[qt6(+)]
 	$(python_gen_cond_dep '
-		dev-python/pyqt5[declarative,gui,widgets,${PYTHON_USEDEP}]
+		dev-python/pyqt6[declarative,gui,widgets,${PYTHON_USEDEP}]
 		dev-python/sip:=[${PYTHON_USEDEP}]
 	')
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=[-gles2-only]
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,-gles2-only,gui,network,opengl,sql,widgets,X,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	media-gfx/exiv2:=
 	media-libs/lcms
 	media-libs/libjpeg-turbo:=
@@ -75,13 +68,16 @@ RDEPEND="${PYTHON_DEPS}
 	media? ( media-libs/mlt:= )
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? ( media-libs/openexr:= )
-	pdf? ( app-text/poppler[qt5(-)] )
-	raw? ( kde-apps/libkdcraw:5 )
+	pdf? ( app-text/poppler[qt6(-)] )
+	raw? ( kde-apps/libkdcraw:6 )
 	webp? ( >=media-libs/libwebp-1.2.0:= )
 	xsimd? ( >=dev-cpp/xsimd-13.0.0 )
 
 "
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	!${CATEGORY}/${PN}:5
+"
+DEPEND="${COMMON_DEPEND}
 	dev-libs/immer
 	dev-libs/lager
 	dev-libs/zug
@@ -94,16 +90,9 @@ BDEPEND="
 
 PATCHES=(
 	# downstream
-	"${FILESDIR}"/${PN}-5.2.3-tests-optional.patch
+	"${FILESDIR}"/${PN}-5.3.0-tests-optional.patch
 	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
-	# Fedora, non-upstreamed:
-	"${FILESDIR}"/${P}-py3.13.patch # bug 943149
 )
-
-pkg_setup() {
-	python-single-r1_pkg_setup
-	ecm_pkg_setup
-}
 
 src_configure() {
 	# Prevent sandbox violation from FindPyQt5.py module
@@ -111,6 +100,7 @@ src_configure() {
 	addpredict /dev/dri
 
 	local mycmakeargs=(
+		-DBUILD_WITH_QT6=ON
 		-DENABLE_UPDATERS=OFF
 		-DKRITA_ENABLE_PCH=OFF # big mess.
 		-DCMAKE_DISABLE_FIND_PACKAGE_KSeExpr=ON # not packaged
@@ -125,10 +115,9 @@ src_configure() {
 		$(cmake_use_find_package mypaint-brush-engine LibMyPaint)
 		$(cmake_use_find_package openexr OpenEXR)
 		$(cmake_use_find_package pdf Poppler)
-		$(cmake_use_find_package raw KF5KDcraw)
+		$(cmake_use_find_package raw KDcrawQt6)
 		$(cmake_use_find_package webp WebP)
 		$(cmake_use_find_package xsimd xsimd)
 	)
-
 	ecm_src_configure
 }
