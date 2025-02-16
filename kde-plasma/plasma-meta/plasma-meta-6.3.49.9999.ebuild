@@ -117,7 +117,10 @@ RDEPEND="
 	!unsupported? (
 		!gui-apps/qt6ct
 	)
-	wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
+	wacom? (
+		>=kde-plasma/plasma-desktop-${PV}:${SLOT}[input_devices_wacom]
+		>=kde-plasma/wacomtablet-${PV}:${SLOT}
+	)
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 	webengine? ( kde-apps/khelpcenter:6 )
 	xwayland? ( >=gui-apps/xwaylandvideobridge-0.4.0 )
