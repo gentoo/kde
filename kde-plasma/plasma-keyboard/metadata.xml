@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://bugs.kde.org</bugs-to>
-		<remote-id type="kde-invent">plasma/qvk</remote-id>
+		<remote-id type="kde-invent">plasma/plasma-keyboard</remote-id>
 	</upstream>
 </pkgmetadata>

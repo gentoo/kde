@@ -1,1 +1,2 @@
 slotmove app-office/ktimetracker 6 0
+move kde-plasma/qvk kde-plasma/plasma-keyboard

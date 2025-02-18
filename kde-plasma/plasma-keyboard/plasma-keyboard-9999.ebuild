@@ -3,12 +3,12 @@
 
 EAPI=8
 
-KFMIN=6.5.0
-QTMIN=6.7.2
-inherit ecm plasma.kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm plasma.kde.org xdg
 
-DESCRIPTION="Virtual keyboard based on Qt Virtual Keyboard."
-HOMEPAGE="https://invent.kde.org/plasma/qvk"
+DESCRIPTION="Virtual keyboard based on Qt Virtual Keyboard"
+HOMEPAGE="https://invent.kde.org/plasma/plasma-keyboard"
 
 LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2.1 LGPL-3"
 SLOT="6"
