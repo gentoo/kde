@@ -25,7 +25,7 @@ IUSE="activities kde ofx"
 RESTRICT="test"
 
 COMMON_DEPEND="
-	>=app-crypt/qca-2.3.9:2[qt6(-)]
+	>=app-crypt/qca-2.3.9:2[qt6(+)]
 	dev-db/sqlcipher
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
