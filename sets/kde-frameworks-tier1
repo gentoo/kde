@@ -4,6 +4,7 @@ kde-frameworks/attica:6
 kde-frameworks/bluez-qt:6
 kde-frameworks/breeze-icons:6
 kde-frameworks/extra-cmake-modules:0
+kde-frameworks/kapidox:0
 kde-frameworks/karchive:6
 kde-frameworks/kcalendarcore:6
 kde-frameworks/kcodecs:6
