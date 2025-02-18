@@ -22,6 +22,7 @@ RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	svg? (
+		>=dev-cpp/rapidyaml-0.7.2:=
 		>=dev-qt/qtsvg-${QTMIN}:6
 		>=kde-frameworks/karchive-${KFMIN}:6
 		>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -29,10 +30,8 @@ RDEPEND="
 		kde-plasma/libplasma:6
 	)
 "
-DEPEND="${RDEPEND}
-	>=dev-qt/qttools-${QTMIN}:6[qdoc]
-	svg? ( >=dev-cpp/rapidyaml-0.7.2:= )
-"
+DEPEND="${RDEPEND}"
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[qdoc]"
 
 DOCS=( README.md )
 
