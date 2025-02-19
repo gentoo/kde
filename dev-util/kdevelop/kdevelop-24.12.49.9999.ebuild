@@ -7,9 +7,9 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KFMIN=6.7.0
-LLVM_COMPAT=( 15 16 17 18 )
+LLVM_COMPAT=( 15 16 17 18 19 )
 QTMIN=6.7.2
-inherit ecm gear.kde.org llvm-r1 optfeature
+inherit ecm gear.kde.org llvm-r2 optfeature
 
 DESCRIPTION="Integrated Development Environment, supporting KF6/Qt, C/C++ and much more"
 HOMEPAGE="https://kdevelop.org/"
@@ -90,7 +90,7 @@ RDEPEND="${COMMON_DEPEND}
 
 pkg_setup() {
 	ecm_pkg_setup
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 }
 
 src_configure() {
