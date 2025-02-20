@@ -90,6 +90,7 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-plasma/aurorae-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6[wayland(+)]
 	sys-apps/hwdata
 	>=x11-base/xwayland-23.1.0[libei]
