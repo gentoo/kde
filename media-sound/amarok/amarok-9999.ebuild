@@ -89,7 +89,6 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibOFA=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_MySQLe=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Taglib-Extras=ON
 		-DWITH_IPOD=$(usex ipod)
 # 		$(cmake_use_find_package lastfm LibLastFm)
 		$(cmake_use_find_package !mariadb MySQL)
