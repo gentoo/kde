@@ -16,7 +16,7 @@ fi
 DESCRIPTION="Simple video player"
 HOMEPAGE="https://apps.kde.org/dragonplayer/"
 
-LICENSE="GPL-2+ || ( GPL-2 GPL-3 ) handbook? ( FDL-1.2 )"
+LICENSE="GPL-2+ GPL-3+"
 SLOT="0"
 IUSE=""
 
