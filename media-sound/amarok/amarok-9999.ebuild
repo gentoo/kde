@@ -57,7 +57,6 @@ DEPEND="
 	>=kde-frameworks/threadweaver-${KFMIN}:6
 	>=media-libs/phonon-4.12.0[qt6(+)]
 	>=media-libs/taglib-1.12:=
-	media-libs/taglib-extras
 	sci-libs/fftw:3.0
 	sys-libs/zlib
 	virtual/opengl
@@ -95,6 +94,7 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibOFA=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_MySQLe=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_Taglib-Extras=ON
 		-DWITH_IPOD=$(usex ipod)
 # 		$(cmake_use_find_package lastfm LibLastFm)
 		$(cmake_use_find_package !mariadb MySQL)
