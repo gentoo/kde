@@ -14,6 +14,6 @@
 		<flag name="mariadb">Prefer <pkg>dev-db/mariadb-connector-c</pkg> over <pkg>dev-db/mysql-connector-c</pkg></flag>
 		<flag name="mtp">Enable support for libMTP (Plays4Sure) devices access through libmtp</flag>
 <!-- 		<flag name="podcast">Enable gpodder.net podcast support via <pkg>media-libs/libmygpo-qt</pkg></flag> -->
-		<flag name="wikipedia">Enable wikipedia widget using <pkg>dev-qt/qtwebengine</pkg></flag>
+		<flag name="webengine">Enable wikipedia widget using <pkg>dev-qt/qtwebengine</pkg></flag>
 	</use>
 </pkgmetadata>

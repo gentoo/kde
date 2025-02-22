@@ -14,7 +14,7 @@ HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="ipod mariadb mtp wikipedia X" # lastfm podcast
+IUSE="ipod mariadb mtp webengine X" # lastfm podcast
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
@@ -67,7 +67,7 @@ DEPEND="
 	mariadb? ( dev-db/mariadb-connector-c:= )
 	!mariadb? ( dev-db/mysql-connector-c:= )
 	mtp? ( media-libs/libmtp )
-	wikipedia? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
 "
 # 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
 # 	podcast? ( >=media-libs/libmygpo-qt-1.0.9_p20180307 )
@@ -93,7 +93,7 @@ src_configure() {
 		$(cmake_use_find_package !mariadb MySQL)
 		$(cmake_use_find_package mtp Mtp)
 # 		$(cmake_use_find_package podcast Mygpo-qt5)
-		$(cmake_use_find_package wikipedia Qt6WebEngineWidgets)
+		$(cmake_use_find_package webengine Qt6WebEngineWidgets)
 		-DWITH_X11=$(usex X)
 	)
 	use ipod && mycmakeargs+=( -DWITH_GDKPixBuf=ON )
