@@ -82,7 +82,6 @@ BDEPEND="${PYTHON_DEPS}
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_WITH_QT6=ON
 		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=ON
