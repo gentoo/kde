@@ -9,12 +9,17 @@ QTMIN=6.7.2
 PYTHON_COMPAT=( python3_{10..13} )
 inherit ecm kde.org optfeature python-any-r1 xdg
 
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
+
 DESCRIPTION="Advanced audio player based on KDE Frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="ipod mariadb mtp webengine X" # lastfm podcast
+IUSE="ipod lastfm mariadb mtp podcast webengine X"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
@@ -64,13 +69,13 @@ DEPEND="
 		dev-libs/glib:2
 		media-libs/libgpod[gtk]
 	)
+	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20241124 )
 	mariadb? ( dev-db/mariadb-connector-c:= )
 	!mariadb? ( dev-db/mysql-connector-c:= )
 	mtp? ( media-libs/libmtp )
+	podcast? ( >=media-libs/libmygpo-qt-1.1.0_pre20240811 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
 "
-# 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
-# 	podcast? ( >=media-libs/libmygpo-qt-1.0.9_p20180307 )
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	media-video/ffmpeg
@@ -89,10 +94,10 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibOFA=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_MySQLe=ON
 		-DWITH_IPOD=$(usex ipod)
-# 		$(cmake_use_find_package lastfm LibLastFm)
+		$(cmake_use_find_package lastfm LibLastFm)
 		$(cmake_use_find_package !mariadb MySQL)
 		$(cmake_use_find_package mtp Mtp)
-# 		$(cmake_use_find_package podcast Mygpo-qt5)
+		$(cmake_use_find_package podcast Mygpo-qt6)
 		$(cmake_use_find_package webengine Qt6WebEngineWidgets)
 		-DWITH_X11=$(usex X)
 	)
