@@ -19,8 +19,8 @@ LICENSE="GPL-2+ GPL-3+"
 SLOT="0"
 IUSE=""
 
-# TODO: unbundle dev-libs/kdsingleapplication
 DEPEND="
+	dev-libs/kdsingleapplication
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
