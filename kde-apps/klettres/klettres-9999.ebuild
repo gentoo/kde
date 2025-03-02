@@ -18,6 +18,7 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -27,6 +28,5 @@ DEPEND="
 	>=kde-frameworks/knewstuff-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6(+)]
 "
 RDEPEND="${DEPEND}"
