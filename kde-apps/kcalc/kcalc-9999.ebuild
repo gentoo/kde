@@ -35,3 +35,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/gettext"
+
+src_test() {
+	LC_NUMERIC="C" ecm_src_test
+}
