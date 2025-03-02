@@ -51,7 +51,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6(+)]
 	activities? ( kde-plasma/plasma-activities:6 )
 "
 RDEPEND="${DEPEND}"
