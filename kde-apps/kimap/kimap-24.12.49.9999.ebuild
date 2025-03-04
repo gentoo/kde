@@ -34,8 +34,5 @@ DEPEND="${RDEPEND}
 
 src_test() {
 	# tests cannot be run in parallel #605586
-	local myctestargs=(
-		-j1
-	)
-	ecm_src_test
+	ecm_src_test -j1
 }
