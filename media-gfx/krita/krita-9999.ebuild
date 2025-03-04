@@ -30,7 +30,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/libunibreak:=
 	>=dev-libs/quazip-1.3-r2:0=[qt6(+)]
 	$(python_gen_cond_dep '
-		dev-python/pyqt6[declarative,gui,widgets,${PYTHON_USEDEP}]
+		dev-python/pyqt6[gui,qml,widgets,${PYTHON_USEDEP}]
 		dev-python/sip:=[${PYTHON_USEDEP}]
 	')
 	>=dev-qt/qt5compat-${QTMIN}:6
