@@ -60,7 +60,5 @@ src_configure() {
 }
 
 src_test() {
-	local myctestargs=( -j1 )
-
-	ecm_src_test
+	ecm_src_test -j1
 }
