@@ -3,6 +3,7 @@ app-cdr/dolphin-plugins-mountiso
 app-cdr/isoimagewriter
 app-crypt/keysmith
 app-editors/ghostwriter
+app-misc/francis
 dev-libs/kweathercore
 kde-apps/ark
 kde-apps/filelight
