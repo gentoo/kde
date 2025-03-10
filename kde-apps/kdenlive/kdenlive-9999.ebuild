@@ -57,7 +57,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-	media-video/ffmpeg[encode,libass,sdl,X]
+	media-video/ffmpeg[encode(+),libass,sdl,X]
 	media-video/mediainfo
 "
 BDEPEND="sys-devel/gettext"
