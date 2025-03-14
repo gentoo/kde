@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
-KFMIN=6.3.0
+KFMIN=6.9.0
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -20,7 +20,7 @@ LICENSE="LGPL-2+ LGPL-2.1+"
 SLOT="0"
 IUSE=""
 
-RDEPEND+=" !${CATEGORY}/${PN}:6"
+RDEPEND="!${CATEGORY}/${PN}:6"
 BDEPEND="
 	app-alternatives/lex
 	app-alternatives/yacc
