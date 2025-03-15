@@ -39,7 +39,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
-	>=kde-frameworks/kglobalaccel-${KFMIN}:6=[X(+)]
+	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6[wayland]
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kidletime-${KFMIN}:6=[wayland]
@@ -49,7 +49,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6=[wayland,X]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6=[wayland]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
@@ -94,7 +94,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/aurorae-${KDE_CATV}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6[wayland(+)]
+	>=kde-plasma/libplasma-${KDE_CATV}:6
 	sys-apps/hwdata
 	xwayland? ( >=x11-base/xwayland-23.1.0[libei] )
 "
