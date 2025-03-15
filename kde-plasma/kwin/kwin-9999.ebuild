@@ -14,17 +14,18 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility gles2-only lock screencast +shortcuts systemd"
+IUSE="accessibility gles2-only lock screencast +shortcuts systemd xwayland"
 
 RESTRICT="test"
 
 # qtbase slot op: GuiPrivate use in tabbox
+# qtbase[X]: private/qtx11extras_p.h in src/helpers/killer
 COMMON_DEPEND="
 	dev-libs/libei
 	>=dev-libs/libinput-1.27:=
 	>=dev-libs/wayland-1.24.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
@@ -61,22 +62,24 @@ COMMON_DEPEND="
 	>=media-libs/libdisplay-info-0.2.0:=
 	media-libs/libepoxy
 	media-libs/libglvnd
-	>=media-libs/mesa-21.3[egl(+),gbm(+),wayland,X]
+	>=media-libs/mesa-24.1.0_rc1[opengl,wayland]
 	virtual/libudev:=
-	x11-libs/libX11
-	x11-libs/libXi
 	>=x11-libs/libdrm-2.4.116
 	>=x11-libs/libxcb-1.10:=
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
 	x11-libs/xcb-util-cursor
-	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
-	gles2-only? ( >=media-libs/mesa-24.1.0_rc1 )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
 	screencast? ( >=media-video/pipewire-1.2.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
+	xwayland? (
+		x11-libs/libX11
+		x11-libs/libXi
+		x11-libs/libXres
+		x11-libs/xcb-util-keysyms
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdeplasma-addons:5
@@ -93,17 +96,16 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/aurorae-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6[wayland(+)]
 	sys-apps/hwdata
-	>=x11-base/xwayland-23.1.0[libei]
+	xwayland? ( >=x11-base/xwayland-23.1.0[libei] )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.16.0
-	>=dev-libs/wayland-protocols-1.38
+	>=dev-libs/wayland-protocols-1.41
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	>=dev-qt/qtwayland-${QTMIN}:6
-	x11-base/xorg-proto
-	x11-libs/xcb-util-image
 	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
+	xwayland? ( x11-base/xorg-proto )
 "
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
@@ -131,12 +133,12 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		# TODO: KWIN_BUILD_X11=$(usex xwayland) KWIN_BUILD_X11_BACKEND=$(usex X)
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Libcap=ON
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
+		-DKWIN_BUILD_X11=$(usex xwayland)
 	)
 
 	ecm_src_configure
