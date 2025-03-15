@@ -38,7 +38,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-frameworks/solid-${KFMIN}:6
 	>=net-libs/libktorrent-${PVCUT}:6
 	infowidget? ( dev-libs/geoip )
 	ipfilter? ( >=kde-frameworks/karchive-${KFMIN}:6 )
