@@ -50,6 +50,7 @@ PATCHES=(
 
 src_configure() {
 	local mycmakeargs=(
+		# XXX: sndio is maybe automagic since 5075cc9502b2768471fd917671fd98bfe5b877cc
 		$(cmake_use_find_package alsa ALSA)
 		$(cmake_use_find_package pulseaudio Canberra)
 		$(cmake_use_find_package pulseaudio PulseAudio)
