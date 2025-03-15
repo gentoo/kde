@@ -19,12 +19,13 @@ IUSE="accessibility gles2-only lock screencast +shortcuts systemd"
 RESTRICT="test"
 
 # qtbase slot op: GuiPrivate use in tabbox
+# qtbase[X]: private/qtx11extras_p.h in src/helpers/killer
 COMMON_DEPEND="
 	dev-libs/libei
 	>=dev-libs/libinput-1.27:=
 	>=dev-libs/wayland-1.23.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
@@ -61,7 +62,7 @@ COMMON_DEPEND="
 	>=media-libs/libdisplay-info-0.2.0:=
 	media-libs/libepoxy
 	media-libs/libglvnd
-	>=media-libs/mesa-21.3[egl(+),gbm(+),wayland,X]
+	>=media-libs/mesa-24.1.0_rc1[opengl,wayland,X]
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libXi
@@ -73,7 +74,6 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
-	gles2-only? ( >=media-libs/mesa-24.1.0_rc1 )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
 	screencast? ( >=media-video/pipewire-1.2.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
