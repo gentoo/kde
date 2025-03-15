@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	>=app-crypt/gpgme-1.23.2:=[cxx,qt6]
+	>=app-crypt/gpgme-1.24.1:=[cxx,qt6]
 	>=dev-libs/libgpg-error-1.36
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-frameworks/kcodecs-${KFMIN}:6
