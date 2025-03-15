@@ -13,12 +13,15 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="dbus"
 
-DEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus?,icu,network]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	virtual/libudev:=
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	sys-kernel/linux-headers
+"
+RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qttranslations-${QTMIN}:6
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
@@ -26,9 +29,9 @@ BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 src_configure() {
 	local mycmakeargs=(
 		-DKCOREADDONS_USE_QML=ON
+		-DENABLE_INOTIFY=ON
 		-DUSE_DBUS=$(usex dbus)
 	)
-
 	ecm_src_configure
 }
 
