@@ -19,6 +19,7 @@ KEYWORDS=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[network]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtpositioning-${QTMIN}:6
 	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
