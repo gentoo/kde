@@ -19,8 +19,7 @@ IUSE="+mpris vlc"
 RESTRICT="test"
 
 DEPEND="
-	>=dev-libs/kirigami-addons-0.11.76:6
-	>=dev-qt/qtbase-${QTMIN}:6[gui,sql,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -30,11 +29,10 @@ DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kfilemetadata-${KFMIN}:6[taglib]
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
-	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemviews-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	mpris? (
 		>=dev-qt/qtbase-${QTMIN}:6[dbus]
 		>=kde-frameworks/kdbusaddons-${KFMIN}:6
@@ -43,7 +41,10 @@ DEPEND="
 	!vlc? ( >=dev-qt/qtmultimedia-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}
+	>=dev-libs/kirigami-addons-0.11.76:6
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 "
 BDEPEND="sys-devel/gettext"
 
