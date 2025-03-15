@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
 +networkmanager oxygen-theme plymouth pulseaudio qt5 rdp +sddm sdk +smart systemd
-thunderbolt unsupported wacom +wallpapers webengine"
+thunderbolt unsupported wacom +wallpapers webengine X"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -52,7 +52,7 @@ RDEPEND="
 	>=kde-plasma/plasma-activities-stats-${PV}:${SLOT}
 	>=kde-plasma/plasma-desktop-${PV}:${SLOT}
 	>=kde-plasma/plasma-integration-${PV}:${SLOT}[qt5?]
-	>=kde-plasma/plasma-login-sessions-${PV}:${SLOT}
+	>=kde-plasma/plasma-login-sessions-${PV}:${SLOT}[X?]
 	>=kde-plasma/plasma-systemmonitor-${PV}:${SLOT}
 	>=kde-plasma/plasma-welcome-${PV}:${SLOT}
 	>=kde-plasma/plasma-workspace-${PV}:${SLOT}
@@ -79,7 +79,7 @@ RDEPEND="
 	display-manager? (
 		sddm? (
 			>=kde-plasma/sddm-kcm-${PV}:${SLOT}
-			>=x11-misc/sddm-0.21.0_p20240302[elogind?,systemd?]
+			>=x11-misc/sddm-0.21.0_p20240302[elogind?,systemd?,X?]
 		)
 		!sddm? ( x11-misc/lightdm )
 	)
@@ -116,15 +116,14 @@ RDEPEND="
 		firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} )
 	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
-	!unsupported? (
-		!gui-apps/qt6ct
-	)
+	!unsupported? ( !gui-apps/qt6ct )
 	wacom? (
 		>=kde-plasma/plasma-desktop-${PV}:${SLOT}[input_devices_wacom]
 		>=kde-plasma/wacomtablet-${PV}:${SLOT}
 	)
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 	webengine? ( kde-apps/khelpcenter:6 )
+	X? ( >=kde-plasma/kwin-x11-${PV}:${SLOT}[lock] )
 "
 # Optional runtime deps: kde-plasma/plasma-desktop
 RDEPEND="${RDEPEND}
