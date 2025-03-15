@@ -1,0 +1,17 @@
+# Tier 2: Additionally depend on tier 1 frameworks.
+<kde-frameworks/kauth-6.12.50:6
+<kde-frameworks/kcolorscheme-6.12.50:6
+<kde-frameworks/kcompletion-6.12.50:6
+<kde-frameworks/kcontacts-6.12.50:6
+<kde-frameworks/kcrash-6.12.50:6
+<kde-frameworks/kdoctools-6.12.50:6
+<kde-frameworks/kfilemetadata-6.12.50:6
+<kde-frameworks/kimageformats-6.12.50:6
+<kde-frameworks/kjobwidgets-6.12.50:6
+<kde-frameworks/knotifications-6.12.50:6
+<kde-frameworks/kpackage-6.12.50:6
+<kde-frameworks/kpty-6.12.50:6
+<kde-frameworks/kstatusnotifieritem-6.12.50:6
+<kde-frameworks/ksvg-6.12.50:6
+<kde-frameworks/kunitconversion-6.12.50:6
+<kde-frameworks/syndication-6.12.50:6
