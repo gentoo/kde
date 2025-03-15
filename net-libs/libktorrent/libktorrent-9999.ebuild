@@ -22,7 +22,6 @@ COMMON_DEPEND="
 	>=dev-libs/gmp-6.0.0a:0=
 	dev-libs/libgcrypt:0=
 	>=dev-qt/qtbase-${QTMIN}:6[network,xml]
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
