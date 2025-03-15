@@ -43,9 +43,7 @@ RDEPEND="
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
 "
-DEPEND="${RDEPEND}
-	dev-libs/boost
-"
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
