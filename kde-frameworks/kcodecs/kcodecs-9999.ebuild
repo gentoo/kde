@@ -12,10 +12,7 @@ LICENSE="GPL-2+ LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	>=dev-qt/qttools-${QTMIN}:6[linguist]
-	dev-util/gperf
-"
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 CMAKE_SKIP_TESTS=(
 	# bug 938317
