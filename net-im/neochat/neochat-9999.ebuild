@@ -16,7 +16,6 @@ LICENSE="GPL-3+ handbook? ( CC-BY-SA-4.0 )"
 SLOT="0"
 KEYWORDS=""
 
-# TODO: Wire up kunifiedpush once packaged? (1a3055df8673802076bc0c269ec24274abef375b)
 DEPEND="
 	app-text/cmark:=
 	dev-libs/kirigami-addons:6
@@ -64,3 +63,12 @@ CMAKE_SKIP_TESTS=(
 	# bug 909816, tries access /proc/PID/mem
 	texthandlertest # ki18n (KLocalizedString) failure
 )
+
+src_configure() {
+	local mycmakeargs=(
+		# TODO: kunifiedpush not yet packaged
+		-DWITH_UNIFIEDPUSH=OFF
+	)
+
+	ecm_src_configure
+}
