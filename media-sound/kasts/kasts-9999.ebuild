@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="gstreamer vlc"
 
 DEPEND="
-	dev-libs/kirigami-addons:6
+	>=dev-libs/kirigami-addons-1.6.0:6
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
@@ -26,8 +26,11 @@ DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/syndication-${KFMIN}:6
 	>=kde-frameworks/threadweaver-${KFMIN}:6
 	media-libs/taglib:=
