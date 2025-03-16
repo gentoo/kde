@@ -20,7 +20,6 @@ IUSE="X"
 DEPEND="
 	dev-libs/icu:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
