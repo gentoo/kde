@@ -27,6 +27,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
+	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -97,7 +98,6 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.38
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
-	>=dev-qt/qtwayland-${QTMIN}:6
 	x11-base/xorg-proto
 	x11-libs/xcb-util-image
 "
