@@ -44,7 +44,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=kde-frameworks/kglobalaccel-${KFMIN}:6
+	>=kde-plasma/kglobalacceld-${KDE_CATV}:6
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
