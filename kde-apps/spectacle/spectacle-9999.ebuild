@@ -5,10 +5,10 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-PVCUT=$(ver_cut 1-3)
-KFMIN=6.9.0
-QTMIN=6.7.2
-inherit ecm gear.kde.org xdg
+KDE_ORG_CATEGORY="graphics" # FIXME upstream?
+KFMIN=9999
+QTMIN=6.8.1
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Screenshot capture utility"
 HOMEPAGE="https://apps.kde.org/spectacle/"
