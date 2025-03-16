@@ -23,7 +23,6 @@ COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtimageformats-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -57,6 +56,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.11.1
 "
 RDEPEND="${COMMON_DEPEND}
+	>=dev-qt/qtimageformats-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
 BDEPEND="
