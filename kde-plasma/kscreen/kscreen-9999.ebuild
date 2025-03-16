@@ -28,7 +28,6 @@ DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
-	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
@@ -45,6 +44,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
+	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
