@@ -18,7 +18,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 IUSE="acoustid flac kde mp3 mp4 +mpris +taglib test vorbis"
 
-REQUIRED_USE="flac? ( vorbis )"
+REQUIRED_USE="test? ( flac mp3 mp4 taglib vorbis )" # bug 926747
 RESTRICT="!test? ( test )"
 
 DEPEND="
