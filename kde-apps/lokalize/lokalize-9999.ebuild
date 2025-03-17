@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{10..12} )
-KFMIN=6.9.0
+KFMIN=6.12.0
 QTMIN=6.7.2
 inherit python-single-r1 ecm gear.kde.org optfeature xdg
 

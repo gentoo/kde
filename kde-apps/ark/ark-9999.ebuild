@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
-KFMIN=6.9.0
+KFMIN=6.12.0
 QTMIN=6.7.2
 inherit ecm gear.kde.org optfeature xdg
 

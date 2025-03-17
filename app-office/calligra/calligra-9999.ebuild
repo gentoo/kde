@@ -6,7 +6,7 @@ EAPI=8
 CHECKREQS_DISK_BUILD="4G"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=6.9.0
+KFMIN=6.12.0
 QTMIN=6.8.0
 inherit check-reqs ecm gear.kde.org xdg
 

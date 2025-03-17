@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="git"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.9.0
+KFMIN=6.12.0
 QTMIN=6.7.2
 inherit ecm gear.kde.org
 

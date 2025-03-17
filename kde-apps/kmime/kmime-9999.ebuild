@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=6.9.0
+KFMIN=6.12.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="Libary for handling mail messages and newsgroup articles"
