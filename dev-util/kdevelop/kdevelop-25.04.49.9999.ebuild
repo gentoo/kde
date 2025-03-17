@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KFMIN=6.9.0
