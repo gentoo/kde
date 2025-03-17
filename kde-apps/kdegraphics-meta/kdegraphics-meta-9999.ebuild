@@ -24,6 +24,7 @@ RDEPEND="
 	>=kde-apps/svgpart-${PV}:*
 	>=kde-apps/thumbnailers-${PV}:*
 	>=media-gfx/kgraphviewer-${PV}:*
+	>=media-gfx/qrca-${PV}:*
 	color-management? ( >=kde-misc/colord-kde-${PV}:* )
 	scanner? (
 		>=kde-apps/libksane-${PV}:*

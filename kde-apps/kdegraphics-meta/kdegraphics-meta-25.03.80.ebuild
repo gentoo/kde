@@ -8,7 +8,7 @@ HOMEPAGE="https://apps.kde.org/graphics/"
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64"
 IUSE="color-management scanner +webengine"
 
 RDEPEND="
@@ -24,6 +24,7 @@ RDEPEND="
 	>=kde-apps/svgpart-${PV}:*
 	>=kde-apps/thumbnailers-${PV}:*
 	>=media-gfx/kgraphviewer-${PV}:*
+	>=media-gfx/qrca-${PV}:*
 	color-management? ( >=kde-misc/colord-kde-${PV}:* )
 	scanner? (
 		>=kde-apps/libksane-${PV}:*
