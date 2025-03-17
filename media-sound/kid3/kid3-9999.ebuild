@@ -30,10 +30,7 @@ DEPEND="
 		media-libs/chromaprint:=
 		media-video/ffmpeg:=
 	)
-	flac? (
-		media-libs/flac:=[cxx]
-		media-libs/libvorbis
-	)
+	flac? ( media-libs/flac:=[cxx] )
 	kde? (
 		kde-frameworks/kconfig:6
 		kde-frameworks/kconfigwidgets:6
