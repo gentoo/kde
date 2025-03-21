@@ -19,7 +19,6 @@ IUSE="X"
 # bug #580440, last checked 5.6.3
 RESTRICT="test"
 
-# qtbase slot op: GuiPrivate use in kded daemon
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
@@ -36,7 +35,7 @@ DEPEND="
 	>=kde-plasma/libkscreen-${KDE_CATV}:6=
 	>=kde-plasma/libplasma-${KDE_CATV}:6
 	X? (
-		>=dev-qt/qtbase-${QTMIN}:6=[X]
+		>=dev-qt/qtbase-${QTMIN}:6[X]
 		x11-libs/libX11
 		x11-libs/libxcb:=
 		x11-libs/libXi
