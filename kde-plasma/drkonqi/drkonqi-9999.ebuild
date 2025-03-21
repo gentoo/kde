@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_TEST="forceoptional"
+ECM_TEST="true"
 PYTHON_COMPAT=( python3_{11..13} )
 KFMIN=9999
 QTMIN=6.8.1
@@ -62,7 +62,7 @@ RDEPEND="${COMMON_DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_PYTHON_VENDORING=OFF
-		$(cmake_use_find_package systemd Systemd)
+		-DWITH_SYSTEMD=$(usex systemd)
 	)
 	ecm_src_configure
 }
