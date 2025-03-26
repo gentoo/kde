@@ -61,3 +61,19 @@ src_configure() {
 	)
 	ecm_src_configure
 }
+
+src_test() {
+	# bug 951641
+	local CMAKE_SKIP_TESTS=(
+		alkdownloadengine-qt-test
+		alknewstuffenginetest
+		alkonlinequotestest
+		appstreamtest-onlinequoteseditor
+		# these fail with USE=webengine
+		alkdownloadengine-webengine-test
+		alkonlinequotes-webengine-test
+		alkwebpage-webengine-test
+		test-qwebengine-offscreen
+	)
+	TZ=UTC ecm_src_test
+}
