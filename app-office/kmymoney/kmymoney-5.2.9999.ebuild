@@ -20,7 +20,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities calendar hbci holidays sql sqlcipher"
+IUSE="calendar hbci holidays sql sqlcipher"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
 REQUIRED_USE="sqlcipher? ( sql )"
@@ -58,7 +58,6 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
 	calendar? ( dev-libs/libical:= )
 	hbci? (
 		>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -95,7 +94,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_WOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
-		$(cmake_use_find_package activities KF5Activities)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Activities=ON
 		-DENABLE_LIBICAL=$(usex calendar)
 		-DENABLE_KBANKING=$(usex hbci)
 		$(cmake_use_find_package holidays KF5Holidays)
