@@ -31,6 +31,7 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtimageformats-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qtsensors-${QTMIN}:6[qml]
 "
