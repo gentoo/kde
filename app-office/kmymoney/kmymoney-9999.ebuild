@@ -32,7 +32,7 @@ REQUIRED_USE="sqlcipher? ( sql )"
 # 		>=sys-libs/gwenhywfar-5.10.1:=[qt6(+)]
 # 	)
 COMMON_DEPEND="
-	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6(+)]
+	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
 	=app-office/libalkimia-9999*:=
 	dev-libs/gmp:0=[cxx(+)]
 	dev-libs/kdiagram:6
