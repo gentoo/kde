@@ -64,7 +64,7 @@ COMMON_DEPEND="
 	media-libs/libglvnd
 	>=media-libs/mesa-24.1.0_rc1[opengl,wayland]
 	virtual/libudev:=
-	>=x11-libs/libdrm-2.4.116
+	>=x11-libs/libdrm-2.4.118
 	>=x11-libs/libxcb-1.10:=
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
