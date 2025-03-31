@@ -4,15 +4,15 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=6.9.0
-QTMIN=6.11.0
+KFMIN=6.11.0
+QTMIN=6.8.0
 inherit ecm kde.org xdg
 
 DESCRIPTION="Modern XMPP chat app for every device"
 HOMEPAGE="https://www.kaidan.im"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
+	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
