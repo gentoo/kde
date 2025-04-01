@@ -4,9 +4,9 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KFMIN=6.3.0
-QTMIN=6.6.2
-inherit ecm kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Text-based subtitles editor"
 HOMEPAGE="https://subtitlecomposer.kde.org/"
@@ -22,7 +22,8 @@ IUSE="unicode"
 
 DEPEND="
 	dev-libs/openssl:=
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,opengl,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -36,7 +37,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	media-libs/openal
-	media-video/ffmpeg:0=
+	>=media-video/ffmpeg-5.1.5:0=
 	unicode? ( dev-libs/icu:= )
 "
 RDEPEND="${DEPEND}
