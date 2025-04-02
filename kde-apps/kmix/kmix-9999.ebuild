@@ -46,6 +46,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-23.04.2-autostart_disable.patch"
 	# Pending: https://invent.kde.org/multimedia/kmix/-/merge_requests/29
 	"${FILESDIR}/${PN}-24.12.2-revert-kcm_pulseaudio-dep.patch"
+	# Regressed in: https://invent.kde.org/multimedia/kmix/-/merge_requests/32
+	"${FILESDIR}/${PN}-25.03.90-revert-sndio-automagic.patch"
 )
 
 src_configure() {
