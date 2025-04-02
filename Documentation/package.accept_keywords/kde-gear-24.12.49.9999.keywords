@@ -108,7 +108,7 @@
 ~kde-apps/libksane-24.12.49.9999 **
 ~kde-apps/libksane-common-24.12.49.9999 **
 ~kde-apps/okular-24.12.49.9999 **
-~kde-apps/spectacle-24.12.49.9999 **
+~kde-plasma/spectacle-24.12.49.9999 **
 ~kde-apps/svgpart-24.12.49.9999 **
 ~kde-apps/thumbnailers-24.12.49.9999 **
 ~kde-misc/colord-kde-24.12.49.9999 **
