@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
-KFMIN=6.5.0
+KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm kde.org optfeature
+inherit ecm kde.org optfeature xdg
 
 DESCRIPTION="Desktop Planetarium"
 HOMEPAGE="https://apps.kde.org/kstars/ https://kstars.kde.org/"
@@ -47,7 +47,7 @@ COMMON_DEPEND="
 	sci-libs/gsl:=
 	>=sci-libs/indilib-2.0.2
 	sci-libs/libnova:=
-	>=sci-libs/stellarsolver-2.2
+	>=sci-libs/stellarsolver-2.6-r10
 	sys-libs/zlib
 	opencv? (
 		media-libs/opencv:=[ffmpeg]
@@ -81,7 +81,7 @@ CMAKE_SKIP_TESTS=(
 )
 
 PATCHES=(
-	"${FILESDIR}/${PN}-3.7.4-cmake.patch" # bug 895892
+	"${FILESDIR}"/${PN}-3.7.{4,5}-cmake.patch # bug 895892
 )
 
 src_configure() {
@@ -105,5 +105,5 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "Display 'current' pictures of planets" x11-misc/xplanet
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }
