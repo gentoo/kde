@@ -48,7 +48,7 @@ src_configure() {
 		$(cmake_use_find_package exif LibExiv2)
 		$(cmake_use_find_package ffmpeg FFmpeg)
 		$(cmake_use_find_package mobi QMobipocket6)
-		-DENABLE_MOBIPOCKET_TEXT_EXTRACTION=$(usex mobi)
+		-DENABLE_MOBIPOCKET_TEXT_EXTRACTION=OFF
 		$(cmake_use_find_package pdf Poppler)
 		$(cmake_use_find_package taglib Taglib)
 	)
