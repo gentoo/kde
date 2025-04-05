@@ -36,7 +36,7 @@ readonly KDE_CATV
 # @INTERNAL
 # @DESCRIPTION:
 # For proper description see kde.org.eclass manpage.
-KDE_PV_UNRELEASED=( )
+KDE_PV_UNRELEASED=( 6.13.0 )
 
 inherit kde.org
 
