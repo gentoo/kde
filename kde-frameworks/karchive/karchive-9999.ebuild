@@ -10,12 +10,13 @@ DESCRIPTION="Framework for reading, creation, and manipulation of various archiv
 
 LICENSE="GPL-2 LGPL-2.1"
 KEYWORDS=""
-IUSE="+zstd"
+IUSE="crypt +zstd"
 
 DEPEND="
 	app-arch/bzip2
 	app-arch/xz-utils
 	sys-libs/zlib
+	crypt? ( dev-libs/openssl:= )
 	zstd? ( app-arch/zstd:= )
 "
 RDEPEND="${DEPEND}"
@@ -31,4 +32,12 @@ src_prepare() {
 	if ! use zstd; then
 		sed -e "s/^pkg_check_modules.*LibZstd/#&/" -i CMakeLists.txt || die
 	fi
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_OPENSSL=$(usex crypt)
+		-DWITH_LIBZSTD=$(usex zstd)
+	)
+	ecm_src_configure
 }
