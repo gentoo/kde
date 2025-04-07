@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=9999
 QTMIN=6.8.1
-inherit ecm plasma.kde.org
+inherit ecm fcaps plasma.kde.org
 
 DESCRIPTION="Plugin-based system monitoring daemon"
 
@@ -34,8 +34,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+# -m 0755 to avoid suid with USE="-filecaps"
+FILECAPS=( -m 0755 cap_sys_nice=ep usr/libexec/ksystemstats_intel_helper )
+
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_Libcap=ON
 		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
 	)
 	ecm_src_configure
