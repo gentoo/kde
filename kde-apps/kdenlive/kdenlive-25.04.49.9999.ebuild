@@ -67,6 +67,8 @@ DEPEND+=" virtual/os-headers"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package v4l LibV4L2)
+		# disable fetching of opentimeio
+		-DFETCH_OTIO=OFF
 	)
 	ecm_src_configure
 }
