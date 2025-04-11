@@ -135,7 +135,6 @@ src_configure() {
 	local mycmakeargs=(
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Libcap=ON
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
 		-DKWIN_BUILD_X11=$(usex xwayland)
