@@ -29,7 +29,7 @@ _GEAR_KDE_ORG_ECLASS=1
 # @INTERNAL
 # @DESCRIPTION:
 # For proper description see kde.org.eclass manpage.
-KDE_PV_UNRELEASED=( )
+KDE_PV_UNRELEASED=( 25.04.0 )
 
 inherit kde.org
 
