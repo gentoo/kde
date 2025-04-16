@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/qrca/"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 DOCS=( README.md )
