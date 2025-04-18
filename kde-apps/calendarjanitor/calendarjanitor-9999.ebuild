@@ -31,7 +31,7 @@ RDEPEND="${DEPEND}
 	>=kde-apps/akonadi-calendar-tools-common-${PV}
 "
 
-PATCHES=( "${FILESDIR}/${PN}-24.05.2-loggingcategory.patch" )
+PATCHES=( "${FILESDIR}/${PN}-25.07.70-loggingcategory.patch" )
 
 src_prepare() {
 	ecm_src_prepare
