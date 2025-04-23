@@ -4,16 +4,16 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.3.0
+KFMIN=6.9.0
 QTMIN=6.6.2
-inherit ecm kde.org optfeature
+inherit ecm kde.org optfeature xdg
 
 DESCRIPTION="IDE for the R-project"
 HOMEPAGE="https://rkward.kde.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~amd64-linux"
 fi
 
 LICENSE="GPL-2+ LGPL-2"
@@ -23,7 +23,6 @@ IUSE=""
 DEPEND="
 	dev-lang/R
 	dev-libs/kdsingleapplication[qt6(+)]
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
@@ -56,5 +55,5 @@ pkg_postinst() {
 		optfeature "prendering (or previewing) R markdown (.Rmd) files" "app-text/pandoc"
 		optfeature "managing citations while writing articles" "app-text/kbibtex"
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }
