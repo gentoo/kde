@@ -17,8 +17,6 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT="test" # tests are broken, bug 739734
-
 DEPEND="
 	>=app-text/hunspell-1.2.8:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,widgets,xml]
@@ -40,6 +38,12 @@ DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
+
+CMAKE_SKIP_TESTS=(
+	# Unstable
+	# https://invent.kde.org/sdk/lokalize/-/issues/4
+	"tmjobstest"
+)
 
 src_prepare() {
 	ecm_src_prepare
