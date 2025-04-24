@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/qrca/"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="networkmanager"
 
 DOCS=( README.md )
 
@@ -35,7 +35,14 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-frameworks/networkmanager-qt-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6
+	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
+	)
+	ecm_src_configure
+}
