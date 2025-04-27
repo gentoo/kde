@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_CATEGORY="sdk"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="mountiso"
-KFMIN=6.9.0
+KFMIN=6.13.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
 inherit ecm gear.kde.org

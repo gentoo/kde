@@ -4,7 +4,7 @@
 EAPI=8
 
 KDE_ORG_CATEGORY=graphics
-KFMIN=6.12.0
+KFMIN=6.13.0
 QTMIN=6.7.2
 inherit ecm gear.kde.org xdg
 

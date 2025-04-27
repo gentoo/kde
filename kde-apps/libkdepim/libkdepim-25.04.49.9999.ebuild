@@ -7,7 +7,7 @@ ECM_DESIGNERPLUGIN="true"
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.9.0
+KFMIN=6.13.0
 QTMIN=6.7.2
 inherit ecm gear.kde.org
 
