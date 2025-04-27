@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="graphics" # FIXME upstream?
-KFMIN=9999
+KFMIN=6.10.0
 QTMIN=6.8.1
 inherit ecm plasma.kde.org xdg
 
