@@ -13,7 +13,7 @@
 ~kde-apps/kdiamond-9999
 ~kde-apps/kfourinline-9999
 ~kde-apps/kgoldrunner-9999
-~kde-apps/kigo-9999
+# ~kde-apps/kigo-9999 # while KF5-based
 ~kde-apps/killbots-9999
 ~kde-apps/kiriki-9999
 ~kde-apps/kjumpingcube-9999
