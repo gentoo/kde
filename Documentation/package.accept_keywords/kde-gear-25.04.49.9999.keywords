@@ -27,7 +27,6 @@
 ~kde-apps/kcron-25.04.49.9999 **
 ~kde-apps/ksystemlog-25.04.49.9999 **
 ~kde-apps/analitza-25.04.49.9999 **
-~kde-apps/artikulate-25.04.49.9999 **
 ~kde-apps/blinken-25.04.49.9999 **
 ~kde-apps/cantor-25.04.49.9999 **
 ~kde-apps/kalgebra-25.04.49.9999 **
@@ -38,19 +37,15 @@
 ~kde-apps/kdeedu-meta-25.04.49.9999 **
 ~kde-apps/kgeography-25.04.49.9999 **
 ~kde-apps/khangman-25.04.49.9999 **
-~kde-apps/kig-25.04.49.9999 **
 ~kde-apps/kiten-25.04.49.9999 **
 ~kde-apps/klettres-25.04.49.9999 **
 ~kde-apps/kmplot-25.04.49.9999 **
-~kde-apps/kqtquickcharts-25.04.49.9999 **
-~kde-apps/ktouch-25.04.49.9999 **
 ~kde-apps/kturtle-25.04.49.9999 **
 ~kde-apps/kwordquiz-25.04.49.9999 **
 ~kde-apps/libkeduvocdocument-25.04.49.9999 **
 ~kde-apps/marble-25.04.49.9999 **
 ~kde-apps/minuet-25.04.49.9999 **
 ~kde-apps/parley-25.04.49.9999 **
-~kde-apps/rocs-25.04.49.9999 **
 ~kde-apps/step-25.04.49.9999 **
 ~games-puzzle/skladnik-25.04.49.9999 **
 ~kde-apps/bomber-25.04.49.9999 **
@@ -67,7 +62,6 @@
 ~kde-apps/kdiamond-25.04.49.9999 **
 ~kde-apps/kfourinline-25.04.49.9999 **
 ~kde-apps/kgoldrunner-25.04.49.9999 **
-~kde-apps/kigo-25.04.49.9999 **
 ~kde-apps/killbots-25.04.49.9999 **
 ~kde-apps/kiriki-25.04.49.9999 **
 ~kde-apps/kjumpingcube-25.04.49.9999 **
@@ -125,7 +119,6 @@
 ~kde-apps/ffmpegthumbs-25.04.49.9999 **
 ~kde-apps/juk-25.04.49.9999 **
 ~kde-apps/k3b-25.04.49.9999 **
-~kde-apps/kamoso-25.04.49.9999 **
 ~kde-apps/kdemultimedia-meta-25.04.49.9999 **
 ~kde-apps/kdenlive-25.04.49.9999 **
 ~kde-apps/kmix-25.04.49.9999 **
@@ -220,7 +213,6 @@
 ~dev-util/kdevelop-python-25.04.49.9999 **
 ~dev-util/kio-perldoc-25.04.49.9999 **
 ~dev-util/massif-visualizer-25.04.49.9999 **
-~kde-apps/cervisia-25.04.49.9999 **
 ~kde-apps/dolphin-plugins-common-25.04.49.9999 **
 ~kde-apps/dolphin-plugins-git-25.04.49.9999 **
 ~kde-apps/dolphin-plugins-mercurial-25.04.49.9999 **

@@ -10,17 +10,17 @@
 ~kde-apps/kdeedu-meta-9999 **
 ~kde-apps/kgeography-9999 **
 ~kde-apps/khangman-9999 **
-~kde-apps/kig-9999 **
+# ~kde-apps/kig-9999 # while KF5-based
 ~kde-apps/kiten-9999 **
 ~kde-apps/klettres-9999 **
 ~kde-apps/kmplot-9999 **
-~kde-apps/kqtquickcharts-9999 **
-~kde-apps/ktouch-9999 **
+# ~kde-apps/kqtquickcharts-9999 # while KF5-based
+# ~kde-apps/ktouch-9999 # while KF5-based
 ~kde-apps/kturtle-9999 **
 ~kde-apps/kwordquiz-9999 **
 ~kde-apps/libkeduvocdocument-9999 **
 ~kde-apps/marble-9999 **
 ~kde-apps/minuet-9999 **
 ~kde-apps/parley-9999 **
-~kde-apps/rocs-9999 **
+# ~kde-apps/rocs-9999 # while KF5-based
 ~kde-apps/step-9999 **

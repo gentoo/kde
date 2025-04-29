@@ -3,7 +3,7 @@
 ~kde-apps/ffmpegthumbs-9999 **
 ~kde-apps/juk-9999 **
 ~kde-apps/k3b-9999 **
-~kde-apps/kamoso-9999 **
+# ~kde-apps/kamoso-9999 # while KF5-based
 ~kde-apps/kdemultimedia-meta-9999 **
 ~kde-apps/kdenlive-9999 **
 ~kde-apps/kmix-9999 **
