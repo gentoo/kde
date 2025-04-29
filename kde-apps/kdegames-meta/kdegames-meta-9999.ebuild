@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/categories/games/"
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS=""
-IUSE="opengl python"
+IUSE="opengl python qt5"
 
 RDEPEND="
 	>=games-puzzle/skladnik-${PV}
@@ -25,7 +25,7 @@ RDEPEND="
 	>=kde-apps/kdiamond-${PV}:*
 	>=kde-apps/kfourinline-${PV}:*
 	>=kde-apps/kgoldrunner-${PV}:*
-	>=kde-apps/kigo-${PV}:*
+	qt5? ( >=kde-apps/kigo-25.04.0:* )
 	>=kde-apps/killbots-${PV}:*
 	>=kde-apps/kiriki-${PV}:*
 	>=kde-apps/kjumpingcube-${PV}:*
