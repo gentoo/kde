@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-libs/libxml2
+	dev-libs/libxml2:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,sql,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
