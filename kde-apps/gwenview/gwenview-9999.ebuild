@@ -25,6 +25,7 @@ RESTRICT="test"
 COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[gui,opengl,widgets]
+	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -51,7 +52,6 @@ COMMON_DEPEND="
 	media-libs/lcms:2
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
-	>=media-libs/phonon-4.12.0[qt6(+)]
 	media-libs/tiff:=
 	activities? ( kde-plasma/plasma-activities:6 )
 	fits? ( sci-libs/cfitsio )
