@@ -16,7 +16,7 @@ DEPEND="
 	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
 	app-text/sgml-common
-	dev-libs/libxml2:2
+	dev-libs/libxml2:2=
 	dev-libs/libxslt
 	=kde-frameworks/karchive-${KDE_CATV}*:6
 "
