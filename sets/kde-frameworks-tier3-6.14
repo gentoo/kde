@@ -1,0 +1,25 @@
+# Tier 3: More powerful, comprehensive packages, with complex dependencies.
+<kde-frameworks/baloo-6.14.50:6
+<kde-frameworks/kbookmarks-6.14.50:6
+<kde-frameworks/kcmutils-6.14.50:6
+<kde-frameworks/kconfigwidgets-6.14.50:6
+<kde-frameworks/kdav-6.14.50:6
+<kde-frameworks/kdeclarative-6.14.50:6
+<kde-frameworks/kded-6.14.50:6
+<kde-frameworks/kdesu-6.14.50:6
+<kde-frameworks/kglobalaccel-6.14.50:6
+<kde-frameworks/kiconthemes-6.14.50:6
+<kde-frameworks/kio-6.14.50:6
+<kde-frameworks/knewstuff-6.14.50:6
+<kde-frameworks/knotifyconfig-6.14.50:6
+<kde-frameworks/kparts-6.14.50:6
+<kde-frameworks/kpeople-6.14.50:6
+<kde-frameworks/krunner-6.14.50:6
+<kde-frameworks/kservice-6.14.50:6
+<kde-frameworks/ktexteditor-6.14.50:6
+<kde-frameworks/ktextwidgets-6.14.50:6
+<kde-frameworks/kwallet-6.14.50:6
+<kde-frameworks/kxmlgui-6.14.50:6
+<kde-frameworks/purpose-6.14.50:6
+<kde-frameworks/purpose-kaccounts-services-6.14.50:0
+<kde-frameworks/qqc2-desktop-style-6.14.50:6
