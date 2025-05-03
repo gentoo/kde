@@ -28,7 +28,10 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	wayland? ( >=dev-libs/plasma-wayland-protocols-1.15.0 )
+	wayland? (
+		>=dev-libs/plasma-wayland-protocols-1.15.0
+		>=dev-libs/wayland-protocols-1.39
+	)
 	X? (
 		x11-base/xorg-proto
 		x11-libs/libxcb
