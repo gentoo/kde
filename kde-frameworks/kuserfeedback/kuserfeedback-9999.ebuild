@@ -12,7 +12,7 @@ DESCRIPTION="Framework to collect user feedback for applications via telemetry a
 
 LICENSE="MIT"
 KEYWORDS=""
-IUSE="doc"
+IUSE="doc tools"
 
 # FIXME: Qt_6_PRIVATE_API matches UserFeedbackConsole, but where is it coming from?
 DEPEND="
@@ -37,6 +37,7 @@ src_configure() {
 		-DENABLE_PHP_UNIT=NO
 		-DENABLE_SURVEY_TARGET_EXPRESSIONS=YES
 		-DENABLE_DOCS=$(usex doc)
+		-DENABLE_CONSOLE=$(usex tools)
 	)
 
 	ecm_src_configure
