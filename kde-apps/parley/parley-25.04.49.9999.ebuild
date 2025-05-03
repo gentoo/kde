@@ -20,7 +20,7 @@ IUSE="webengine"
 
 DEPEND="
 	app-i18n/translate-shell
-	dev-libs/libxml2:2
+	dev-libs/libxml2:2=
 	dev-libs/libxslt
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
