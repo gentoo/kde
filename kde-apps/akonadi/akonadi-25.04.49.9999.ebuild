@@ -40,7 +40,7 @@ COMMON_DEPEND="
 		kde-apps/kaccounts-integration:6
 		>=net-libs/accounts-qt-1.17[qt6(+)]
 	)
-	xml? ( dev-libs/libxml2 )
+	xml? ( dev-libs/libxml2:= )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxslt
