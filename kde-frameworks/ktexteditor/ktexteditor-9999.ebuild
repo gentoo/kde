@@ -21,6 +21,7 @@ DEPEND="
 	=kde-frameworks/karchive-${KDE_CATV}*:6
 	=kde-frameworks/kauth-${KDE_CATV}*:6
 	=kde-frameworks/kcodecs-${KDE_CATV}*:6
+	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
 	=kde-frameworks/kcompletion-${KDE_CATV}*:6
 	=kde-frameworks/kconfig-${KDE_CATV}*:6
 	=kde-frameworks/kconfigwidgets-${KDE_CATV}*:6
