@@ -27,7 +27,7 @@ RESTRICT="test"
 # TODO Add Sage Mathematics Software backend (https://www.sagemath.org)
 DEPEND="
 	>=app-text/poppler-23.12.0[qt6]
-	dev-libs/libxml2:2
+	dev-libs/libxml2:2=
 	dev-libs/libxslt
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
