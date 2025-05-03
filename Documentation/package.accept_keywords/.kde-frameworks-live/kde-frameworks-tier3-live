@@ -19,6 +19,7 @@
 ~kde-frameworks/ktexteditor-9999:6 **
 ~kde-frameworks/ktextwidgets-9999:6 **
 ~kde-frameworks/kwallet-9999:6 **
+~kde-frameworks/kwallet-runtime-9999:6 **
 ~kde-frameworks/kxmlgui-9999:6 **
 ~kde-frameworks/purpose-9999:6 **
 ~kde-frameworks/purpose-kaccounts-services-9999:0 **
