@@ -23,7 +23,7 @@ RESTRICT="test" # bug 907957, 851000, 739732...
 DEPEND="
 	>=app-text/poppler-23.12.0:=[qt6]
 	dev-libs/libphonenumber
-	dev-libs/libxml2:2
+	dev-libs/libxml2:2=
 	dev-libs/openssl:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
