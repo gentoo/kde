@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-libs/libxml2
+	dev-libs/libxml2:=
 	dev-libs/xapian:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
