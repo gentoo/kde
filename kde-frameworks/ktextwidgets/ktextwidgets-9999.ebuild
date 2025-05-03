@@ -17,7 +17,6 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	=kde-frameworks/kcompletion-${KDE_CATV}*:6
 	=kde-frameworks/kconfig-${KDE_CATV}*:6
-	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
 	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
 	=kde-frameworks/ki18n-${KDE_CATV}*:6
 	=kde-frameworks/kservice-${KDE_CATV}*:6
