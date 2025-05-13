@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.5.0
+KFMIN=6.9.0
 QTMIN=6.7.2
-inherit ecm kde.org
+inherit ecm kde.org xdg
 
 DESCRIPTION="Collection manager based on KDE Frameworks"
 HOMEPAGE="https://tellico-project.org/"
