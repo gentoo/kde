@@ -2,10 +2,8 @@
 # Tier 1: Depend only on Qt and possibly a few third-party libraries.
 kde-frameworks/attica:5
 kde-frameworks/bluez-qt:5
-kde-frameworks/breeze-icons:5
 kde-frameworks/extra-cmake-modules:0
 kde-frameworks/karchive:5
-kde-frameworks/kcalendarcore:5
 kde-frameworks/kcodecs:5
 kde-frameworks/kconfig:5
 kde-frameworks/kcoreaddons:5
@@ -14,16 +12,12 @@ kde-frameworks/kdnssd:5
 kde-frameworks/kguiaddons:5
 kde-frameworks/kholidays:5
 kde-frameworks/ki18n:5
-kde-frameworks/kidletime:5
 kde-frameworks/kirigami:5
 kde-frameworks/kitemmodels:5
 kde-frameworks/kitemviews:5
-kde-frameworks/kplotting:5
 kde-frameworks/kwidgetsaddons:5
 kde-frameworks/kwindowsystem:5
-kde-frameworks/oxygen-icons:5
 kde-frameworks/prison:5
 kde-frameworks/sonnet:5
 kde-frameworks/syntax-highlighting:5
-kde-frameworks/threadweaver:5
 kde-plasma/kwayland:5

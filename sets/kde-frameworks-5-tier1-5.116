@@ -1,10 +1,8 @@
 # Tier 1: Depend only on Qt and possibly a few third-party libraries.
 <kde-frameworks/attica-5.116.50
 <kde-frameworks/bluez-qt-5.116.50
-<kde-frameworks/breeze-icons-5.116.50
 <kde-frameworks/extra-cmake-modules-5.116.50
 <kde-frameworks/karchive-5.116.50
-<kde-frameworks/kcalendarcore-5.116.50
 <kde-frameworks/kcodecs-5.116.50
 <kde-frameworks/kconfig-5.116.50
 <kde-frameworks/kcoreaddons-5.116.50
@@ -13,16 +11,12 @@
 <kde-frameworks/kguiaddons-5.116.50
 <kde-frameworks/kholidays-5.116.50
 <kde-frameworks/ki18n-5.116.50
-<kde-frameworks/kidletime-5.116.50
 <kde-frameworks/kirigami-5.116.50
 <kde-frameworks/kitemmodels-5.116.50
 <kde-frameworks/kitemviews-5.116.50
-<kde-frameworks/kplotting-5.116.50
 <kde-frameworks/kwidgetsaddons-5.116.50
 <kde-frameworks/kwindowsystem-5.116.50
-<kde-frameworks/oxygen-icons-5.116.50
 <kde-frameworks/prison-5.116.50
 <kde-frameworks/sonnet-5.116.50
 <kde-frameworks/syntax-highlighting-5.116.50
-<kde-frameworks/threadweaver-5.116.50
 <kde-plasma/kwayland-5.116.50

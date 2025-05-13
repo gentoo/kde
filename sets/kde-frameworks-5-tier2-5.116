@@ -1,7 +1,6 @@
 # Tier 2: Additionally depend on tier 1 frameworks.
 <kde-frameworks/kauth-5.116.50
 <kde-frameworks/kcompletion-5.116.50
-<kde-frameworks/kcontacts-5.116.50
 <kde-frameworks/kcrash-5.116.50
 <kde-frameworks/kdoctools-5.116.50
 <kde-frameworks/kfilemetadata-5.116.50

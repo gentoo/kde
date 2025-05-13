@@ -2,7 +2,6 @@
 # Tier 2: Additionally depend on tier 1 frameworks.
 kde-frameworks/kauth:5
 kde-frameworks/kcompletion:5
-kde-frameworks/kcontacts:5
 kde-frameworks/kcrash:5
 kde-frameworks/kdoctools:5
 kde-frameworks/kfilemetadata:5
