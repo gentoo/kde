@@ -69,7 +69,7 @@ BDEPEND="
 "
 
 # -m 0755 to avoid suid with USE="-filecaps"
-FILECAPS=( -m 0755 cap_sys_nice=ep usr/libexec/org_kde_powerdevil )
+FILECAPS=( -m 0755 cap_wake_alarm=ep usr/libexec/org_kde_powerdevil )
 
 src_configure() {
 	local mycmakeargs=(
