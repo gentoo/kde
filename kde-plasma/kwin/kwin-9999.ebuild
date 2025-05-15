@@ -93,7 +93,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.18.0
-	>=dev-libs/wayland-protocols-1.41
+	>=dev-libs/wayland-protocols-1.44
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
@@ -125,6 +125,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		# KWIN_BUILD_DECORATIONS exists
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
