@@ -15,8 +15,9 @@ LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
 IUSE="appstream +calendar +fontconfig networkmanager +policykit screencast
-+semantic-desktop systemd telemetry +wallpaper-metadata"
++semantic-desktop systemd telemetry +wallpaper-metadata +X"
 
+REQUIRED_USE="fontconfig? ( X )"
 RESTRICT="test"
 
 # kde-frameworks/kwindowsystem[X]: Uses KX11Extras
@@ -26,7 +27,7 @@ COMMON_DEPEND="
 	dev-libs/icu:=
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,libinput,network,opengl,sql,sqlite,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,libinput,network,opengl,sql,sqlite,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtlocation-${QTMIN}:6
 	>=dev-qt/qtpositioning-${QTMIN}:6
@@ -68,12 +69,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/kunitconversion-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6[qml]
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/breeze-${KDE_CATV}:6
-	>=kde-plasma/kscreenlocker-${KDE_CATV}:6
 	>=kde-plasma/kwayland-${KDE_CATV}:6
 	>=kde-plasma/kwin-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
@@ -89,37 +89,42 @@ COMMON_DEPEND="
 	sys-apps/dbus
 	sys-libs/zlib
 	virtual/libudev:=
-	x11-libs/libICE
-	x11-libs/libSM
-	x11-libs/libX11
-	x11-libs/libXau
-	x11-libs/libxcb
-	x11-libs/libXcursor
-	x11-libs/libXfixes
-	x11-libs/libXrender
-	x11-libs/libXtst
-	x11-libs/xcb-util
 	appstream? ( >=dev-libs/appstream-1[qt6] )
 	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:6 )
-	fontconfig? (
-		media-libs/fontconfig
-		x11-libs/libXft
-		x11-libs/xcb-util-image
-	)
 	policykit? ( virtual/libcrypt:= )
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
 	systemd? ( sys-apps/systemd:= )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 	wallpaper-metadata? ( kde-apps/libkexiv2:6 )
+	X? (
+		>=dev-qt/qtbase-${QTMIN}:6=[X]
+		>=kde-plasma/kscreenlocker-${KDE_CATV}:6
+		x11-libs/libICE
+		x11-libs/libSM
+		x11-libs/libX11
+		x11-libs/libXau
+		x11-libs/libxcb
+		x11-libs/libXcursor
+		x11-libs/libXfixes
+		x11-libs/libXtst
+		x11-libs/xcb-util
+		fontconfig? (
+			media-libs/fontconfig
+			x11-libs/libXft
+			x11-libs/xcb-util-image
+		)
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.18.0
 	dev-libs/qcoro
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
-	x11-base/xorg-proto
-	fontconfig? ( x11-libs/libXrender )
 	test? ( screencast? ( >=media-video/pipewire-0.3:* ) )
+	X? (
+		fontconfig? ( x11-libs/libXrender )
+		x11-base/xorg-proto
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/libkworkspace:5
@@ -178,7 +183,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_X11=ON # TODO: broken upstream, fix it if you can
+		-DWITH_X11=$(usex X) # remember to submit patches with bugs
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		-DGLIBC_LOCALE_GEN=OFF
 		-DGLIBC_LOCALE_PREGENERATED=$(usex elibc_glibc)
