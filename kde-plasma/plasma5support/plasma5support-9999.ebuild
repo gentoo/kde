@@ -14,7 +14,7 @@ DESCRIPTION="Support components for porting from KF5/Qt5 to KF6/Qt6"
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="activities geolocation X"
+IUSE="activities geolocation ksysguard X"
 
 RESTRICT="test" # bug 926347
 
@@ -30,9 +30,9 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=kde-plasma/libksysguard-${KDE_CATV}:6
 	activities? ( >=kde-plasma/plasma-activities-${KDE_CATV}:6 )
 	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
+	ksysguard? ( >=kde-plasma/libksysguard-${KDE_CATV}:6 )
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}
@@ -44,6 +44,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities PlasmaActivities)
 		$(cmake_use_find_package geolocation KF6NetworkManagerQt)
+		$(cmake_use_find_package ksysguard KSysGuard)
 		-DWITH_X11=$(usex X)
 	)
 	ecm_src_configure
