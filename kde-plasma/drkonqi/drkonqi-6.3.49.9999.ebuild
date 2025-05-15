@@ -54,13 +54,14 @@ RDEPEND="${COMMON_DEPEND}
 		dev-python/pygdbmi[${PYTHON_USEDEP}]
 	')
 	|| (
-		dev-debug/gdb
+		>=dev-debug/gdb-12
 		llvm-core/lldb
 	)
 "
 
 src_configure() {
 	local mycmakeargs=(
+		-DWITH_GDB12=ON
 		-DWITH_PYTHON_VENDORING=OFF
 		$(cmake_use_find_package systemd Systemd)
 	)

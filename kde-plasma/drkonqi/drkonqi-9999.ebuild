@@ -54,7 +54,7 @@ RDEPEND="${COMMON_DEPEND}
 		dev-python/pygdbmi[${PYTHON_USEDEP}]
 	')
 	|| (
-		dev-debug/gdb
+		>=dev-debug/gdb-12
 		llvm-core/lldb
 	)
 "
