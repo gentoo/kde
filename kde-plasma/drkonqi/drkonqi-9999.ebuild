@@ -14,13 +14,13 @@ DESCRIPTION="Plasma crash handler, gives the user feedback if a program crashed"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="systemd"
+IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test" # bug 935362
 
 COMMON_DEPEND="${PYTHON_DEPS}
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -30,23 +30,21 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	systemd? (
-		>=dev-qt/qtbase-${QTMIN}:6[network]
-		>=kde-frameworks/kservice-${KFMIN}:6
-		sys-apps/systemd:=
-		>=sys-auth/polkit-qt-0.175.0[qt6(+)]
-	)
+	sys-apps/systemd:=
+	>=sys-auth/polkit-qt-0.175.0[qt6(+)]
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	test? ( >=dev-qt/qtbase-${QTMIN}:6[network] )
 "
 RDEPEND="${COMMON_DEPEND}
+	dev-libs/elfutils[utils]
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	$(python_gen_cond_dep '
@@ -62,7 +60,6 @@ RDEPEND="${COMMON_DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_PYTHON_VENDORING=OFF
-		-DWITH_SYSTEMD=$(usex systemd)
 	)
 	ecm_src_configure
 }
