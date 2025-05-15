@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=6.14.0
+KFMIN=5.115.0
 QTMIN=5.15.12
 inherit ecm flag-o-matic plasma.kde.org
 
