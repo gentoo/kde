@@ -16,7 +16,11 @@ cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
 +networkmanager oxygen-theme plymouth pulseaudio qt5 rdp +sddm sdk +smart systemd
 thunderbolt unsupported wacom +wallpapers webengine X"
 
-REQUIRED_USE="^^ ( elogind systemd )"
+REQUIRED_USE="
+	^^ ( elogind systemd )
+	crash-handler? ( systemd )
+	firewall? ( systemd )
+"
 
 # The =kde-apps/spectacle-6.3* pin is needed because Spectacle moved from
 # KDE Gear => KDE Plasma, but KDE Gear's version scheme is higher than
@@ -78,7 +82,6 @@ RDEPEND="
 	bluetooth? ( >=kde-plasma/bluedevil-${PV}:${SLOT} )
 	browser-integration? ( >=kde-plasma/plasma-browser-integration-${PV}:${SLOT} )
 	colord? ( x11-misc/colord )
-	crash-handler? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
 	cups? (
 		>=kde-plasma/print-manager-${PV}:${SLOT}
@@ -122,6 +125,7 @@ RDEPEND="
 	smart? ( >=kde-plasma/plasma-disks-${PV}:${SLOT} )
 	systemd? (
 		sys-apps/systemd[pam]
+		crash-handler? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
 		firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} )
 	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
