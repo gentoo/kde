@@ -14,8 +14,8 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="appstream +calendar +fontconfig networkmanager +policykit screencast
-+semantic-desktop systemd telemetry +wallpaper-metadata +X"
+IUSE="appstream +calendar +fontconfig +ksysguard networkmanager +policykit
+screencast +semantic-desktop systemd telemetry +wallpaper-metadata +X"
 
 REQUIRED_USE="fontconfig? ( X )"
 RESTRICT="test"
@@ -78,7 +78,6 @@ COMMON_DEPEND="
 	>=kde-plasma/kwin-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
 	>=kde-plasma/libkscreen-${KDE_CATV}:6
-	>=kde-plasma/libksysguard-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
@@ -91,6 +90,7 @@ COMMON_DEPEND="
 	virtual/libudev:=
 	appstream? ( >=dev-libs/appstream-1[qt6] )
 	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:6 )
+	ksysguard? ( >=kde-plasma/libksysguard-${KDE_CATV}:6 )
 	policykit? ( virtual/libcrypt:= )
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
@@ -190,6 +190,7 @@ src_configure() {
 		$(cmake_use_find_package appstream AppStreamQt)
 		$(cmake_use_find_package calendar KF6Holidays)
 		$(cmake_use_find_package fontconfig Fontconfig)
+		$(cmake_use_find_package ksysguard KSysGuard)
 		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
 		-DBUILD_CAMERAINDICATOR=$(usex screencast)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
