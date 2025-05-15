@@ -55,7 +55,7 @@ mask_from_live_set ${setname} ${VERSION} kde-frameworks-${VERSION}
 mark_unreleased frameworks ${VERSION}
 create_keywords_files ${kfmv} ${setname}
 
-sed -i -e "/KF${major_version}_RELEASES/s/\"$/ ${major_minor_version}\"/" Documentation/maintainers/regenerate-files
+sed -i -e "/KF${major_version}_RELEASES/s/ *)$/ ${major_minor_version} )/" Documentation/maintainers/regenerate-files
 Documentation/maintainers/regenerate-files
 
 bump_packages_from_set ${setname}-live ${base_version} ${VERSION}

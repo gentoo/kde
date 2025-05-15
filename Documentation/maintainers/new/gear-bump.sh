@@ -44,7 +44,7 @@ if ! [[ -f sets/kde-gear-${major_version} ]]; then
 	bump_set_from_live kde-gear ${major_version}
 	create_keywords_files ${kfmv} kde-gear
 
-	sed -i -e "/GEAR_RELEASES/s/\"$/ ${major_version}\"/" Documentation/maintainers/regenerate-files
+	sed -i -e "/GEAR_RELEASES/s/ *)$/ ${major_version} )/" Documentation/maintainers/regenerate-files
 	Documentation/maintainers/regenerate-files
 
 	bump_packages_from_set kde-gear-${major_version} 9999 ${major_version}.49.9999
