@@ -26,6 +26,7 @@ COMMON_DEPEND="
 	>=dev-libs/wayland-1.15.0
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
