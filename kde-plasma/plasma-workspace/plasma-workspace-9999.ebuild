@@ -113,7 +113,7 @@ COMMON_DEPEND="
 	wallpaper-metadata? ( kde-apps/libkexiv2:6 )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.16.0
+	>=dev-libs/plasma-wayland-protocols-1.18.0
 	dev-libs/qcoro
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	x11-base/xorg-proto
