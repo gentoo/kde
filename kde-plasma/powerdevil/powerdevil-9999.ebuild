@@ -52,7 +52,7 @@ COMMON_DEPEND="
 	brightness-control? ( app-misc/ddcutil:= )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.16.0
+	>=dev-libs/plasma-wayland-protocols-1.18.0
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-6.1.90:*
