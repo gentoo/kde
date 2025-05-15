@@ -35,9 +35,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	|| (
+		>=app-crypt/gocryptfs-1.8
 		>=sys-fs/cryfs-0.9.9
 		>=sys-fs/encfs-1.9.2
-		>=app-crypt/gocryptfs-1.8
 	)
 "
 
