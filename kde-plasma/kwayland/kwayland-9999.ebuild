@@ -27,7 +27,7 @@ RDEPEND="
 	media-libs/libglvnd
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.16.0
+	>=dev-libs/plasma-wayland-protocols-1.18.0
 	>=dev-libs/wayland-protocols-1.15
 	sys-kernel/linux-headers
 "
