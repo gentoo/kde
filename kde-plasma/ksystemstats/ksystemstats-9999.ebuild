@@ -35,7 +35,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 # -m 0755 to avoid suid with USE="-filecaps"
-FILECAPS=( -m 0755 cap_sys_nice=ep usr/libexec/ksystemstats_intel_helper )
+FILECAPS=( -m 0755 cap_perfmon=ep usr/libexec/ksystemstats_intel_helper )
 
 src_configure() {
 	local mycmakeargs=(
