@@ -29,6 +29,7 @@
 ~kde-plasma/kwayland-9999
 ~kde-plasma/kwayland-integration-9999
 ~kde-plasma/kwin-9999
+~kde-plasma/kwin-x11-9999
 ~kde-plasma/kwrited-9999
 ~kde-plasma/layer-shell-qt-9999
 ~kde-plasma/libkscreen-9999
