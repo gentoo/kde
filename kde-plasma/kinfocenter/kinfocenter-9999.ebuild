@@ -27,6 +27,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	virtual/libudev:=
 	gles2-only? ( >=media-libs/mesa-24.1.0_rc1[opengl] )
 	usb? ( virtual/libusb:1 )
 "
