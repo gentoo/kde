@@ -30,6 +30,7 @@ DEPEND="
 	net-libs/libpcap
 	sys-apps/lm-sensors:=
 	sys-libs/zlib
+	x11-libs/libdrm
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
