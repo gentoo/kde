@@ -16,7 +16,7 @@ cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
 +networkmanager oxygen-theme plymouth pulseaudio qt5 rdp +sddm sdk +smart systemd
 thunderbolt unsupported wacom +wallpapers webengine"
 
-REQUIRED_USE="^^ ( elogind systemd )"
+REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
 # The =kde-apps/spectacle-6.3* pin is needed because Spectacle moved from
 # KDE Gear => KDE Plasma, but KDE Gear's version scheme is higher than
