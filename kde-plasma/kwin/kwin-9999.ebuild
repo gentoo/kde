@@ -83,14 +83,6 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdeplasma-addons:5
-	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
-	|| (
-		dev-qt/qtmultimedia:6[ffmpeg]
-		(
-			dev-qt/qtmultimedia:6[gstreamer]
-			media-plugins/gst-plugins-soup:1.0
-		)
-	)
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/aurorae-${KDE_CATV}:6
