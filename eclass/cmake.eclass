@@ -245,6 +245,7 @@ _cmake_modify-cmakelists() {
 
 	local x re="VERSION( .*\.\.\.| )(([[:digit:]]+)\.([[:digit:]]+))"
 	local ver isold
+	local pf="${T}/${P}-cmake4.patch"
 	for x in $(find "${CMAKE_USE_DIR}" -type f -iname "CMakeLists.txt" -exec \
 		grep -li "^\s*cmake_minimum_required\s*(.*)" {} \;); do
 
@@ -253,6 +254,13 @@ _cmake_modify-cmakelists() {
 
 		if ver_test $ver -lt "3.5"; then
 			isold=true
+			touch ${pf} || die "failed to touch patch file"
+			cp ${x} ${x}.new || die "failed to copy newfile"
+			pushd ${x%/*} > /dev/null || die
+				sed -i CMakeLists.txt.new -e "/cmake_minimum_required/ s/[0-9]\+\(\.[0-9]\+\)*/3.5/" || die
+			popd > /dev/null || die
+			diff -Naur ${x} ${x}.new 1>>${pf}
+			rm ${x}.new || die "failed to clean up newfile"
 		fi
 	done
 	if [[ ${isold} ]]; then
@@ -260,6 +268,12 @@ _cmake_modify-cmakelists() {
 		eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
 		eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
 		eqawarn "this package."
+	fi
+	if [[ -e ${pf} && -s ${pf} ]]; then
+		eqawarn "A unified diff file was created, ready for pickup in:"
+		eqawarn "  ${pf}"
+		eqawarn "This is *NOT* in any way checked for dangerous policy changes."
+		eqawarn "Review, adapt and push it upstream to make this message go away."
 	fi
 
 	# Comment out all set (<some_should_be_user_defined_variable> value)
