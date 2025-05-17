@@ -362,6 +362,17 @@ cmake_src_configure() {
 	# Fix xdg collision with sandbox
 	xdg_environment_reset
 
+	local file ver cmreq_isold
+	while read -d '' -r file ; do
+		ver=$(sed -ne "/cmake_minimum_required/ s/.*\(\.\.\.\|\s\)\([0-9.]*\)\([)]\|\s\).*$/\2/p" \
+			"${file}" 2>/dev/null \
+		)
+
+		if [[ -n $ver ]] && ver_test $ver -lt "3.5"; then
+			cmreq_isold=true
+		fi
+	done < <(find "${CMAKE_USE_DIR}" -type f -iname "CMakeLists.txt" -print0)
+
 	# Prepare Gentoo override rules (set valid compiler, append CPPFLAGS etc.)
 	local build_rules=${BUILD_DIR}/gentoo_rules.cmake
 
@@ -541,6 +552,13 @@ cmake_src_configure() {
 
 	if [[ -n "${CMAKE_EXTRA_CACHE_FILE}" ]] ; then
 		cmakeargs+=( -C "${CMAKE_EXTRA_CACHE_FILE}" )
+	fi
+
+	if [[ ${cmreq_isold} ]]; then
+		eqawarn "QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4,"
+		eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
+		eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
+		eqawarn "this package."
 	fi
 
 	pushd "${BUILD_DIR}" > /dev/null || die
