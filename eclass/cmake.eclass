@@ -543,10 +543,27 @@ cmake_src_configure() {
 		cmakeargs+=( -C "${CMAKE_EXTRA_CACHE_FILE}" )
 	fi
 
+	_call_cmake() {
+		echo "${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}"
+		"${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}"
+	}
+
 	pushd "${BUILD_DIR}" > /dev/null || die
 	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${mycmakeargs_local[*]}"
-	echo "${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}"
-	"${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}" || die "cmake failed"
+	_call_cmake
+	if [[ $? == 1 ]] ; then
+		if has_version -b ">=dev-build/cmake-4"; then
+			echo
+			echo "*********************** Gentoo intervention ***********************"
+			echo "CMake 4 detected, retrying with: -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+			echo "*******************************************************************"
+			echo
+			cmakeargs+=( -DCMAKE_POLICY_VERSION_MINIMUM=3.5 )
+			_call_cmake || die "cmake failed"
+		else
+			die "cmake failed"
+		fi
+	fi
 	popd > /dev/null || die
 }
 
