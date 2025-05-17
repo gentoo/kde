@@ -14,7 +14,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="accessibility gles2-only lock screencast +shortcuts systemd xwayland"
+IUSE="accessibility gles2-only lock screencast +shortcuts systemd X"
 
 RESTRICT="test"
 
@@ -74,7 +74,7 @@ COMMON_DEPEND="
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
 	screencast? ( >=media-video/pipewire-1.2.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
-	xwayland? (
+	X? (
 		x11-libs/libX11
 		x11-libs/libXi
 		x11-libs/libXres
@@ -89,7 +89,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6
 	sys-apps/hwdata
-	xwayland? ( >=x11-base/xwayland-23.1.0[libei] )
+	X? ( >=x11-base/xwayland-23.1.0[libei] )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.18.0
@@ -97,7 +97,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
-	xwayland? ( x11-base/xorg-proto )
+	X? ( x11-base/xorg-proto )
 "
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
@@ -130,7 +130,7 @@ src_configure() {
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
-		-DKWIN_BUILD_X11=$(usex xwayland)
+		-DKWIN_BUILD_X11=$(usex X)
 	)
 
 	ecm_src_configure
