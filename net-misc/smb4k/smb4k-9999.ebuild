@@ -4,9 +4,9 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.3.0
-QTMIN=6.6.2
-inherit ecm kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Advanced network neighborhood browser"
 HOMEPAGE="https://apps.kde.org/smb4k/
@@ -67,7 +67,6 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ecm_pkg_postinst
 	elog "Users of Samba 4.7 and above please note that for the time being,"
 	elog "the following setting has to be added to or changed in the [global]"
 	elog "section of the smb.conf file:"
