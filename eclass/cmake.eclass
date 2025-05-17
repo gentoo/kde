@@ -243,6 +243,39 @@ _cmake_modify-cmakelists() {
 	# Only edit the files once
 	grep -qs "<<< Gentoo configuration >>>" "${CMAKE_USE_DIR}"/CMakeLists.txt && return 0
 
+	local x re="VERSION( .*\.\.\.| )(([[:digit:]]+)\.([[:digit:]]+))"
+	local ver isold
+	local pf="${T}/${P}-cmake4.patch"
+	for x in $(find "${CMAKE_USE_DIR}" -type f -iname "CMakeLists.txt" -exec \
+		grep -li "^\s*cmake_minimum_required\s*(.*)" {} \;); do
+
+		[[ $(grep -hi "cmake_minimum_required" $x) =~ $re ]]
+		ver="${BASH_REMATCH[2]}"
+
+		if ver_test $ver -lt "3.5"; then
+			isold=true
+			touch ${pf} || die "failed to touch patch file"
+			cp ${x} ${x}.new || die "failed to copy newfile"
+			pushd ${x%/*} > /dev/null || die
+				sed -i CMakeLists.txt.new -e "/cmake_minimum_required/ s/[0-9]\+\(\.[0-9]\+\)*/3.5/" || die
+			popd > /dev/null || die
+			diff -Naur ${x} ${x}.new 1>>${pf}
+			rm ${x}.new || die "failed to clean up newfile"
+		fi
+	done
+	if [[ ${isold} ]]; then
+		eqawarn "QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4,"
+		eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
+		eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
+		eqawarn "this package."
+	fi
+	if [[ -e ${pf} && -s ${pf} ]]; then
+		eqawarn "A unified diff file was created, ready for pickup in:"
+		eqawarn "  ${pf}"
+		eqawarn "This is *NOT* in any way checked for dangerous policy changes."
+		eqawarn "Review, adapt and push it upstream to make this message go away."
+	fi
+
 	# Comment out all set (<some_should_be_user_defined_variable> value)
 	find "${CMAKE_USE_DIR}" -name CMakeLists.txt -exec sed \
 		-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_BUILD_TYPE\([[:space:]].*)\|)\)/I{s/^/#_cmake_modify_IGNORE /g}' \
@@ -250,7 +283,6 @@ _cmake_modify-cmakelists() {
 		-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_INSTALL_PREFIX[[:space:]].*)/I{s/^/#_cmake_modify_IGNORE /g}' \
 		-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_VERBOSE_MAKEFILE[[:space:]].*)/I{s/^/#_cmake_modify_IGNORE /g}' \
 		-i {} + || die "${LINENO}: failed to disable hardcoded settings"
-	local x
 	for x in $(find "${CMAKE_USE_DIR}" -name CMakeLists.txt -exec grep -l "^#_cmake_modify_IGNORE" {} +;); do
 		einfo "Hardcoded definition(s) removed in $(echo "${x}" | cut -c $((${#CMAKE_USE_DIR}+2))-):"
 		einfo "$(grep -se '^#_cmake_modify_IGNORE' ${x} | cut -c 22-99)"
