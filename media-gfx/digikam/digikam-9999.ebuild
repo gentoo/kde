@@ -53,7 +53,7 @@ COMMON_DEPEND="
 	media-libs/libjpeg-turbo:=
 	media-libs/liblqr
 	media-libs/libpng:=
-	>=media-libs/opencv-3.3.0:=[contrib,contribdnn,features2d]
+	>=media-libs/opencv-4.8.0:=[contrib,contribdnn,features2d]
 	media-libs/tiff:=
 	virtual/opengl
 	x11-libs/libX11
