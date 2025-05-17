@@ -22,6 +22,7 @@ RESTRICT="test" # missing selenium-webdriver-at-spi
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 # kde-frameworks/kwindowsystem[X]: Uses KX11Extras
+# kde-plasma/plasma-workspace[X]: applets/pager/pagermodel.cpp includes xwindowtasksmodel.h
 COMMON_DEPEND="
 	dev-libs/icu:=
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
@@ -67,7 +68,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libplasma-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
-	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?]
+	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?,X]
 	>=kde-plasma/plasma5support-${KDE_CATV}:6
 	media-libs/libcanberra
 	x11-libs/libX11
