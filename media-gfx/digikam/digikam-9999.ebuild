@@ -3,9 +3,9 @@
 
 EAPI=8
 
-KFMIN=6.3.0
-QTMIN=6.6.2
-inherit ecm kde.org toolchain-funcs
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org toolchain-funcs xdg
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	TARNAME="digiKam-${PV/_/-}"
@@ -102,12 +102,10 @@ PATCHES=(
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
-	ecm_pkg_pretend
 }
 
 pkg_setup() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
-	ecm_pkg_setup
 }
 
 # FIXME: Unbundle libraw (libs/rawengine/libraw)
