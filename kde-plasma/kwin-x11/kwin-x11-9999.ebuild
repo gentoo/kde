@@ -51,7 +51,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
-	>=kde-plasma/kwayland-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6
 	media-libs/fontconfig
 	media-libs/freetype
@@ -66,7 +65,6 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	>=x11-libs/libdrm-2.4.116
 	>=x11-libs/libxcb-1.10:=
-	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-keysyms
@@ -92,6 +90,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	x11-base/xorg-proto
 	x11-libs/xcb-util-image
+	test? ( >=kde-plasma/kwayland-${KDE_CATV}:6 )
 "
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
