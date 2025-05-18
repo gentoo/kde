@@ -18,15 +18,6 @@ thunderbolt unsupported wacom +wallpapers webengine X"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
-# The =kde-apps/spectacle-6.3* pin is needed because Spectacle moved from
-# KDE Gear => KDE Plasma, but KDE Gear's version scheme is higher than
-# KDE Plasma's, so without such a pin, there's nothing that will cause
-# the in-reality newer (but wrt PV, older) Spectacle to be pulled in for users.
-#
-# It can be changed to =kde-apps/spectacle-6* in due course once newer
-# KDE Plasma and KDE Gear are stabled and old is cleaned up. Changing it
-# to >=kde-plasma/spectacle-${PV}:${SLOT} however can't be done for quite
-# some time.
 RDEPEND="
 	!${CATEGORY}/${PN}:5
 	!kde-plasma/khotkeys:5
@@ -69,7 +60,6 @@ RDEPEND="
 	>=kde-plasma/polkit-kde-agent-${PV}:*
 	>=kde-plasma/powerdevil-${PV}:${SLOT}
 	>=kde-plasma/qqc2-breeze-style-${PV}:${SLOT}
-	=kde-plasma/spectacle-6*:${SLOT}
 	>=kde-plasma/systemsettings-${PV}:${SLOT}
 	>=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT}
 	sys-apps/dbus[elogind?,systemd?]
@@ -137,6 +127,17 @@ RDEPEND="
 	webengine? ( kde-apps/khelpcenter:6 )
 	X? ( >=kde-plasma/kwin-x11-${PV}:${SLOT}[lock] )
 "
+# NOTE spectacle moved from KDE Gear (yy.mm) to KDE Plasma version scheme
+# TODO drop after 2027-04-26
+case ${PV} in
+	*9999) RDEPEND+=" ~kde-plasma/spectacle-${PV}:${SLOT}" ;;
+	*)
+		RDEPEND+="
+			>=kde-plasma/spectacle-$(ver_cut 1-3):${SLOT}
+			<kde-plasma/spectacle-15
+		"
+		;;
+esac
 # Optional runtime deps: kde-plasma/plasma-desktop
 RDEPEND="${RDEPEND}
 	accessibility? ( app-accessibility/orca )
