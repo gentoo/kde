@@ -46,6 +46,8 @@ CMAKE_SKIP_TESTS=(
 	smbmountmodeltest
 )
 
+PATCHES=( "${FILESDIR}/${P}-cmake.patch" ) # bug #956010; fixed in 6.3.91
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package usb USB1)

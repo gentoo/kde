@@ -1,0 +1,27 @@
+From b2fd0e4cb249980c20910038bde21bc676529c7c Mon Sep 17 00:00:00 2001
+From: Nicolas Fella <nicolas.fella@gmx.de>
+Date: Fri, 16 May 2025 12:43:50 +0200
+Subject: [PATCH] Add missing include(ECMQmlModule)
+
+Fixes #6
+
+(cherry picked from commit 934e1631268a028ff926172001e157db80c0b457)
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bdb25fce..8e0545eb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,6 +22,7 @@ include(KDEGitCommitHooks)
+ include(ECMSetupQtPluginMacroNames)
+ include(ECMQueryQt)
+ include(ECMDeprecationSettings)
++include(ECMQmlModule)
+ 
+ option(BUILD_DOC "Whether to build the documentation" ON)
+ 
+-- 
+GitLab
+
