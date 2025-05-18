@@ -3,10 +3,9 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KFMIN=6.9.0
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm kde.org optfeature xdg
 
 DESCRIPTION="Desktop Planetarium"
@@ -47,7 +46,7 @@ COMMON_DEPEND="
 	sci-libs/gsl:=
 	>=sci-libs/indilib-2.0.2
 	sci-libs/libnova:=
-	>=sci-libs/stellarsolver-2.6-r10
+	>=sci-libs/stellarsolver-2.7
 	sys-libs/zlib
 	opencv? (
 		media-libs/opencv:=[ffmpeg]
@@ -81,14 +80,15 @@ CMAKE_SKIP_TESTS=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.7.{4,5}-cmake.patch # bug 895892
+	# downstream patch
+	"${FILESDIR}"/${PN}-3.7.4-cmake.patch # bug 895892
 )
 
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibXISF=ON # not packaged
+		-DBUILD_WITH_QT6=ON # KF6 please
 		-DBUILD_QT5=OFF # KF6 please
-		-DBUILD_DOC=$(usex handbook)
 		$(cmake_use_find_package opencv OpenCV)
 		$(cmake_use_find_package password Qt6Keychain)
 		$(cmake_use_find_package raw LibRaw)
