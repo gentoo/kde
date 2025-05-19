@@ -559,6 +559,10 @@ cmake_src_configure() {
 		eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
 		eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
 		eqawarn "this package."
+		if has_version -b ">=dev-build/cmake-4"; then
+			eqawarn "QA Notice: CMake 4 detected; building with -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+			cmakeargs+=( -DCMAKE_POLICY_VERSION_MINIMUM=3.5 )
+		fi
 	fi
 
 	pushd "${BUILD_DIR}" > /dev/null || die
