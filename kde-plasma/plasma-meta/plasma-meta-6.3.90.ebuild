@@ -69,7 +69,7 @@ RDEPEND="
 	browser-integration? ( >=kde-plasma/plasma-browser-integration-${PV}:${SLOT} )
 	colord? ( x11-misc/colord )
 	crash-handler? (
-		!systemd? ( >=kde-plasma/drkonqi-6.3.80:${SLOT} )
+		!systemd? ( =kde-plasma/drkonqi-6.3.80*:${SLOT} )
 		systemd? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
 	)
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
