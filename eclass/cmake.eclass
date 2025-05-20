@@ -566,9 +566,10 @@ cmake_src_configure() {
 		eqawarn "QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4,"
 		eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
 		eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
-		eqawarn "this package."
+		eqawarn "this package, and take it upstream."
 		if has_version -b ">=dev-build/cmake-4"; then
 			eqawarn "QA Notice: CMake 4 detected; building with -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+			eqawarn "This is merely a workaround and *not* a permanent fix."
 			cmakeargs+=( -DCMAKE_POLICY_VERSION_MINIMUM=3.5 )
 		fi
 	fi
