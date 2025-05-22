@@ -3,6 +3,7 @@
 
 EAPI=8
 
+EGIT_BRANCH="8.2"
 ECM_TEST="forceoptional"
 KDE_ORG_NAME="alkimia"
 KFMIN=5.115.0
