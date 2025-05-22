@@ -3,6 +3,7 @@
 
 EAPI=8
 
+EGIT_BRANCH="5.2"
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=5.115.0
