@@ -114,7 +114,7 @@ RDEPEND="
 	sdk? ( >=kde-plasma/plasma-sdk-${PV}:${SLOT} )
 	smart? ( >=kde-plasma/plasma-disks-${PV}:${SLOT} )
 	systemd? (
-		sys-apps/systemd[pam]
+		>=sys-apps/systemd-257[pam]
 		firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} )
 	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
