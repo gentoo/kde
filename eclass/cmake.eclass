@@ -371,7 +371,7 @@ cmake_src_configure() {
 	local file ver cmreq_isold
 	if ! [[ ${CMAKE_QA_COMPAT_SKIP} ]]; then
 		while read -d '' -r file ; do
-			ver=$(sed -ne "/cmake_minimum_required/{s/.*\(\.\.\.*\|\s\)\([0-9.]*\)\([)]\|\s\).*$/\2/p;q}" \
+			ver=$(sed -ne "/cmake_minimum_required/I{s/.*\(\.\.\.*\|\s\)\([0-9.]*\)\([)]\|\s\).*$/\2/p;q}" \
 				"${file}" 2>/dev/null \
 			)
 
