@@ -22,8 +22,8 @@ index e65585fb..e07a4dc6 100644
 +set(BOOSTPYTHON_VERSION_MAJOR_MINOR python37 CACHE STRING "Version of BoostPython to feed CMake's FindBoost")
 +find_package(Boost 1.70 COMPONENTS ${BOOSTPYTHON_VERSION_MAJOR_MINOR})
  
- add_subdirectory( doc )
- add_subdirectory( icons )
+ if(KF6DocTools_FOUND)
+   add_subdirectory( doc )
 @@ -61,15 +62,15 @@ add_subdirectory( macros )
  add_subdirectory( data )
  add_subdirectory( pykig )
@@ -74,18 +74,18 @@ index e65585fb..e07a4dc6 100644
  
  add_library(kigpart MODULE ${kigpart_PART_SRCS})
 @@ -256,9 +254,9 @@ target_link_libraries(kigpart
-   ${KDE5_KUTILS_LIBS}
+   KF6::Archive
  )
  
 -if(BoostPython_FOUND)
--  target_link_libraries(kigpart ${BoostPython_LIBRARIES} ${KDE5_KTEXTEDITOR_LIBS})
+-  target_link_libraries(kigpart ${BoostPython_LIBRARIES} KF6::TextEditor)
 -endif(BoostPython_FOUND)
 +if(Boost_FOUND)
-+  target_link_libraries(kigpart Boost::${BOOSTPYTHON_VERSION_MAJOR_MINOR} ${PYTHON_LIBRARIES})
++  target_link_libraries(kigpart Boost::${BOOSTPYTHON_VERSION_MAJOR_MINOR} ${PYTHON_LIBRARIES} KF6::TextEditor)
 +endif()
  
- if (Qt5XmlPatterns_FOUND)
-   target_link_libraries(kigpart Qt5::XmlPatterns)
+ if (Qt${QT_MAJOR_VERSION}XmlPatterns_FOUND)
+   target_link_libraries(kigpart Qt::XmlPatterns)
 -- 
 2.27.0
 

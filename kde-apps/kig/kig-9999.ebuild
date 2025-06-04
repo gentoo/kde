@@ -3,42 +3,38 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 ECM_TEST="true"
-PYTHON_COMPAT=( python3_{10..13} )
-KFMIN=5.115.0
-QTMIN=5.15.12
-inherit python-single-r1 ecm gear.kde.org
+PYTHON_COMPAT=( python3_{11..13} )
+KFMIN=6.13.0
+QTMIN=6.8.1
+inherit python-single-r1 ecm gear.kde.org xdg
 
 DESCRIPTION="KDE Interactive Geometry tool"
 HOMEPAGE="https://apps.kde.org/kig/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
-IUSE="geogebra scripting"
+IUSE="scripting"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	geogebra? ( >=dev-qt/qtxmlpatterns-${QTMIN}:5 )
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	scripting? (
 		$(python_gen_cond_dep '
 			>=dev-libs/boost-1.70:=[python,${PYTHON_USEDEP}]
@@ -46,10 +42,10 @@ RDEPEND="${PYTHON_DEPS}
 	)
 "
 DEPEND="${RDEPEND}
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-20.08.70-cmake-boostpython.patch )
+PATCHES=( "${FILESDIR}"/${PN}-25.07.70-cmake-boostpython.patch )
 
 pkg_setup() {
 	python-single-r1_pkg_setup
@@ -64,7 +60,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DBOOSTPYTHON_VERSION_MAJOR_MINOR=${EPYTHON}
-		$(cmake_use_find_package geogebra Qt5XmlPatterns)
 		$(cmake_use_find_package scripting Boost)
 	)
 
