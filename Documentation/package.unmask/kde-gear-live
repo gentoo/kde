@@ -27,7 +27,7 @@
 ~kde-apps/kdeedu-meta-9999
 ~kde-apps/kgeography-9999
 ~kde-apps/khangman-9999
-# ~kde-apps/kig-9999 # while KF5-based
+~kde-apps/kig-9999
 ~kde-apps/kiten-9999
 ~kde-apps/klettres-9999
 ~kde-apps/kmplot-9999
