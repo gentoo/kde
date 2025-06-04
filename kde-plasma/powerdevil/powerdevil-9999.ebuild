@@ -89,6 +89,10 @@ src_test() {
 }
 
 pkg_postinst() {
+	if has_version "<sys-apps/systemd-257"; then
+		ewarn "org_kde_powerdevil won't start under systemd user session."
+		ewarn "You must upgrade to >=sys-apps/systemd-257. Bug #956312"
+	fi
 	xdg_pkg_postinst
 	fcaps_pkg_postinst
 }
