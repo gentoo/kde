@@ -255,8 +255,8 @@ _cmake_modify-cmakelists() {
 		sed \
 			-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_BUILD_TYPE\([[:space:]].*)\|)\)/I{s/^/#_cmake_modify_IGNORE /g}' \
 			-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_\(COLOR_MAKEFILE\|INSTALL_PREFIX\|VERBOSE_MAKEFILE\)[[:space:]].*)/I{s/^/#_cmake_modify_IGNORE /g}' \
-			-i ${file} || die "failed to disable hardcoded settings"
-		readarray -t mod_lines < <(grep -se "^#_cmake_modify_IGNORE" ${file})
+			-i "${file}" || die "failed to disable hardcoded settings"
+		readarray -t mod_lines < <(grep -se "^#_cmake_modify_IGNORE" "${file}")
 		if [[ ${#mod_lines[*]} -gt 0 ]]; then
 			einfo "Hardcoded definition(s) removed in ${file/${CMAKE_USE_DIR%\/}\//}:"
 			local mod_line
