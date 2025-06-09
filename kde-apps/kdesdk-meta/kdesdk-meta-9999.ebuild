@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/categories/development/"
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS=""
-IUSE="cvs +git mercurial perl php python qt5 subversion webengine"
+IUSE="+git mercurial perl php python qt5 subversion webengine"
 
 RDEPEND="
 	>=dev-build/dolphin-plugins-makefileactions-${PV}:*
@@ -26,10 +26,7 @@ RDEPEND="
 	git? ( >=kde-apps/dolphin-plugins-git-${PV}:* )
 	mercurial? ( >=kde-apps/dolphin-plugins-mercurial-${PV}:* )
 	perl? ( >=dev-util/kio-perldoc-${PV}:* )
-	qt5? (
-		>=kde-apps/umbrello-${PV}:*
-		cvs? ( >=kde-apps/cervisia-25.04.0:* )
-	)
+	qt5? ( >=kde-apps/umbrello-${PV}:* )
 	subversion? ( >=kde-apps/dolphin-plugins-subversion-${PV}:* )
 	webengine? (
 		>=dev-util/kdevelop-${PV}:*
