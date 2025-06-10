@@ -47,11 +47,6 @@ DEPEND="${RDEPEND}
 
 PATCHES=( "${FILESDIR}"/${PN}-25.07.70-cmake-boostpython.patch )
 
-pkg_setup() {
-	python-single-r1_pkg_setup
-	ecm_pkg_setup
-}
-
 src_prepare() {
 	ecm_src_prepare
 	python_fix_shebang .
