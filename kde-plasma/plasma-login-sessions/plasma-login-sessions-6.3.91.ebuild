@@ -17,7 +17,10 @@ IUSE="+wayland X"
 
 REQUIRED_USE="|| ( wayland X )"
 
-RDEPEND="!<kde-plasma/plasma-workspace-6.2.1"
+RDEPEND="!<kde-plasma/plasma-workspace-6.2.1
+	wayland? ( kde-plasma/kwin:6 )
+	X? ( kde-plasma/kwin-x11:6 )
+"
 
 ecm-common_inject_heredoc() {
 	cat >> CMakeLists.txt <<- _EOF_ || die
