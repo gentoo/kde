@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
 +networkmanager oxygen-theme plymouth pulseaudio qt5 rdp +sddm sdk +smart systemd
-thunderbolt unsupported wacom +wallpapers webengine"
+thunderbolt unsupported wacom +wallpapers webengine X"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
@@ -120,7 +120,7 @@ RDEPEND="
 	)
 	wacom? (
 		>=kde-plasma/plasma-desktop-${PV}:${SLOT}[input_devices_wacom]
-		>=kde-plasma/wacomtablet-${PV}:${SLOT}
+		X? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
 	)
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 	webengine? ( kde-apps/khelpcenter:6 )
