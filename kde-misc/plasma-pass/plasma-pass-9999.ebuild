@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.9.0
+QTMIN=6.8.1
 inherit ecm kde.org
 
 DESCRIPTION="Plasma applet to access password from pass"
@@ -12,7 +12,7 @@ HOMEPAGE="https://www.dvratil.cz/2018/05/plasma-pass/ https://invent.kde.org/pla
 
 if [[ ${KDE_BUILD_TYPE} != live ]] ; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~ppc64"
+	KEYWORDS="~amd64 ~ppc64 ~riscv"
 fi
 
 LICENSE="LGPL-2.1+"
