@@ -30,18 +30,18 @@ COMMON_DEPEND="
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtwayland-${QTMIN}:6=
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6[wayland]
+	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kidletime-${KFMIN}:6=[wayland]
 	>=kde-frameworks/knewstuff-${KFMIN}:6
