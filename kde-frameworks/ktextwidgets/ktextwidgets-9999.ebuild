@@ -19,7 +19,6 @@ DEPEND="
 	=kde-frameworks/kconfig-${KDE_CATV}*:6
 	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
 	=kde-frameworks/ki18n-${KDE_CATV}*:6
-	=kde-frameworks/kservice-${KDE_CATV}*:6
 	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
 	=kde-frameworks/sonnet-${KDE_CATV}*:6
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )
