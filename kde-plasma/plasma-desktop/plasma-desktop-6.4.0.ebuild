@@ -24,7 +24,6 @@ RESTRICT="test" # missing selenium-webdriver-at-spi
 # kde-frameworks/kwindowsystem[X]: Uses KX11Extras
 # kde-plasma/plasma-workspace[X]: applets/pager/pagermodel.cpp includes xwindowtasksmodel.h
 COMMON_DEPEND="
-	dev-libs/icu:=
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
@@ -128,6 +127,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-6.1.80-override-include-dirs.patch" # downstream patch
+	"${FILESDIR}/${P}-unused-dep.patch" # fixed in 6.4 branch
 )
 
 src_prepare() {
