@@ -42,7 +42,6 @@ COMMON_DEPEND="
 	=kde-frameworks/ktextwidgets-${KDE_CATV}*:6
 	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
 	=kde-frameworks/kwindowsystem-${KDE_CATV}*:6[wayland?,X?]
-	=kde-frameworks/kxmlgui-${KDE_CATV}*:6
 	=kde-frameworks/solid-${KDE_CATV}*:6
 	sys-power/switcheroo-control
 	acl? (
