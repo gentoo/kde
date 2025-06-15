@@ -28,7 +28,6 @@ DEPEND="
 	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
 	=kde-frameworks/kguiaddons-${KDE_CATV}*:6
 	=kde-frameworks/ki18n-${KDE_CATV}*:6
-	=kde-frameworks/kiconthemes-${KDE_CATV}*:6
 	=kde-frameworks/kio-${KDE_CATV}*:6
 	=kde-frameworks/kitemviews-${KDE_CATV}*:6
 	=kde-frameworks/kjobwidgets-${KDE_CATV}*:6
