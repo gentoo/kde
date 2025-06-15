@@ -19,7 +19,6 @@ RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,xml]
 	=kde-frameworks/kconfig-${KDE_CATV}*:6
 	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
-	=kde-frameworks/kdbusaddons-${KDE_CATV}*:6
 	=kde-frameworks/ki18n-${KDE_CATV}*:6
 "
 DEPEND="${RDEPEND}
