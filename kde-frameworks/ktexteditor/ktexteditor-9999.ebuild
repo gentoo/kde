@@ -34,7 +34,6 @@ DEPEND="
 	=kde-frameworks/kjobwidgets-${KDE_CATV}*:6
 	=kde-frameworks/kparts-${KDE_CATV}*:6
 	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
-	=kde-frameworks/kwindowsystem-${KDE_CATV}*:6
 	=kde-frameworks/kxmlgui-${KDE_CATV}*:6
 	=kde-frameworks/sonnet-${KDE_CATV}*:6
 	=kde-frameworks/syntax-highlighting-${KDE_CATV}*:6
