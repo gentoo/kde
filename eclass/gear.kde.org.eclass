@@ -301,9 +301,10 @@ if $(ver_test -gt 24.11.75); then
 fi
 
 # list of applications ported to KF6 post-25.04 having to block SLOT=5
-if $(ver_test -gt 25.07.75); then
+if $(ver_test -gt 25.07.50); then
 	case ${PN} in
 		artikulate | \
+		kamoso | \
 		kig)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;
