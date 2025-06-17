@@ -13,7 +13,7 @@ DESCRIPTION="Library for accessing Google calendar and contact resources"
 HOMEPAGE="https://api.kde.org/kdepim/libkgapi/html/index.html"
 
 LICENSE="LGPL-2.1+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
