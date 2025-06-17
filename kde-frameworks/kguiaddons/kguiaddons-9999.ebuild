@@ -20,7 +20,6 @@ COMMON_DEPEND="
 	wayland? (
 		dev-libs/wayland
 		>=dev-qt/qtbase-${QTMIN}:6=[wayland]
-		>=dev-qt/qtwayland-${QTMIN}:6
 	)
 	X? (
 		>=dev-qt/qtbase-${QTMIN}:6[X]
