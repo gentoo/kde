@@ -13,7 +13,7 @@ inherit ecm gear.kde.org
 DESCRIPTION="Mail transport service"
 
 LICENSE="LGPL-2.1+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
