@@ -12,7 +12,7 @@ DESCRIPTION="Library for embedding KParts in a Kontact component"
 HOMEPAGE="https://api.kde.org/kdepim/kontactinterface/html/index.html"
 
 LICENSE="GPL-2+ LGPL-2.1+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
