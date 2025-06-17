@@ -24,7 +24,7 @@ DEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-apps/kpimtextedit-${PVCUT}:6
+	>=kde-apps/kpimtextedit-${PVCUT}:6=
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
