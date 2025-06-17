@@ -15,7 +15,7 @@ DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
 
 LICENSE="LGPL-2.1+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE="tools +webengine xml"
 
