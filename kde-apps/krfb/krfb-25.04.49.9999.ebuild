@@ -51,7 +51,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast(+)] )
 "
-BDEPEND="wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
+BDEPEND="wayland? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
 
 src_configure() {
 	local mycmakeargs=(
