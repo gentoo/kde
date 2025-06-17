@@ -32,7 +32,7 @@ DEPEND="${COMMON_DEPEND}
 	test? (
 		dev-libs/plasma-wayland-protocols
 		dev-libs/wayland
-		>=dev-qt/qtwayland-${QTMIN}:6
+		>=dev-qt/qtbase-${QTMIN}:6[wayland]
 		>=kde-plasma/kwayland-${KDE_CATV}:6
 		media-video/pipewire[extra]
 	)
