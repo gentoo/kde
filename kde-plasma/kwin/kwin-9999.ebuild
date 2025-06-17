@@ -25,12 +25,11 @@ COMMON_DEPEND="
 	>=dev-libs/libinput-1.27:=
 	>=dev-libs/wayland-1.24.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,wayland,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6=
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
