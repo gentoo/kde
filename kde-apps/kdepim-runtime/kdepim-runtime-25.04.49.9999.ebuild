@@ -28,19 +28,19 @@ RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets,xml]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-calendar-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
-	>=kde-apps/akonadi-mime-${PVCUT}:6
-	>=kde-apps/kcalutils-${PVCUT}:6
-	>=kde-apps/kidentitymanagement-${PVCUT}:6
-	>=kde-apps/kimap-${PVCUT}:6
-	>=kde-apps/kldap-${PVCUT}:6
-	>=kde-apps/kmailtransport-${PVCUT}:6
-	>=kde-apps/kmbox-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/libkgapi-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-calendar-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/akonadi-mime-${PVCUT}:6=
+	>=kde-apps/kcalutils-${PVCUT}:6=
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+	>=kde-apps/kimap-${PVCUT}:6=
+	>=kde-apps/kldap-${PVCUT}:6=
+	>=kde-apps/kmailtransport-${PVCUT}:6=
+	>=kde-apps/kmbox-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/libkgapi-${PVCUT}:6=
+	>=kde-apps/pimcommon-${PVCUT}:6=[activities?]
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
