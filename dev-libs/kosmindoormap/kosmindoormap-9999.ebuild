@@ -23,8 +23,8 @@ RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui?,network]
 	sys-libs/zlib
 	gui? (
-		>=dev-libs/kopeninghours-${PVCUT}:6
-		>=dev-libs/kpublictransport-${PVCUT}:6
+		>=dev-libs/kopeninghours-${PVCUT}:6=
+		>=dev-libs/kpublictransport-${PVCUT}:6=
 		>=dev-qt/qtdeclarative-${QTMIN}:6
 		>=kde-frameworks/kcoreaddons-${KFMIN}:6
 		>=kde-frameworks/ki18n-${KFMIN}:6
