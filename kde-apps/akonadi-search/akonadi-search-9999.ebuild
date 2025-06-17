@@ -24,9 +24,9 @@ RDEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-libs/xapian-1.3:=[chert(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-mime-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-mime-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
