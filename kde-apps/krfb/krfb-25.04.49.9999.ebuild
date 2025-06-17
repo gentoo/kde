@@ -18,7 +18,7 @@ IUSE="wayland"
 
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,network,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,network,wayland?,widgets,X]
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -40,7 +40,6 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-image
 	wayland? (
 		dev-libs/wayland
-		>=dev-qt/qtwayland-${QTMIN}:6
 		kde-plasma/kpipewire:6
 		kde-plasma/kwayland:6
 		>=media-video/pipewire-0.3
