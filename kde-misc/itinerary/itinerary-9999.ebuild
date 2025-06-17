@@ -21,15 +21,15 @@ IUSE="matrix"
 
 DEPEND="
 	>=dev-libs/kirigami-addons-0.9:6
-	>=dev-libs/kosmindoormap-${PVCUT}:6
-	>=dev-libs/kpublictransport-${PVCUT}:6
+	>=dev-libs/kosmindoormap-${PVCUT}:6=
+	>=dev-libs/kpublictransport-${PVCUT}:6=
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtlocation-${QTMIN}:6
 	>=dev-qt/qtpositioning-${QTMIN}:6[qml]
-	>=kde-apps/kitinerary-${PVCUT}:6
-	>=kde-apps/kpkpass-${PVCUT}:6
+	>=kde-apps/kitinerary-${PVCUT}:6=
+	>=kde-apps/kpkpass-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
