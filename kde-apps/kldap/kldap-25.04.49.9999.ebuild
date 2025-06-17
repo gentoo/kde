@@ -14,7 +14,7 @@ DESCRIPTION="Library for interacting with LDAP servers"
 HOMEPAGE="https://api.kde.org/kdepim/kldap/html/index.html"
 
 LICENSE="GPL-2+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
