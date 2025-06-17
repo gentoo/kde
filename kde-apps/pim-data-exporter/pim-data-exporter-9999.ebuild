@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/pimdataexporter/
 https://userbase.kde.org/KMail/Backup_Options"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE="telemetry"
 
