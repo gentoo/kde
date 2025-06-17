@@ -150,7 +150,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	>=dev-util/wayland-scanner-1.19.0
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
