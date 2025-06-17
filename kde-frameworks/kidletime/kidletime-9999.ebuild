@@ -20,7 +20,6 @@ RDEPEND="
 	wayland? (
 		dev-libs/wayland
 		>=dev-qt/qtbase-${QTMIN}:6=[wayland]
-		>=dev-qt/qtwayland-${QTMIN}:6
 	)
 	X? (
 		x11-libs/libX11
