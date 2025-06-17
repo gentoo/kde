@@ -26,9 +26,9 @@ DEPEND="
 	dev-libs/libassuan:=
 	dev-libs/libgpg-error
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
-	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/libkleo-${PVCUT}:6
-	>=kde-apps/mimetreeparser-${PVCUT}:6
+	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/libkleo-${PVCUT}:6=
+	>=kde-apps/mimetreeparser-${PVCUT}:6=
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -47,9 +47,9 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	pim? (
-		>=kde-apps/akonadi-mime-${PVCUT}:6
-		>=kde-apps/kidentitymanagement-${PVCUT}:6
-		>=kde-apps/kmailtransport-${PVCUT}:6
+		>=kde-apps/akonadi-mime-${PVCUT}:6=
+		>=kde-apps/kidentitymanagement-${PVCUT}:6=
+		>=kde-apps/kmailtransport-${PVCUT}:6=
 	)
 "
 RDEPEND="${DEPEND}
