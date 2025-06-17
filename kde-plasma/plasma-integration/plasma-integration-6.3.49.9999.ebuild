@@ -22,9 +22,8 @@ RESTRICT="test"
 # slot ops: qdbus*_p.h and Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
