@@ -13,7 +13,7 @@ inherit ecm gear.kde.org
 DESCRIPTION="Incidence editor for KOrganizer"
 
 LICENSE="GPL-2+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
