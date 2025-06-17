@@ -73,7 +73,7 @@ PDEPEND="
 	>=kde-plasma/xdg-desktop-portal-kde-${KDE_CATV}:6
 "
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	qt5? ( >=dev-qt/qtwaylandscanner-${QT5MIN}:5 )
 "
 
