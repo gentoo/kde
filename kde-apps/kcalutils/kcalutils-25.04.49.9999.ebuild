@@ -14,7 +14,7 @@ DESCRIPTION="Library providing utility functions for the handling of calendar da
 HOMEPAGE="https://api.kde.org/kdepim/kcalutils/html/index.html"
 
 LICENSE="GPL-2+ LGPL-2.1+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
