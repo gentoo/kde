@@ -25,10 +25,10 @@ RDEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
-	>=kde-apps/kidentitymanagement-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/libkdepim-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/libkdepim-${PVCUT}:6=
+	>=kde-apps/pimcommon-${PVCUT}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -43,8 +43,8 @@ RDEPEND="
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 "
 DEPEND="${RDEPEND}
-	>=kde-apps/kimap-${PVCUT}:6
-	>=kde-apps/kmailtransport-${PVCUT}:6
+	>=kde-apps/kimap-${PVCUT}:6=
+	>=kde-apps/kmailtransport-${PVCUT}:6=
 "
 
 src_configure() {
