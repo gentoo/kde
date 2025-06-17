@@ -19,9 +19,9 @@ RESTRICT="test"
 # x11-base/xorg-proto: X11/Xlib.h included in public header kkeyserver.h,
 #   req. by KF6WindowSystemConfig.cmake; see also bug #939177
 RDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,wayland?]
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	wayland? ( >=dev-qt/qtwayland-${QTMIN}:6= )
+	wayland? ( >=dev-qt/qtbase-${QTMIN}:6=[wayland] )
 	X? (
 		>=dev-qt/qtbase-${QTMIN}:6=[gui,X]
 		x11-base/xorg-proto
