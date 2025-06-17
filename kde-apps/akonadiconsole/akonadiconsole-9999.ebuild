@@ -20,14 +20,14 @@ IUSE=""
 DEPEND="
 	dev-libs/xapian:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
-	>=kde-apps/akonadi-mime-${PVCUT}:6
-	>=kde-apps/akonadi-search-${PVCUT}:6
-	>=kde-apps/calendarsupport-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/libkdepim-${PVCUT}:6
-	>=kde-apps/messagelib-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/akonadi-mime-${PVCUT}:6=
+	>=kde-apps/akonadi-search-${PVCUT}:6=
+	>=kde-apps/calendarsupport-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/libkdepim-${PVCUT}:6=
+	>=kde-apps/messagelib-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
