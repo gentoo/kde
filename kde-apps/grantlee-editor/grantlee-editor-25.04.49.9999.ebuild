@@ -12,7 +12,7 @@ inherit ecm gear.kde.org
 DESCRIPTION="Utilities and tools to manage themes in KDE PIM applications"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
