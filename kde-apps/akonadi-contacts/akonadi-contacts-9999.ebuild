@@ -23,9 +23,9 @@ RESTRICT="test"
 RDEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/grantleetheme-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/grantleetheme-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
