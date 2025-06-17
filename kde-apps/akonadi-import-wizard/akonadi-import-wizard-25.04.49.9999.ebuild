@@ -13,7 +13,7 @@ DESCRIPTION="Assistant to import PIM data from other applications into Akonadi"
 HOMEPAGE+=" https://userbase.kde.org/KMail/Import_Options"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
