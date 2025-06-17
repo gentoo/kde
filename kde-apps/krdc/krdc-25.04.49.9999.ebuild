@@ -18,8 +18,7 @@ IUSE="activities +rdp +vnc"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 2016-01-24
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,wayland,widgets,xml]
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
