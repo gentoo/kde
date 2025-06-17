@@ -74,7 +74,7 @@ RDEPEND="${COMMON_DEPEND}
 	net-fs/sshfs
 "
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
