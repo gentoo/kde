@@ -22,7 +22,7 @@ IUSE="+share"
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-apps/kaccounts-integration-${PVCUT}:6
-	>=kde-apps/libkgapi-${PVCUT}:6
+	>=kde-apps/libkgapi-${PVCUT}:6=
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
