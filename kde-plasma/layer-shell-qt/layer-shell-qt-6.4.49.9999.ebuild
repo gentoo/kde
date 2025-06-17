@@ -17,9 +17,8 @@ IUSE=""
 # slot op: various private QtWaylandClient headers
 RDEPEND="
 	>=dev-libs/wayland-1.15
-	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=dev-qt/qtbase-${QTMIN}:6=[gui,wayland]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6=
 	x11-libs/libxkbcommon
 "
 DEPEND="${RDEPEND}
