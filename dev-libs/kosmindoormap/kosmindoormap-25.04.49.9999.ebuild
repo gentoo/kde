@@ -13,7 +13,7 @@ DESCRIPTION="Data Model and Extraction System for Travel Reservation information
 HOMEPAGE="https://invent.kde.org/libraries/kosmindoormap"
 
 LICENSE="LGPL-2+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE="+gui"
 
