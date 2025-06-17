@@ -20,13 +20,13 @@ IUSE=""
 DEPEND="
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/kidentitymanagement-${PVCUT}:6
-	>=kde-apps/kmailtransport-${PVCUT}:6
-	>=kde-apps/mailcommon-${PVCUT}:6
-	>=kde-apps/mailimporter-${PVCUT}:6
-	>=kde-apps/messagelib-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+	>=kde-apps/kmailtransport-${PVCUT}:6=
+	>=kde-apps/mailcommon-${PVCUT}:6=
+	>=kde-apps/mailimporter-${PVCUT}:6=
+	>=kde-apps/messagelib-${PVCUT}:6=
+	>=kde-apps/pimcommon-${PVCUT}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
