@@ -42,7 +42,7 @@ RDEPEND="${COMMON_DEPEND}
 RDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 BDEPEND="
 	wayland? (
-		>=dev-qt/qtwayland-${QTMIN}:6
+		>=dev-qt/qtbase-${QTMIN}:6[wayland]
 		dev-util/wayland-scanner
 	)
 "
