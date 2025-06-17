@@ -22,8 +22,8 @@ RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
