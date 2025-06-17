@@ -22,7 +22,7 @@ RESTRICT="test" # bugs 653616, 711666
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
-	>=kde-apps/kidentitymanagement-${PVCUT}:6
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
