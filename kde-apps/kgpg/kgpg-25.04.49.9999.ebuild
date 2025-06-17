@@ -20,8 +20,8 @@ IUSE=""
 
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
