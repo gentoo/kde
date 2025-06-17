@@ -13,7 +13,7 @@ DESCRIPTION="Runtime plugin collection to extend the functionality of KDE PIM"
 HOMEPAGE="https://apps.kde.org/kontact/"
 
 LICENSE="GPL-2+ LGPL-2.1+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE="activities speech"
 
