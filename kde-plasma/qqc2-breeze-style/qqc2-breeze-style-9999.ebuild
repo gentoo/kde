@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="false"
-KFMIN=6.14.0
+KFMIN=9999
 QTMIN=6.8.1
 inherit ecm plasma.kde.org
 
