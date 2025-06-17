@@ -37,7 +37,7 @@ DEPEND="${RDEPEND}
 		>=dev-libs/wayland-protocols-1.27:0
 	)
 "
-BDEPEND="wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
+BDEPEND="wayland? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
 
 src_prepare() {
 	ecm_src_prepare
