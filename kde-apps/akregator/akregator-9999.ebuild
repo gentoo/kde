@@ -22,11 +22,11 @@ RDEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
-	>=kde-apps/grantleetheme-${PVCUT}:6
-	>=kde-apps/kontactinterface-${PVCUT}:6
-	>=kde-apps/libkdepim-${PVCUT}:6
-	>=kde-apps/messagelib-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
+	>=kde-apps/grantleetheme-${PVCUT}:6=
+	>=kde-apps/kontactinterface-${PVCUT}:6=
+	>=kde-apps/libkdepim-${PVCUT}:6=
+	>=kde-apps/messagelib-${PVCUT}:6=
+	>=kde-apps/pimcommon-${PVCUT}:6=[activities?]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
