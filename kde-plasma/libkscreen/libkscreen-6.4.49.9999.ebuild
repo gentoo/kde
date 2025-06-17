@@ -22,8 +22,7 @@ RESTRICT="test"
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 RDEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui]
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	x11-libs/libxcb:=
 "
