@@ -77,7 +77,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kimageformats-${KFMIN}:6
 "
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 "
 
