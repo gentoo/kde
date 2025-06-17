@@ -11,7 +11,7 @@ inherit ecm gear.kde.org
 DESCRIPTION="Libary for handling mail messages and newsgroup articles"
 
 LICENSE="GPL-2+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
