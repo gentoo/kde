@@ -21,12 +21,12 @@ IUSE="activities"
 RDEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
-	>=kde-apps/akonadi-search-${PVCUT}:6
-	>=kde-apps/kimap-${PVCUT}:6
-	>=kde-apps/kldap-${PVCUT}:6
-	>=kde-apps/libkdepim-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/akonadi-search-${PVCUT}:6=
+	>=kde-apps/kimap-${PVCUT}:6=
+	>=kde-apps/kldap-${PVCUT}:6=
+	>=kde-apps/libkdepim-${PVCUT}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
