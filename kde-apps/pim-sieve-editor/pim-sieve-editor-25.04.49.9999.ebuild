@@ -20,13 +20,13 @@ IUSE="telemetry"
 DEPEND="
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
-	>=kde-apps/akonadi-mime-${PVCUT}:6
-	>=kde-apps/calendarsupport-${PVCUT}:6
-	>=kde-apps/kmailtransport-${PVCUT}:6
-	>=kde-apps/libksieve-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/akonadi-mime-${PVCUT}:6=
+	>=kde-apps/calendarsupport-${PVCUT}:6=
+	>=kde-apps/kmailtransport-${PVCUT}:6=
+	>=kde-apps/libksieve-${PVCUT}:6=
+	>=kde-apps/pimcommon-${PVCUT}:6=
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
