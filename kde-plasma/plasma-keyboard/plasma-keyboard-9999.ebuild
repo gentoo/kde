@@ -17,10 +17,9 @@ KEYWORDS=""
 # slot op: Uses Qt6::GuiPrivate for qxkbcommon_p.h
 RDEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[gui,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[gui,wayland,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 "
