@@ -12,7 +12,7 @@ inherit ecm gear.kde.org xdg
 DESCRIPTION="Import mbox email archives from various sources into Akonadi"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
