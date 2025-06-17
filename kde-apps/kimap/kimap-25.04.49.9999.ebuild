@@ -21,7 +21,7 @@ IUSE=""
 RDEPEND="
 	dev-libs/cyrus-sasl
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
-	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
