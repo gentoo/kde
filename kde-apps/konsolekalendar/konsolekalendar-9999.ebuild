@@ -18,9 +18,9 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-calendar-${PVCUT}:6
-	>=kde-apps/calendarsupport-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-calendar-${PVCUT}:6=
+	>=kde-apps/calendarsupport-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
