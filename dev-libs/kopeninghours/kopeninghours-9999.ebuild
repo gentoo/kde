@@ -23,7 +23,7 @@ IUSE="python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="
-	>=dev-libs/kpublictransport-${PVCUT}:6
+	>=dev-libs/kpublictransport-${PVCUT}:6=
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
