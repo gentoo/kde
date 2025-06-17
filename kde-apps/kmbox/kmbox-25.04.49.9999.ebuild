@@ -16,5 +16,5 @@ SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
-DEPEND=">=kde-apps/kmime-${PVCUT}:6"
+DEPEND=">=kde-apps/kmime-${PVCUT}:6="
 RDEPEND="${DEPEND}"
