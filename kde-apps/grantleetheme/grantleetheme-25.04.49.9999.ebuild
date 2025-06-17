@@ -12,7 +12,7 @@ inherit ecm gear.kde.org
 DESCRIPTION="Library for Grantlee plugins"
 
 LICENSE="GPL-2+ LGPL-2.1+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
