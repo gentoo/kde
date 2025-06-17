@@ -14,7 +14,7 @@ DESCRIPTION="Libraries and daemons to implement searching in Akonadi"
 HOMEPAGE="https://invent.kde.org/pim/akonadi-search"
 
 LICENSE="GPL-2+ LGPL-2.1+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
