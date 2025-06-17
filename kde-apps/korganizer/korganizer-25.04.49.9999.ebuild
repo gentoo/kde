@@ -24,19 +24,19 @@ RESTRICT="test"
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-calendar-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
-	>=kde-apps/calendarsupport-${PVCUT}:6
-	>=kde-apps/eventviews-${PVCUT}:6
-	>=kde-apps/incidenceeditor-${PVCUT}:6
-	>=kde-apps/kcalutils-${PVCUT}:6
-	>=kde-apps/kidentitymanagement-${PVCUT}:6
-	>=kde-apps/kmailtransport-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/kontactinterface-${PVCUT}:6
-	>=kde-apps/libkdepim-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-calendar-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/calendarsupport-${PVCUT}:6=
+	>=kde-apps/eventviews-${PVCUT}:6=
+	>=kde-apps/incidenceeditor-${PVCUT}:6=
+	>=kde-apps/kcalutils-${PVCUT}:6=
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+	>=kde-apps/kmailtransport-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/kontactinterface-${PVCUT}:6=
+	>=kde-apps/libkdepim-${PVCUT}:6=
+	>=kde-apps/pimcommon-${PVCUT}:6=[activities?]
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -65,7 +65,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-addons-24.07.50:*
-	>=kde-apps/kdepim-runtime-${PVCUT}:6
+	=kde-apps/kdepim-runtime-${PVCUT}*:6
 "
 BDEPEND="test? ( >=kde-apps/akonadi-${PVCUT}:6[tools] )"
 
