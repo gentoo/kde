@@ -29,25 +29,25 @@ COMMON_DEPEND="
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
-	>=kde-apps/akonadi-mime-${PVCUT}:6
-	>=kde-apps/akonadi-search-${PVCUT}:6
-	>=kde-apps/kcalutils-${PVCUT}:6
-	>=kde-apps/kidentitymanagement-${PVCUT}:6
-	>=kde-apps/kldap-${PVCUT}:6
-	>=kde-apps/kmailtransport-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/kontactinterface-${PVCUT}:6
-	>=kde-apps/kpimtextedit-${PVCUT}:6[speech=]
-	>=kde-apps/libgravatar-${PVCUT}:6
-	>=kde-apps/libkdepim-${PVCUT}:6
-	>=kde-apps/libkleo-${PVCUT}:6
-	>=kde-apps/libksieve-${PVCUT}:6
-	>=kde-apps/libktnef-${PVCUT}:6
-	>=kde-apps/mailcommon-${PVCUT}:6
-	>=kde-apps/messagelib-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/akonadi-mime-${PVCUT}:6=
+	>=kde-apps/akonadi-search-${PVCUT}:6=
+	>=kde-apps/kcalutils-${PVCUT}:6=
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+	>=kde-apps/kldap-${PVCUT}:6=
+	>=kde-apps/kmailtransport-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/kontactinterface-${PVCUT}:6=
+	>=kde-apps/kpimtextedit-${PVCUT}:6=[speech=]
+	>=kde-apps/libgravatar-${PVCUT}:6=
+	>=kde-apps/libkdepim-${PVCUT}:6=
+	>=kde-apps/libkleo-${PVCUT}:6=
+	>=kde-apps/libksieve-${PVCUT}:6=
+	>=kde-apps/libktnef-${PVCUT}:6=
+	>=kde-apps/mailcommon-${PVCUT}:6=
+	>=kde-apps/messagelib-${PVCUT}:6=
+	>=kde-apps/pimcommon-${PVCUT}:6=[activities?]
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
@@ -84,8 +84,8 @@ DEPEND="${COMMON_DEPEND}
 	test? ( kde-apps/akonadi-config[sqlite] )
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-apps/kdepim-runtime-${PVCUT}:6
-	>=kde-apps/kmail-account-wizard-${PVCUT}:6
+	=kde-apps/kdepim-runtime-${PVCUT}*:6
+	=kde-apps/kmail-account-wizard-${PVCUT}*:6
 "
 BDEPEND="
 	dev-libs/libxslt
