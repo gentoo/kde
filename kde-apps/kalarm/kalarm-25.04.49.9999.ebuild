@@ -19,9 +19,9 @@ IUSE="mpv +pim speech X"
 
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
-	>=kde-apps/kcalutils-${PVCUT}:6
-	>=kde-apps/kidentitymanagement-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
+	>=kde-apps/kcalutils-${PVCUT}:6=
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -52,16 +52,16 @@ COMMON_DEPEND="
 	mpv? ( >=media-video/mpv-0.37.0:=[libmpv] )
 	!mpv? ( media-video/vlc:= )
 	pim? (
-		>=kde-apps/akonadi-${PVCUT}:6
-		>=kde-apps/akonadi-contacts-${PVCUT}:6
-		>=kde-apps/akonadi-mime-${PVCUT}:6
-		>=kde-apps/kmailtransport-${PVCUT}:6
+		>=kde-apps/akonadi-${PVCUT}:6=
+		>=kde-apps/akonadi-contacts-${PVCUT}:6=
+		>=kde-apps/akonadi-mime-${PVCUT}:6=
+		>=kde-apps/kmailtransport-${PVCUT}:6=
 	)
 	speech? ( >=dev-libs/ktextaddons-1.5.4:6[speech] )
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${COMMON_DEPEND}
-	pim? ( >=kde-apps/kdepim-runtime-${PVCUT}:6 )
+	pim? ( =kde-apps/kdepim-runtime-${PVCUT}*:6 )
 "
 # kde-apps/kidentitymanagement through its cmake module forces
 # kpimtextedit[speech=] in order not to break w/ kalarm[-speech]
