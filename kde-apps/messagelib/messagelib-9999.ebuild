@@ -26,22 +26,22 @@ DEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
-	>=kde-apps/akonadi-mime-${PVCUT}:6
-	>=kde-apps/akonadi-search-${PVCUT}:6
-	>=kde-apps/grantleetheme-${PVCUT}:6
-	>=kde-apps/kidentitymanagement-${PVCUT}:6
-	>=kde-apps/kldap-${PVCUT}:6
-	>=kde-apps/kmailtransport-${PVCUT}:6
-	>=kde-apps/kmbox-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/kpimtextedit-${PVCUT}:6[speech=]
-	>=kde-apps/libgravatar-${PVCUT}:6
-	>=kde-apps/libkdepim-${PVCUT}:6
-	>=kde-apps/libkleo-${PVCUT}:6
-	>=kde-apps/mimetreeparser-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/akonadi-mime-${PVCUT}:6=
+	>=kde-apps/akonadi-search-${PVCUT}:6=
+	>=kde-apps/grantleetheme-${PVCUT}:6=
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+	>=kde-apps/kldap-${PVCUT}:6=
+	>=kde-apps/kmailtransport-${PVCUT}:6=
+	>=kde-apps/kmbox-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/kpimtextedit-${PVCUT}:6=[speech=]
+	>=kde-apps/libgravatar-${PVCUT}:6=
+	>=kde-apps/libkdepim-${PVCUT}:6=
+	>=kde-apps/libkleo-${PVCUT}:6=
+	>=kde-apps/mimetreeparser-${PVCUT}:6=
+	>=kde-apps/pimcommon-${PVCUT}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
