@@ -25,31 +25,31 @@ RDEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-calendar-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
-	>=kde-apps/calendarsupport-${PVCUT}:6
-	>=kde-apps/grantleetheme-${PVCUT}:6
-	>=kde-apps/incidenceeditor-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-calendar-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/calendarsupport-${PVCUT}:6=
+	>=kde-apps/grantleetheme-${PVCUT}:6=
+	>=kde-apps/incidenceeditor-${PVCUT}:6=
 	>=kde-apps/kaddressbook-${PVCUT}:6
-	>=kde-apps/kcalutils-${PVCUT}:6
-	>=kde-apps/kidentitymanagement-${PVCUT}:6
-	>=kde-apps/kimap-${PVCUT}:6
-	>=kde-apps/kitinerary-${PVCUT}:6
-	>=kde-apps/kldap-${PVCUT}:6
-	>=kde-apps/kmailtransport-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/kpimtextedit-${PVCUT}:6
-	>=kde-apps/kpkpass-${PVCUT}:6
-	>=kde-apps/libgravatar-${PVCUT}:6
-	>=kde-apps/libkdepim-${PVCUT}:6
-	>=kde-apps/libkleo-${PVCUT}:6
-	>=kde-apps/libksieve-${PVCUT}:6
-	>=kde-apps/libktnef-${PVCUT}:6
-	>=kde-apps/mailcommon-${PVCUT}:6
-	>=kde-apps/mailimporter-${PVCUT}:6
-	>=kde-apps/messagelib-${PVCUT}:6
-	>=kde-apps/pimcommon-${PVCUT}:6[activities?]
+	>=kde-apps/kcalutils-${PVCUT}:6=
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+	>=kde-apps/kimap-${PVCUT}:6=
+	>=kde-apps/kitinerary-${PVCUT}:6=
+	>=kde-apps/kldap-${PVCUT}:6=
+	>=kde-apps/kmailtransport-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/kpimtextedit-${PVCUT}:6=
+	>=kde-apps/kpkpass-${PVCUT}:6=
+	>=kde-apps/libgravatar-${PVCUT}:6=
+	>=kde-apps/libkdepim-${PVCUT}:6=
+	>=kde-apps/libkleo-${PVCUT}:6=
+	>=kde-apps/libksieve-${PVCUT}:6=
+	>=kde-apps/libktnef-${PVCUT}:6=
+	>=kde-apps/mailcommon-${PVCUT}:6=
+	>=kde-apps/mailimporter-${PVCUT}:6=
+	>=kde-apps/messagelib-${PVCUT}:6=
+	>=kde-apps/pimcommon-${PVCUT}:6=[activities?]
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -72,7 +72,7 @@ RDEPEND="
 	>=kde-frameworks/prison-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	activities? ( kde-plasma/plasma-activities:6 )
-	importwizard? ( >=kde-apps/akonadi-import-wizard-${PVCUT}:6 )
+	importwizard? ( >=kde-apps/akonadi-import-wizard-${PVCUT}:6= )
 	markdown? ( app-text/discount:= )
 "
 DEPEND="${RDEPEND}"
