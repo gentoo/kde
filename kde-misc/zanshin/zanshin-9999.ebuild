@@ -24,11 +24,11 @@ RESTRICT="test" # bug 785844
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
-	>=kde-apps/akonadi-${PVCUT}:6
-	>=kde-apps/akonadi-calendar-${PVCUT}:6
-	>=kde-apps/akonadi-contacts-${PVCUT}:6
-	>=kde-apps/kmime-${PVCUT}:6
-	>=kde-apps/kontactinterface-${PVCUT}:6
+	>=kde-apps/akonadi-${PVCUT}:6=
+	>=kde-apps/akonadi-calendar-${PVCUT}:6=
+	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/kontactinterface-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -52,7 +52,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-apps/kdepim-runtime-${PVCUT}:6
+	=kde-apps/kdepim-runtime-${PVCUT}*:6
 "
 BDEPEND="
 	test? ( >=kde-apps/akonadi-${PVCUT}:6[tools] )
