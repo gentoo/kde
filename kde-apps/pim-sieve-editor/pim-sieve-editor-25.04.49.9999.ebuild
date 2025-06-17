@@ -13,7 +13,7 @@ inherit ecm gear.kde.org xdg
 DESCRIPTION="Assistant for editing IMAP Sieve filters"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE="telemetry"
 
