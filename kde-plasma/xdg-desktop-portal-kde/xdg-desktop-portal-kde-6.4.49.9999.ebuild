@@ -54,7 +54,7 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/xdg-desktop-portal
 "
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	virtual/pkgconfig
 "
 
