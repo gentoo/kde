@@ -93,7 +93,7 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=kde-plasma/kwayland-${KDE_CATV}:6 )
 "
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
