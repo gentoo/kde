@@ -25,7 +25,7 @@ RESTRICT="test" # missing selenium-webdriver-at-spi
 # kde-plasma/plasma-workspace[X]: applets/pager/pagermodel.cpp includes xwindowtasksmodel.h
 COMMON_DEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,wayland,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/attica-${KFMIN}:6
@@ -84,7 +84,6 @@ COMMON_DEPEND="
 	input_devices_wacom? (
 		dev-libs/wayland
 		dev-libs/libwacom:=
-		>=dev-qt/qtwayland-${QTMIN}:6
 	)
 	scim? ( app-i18n/scim )
 	sdl? ( media-libs/libsdl2[joystick] )
@@ -106,7 +105,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-6.0.80
 	dev-libs/kirigami-addons:6
-	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	>=kde-plasma/oxygen-${KDE_CATV}:6
