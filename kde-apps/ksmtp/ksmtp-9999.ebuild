@@ -13,7 +13,7 @@ DESCRIPTION="Job-based library to send email through an SMTP server"
 HOMEPAGE="https://api.kde.org/kdepim/ksmtp/html/index.html"
 
 LICENSE="LGPL-2.1+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
