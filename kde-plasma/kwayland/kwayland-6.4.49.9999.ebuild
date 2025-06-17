@@ -22,8 +22,7 @@ RESTRICT="test"
 # slot ops: includes qpa/qplatformnativeinterface.h, surface_p.h
 RDEPEND="
 	>=dev-libs/wayland-1.15.0
-	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,gui,opengl]
-	>=dev-qt/qtwayland-${QTMIN}:6=
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,gui,opengl,wayland]
 	media-libs/libglvnd
 "
 DEPEND="${RDEPEND}
