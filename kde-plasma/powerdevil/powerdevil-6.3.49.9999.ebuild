@@ -62,6 +62,7 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	>=sys-power/upower-0.9.23
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
