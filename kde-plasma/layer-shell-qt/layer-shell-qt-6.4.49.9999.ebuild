@@ -24,6 +24,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
