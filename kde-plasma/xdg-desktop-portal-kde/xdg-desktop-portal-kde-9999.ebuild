@@ -20,13 +20,12 @@ IUSE=""
 # dev-qt/qtgui: QtXkbCommonSupport is provided by either IUSE libinput or X
 COMMON_DEPEND="
 	>=dev-libs/wayland-1.15
-	>=dev-qt/qtbase-${QTMIN}:6=[cups,dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[cups,dbus,gui,wayland,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	|| (
 		>=dev-qt/qtbase-${QTMIN}:6[libinput]
 		>=dev-qt/qtbase-${QTMIN}:6[X]
 	)
-	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6[dbus]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
@@ -55,7 +54,7 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/xdg-desktop-portal
 "
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	virtual/pkgconfig
 "
 

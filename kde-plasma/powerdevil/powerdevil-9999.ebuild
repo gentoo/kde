@@ -23,8 +23,7 @@ RESTRICT="test" # bug 926513
 COMMON_DEPEND="
 	dev-libs/qcoro[dbus]
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
-	>=dev-qt/qtwayland-${QTMIN}:6=
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6[policykit]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -63,8 +62,9 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	>=sys-power/upower-0.9.23
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
 
