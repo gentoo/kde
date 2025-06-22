@@ -37,6 +37,7 @@ DEPEND="${COMMON_DEPEND}
 		media-video/pipewire[extra]
 	)
 "
+DEPEND+=" test? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
