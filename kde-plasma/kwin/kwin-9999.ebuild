@@ -104,6 +104,7 @@ BDEPEND="
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 # https://bugs.gentoo.org/941628
 # -m 0755 to avoid suid with USE="-filecaps"
