@@ -51,6 +51,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast(+)] )
 "
+RDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 BDEPEND="wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
 
 src_configure() {
