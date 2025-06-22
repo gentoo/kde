@@ -48,6 +48,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="x11-misc/shared-mime-info"
 
 src_configure() {
