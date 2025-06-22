@@ -151,6 +151,7 @@ BDEPEND="
 	virtual/pkgconfig
 	test? ( >=dev-qt/qtwayland-${QTMIN}:6[compositor(+)] )
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
