@@ -39,6 +39,7 @@ DEPEND="${RDEPEND}
 "
 RDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 BDEPEND="wayland? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
+BDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 
 src_prepare() {
 	ecm_src_prepare
