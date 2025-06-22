@@ -57,6 +57,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtimageformats-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
 	dev-util/wayland-scanner
