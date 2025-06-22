@@ -79,6 +79,7 @@ BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_configure() {
 	# -Werror=lto-type-mismatch
