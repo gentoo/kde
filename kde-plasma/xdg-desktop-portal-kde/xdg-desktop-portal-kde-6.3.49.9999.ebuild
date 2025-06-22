@@ -53,6 +53,7 @@ RDEPEND="${COMMON_DEPEND}
 	kde-misc/kio-fuse:6
 	sys-apps/xdg-desktop-portal
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
 	virtual/pkgconfig
