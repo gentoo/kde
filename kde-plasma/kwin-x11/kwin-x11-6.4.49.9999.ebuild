@@ -97,6 +97,7 @@ BDEPEND="
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_prepare() {
 	ecm_src_prepare
