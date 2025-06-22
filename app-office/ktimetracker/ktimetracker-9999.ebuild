@@ -6,15 +6,15 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="pim"
-KFMIN=6.3.0
-QTMIN=6.6.2
-inherit ecm kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Todo management and time tracker"
-HOMEPAGE="https://userbase.kde.org/KTimeTracker"
+HOMEPAGE="https://apps.kde.org/ktimetracker/ https://userbase.kde.org/KTimeTracker"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -41,7 +41,7 @@ DEPEND="
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
