@@ -69,9 +69,8 @@ RDEPEND="${COMMON_DEPEND}
 	media-fonts/noto
 	media-fonts/noto-emoji
 "
-PDEPEND="
-	>=kde-plasma/xdg-desktop-portal-kde-${KDE_CATV}:6
-"
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
+PDEPEND=">=kde-plasma/xdg-desktop-portal-kde-${KDE_CATV}:6"
 BDEPEND="
 	>=dev-qt/qtwayland-${QTMIN}:6
 	qt5? ( >=dev-qt/qtwaylandscanner-${QT5MIN}:5 )
