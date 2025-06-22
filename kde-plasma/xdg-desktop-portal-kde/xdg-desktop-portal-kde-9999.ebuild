@@ -58,6 +58,7 @@ BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	virtual/pkgconfig
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 CMAKE_SKIP_TESTS=(
 	# bugs: 926483, wants dbus/X11
