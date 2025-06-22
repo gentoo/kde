@@ -67,6 +67,7 @@ BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_wake_alarm=ep usr/libexec/org_kde_powerdevil )
