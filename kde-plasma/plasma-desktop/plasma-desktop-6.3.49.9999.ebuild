@@ -116,6 +116,7 @@ RDEPEND="${COMMON_DEPEND}
 	screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 )
 	webengine? ( >=net-libs/signon-oauth2-0.25_p20210102[qt6(+)] )
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	dev-util/intltool
 	>=kde-frameworks/kcmutils-${KFMIN}:6
