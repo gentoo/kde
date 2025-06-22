@@ -82,6 +82,7 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/hwdata
 	>=x11-base/xwayland-23.1.0
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.16.0
 	>=dev-libs/wayland-protocols-1.38
