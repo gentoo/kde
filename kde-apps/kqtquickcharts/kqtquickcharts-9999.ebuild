@@ -3,18 +3,19 @@
 
 EAPI=8
 
-QTMIN=5.15.12
+KFMIN=6.9.0
+QTMIN=6.8.1
 inherit ecm gear.kde.org
 
 DESCRIPTION="Qt Quick plugin for beautiful and interactive charts"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 "
 RDEPEND="${DEPEND}"
