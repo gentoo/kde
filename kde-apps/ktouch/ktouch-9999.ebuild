@@ -3,42 +3,37 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.115.0
-QTMIN=5.15.12
-inherit ecm gear.kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Program that helps to learn and practice touch typing"
 HOMEPAGE="https://apps.kde.org/ktouch/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE="X"
 
 COMMON_DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	dev-libs/libxml2:2=
+	>=dev-qt/qtbase-${QTMIN}:6[gui,sql,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	X? (
-		>=dev-qt/qtx11extras-${QTMIN}:5
+		>=dev-qt/qtbase-${QTMIN}:6=[X]
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libX11
@@ -47,11 +42,11 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 "
 RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=kde-apps/kqtquickcharts-${PVCUT}:5
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
+	>=kde-apps/kqtquickcharts-${PVCUT}:6
 "
 
 src_configure() {
