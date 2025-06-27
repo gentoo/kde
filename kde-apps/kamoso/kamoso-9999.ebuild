@@ -35,5 +35,14 @@ RDEPEND="${DEPEND}
 	media-plugins/gst-plugins-jpeg:1.0
 	media-plugins/gst-plugins-libpng:1.0
 	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]
+	media-plugins/gst-plugins-qt6:1.0
 "
 BDEPEND="virtual/pkgconfig"
+
+src_configure() {
+	local mycmakeargs=(
+		-DPATCHED_GSTREAMER=ON
+	)
+
+	ecm_src_configure
+}
