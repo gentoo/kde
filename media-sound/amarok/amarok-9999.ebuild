@@ -93,9 +93,9 @@ src_configure() {
 		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=ON
+		-DWITHOUT_EMBEDDED_DB=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibOFA=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_MySQLe=ON
 		-DWITH_IPOD=$(usex ipod)
 		$(cmake_use_find_package lastfm LibLastFm)
 		$(cmake_use_find_package !mariadb MySQL)
