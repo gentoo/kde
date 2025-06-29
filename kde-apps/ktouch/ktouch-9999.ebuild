@@ -51,7 +51,6 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DCOMPILE_QML=OFF
 		-DWITHOUT_X11=$(usex !X)
 	)
 	ecm_src_configure
