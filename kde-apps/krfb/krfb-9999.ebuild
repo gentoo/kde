@@ -18,7 +18,7 @@ IUSE="wayland"
 
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,network,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,network,wayland?,widgets,X]
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -40,7 +40,6 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-image
 	wayland? (
 		dev-libs/wayland
-		>=dev-qt/qtwayland-${QTMIN}:6
 		kde-plasma/kpipewire:6
 		kde-plasma/kwayland:6
 		>=media-video/pipewire-0.3
@@ -52,7 +51,9 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast(+)] )
 "
-BDEPEND="wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
+RDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
+BDEPEND="wayland? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
+BDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 
 src_configure() {
 	local mycmakeargs=(

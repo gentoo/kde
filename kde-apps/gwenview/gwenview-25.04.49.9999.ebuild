@@ -24,9 +24,8 @@ RESTRICT="test"
 # slot op: includes qpa/qplatformnativeinterface.h, qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[gui,opengl,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[gui,opengl,wayland,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -77,10 +76,12 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-apps/thumbnailers-${PVCUT}:6
 	>=kde-frameworks/kimageformats-${KFMIN}:6
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_prepare() {
 	ecm_src_prepare

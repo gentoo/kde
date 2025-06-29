@@ -22,16 +22,17 @@ RESTRICT="test"
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 RDEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui]
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	x11-libs/libxcb:=
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.18.0
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"

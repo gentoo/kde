@@ -22,9 +22,8 @@ RESTRICT="test"
 # slot ops: qdbus*_p.h and Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -70,13 +69,13 @@ RDEPEND="${COMMON_DEPEND}
 	media-fonts/noto
 	media-fonts/noto-emoji
 "
-PDEPEND="
-	>=kde-plasma/xdg-desktop-portal-kde-${KDE_CATV}:6
-"
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
+PDEPEND=">=kde-plasma/xdg-desktop-portal-kde-${KDE_CATV}:6"
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	qt5? ( >=dev-qt/qtwaylandscanner-${QT5MIN}:5 )
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_configure() {
 	local mycmakeargs=(

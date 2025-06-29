@@ -32,12 +32,14 @@ DEPEND="${COMMON_DEPEND}
 	test? (
 		dev-libs/plasma-wayland-protocols
 		dev-libs/wayland
-		>=dev-qt/qtwayland-${QTMIN}:6
+		>=dev-qt/qtbase-${QTMIN}:6[wayland]
 		>=kde-plasma/kwayland-${KDE_CATV}:6
 		media-video/pipewire[extra]
 	)
 "
+DEPEND+=" test? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
-BDEPEND="test? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
+BDEPEND="test? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
+BDEPEND+=" test? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"

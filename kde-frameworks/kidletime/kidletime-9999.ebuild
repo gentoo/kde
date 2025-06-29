@@ -20,7 +20,6 @@ RDEPEND="
 	wayland? (
 		dev-libs/wayland
 		>=dev-qt/qtbase-${QTMIN}:6=[wayland]
-		>=dev-qt/qtwayland-${QTMIN}:6
 	)
 	X? (
 		x11-libs/libX11
@@ -38,7 +37,9 @@ DEPEND="${RDEPEND}
 		>=dev-libs/wayland-protocols-1.27:0
 	)
 "
-BDEPEND="wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
+RDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
+BDEPEND="wayland? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
+BDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 
 src_prepare() {
 	ecm_src_prepare

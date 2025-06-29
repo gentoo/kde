@@ -27,13 +27,12 @@ COMMON_DEPEND="
 	dev-libs/icu:=
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,libinput,network,opengl,sql,sqlite,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,libinput,network,opengl,sql,sqlite,wayland,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtlocation-${QTMIN}:6
 	>=dev-qt/qtpositioning-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	>=dev-qt/qtwayland-${QTMIN}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
@@ -149,13 +148,15 @@ RDEPEND="${COMMON_DEPEND}
 	policykit? ( sys-apps/accountsservice )
 	screencast? ( >=media-video/pipewire-0.3:* )
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	>=dev-util/wayland-scanner-1.19.0
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
 	test? ( >=dev-qt/qtwayland-${QTMIN}:6[compositor(+)] )
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478

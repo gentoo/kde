@@ -20,10 +20,9 @@ IUSE="share"
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,wayland,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
-	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -58,10 +57,12 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtimageformats-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_configure() {
 	local mycmakeargs=(

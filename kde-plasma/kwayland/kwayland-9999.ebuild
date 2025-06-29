@@ -22,8 +22,7 @@ RESTRICT="test"
 # slot ops: includes qpa/qplatformnativeinterface.h, surface_p.h
 RDEPEND="
 	>=dev-libs/wayland-1.15.0
-	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,gui,opengl]
-	>=dev-qt/qtwayland-${QTMIN}:6=
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,gui,opengl,wayland]
 	media-libs/libglvnd
 "
 DEPEND="${RDEPEND}
@@ -31,10 +30,12 @@ DEPEND="${RDEPEND}
 	>=dev-libs/wayland-protocols-1.15
 	sys-kernel/linux-headers
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
-	>=dev-qt/qtwayland-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	>=dev-util/wayland-scanner-1.19.0
 "
+BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_configure() {
 	filter-lto # bug 866575
