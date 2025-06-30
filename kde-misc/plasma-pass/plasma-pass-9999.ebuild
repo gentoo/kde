@@ -20,7 +20,7 @@ SLOT="6"
 IUSE=""
 
 DEPEND="
-	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
+	>=app-crypt/gpgme-1.23.1-r1:=[cxx(-),qt6(-)]
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
