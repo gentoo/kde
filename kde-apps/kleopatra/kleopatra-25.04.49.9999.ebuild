@@ -22,7 +22,7 @@ IUSE="pim"
 RESTRICT="test"
 
 DEPEND="
-	>=app-crypt/gpgme-1.23.2:=[cxx,qt6]
+	>=app-crypt/gpgme-1.23.2:=[cxx(-),qt6(-)]
 	dev-libs/libassuan:=
 	dev-libs/libgpg-error
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
