@@ -23,7 +23,7 @@ RESTRICT="test" # bug 616878
 
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 COMMON_DEPEND="
-	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
+	>=app-crypt/gpgme-1.23.1-r1:=[cxx(-),qt6(-)]
 	>=dev-libs/ktextaddons-1.5.4:6[speech?]
 	>=dev-libs/libgpg-error-1.36
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
