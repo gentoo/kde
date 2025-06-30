@@ -21,7 +21,7 @@ IUSE="activities"
 RESTRICT="test"
 
 DEPEND="
-	>=app-crypt/gpgme-1.23.1-r1:=[cxx,qt6]
+	>=app-crypt/gpgme-1.23.1-r1:=[cxx(-),qt6(-)]
 	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
