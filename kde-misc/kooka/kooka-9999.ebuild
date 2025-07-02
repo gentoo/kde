@@ -4,35 +4,37 @@
 EAPI=8
 
 ECM_HANDBOOK="true"
-inherit ecm kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Scanning application by KDE"
 HOMEPAGE="https://userbase.kde.org/Kooka https://techbase.kde.org/Projects/Kooka"
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 
-BDEPEND="
-	virtual/pkgconfig
-"
 DEPEND="
 	app-text/libpaper
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
-	kde-frameworks/kcompletion:5
-	kde-frameworks/kconfig:5
-	kde-frameworks/kconfigwidgets:5
-	kde-frameworks/kcoreaddons:5
-	kde-frameworks/ki18n:5
-	kde-frameworks/kio:5
-	kde-frameworks/kiconthemes:5
-	kde-frameworks/kservice:5
-	kde-frameworks/ktextwidgets:5
-	kde-frameworks/kwidgetsaddons:5
-	kde-frameworks/kxmlgui:5
+	dev-qt/qtbase:6[gui,widgets]
+	kde-frameworks/kcolorscheme:6
+	kde-frameworks/kcompletion:6
+	kde-frameworks/kconfig:6
+	kde-frameworks/kconfigwidgets:6
+	kde-frameworks/kcoreaddons:6
+	kde-frameworks/kcrash:6
+	kde-frameworks/ki18n:6
+	kde-frameworks/kiconthemes:6
+	kde-frameworks/kio:6
+	kde-frameworks/kservice:6
+	kde-frameworks/ktextwidgets:6
+	kde-frameworks/kwidgetsaddons:6
+	kde-frameworks/kxmlgui:6
 	media-gfx/sane-backends
 	media-libs/tiff:=
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!${CATEGORY}/${PN}:5
+"
+BDEPEND="virtual/pkgconfig"
