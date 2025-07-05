@@ -21,7 +21,8 @@ IUSE=""
 RESTRICT="test" # bug 926482, needs gpg-agent
 
 DEPEND="
-	>=app-crypt/gpgme-1.23.1-r1:=[cxx(-),qt6(-)]
+	dev-cpp/gpgmepp:=
+	dev-libs/qgpgme:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-apps/kmbox-${PVCUT}:6=
