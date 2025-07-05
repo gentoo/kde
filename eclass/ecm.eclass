@@ -563,11 +563,14 @@ ecm_src_prepare() {
 
 	# limit playing field of locale stripping to kde-*/ categories
 	if [[ ${CATEGORY} = kde-* ]] ; then
-		# always install unconditionally for kconfigwidgets - if you use
+		# TODO: cleanup after KF5 removal and pre-KF-6.16 cleanup:
+		# always install unconditionally for <kconfigwidgets-6.16 - if you use
 		# language X as system language, and there is a combobox with language
 		# names, the translated language name for language Y is taken from
 		# /usr/share/locale/Y/kf${_KFSLOT}_entry.desktop
-		[[ ${PN} != kconfigwidgets ]] && _ecm_strip_handbook_translations
+		if ! { [[ ${PN} == kconfigwidgets ]] && ver_test -lt 6.16; } ; then
+			_ecm_strip_handbook_translations
+		fi
 	fi
 
 	# only build unit tests when required
