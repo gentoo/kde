@@ -16,7 +16,8 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=app-crypt/gpgme-1.23.1-r1:=[cxx(-),qt6(-)]
+	dev-cpp/gpgmepp:=
+	dev-libs/qgpgme:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
