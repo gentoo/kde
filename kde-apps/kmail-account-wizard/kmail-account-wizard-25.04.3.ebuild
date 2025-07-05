@@ -21,7 +21,8 @@ IUSE=""
 RESTRICT="test" # bug 926456; requires akonadi server
 
 DEPEND="
-	>=app-crypt/gpgme-1.23.1-r1:=[cxx(-),qt6(-)]
+	dev-cpp/gpgmepp:=
+	dev-libs/qgpgme:=
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=kde-apps/akonadi-${PVCUT}:6=
