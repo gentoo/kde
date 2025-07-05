@@ -5,7 +5,6 @@ dev-util/kdevelop-php
 dev-util/kdevelop-python
 dev-util/kio-perldoc
 dev-util/massif-visualizer
-kde-apps/cervisia
 kde-apps/dolphin-plugins-common
 kde-apps/dolphin-plugins-git
 kde-apps/dolphin-plugins-mercurial
