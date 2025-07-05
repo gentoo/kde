@@ -22,7 +22,7 @@ IUSE=""
 RESTRICT="test"
 
 DEPEND="
-	app-crypt/gpgme:=[cxx(-)]
+	dev-cpp/gpgmepp:=
 	>=dev-libs/kirigami-addons-1.4.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
