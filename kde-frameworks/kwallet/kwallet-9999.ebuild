@@ -19,8 +19,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 PDEPEND="!minimal? ( =kde-frameworks/kwallet-runtime-${KDE_CATV}* )"
 
-PATCHES=( "${FILESDIR}/${PN}-6.14.0-deps.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_KSECRETD=OFF
