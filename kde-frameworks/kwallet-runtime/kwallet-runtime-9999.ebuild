@@ -28,7 +28,7 @@ DEPEND="
 	=kde-frameworks/kwallet-${KDE_CATV}*:6
 	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
 	=kde-frameworks/kwindowsystem-${KDE_CATV}*:6[X?]
-	gpg? ( app-crypt/gpgme:=[qt6(-)] )
+	gpg? ( dev-libs/qgpgme:= )
 	legacy-kwallet? ( app-crypt/libsecret )
 "
 RDEPEND="${DEPEND}
