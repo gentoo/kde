@@ -21,7 +21,8 @@ IUSE="activities importwizard markdown test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=app-crypt/gpgme-1.23.1-r1:=[cxx(-),qt6(-)]
+	dev-cpp/gpgmepp:=
+	dev-libs/qgpgme:=
 	>=dev-libs/ktextaddons-1.5.4:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
