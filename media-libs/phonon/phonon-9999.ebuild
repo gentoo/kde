@@ -41,8 +41,6 @@ BDEPEND="
 "
 PDEPEND="!minimal? ( >=media-libs/phonon-vlc-0.12.0-r2 )"
 
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" ) # bug 938315
-
 src_configure() {
 	use debug || append-cppflags -DQT_NO_DEBUG
 
