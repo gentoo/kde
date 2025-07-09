@@ -14,8 +14,8 @@
 ~kde-apps/kiten-9999
 ~kde-apps/klettres-9999
 ~kde-apps/kmplot-9999
-# ~kde-apps/kqtquickcharts-9999 # while KF5-based
-# ~kde-apps/ktouch-9999 # while KF5-based
+~kde-apps/kqtquickcharts-9999
+~kde-apps/ktouch-9999
 ~kde-apps/kturtle-9999
 ~kde-apps/kwordquiz-9999
 ~kde-apps/libkeduvocdocument-9999
