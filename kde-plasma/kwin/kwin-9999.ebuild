@@ -40,7 +40,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6[wayland]
-	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kidletime-${KFMIN}:6=[wayland]
 	>=kde-frameworks/knewstuff-${KFMIN}:6
@@ -52,6 +51,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6=[wayland]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
+	>=kde-plasma/knighttime-${KDE_CATV}:6
 	>=kde-plasma/kwayland-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6
 	media-libs/fontconfig
