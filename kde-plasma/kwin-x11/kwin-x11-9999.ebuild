@@ -50,6 +50,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
+	>=kde-plasma/knighttime-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6
 	media-libs/fontconfig
 	media-libs/freetype
