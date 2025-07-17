@@ -25,6 +25,7 @@ COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6[policykit]
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
