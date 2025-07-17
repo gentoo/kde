@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=5.116.0
+QTMIN=5.15.17
 inherit ecm gear.kde.org
 
 DESCRIPTION="Interface to work with Graph Theory"

@@ -3,9 +3,9 @@
 
 EAPI=8
 
-KF5MIN=5.115.0
+KF5MIN=5.116.0
 KFMIN=9999
-QT5MIN=5.15.12
+QT5MIN=5.15.17
 QTMIN=6.9.1
 inherit ecm plasma.kde.org xdg
 
