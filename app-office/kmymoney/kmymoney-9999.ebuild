@@ -5,10 +5,10 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.5.0
-QTMIN=6.7.2
+KFMIN=6.9.0
+QTMIN=6.8.1
 VIRTUALDBUS_TEST="true"
-inherit ecm kde.org optfeature
+inherit ecm kde.org optfeature xdg
 
 DESCRIPTION="Personal finance manager based on KDE Frameworks"
 HOMEPAGE="https://kmymoney.org/"
@@ -20,17 +20,11 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="activities calendar holidays sql sqlcipher"
+IUSE="activities calendar hbci holidays sql sqlcipher"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
 REQUIRED_USE="sqlcipher? ( sql )"
 
-# IUSE="hbci" # aqbanking, gwenhywfar not yet ported to Qt6
-# 	hbci? (
-# 		>=dev-qt/qtdeclarative-${QTMIN}:6
-# 		>=net-libs/aqbanking-6.5.0
-# 		>=sys-libs/gwenhywfar-5.10.1:=[qt6(+)]
-# 	)
 COMMON_DEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
@@ -63,6 +57,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	activities? ( kde-plasma/plasma-activities:6 )
 	calendar? ( dev-libs/libical:= )
+	hbci? (
+		>=dev-qt/qtdeclarative-${QTMIN}:6
+		>=net-libs/aqbanking-6.5.0
+		>=sys-libs/gwenhywfar-5.12.1:=[qt6]
+	)
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:6 )
 	sql? ( >=dev-qt/qtbase-${QTMIN}:6[sqlite] )
 	sqlcipher? ( dev-db/sqlcipher )
@@ -76,8 +75,6 @@ RDEPEND="${COMMON_DEPEND}
 BDEPEND="virtual/pkgconfig"
 
 pkg_setup() {
-	ecm_pkg_setup
-
 	if [[ ${KDE_BUILD_TYPE} = live ]] && use experimental; then
 		ewarn "USE experimental set: Building unfinished features."
 		ewarn "This *will* chew up your data. You have been warned."
@@ -100,7 +97,7 @@ src_configure() {
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities PlasmaActivities)
 		-DENABLE_LIBICAL=$(usex calendar)
-# 		-DENABLE_KBANKING=$(usex hbci)
+		-DENABLE_KBANKING=$(usex hbci)
 		$(cmake_use_find_package holidays KF6Holidays)
 		-DENABLE_SQLSTORAGE=$(usex sql)
 		$(cmake_use_find_package sql Qt6Sql)
@@ -125,5 +122,4 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "more options for online stock quote retrieval" dev-perl/Finance-Quote
 	fi
-	ecm_pkg_postinst
 }
