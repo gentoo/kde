@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoff"
-KFMIN=6.13.0
-QTMIN=6.7.2
+KFMIN=6.16.0
+QTMIN=6.9.1
 inherit ecm flag-o-matic gear.kde.org xdg
 
 DESCRIPTION="Multi-document editor with network transparency, Plasma integration and more"

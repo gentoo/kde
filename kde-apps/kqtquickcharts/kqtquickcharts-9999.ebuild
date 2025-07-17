@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=6.9.0
-QTMIN=6.8.1
+KFMIN=6.16.0
+QTMIN=6.9.1
 inherit ecm gear.kde.org
 
 DESCRIPTION="Qt Quick plugin for beautiful and interactive charts"

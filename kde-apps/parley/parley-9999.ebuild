@@ -6,8 +6,8 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_HANDBOOK_DIR="docs"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.13.0
-QTMIN=6.7.2
+KFMIN=6.16.0
+QTMIN=6.9.1
 inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Vocabulary trainer to help you memorize things"

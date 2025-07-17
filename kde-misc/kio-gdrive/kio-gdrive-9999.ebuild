@@ -6,9 +6,9 @@ EAPI=8
 ECM_HANDBOOK="forceoff"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="network"
-KFMIN=6.13.0
+KFMIN=6.16.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.7.2
+QTMIN=6.9.1
 inherit ecm gear.kde.org
 
 DESCRIPTION="KIO worker for Google Drive service"

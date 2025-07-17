@@ -6,8 +6,8 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{10..13} )
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.13.0
-QTMIN=6.7.2
+KFMIN=6.16.0
+QTMIN=6.9.1
 inherit python-single-r1 ecm gear.kde.org xdg
 
 DESCRIPTION="Classical Mah Jongg for four players"

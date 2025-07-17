@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.9.0
-QTMIN=6.8.1
+KFMIN=6.16.0
+QTMIN=6.9.1
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Program that helps to learn and practice touch typing"

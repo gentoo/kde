@@ -3,9 +3,9 @@
 
 EAPI=8
 
-KFMIN=6.13.0
+KFMIN=6.16.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.7.2
+QTMIN=6.9.1
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="SANE Library interface based on KDE Frameworks"
