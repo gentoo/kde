@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=6.14.0
-QTMIN=6.8.0
+QTMIN=6.9.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Helpers for scheduling the dark-light cycle"

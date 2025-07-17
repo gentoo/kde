@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KFMIN=9999
-QTMIN=6.8.1
+QTMIN=6.9.1
 inherit ecm plasma.kde.org pam xdg
 
 DESCRIPTION="Library and components for secure lock screen architecture"

@@ -6,7 +6,7 @@ EAPI=8
 ECM_EXAMPLES="true"
 ECM_TEST="true"
 KFMIN=6.11.0
-QTMIN=6.8.1
+QTMIN=6.9.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Style engine providing a unified style description to separate output styles"

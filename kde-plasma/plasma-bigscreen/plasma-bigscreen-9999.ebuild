@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=6.5.0
-QTMIN=6.8.1
+QTMIN=6.9.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Plasma shell for TVs"

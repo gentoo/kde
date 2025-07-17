@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=9999
-QTMIN=6.8.1
+QTMIN=6.9.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Syncs KDE Plasma theme settings to GTK applications"

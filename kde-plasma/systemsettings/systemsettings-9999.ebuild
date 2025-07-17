@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 KFMIN=9999
-QTMIN=6.8.1
+QTMIN=6.9.1
 inherit ecm plasma.kde.org optfeature xdg
 
 DESCRIPTION="Control Center to configure KDE Plasma desktop"
