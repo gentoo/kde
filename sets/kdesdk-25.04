@@ -18,4 +18,4 @@
 <kde-apps/libkomparediff2-25.04.50
 <kde-apps/lokalize-25.04.50
 <kde-apps/poxml-25.04.50
-<kde-apps/umbrello-25.04.50
+# <kde-apps/umbrello-25.04.50 # while KF5-based
