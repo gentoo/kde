@@ -24,8 +24,8 @@ DEPEND="
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtmultimedia-${QTMIN}:6
-	>=dev-qt/qtspeech-${QTMIN}:6
+	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
+	>=dev-qt/qtspeech-${QTMIN}:6[qml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebview-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
