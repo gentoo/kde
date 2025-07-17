@@ -20,6 +20,8 @@ RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[gui,wayland,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 "
