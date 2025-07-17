@@ -16,9 +16,6 @@ SLOT="6"
 KEYWORDS=""
 IUSE="X"
 
-# bug #580440, last checked 5.6.3
-RESTRICT="test"
-
 # slot op: Uses Qt6GuiPrivate and Qt6WaylandClientPrivate
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets]
@@ -58,6 +55,12 @@ BDEPEND="
 	virtual/pkgconfig
 "
 BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
+
+CMAKE_SKIP_TESTS=(
+	# last checked 2025-07-17, also fails upstream
+	# FAIL!  : TestConfig::testDisabledScreenConfig() Compared values are not the same
+	kscreen-kded-configtest
+)
 
 src_configure() {
 	local mycmakeargs=(
