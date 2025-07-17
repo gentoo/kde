@@ -26,6 +26,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-plasma/kpipewire-${KDE_CATV}:6
