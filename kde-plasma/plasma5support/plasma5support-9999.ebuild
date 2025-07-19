@@ -24,11 +24,13 @@ DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kidletime-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kunitconversion-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	activities? ( >=kde-plasma/plasma-activities-${KDE_CATV}:6 )
 	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
@@ -37,7 +39,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-plasma/plasma-workspace:5
-	!<kde-plasma/plasma-workspace-6.2.90:6
+	!<kde-plasma/plasma-workspace-6.4.90:6
 "
 
 src_configure() {
