@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_TEST="true"
 KFMIN=6.16.0
 QTMIN=6.9.1
 inherit ecm gear.kde.org
@@ -14,8 +15,5 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
-	>=dev-qt/qtbase-${QTMIN}:6[gui]
-"
+DEPEND=">=dev-qt/qtbase-${QTMIN}:6[gui]"
 RDEPEND="${DEPEND}"
