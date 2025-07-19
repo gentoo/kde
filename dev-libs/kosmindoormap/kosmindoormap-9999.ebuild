@@ -19,6 +19,7 @@ IUSE="+gui"
 
 # kservice is optional and only used to find and open josm
 RDEPEND="
+	>=dev-libs/kirigami-addons-1.6.0:6
 	dev-libs/protobuf:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui?,network]
 	sys-libs/zlib
