@@ -19,10 +19,12 @@ KEYWORDS=""
 IUSE="networkmanager"
 
 RDEPEND="
+	>=dev-libs/kirigami-addons-1.6.0:6
 	dev-libs/protobuf:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,ssl]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	sys-libs/zlib
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 "
