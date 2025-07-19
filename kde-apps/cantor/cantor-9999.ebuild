@@ -4,7 +4,7 @@
 EAPI=8
 
 CMAKE_MAKEFILE_GENERATOR="emake"
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 LUA_COMPAT=( luajit )
 PYTHON_COMPAT=( python3_{11..13} )
