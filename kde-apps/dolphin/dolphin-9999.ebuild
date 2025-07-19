@@ -21,6 +21,7 @@ IUSE="semantic-desktop telemetry"
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,widgets,X,xml]
+	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -47,7 +48,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6(+)]
 	semantic-desktop? (
 		>=kde-apps/baloo-widgets-${PVCUT}:6
 		>=kde-frameworks/baloo-${KFMIN}:6
