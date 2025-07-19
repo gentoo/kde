@@ -19,7 +19,7 @@ IUSE="+gsl +qalculate"
 
 DEPEND="
 	>=dev-cpp/eigen-3.2:3
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6[gui,opengl,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
