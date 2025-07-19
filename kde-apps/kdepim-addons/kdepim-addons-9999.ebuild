@@ -23,7 +23,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
-	>=dev-libs/ktextaddons-1.5.4:6
+	>=dev-libs/ktextaddons-1.6.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
@@ -72,7 +72,7 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	activities? ( kde-plasma/plasma-activities:6 )
+	activities? ( >=kde-plasma/plasma-activities-6.3.0:6 )
 	importwizard? ( >=kde-apps/akonadi-import-wizard-${PVCUT}:6= )
 	markdown? ( app-text/discount:= )
 "
@@ -81,13 +81,13 @@ BDEPEND="test? ( sys-apps/dbus )"
 
 src_configure() {
 	local mycmakeargs=(
+		-DKDEPIM_RUN_AKONADI_TEST=OFF # tests need database software and networking
+		-DOPTION_ADD_AUTOGENERATETEXT=OFF # would also require the same in dev-libs/ktextaddons
 		# not packaged (bug 911819), but if present leads to rust shenanigans
 		-DCMAKE_DISABLE_FIND_PACKAGE_Corrosion=ON # for adblock support, bug 940898
-		-DCMAKE_DISABLE_FIND_PACKAGE_KLLMCore=ON # utilities/alpaka, not packaged
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package importwizard KPim6ImportWizard)
 		$(cmake_use_find_package markdown Discount)
-		-DKDEPIM_RUN_AKONADI_TEST=OFF # tests need database software and networking
 	)
 
 	ecm_src_configure
