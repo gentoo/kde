@@ -4,9 +4,9 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.3.0
-QTMIN=6.6.2
-inherit ecm kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Backup scheduler for the Plasma desktop"
 HOMEPAGE="https://apps.kde.org/kup/"
