@@ -93,7 +93,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_WITH_QT6=ON # high level CMake fix
-		-DBUILD_WITH_QT6_CONFIRMED=ON # I have no words ...
 		-DENABLE_WOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
 		$(cmake_use_find_package activities PlasmaActivities)
