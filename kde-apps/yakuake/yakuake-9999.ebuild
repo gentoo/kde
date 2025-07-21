@@ -23,6 +23,7 @@ RDEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/konsole-${PVCUT}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
