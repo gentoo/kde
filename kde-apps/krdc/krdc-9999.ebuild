@@ -14,7 +14,9 @@ HOMEPAGE="https://apps.kde.org/krdc/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="activities +rdp +vnc"
+IUSE="activities +rdp +ssh +vnc"
+
+REQUIRED_USE="ssh? ( || ( rdp vnc ) )"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 2016-01-24
 DEPEND="
@@ -42,10 +44,8 @@ DEPEND="
 		>=kde-frameworks/kio-${KFMIN}:6
 		>=net-misc/freerdp-2.10:3
 	)
-	vnc? (
-		net-libs/libssh:=
-		>=net-libs/libvncserver-0.9
-	)
+	ssh? ( net-libs/libssh:= )
+	vnc? ( >=net-libs/libvncserver-0.9.15 )
 "
 RDEPEND="${DEPEND}"
 RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
@@ -55,6 +55,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities PlasmaActivities)
 		-DWITH_RDP=$(usex rdp)
+		$(cmake_use_find_package ssh LibSSH)
 		-DWITH_VNC=$(usex vnc)
 	)
 
