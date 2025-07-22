@@ -21,7 +21,7 @@ RESTRICT="test"
 
 DEPEND="
 	>=dev-libs/kirigami-addons-1.0:6
-	>=dev-libs/ktextaddons-1.5.4:6
+	>=dev-libs/ktextaddons-1.6.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-apps/kpimtextedit-${PVCUT}:6=
