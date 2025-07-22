@@ -31,6 +31,7 @@ DEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=x11-misc/shared-mime-info-1.10
 "
 RDEPEND="${DEPEND}"
 BDEPEND="dev-libs/libxslt"
