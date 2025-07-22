@@ -3,7 +3,6 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
@@ -29,9 +28,8 @@ COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,wayland,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
-	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
@@ -88,11 +86,11 @@ src_configure() {
 	filter-lto
 
 	local mycmakeargs=(
-		-DMDNS_ENABLED=$(usex zeroconf)
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
 		-DWITH_PULSEAUDIO=$(usex pulseaudio)
 		$(cmake_use_find_package telephony KF6ModemManagerQt)
 		-DWITH_X11=$(usex X)
+		-DMDNS_ENABLED=$(usex zeroconf)
 	)
 	ecm_src_configure
 }
