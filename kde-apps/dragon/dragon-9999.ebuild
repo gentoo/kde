@@ -18,7 +18,7 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
-	>=dev-qt/qtdeclarative:6
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
