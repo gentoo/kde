@@ -18,7 +18,7 @@ KEYWORDS=""
 
 DEPEND="
 	app-text/cmark:=
-	dev-libs/kirigami-addons:6
+	>=dev-libs/kirigami-addons-1.6.0:6
 	>=dev-libs/icu-61.0:=
 	dev-libs/qcoro[network]
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
@@ -47,7 +47,7 @@ DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6[qml]
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	media-libs/kquickimageeditor:6
-	>=net-libs/libquotient-0.9.0:=
+	>=net-libs/libquotient-0.9.1:=
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
