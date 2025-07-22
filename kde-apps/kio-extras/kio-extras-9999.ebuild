@@ -39,7 +39,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
-	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
