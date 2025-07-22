@@ -23,7 +23,7 @@ RESTRICT="test"
 DEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
-	>=dev-libs/ktextaddons-1.5.4:6
+	>=dev-libs/ktextaddons-1.6.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-apps/akonadi-${PVCUT}:6=
@@ -38,6 +38,7 @@ DEPEND="
 	>=kde-apps/pimcommon-${PVCUT}:6=[activities?]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
