@@ -5,6 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
+PVCUT=$(ver_cut 1-3)
 KFMIN=6.16.0
 QTMIN=6.9.1
 inherit ecm gear.kde.org xdg
@@ -38,7 +39,7 @@ RDEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	bittorrent? ( net-libs/libktorrent:6 )
+	bittorrent? ( >=net-libs/libktorrent-${PVCUT}:6 )
 	gpg? ( dev-libs/qgpgme:= )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
