@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="webengine"
 
 # TODO: Add kunifiedpush support once packaged (cd01eb31d1ec298d4c1e10d25a0781d799161bfc)
-DEPEND="
+COMMON_DEPEND="
 	>=dev-libs/kirigami-addons-1.1.0:6
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
@@ -43,7 +43,10 @@ DEPEND="
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	webengine? ( >=dev-qt/qtwebview-${QTMIN}:6 )
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	dev-libs/qcoro[network]
+"
+RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6[qml]
 "
