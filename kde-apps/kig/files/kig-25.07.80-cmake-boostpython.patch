@@ -1,4 +1,4 @@
-From 39bf05d48f899612dffa07c73ac276f52820a7c9 Mon Sep 17 00:00:00 2001
+From c656b9ce0d8727302fea126d2ad70c36ce99f9e8 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Mon, 13 Jul 2020 00:41:25 +0200
 Subject: [PATCH] Use CMake's own FindBoost module to detect Boost Python
@@ -7,14 +7,14 @@ Introduces BOOSTPYTHON_VERSION_MAJOR_MINOR for packaging.
 
 Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
 ---
- CMakeLists.txt | 26 ++++++++++++--------------
- 1 file changed, 12 insertions(+), 14 deletions(-)
+ CMakeLists.txt | 20 +++++++++-----------
+ 1 file changed, 9 insertions(+), 11 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e65585fb..e07a4dc6 100644
+index d05dae46..1c792102 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -51,7 +51,8 @@ endif()
+@@ -55,7 +55,8 @@ endif()
  
  include(KigConfigureChecks.cmake)
  
@@ -24,8 +24,8 @@ index e65585fb..e07a4dc6 100644
  
  if(KF6DocTools_FOUND)
    add_subdirectory( doc )
-@@ -61,15 +62,15 @@ add_subdirectory( macros )
- add_subdirectory( data )
+@@ -67,15 +68,15 @@ add_subdirectory( mimetypes )
+ add_subdirectory( macros )
  add_subdirectory( pykig )
  
 -if(BoostPython_FOUND)
@@ -34,8 +34,7 @@ index e65585fb..e07a4dc6 100644
 +  include_directories(${PYTHON_INCLUDE_DIRS})
    add_subdirectory( scripting )
    add_definitions(-DKIG_ENABLE_PYTHON_SCRIPTING)
--endif(BoostPython_FOUND)
-+endif()
+ endif()
  
  set_package_properties(
 -   BoostPython PROPERTIES
@@ -45,17 +44,17 @@ index e65585fb..e07a4dc6 100644
     TYPE OPTIONAL
     PURPOSE "Kig can optionally use Boost.Python for Python scripting"
  )
-@@ -85,9 +86,6 @@ set_package_properties(
+@@ -93,9 +94,6 @@ endif()
  feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
  
  include_directories( ${CMAKE_SOURCE_DIR}/modes )
 -if(BoostPython_FOUND)
 -  include_directories(${BoostPython_INCLUDE_DIRS})
--endif(BoostPython_FOUND)
+-endif()
  
  # kigpart
  
-@@ -225,7 +223,7 @@ ki18n_wrap_ui(kigpart_PART_SRCS
+@@ -345,7 +343,7 @@ ki18n_wrap_ui(kigpart_PART_SRCS
     misc/kigcoordinateprecisiondialog.ui
  )
  
@@ -64,28 +63,17 @@ index e65585fb..e07a4dc6 100644
    set(kigpart_PART_SRCS ${kigpart_PART_SRCS}
       modes/popup/scriptactionsprovider.cc
       scripting/newscriptwizard.cc
-@@ -236,7 +234,7 @@ if(BoostPython_FOUND)
-   )
- 
-   kde_source_files_enable_exceptions(scripting/python_scripter.cc)
--endif(BoostPython_FOUND)
-+endif()
- 
- 
- add_library(kigpart MODULE ${kigpart_PART_SRCS})
-@@ -256,9 +254,9 @@ target_link_libraries(kigpart
+@@ -376,8 +374,8 @@ target_link_libraries(kigpart
    KF6::Archive
  )
  
 -if(BoostPython_FOUND)
 -  target_link_libraries(kigpart ${BoostPython_LIBRARIES} KF6::TextEditor)
--endif(BoostPython_FOUND)
 +if(Boost_FOUND)
 +  target_link_libraries(kigpart Boost::${BOOSTPYTHON_VERSION_MAJOR_MINOR} ${PYTHON_LIBRARIES} KF6::TextEditor)
-+endif()
+ endif()
  
  if (Qt${QT_MAJOR_VERSION}XmlPatterns_FOUND)
-   target_link_libraries(kigpart Qt::XmlPatterns)
 -- 
-2.27.0
+2.50.1
 
