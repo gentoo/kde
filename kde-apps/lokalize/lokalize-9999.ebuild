@@ -21,6 +21,7 @@ DEPEND="
 	>=app-text/hunspell-1.2.8:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,widgets,xml]
 	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
