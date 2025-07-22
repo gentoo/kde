@@ -20,7 +20,7 @@ IUSE="xfs"
 COMMON_DEPEND="
 	>=app-crypt/qca-2.3.7:2[qt6(+)]
 	>=dev-libs/gmp-6.0.0a:0=
-	dev-libs/libgcrypt:0=
+	>=dev-libs/openssl-3:0=
 	>=dev-qt/qtbase-${QTMIN}:6[network,xml]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -51,6 +51,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DUSE_CRYPTO_BACKEND=OpenSSL
 		-DWITH_XFS=$(usex xfs)
 	)
 	ecm_src_configure
