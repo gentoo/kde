@@ -45,6 +45,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/qcoro[network]
+	test? ( >=dev-qt/qthttpserver-${QTMIN}:6 )
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
@@ -56,6 +57,5 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package webengine Qt6WebView) # "only makes sense on mobile"
 	)
-
 	ecm_src_configure
 }
