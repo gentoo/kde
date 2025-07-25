@@ -89,7 +89,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_prepare() {
-	rm -r plugins/qmljs # bug 960669, unused upstream
+	rm -r plugins/qmljs || die # bug 960669, unused upstream
 	ecm_src_prepare
 }
 
