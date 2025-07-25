@@ -50,6 +50,7 @@ DEPEND="${COMMON_DEPEND}
 	test? ( sys-apps/dbus )
 "
 RDEPEND="${COMMON_DEPEND}
+	!<app-office/merkuro-25.07.80
 	kde-apps/akonadi-config
 "
 
