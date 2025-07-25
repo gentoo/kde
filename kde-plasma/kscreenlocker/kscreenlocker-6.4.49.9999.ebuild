@@ -32,6 +32,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kidletime-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
+	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
