@@ -34,6 +34,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6
