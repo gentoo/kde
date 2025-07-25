@@ -88,6 +88,11 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/kio-extras:6
 "
 
+src_prepare() {
+	rm -r plugins/qmljs # bug 960669, unused upstream
+	ecm_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DLLVM_ROOT="$(get_llvm_prefix)"
