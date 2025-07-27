@@ -24,6 +24,7 @@ RDEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/frameworkintegration-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
