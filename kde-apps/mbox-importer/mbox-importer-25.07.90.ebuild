@@ -32,3 +32,9 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	ecm_src_prepare
+	# Pending: https://invent.kde.org/pim/mbox-importer/-/merge_requests/16
+	ecm_punt_kf_module KIO
+}
