@@ -96,7 +96,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	x11-base/xorg-proto
-	input_devices_wacom? ( >=dev-libs/wayland-protocols-1.25 )
+	input_devices_wacom? ( >=dev-libs/wayland-protocols-1.44 )
 	test? (
 		>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 		>=kde-plasma/kactivitymanagerd-${KDE_CATV}:6
