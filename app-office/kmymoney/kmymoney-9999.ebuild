@@ -34,7 +34,6 @@ COMMON_DEPEND="
 	dev-libs/libgpg-error
 	dev-libs/libofx:=
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql?,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
