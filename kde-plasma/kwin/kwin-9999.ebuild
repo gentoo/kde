@@ -93,7 +93,7 @@ RDEPEND="${COMMON_DEPEND}
 RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.18.0
-	>=dev-libs/wayland-protocols-1.44
+	>=dev-libs/wayland-protocols-1.45
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
