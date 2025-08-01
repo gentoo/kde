@@ -28,7 +28,6 @@
 ~kde-apps/kcron-25.07.90
 ~kde-apps/ksystemlog-25.07.90
 ~kde-apps/analitza-25.07.90
-~kde-apps/artikulate-25.07.90
 ~kde-apps/blinken-25.07.90
 ~kde-apps/cantor-25.07.90
 ~kde-apps/kalgebra-25.07.90
@@ -39,19 +38,15 @@
 ~kde-apps/kdeedu-meta-25.07.90
 ~kde-apps/kgeography-25.07.90
 ~kde-apps/khangman-25.07.90
-~kde-apps/kig-25.07.90
 ~kde-apps/kiten-25.07.90
 ~kde-apps/klettres-25.07.90
 ~kde-apps/kmplot-25.07.90
-~kde-apps/kqtquickcharts-25.07.90
-~kde-apps/ktouch-25.07.90
 ~kde-apps/kturtle-25.07.90
 ~kde-apps/kwordquiz-25.07.90
 ~kde-apps/libkeduvocdocument-25.07.90
 ~kde-apps/marble-25.07.90
 ~kde-apps/minuet-25.07.90
 ~kde-apps/parley-25.07.90
-~kde-apps/rocs-25.07.90
 ~kde-apps/step-25.07.90
 ~games-puzzle/skladnik-25.07.90
 ~kde-apps/bomber-25.07.90
@@ -236,7 +231,6 @@
 ~kde-apps/libkomparediff2-25.07.90
 ~kde-apps/lokalize-25.07.90
 ~kde-apps/poxml-25.07.90
-~kde-apps/umbrello-25.07.90
 ~app-cdr/dolphin-plugins-mountiso-25.07.90
 ~app-cdr/isoimagewriter-25.07.90
 ~app-crypt/keysmith-25.07.90
