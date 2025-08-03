@@ -25,7 +25,6 @@ IUSE="ipod lastfm mariadb mtp podcast webengine X"
 DEPEND="
 	>=app-crypt/qca-2.3.9:2[qt6(+)]
 	dev-libs/glib:2
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
