@@ -18,6 +18,7 @@ DEPEND="
 	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
 	=kde-frameworks/ki18n-${KDE_CATV}*:6
 	=kde-frameworks/kitemmodels-${KDE_CATV}*:6
+	=kde-frameworks/kwindowsystem-${KDE_CATV}*:6[wayland]
 "
 RDEPEND="${DEPEND}"
 
