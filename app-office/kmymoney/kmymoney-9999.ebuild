@@ -14,7 +14,7 @@ DESCRIPTION="Personal finance manager based on KDE Frameworks"
 HOMEPAGE="https://kmymoney.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -86,7 +86,7 @@ src_prepare() {
 
 	sed -e "/find_program.*CCACHE_PROGRAM/s/^/# /" \
 		-e "/if.*CCACHE_PROGRAM/s/CCACHE_PROGRAM/0/" \
-		-i CMakeLists.txt # no, no no.
+		-i CMakeLists.txt || die  # no, no no.
 }
 
 src_configure() {
@@ -118,6 +118,7 @@ src_test() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "more options for online stock quote retrieval" dev-perl/Finance-Quote
 	fi
