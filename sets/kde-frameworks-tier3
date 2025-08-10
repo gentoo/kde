@@ -20,6 +20,7 @@ kde-frameworks/kservice:6
 kde-frameworks/ktexteditor:6
 kde-frameworks/ktextwidgets:6
 kde-frameworks/kwallet:6
+kde-frameworks/kwallet-runtime:6
 kde-frameworks/kxmlgui:6
 kde-frameworks/purpose:6
 kde-frameworks/purpose-kaccounts-services:0
