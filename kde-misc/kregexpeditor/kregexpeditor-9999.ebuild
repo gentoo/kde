@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6[widgets,xml]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
