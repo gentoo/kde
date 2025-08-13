@@ -21,7 +21,7 @@ IUSE="activities speech"
 RESTRICT="test"
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
-COMMON_DEPEND="
+DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets,X,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-frameworks/karchive-${KFMIN}:6
@@ -50,12 +50,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	sys-libs/zlib
+	activities? ( kde-plasma/plasma-activities:6 )
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )
 "
-DEPEND="${COMMON_DEPEND}
-	activities? ( kde-plasma/plasma-activities:6 )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!<kde-apps/kio-extras-23.08.5-r100:5
 	kde-apps/kfind:6
 "
