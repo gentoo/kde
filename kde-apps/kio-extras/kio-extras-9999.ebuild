@@ -21,7 +21,6 @@ IUSE="activities ios +man mtp nfs +libproxy openexr phonon samba +sftp taglib X"
 RESTRICT="test"
 
 DEPEND="
-	dev-libs/qcoro
 	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -30,11 +29,8 @@ DEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
-	>=kde-frameworks/kdnssd-${KFMIN}:6
-	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
@@ -60,11 +56,15 @@ DEPEND="
 	openexr? ( media-libs/openexr:= )
 	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	samba? (
+		>=kde-frameworks/kdnssd-${KFMIN}:6
 		net-fs/samba[client]
 		>=net-libs/kdsoap-2.2.0:=[qt6(+)]
 		>=net-libs/kdsoap-ws-discovery-client-0.3.0
 	)
-	sftp? ( net-libs/libssh:=[sftp] )
+	sftp? (
+		dev-libs/qcoro
+		net-libs/libssh:=[sftp]
+	)
 	taglib? ( >=media-libs/taglib-1.11.1:= )
 	X? (
 		x11-libs/libX11
