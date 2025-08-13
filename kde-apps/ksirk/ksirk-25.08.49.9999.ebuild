@@ -18,6 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
