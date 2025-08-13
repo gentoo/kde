@@ -24,6 +24,7 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=kde-apps/libkcddb-${PVCUT}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
