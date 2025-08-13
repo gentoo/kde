@@ -19,6 +19,7 @@ DEPEND="
 	dev-libs/qcoro
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
