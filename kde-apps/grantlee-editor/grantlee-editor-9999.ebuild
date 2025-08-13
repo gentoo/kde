@@ -21,6 +21,7 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-contacts-${PVCUT}:6=
+	>=kde-apps/grantleetheme-${PVCUT}:6=
 	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-apps/messagelib-${PVCUT}:6=
 	>=kde-apps/pimcommon-${PVCUT}:6=
@@ -34,6 +35,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
