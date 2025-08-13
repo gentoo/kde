@@ -40,7 +40,10 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	bittorrent? ( >=net-libs/libktorrent-${PVCUT}:6 )
-	gpg? ( dev-libs/qgpgme:= )
+	gpg? (
+		dev-cpp/gpgmepp:=
+		dev-libs/qgpgme:=
+	)
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
 "
