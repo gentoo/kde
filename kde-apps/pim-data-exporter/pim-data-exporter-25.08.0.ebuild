@@ -32,6 +32,7 @@ DEPEND="
 	>=kde-apps/mailcommon-${PVCUT}:6=
 	>=kde-apps/pimcommon-${PVCUT}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
