@@ -18,6 +18,7 @@ KEYWORDS=""
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
