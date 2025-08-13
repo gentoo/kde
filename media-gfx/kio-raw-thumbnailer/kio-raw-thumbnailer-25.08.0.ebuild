@@ -20,6 +20,7 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=kde-apps/libkdcraw-${PVCUT}:6
 	>=kde-apps/libkexiv2-${PVCUT}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
