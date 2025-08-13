@@ -27,6 +27,7 @@ IUSE="solver"
 DEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtscxml-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
