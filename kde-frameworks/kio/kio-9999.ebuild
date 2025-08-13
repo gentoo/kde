@@ -43,6 +43,7 @@ COMMON_DEPEND="
 	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
 	=kde-frameworks/kwindowsystem-${KDE_CATV}*:6[wayland?,X?]
 	=kde-frameworks/solid-${KDE_CATV}*:6
+	sys-apps/util-linux
 	acl? (
 		sys-apps/attr
 		virtual/acl
