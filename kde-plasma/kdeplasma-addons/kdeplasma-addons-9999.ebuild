@@ -38,6 +38,7 @@ DEPEND="
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/krunner-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kunitconversion-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
