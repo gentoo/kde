@@ -32,6 +32,9 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtmultimedia-${QTMIN}:6
+	dev-libs/kirigami-addons:6
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
+	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=kde-apps/kdeedu-data-${PVCUT}:*
+	>=kde-frameworks/kirigami-${KFMIN}:6
 "
