@@ -21,7 +21,7 @@ IUSE="speech"
 RESTRICT="test"
 
 RDEPEND="
-	dev-libs/cyrus-sasl
+	dev-libs/cyrus-sasl:2
 	>=dev-libs/ktextaddons-1.6.0:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
@@ -36,6 +36,7 @@ RDEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
