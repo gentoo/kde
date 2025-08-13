@@ -33,7 +33,9 @@ DEPEND="
 	>=kde-frameworks/knewstuff-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	dev-libs/kirigami-addons:6
+"
 
 src_configure() {
 	local mycmakeargs=(
