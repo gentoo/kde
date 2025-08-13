@@ -20,6 +20,8 @@ IUSE=""
 RESTRICT="test"
 
 DEPEND="
+	>=dev-cpp/gpgmepp-1.23.2:=
+	>=dev-libs/qgpgme-1.23.2:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-contacts-${PVCUT}:6=
