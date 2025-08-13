@@ -30,6 +30,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
+	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -94,7 +95,6 @@ RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.18.0
 	>=dev-libs/wayland-protocols-1.45
-	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
 	X? ( x11-base/xorg-proto )
