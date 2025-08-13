@@ -16,10 +16,12 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
+# Upstream only supports the ffmpeg backend https://bugs.kde.org/show_bug.cgi?id=506940
+# slot op: Uses Qt6MultimediaPrivate for Qt6::QFFmpegMediaPlugin
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtmultimedia-${QTMIN}:6
+	>=dev-qt/qtmultimedia-${QTMIN}:6=[ffmpeg]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
@@ -27,6 +29,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	media-video/ffmpeg:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/gettext"
