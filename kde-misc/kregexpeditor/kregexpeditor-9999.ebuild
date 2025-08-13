@@ -4,8 +4,9 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.3.0
-inherit ecm kde.org
+KFMIN=6.16.0
+QTMIN=6.9.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="GUI for creating and editing regular expressions"
 
@@ -15,14 +16,14 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-qt/qtbase:6[gui,widgets,xml]
-	kde-frameworks/kconfig:6
-	kde-frameworks/kconfigwidgets:6
-	kde-frameworks/kcoreaddons:6
-	kde-frameworks/kcrash:6
-	kde-frameworks/ki18n:6
-	kde-frameworks/ktextwidgets:6
-	kde-frameworks/kwidgetsaddons:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
