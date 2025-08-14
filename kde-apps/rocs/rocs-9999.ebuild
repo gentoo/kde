@@ -5,44 +5,36 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KFMIN=5.116.0
-QTMIN=5.15.17
+KFMIN=6.16.0
+QTMIN=6.9.1
 inherit ecm gear.kde.org
 
 DESCRIPTION="Interface to work with Graph Theory"
 HOMEPAGE="https://apps.kde.org/rocs/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
-	dev-libs/grantlee:5
-	>=dev-qt/qtconcurrent-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtscript-${QTMIN}:5[scripttools]
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+RDEPEND="
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/ktexttemplate-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.49
-"
-RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
