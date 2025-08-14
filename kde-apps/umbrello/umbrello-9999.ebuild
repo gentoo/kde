@@ -6,48 +6,43 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_QTHELP="false" # TODO: figure out install error
 ECM_TEST="forceoptional"
-KFMIN=5.116.0
-QTMIN=5.15.17
+KFMIN=6.16.0
+QTMIN=6.9.1
 inherit ecm gear.kde.org
 
 DESCRIPTION="KDE UML Modeller"
 HOMEPAGE="https://apps.kde.org/umbrello/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="5"
+SLOT="0"
 KEYWORDS=""
-
-# TODO: Re-enable when ported to KF6
-# IUSE="php"
-# 	php? (
-# 		dev-util/kdevelop:5=
-# 		dev-util/kdevelop-pg-qt:5
-# 		dev-util/kdevelop-php:5
-# 	)
+IUSE="php"
 
 RDEPEND="
 	dev-libs/libxml2:=
 	dev-libs/libxslt
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kjobwidgets-${KFMIN}:5
-	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-frameworks/ktextwidgets-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcompletion-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/ktexteditor-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	php? (
+		dev-util/kdevelop:6=
+		dev-util/kdevelop-pg-qt:0
+		dev-util/kdevelop-php:6
+	)
 "
 DEPEND="${RDEPEND}"
 
@@ -59,7 +54,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Doxygen=ON # broken, re-enable w/ ECM_QTHELP
 		-DBUILD_APIDOC=OFF
-		-DBUILD_PHP_IMPORT=OFF # $(usex php)
+		-DBUILD_PHP_IMPORT=$(usex php)
 	)
 	use test && mycmakeargs+=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_LLVM=ON
