@@ -65,6 +65,9 @@ src_prepare() {
 
 	# these tests are run in kde-apps/kate-lib
 	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
+
+	# Don't build kio plugin
+	cmake_run_in apps/lib cmake_comment_add_subdirectory io
 }
 
 src_configure() {
@@ -90,6 +93,7 @@ src_install() {
 
 	# provided by kde-apps/kate-lib
 	rm -v "${ED}"/usr/$(get_libdir)/libkateprivate.so.* || die
+	rm -v "${ED}"/usr/bin/exec_inspect.sh || die
 }
 
 pkg_postinst() {
