@@ -89,6 +89,8 @@ src_install() {
 
 	# provided by kde-apps/kate-lib
 	rm -v "${ED}"/usr/$(get_libdir)/libkateprivate.so.* || die
+	rm -v "${ED}"/usr/$(get_libdir)/qt6/plugins/kf6/kio/kio_kateexec.so || die
+	rm -v "${ED}"/usr/bin/exec_inspect.sh || die
 }
 
 pkg_postinst() {
