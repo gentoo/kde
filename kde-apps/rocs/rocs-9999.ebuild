@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=6.16.0
 QTMIN=6.9.1
-inherit ecm gear.kde.org
+inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Interface to work with Graph Theory"
 HOMEPAGE="https://apps.kde.org/rocs/"
