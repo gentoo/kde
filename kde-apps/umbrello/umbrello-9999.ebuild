@@ -8,7 +8,7 @@ ECM_QTHELP="false" # TODO: figure out install error
 ECM_TEST="forceoptional"
 KFMIN=6.16.0
 QTMIN=6.9.1
-inherit ecm gear.kde.org
+inherit ecm gear.kde.org xdg
 
 DESCRIPTION="KDE UML Modeller"
 HOMEPAGE="https://apps.kde.org/umbrello/"
