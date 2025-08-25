@@ -88,3 +88,29 @@ index 88c0516360..01f2383ddb 100644
  
  add_subdirectory(libs)
  add_subdirectory(plugins)
+From e0ba479d6e7a1a34ad9fc984605aef2872d653da Mon Sep 17 00:00:00 2001
+From: Lucio Sauer <watermanpaint@posteo.net>
+Date: Mon, 25 Aug 2025 13:20:34 +0200
+Subject: [PATCH] libs/koplugin: don't build tests when not testing
+
+Signed-off-by: Lucio Sauer <watermanpaint@posteo.net>
+---
+ libs/koplugin/CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/libs/koplugin/CMakeLists.txt b/libs/koplugin/CMakeLists.txt
+index c3c6368..720ebe6 100644
+--- a/libs/koplugin/CMakeLists.txt
++++ b/libs/koplugin/CMakeLists.txt
+@@ -28,4 +28,6 @@ set_target_properties(kritaplugin PROPERTIES
+ )
+ install(TARGETS kritaplugin ${INSTALL_TARGETS_DEFAULT_ARGS} )
+ 
+-add_subdirectory(tests)
+\ No newline at end of file
++if (BUILD_TESTING)
++    add_subdirectory(tests)
++endif()
+-- 
+2.49.1
+
