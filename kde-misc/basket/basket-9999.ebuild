@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_TEST="true"
 ECM_HANDBOOK="optional"
-KFMIN=6.5.0
-QTMIN=6.7.2
-inherit ecm kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Multiple information organizer - a DropDrawers clone"
 HOMEPAGE="https://userbase.kde.org/BasKet https://invent.kde.org/utilities/basket"
@@ -26,6 +26,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -38,6 +39,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
@@ -46,7 +48,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=media-libs/phonon-4.12.0[qt6(+)]
-	x11-libs/libX11
 	crypt? ( app-crypt/gpgme:= )
 	git? ( dev-libs/libgit2:= )
 "
@@ -57,6 +58,12 @@ RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 "
 BDEPEND="git? ( virtual/pkgconfig )"
+
+src_prepare() {
+	cmake_src_prepare
+	# https://invent.kde.org/utilities/basket/-/merge_requests/58
+	sed -e "/^find_package(X11/s/^/# /" -i CMakeLists.txt || die
+}
 
 src_configure() {
 	local mycmakeargs=(
