@@ -9,7 +9,7 @@ ECM_TEST="true"
 KDE_ORG_CATEGORY="sdk"
 KFMIN=6.9.0
 QTMIN=6.8.1
-inherit ecm kde.org
+inherit ecm kde.org xdg
 
 DESCRIPTION="IDE for microcontrollers and electronics"
 HOMEPAGE="https://userbase.kde.org/KTechlab"
