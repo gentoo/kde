@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 KFMIN=6.9.0
 QTMIN=6.8.0
 inherit ecm kde.org python-single-r1 xdg
@@ -19,13 +19,14 @@ HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="color-management fftw gif +gsl heif jpeg2k jpegxl +mypaint-brush-engine openexr pdf media +raw +xsimd webp"
+IUSE="color-management fftw gif +gsl heif jpeg2k jpegxl +mypaint-brush-engine openexr pdf media +raw webp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # bug 630508
 RESTRICT="test"
 
 COMMON_DEPEND="${PYTHON_DEPS}
+	>=dev-cpp/xsimd-13.0.0
 	dev-libs/boost:=
 	dev-libs/libunibreak:=
 	>=dev-libs/quazip-1.3-r2:0=[qt6(+)]
@@ -34,9 +35,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		dev-python/sip:=[${PYTHON_USEDEP}]
 	')
 	>=dev-qt/qt5compat-${QTMIN}:6
-	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,-gles2-only,gui,network,opengl,sql,widgets,X,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,-gles2-only,gui,network,opengl,sql,wayland,widgets,X,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -71,12 +73,12 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	pdf? ( app-text/poppler[qt6(-)] )
 	raw? ( kde-apps/libkdcraw:6 )
 	webp? ( >=media-libs/libwebp-1.2.0:= )
-	xsimd? ( >=dev-cpp/xsimd-13.0.0 )
 
 "
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 "
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 DEPEND="${COMMON_DEPEND}
 	dev-libs/immer
 	dev-libs/lager
@@ -117,7 +119,6 @@ src_configure() {
 		$(cmake_use_find_package pdf Poppler)
 		$(cmake_use_find_package raw KDcrawQt6)
 		$(cmake_use_find_package webp WebP)
-		$(cmake_use_find_package xsimd xsimd)
 	)
 	ecm_src_configure
 }
