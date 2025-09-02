@@ -50,7 +50,7 @@
 <kde-apps/marble-25.08.50
 <kde-apps/minuet-25.08.50
 <kde-apps/parley-25.08.50
-# <kde-apps/rocs-9999 # while KF5-based
+# <kde-apps/rocs-25.12.50 # managed by 25.12
 <kde-apps/step-25.08.50
 <games-puzzle/skladnik-25.08.50
 <kde-apps/bomber-25.08.50
@@ -234,7 +234,7 @@
 <kde-apps/libkomparediff2-25.08.50
 <kde-apps/lokalize-25.08.50
 <kde-apps/poxml-25.08.50
-# <kde-apps/umbrello-9999 # while KF5-based
+# <kde-apps/umbrello-25.12.50 # managed by 25.12
 <app-cdr/dolphin-plugins-mountiso-25.08.50
 <app-cdr/isoimagewriter-25.08.50
 <app-crypt/keysmith-25.08.50
