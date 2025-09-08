@@ -35,6 +35,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kdeclarative-${KDE_CATV}:6
+	=kde-frameworks/kitemmodels-${KDE_CATV}*:6
+	=kde-frameworks/prison-${KDE_CATV}*:6[qml]
 	bluetooth? ( =kde-frameworks/bluez-qt-${KDE_CATV}*:6 )
 	webengine? (
 		>=kde-frameworks/purpose-kaccounts-services-${KDE_CATV}
