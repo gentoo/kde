@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KFMIN=6.14.0
+KFMIN=6.16.0
 QTMIN=6.8.1
 inherit ecm plasma.kde.org optfeature xdg
 
@@ -45,7 +45,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}-r1:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kitemviews-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6

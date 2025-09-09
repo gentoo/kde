@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.14.0
+KFMIN=6.16.0
 QTMIN=6.8.1
 inherit ecm plasma.kde.org xdg
 
