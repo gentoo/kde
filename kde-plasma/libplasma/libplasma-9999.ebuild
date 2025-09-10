@@ -18,9 +18,10 @@ IUSE="gles2-only"
 
 RESTRICT="test"
 
+# dev-qt/qtbase slot op: includes qpa/qplatformwindow_p.h, qpa/qplatformwindow.h
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 COMMON_DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gles2-only=,gui,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gles2-only=,gui,opengl,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-libs/wayland-1.15.0
