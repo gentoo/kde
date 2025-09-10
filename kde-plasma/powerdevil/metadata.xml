@@ -10,6 +10,7 @@
 		<remote-id type="kde-invent">plasma/powerdevil</remote-id>
 	</upstream>
 	<use>
+		<flag name="activities">Enable support for KDE Activities</flag>
 		<flag name="brightness-control">Enable screen brightness control using <pkg>app-misc/ddcutil</pkg></flag>
 	</use>
 </pkgmetadata>
