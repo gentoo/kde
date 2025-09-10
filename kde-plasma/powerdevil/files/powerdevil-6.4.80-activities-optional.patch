@@ -1,0 +1,268 @@
+From 8f4dbf78567ff696cd8590bb9d067439488dfaa5 Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Wed, 10 Sep 2025 22:41:32 +0200
+Subject: [PATCH] Make PlasmaActivities optional via ENABLE_ACTIVITIES cmake
+ option
+
+See also: https://invent.kde.org/plasma/plasma-workspace/-/issues/35
+
+Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
+---
+ CMakeLists.txt                         |  7 ++++++-
+ autotests/migrateconfig/CMakeLists.txt |  2 ++
+ daemon/CMakeLists.txt                  | 13 +++++++++++--
+ daemon/config-powerdevil.h.cmake       |  1 +
+ daemon/powerdevilcore.cpp              | 13 ++++++++++---
+ daemon/powerdevilcore.h                |  8 ++++++--
+ daemon/powerdevilmigrateconfig.cpp     |  9 ++++++++-
+ 7 files changed, 44 insertions(+), 9 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8c713345..4d34c4ff 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -27,6 +27,8 @@ include(KDEGitCommitHooks)
+ include(ECMDeprecationSettings)
+ include(ECMQmlModule)
+ 
++option(ENABLE_ACTIVITIES "Enable support for Plasma Activities in daemon" ON)
++
+ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus)
+ 
+ if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
+@@ -53,10 +55,13 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
+     XmlGui
+ )
+ find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
+-find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
+ find_package(KF6Screen CONFIG REQUIRED)
+ find_package(LibKWorkspace ${PROJECT_DEP_VERSION} REQUIRED)
+ 
++if(ENABLE_ACTIVITIES)
++    find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
++endif()
++
+ find_package(UDev REQUIRED)
+ 
+ find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
+diff --git a/autotests/migrateconfig/CMakeLists.txt b/autotests/migrateconfig/CMakeLists.txt
+index 78b2ad66..322d792c 100644
+--- a/autotests/migrateconfig/CMakeLists.txt
++++ b/autotests/migrateconfig/CMakeLists.txt
+@@ -58,6 +58,7 @@ add_migrateconfig_test(
+     ASSERT_NO_POWERDEVILRC_AFTER_MIGRATION
+ )
+ 
++if(ENABLE_ACTIVITIES)
+ add_migrateconfig_test(
+     NAME migrateconfig_test2_activities
+     INPUT_POWERDEVILRC test2_initial_powerdevilrc
+@@ -73,6 +74,7 @@ add_migrateconfig_test(
+     EXPECTED_POWERDEVILRC test2_migrated_powerdevilrc
+     EXPECTED_PROFILESRC test2_migrated_powermanagementprofilesrc
+ )
++endif()
+ 
+ add_migrateconfig_test(
+     NAME migrateconfig_test3_profiles
+diff --git a/daemon/CMakeLists.txt b/daemon/CMakeLists.txt
+index b0dc9397..fbf4b88c 100644
+--- a/daemon/CMakeLists.txt
++++ b/daemon/CMakeLists.txt
+@@ -52,10 +52,16 @@ ecm_qt_declare_logging_category(powerdevil_log_static
+ kconfig_add_kcfg_files(powerdevilcore_SRCS
+     ${CMAKE_SOURCE_DIR}/PowerDevilGlobalSettings.kcfgc
+     ${CMAKE_SOURCE_DIR}/PowerDevilProfileSettings.kcfgc
+-    ${CMAKE_SOURCE_DIR}/PowerDevilActivitySettings.kcfgc
+     GENERATE_MOC
+ )
+ 
++if(ENABLE_ACTIVITIES)
++    kconfig_add_kcfg_files(powerdevilcore_SRCS
++        ${CMAKE_SOURCE_DIR}/PowerDevilActivitySettings.kcfgc
++        GENERATE_MOC
++    )
++endif()
++
+ # DBus Adaptors
+ 
+ set_source_files_properties(
+@@ -88,7 +94,6 @@ generate_export_header(powerdevilcore)
+ 
+ # not exported, so just make the deps public
+ target_link_libraries(powerdevilcore
+-    Plasma::Activities
+     Qt::DBus
+     PW::KWorkspace
+     KF6::CoreAddons
+@@ -111,6 +116,10 @@ target_link_libraries(powerdevilcore
+     Qt::WaylandClient
+ )
+ 
++if(ENABLE_ACTIVITIES)
++    target_link_libraries(powerdevilcore Plasma::Activities)
++endif()
++
+ if (XCB_FOUND) # kwin kscreen helper effect
+     target_link_libraries(powerdevilcore XCB::XCB Qt::GuiPrivate)
+ endif ()
+diff --git a/daemon/config-powerdevil.h.cmake b/daemon/config-powerdevil.h.cmake
+index 444a49cc..2be26ac9 100644
+--- a/daemon/config-powerdevil.h.cmake
++++ b/daemon/config-powerdevil.h.cmake
+@@ -1 +1,2 @@
+ #cmakedefine01 HAVE_XCB
++#cmakedefine01 ENABLE_ACTIVITIES
+diff --git a/daemon/powerdevilcore.cpp b/daemon/powerdevilcore.cpp
+index 98e9c55c..abe33424 100644
+--- a/daemon/powerdevilcore.cpp
++++ b/daemon/powerdevilcore.cpp
+@@ -13,7 +13,9 @@
+ #include "powerdevilpolicyagent.h"
+ #include "powerdevilpowermanagement.h"
+ 
++#if ENABLE_ACTIVITIES
+ #include <PowerDevilActivitySettings.h>
++#endif
+ #include <PowerDevilGlobalSettings.h>
+ #include <PowerDevilProfileSettings.h>
+ 
+@@ -30,9 +32,9 @@
+ #include <KNotification>
+ #include <KPluginFactory>
+ #include <KPluginMetaData>
+-
++#if ENABLE_ACTIVITIES
+ #include <PlasmaActivities/Consumer>
+-
++#endif
+ #include <QDBusConnection>
+ #include <QDBusConnectionInterface>
+ #include <QDBusServiceWatcher>
+@@ -56,7 +58,9 @@ Core::Core(QObject *parent)
+     : QObject(parent)
+     , m_hasDualGpu(false)
+     , m_criticalBatteryTimer(new QTimer(this))
++#if ENABLE_ACTIVITIES
+     , m_activityConsumer(new KActivities::Consumer(this))
++#endif
+     , m_pendingWakeupEvent(true)
+ {
+     KAuth::Action discreteGpuAction(QStringLiteral("org.kde.powerdevil.discretegpuhelper.hasdualgpu"));
+@@ -128,10 +132,11 @@ void Core::onControllersReady()
+     connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
+     connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &Core::onKIdleTimeoutReached);
+     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
++#if ENABLE_ACTIVITIES
+     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
+         loadProfile();
+     });
+-
++#endif
+     // Set up the policy agent
+     PowerDevil::PolicyAgent::instance()->init(m_globalSettings);
+     // When inhibitions change, simulate user activity, see Bug 315438
+@@ -379,6 +384,7 @@ void Core::loadProfile(bool force)
+         Q_EMIT profileChanged(m_currentProfile);
+     }
+ 
++#if ENABLE_ACTIVITIES
+     // Check the activity in which we are in
+     const QString activity = m_activityConsumer->currentActivity();
+     qCDebug(POWERDEVIL) << "Currently using activity" << activity;
+@@ -415,6 +421,7 @@ void Core::loadProfile(bool force)
+             }
+         }
+     }
++#endif
+ 
+     // If the lid is closed, retrigger the lid close signal
+     // so that "switching profile then closing the lid" has the same result as
+diff --git a/daemon/powerdevilcore.h b/daemon/powerdevilcore.h
+index af4c5010..5207e893 100644
+--- a/daemon/powerdevilcore.h
++++ b/daemon/powerdevilcore.h
+@@ -6,6 +6,8 @@
+ 
+ #pragma once
+ 
++#include <config-powerdevil.h>
++
+ #include <QPointer>
+ #include <QSet>
+ #include <QStringList>
+@@ -26,10 +28,12 @@
+ #include "controllers/suspendcontroller.h"
+ #include "powerdevilcore_export.h"
+ 
++#if ENABLE_ACTIVITIES
+ namespace KActivities
+ {
+ class Consumer;
+ } // namespace KActivities
++#endif
+ 
+ class QDBusServiceWatcher;
+ class QTimer;
+@@ -179,9 +183,9 @@ private:
+     QPointer<KNotification> m_criticalBatteryNotification;
+     QPointer<KNotification> m_powerCordPluggedInNotification;
+     QPointer<KNotification> m_powerCordUnpluggedNotification;
+-
++#if ENABLE_ACTIVITIES
+     KActivities::Consumer *const m_activityConsumer;
+-
++#endif
+     // Idle time management
+     QHash<Action *, QList<int>> m_registeredActionTimeouts;
+     QSet<Action *> m_pendingResumeFromIdleActions;
+diff --git a/daemon/powerdevilmigrateconfig.cpp b/daemon/powerdevilmigrateconfig.cpp
+index c2b599f6..7e7e38a2 100644
+--- a/daemon/powerdevilmigrateconfig.cpp
++++ b/daemon/powerdevilmigrateconfig.cpp
+@@ -4,11 +4,15 @@
+  *  SPDX-License-Identifier: GPL-2.0-or-later
+  */
+ 
++#include <config-powerdevil.h>
++
+ #include "powerdevilmigrateconfig.h"
+ 
+ #include "powerdevilenums.h"
+ 
++#if ENABLE_ACTIVITIES
+ #include <PowerDevilActivitySettings.h>
++#endif
+ #include <PowerDevilProfileSettings.h>
+ #include <powerdevil_version.h>
+ 
+@@ -37,6 +41,7 @@ struct IdentityTransformer {
+ namespace PowerDevil
+ {
+ 
++#if ENABLE_ACTIVITIES
+ void migrateActivitiesConfig(KSharedConfig::Ptr profilesConfig)
+ {
+     KConfigGroup migrationGroup = profilesConfig->group(QStringLiteral("Migration"));
+@@ -67,7 +72,7 @@ void migrateActivitiesConfig(KSharedConfig::Ptr profilesConfig)
+     migrationGroup.writeEntry("MigratedActivitiesToPlasma6", "powerdevilrc");
+     profilesConfig->sync();
+ }
+-
++#endif
+ void ensureLockScreenIdleTimeoutInKScreenLockerKCM(int seconds)
+ {
+     KSharedConfig::Ptr lockerConfig = KSharedConfig::openConfig(QStringLiteral("kscreenlockerrc"));
+@@ -244,7 +249,9 @@ void migrateConfig(bool isMobile, bool isVM, bool canSuspend)
+     KSharedConfig::Ptr profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"));
+     // TODO KF7 (or perhaps earlier): Remove Plasma 5->6 migration code and delete powermanagementprofilesrc
+ 
++#if ENABLE_ACTIVITIES
+     migrateActivitiesConfig(profilesConfig);
++#endif
+     migrateProfilesConfig(profilesConfig, isMobile, isVM, canSuspend);
+ }
+ 
+-- 
+2.51.0
+
