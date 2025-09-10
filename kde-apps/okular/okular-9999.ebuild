@@ -43,7 +43,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/threadweaver-${KFMIN}:6
-	kde-plasma/plasma-activities:6
 	media-libs/freetype
 	sys-libs/zlib
 	crypt? ( >=kde-frameworks/kwallet-${KFMIN}:6 )
