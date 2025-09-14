@@ -28,7 +28,6 @@ RESTRICT="test"
 COMMON_DEPEND="
 	app-text/poppler[qt6]
 	dev-libs/icu:=
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
