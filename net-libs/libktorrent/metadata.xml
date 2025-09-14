@@ -9,6 +9,7 @@
 		<bugs-to>https://bugs.kde.org/</bugs-to>
 	</upstream>
 	<use>
+		<flag name="gcrypt">Use libgcrypt instead of openssl</flag>
 		<flag name="xfs">Enable XFS specific disk preallocation support via <pkg>sys-fs/xfsprogs</pkg></flag>
 	</use>
 </pkgmetadata>
