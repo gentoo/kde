@@ -5,24 +5,27 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KFMIN=9999
-QTMIN=6.9.1
-inherit ecm plasma.kde.org xdg
+KFMIN=6.16.0
+QTMIN=6.8.1
+inherit ecm fcaps plasma.kde.org xdg
 
-DESCRIPTION="Flexible, composited X window manager"
+DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 
 LICENSE="GPL-2+"
 SLOT="6"
-KEYWORDS=""
-IUSE="accessibility activities gles2-only lock +shortcuts systemd"
+KEYWORDS="~amd64"
+IUSE="accessibility activities gles2-only lock screencast +shortcuts systemd X"
 
 RESTRICT="test"
 
 # qtbase slot op: GuiPrivate use in tabbox
+# qtbase[X]: private/qtx11extras_p.h in src/helpers/killer
 COMMON_DEPEND="
+	dev-libs/libei
+	>=dev-libs/libinput-1.27:=
 	>=dev-libs/wayland-1.24.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,opengl,wayland,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,wayland,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
@@ -32,7 +35,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
@@ -47,11 +49,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6=[wayland,X]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6=[wayland]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
-	>=kde-plasma/knighttime-${KDE_CATV}:6
+	>=kde-plasma/kwayland-${KDE_CATV}:6
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/lcms:2
@@ -59,39 +60,43 @@ COMMON_DEPEND="
 	>=media-libs/libdisplay-info-0.2.0:=
 	media-libs/libepoxy
 	media-libs/libglvnd
-	>=media-libs/mesa-24.1.0_rc1[opengl,X]
+	>=media-libs/mesa-24.1.0_rc1[opengl,wayland]
 	virtual/libudev:=
-	x11-libs/libX11
-	x11-libs/libXi
-	>=x11-libs/libdrm-2.4.116
+	>=x11-libs/libdrm-2.4.118
 	>=x11-libs/libxcb-1.10:=
+	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
 	x11-libs/xcb-util-cursor
-	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
 	activities? ( >=kde-plasma/plasma-activities-${KDE_CATV}:6 )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
+	screencast? ( >=media-video/pipewire-1.2.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
+	X? (
+		x11-libs/libX11
+		x11-libs/libXi
+		x11-libs/libXres
+		x11-libs/xcb-util-keysyms
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdeplasma-addons:5
-	!<kde-plasma/kwin-6.3.80
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/aurorae-${KDE_CATV}:6
+	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6[activities(+)?]
 	sys-apps/hwdata
-	>=x11-base/xwayland-23.1.0
+	X? ( >=x11-base/xwayland-23.1.0[libei] )
 "
 RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.16.0
-	>=dev-libs/wayland-protocols-1.38
+	>=dev-libs/plasma-wayland-protocols-1.18.0
+	>=dev-libs/wayland-protocols-1.44
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
-	x11-base/xorg-proto
-	x11-libs/xcb-util-image
-	test? ( >=kde-plasma/kwayland-${KDE_CATV}:6 )
+	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
+	X? ( x11-base/xorg-proto )
 "
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
@@ -100,8 +105,17 @@ BDEPEND="
 "
 BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
+# https://bugs.gentoo.org/941628
+# -m 0755 to avoid suid with USE="-filecaps"
+FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
+
 src_prepare() {
 	ecm_src_prepare
+
+	# TODO: try to get a build switch upstreamed
+	if ! use screencast; then
+		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
+	fi
 
 	# TODO: try to get a build switch upstreamed
 	if ! use systemd; then
@@ -111,12 +125,19 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		# KWIN_BUILD_DECORATIONS exists
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		$(cmake_use_find_package activities PlasmaActivities)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
+		-DKWIN_BUILD_X11=$(usex X)
 	)
 
 	ecm_src_configure
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	fcaps_pkg_postinst
 }

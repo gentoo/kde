@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=9999
-QTMIN=6.9.1
+KFMIN=6.16.0
+QTMIN=6.8.1
 inherit ecm fcaps plasma.kde.org xdg
 
 DESCRIPTION="Power management for KDE Plasma Shell"
@@ -14,7 +14,7 @@ HOMEPAGE="https://invent.kde.org/plasma/powerdevil"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="activities brightness-control"
 
 RESTRICT="test" # bug 926513
@@ -73,7 +73,7 @@ BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_wake_alarm=ep usr/libexec/org_kde_powerdevil )
 
-PATCHES=( "${FILESDIR}/${PN}-6.4.80-activities-optional.patch" )
+PATCHES=( "${FILESDIR}/${PN}-6.4.5-activities-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
