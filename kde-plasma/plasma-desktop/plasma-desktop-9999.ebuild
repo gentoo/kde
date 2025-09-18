@@ -71,6 +71,7 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?,X]
 	>=kde-plasma/plasma5support-${KDE_CATV}:6
 	media-libs/libcanberra
+	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libxcb
 	x11-libs/libXcursor
