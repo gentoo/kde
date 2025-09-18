@@ -27,6 +27,7 @@ COMMON_DEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,wayland,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/attica-${KFMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
