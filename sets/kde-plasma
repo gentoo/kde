@@ -30,6 +30,7 @@ kde-plasma/kwallet-pam
 kde-plasma/kwayland
 kde-plasma/kwayland-integration
 kde-plasma/kwin
+kde-plasma/kwin-x11
 kde-plasma/kwrited
 kde-plasma/layer-shell-qt
 kde-plasma/libkscreen
