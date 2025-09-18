@@ -34,6 +34,7 @@ RDEPEND="
 	>=kde-plasma/kglobalacceld-${PV}:${SLOT}
 	>=kde-plasma/kinfocenter-${PV}:${SLOT}
 	>=kde-plasma/kmenuedit-${PV}:${SLOT}
+	>=kde-plasma/knighttime-${PV}:${SLOT}
 	>=kde-plasma/kpipewire-${PV}:${SLOT}
 	>=kde-plasma/kscreen-${PV}:${SLOT}
 	>=kde-plasma/kscreenlocker-${PV}:${SLOT}
