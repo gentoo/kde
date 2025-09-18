@@ -3,9 +3,9 @@
 
 EAPI=8
 
-KFMIN=6.5.0
+KFMIN=9999
 QTMIN=6.9.1
-inherit ecm plasma.kde.org
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Plasma shell for TVs"
 HOMEPAGE="https://plasma-bigscreen.org/"
