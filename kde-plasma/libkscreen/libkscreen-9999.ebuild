@@ -27,7 +27,7 @@ RDEPEND="
 	x11-libs/libxcb:=
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.18.0
+	>=dev-libs/plasma-wayland-protocols-1.19.0
 "
 RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="

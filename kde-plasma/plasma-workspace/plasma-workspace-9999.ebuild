@@ -118,7 +118,7 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.18.0
+	>=dev-libs/plasma-wayland-protocols-1.19.0
 	dev-libs/qcoro
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	test? ( screencast? ( >=media-video/pipewire-0.3:* ) )

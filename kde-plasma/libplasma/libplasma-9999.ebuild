@@ -47,7 +47,7 @@ COMMON_DEPEND="
 	!gles2-only? ( media-libs/libglvnd[X] )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.18.0
+	>=dev-libs/plasma-wayland-protocols-1.19.0
 	x11-base/xorg-proto
 "
 RDEPEND="${COMMON_DEPEND}

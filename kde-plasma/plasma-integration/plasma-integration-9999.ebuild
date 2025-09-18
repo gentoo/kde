@@ -62,7 +62,7 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.18.0
+	>=dev-libs/plasma-wayland-protocols-1.19.0
 "
 RDEPEND="${COMMON_DEPEND}
 	media-fonts/hack
