@@ -50,6 +50,7 @@ DEPEND="
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}
+	!<kde-plasma/plasma-workspace-6.4.80
 	dev-libs/kirigami-addons:6
 	>=dev-qt/qtquick3d-${QTMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
