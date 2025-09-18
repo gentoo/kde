@@ -23,6 +23,5 @@ RDEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 "
 DEPEND="${RDEPEND}
-	dev-libs/boost
 	test? ( >=kde-frameworks/kwindowsystem-${KFMIN}:6[X] )
 "
