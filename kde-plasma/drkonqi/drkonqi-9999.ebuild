@@ -36,7 +36,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	sys-apps/systemd:=
+	>=sys-apps/systemd-254:=
 	>=sys-auth/polkit-qt-0.175.0[qt6(+)]
 "
 DEPEND="${COMMON_DEPEND}
@@ -49,7 +49,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	$(python_gen_cond_dep '
 		dev-python/psutil[${PYTHON_USEDEP}]
-		dev-python/pygdbmi[${PYTHON_USEDEP}]
 	')
 	|| (
 		>=dev-debug/gdb-12
