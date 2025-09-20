@@ -69,7 +69,6 @@ COMMON_DEPEND="
 	>=x11-libs/libxcb-1.10:=
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
-	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
