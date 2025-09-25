@@ -37,7 +37,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-19.04.0-handbook.patch" )
+PATCHES=( "${FILESDIR}/${PN}-23.03.80-handbook.patch" )
 
 src_configure() {
 	local mycmakeargs=(
