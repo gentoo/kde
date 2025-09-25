@@ -37,8 +37,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-19.04.0-handbook.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package flac FLAC)
