@@ -3,9 +3,9 @@
 
 EAPI=8
 
-ECM_QTHELP="true"
+# TODO: ECMGenerateQDoc
 ECM_TEST="true"
-KFMIN=6.9.0
+KFMIN=6.16.0
 QTMIN=6.8.1
 inherit ecm kde.org
 
