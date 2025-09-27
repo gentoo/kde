@@ -24,7 +24,7 @@ COMMON_DEPEND="
 	media-libs/libglvnd
 	media-libs/libva:=
 	media-libs/mesa[opengl]
-	media-video/ffmpeg:=
+	>=media-video/ffmpeg-6.1:=
 	>=media-video/pipewire-0.3:=
 	x11-libs/libdrm
 "

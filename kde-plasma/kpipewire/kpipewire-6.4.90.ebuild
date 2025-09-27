@@ -24,7 +24,7 @@ COMMON_DEPEND="
 	media-libs/libglvnd
 	media-libs/libva:=
 	media-libs/mesa[opengl]
-	media-video/ffmpeg:=
+	>=media-video/ffmpeg-6.1:=
 	>=media-video/pipewire-0.3:=
 	x11-libs/libdrm
 "
@@ -44,10 +44,4 @@ RDEPEND="${COMMON_DEPEND}
 BDEPEND="test? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
 BDEPEND+=" test? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 
-src_prepare() {
-	# https://invent.kde.org/plasma/kpipewire/-/merge_requests/208#note_1310965
-	if has_version ">=media-video/ffmpeg-5"; then
-		PATCHES+=( "${FILESDIR}/${PN}-6.4.5-ffmpeg8.patch" )
-	fi
-	cmake_src_prepare
-}
+PATCHES=( "${FILESDIR}/${PN}-6.4.5-ffmpeg8.patch" )
