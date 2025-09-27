@@ -1,4 +1,4 @@
-From e2b4a63b3ceb0584f9d4612865920a3dbc9ea512 Mon Sep 17 00:00:00 2001
+From 6dc69b0674f9946641e88151c209ce58f085d06a Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Bernhard=20Rosenkr=C3=A4nzer?= <bero@lindev.ch>
 Date: Wed, 27 Aug 2025 16:39:36 +0200
 Subject: [PATCH] Fix build with ffmpeg >= 8.0
