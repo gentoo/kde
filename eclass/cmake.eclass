@@ -327,9 +327,6 @@ _cmake4_callout() {
 			eqawarn "CMake 4 detected; building with -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 			eqawarn "This is merely a workaround and *not* a permanent fix."
 		fi
-		if [[ ${EAPI} == 7 ]]; then
-			eqawarn "QA Notice: EAPI=7 detected; this package is now a prime last-rites target."
-		fi
 	fi
 }
 
@@ -412,6 +409,7 @@ cmake_src_prepare() {
 			chmod -R a-w "${S}"
 		fi
 		_CMAKE_PREPARE_HAS_RUN=1
+		eqawarn "QA Notice: cmake.eclass will throw unsupported EAPI=7 error after 2025-11-01."
 	else
 		default_src_prepare
 		cmake_prepare
