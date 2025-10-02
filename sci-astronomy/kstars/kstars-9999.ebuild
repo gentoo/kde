@@ -48,13 +48,7 @@ COMMON_DEPEND="
 	sci-libs/libnova:=
 	>=sci-libs/stellarsolver-2.7
 	sys-libs/zlib
-	opencv? (
-		media-libs/opencv:=[ffmpeg]
-		|| (
-			media-libs/opencv[qt6(-)]
-			media-libs/opencv[gtk3(-)]
-		)
-	)
+	opencv? ( media-libs/opencv:=[ffmpeg] )
 	password? ( >=dev-libs/qtkeychain-0.14.2:=[qt6(+)] )
 	raw? ( media-libs/libraw:= )
 "
@@ -88,7 +82,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibXISF=ON # not packaged
 		-DBUILD_WITH_QT6=ON # KF6 please
-		-DBUILD_QT5=OFF # KF6 please
+		-DENABLE_SENTRY=OFF
 		$(cmake_use_find_package opencv OpenCV)
 		$(cmake_use_find_package password Qt6Keychain)
 		$(cmake_use_find_package raw LibRaw)
