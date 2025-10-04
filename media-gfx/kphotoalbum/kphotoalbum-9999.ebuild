@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=6.5.0
-QTMIN=6.7.2
-inherit ecm kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Tool for indexing, searching, and viewing images"
 HOMEPAGE="https://www.kphotoalbum.org/"
@@ -26,6 +26,7 @@ REQUIRED_USE="|| ( phonon vlc )"
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,sqlite,widgets,xml]
 	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -43,13 +44,14 @@ DEPEND="
 	map? ( kde-apps/marble:6 )
 	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	raw? ( kde-apps/libkdcraw:6 )
-	share? ( >=kde-frameworks/kxmlgui-${KFMIN}:6 )
+	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	vlc? ( media-video/vlc:= )
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 	media-video/ffmpeg
 "
+BDEPEND=">=dev-build/cmake-3.30"
 
 DOCS=( CHANGELOG.{md,old} README.md )
 
