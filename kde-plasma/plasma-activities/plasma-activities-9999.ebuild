@@ -12,7 +12,7 @@ inherit ecm plasma.kde.org
 DESCRIPTION="Core components for KDE's Activities System"
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 )"
-SLOT="6"
+SLOT="6/7"
 KEYWORDS=""
 IUSE=""
 
