@@ -32,7 +32,7 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kunitconversion-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	activities? ( >=kde-plasma/plasma-activities-${KDE_CATV}:6 )
+	activities? ( >=kde-plasma/plasma-activities-${KDE_CATV}:6= )
 	geolocation? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	ksysguard? ( >=kde-plasma/libksysguard-${KDE_CATV}:6 )
 	X? ( x11-libs/libX11 )

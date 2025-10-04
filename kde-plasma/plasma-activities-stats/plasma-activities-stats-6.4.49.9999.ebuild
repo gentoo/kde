@@ -19,7 +19,7 @@ IUSE=""
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,sql]
 	>=kde-frameworks/kconfig-${KFMIN}:6
-	kde-plasma/plasma-activities:6
+	kde-plasma/plasma-activities:6=
 "
 DEPEND="${RDEPEND}
 	test? ( dev-libs/boost )

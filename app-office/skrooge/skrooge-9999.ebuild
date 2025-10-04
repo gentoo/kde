@@ -52,7 +52,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	activities? ( kde-plasma/plasma-activities:6 )
+	activities? ( kde-plasma/plasma-activities:6= )
 	kde? ( >=kde-frameworks/krunner-${KFMIN}:6 )
 	ofx? ( dev-libs/libofx:= )
 "

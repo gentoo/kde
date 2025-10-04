@@ -55,7 +55,7 @@ COMMON_DEPEND="
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
 	>=kde-plasma/knighttime-${KDE_CATV}:6
 	>=kde-plasma/kwayland-${KDE_CATV}:6
-	>=kde-plasma/plasma-activities-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/lcms:2

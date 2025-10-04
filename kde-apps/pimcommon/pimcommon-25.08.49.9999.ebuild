@@ -42,7 +42,7 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
-	activities? ( kde-plasma/plasma-activities:6 )
+	activities? ( kde-plasma/plasma-activities:6= )
 "
 DEPEND="${RDEPEND}"
 

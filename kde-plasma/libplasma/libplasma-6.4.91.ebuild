@@ -40,7 +40,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
-	=kde-plasma/plasma-activities-${KDE_CATV}*:6
+	=kde-plasma/plasma-activities-${KDE_CATV}*:6=
 	media-libs/libglvnd
 	x11-libs/libX11
 	x11-libs/libxcb

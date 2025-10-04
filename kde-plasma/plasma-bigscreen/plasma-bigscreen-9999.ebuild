@@ -39,7 +39,7 @@ DEPEND="
 	>=kde-plasma/kwayland-${KDE_CATV}:6
 	>=kde-plasma/libkscreen-${KDE_CATV}:6=
 	>=kde-plasma/libplasma-${KDE_CATV}:6
-	>=kde-plasma/plasma-activities-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
 "

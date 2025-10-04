@@ -50,7 +50,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	sys-libs/zlib
-	activities? ( kde-plasma/plasma-activities:6 )
+	activities? ( kde-plasma/plasma-activities:6= )
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}

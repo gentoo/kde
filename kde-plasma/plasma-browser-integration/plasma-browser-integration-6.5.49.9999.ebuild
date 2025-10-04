@@ -29,7 +29,7 @@ RDEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
-	>=kde-plasma/plasma-activities-${KDE_CATV}:6
+	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
 "
 DEPEND="${RDEPEND}
