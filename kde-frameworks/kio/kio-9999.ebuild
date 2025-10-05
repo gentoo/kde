@@ -23,7 +23,6 @@ RESTRICT="test"
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,ssl,widgets,X?]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	=kde-frameworks/kauth-${KDE_CATV}*:6
 	=kde-frameworks/kbookmarks-${KDE_CATV}*:6
 	=kde-frameworks/kcodecs-${KDE_CATV}*:6
 	=kde-frameworks/kcolorscheme-${KDE_CATV}*:6
