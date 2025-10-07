@@ -157,7 +157,7 @@ case ${CMAKE_MAKEFILE_GENERATOR} in
 esac
 
 if [[ ${PN} != cmake ]]; then
-	BDEPEND+=" >=dev-build/cmake-3.28.5"
+	BDEPEND+=" >=dev-build/cmake-3.31.9-r1"
 fi
 
 # @FUNCTION: cmake_run_in
