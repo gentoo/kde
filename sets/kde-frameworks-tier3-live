@@ -15,6 +15,7 @@
 ~kde-frameworks/kparts-9999:6
 ~kde-frameworks/kpeople-9999:6
 ~kde-frameworks/krunner-9999:6
+<kde-frameworks/ksecretd-services-9999:6
 ~kde-frameworks/kservice-9999:6
 ~kde-frameworks/ktexteditor-9999:6
 ~kde-frameworks/ktextwidgets-9999:6
