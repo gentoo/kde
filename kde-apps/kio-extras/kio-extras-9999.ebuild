@@ -21,7 +21,6 @@ IUSE="activities ios +man mtp nfs +libproxy openexr samba +sftp taglib X"
 RESTRICT="test"
 
 DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	kde-apps/libkexiv2:6
