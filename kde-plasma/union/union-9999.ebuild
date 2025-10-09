@@ -16,19 +16,24 @@ https://files.quantumproductions.info/union/overview.html"
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) GPL-3 BSD-2"
 SLOT="6"
 KEYWORDS=""
-IUSE="svg tools"
+IUSE="tools"
 
+# IUSE="svg"
+# 	svg? (
+# 		>=dev-cpp/rapidyaml-0.7.2:=
+# 		>=dev-qt/qtsvg-${QTMIN}:6
+# 		>=kde-frameworks/karchive-${KFMIN}:6
+# 		>=kde-frameworks/kcolorscheme-${KFMIN}:6
+# 		>=kde-frameworks/kconfig-${KFMIN}:6
+# 		kde-plasma/libplasma:6
+# 	)
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	svg? (
-		>=dev-cpp/rapidyaml-0.7.2:=
-		>=dev-qt/qtsvg-${QTMIN}:6
-		>=kde-frameworks/karchive-${KFMIN}:6
-		>=kde-frameworks/kcolorscheme-${KFMIN}:6
-		>=kde-frameworks/kconfig-${KFMIN}:6
-		kde-plasma/libplasma:6
-	)
+	>=dev-qt/qtshadertools-${QTMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
+	>=kde-frameworks/kirigami-${KFMIN}:6
 "
 DEPEND="${RDEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[qdoc]"
@@ -37,7 +42,9 @@ DOCS=( README.md )
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_PLASMASVG_INPUT=$(usex svg)
+		-DWITH_FRAMEWORKS=ON # we have no reason to disable those at this point
+		-DWITH_KIRIGAMI=ON
+		-DWITH_PLASMASVG_INPUT=OFF # defunct as of 2025-10-09
 		-DBUILD_TOOLS=$(usex tools)
 	)
 	ecm_src_configure
