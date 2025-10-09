@@ -14,7 +14,7 @@ DESCRIPTION="Plasma library and runtime components based upon KF6 and Qt6"
 LICENSE="LGPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="gles2-only"
+IUSE="activities gles2-only"
 
 RESTRICT="test"
 
@@ -40,10 +40,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
-	=kde-plasma/plasma-activities-${KDE_CATV}*:6=
 	media-libs/libglvnd
 	x11-libs/libX11
 	x11-libs/libxcb
+	activities? ( =kde-plasma/plasma-activities-${KDE_CATV}*:6= )
 	!gles2-only? ( media-libs/libglvnd[X] )
 "
 DEPEND="${COMMON_DEPEND}
@@ -59,8 +59,11 @@ BDEPEND="
 "
 BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
+PATCHES=( "${FILESDIR}/${PN}-6.4.4-activities-optional.patch" )
+
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package !gles2-only OpenGL)
 	)
 
