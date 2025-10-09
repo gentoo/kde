@@ -15,7 +15,7 @@ HOMEPAGE="https://invent.kde.org/network/kio-extras"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="activities ios +man mtp nfs +libproxy openexr phonon samba +sftp taglib X"
+IUSE="activities ios +man mtp nfs +libproxy openexr samba +sftp taglib X"
 
 # requires running Plasma environment
 RESTRICT="test"
@@ -54,7 +54,6 @@ DEPEND="
 	mtp? ( >=media-libs/libmtp-1.1.16:= )
 	nfs? ( net-libs/libtirpc:= )
 	openexr? ( media-libs/openexr:= )
-	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	samba? (
 		>=kde-frameworks/kdnssd-${KFMIN}:6
 		net-fs/samba[client]
@@ -90,7 +89,6 @@ src_configure() {
 		$(cmake_use_find_package mtp Libmtp)
 		$(cmake_use_find_package nfs TIRPC)
 		$(cmake_use_find_package openexr OpenEXR)
-		$(cmake_use_find_package phonon Phonon4Qt6)
 		$(cmake_use_find_package samba Samba)
 		$(cmake_use_find_package sftp libssh)
 		$(cmake_use_find_package taglib Taglib)
