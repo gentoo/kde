@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=6.16.0
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit cmake kde.org xdg-utils
 
 DESCRIPTION="Oxygen SVG icon theme"

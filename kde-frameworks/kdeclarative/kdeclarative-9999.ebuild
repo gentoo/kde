@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="false"
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing integration of QML and KDE work spaces"

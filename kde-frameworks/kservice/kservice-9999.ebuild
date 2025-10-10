@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Advanced plugin and service introspection"

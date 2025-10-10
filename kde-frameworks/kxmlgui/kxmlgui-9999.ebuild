@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
 ECM_PYTHON_BINDINGS="off"
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for managing menu and toolbar actions in an abstract way"

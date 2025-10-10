@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm frameworks.kde.org optfeature python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"

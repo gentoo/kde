@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_PYTHON_BINDINGS="off"
 ECM_TEST="false"
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for notifying the user of an event"

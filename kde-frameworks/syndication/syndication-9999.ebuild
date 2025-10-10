@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="true"
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Library for parsing RSS and Atom feeds"

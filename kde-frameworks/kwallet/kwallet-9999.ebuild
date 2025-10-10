@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Interface to KWallet Framework providing desktop-wide storage for passwords"

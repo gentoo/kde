@@ -7,7 +7,7 @@ ECM_DESIGNERPLUGIN="true"
 ECM_HANDBOOK="optional"
 ECM_HANDBOOK_DIR="docs"
 ECM_TEST="forceoptional"
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm frameworks.kde.org xdg
 
 DESCRIPTION="Framework providing transparent file and data management"

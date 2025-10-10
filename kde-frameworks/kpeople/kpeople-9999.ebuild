@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=6.7.2
+QTMIN=6.8.1
 VIRTUALX_REQUIRED="test" # bug 816588 (test fails)
 inherit ecm frameworks.kde.org
 

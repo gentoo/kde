@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="false"
 ECM_TEST="forceoptional"
-QTMIN=6.7.2
+QTMIN=6.8.1
 inherit ecm frameworks.kde.org optfeature xdg
 
 DESCRIPTION="Library for providing abstractions to get the developer's purposes fulfilled"
