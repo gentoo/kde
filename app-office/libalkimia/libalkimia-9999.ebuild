@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KDE_ORG_NAME="alkimia"
-KFMIN=6.5.0
+KFMIN=6.16.0
 QTMIN=6.7.2
-inherit ecm kde.org
+inherit ecm kde.org xdg
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${KDE_ORG_NAME}/${PV}/${KDE_ORG_NAME}-${PV}.tar.xz"
@@ -15,8 +15,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Library with common classes and functionality used by KDE finance applications"
-HOMEPAGE="https://www.linux-apps.com/content/show.php/libalkimia?content=137323
-https://community.kde.org/Alkimia"
+HOMEPAGE="https://community.kde.org/Alkimia/libalkimia https://community.kde.org/Alkimia"
 
 LICENSE="LGPL-2.1"
 SLOT="0/8"
