@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KFMIN=6.5.0
-QTMIN=6.7.2
-inherit ecm kde.org
+KFMIN=6.16.0
+QTMIN=6.9.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Full featured educational application for children from 2 to 10"
 HOMEPAGE="https://gcompris.net/"
@@ -23,10 +23,10 @@ SLOT="0"
 IUSE="kiosk"
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
-	>=dev-qt/qtcharts-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6
+	>=dev-qt/qtquick3d-${QTMIN}:6
 	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
