@@ -4,9 +4,9 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.5.0
+KFMIN=6.16.0
 QTMIN=6.7.2
-inherit ecm kde.org optfeature
+inherit ecm kde.org optfeature xdg
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
@@ -81,5 +81,5 @@ pkg_postinst() {
 		optfeature "Google Drive service" "kde-misc/kio-gdrive:6"
 		optfeature "bookmarks support" "kde-apps/keditbookmarks:6"
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }
