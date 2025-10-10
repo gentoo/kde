@@ -5,12 +5,12 @@ EAPI=8
 
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-valgrind"
-KFMIN=6.5.0
+KFMIN=6.16.0
 QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Plugin offering full integration of the valgrind suite to KDevelop"
-HOMEPAGE="https://www.kdevelop.org/"
+HOMEPAGE="https://kdevelop.org/"
 
 LICENSE="GPL-2"
 SLOT="6"
