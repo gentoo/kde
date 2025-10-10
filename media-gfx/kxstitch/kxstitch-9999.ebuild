@@ -4,9 +4,9 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.5.0
+KFMIN=6.16.0
 QTMIN=6.7.2
-inherit ecm kde.org
+inherit ecm kde.org xdg
 
 DESCRIPTION="Program to create cross stitch patterns"
 HOMEPAGE="https://apps.kde.org/kxstitch/ https://userbase.kde.org/KXStitch"
