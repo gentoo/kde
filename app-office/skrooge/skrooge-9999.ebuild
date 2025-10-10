@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.5.0
+KFMIN=6.16.0
 QTMIN=6.7.2
-inherit ecm kde.org
+inherit ecm kde.org xdg
 
 DESCRIPTION="Personal finances manager, aiming at being simple and intuitive"
 HOMEPAGE="https://skrooge.org/"
@@ -24,8 +24,7 @@ IUSE="activities kde ofx"
 # hangs + installs files (also requires KF5DesignerPlugin)
 RESTRICT="test"
 
-COMMON_DEPEND="
-	>=app-crypt/qca-2.3.9:2[qt6(+)]
+DEPEND="
 	dev-db/sqlcipher
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
@@ -56,12 +55,7 @@ COMMON_DEPEND="
 	kde? ( >=kde-frameworks/krunner-${KFMIN}:6 )
 	ofx? ( dev-libs/libofx:= )
 "
-DEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kguiaddons-${KFMIN}:6
-	>=kde-frameworks/kjobwidgets-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 "
 BDEPEND="
