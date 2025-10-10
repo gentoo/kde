@@ -4,9 +4,9 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=6.5.0
+KFMIN=6.16.0
 QTMIN=6.7.2
-inherit ecm kde.org
+inherit ecm kde.org xdg
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
