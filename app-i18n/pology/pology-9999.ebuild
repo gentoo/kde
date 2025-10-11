@@ -4,10 +4,10 @@
 EAPI=8
 
 KDE_ORG_CATEGORY="sdk"
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit bash-completion-r1 cmake kde.org python-single-r1
 
-DESCRIPTION="A framework for custom processing of PO files"
+DESCRIPTION="Framework for custom processing of PO files"
 HOMEPAGE="http://pology.nedohodnik.net"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -17,9 +17,10 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
+IUSE="test"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="!test? ( test )"
 
 RDEPEND="${PYTHON_DEPS}
 	dev-libs/libxml2:=
@@ -33,6 +34,9 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	app-text/docbook-xsl-stylesheets
 	app-text/docbook-xml-dtd:4.5
+	test? ( $(python_gen_cond_dep '
+		dev-python/pytest[${PYTHON_USEDEP}]
+	') )
 "
 
 # Magic on python parsing makes it impossible to make it parallel safe
@@ -52,6 +56,10 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Pygments=ON
 	)
 	cmake_src_configure
+}
+
+src_test() {
+	epytest
 }
 
 src_install() {
