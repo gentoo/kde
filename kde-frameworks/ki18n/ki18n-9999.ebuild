@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 QTMIN=6.8.1
 inherit ecm frameworks.kde.org python-single-r1
 
