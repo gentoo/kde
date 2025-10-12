@@ -284,6 +284,31 @@ _cmake_minreqver-check() {
 	return ${chk}
 }
 
+# @FUNCTION: _cmake_minreqver-info
+# @INTERNAL
+# @DESCRIPTION:
+# QA notice printout for build systems unsupported w/ CMake-4.
+_cmake_minreqver-info() {
+	local info
+	if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]]; then
+		eqawarn "QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4,"
+		eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
+		eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
+		eqawarn "this package, and take it upstream."
+		eqawarn
+		eqawarn "The following CMakeLists.txt files are causing errors:"
+		for info in ${_CMAKE_MINREQVER_CMAKE305[*]}; do
+			eqawarn "  ${info}"
+		done
+		eqawarn
+		if has_version -b ">=dev-build/cmake-4"; then
+			eqawarn "CMake 4 detected; building with -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+			eqawarn "This is merely a workaround to avoid CMake Error and *not* a permanent fix;"
+			eqawarn "there may be new build or runtime bugs as a result."
+		fi
+	fi
+}
+
 # @FUNCTION: _cmake_modify-cmakelists
 # @INTERNAL
 # @DESCRIPTION:
@@ -332,23 +357,6 @@ _cmake_modify-cmakelists() {
 	_EOF_
 }
 
-# @FUNCTION: _cmake4_callout
-# @INTERNAL
-# @DESCRIPTION:
-# QA notice printout for build systems unsupported w/ CMake-4.
-_cmake4_callout() {
-	if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]]; then
-		eqawarn "QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4,"
-		eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
-		eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
-		eqawarn "this package, and take it upstream."
-		if has_version -b ">=dev-build/cmake-4"; then
-			eqawarn "CMake 4 detected; building with -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
-			eqawarn "This is merely a workaround and *not* a permanent fix."
-		fi
-	fi
-}
-
 # @FUNCTION: cmake_prepare
 # @DESCRIPTION:
 # Check existence of and sanitise CMake files, then make ${CMAKE_USE_DIR}
@@ -380,7 +388,7 @@ cmake_prepare() {
 
 	# Remove dangerous things.
 	_cmake_modify-cmakelists
-	_cmake4_callout
+	_cmake_minreqver-info
 
 	# Make ${CMAKE_USE_DIR} read-only in order to detect broken build systems
 	if [[ ${CMAKE_QA_SRC_DIR_READONLY} && ! ${CMAKE_IN_SOURCE_BUILD} ]]; then
@@ -421,7 +429,7 @@ cmake_src_prepare() {
 				find "${S}" -name "${name}.cmake" -exec rm -v {} + || die
 			done
 			_cmake_modify-cmakelists # Remove dangerous things.
-			_cmake4_callout
+			_cmake_minreqver-info
 		popd > /dev/null || die
 		# Make ${S} read-only in order to detect broken build systems
 		if [[ ${CMAKE_QA_SRC_DIR_READONLY} && ! ${CMAKE_IN_SOURCE_BUILD} ]]; then
