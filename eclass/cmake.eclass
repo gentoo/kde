@@ -132,6 +132,15 @@ fi
 # version lower than 3.5.
 _CMAKE_MINREQVER_CMAKE305=()
 
+# @ECLASS_VARIABLE: _CMAKE_MINREQVER_CMAKE310
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Internal array containing <file>:<version> tuples detected by
+# _cmake_minreqver-check() for any CMakeLists.txt with cmake_minimum_required
+# version lower than 3.10 (causes CMake warnings as of 4.0) on top of those
+# already added to _CMAKE_MINREQVER_CMAKE305.
+_CMAKE_MINREQVER_CMAKE310=()
+
 # @ECLASS_VARIABLE: CMAKE_QA_SRC_DIR_READONLY
 # @USER_VARIABLE
 # @DEFAULT_UNSET
@@ -280,6 +289,11 @@ _cmake_minreqver-check() {
 			_CMAKE_MINREQVER_CMAKE305+=( "${file}":"${ver}" )
 			chk=0
 		fi
+		# we don't want duplicates that were already flagged
+		if [[ $chk != 0 ]] && ver_test "${ver}" -lt "3.10"; then
+			_CMAKE_MINREQVER_CMAKE310+=( "${file}":"${ver}" )
+			chk=0
+		fi
 	fi
 	return ${chk}
 }
@@ -287,8 +301,13 @@ _cmake_minreqver-check() {
 # @FUNCTION: _cmake_minreqver-info
 # @INTERNAL
 # @DESCRIPTION:
-# QA notice printout for build systems unsupported w/ CMake-4.
+# QA Notice and file listings for any CMakeLists.txt found with
+# cmake_minimum_required versions lower than supported or deprecated by CMake 4.
 _cmake_minreqver-info() {
+	if [[ -z ${_CMAKE_MINREQVER_CMAKE305[@]} ]] &&
+		[[ -z ${_CMAKE_MINREQVER_CMAKE310[@]} ]]; then
+		return
+	fi
 	local info
 	if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]]; then
 		eqawarn "QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4,"
@@ -306,7 +325,24 @@ _cmake_minreqver-info() {
 			eqawarn "This is merely a workaround to avoid CMake Error and *not* a permanent fix;"
 			eqawarn "there may be new build or runtime bugs as a result."
 		fi
+		eqawarn
 	fi
+	if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]] ||
+		[[ -n ${_CMAKE_MINREQVER_CMAKE310[@]} ]]; then
+		eqawarn "QA Notice: Compatibility with CMake < 3.10 will be removed in a future release."
+		eqawarn "If not fixed in upstream's code repository, we should make sure they are aware."
+		eqawarn
+		if [[ -n ${_CMAKE_MINREQVER_CMAKE310[@]} ]]; then
+			eqawarn "The following CMakeLists.txt files are causing warnings:"
+			for info in ${_CMAKE_MINREQVER_CMAKE310[*]}; do
+				eqawarn "  ${info}"
+			done
+			eqawarn
+		fi
+	fi
+	eqawarn "An upstreamable patch should take any resulting CMake policy changes"
+	eqawarn "into account. See also:"
+	eqawarn "  https://cmake.org/cmake/help/latest/manual/cmake-policies.7.html"
 }
 
 # @FUNCTION: _cmake_modify-cmakelists
