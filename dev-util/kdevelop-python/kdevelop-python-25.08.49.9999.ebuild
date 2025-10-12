@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 KFMIN=6.16.0
 QTMIN=6.9.1
 inherit ecm gear.kde.org python-single-r1
@@ -20,9 +20,8 @@ KEYWORDS=""
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-RESTRICT="test"
 
-DEPEND="${PYTHON_DEPS}
+COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	dev-util/kdevelop:6=
@@ -36,7 +35,10 @@ DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/threadweaver-${KFMIN}:6
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	dev-util/kdevelop:6=[test?]
+"
+RDEPEND="${COMMON_DEPEND}
 	$(python_gen_cond_dep '
 		dev-python/pycodestyle[${PYTHON_USEDEP}]
 	')
