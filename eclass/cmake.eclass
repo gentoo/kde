@@ -124,11 +124,13 @@ fi
 # If set, skip detection of CMakeLists.txt unsupported in CMake 4 in case of
 # false positives (e.g. unused outdated bundled libs).
 
-# @ECLASS_VARIABLE: _CMAKE_MINREQVER_UNSUPPORTED
+# @ECLASS_VARIABLE: _CMAKE_MINREQVER_CMAKE305
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# Internal status set by _cmake_minreqver-lt(); is true if an unsupported
-# cmake_minimum_required value was detected.
+# Internal array containing <file>:<version> tuples detected by
+# _cmake_minreqver-check() for any CMakeLists.txt with cmake_minimum_required
+# version lower than 3.5.
+_CMAKE_MINREQVER_CMAKE305=()
 
 # @ECLASS_VARIABLE: CMAKE_QA_SRC_DIR_READONLY
 # @USER_VARIABLE
@@ -247,21 +249,37 @@ _cmake_check_build_dir() {
 	mkdir -p "${BUILD_DIR}" || die
 }
 
-# @FUNCTION: _cmake_minreqver-lt
-# @USAGE: <lt-version> <path>
+# @FUNCTION: _cmake_minreqver-check
+# @USAGE: <path> or <path> <lt-version>
 # @INTERNAL
 # @DESCRIPTION:
-# Internal function for detecting occurrence of lower-than-specified
-# <lt-version> in cmake_minimum_required of a given CMake file <path>.
+# Internal function for flagging any deprecated or unsupported
+# cmake_minimum_required version in a given CMake file <path>.
+# If <lt-version> is specified as second arg, only check against that value.
 # Returns 0 if the regex matched (a lower-than-specified version found).
-_cmake_minreqver-lt() {
+_cmake_minreqver-check() {
 	local ver chk=1
+	if [[ "$#" == 2 ]]; then
+		local file="${1}"
+		local lt_version="${2}"
+	elif [[ "$#" == 1 ]]; then
+		local file="${1}"
+	else
+		die "${FUNCNAME[0]} must be passed either one or two arguments"
+	fi
 	ver=$(sed -ne "/^\s*cmake_minimum_required/I{s/.*\(\.\.\.*\|\s\)\([0-9][0-9.]*\)\([)]\|\s\).*$/\2/p;q}" \
-		"${2}" 2>/dev/null \
+		"${file}" 2>/dev/null \
 	)
-	if [[ -n ${ver} ]] && ver_test "${ver}" -lt "${1}"; then
-		_CMAKE_MINREQVER_UNSUPPORTED=true
-		chk=0
+	if [[ -z ${ver} ]]; then
+		return 1 # no cmake_minimum_required found
+	fi
+	if [[ -n ${lt_version} ]]; then
+		chk=$(ver_test "${ver}" -lt "${lt_version}")
+	else
+		if ver_test "${ver}" -lt "3.5"; then
+			_CMAKE_MINREQVER_CMAKE305+=( "${file}":"${ver}" )
+			chk=0
+		fi
 	fi
 	return ${chk}
 }
@@ -293,8 +311,8 @@ _cmake_modify-cmakelists() {
 			done
 		fi
 		# Detect unsupported minimum CMake versions unless CMAKE_QA_COMPAT_SKIP is set
-		if [[ -z ${_CMAKE_MINREQVER_UNSUPPORTED} ]] && ! [[ ${CMAKE_QA_COMPAT_SKIP} ]]; then
-			_cmake_minreqver-lt "3.5" "${file}"
+		if ! [[ ${CMAKE_QA_COMPAT_SKIP} ]]; then
+			_cmake_minreqver-check "${file#"${CMAKE_USE_DIR}/"}"
 		fi
 	done < <(find "${CMAKE_USE_DIR}" -type f -iname "CMakeLists.txt" -print0 || die)
 
@@ -319,7 +337,7 @@ _cmake_modify-cmakelists() {
 # @DESCRIPTION:
 # QA notice printout for build systems unsupported w/ CMake-4.
 _cmake4_callout() {
-	if [[ ${_CMAKE_MINREQVER_UNSUPPORTED} ]]; then
+	if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]]; then
 		eqawarn "QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4,"
 		eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
 		eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
@@ -637,7 +655,7 @@ cmake_src_configure() {
 		cmakeargs+=( -C "${CMAKE_EXTRA_CACHE_FILE}" )
 	fi
 
-	if [[ ${_CMAKE_MINREQVER_UNSUPPORTED} ]] && has_version -b ">=dev-build/cmake-4"; then
+	if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]] && has_version -b ">=dev-build/cmake-4"; then
 		cmakeargs+=( -DCMAKE_POLICY_VERSION_MINIMUM=3.5 )
 	fi
 
@@ -765,7 +783,7 @@ cmake_src_install() {
 	while read -d '' -r file ; do
 		# Detect unsupported minimum CMake versions unless CMAKE_QA_COMPAT_SKIP is set
 		if ! [[ ${CMAKE_QA_COMPAT_SKIP} ]]; then
-			_cmake_minreqver-lt "3.5" "${file}" && files+=( "${file#"${D}"}" )
+			_cmake_minreqver-check "3.5" "${file}" && files+=( "${file#"${D}"}" )
 		fi
 	done < <(find "${D}" -type f -iname "*.cmake" -print0 || die)
 	if [[ ${#files[*]} -gt 0 ]]; then
