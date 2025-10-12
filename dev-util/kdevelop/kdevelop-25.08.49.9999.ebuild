@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KFMIN=6.16.0
-LLVM_COMPAT=( 15 16 17 18 19 20 )
+LLVM_COMPAT=( 15 16 17 18 19 20 21 )
 QTMIN=6.9.1
 inherit ecm gear.kde.org llvm-r2 optfeature xdg
 
@@ -18,9 +18,6 @@ LICENSE="GPL-2 LGPL-2"
 SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE="gdbui plasma +qmake +share subversion"
-
-# see bug 366471
-RESTRICT="test"
 
 # UPSTREAM: not ported yet, check plugins/CMakeLists.txt
 # IUSE="hex"
@@ -87,6 +84,16 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/kapptemplate:*
 	kde-apps/kio-extras:6
 "
+
+CMAKE_SKIP_TESTS=(
+	# D-Bus required
+	test_{{project,session}controller,midbus,definesandincludes,kdevgit}
+	test_{compilerprovider,cmakemanager,ctestfindsuites,cmakefileapi}
+	test_{custombuildsystemplugin,qmakeproject,projectload,craftruntime}
+	bench_codecompletion # segfaults
+	test_gdb # FIXME: fails to launch xterm (if found)
+	test_{path,generationtest} # FIXME: whatever that does, does not work
+)
 
 src_prepare() {
 	rm -r plugins/qmljs || die # bug 960669, unused upstream
