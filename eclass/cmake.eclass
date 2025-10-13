@@ -110,6 +110,15 @@ fi
 # The default is set to "yes" (enabled).
 : "${CMAKE_WARN_UNUSED_CLI:=yes}"
 
+# @ECLASS_VARIABLE: CMAKE_ECM_MODE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Default value is "auto", which means _cmake_modify-cmakelists will make an
+# effort to detect find_package(ECM) in CMakeLists.txt.  If set to true, make
+# extra checks and add common config settings related to ECM (KDE Extra CMake
+# Modules).  If set to false, do nothing.
+: "${CMAKE_ECM_MODE:=auto}"
+
 # @ECLASS_VARIABLE: CMAKE_EXTRA_CACHE_FILE
 # @USER_VARIABLE
 # @DEFAULT_UNSET
@@ -141,6 +150,15 @@ _CMAKE_MINREQVER_CMAKE305=()
 # already added to _CMAKE_MINREQVER_CMAKE305.
 _CMAKE_MINREQVER_CMAKE310=()
 
+# @ECLASS_VARIABLE: _CMAKE_MINREQVER_CMAKE316
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Internal array containing <file>:<version> tuples detected by
+# _cmake_minreqver-check() for any CMakeLists.txt with cmake_minimum_required
+# version lower than 3.16 (causes ECM warnings since 5.100), on top of those
+# already added to _CMAKE_MINREQVER_CMAKE305 and _CMAKE_MINREQVER_CMAKE310.
+_CMAKE_MINREQVER_CMAKE316=()
+
 # @ECLASS_VARIABLE: CMAKE_QA_SRC_DIR_READONLY
 # @USER_VARIABLE
 # @DEFAULT_UNSET
@@ -153,6 +171,14 @@ _CMAKE_MINREQVER_CMAKE310=()
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # Array of tests that should be skipped when running CTest.
+
+case ${CMAKE_ECM_MODE} in
+	auto|true|false) ;;
+	*)
+		eerror "Unknown value for \${CMAKE_ECM_MODE}"
+		die "Value ${CMAKE_ECM_MODE} is not supported"
+		;;
+esac
 
 case ${CMAKE_MAKEFILE_GENERATOR} in
 	emake)
@@ -294,6 +320,11 @@ _cmake_minreqver-check() {
 			_CMAKE_MINREQVER_CMAKE310+=( "${file}":"${ver}" )
 			chk=0
 		fi
+		# we don't want duplicates that were already flagged
+		if [[ $chk != 0 ]] && ver_test "${ver}" -lt "3.16"; then
+			_CMAKE_MINREQVER_CMAKE316+=( "${file}":"${ver}" )
+			chk=0
+		fi
 	fi
 	return ${chk}
 }
@@ -301,11 +332,12 @@ _cmake_minreqver-check() {
 # @FUNCTION: _cmake_minreqver-info
 # @INTERNAL
 # @DESCRIPTION:
-# QA Notice and file listings for any CMakeLists.txt found with
-# cmake_minimum_required versions lower than supported or deprecated by CMake 4.
+# QA Notice and file listings for any CMakeLists.txt file not meeting various
+# minimum standards for cmake_minimum_required.
 _cmake_minreqver-info() {
 	if [[ -z ${_CMAKE_MINREQVER_CMAKE305[@]} ]] &&
-		[[ -z ${_CMAKE_MINREQVER_CMAKE310[@]} ]]; then
+		[[ -z ${_CMAKE_MINREQVER_CMAKE310[@]} ]] &&
+		[[ -z ${_CMAKE_MINREQVER_CMAKE316[@]} ]]; then
 		return
 	fi
 	local info
@@ -340,6 +372,22 @@ _cmake_minreqver-info() {
 			eqawarn
 		fi
 	fi
+	if [[ ${CMAKE_ECM_MODE} == true ]]; then
+		if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]] ||
+			[[ -n ${_CMAKE_MINREQVER_CMAKE310[@]} ]] ||
+			[[ -n ${_CMAKE_MINREQVER_CMAKE316[@]} ]]; then
+			eqawarn "QA Notice: Compatibility w/ CMake < 3.16 will be removed in future ECM release."
+			eqawarn "If not fixed in upstream's code repository, we should make sure they are aware."
+			eqawarn
+			if [[ -n ${_CMAKE_MINREQVER_CMAKE316[@]} ]]; then
+				eqawarn "The following CMakeLists.txt files are causing warnings:"
+				for info in ${_CMAKE_MINREQVER_CMAKE316[*]}; do
+					eqawarn "  ${info}"
+				done
+				eqawarn
+			fi
+		fi
+	fi
 	eqawarn "An upstreamable patch should take any resulting CMake policy changes"
 	eqawarn "into account. See also:"
 	eqawarn "  https://cmake.org/cmake/help/latest/manual/cmake-policies.7.html"
@@ -370,6 +418,9 @@ _cmake_modify-cmakelists() {
 			for mod_line in "${mod_lines[@]}"; do
 				einfo "${mod_line:22:99}"
 			done
+		fi
+		if [[ ${CMAKE_ECM_MODE} == auto ]] && grep -Eq "\s*find_package\s*\(\s*ECM " "${file}"; then
+			CMAKE_ECM_MODE=true
 		fi
 		# Detect unsupported minimum CMake versions unless CMAKE_QA_COMPAT_SKIP is set
 		if ! [[ ${CMAKE_QA_COMPAT_SKIP} ]]; then
@@ -620,7 +671,7 @@ cmake_src_configure() {
 		set(CMAKE_LINK_WARNING_AS_ERROR OFF CACHE BOOL "")
 	_EOF_
 
-	if [[ -n ${_ECM_ECLASS} ]]; then
+	if [[ ${CMAKE_ECM_MODE} == true ]]; then
 		cat >> ${common_config} <<- _EOF_ || die
 			set(ECM_DISABLE_QMLPLUGINDUMP ON CACHE BOOL "")
 			set(ECM_DISABLE_APPSTREAMTEST ON CACHE BOOL "")
