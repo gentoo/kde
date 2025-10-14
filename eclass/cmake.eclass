@@ -335,23 +335,49 @@ _cmake_minreqver-check() {
 # QA Notice and file listings for any CMakeLists.txt file not meeting various
 # minimum standards for cmake_minimum_required.
 _cmake_minreqver-info() {
-	if [[ -z ${_CMAKE_MINREQVER_CMAKE305[@]} ]] &&
-		[[ -z ${_CMAKE_MINREQVER_CMAKE310[@]} ]] &&
-		[[ -z ${_CMAKE_MINREQVER_CMAKE316[@]} ]]; then
-		return
-	fi
-	local info
+	local warnlvl
+	[[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]] && warnlvl=305
+	[[ -n ${_CMAKE_MINREQVER_CMAKE310[@]} ]] || [[ ${warnlvl} ]] && warnlvl=310
+	[[ ${CMAKE_ECM_MODE} == true ]] &&
+		{ [[ -n ${_CMAKE_MINREQVER_CMAKE316[@]} ]] || [[ ${warnlvl} ]] } && warnlvl=316
+
+	local weak_qaw="QA Notice: "
+	minreqver_qanotice() {
+		case ${1} in
+			305)
+				eqawarn "${weak_qaw}Compatibility with CMake < 3.5 has been removed from CMake 4,"
+				eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
+				eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
+				eqawarn "this package, and take it upstream."
+				;;
+			310)
+				eqawarn "${weak_qaw}Compatibility with CMake < 3.10 will be removed in a future release."
+				eqawarn "If not fixed in upstream's code repository, we should make sure they are aware."
+				;;
+			316)
+				eqawarn "${weak_qaw}Compatibility w/ CMake < 3.16 will be removed in future ECM release."
+				eqawarn "If not fixed in upstream's code repository, we should make sure they are aware."
+				;;
+		esac
+		eqawarn
+		weak_qaw="" # weak notice: no "QA Notice" starting with second call
+	}
+
+	minreqver_listing() {
+		local info
+		eqawarn "${2}"
+		case ${1} in
+			305) for info in ${_CMAKE_MINREQVER_CMAKE305[*]}; do eqawarn "  ${info}"; done ;;
+			310) for info in ${_CMAKE_MINREQVER_CMAKE310[*]}; do eqawarn "  ${info}"; done ;;
+			316) for info in ${_CMAKE_MINREQVER_CMAKE316[*]}; do eqawarn "  ${info}"; done ;;
+		esac
+		eqawarn
+	}
+
+	# CMake 4-caused error is highest priority and must always be shown
 	if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]]; then
-		eqawarn "QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4,"
-		eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
-		eqawarn "See also tracker bug #951350; check existing bug or file a new one for"
-		eqawarn "this package, and take it upstream."
-		eqawarn
-		eqawarn "The following CMakeLists.txt files are causing errors:"
-		for info in ${_CMAKE_MINREQVER_CMAKE305[*]}; do
-			eqawarn "  ${info}"
-		done
-		eqawarn
+		minreqver_qanotice 305
+		minreqver_listing 305 "The following CMakeLists.txt files are causing errors:"
 		if ! [[ ${CMAKE_QA_COMPAT_SKIP} ]] && has_version -b ">=dev-build/cmake-4"; then
 			eqawarn "CMake 4 detected; building with -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 			eqawarn "This is merely a workaround to avoid CMake Error and *not* a permanent fix;"
@@ -359,38 +385,19 @@ _cmake_minreqver-info() {
 		fi
 		eqawarn
 	fi
-	if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]] ||
-		[[ -n ${_CMAKE_MINREQVER_CMAKE310[@]} ]]; then
-		eqawarn "QA Notice: Compatibility with CMake < 3.10 will be removed in a future release."
-		eqawarn "If not fixed in upstream's code repository, we should make sure they are aware."
-		eqawarn
-		if [[ -n ${_CMAKE_MINREQVER_CMAKE310[@]} ]]; then
-			eqawarn "The following CMakeLists.txt files are causing warnings:"
-			for info in ${_CMAKE_MINREQVER_CMAKE310[*]}; do
-				eqawarn "  ${info}"
-			done
-			eqawarn
-		fi
+	# for warnings, we only want the latest relevant one, but list all flagged files
+	if [[ ${warnlvl} -ge 310 ]]; then
+		minreqver_qanotice ${warnlvl}
+		[[ -n ${_CMAKE_MINREQVER_CMAKE310[@]} ]] &&
+			minreqver_listing 310 "The following CMakeLists.txt files are causing warnings:"
+		[[ ${warnlvl} -ge 316 ]] && [[ -n ${_CMAKE_MINREQVER_CMAKE316[@]} ]] &&
+			minreqver_listing 316 "The following CMakeLists.txt files are causing warnings:"
 	fi
-	if [[ ${CMAKE_ECM_MODE} == true ]]; then
-		if [[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]] ||
-			[[ -n ${_CMAKE_MINREQVER_CMAKE310[@]} ]] ||
-			[[ -n ${_CMAKE_MINREQVER_CMAKE316[@]} ]]; then
-			eqawarn "QA Notice: Compatibility w/ CMake < 3.16 will be removed in future ECM release."
-			eqawarn "If not fixed in upstream's code repository, we should make sure they are aware."
-			eqawarn
-			if [[ -n ${_CMAKE_MINREQVER_CMAKE316[@]} ]]; then
-				eqawarn "The following CMakeLists.txt files are causing warnings:"
-				for info in ${_CMAKE_MINREQVER_CMAKE316[*]}; do
-					eqawarn "  ${info}"
-				done
-				eqawarn
-			fi
-		fi
+	if [[ ${warnlvl} ]]; then
+		eqawarn "An upstreamable patch should take any resulting CMake policy changes"
+		eqawarn "into account. See also:"
+		eqawarn "  https://cmake.org/cmake/help/latest/manual/cmake-policies.7.html"
 	fi
-	eqawarn "An upstreamable patch should take any resulting CMake policy changes"
-	eqawarn "into account. See also:"
-	eqawarn "  https://cmake.org/cmake/help/latest/manual/cmake-policies.7.html"
 }
 
 # @FUNCTION: _cmake_modify-cmakelists
