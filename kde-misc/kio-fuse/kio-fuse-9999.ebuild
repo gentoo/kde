@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.16.0
+QTMIN=6.8.1
 inherit ecm kde.org linux-info tmpfiles
 
 DESCRIPTION="FUSE interface for KIO"
@@ -13,7 +13,7 @@ HOMEPAGE="https://feverfew.home.blog/2019/12/24/kiofuse-beta-4-9-0-released/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -36,11 +36,8 @@ RDEPEND="${DEPEND}
 pkg_setup() {
 	local CONFIG_CHECK="~FUSE_FS"
 	linux-info_pkg_setup
-
-	ecm_pkg_setup
 }
 
 pkg_postinst() {
 	tmpfiles_process "${PN}-tmpfiles.conf"
-	ecm_pkg_postinst
 }
