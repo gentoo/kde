@@ -181,7 +181,7 @@ fi
 # Create a CMakeLists.txt file with minimum ECM setup.
 _ecm-common_preamble() {
 	cat > CMakeLists.txt <<- _EOF_ || die
-		cmake_minimum_required(VERSION 3.16)
+		cmake_minimum_required(VERSION 3.31)
 		project(${PN} VERSION ${PV})
 
 		find_package(ECM "${KFMIN}" REQUIRED NO_MODULE)
