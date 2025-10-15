@@ -51,7 +51,6 @@ RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 	media-video/ffmpeg
 "
-BDEPEND=">=dev-build/cmake-3.30"
 
 DOCS=( CHANGELOG.{md,old} README.md )
 
