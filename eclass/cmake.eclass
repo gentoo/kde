@@ -353,10 +353,12 @@ _cmake_minreqver-info() {
 			310)
 				eqawarn "${weak_qaw}Compatibility with CMake < 3.10 will be removed in a future release."
 				eqawarn "If not fixed in upstream's code repository, we should make sure they are aware."
+				eqawarn "See also tracker bug #964405; check existing or file a new bug for this package."
 				;;
 			316)
 				eqawarn "${weak_qaw}Compatibility w/ CMake < 3.16 will be removed in future ECM release."
 				eqawarn "If not fixed in upstream's code repository, we should make sure they are aware."
+				eqawarn "See also tracker bug #964407; check existing or file a new bug for this package."
 				;;
 		esac
 		eqawarn
