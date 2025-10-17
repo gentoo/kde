@@ -4,9 +4,9 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.8.0
-QTMIN=6.7.2
-inherit ecm kde.org
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Small utility which bothers you at certain intervals"
 HOMEPAGE="https://apps.kde.org/rsibreak/ https://userbase.kde.org/RSIBreak"
