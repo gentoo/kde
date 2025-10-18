@@ -15,11 +15,10 @@ HOMEPAGE="https://apps.kde.org/ktorrent/ https://userbase.kde.org/KTorrent"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="xfs"
+IUSE="gcrypt xfs"
 
 COMMON_DEPEND="
 	>=dev-libs/gmp-6.0.0a:0=
-	>=dev-libs/openssl-3:0=
 	>=dev-qt/qtbase-${QTMIN}:6[network,xml]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -28,6 +27,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
+	!gcrypt? ( >=dev-libs/openssl-3:0= )
+	gcrypt? ( dev-libs/libgcrypt:0= )
 	xfs? ( sys-fs/xfsprogs )
 "
 DEPEND="${COMMON_DEPEND}
@@ -50,7 +51,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_CRYPTO_BACKEND=OpenSSL
+		-DUSE_CRYPTO_BACKEND=$(usex gcrypt LibGcrypt OpenSSL)
 		-DWITH_XFS=$(usex xfs)
 	)
 	ecm_src_configure
