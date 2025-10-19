@@ -9,7 +9,7 @@ DESCRIPTION="Cross-platform C++ XMPP client and server library"
 HOMEPAGE="https://invent.kde.org/libraries/qxmpp"
 
 LICENSE="LGPL-2.1 CC0-1.0"
-SLOT="0"
+SLOT="0/6"
 KEYWORDS=""
 IUSE="doc gstreamer omemo test"
 RESTRICT="!test? ( test )"
