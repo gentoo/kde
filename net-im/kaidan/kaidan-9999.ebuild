@@ -39,7 +39,7 @@ RDEPEND="
 	>=kde-frameworks/prison-${KFMIN}:6[qml]
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	media-libs/kquickimageeditor:6
-	>=net-libs/qxmpp-1.11.0[omemo]
+	>=net-libs/qxmpp-1.11.0:=[omemo]
 "
 DEPEND="${RDEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
