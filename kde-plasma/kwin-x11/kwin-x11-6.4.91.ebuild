@@ -14,7 +14,7 @@ DESCRIPTION="Flexible, composited X window manager"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="accessibility gles2-only lock +shortcuts systemd"
+IUSE="accessibility activities gles2-only lock +shortcuts systemd"
 
 RESTRICT="test"
 
@@ -52,7 +52,6 @@ COMMON_DEPEND="
 	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
 	>=kde-plasma/knighttime-${KDE_CATV}:6
-	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/lcms:2
@@ -71,6 +70,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
+	activities? ( >=kde-plasma/plasma-activities-${KDE_CATV}:6= )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
 "
@@ -80,7 +80,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/aurorae-${KDE_CATV}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6[activities(+)?]
 	sys-apps/hwdata
 	>=x11-base/xwayland-23.1.0
 "
@@ -113,6 +113,7 @@ src_configure() {
 	local mycmakeargs=(
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
+		$(cmake_use_find_package activities PlasmaActivities)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
 	)
