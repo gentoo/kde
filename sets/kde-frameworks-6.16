@@ -1,5 +1,0 @@
-@kde-frameworks-tier1-6.16
-@kde-frameworks-tier2-6.16
-@kde-frameworks-tier3-6.16
-# Tier 6.16.50: Provide extra features to other Frameworks to integrate with Plasma.
-<kde-frameworks/frameworkintegration-6.16.50:6
