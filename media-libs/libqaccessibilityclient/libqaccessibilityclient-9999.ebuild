@@ -3,7 +3,6 @@
 
 EAPI=8
 
-ECM_KDEINSTALLDIRS="false"
 ECM_TEST="true"
 ECM_EXAMPLES="true"
 KFMIN=6.3.0
