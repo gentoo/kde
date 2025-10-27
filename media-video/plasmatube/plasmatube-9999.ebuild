@@ -29,7 +29,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	media-libs/mpvqt
+	media-libs/mpvqt:6=
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
