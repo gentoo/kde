@@ -40,7 +40,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	media-libs/mpvqt:6
+	media-libs/mpvqt:6=
 	media-video/ffmpeg:=
 "
 RDEPEND="${DEPEND}
