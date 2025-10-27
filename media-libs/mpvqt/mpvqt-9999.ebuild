@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.9.0
+QTMIN=6.8.1
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
@@ -16,7 +16,7 @@ DESCRIPTION="libmpv wrapper for QtQuick2 and QML"
 HOMEPAGE="https://invent.kde.org/libraries/mpvqt"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-3 LGPL-2.1 ) CC-BY-SA-4.0 MIT BSD"
-SLOT="6"
+SLOT="6/2"
 IUSE=""
 
 DEPEND="
