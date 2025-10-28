@@ -664,7 +664,7 @@ ecm_src_configure() {
 		# KDEInstallDirs[56] section
 		set(KDE_INSTALL_USE_QT_SYS_PATHS ON CACHE BOOL "") # install mkspecs in same dir as Qt stuff
 		# move handbook outside of doc dir, bug #667138
-		set(KDE_INSTALL_DOCBUNDLEDIR="${EPREFIX}/usr/share/help" CACHE PATH "")
+		set(KDE_INSTALL_DOCBUNDLEDIR "${EPREFIX}/usr/share/help" CACHE PATH "")
 		set(KDE_INSTALL_INFODIR "${EPREFIX}/usr/share/info" CACHE PATH "")
 		set(KDE_INSTALL_LIBDIR $(get_libdir) CACHE PATH "Output directory for libraries")
 		set(KDE_INSTALL_MANDIR "${EPREFIX}/usr/share/man" CACHE PATH "")
@@ -673,7 +673,7 @@ ecm_src_configure() {
 	if [[ ${_KFSLOT} == 6 ]]; then
 		cat >> ${ecm_config} <<- _EOF_ || die
 			# TODO: Ask upstream why LIBEXECDIR is set to EXECROOTDIR/LIBDIR/libexec, bug #928345
-			set(KDE_INSTALL_LIBEXECDIR="${EPREFIX}/usr/libexec" CACHE PATH "")
+			set(KDE_INSTALL_LIBEXECDIR "${EPREFIX}/usr/libexec" CACHE PATH "")
 		_EOF_
 	fi
 
