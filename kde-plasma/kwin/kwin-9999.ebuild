@@ -22,8 +22,8 @@ RESTRICT="test"
 # qtbase slot op: GuiPrivate use in tabbox, Qt6WaylandClientPrivate for xx-pip-v1
 # qtbase[X]: private/qtx11extras_p.h in src/helpers/killer
 COMMON_DEPEND="
-	dev-libs/libei
-	>=dev-libs/libinput-1.27:=
+	>=dev-libs/libei-1.4
+	>=dev-libs/libinput-1.28:=
 	>=dev-libs/wayland-1.24.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,wayland,widgets,X]
@@ -65,7 +65,7 @@ COMMON_DEPEND="
 	media-libs/libglvnd
 	>=media-libs/mesa-24.1.0_rc1[opengl,wayland]
 	virtual/libudev:=
-	>=x11-libs/libdrm-2.4.118
+	>=x11-libs/libdrm-2.4.127
 	>=x11-libs/libxcb-1.10:=
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
