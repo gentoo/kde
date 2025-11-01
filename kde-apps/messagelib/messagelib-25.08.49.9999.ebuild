@@ -46,6 +46,7 @@ DEPEND="
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
