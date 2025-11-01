@@ -27,6 +27,7 @@ DEPEND="
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
+	>=gui-libs/kddockwidgets-2.2.5:=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
