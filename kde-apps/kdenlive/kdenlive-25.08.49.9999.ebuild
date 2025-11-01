@@ -52,7 +52,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=media-libs/mlt-7.28.0[ffmpeg,frei0r,qt6,sdl,xml]
+	>=media-libs/mlt-7.28.0:=[ffmpeg,frei0r,qt6,sdl,xml]
 	media-video/ffmpeg:=[encode(+),libass,sdl,X]
 	media-libs/opentimelineio:=
 	v4l? ( media-libs/libv4l )
