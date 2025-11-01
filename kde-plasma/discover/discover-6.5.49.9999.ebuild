@@ -20,7 +20,7 @@ IUSE="+firmware flatpak snap telemetry webengine"
 COMMON_DEPEND="
 	>=dev-libs/appstream-1.0.4:=[qt6]
 	dev-libs/kirigami-addons:6
-	dev-libs/qcoro
+	dev-libs/qcoro[dbus,network]
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/attica-${KFMIN}:6
@@ -82,6 +82,7 @@ src_configure() {
 		-DBUILD_RpmOstreeBackend=OFF
 		-DBUILD_SnapBackend=$(usex snap)
 		-DBUILD_SteamOSBackend=OFF
+		-DBUILD_SystemdSysupdateBackend=OFF
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 		$(cmake_use_find_package webengine Qt6WebView)
 	)
