@@ -30,6 +30,7 @@ RDEPEND="
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-apps/kldap-${PVCUT}:6=
 	>=kde-apps/kmime-${PVCUT}:6=
+	>=kde-apps/kpimtextedit-${PVCUT}:6=
 	>=kde-apps/libkdepim-${PVCUT}:6=
 	>=kde-apps/pimcommon-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
