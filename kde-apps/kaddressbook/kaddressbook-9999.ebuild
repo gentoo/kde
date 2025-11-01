@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE="activities telemetry"
 
 DEPEND="
+	>=dev-libs/ktextaddons-1.8.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-contacts-${PVCUT}:6=
