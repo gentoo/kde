@@ -21,6 +21,7 @@ IUSE="+filebrowser lspclient +projects +snippets sql"
 DEPEND="
 	dev-cpp/gpgmepp:=
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	~kde-apps/kate-lib-${PV}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
