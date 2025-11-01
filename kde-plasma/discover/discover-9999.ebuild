@@ -70,8 +70,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		# TODO: Port PackageKit's portage back-end to python3
-		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt6=ON
 		# Automated updates will not work for us
 		# https://invent.kde.org/plasma/discover/-/merge_requests/142
 		-DWITH_KCM=OFF
@@ -79,6 +77,8 @@ src_configure() {
 		-DBUILD_DummyBackend=OFF
 		-DBUILD_FlatpakBackend=$(usex flatpak)
 		-DBUILD_FwupdBackend=$(usex firmware)
+		# TODO: Port PackageKit's portage back-end to python3
+		-DBUILD_PackageKitBackend=OFF
 		-DBUILD_RpmOstreeBackend=OFF
 		-DBUILD_SnapBackend=$(usex snap)
 		-DBUILD_SteamOSBackend=OFF
