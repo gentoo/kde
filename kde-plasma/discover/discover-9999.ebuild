@@ -75,6 +75,7 @@ src_configure() {
 		# Automated updates will not work for us
 		# https://invent.kde.org/plasma/discover/-/merge_requests/142
 		-DWITH_KCM=OFF
+		-DBUILD_AlpineApkBackend=OFF
 		-DBUILD_DummyBackend=OFF
 		-DBUILD_FlatpakBackend=$(usex flatpak)
 		-DBUILD_FwupdBackend=$(usex firmware)
