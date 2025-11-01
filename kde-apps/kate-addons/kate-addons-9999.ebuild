@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE="+filebrowser lspclient +projects +snippets sql"
 
 DEPEND="
+	dev-cpp/gpgmepp:=
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets,xml]
 	~kde-apps/kate-lib-${PV}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
