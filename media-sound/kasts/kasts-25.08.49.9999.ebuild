@@ -23,6 +23,7 @@ DEPEND="
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/breeze-icons-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
