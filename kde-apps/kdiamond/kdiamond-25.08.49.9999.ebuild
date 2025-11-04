@@ -26,6 +26,7 @@ DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
