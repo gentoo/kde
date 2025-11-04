@@ -280,7 +280,7 @@ PACKAGE_MAP = {
 	'XCBXCB': 'x11-libs/libxcb',
 	'XCBXFIXES': 'x11-libs/libxcb',
 	'XCBXTEST': 'x11-libs/libxcb',
-	'ZLIB': 'sys-libs/zlib',
+	'ZLIB': 'virtual/zlib:=',
 }
 
 

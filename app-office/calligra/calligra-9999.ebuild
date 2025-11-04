@@ -58,8 +58,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
-	sys-libs/zlib
 	virtual/libiconv
+	virtual/zlib:=
 	charts? ( dev-libs/kdiagram:6 )
 	fontconfig? ( media-libs/fontconfig )
 	gsl? ( sci-libs/gsl:= )

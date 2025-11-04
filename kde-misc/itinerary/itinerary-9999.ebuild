@@ -41,7 +41,7 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kunitconversion-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	sys-libs/zlib
+	virtual/zlib:=
 	matrix? ( >=net-libs/libquotient-0.8.1.2-r1:=[qt6(+)] )
 "
 RDEPEND="${DEPEND}
