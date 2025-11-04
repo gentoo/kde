@@ -29,6 +29,7 @@ DEPEND="
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-contacts-${PVCUT}:6=
 	>=kde-apps/akonadi-mime-${PVCUT}:6=
+	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-apps/kmailtransport-${PVCUT}:6=
 	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-apps/kpimtextedit-${PVCUT}:6=
