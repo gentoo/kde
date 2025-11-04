@@ -18,7 +18,7 @@ KEYWORDS=""
 
 COMMON_DEPEND="
 	app-text/cmark:=
-	>=dev-libs/kirigami-addons-1.6.0:6
+	>=dev-libs/kirigami-addons-1.10.0:6
 	>=dev-libs/icu-61.0:=
 	dev-libs/qcoro[network]
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
