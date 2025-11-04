@@ -63,7 +63,7 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-20.08.2-hide-mobile-app.patch" # downstream; avoid same-name entry
+	"${FILESDIR}/${PN}-25.11.70-hide-mobile-app.patch" # downstream; avoid same-name entry
 	"${FILESDIR}/${PN}-23.08.5-implicit-vasprintf.patch" # bug 922345; pending upstream
 )
 
