@@ -19,6 +19,7 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=x11-misc/shared-mime-info-1.8
 "
