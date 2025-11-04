@@ -23,6 +23,7 @@ IUSE="crypt git"
 
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
+	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -47,7 +48,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6(+)]
 	crypt? ( app-crypt/gpgme:= )
 	git? ( dev-libs/libgit2:= )
 "
