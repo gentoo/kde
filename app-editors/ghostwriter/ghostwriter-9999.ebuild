@@ -23,6 +23,7 @@ RDEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebchannel-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
