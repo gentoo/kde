@@ -91,6 +91,7 @@ if [[ ${_PSLOT} == 6 ]]; then
 		oxygen | \
 		plasma-activities | \
 		plasma-activities-stats | \
+		plasma-integration | \
 		plasma5support | \
 		print-manager) ;;
 		*) RDEPEND+=" !kde-plasma/${PN}:5" ;;
