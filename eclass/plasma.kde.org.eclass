@@ -88,6 +88,7 @@ if [[ ${_PSLOT} == 6 ]]; then
 		kwayland-integration | \
 		libplasma | \
 		ocean-sound-theme | \
+		oxygen | \
 		plasma-activities | \
 		plasma-activities-stats | \
 		plasma5support | \
