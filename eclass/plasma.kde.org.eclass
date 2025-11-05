@@ -82,6 +82,7 @@ fi
 
 if [[ ${_PSLOT} == 6 ]]; then
 	case ${PN} in
+		breeze | \
 		kglobalacceld | \
 		kwayland | \
 		kwayland-integration | \
