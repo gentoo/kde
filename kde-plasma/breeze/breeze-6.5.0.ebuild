@@ -17,7 +17,6 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
@@ -27,7 +26,6 @@ DEPEND="
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 "
@@ -51,6 +49,7 @@ src_configure() {
 		-DBUILD_QT6=OFF
 		-DBUILD_QT5=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5FrameworkIntegration=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Quick=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5X11Extras=ON
 	)
 	ecm_src_configure
