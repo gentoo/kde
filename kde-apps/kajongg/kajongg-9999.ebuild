@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{11..13} )
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.16.0
+KFMIN=6.19.0
 QTMIN=6.9.1
 inherit python-single-r1 ecm gear.kde.org xdg
 

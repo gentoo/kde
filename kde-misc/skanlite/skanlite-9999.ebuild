@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="graphics"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.16.0
+KFMIN=6.19.0
 QTMIN=6.9.1
 inherit ecm gear.kde.org xdg
 
