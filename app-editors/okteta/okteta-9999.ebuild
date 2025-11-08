@@ -7,7 +7,7 @@ ECM_DESIGNERPLUGIN="true"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 EGIT_BRANCH="work/kossebau/kf6"
-KFMIN=6.16.0
+KFMIN=6.20.0
 QTMIN=6.8.1
 inherit ecm kde.org xdg
 
