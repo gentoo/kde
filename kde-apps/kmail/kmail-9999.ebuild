@@ -95,7 +95,7 @@ BDEPEND="
 
 src_prepare() {
 	ecm_src_prepare
-	use handbook || cmake_run_in ktnef cmake_comment_add_subdirectory doc
+	use handbook || cmake_comment_add_subdirectory -f ktnef doc
 }
 
 src_configure() {

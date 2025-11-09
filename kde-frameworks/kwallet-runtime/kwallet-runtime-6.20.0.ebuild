@@ -42,7 +42,7 @@ PATCHES=( "${FILESDIR}/${PN}-6.14.0-stdalone.patch" )
 
 src_prepare() {
 	ecm_src_prepare
-	cmake_run_in src cmake_comment_add_subdirectory api
+	cmake_comment_add_subdirectory -f src api
 }
 
 src_configure() {

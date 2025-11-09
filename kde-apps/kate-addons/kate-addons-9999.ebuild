@@ -66,10 +66,10 @@ src_prepare() {
 	ecm_punt_po_install
 
 	# these tests are run in kde-apps/kate-lib
-	cmake_run_in apps/lib cmake_comment_add_subdirectory autotests
+	cmake_comment_add_subdirectory -f apps/lib autotests
 
 	# Don't build kio plugin
-	cmake_run_in apps/lib cmake_comment_add_subdirectory io
+	cmake_comment_add_subdirectory -f apps/lib io
 }
 
 src_configure() {

@@ -168,7 +168,7 @@ src_prepare() {
 	cmake_comment_add_subdirectory login-sessions
 
 	if ! use policykit; then
-		cmake_run_in kcms cmake_comment_add_subdirectory users
+		cmake_comment_add_subdirectory -f kcms users
 	fi
 
 	if ! use fontconfig; then

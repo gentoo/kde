@@ -44,7 +44,7 @@ ECM_REMOVE_FROM_INSTALL=(
 src_prepare() {
 	ecm_src_prepare
 	ecm_punt_po_install
-	cmake_run_in kcmcddb cmake_comment_add_subdirectory doc
+	cmake_comment_add_subdirectory -f kcmcddb doc
 }
 
 src_configure() {

@@ -49,7 +49,7 @@ src_prepare() {
 	ecm_src_prepare
 
 	use bluetooth ||
-		cmake_run_in src/plugins cmake_comment_add_subdirectory bluetooth
+		cmake_comment_add_subdirectory -f src/plugins bluetooth
 }
 
 src_configure() {
