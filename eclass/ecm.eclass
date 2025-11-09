@@ -110,6 +110,16 @@ else
 	ECM_PO_DIRS=( po poqm )
 fi
 
+# @ECLASS_VARIABLE: ECM_KDE_MODE
+# @DESCRIPTION:
+# Default value is "auto", which means during cmake_prepare(), ecm.eclass makes
+# an effort to detect a kde.org hosted project which comes with certain
+# assumptions and standardisations around e.g. docs, translations handling, by
+# checking for the existence of a number of files typically present.
+# If set to "false", act as a general purpose eclass for any project using ECM
+# on top of CMake.
+: "${ECM_KDE_MODE:=auto}"
+
 # @ECLASS_VARIABLE: ECM_PYTHON_BINDINGS
 # @DESCRIPTION:
 # Default value is "false", which means do nothing.
@@ -269,6 +279,14 @@ case ${ECM_HANDBOOK} in
 		;;
 esac
 
+case ${ECM_KDE_MODE} in
+	auto|false|frameworks) ;;
+	*)
+		eerror "Unknown value for \${ECM_KDE_MODE}"
+		die "Value ${ECM_KDE_MODE} is not supported"
+		;;
+esac
+
 case ${ECM_PYTHON_BINDINGS} in
 	off|false) ;;
 	true) ;& # TODO if you really really want
@@ -333,6 +351,53 @@ fi
 DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
+
+# @FUNCTION: _ecm_check_kde_mode
+# @DESCRIPTION:
+# Make an effort to detect KDE projects, and possibly which main product.
+# Threshold for "true" is not particularly high as the implications are minor.
+_ecm_check_kde_mode() {
+	[[ ${ECM_KDE_MODE} != auto ]] && return
+
+	# detection
+	local score=0
+	if [[ -d po || -d doc || -d LICENSES ]]; then
+		score=$((++score))
+	fi
+	if [[ -d po && -d doc && -d LICENSES ]]; then
+		score=$((++score))
+	fi
+	if [[ -e metainfo.yaml ]]; then
+		score=$((++score))
+	fi
+	if [[ -e README.md ]]; then
+		if grep -Eq "KDE" README.md; then
+			score=$((++score))
+		fi
+	fi
+	if [[ -e .kde-ci.yml ]]; then
+		score=$((score + 3))
+	fi
+	if [[ -e LICENSES/LicenseRef-KDE-Accepted-LGPL.txt ]]; then
+		score=$((score + 3))
+	fi
+	if [[ -e LICENSES/LicenseRef-KDE-Accepted-GPL.txt ]]; then
+		score=$((score + 3))
+	fi
+
+	# evaluation
+	if [[ ${score} -ge 4 ]]; then
+		ECM_KDE_MODE=true
+		if [[ -e metainfo.yaml ]]; then
+			if grep -Eq " *group:.*Frameworks" metainfo.yaml; then
+				ECM_KDE_MODE=frameworks
+			fi
+		fi
+	else
+		ECM_KDE_MODE=false
+	fi
+	einfo "ECM_KDE_MODE: $ECM_KDE_MODE detected! Score: ${score}"
+}
 
 # @FUNCTION: _ecm_handbook_optional
 # @DESCRIPTION:
@@ -557,7 +622,8 @@ cmake_prepare-per-cmakelists() {
 ecm_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	cmake_src_prepare
+	default
+	_ecm_check_kde_mode
 
 	# only build examples when required
 	if ! { in_iuse examples && use examples; } ; then
@@ -585,8 +651,8 @@ ecm_src_prepare() {
 		done
 	fi
 
-	# limit playing field of locale stripping to kde-*/ categories
-	if [[ ${CATEGORY} = kde-* ]] ; then
+	# limit playing field of locale stripping to KDE projects
+	if [[ ${ECM_KDE_MODE} != false ]] ; then
 		# TODO: cleanup after KF5 removal:
 		# always install unconditionally for <kconfigwidgets-6.16 - if you use
 		# language X as system language, and there is a combobox with language
@@ -602,15 +668,17 @@ ecm_src_prepare() {
 		if [[ ${ECM_TEST} == forceoptional* && ${_KFSLOT} == 5 ]]; then
 			ecm_punt_qt_module Test
 		fi
-		if [[ -n ${_KDE_ORG_ECLASS} && ${ECM_TEST} != forceoptional ]]; then
+		if [[ ${ECM_KDE_MODE} != false && ${ECM_TEST} != forceoptional ]]; then
 			cmake_comment_add_subdirectory appiumtests autotests test tests
 		fi
 	fi
 
 	# in frameworks, tests = manual tests so never build them
-	if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]]; then
+	if [[ ${ECM_KDE_MODE} == frameworks ]]; then
 		cmake_comment_add_subdirectory tests
 	fi
+
+	cmake_prepare
 
 	if ! { in_iuse test && use test; } && [[ ${ECM_TEST} == forceoptional-recursive ]]; then
 		eqawarn "QA Notice: Build system modified by ECM_TEST=forceoptional-recursive."
