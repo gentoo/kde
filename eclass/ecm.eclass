@@ -526,6 +526,30 @@ ecm_pkg_setup() {
 }
 fi
 
+# @FUNCTION: cmake_prepare-per-cmakelists
+# @DESCRIPTION:
+# For proper description see cmake.eclass manpage.
+cmake_prepare-per-cmakelists() {
+	debug-print-function ${FUNCNAME} "$@"
+	local cm="$1"
+
+	# only build unit tests when required - forceoptional, also cover non-kde categories
+	if ! { in_iuse test && use test; } ; then
+		if [[ ${ECM_TEST} == forceoptional ]]; then
+			cmake_comment_add_subdirectory -f "${cm}" appiumtests autotests test tests
+		elif [[ ${ECM_TEST} == forceoptional-recursive ]] ; then
+			local pf="${T}/${P}"-tests-optional.patch
+			touch ${pf} || die "Failed to touch patch file"
+			cp ${cm} ${cm}.old || die "Failed to prepare patch origfile"
+				sed -i ${cm} -e \
+					"/^#/! s/add_subdirectory\s*\(\s*.*\(appium|auto|unit\)\?tests\?\s*)\s*\)/if(BUILD_TESTING)\n&\nendif()/I" \
+					|| die
+			diff -Naur ${cm}.old ${cm} 1>>${pf}
+			rm ${cm}.old || die "Failed to clean up"
+		fi
+	fi
+}
+
 # @FUNCTION: ecm_src_prepare
 # @DESCRIPTION:
 # Wrapper for cmake_src_prepare with lots of extra logic for magic
@@ -575,38 +599,24 @@ ecm_src_prepare() {
 
 	# only build unit tests when required
 	if ! { in_iuse test && use test; } ; then
-		if [[ ${ECM_TEST} = forceoptional ]] ; then
-			[[ ${_KFSLOT} = 5 ]] && ecm_punt_qt_module Test
-			# if forceoptional, also cover non-kde categories
-			cmake_comment_add_subdirectory appiumtests autotests test tests
-		elif [[ ${ECM_TEST} = forceoptional-recursive ]] ; then
-			[[ ${_KFSLOT} = 5 ]] && ecm_punt_qt_module Test
-			local f pf="${T}/${P}"-tests-optional.patch
-			touch ${pf} || die "Failed to touch patch file"
-			for f in $(find . -type f -name "CMakeLists.txt" -exec \
-				grep -li "^\s*add_subdirectory\s*\(\s*.*\(auto|unit\)\?tests\?\s*)\s*\)" {} \;); do
-				cp ${f} ${f}.old || die "Failed to prepare patch origfile"
-				pushd ${f%/*} > /dev/null || die
-					ecm_punt_qt_module Test
-					sed -i CMakeLists.txt -e \
-						"/^#/! s/add_subdirectory\s*\(\s*.*\(auto|unit\)\?tests\?\s*)\s*\)/if(BUILD_TESTING)\n&\nendif()/I" \
-						|| die
-				popd > /dev/null || die
-				diff -Naur ${f}.old ${f} 1>>${pf}
-				rm ${f}.old || die "Failed to clean up"
-			done
-			eqawarn "QA Notice: Build system modified by ECM_TEST=forceoptional-recursive."
-			eqawarn "Unified diff file ready for pickup in:"
-			eqawarn "  ${pf}"
-			eqawarn "Push it upstream to make this message go away."
-		elif [[ -n ${_KDE_ORG_ECLASS} ]] ; then
+		if [[ ${ECM_TEST} == forceoptional* && ${_KFSLOT} == 5 ]]; then
+			ecm_punt_qt_module Test
+		fi
+		if [[ -n ${_KDE_ORG_ECLASS} && ${ECM_TEST} != forceoptional ]]; then
 			cmake_comment_add_subdirectory appiumtests autotests test tests
 		fi
 	fi
 
 	# in frameworks, tests = manual tests so never build them
-	if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]] && [[ ${PN} != extra-cmake-modules ]]; then
+	if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]]; then
 		cmake_comment_add_subdirectory tests
+	fi
+
+	if ! { in_iuse test && use test; } && [[ ${ECM_TEST} == forceoptional-recursive ]]; then
+		eqawarn "QA Notice: Build system modified by ECM_TEST=forceoptional-recursive."
+		eqawarn "Unified diff file ready for pickup in:"
+		eqawarn "  ${T}/${P}-tests-optional.patch"
+		eqawarn "Push it upstream to make this message go away."
 	fi
 }
 
