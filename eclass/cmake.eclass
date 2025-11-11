@@ -223,11 +223,11 @@ cmake_run_in() {
 cmake_comment_add_subdirectory() {
 	local d filename="CMakeLists.txt"
 	if [[ $# -lt 1 ]]; then
-		die "${FUNCNAME} must be passed at least one subdirectory name to comment"
+		die "${FUNCNAME[0]} must be passed at least one subdirectory name to comment"
 	fi
 	case ${1} in
 		-f)
-			if [[ $# -ge 2 ]]; then
+			if [[ $# -ge 3 ]]; then
 				filename="${2}"
 				if [[ -d ${filename} ]]; then
 					filename+="/CMakeLists.txt"
@@ -239,7 +239,7 @@ cmake_comment_add_subdirectory() {
 					die "${FUNCNAME}: called on non-existing ${filename}"
 				fi
 			else
-				die "${FUNCNAME}: bad number of arguments: -f <filename or directory> <subdirectory> expected"
+				die "${FUNCNAME[0]}: bad number of arguments: -f <filename or directory> <subdirectory> expected"
 			fi
 			shift 2
 			;;
@@ -248,7 +248,7 @@ cmake_comment_add_subdirectory() {
 			;;
 	esac
 
-	for d in $@; do
+	for d in "$@"; do
 		d=${d//\//\\/}
 		sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${d}[[:space:]]*)/I s/^/#DONOTBUILD /" \
 			-i ${filename} || die "failed to comment add_subdirectory(${d})"
