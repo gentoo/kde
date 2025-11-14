@@ -379,44 +379,13 @@ _ecm_strip_handbook_translations() {
 	done
 }
 
-# @FUNCTION: _ecm_punt_kfqt_module
-# @USAGE: <prefix> <dependency>
-# @INTERNAL
-# @DESCRIPTION:
-# Removes a specified dependency from a find_package call with multiple
-# components.
-_ecm_punt_kfqt_module() {
-	local prefix=${1}
-	local dep=${2}
-
-	[[ ! -e "CMakeLists.txt" ]] && return
-
-	# FIXME: dep=WebKit will result in 'Widgets' over 'WebKitWidgets' (no regression)
-	pcre2grep -Mni "(?s)find_package\s*\(\s*${prefix}(\d+|\\$\{\w*\})[^)]*?${dep}.*?\)" \
-		CMakeLists.txt > "${T}/bogus${dep}"
-
-	# pcre2grep returns non-zero on no matches/error
-	[[ $? -ne 0 ]] && return
-
-	local length=$(wc -l "${T}/bogus${dep}" | cut -d " " -f 1)
-	local first=$(head -n 1 "${T}/bogus${dep}" | cut -d ":" -f 1)
-	local last=$(( length + first - 1))
-
-	sed -e "${first},${last}s/${dep}//" -i CMakeLists.txt || die
-
-	if [[ ${length} -eq 1 ]] ; then
-		sed -e "/find_package\s*(\s*${prefix}\([0-9]\|\${[A-Z0-9_]*}\)\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${[A-Z0-9_]*}\)\)\+\s*)/Is/^/# '${dep}' removed by ecm.eclass - /" \
-			-i CMakeLists.txt || die
-	fi
-}
-
 # @FUNCTION: ecm_punt_kf_module
 # @USAGE: <modulename>
 # @DESCRIPTION:
 # Removes a Frameworks (KF - matching any single-digit version)
 # module from a find_package call with multiple components.
 ecm_punt_kf_module() {
-	_ecm_punt_kfqt_module kf ${1}
+	cmake_punt_find_package kf ${1}
 }
 
 # @FUNCTION: ecm_punt_qt_module
@@ -425,7 +394,7 @@ ecm_punt_kf_module() {
 # Removes a Qt (matching any single-digit version) module from a
 # find_package call with multiple components.
 ecm_punt_qt_module() {
-	_ecm_punt_kfqt_module qt ${1}
+	cmake_punt_find_package qt ${1}
 }
 
 # @FUNCTION: ecm_punt_bogus_dep
@@ -434,42 +403,7 @@ ecm_punt_qt_module() {
 # Removes a specified dependency from a find_package call, optionally
 # supports prefix for find_package with multiple components.
 ecm_punt_bogus_dep() {
-
-	if [[ "$#" == 2 ]] ; then
-		local prefix=${1}
-		local dep=${2}
-	elif [[ "$#" == 1 ]] ; then
-		local dep=${1}
-	else
-		die "${FUNCNAME[0]} must be passed either one or two arguments"
-	fi
-
-	if [[ ! -e "CMakeLists.txt" ]]; then
-		return
-	fi
-
-	if [[ -z ${prefix} ]]; then
-		sed -e "/find_package\s*(\s*${dep}\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${[A-Z0-9_]*}\)\)\+\s*)/Is/^/# removed by ecm.eclass - /" \
-			-i CMakeLists.txt || die
-		return
-	else
-		pcre2grep -Mni "(?s)find_package\s*\(\s*${prefix}[^)]*?${dep}.*?\)" CMakeLists.txt > "${T}/bogus${dep}"
-	fi
-
-	# pcre2grep returns non-zero on no matches/error
-	if [[ $? -ne 0 ]] ; then
-		return
-	fi
-
-	local length=$(wc -l "${T}/bogus${dep}" | cut -d " " -f 1)
-	local first=$(head -n 1 "${T}/bogus${dep}" | cut -d ":" -f 1)
-	local last=$(( length + first - 1))
-
-	sed -e "${first},${last}s/${dep}//" -i CMakeLists.txt || die
-
-	if [[ ${length} -eq 1 ]] ; then
-		sed -e "/find_package\s*(\s*${prefix}\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${[A-Z0-9_]*}\)\)\+\s*)/Is/^/# removed by ecm.eclass - /" -i CMakeLists.txt || die
-	fi
+	cmake_punt_find_package $@
 }
 
 # @FUNCTION: _ecm_punt_kdoctools_install
