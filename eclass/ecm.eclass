@@ -110,6 +110,16 @@ else
 	ECM_PO_DIRS=( po poqm )
 fi
 
+# @ECLASS_VARIABLE: ECM_KDE_MODE
+# @DESCRIPTION:
+# Default value is "auto", which means during cmake_prepare(), ecm.eclass makes
+# an effort to detect a kde.org hosted project which comes with certain
+# assumptions and standardisations around e.g. docs, translations handling, by
+# checking for the existence of a number of files typically present.
+# If set to "false", act as a general purpose eclass for any project using ECM
+# on top of CMake.
+: "${ECM_KDE_MODE:=auto}"
+
 # @ECLASS_VARIABLE: ECM_PYTHON_BINDINGS
 # @DESCRIPTION:
 # Default value is "false", which means do nothing.
@@ -269,6 +279,14 @@ case ${ECM_HANDBOOK} in
 		;;
 esac
 
+case ${ECM_KDE_MODE} in
+	auto|false|frameworks) ;;
+	*)
+		eerror "Unknown value for \${ECM_KDE_MODE}"
+		die "Value ${ECM_KDE_MODE} is not supported"
+		;;
+esac
+
 case ${ECM_PYTHON_BINDINGS} in
 	off|false) ;;
 	true) ;& # TODO if you really really want
@@ -333,6 +351,53 @@ fi
 DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
+
+# @FUNCTION: _ecm_check_kde_mode
+# @DESCRIPTION:
+# Make an effort to detect KDE projects, and possibly which main product.
+# Threshold for "true" is not particularly high as the implications are minor.
+_ecm_check_kde_mode() {
+	[[ ${ECM_KDE_MODE} != auto ]] && return
+
+	# detection
+	local score=0
+	if [[ -d po || -d doc || -d LICENSES ]]; then
+		score=$((++score))
+	fi
+	if [[ -d po && -d doc && -d LICENSES ]]; then
+		score=$((++score))
+	fi
+	if [[ -e metainfo.yaml ]]; then
+		score=$((++score))
+	fi
+	if [[ -e README.md ]]; then
+		if grep -Eq "KDE" README.md; then
+			score=$((++score))
+		fi
+	fi
+	if [[ -e .kde-ci.yml ]]; then
+		score=$((score + 3))
+	fi
+	if [[ -e LICENSES/LicenseRef-KDE-Accepted-LGPL.txt ]]; then
+		score=$((score + 3))
+	fi
+	if [[ -e LICENSES/LicenseRef-KDE-Accepted-GPL.txt ]]; then
+		score=$((score + 3))
+	fi
+
+	# evaluation
+	if [[ ${score} -ge 4 ]]; then
+		ECM_KDE_MODE=true
+		if [[ -e metainfo.yaml ]]; then
+			if grep -Eq " *group:.*Frameworks" metainfo.yaml; then
+				ECM_KDE_MODE=frameworks
+			fi
+		fi
+	else
+		ECM_KDE_MODE=false
+	fi
+	einfo "ECM_KDE_MODE: $ECM_KDE_MODE detected! Score: ${score}"
+}
 
 # @FUNCTION: _ecm_handbook_optional
 # @DESCRIPTION:
@@ -526,6 +591,30 @@ ecm_pkg_setup() {
 }
 fi
 
+# @FUNCTION: cmake_prepare-per-cmakelists
+# @DESCRIPTION:
+# For proper description see cmake.eclass manpage.
+cmake_prepare-per-cmakelists() {
+	debug-print-function ${FUNCNAME} "$@"
+	local cm="$1"
+
+	# only build unit tests when required - forceoptional, also cover non-kde categories
+	if ! { in_iuse test && use test; } ; then
+		if [[ ${ECM_TEST} == forceoptional ]]; then
+			cmake_comment_add_subdirectory -f "${cm}" appiumtests autotests test tests
+		elif [[ ${ECM_TEST} == forceoptional-recursive ]] ; then
+			local pf="${T}/${P}"-tests-optional.patch
+			touch ${pf} || die "Failed to touch patch file"
+			cp ${cm} ${cm}.old || die "Failed to prepare patch origfile"
+				sed -i ${cm} -e \
+					"/^#/! s/add_subdirectory\s*\(\s*.*\(appium|auto|unit\)\?tests\?\s*)\s*\)/if(BUILD_TESTING)\n&\nendif()/I" \
+					|| die
+			diff -Naur ${cm}.old ${cm} 1>>${pf}
+			rm ${cm}.old || die "Failed to clean up"
+		fi
+	fi
+}
+
 # @FUNCTION: ecm_src_prepare
 # @DESCRIPTION:
 # Wrapper for cmake_src_prepare with lots of extra logic for magic
@@ -533,7 +622,8 @@ fi
 ecm_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	cmake_src_prepare
+	default
+	_ecm_check_kde_mode
 
 	# only build examples when required
 	if ! { in_iuse examples && use examples; } ; then
@@ -561,8 +651,8 @@ ecm_src_prepare() {
 		done
 	fi
 
-	# limit playing field of locale stripping to kde-*/ categories
-	if [[ ${CATEGORY} = kde-* ]] ; then
+	# limit playing field of locale stripping to KDE projects
+	if [[ ${ECM_KDE_MODE} != false ]] ; then
 		# TODO: cleanup after KF5 removal:
 		# always install unconditionally for <kconfigwidgets-6.16 - if you use
 		# language X as system language, and there is a combobox with language
@@ -575,38 +665,26 @@ ecm_src_prepare() {
 
 	# only build unit tests when required
 	if ! { in_iuse test && use test; } ; then
-		if [[ ${ECM_TEST} = forceoptional ]] ; then
-			[[ ${_KFSLOT} = 5 ]] && ecm_punt_qt_module Test
-			# if forceoptional, also cover non-kde categories
-			cmake_comment_add_subdirectory appiumtests autotests test tests
-		elif [[ ${ECM_TEST} = forceoptional-recursive ]] ; then
-			[[ ${_KFSLOT} = 5 ]] && ecm_punt_qt_module Test
-			local f pf="${T}/${P}"-tests-optional.patch
-			touch ${pf} || die "Failed to touch patch file"
-			for f in $(find . -type f -name "CMakeLists.txt" -exec \
-				grep -li "^\s*add_subdirectory\s*\(\s*.*\(auto|unit\)\?tests\?\s*)\s*\)" {} \;); do
-				cp ${f} ${f}.old || die "Failed to prepare patch origfile"
-				pushd ${f%/*} > /dev/null || die
-					ecm_punt_qt_module Test
-					sed -i CMakeLists.txt -e \
-						"/^#/! s/add_subdirectory\s*\(\s*.*\(auto|unit\)\?tests\?\s*)\s*\)/if(BUILD_TESTING)\n&\nendif()/I" \
-						|| die
-				popd > /dev/null || die
-				diff -Naur ${f}.old ${f} 1>>${pf}
-				rm ${f}.old || die "Failed to clean up"
-			done
-			eqawarn "QA Notice: Build system modified by ECM_TEST=forceoptional-recursive."
-			eqawarn "Unified diff file ready for pickup in:"
-			eqawarn "  ${pf}"
-			eqawarn "Push it upstream to make this message go away."
-		elif [[ -n ${_KDE_ORG_ECLASS} ]] ; then
+		if [[ ${ECM_TEST} == forceoptional* && ${_KFSLOT} == 5 ]]; then
+			ecm_punt_qt_module Test
+		fi
+		if [[ ${ECM_KDE_MODE} != false && ${ECM_TEST} != forceoptional ]]; then
 			cmake_comment_add_subdirectory appiumtests autotests test tests
 		fi
 	fi
 
 	# in frameworks, tests = manual tests so never build them
-	if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]] && [[ ${PN} != extra-cmake-modules ]]; then
+	if [[ ${ECM_KDE_MODE} == frameworks ]]; then
 		cmake_comment_add_subdirectory tests
+	fi
+
+	cmake_prepare
+
+	if ! { in_iuse test && use test; } && [[ ${ECM_TEST} == forceoptional-recursive ]]; then
+		eqawarn "QA Notice: Build system modified by ECM_TEST=forceoptional-recursive."
+		eqawarn "Unified diff file ready for pickup in:"
+		eqawarn "  ${T}/${P}-tests-optional.patch"
+		eqawarn "Push it upstream to make this message go away."
 	fi
 }
 
