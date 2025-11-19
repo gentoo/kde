@@ -25,7 +25,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-libs/wayland-1.15.0
-	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
@@ -49,6 +48,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.19.0
 	x11-base/xorg-proto
+	test? ( >=kde-frameworks/karchive-${KFMIN}:6 )
 "
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
