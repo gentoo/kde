@@ -3,8 +3,10 @@
 
 EAPI=8
 
-KFMIN=6.3.0
-QTMIN=6.6.2
+# TODO: ECMGenerateQDoc
+ECM_TEST=true
+KFMIN=6.13.0
+QTMIN=6.8.1
 inherit ecm kde.org
 
 DESCRIPTION="QtQuick components providing basic image editing capabilities"
@@ -18,12 +20,22 @@ fi
 
 LICENSE="LGPL-2.1+"
 SLOT="6"
+IUSE="+opencv"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	opencv? ( media-libs/opencv:= )
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package opencv OpenCV)
+	)
+	ecm_src_configure
+}
