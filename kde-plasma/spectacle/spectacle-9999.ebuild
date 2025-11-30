@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=9999
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Screenshot capture utility"
@@ -60,13 +60,11 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kimageformats-${KFMIN}:6
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
-BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_prepare() {
 	ecm_src_prepare

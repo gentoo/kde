@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoff"
 ECM_TEST="false"
 KFMIN=9999
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Tools based on KDE Frameworks 6 to better interact with the system"

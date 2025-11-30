@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=9999
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Components relating to Flatpak pipewire use in Plasma"
@@ -37,9 +37,7 @@ DEPEND="${COMMON_DEPEND}
 		media-video/pipewire[extra]
 	)
 "
-DEPEND+=" test? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
 BDEPEND="test? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
-BDEPEND+=" test? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"

@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoff"
 ECM_TEST="false"
 KDE_ORG_NAME="kde-cli-tools"
 KFMIN=9999
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Graphical frontend for KDE Frameworks' kdesu"

@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 KFMIN=9999
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Screen gamma values kcontrol module"

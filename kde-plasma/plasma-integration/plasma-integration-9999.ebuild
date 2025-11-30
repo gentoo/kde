@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=9999
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Qt Platform Theme integration plugins for the Plasma workspaces"
@@ -47,10 +47,8 @@ RDEPEND="${COMMON_DEPEND}
 	media-fonts/noto
 	media-fonts/noto-emoji
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 PDEPEND=">=kde-plasma/xdg-desktop-portal-kde-${KDE_CATV}:6"
 BDEPEND=">=dev-qt/qtbase-${QTMIN}:6[wayland]"
-BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_configure() {
 	local mycmakeargs=(

@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=9999
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="KDE Plasma workspace"
@@ -148,7 +148,6 @@ RDEPEND="${COMMON_DEPEND}
 	policykit? ( sys-apps/accountsservice )
 	screencast? ( >=media-video/pipewire-0.3:* )
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	>=dev-util/wayland-scanner-1.19.0
@@ -156,7 +155,6 @@ BDEPEND="
 	virtual/pkgconfig
 	test? ( >=dev-qt/qtwayland-${QTMIN}:6[compositor(+)] )
 "
-BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
