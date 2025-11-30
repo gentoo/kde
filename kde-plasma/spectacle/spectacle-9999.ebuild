@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/spectacle/"
 LICENSE="LGPL-2+ handbook? ( FDL-1.3 )"
 SLOT="6"
 KEYWORDS=""
-IUSE="share"
+IUSE="ocr share"
 
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
@@ -42,12 +42,14 @@ COMMON_DEPEND="
 	>=kde-frameworks/prison-${KFMIN}:6
 	>=kde-plasma/kpipewire-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
+	media-libs/kquickimageeditor:6
 	media-libs/opencv:=
 	x11-libs/libxcb
 	x11-libs/libXrandr
 	x11-libs/xcb-util
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
+	ocr? ( app-text/tesseract:= )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -62,8 +64,18 @@ RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
+	virtual/pkgconfig
 "
 BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
+
+src_prepare() {
+	ecm_src_prepare
+	# TODO: try to get a build switch upstreamed
+	if ! use ocr; then
+		sed -e "s/^pkg_check_modules.*tesseract/#&/" \
+			-i CMakeLists.txt || die
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(

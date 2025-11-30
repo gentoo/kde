@@ -9,6 +9,7 @@
 		<bugs-to>https://bugs.kde.org/</bugs-to>
 	</upstream>
 	<use>
+		<flag name="ocr">Enable Optical Character Recognition support via <pkg>app-text/tesseract</pkg></flag>
 		<flag name="share">Enable support for a share menu using <pkg>kde-frameworks/purpose</pkg></flag>
 	</use>
 </pkgmetadata>
