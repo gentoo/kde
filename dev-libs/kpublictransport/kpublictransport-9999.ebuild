@@ -23,6 +23,7 @@ RDEPEND="
 	dev-libs/protobuf:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,ssl]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtlocation-${QTMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	virtual/zlib:=
