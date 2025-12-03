@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="true"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.19.0
@@ -84,6 +84,7 @@ src_configure() {
 		-DK3B_ENABLE_DVD_RIPPING=$(usex dvd)
 		-DK3B_BUILD_FFMPEG_DECODER_PLUGIN=$(usex ffmpeg)
 		-DK3B_BUILD_FLAC_DECODER_PLUGIN=$(usex flac)
+		-DK3B_DOC=$(usex handbook)
 		-DK3B_BUILD_LAME_ENCODER_PLUGIN=$(usex lame)
 		-DK3B_BUILD_MAD_DECODER_PLUGIN=$(usex mad)
 		-DK3B_BUILD_MUSE_DECODER_PLUGIN=$(usex musepack)
