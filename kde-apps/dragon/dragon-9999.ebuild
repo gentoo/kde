@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 KFMIN=6.19.0
 QTMIN=6.9.1
 inherit ecm gear.kde.org xdg
@@ -17,11 +17,10 @@ KEYWORDS=""
 IUSE=""
 
 # Upstream only supports the ffmpeg backend https://bugs.kde.org/show_bug.cgi?id=506940
-# slot op: Uses Qt6MultimediaPrivate for Qt6::QFFmpegMediaPlugin
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtmultimedia-${QTMIN}:6=[ffmpeg]
+	>=dev-qt/qtmultimedia-${QTMIN}:6[ffmpeg]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
