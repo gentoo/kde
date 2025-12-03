@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/krdc/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="activities +rdp +ssh +vnc"
+IUSE="+rdp +ssh +vnc"
 
 REQUIRED_USE="ssh? ( || ( rdp vnc ) )"
 
@@ -40,7 +40,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	activities? ( kde-plasma/plasma-activities:6= )
 	rdp? (
 		>=kde-frameworks/kio-${KFMIN}:6
 		>=net-misc/freerdp-2.10:3
@@ -54,7 +53,6 @@ BDEPEND="x11-misc/shared-mime-info"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package activities PlasmaActivities)
 		-DWITH_RDP=$(usex rdp)
 		$(cmake_use_find_package ssh LibSSH)
 		-DWITH_VNC=$(usex vnc)
