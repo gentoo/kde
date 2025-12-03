@@ -27,7 +27,7 @@ DEPEND="
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	>=gui-libs/kddockwidgets-2.2.5:=
+	>=gui-libs/kddockwidgets-2.4.0:=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -54,7 +54,7 @@ DEPEND="
 	>=kde-frameworks/purpose-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	media-video/ffmpeg:=[encode(+),libass,sdl,X]
-	>=media-libs/mlt-7.28.0:=[ffmpeg,frei0r,qt6,sdl,xml]
+	>=media-libs/mlt-7.32.0:=[ffmpeg,frei0r,qt6,sdl,xml]
 	media-libs/opentimelineio:=
 "
 RDEPEND="${DEPEND}
