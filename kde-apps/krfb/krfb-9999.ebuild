@@ -33,7 +33,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=net-libs/libvncserver-0.9.9
+	>=net-libs/libvncserver-0.9.14
 	x11-libs/libX11
 	x11-libs/libxcb
 	x11-libs/libXtst
