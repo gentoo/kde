@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="true"
+ECM_HANDBOOK="optional"
 KFMIN=6.19.0
 QTMIN=6.9.1
 inherit ecm gear.kde.org xdg
@@ -18,6 +18,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/glib:2
+	>=dev-libs/kirigami-addons-1.10.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
