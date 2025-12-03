@@ -17,7 +17,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/qcoro
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
