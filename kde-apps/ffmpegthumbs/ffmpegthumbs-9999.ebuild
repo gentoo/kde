@@ -18,7 +18,7 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
-	media-video/ffmpeg:0=
+	>=media-video/ffmpeg-6.1:0=
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/ffmpegthumbs-23.08.5-r1:5
