@@ -16,6 +16,6 @@ IUSE="+xmp"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
-	>=media-gfx/exiv2-0.25:=[xmp=]
+	>=media-gfx/exiv2-0.27:=[xmp=]
 "
 RDEPEND="${DEPEND}"
