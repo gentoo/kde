@@ -32,10 +32,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
-	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
@@ -47,7 +45,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6[qml]
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	media-libs/kquickimageeditor:6
-	>=net-libs/libquotient-0.9.1:=
+	>=net-libs/libquotient-0.9.3:=
 "
 DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-qt/qthttpserver-${QTMIN}:6 )
