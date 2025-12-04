@@ -3,7 +3,6 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.19.0
 QTMIN=6.9.1
@@ -11,7 +10,7 @@ inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Import mbox email archives from various sources into Akonadi"
 
-LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
+LICENSE="GPL-2+"
 SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
