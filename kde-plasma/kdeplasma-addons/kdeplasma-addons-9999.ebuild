@@ -18,7 +18,6 @@ IUSE="+alternate-calendar share webengine"
 RESTRICT="test" # bug 727846, +missing selenium-webdriver-at-spi
 
 DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
@@ -54,7 +53,6 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquick3d-${QTMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
-	>=kde-plasma/plasma5support-${KDE_CATV}:6
 "
 
 src_configure() {
@@ -68,8 +66,6 @@ src_configure() {
 }
 
 pkg_postinst() {
-	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "Disk quota applet" "sys-fs/quota"
-	fi
+	optfeature "Disk quota applet" "sys-fs/quota"
 	xdg_pkg_postinst
 }
