@@ -14,12 +14,12 @@ DESCRIPTION="Extended text editor for PIM applications"
 LICENSE="LGPL-2.1+"
 SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
-IUSE="speech"
+IUSE=""
 
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-libs/ktextaddons-1.8.0:6[speech?]
+	>=dev-libs/ktextaddons-1.8.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -33,10 +33,3 @@ RDEPEND="
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 "
 DEPEND="${RDEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
-	)
-	ecm_src_configure
-}
