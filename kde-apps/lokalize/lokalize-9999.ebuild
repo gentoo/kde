@@ -20,6 +20,7 @@ IUSE=""
 DEPEND="
 	>=app-text/hunspell-1.2.8:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,widgets,xml]
+	>=gui-libs/kddockwidgets-2.3.0
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -37,7 +38,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
-	>=gui-libs/kddockwidgets-2.3.0
 "
 RDEPEND="${DEPEND}"
 
