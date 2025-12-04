@@ -19,7 +19,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/libical
-	>=dev-libs/ktextaddons-1.8.0:6
+	>=dev-libs/ktextaddons-1.8.82:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-calendar-${PVCUT}:6=

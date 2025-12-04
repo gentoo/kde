@@ -260,3 +260,4 @@
 ~kde-misc/markdownpart-9999 **
 ~sys-block/partitionmanager-9999 **
 ~sys-libs/kpmcore-9999 **
+=dev-libs/ktextaddons-9999 **

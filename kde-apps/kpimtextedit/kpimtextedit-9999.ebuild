@@ -19,7 +19,7 @@ IUSE=""
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-libs/ktextaddons-1.8.0:6
+	>=dev-libs/ktextaddons-1.8.82:6
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6

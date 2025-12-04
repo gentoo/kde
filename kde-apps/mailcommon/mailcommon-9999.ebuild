@@ -23,7 +23,7 @@ RESTRICT="test"
 DEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
-	>=dev-libs/ktextaddons-1.8.0:6
+	>=dev-libs/ktextaddons-1.8.82:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-apps/akonadi-${PVCUT}:6=

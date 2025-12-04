@@ -57,7 +57,7 @@ COMMON_DEPEND="
 		>=kde-apps/akonadi-mime-${PVCUT}:6=
 		>=kde-apps/kmailtransport-${PVCUT}:6=
 	)
-	speech? ( >=dev-libs/ktextaddons-1.8.0:6[speech] )
+	speech? ( >=dev-libs/ktextaddons-1.8.82:6[speech] )
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${COMMON_DEPEND}

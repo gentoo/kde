@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="activities speech telemetry"
 
 RDEPEND="
-	>=dev-libs/ktextaddons-1.8.0:6[speech?]
+	>=dev-libs/ktextaddons-1.8.82:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/grantleetheme-${PVCUT}:6=
