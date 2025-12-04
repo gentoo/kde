@@ -37,6 +37,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
+	>=gui-libs/kddockwidgets-2.3.0
 "
 RDEPEND="${DEPEND}"
 
