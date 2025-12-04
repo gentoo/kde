@@ -32,7 +32,6 @@ COMMON_DEPEND="
 	>=kde-apps/eventviews-${PVCUT}:6=
 	>=kde-apps/incidenceeditor-${PVCUT}:6=
 	>=kde-apps/kcalutils-${PVCUT}:6=
-	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-apps/kmailtransport-${PVCUT}:6=
 	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-apps/kontactinterface-${PVCUT}:6=
