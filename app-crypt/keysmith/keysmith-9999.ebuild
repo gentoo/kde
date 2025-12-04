@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	dev-libs/kirigami-addons:6
+	>=dev-libs/kirigami-addons-1.7.0:6
 	dev-libs/libsodium:=
 	dev-libs/openssl:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
