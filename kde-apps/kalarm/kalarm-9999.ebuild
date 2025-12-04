@@ -63,10 +63,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	pim? ( =kde-apps/kdepim-runtime-${PVCUT}*:6 )
 "
-# kde-apps/kidentitymanagement through its cmake module forces
-# kpimtextedit[speech=] in order not to break w/ kalarm[-speech]
 DEPEND="${COMMON_DEPEND}
-	>=kde-apps/kpimtextedit-${PVCUT}:6[speech=]
 	X? ( x11-base/xorg-proto )
 "
 
