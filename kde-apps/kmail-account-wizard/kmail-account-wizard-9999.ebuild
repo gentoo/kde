@@ -3,7 +3,6 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.19.0
@@ -13,7 +12,7 @@ inherit ecm gear.kde.org
 DESCRIPTION="Assistant for KMail accounts configuration"
 HOMEPAGE+=" https://userbase.kde.org/KMail/Account_Wizard"
 
-LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
+LICENSE="GPL-2+"
 SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
