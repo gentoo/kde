@@ -4,8 +4,9 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
+PYTHON_COMPAT=( python3_{11..14} )
 QTMIN=6.8.1
-inherit ecm frameworks.kde.org
+inherit ecm frameworks.kde.org python-any-r1
 
 DESCRIPTION="Framework for syntax highlighting"
 
@@ -21,7 +22,14 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/xerces-c
 "
-BDEPEND="
+BDEPEND="${PYTHON_DEPS}
 	dev-lang/perl
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DPython_EXECUTABLE="${PYTHON}"
+	)
+	ecm_src_configure
+}
