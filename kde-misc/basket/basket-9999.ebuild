@@ -57,18 +57,12 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 "
-BDEPEND="git? ( virtual/pkgconfig )"
-
-src_prepare() {
-	cmake_src_prepare
-	# https://invent.kde.org/utilities/basket/-/merge_requests/58
-	sed -e "/^find_package(X11/s/^/# /" -i CMakeLists.txt || die
-}
+BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_GPG=$(usex crypt)
-		$(cmake_use_find_package git Libgit2)
+		-DENABLE_GIT=$(usex git)
 	)
 	ecm_src_configure
 }
