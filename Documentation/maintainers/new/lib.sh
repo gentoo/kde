@@ -60,8 +60,9 @@ bump_set_from_live() {
 	local destination="${2}"
 
 	cp sets/${target}-live sets/${target}-${destination}
-	sed -i -E "s/~/</;s/[0-9]+(\.[0-9]+)*(\:.*)*$/${destination}.50\2/" sets/${target}-${destination}
-	sed -i -e "/^@/s/live$/${destination}/" sets/${target}-${destination}
+	sed -E "s/^~/</;/^#/! s/[0-9]+(\.[0-9]+)*(\:.*)*$/${destination}.50\2/" -i sets/${target}-${destination}
+	sed -e "/^@/s/live$/${destination}/" -i sets/${target}-${destination}
+		
 
 	for entry in $(grep ^@ sets/${target}-live) ; do
 		entry=${entry/-live/}
