@@ -72,3 +72,6 @@
 <kde-plasma/systemsettings-6.5.50
 <kde-plasma/wacomtablet-6.5.50
 <kde-plasma/xdg-desktop-portal-kde-6.5.50
+>=kde-plasma/breeze-6.5.0:5
+>=kde-plasma/oxygen-6.5.0:5
+>=kde-plasma/plasma-integration-6.5.0:5
