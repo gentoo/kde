@@ -18,6 +18,7 @@ KEYWORDS=""
 IUSE="networkmanager"
 
 DEPEND="
+	dev-libs/kirigami-addons:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6
