@@ -27,7 +27,7 @@ RDEPEND="
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=media-gfx/graphviz-2.30
+	>=media-gfx/graphviz-2.30:=
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
