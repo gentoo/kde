@@ -45,7 +45,7 @@ PACKAGE_MAP = {
 	'DvdRead': 'media-libs/libdvdread',
 	'ECM': 'kde-frameworks/extra-cmake-modules',
 	'EGL': 'media-libs/mesa[egl]',
-	'Eigen3': 'dev-cpp/eigen:3',
+	'Eigen3': 'dev-cpp/eigen:=',
 	'epoxy': 'media-libs/libepoxy',
 	'EPub': 'app-text/ebook-tools',
 	'Exiv2': 'media-gfx/exiv2',
