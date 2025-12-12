@@ -42,6 +42,8 @@ BDEPEND="
 	app-alternatives/yacc
 "
 
+PATCHES=( "${FILESDIR}/${PN}-25.12.0-cmake-minreqver-3.10.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DPython_LIBRARY=$(python_get_library_path)
