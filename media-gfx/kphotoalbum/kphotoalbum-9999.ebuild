@@ -19,12 +19,11 @@ fi
 
 LICENSE="GPL-2+ FDL-1.2 CC-BY-SA-4.0"
 SLOT="0"
-IUSE="+map phonon +raw share +vlc"
-
-REQUIRED_USE="|| ( phonon vlc )"
+IUSE="+map +raw share"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,sqlite,widgets,xml]
+	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -42,10 +41,8 @@ DEPEND="
 	media-gfx/exiv2:=
 	media-libs/libjpeg-turbo:=
 	map? ( kde-apps/marble:6 )
-	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	raw? ( kde-apps/libkdcraw:6 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
-	vlc? ( media-video/vlc:= )
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
@@ -56,11 +53,10 @@ DOCS=( CHANGELOG.{md,old} README.md )
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_LIBVLC=ON
 		$(cmake_use_find_package map Marble)
-		$(cmake_use_find_package phonon Phonon4Qt6)
 		$(cmake_use_find_package raw KDcrawQt6)
 		$(cmake_use_find_package share KF6Purpose)
-		$(cmake_use_find_package vlc LIBVLC)
 	)
 
 	ecm_src_configure
