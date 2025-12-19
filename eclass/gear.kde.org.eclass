@@ -71,7 +71,6 @@ if $(ver_test -gt 24.01.75); then
 		akonadi-contacts | \
 		akonadi-import-wizard | \
 		akonadi-mime | \
-		akonadi-notes | \
 		akonadi-search | \
 		akonadiconsole | \
 		akregator | \
@@ -173,7 +172,6 @@ if $(ver_test -gt 24.01.75); then
 		knavalbattle | \
 		knetwalk | \
 		knights | \
-		knotes | \
 		kolf | \
 		kollision | \
 		konqueror | \
@@ -255,7 +253,6 @@ if $(ver_test -gt 24.04.75); then
 		itinerary | \
 		kio-perldoc | \
 		kolourpaint | \
-		libkcompactdisc | \
 		signon-kwallet-extension)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;
