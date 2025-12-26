@@ -153,7 +153,10 @@ BDEPEND="
 	>=dev-util/wayland-scanner-1.19.0
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
-	test? ( >=dev-qt/qtwayland-${QTMIN}:6[compositor(+)] )
+	test? (
+		>=dev-qt/qtwayland-${QTMIN}:6[compositor(+)]
+		X? ( x11-misc/xdotool )
+	)
 "
 
 PATCHES=(
