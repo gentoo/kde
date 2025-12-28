@@ -8,7 +8,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=9999
 QTMIN=6.10.1
-inherit ecm fcaps plasma.kde.org xdg
+inherit ecm fcaps plasma.kde.org toolchain-funcs xdg
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 
@@ -107,6 +107,14 @@ BDEPEND="
 # https://bugs.gentoo.org/941628
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
+
+pkg_pretend() {
+	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 14
+}
+
+pkg_setup() {
+	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 14
+}
 
 src_prepare() {
 	ecm_src_prepare
