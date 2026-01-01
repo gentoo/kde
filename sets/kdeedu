@@ -23,5 +23,5 @@ kde-apps/libkeduvocdocument
 kde-apps/marble
 kde-apps/minuet
 kde-apps/parley
-# kde-apps/rocs # while KF5-based
+# kde-apps/rocs-25.12.50 # managed by 25.12
 kde-apps/step

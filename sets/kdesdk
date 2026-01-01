@@ -19,4 +19,4 @@ kde-apps/kompare
 kde-apps/libkomparediff2
 kde-apps/lokalize
 kde-apps/poxml
-# kde-apps/umbrello # while KF5-based
+# kde-apps/umbrello-25.12.50 # managed by 25.12
