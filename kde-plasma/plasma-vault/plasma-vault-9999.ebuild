@@ -32,12 +32,15 @@ DEPEND="
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
-	|| (
-		>=app-crypt/gocryptfs-1.8
-		>=sys-fs/cryfs-0.9.9
-		>=sys-fs/encfs-1.9.2
-	)
+	>=app-crypt/gocryptfs-1.8
 "
+
+pkg_pretend() {
+	if [[ -n "${REPLACING_VERSIONS}" ]] && ! has_version app-crypt/gocryptfs; then
+		ewarn "${CATEGORY}/${PN} now depends on app-crypt/gocryptfs exclusively."
+		ewarn "If you still use deprecated CryFS or EncFS, you must put them in @world."
+	fi
+}
 
 src_configure() {
 	# ODR violations (bug #909446, kde#471836)
