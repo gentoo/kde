@@ -15,6 +15,7 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
+# requires running environment w/ RDEPENDs (circular dep w/ plasma-workspace)
 RESTRICT="test"
 
 # qtbase slot op: GuiPrivate use in greeter
@@ -50,6 +51,7 @@ DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 RDEPEND="${COMMON_DEPEND}
+	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6
 "
@@ -57,14 +59,7 @@ BDEPEND="
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
-
-src_test() {
-	# requires running environment
-	local myctestargs=(
-		-E x11LockerTest
-	)
-	ecm_src_test
-}
+PDEPEND=">=kde-plasma/plasma-workspace-${KDE_CATV}:6"
 
 src_install() {
 	ecm_src_install
