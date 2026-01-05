@@ -15,7 +15,7 @@ SLOT="6"
 KEYWORDS=""
 
 # slot op: Uses Qt6::GuiPrivate for qxkbcommon_p.h
-RDEPEND="
+COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[gui,wayland,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
@@ -25,10 +25,17 @@ RDEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 "
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	dev-libs/kirigami-addons
+	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+"
+DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.19
 "
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
