@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=9999
-QTMIN=6.10.1
+KFMIN=6.16.0
+QTMIN=6.9.3
 inherit ecm kde.org xdg
 
 DESCRIPTION="Virtual keyboard based on Qt Virtual Keyboard"
