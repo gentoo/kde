@@ -29,7 +29,7 @@ esac
 # @INTERNAL
 # @DESCRIPTION:
 # For proper description see kde.org.eclass manpage.
-KDE_PV_UNRELEASED=( )
+KDE_PV_UNRELEASED=( 25.12.1 )
 
 inherit kde.org
 
