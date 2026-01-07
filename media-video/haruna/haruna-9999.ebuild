@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=6.9.0
 QTMIN=6.8.1
-inherit ecm kde.org xdg
+inherit ecm kde.org optfeature xdg
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
@@ -43,6 +43,9 @@ DEPEND="
 	media-libs/mpvqt:6=
 	media-video/ffmpeg:=
 "
-RDEPEND="${DEPEND}
-	net-misc/yt-dlp
-"
+RDEPEND="${DEPEND}"
+
+pkg_postinst() {
+	optfeature "video playback from youtube and other online sources" net-misc/yt-dlp
+	xdg_pkg_postinst
+}
