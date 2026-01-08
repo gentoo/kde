@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Localization tool for KDE software and other free and open source software"

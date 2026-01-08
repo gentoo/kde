@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="VNC-compatible server to share Plasma desktops"
@@ -51,9 +51,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast(+)] )
 "
-RDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 BDEPEND="wayland? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
-BDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 
 src_configure() {
 	local mycmakeargs=(

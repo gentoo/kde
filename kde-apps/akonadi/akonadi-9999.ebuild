@@ -7,7 +7,7 @@ ECM_DESIGNERPLUGIN="true"
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 VIRTUALDBUS_TEST="true"
 inherit ecm gear.kde.org xdg
 

@@ -7,7 +7,7 @@ CHECKREQS_DISK_BUILD="4G"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit check-reqs ecm gear.kde.org xdg
 
 DESCRIPTION="KDE Office Suite"

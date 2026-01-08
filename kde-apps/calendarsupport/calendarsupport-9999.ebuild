@@ -7,7 +7,7 @@ ECM_QTHELP="true"
 ECM_TEST="false"
 KFMIN=6.19.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm gear.kde.org
 
 DESCRIPTION="Calendar support library"

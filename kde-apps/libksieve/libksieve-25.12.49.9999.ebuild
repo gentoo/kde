@@ -8,7 +8,7 @@ ECM_QTHELP="true"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm gear.kde.org
 
 DESCRIPTION="Common PIM libraries"

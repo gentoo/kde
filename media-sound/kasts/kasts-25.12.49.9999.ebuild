@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Convergent podcast application for desktop and mobile"

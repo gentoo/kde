@@ -7,7 +7,7 @@ KDE_ORG_CATEGORY="pim"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Calendar application using Akonadi"

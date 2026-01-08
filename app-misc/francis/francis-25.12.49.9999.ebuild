@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_CATEGORY="utilities"
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Productivity application using the well-known pomodoro technique"

@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Solitaire-like game played using the standard set of Mahjong tiles"

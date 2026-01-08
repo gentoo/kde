@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.19.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Image viewer by KDE"
@@ -78,12 +78,10 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-apps/thumbnailers-${PVCUT}:6
 	>=kde-frameworks/kimageformats-${KFMIN}:6
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 "
-BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_prepare() {
 	ecm_src_prepare
