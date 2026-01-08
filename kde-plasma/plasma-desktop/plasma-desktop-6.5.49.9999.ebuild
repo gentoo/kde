@@ -108,7 +108,6 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-6.0.80
 	dev-libs/kirigami-addons:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	>=kde-plasma/oxygen-${KDE_CATV}:6
 	>=kde-plasma/plasma-mimeapps-list-3
 	media-fonts/noto-emoji
