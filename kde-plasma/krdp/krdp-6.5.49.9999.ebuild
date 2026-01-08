@@ -6,7 +6,7 @@ EAPI=8
 ECM_EXAMPLES="true"
 ECM_TEST="true"
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm flag-o-matic plasma.kde.org toolchain-funcs xdg
 
 DESCRIPTION="Library and examples for creating an RDP server"
@@ -40,7 +40,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
 src_configure() {

@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm flag-o-matic plasma.kde.org
 
 DESCRIPTION="Qt-style API to interact with the wayland-client API"
@@ -30,12 +30,10 @@ DEPEND="${RDEPEND}
 	>=dev-libs/wayland-protocols-1.15
 	sys-kernel/linux-headers
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	>=dev-util/wayland-scanner-1.19.0
 "
-BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_configure() {
 	filter-lto # bug 866575

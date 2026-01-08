@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="true"
 PYTHON_COMPAT=( python3_{11..13} )
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org python-single-r1 systemd xdg
 
 DESCRIPTION="Plasma crash handler, gives the user feedback if a program crashed"

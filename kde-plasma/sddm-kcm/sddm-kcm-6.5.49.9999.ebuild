@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="KDE Plasma control module for SDDM"

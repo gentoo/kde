@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoff"
 ECM_TEST="true"
 KDE_ORG_NAME="kde-cli-tools"
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="File Type Editor"

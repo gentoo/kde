@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="KDE Plasma screen management"
@@ -44,7 +44,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kimageformats-${KFMIN}:6[avif]
 	>=kde-plasma/kglobalacceld-${KDE_CATV}:6
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.41
 "
@@ -54,7 +53,6 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
 "
-BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 CMAKE_SKIP_TESTS=(
 	# last checked 2025-07-17, also fails upstream

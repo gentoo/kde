@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 # TODO: ECMGenerateQDoc
 ECM_TEST="true"
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm fcaps plasma.kde.org toolchain-funcs xdg
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
@@ -91,7 +91,6 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/hwdata
 	X? ( >=x11-base/xwayland-23.1.0[libei] )
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.19.0
 	>=dev-libs/wayland-protocols-1.45
@@ -104,7 +103,6 @@ BDEPEND="
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
-BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 # https://bugs.gentoo.org/941628
 # -m 0755 to avoid suid with USE="-filecaps"

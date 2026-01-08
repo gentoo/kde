@@ -7,7 +7,7 @@ ECM_TEST="true"
 KDE_ORG_CATEGORY="asturmlechner"
 PYTHON_COMPAT=( python3_{11..14} )
 KFMIN=6.16.0
-QTMIN=6.8.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org python-single-r1 xdg
 
 DESCRIPTION="Plasma crash handler, gives the user feedback if a program crashed"

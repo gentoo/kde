@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Qt component to allow applications make use of Wayland wl-layer-shell protocol"
@@ -24,7 +24,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig

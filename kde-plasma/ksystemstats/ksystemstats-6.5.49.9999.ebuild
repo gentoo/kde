@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm fcaps plasma.kde.org
 
 DESCRIPTION="Plugin-based system monitoring daemon"

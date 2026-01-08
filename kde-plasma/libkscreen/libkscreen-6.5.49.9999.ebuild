@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org toolchain-funcs
 
 DESCRIPTION="Plasma screen management library"
@@ -29,13 +29,11 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.19.0
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 "
-BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 13.4

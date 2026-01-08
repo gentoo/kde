@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit cmake plasma.kde.org
 
 DESCRIPTION="Wallpapers for the Plasma workspace"

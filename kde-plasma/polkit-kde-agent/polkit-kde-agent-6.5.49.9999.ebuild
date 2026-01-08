@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_NAME="${PN}-1"
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="PolKit agent module for KDE Plasma"

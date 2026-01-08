@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 KFMIN=6.18.0
-QTMIN=6.9.1
+QTMIN=6.10.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Plugin based library to create window decorations"
