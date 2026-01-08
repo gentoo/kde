@@ -43,6 +43,8 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<${CATEGORY}/${PN}-6.5.0:5
+	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
+	>=kde-plasma/qqc2-breeze-style-${KDE_CATV}:6
 	media-fonts/hack
 	media-fonts/noto
 	media-fonts/noto-emoji
