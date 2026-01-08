@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_QTHELP="false"
-QTMIN=6.8.1
+QTMIN=6.10.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Style for QtQuickControls 2 that uses QWidget's QStyle for painting"

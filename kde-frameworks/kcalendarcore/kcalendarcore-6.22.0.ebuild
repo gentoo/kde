@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="true"
-QTMIN=6.8.1
+QTMIN=6.10.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Library for interfacing with calendars"

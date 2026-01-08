@@ -4,7 +4,7 @@
 EAPI=8
 
 KDE_ORG_NAME="kwallet"
-QTMIN=6.8.1
+QTMIN=6.10.1
 inherit ecm frameworks.kde.org optfeature
 
 DESCRIPTION="Framework providing desktop-wide storage for passwords"

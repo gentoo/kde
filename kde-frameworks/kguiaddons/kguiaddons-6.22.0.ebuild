@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_PYTHON_BINDINGS="off"
-QTMIN=6.8.1
+QTMIN=6.10.1
 inherit ecm frameworks.kde.org xdg
 
 DESCRIPTION="Framework providing assorted high-level user interface components"
@@ -39,14 +39,12 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!<kde-frameworks/kguiaddons-5.116.0-r2:5[-kf6compat(-)]
 "
-RDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 BDEPEND="
 	wayland? (
 		>=dev-qt/qtbase-${QTMIN}:6[wayland]
 		dev-util/wayland-scanner
 	)
 "
-BDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 
 src_configure() {
 	local mycmakeargs=(

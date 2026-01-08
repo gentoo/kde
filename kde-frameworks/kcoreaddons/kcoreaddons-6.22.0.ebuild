@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_PYTHON_BINDINGS="off"
-QTMIN=6.8.1
+QTMIN=6.10.1
 inherit ecm frameworks.kde.org xdg
 
 DESCRIPTION="Framework for solving common problems such as caching, randomisation, and more"

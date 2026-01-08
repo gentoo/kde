@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="false"
-QTMIN=6.8.1
+QTMIN=6.10.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for detection and notification of device idle time"
@@ -37,9 +37,7 @@ DEPEND="${RDEPEND}
 		>=dev-libs/wayland-protocols-1.27:0
 	)
 "
-RDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 BDEPEND="wayland? ( >=dev-qt/qtbase-${QTMIN}:6[wayland] )"
-BDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 
 src_prepare() {
 	ecm_src_prepare

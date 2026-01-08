@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
 ECM_TEST="false"
-QTMIN=6.8.1
+QTMIN=6.10.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for downloading and sharing additional application data"

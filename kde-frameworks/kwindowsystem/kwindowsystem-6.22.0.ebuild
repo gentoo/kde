@@ -3,7 +3,7 @@
 
 EAPI=8
 
-QTMIN=6.8.1
+QTMIN=6.10.1
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing access to properties and features of the window manager"
@@ -38,7 +38,6 @@ DEPEND="${RDEPEND}
 		>=dev-libs/wayland-protocols-1.21
 	)
 "
-RDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	wayland? (
@@ -46,7 +45,6 @@ BDEPEND="
 		dev-util/wayland-scanner
 	)
 "
-BDEPEND+=" wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) )"
 
 DOCS=( docs/README.kstartupinfo )
 
