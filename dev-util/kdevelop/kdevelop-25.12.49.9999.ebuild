@@ -96,9 +96,23 @@ CMAKE_SKIP_TESTS=(
 	test_{path,generationtest} # FIXME: whatever that does, does not work
 )
 
+PATCHES=(
+	# bug #963324 pt.1, git master
+	"${FILESDIR}/${PN}-25.12.1-file-collision.patch"
+)
+
 src_prepare() {
 	rm -r plugins/qmljs || die # bug 960669, unused upstream
 	ecm_src_prepare
+
+	# bug #963324 pt.2
+	pushd plugins/subversion/icons > /dev/null || die
+		local icon
+		for icon in 16 32 64; do
+			mv ${icon}-apps-{,kdev}subversion.png || die
+		done
+		mv sc-apps-{,kdev}subversion.svg || die
+	popd > /dev/null || die
 }
 
 src_configure() {
