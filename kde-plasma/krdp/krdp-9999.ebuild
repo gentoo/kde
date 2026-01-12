@@ -31,6 +31,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-plasma/kpipewire-${KDE_CATV}:6
 	>=net-misc/freerdp-3.1:3[server]
+	>=sys-apps/systemd-254:=
 	sys-libs/pam
 	x11-libs/libxkbcommon
 "
