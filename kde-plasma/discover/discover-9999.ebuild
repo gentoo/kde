@@ -19,7 +19,7 @@ IUSE="+firmware flatpak snap telemetry webengine"
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 COMMON_DEPEND="
 	>=dev-libs/appstream-1.0.4:=[qt6]
-	dev-libs/kirigami-addons:6
+	>=dev-libs/kirigami-addons-1.10.0:6
 	dev-libs/qcoro[dbus,network]
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
