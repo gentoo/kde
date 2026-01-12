@@ -13,8 +13,8 @@ SLOT="6"
 KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration +crash-handler crypt cups
 discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
-+networkmanager oxygen-theme plymouth pulseaudio qt5 rdp +sddm sdk +smart systemd
-thunderbolt unsupported wacom +wallpapers webengine X"
++networkmanager ocr oxygen-theme plymouth pulseaudio qt5 rdp +sddm sdk +smart
+systemd thunderbolt unsupported wacom +wallpapers webengine X"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
@@ -142,9 +142,10 @@ case ${PV} in
 		"
 		;;
 esac
-# Optional runtime deps: kde-plasma/plasma-desktop
+# Optional runtime deps: kde-plasma/plasma-desktop, kde-plasma/spectacle
 RDEPEND="${RDEPEND}
 	accessibility? ( app-accessibility/orca )
+	ocr? ( app-text/tesseract )
 "
 
 pkg_postinst() {
