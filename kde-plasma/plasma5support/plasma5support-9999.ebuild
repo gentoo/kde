@@ -39,7 +39,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-plasma/plasma-workspace:5
-	!<kde-plasma/plasma-workspace-6.4.90:6
+	!<kde-plasma/plasma-workspace-6.5.90:6
 "
 
 src_configure() {
