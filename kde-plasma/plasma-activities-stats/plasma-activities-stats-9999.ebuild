@@ -22,5 +22,9 @@ RDEPEND="
 	kde-plasma/plasma-activities:6=
 "
 DEPEND="${RDEPEND}
-	test? ( dev-libs/boost )
+	test? (
+		dev-libs/boost
+		>=kde-frameworks/kcoreaddons-${KFMIN}:6
+		kde-plasma/kactivitymanagerd:6
+	)
 "
