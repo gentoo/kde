@@ -29,7 +29,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,wayland,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsensors-${QTMIN}:6
-	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6
@@ -66,19 +65,21 @@ COMMON_DEPEND="
 	>=media-libs/mesa-24.1.0_rc1[opengl,wayland]
 	virtual/libudev:=
 	>=x11-libs/libdrm-2.4.127
-	>=x11-libs/libxcb-1.10:=
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
-	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
 	screencast? ( >=media-video/pipewire-1.2.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
+	systemd? ( sys-apps/systemd:= )
 	X? (
 		x11-libs/libX11
+		>=x11-libs/libxcb-1.10:=
 		x11-libs/libXi
 		x11-libs/libXres
+		x11-libs/xcb-util-cursor
 		x11-libs/xcb-util-keysyms
+		x11-libs/xcb-util-wm
 	)
 "
 RDEPEND="${COMMON_DEPEND}
