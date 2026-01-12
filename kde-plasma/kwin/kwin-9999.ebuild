@@ -15,7 +15,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility gles2-only lock screencast +shortcuts systemd X"
+IUSE="accessibility gamepad gles2-only lock screencast +shortcuts systemd X"
 
 RESTRICT="test"
 
@@ -68,6 +68,7 @@ COMMON_DEPEND="
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
+	gamepad? ( dev-libs/libevdev )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
 	screencast? ( >=media-video/pipewire-1.2.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
@@ -119,6 +120,11 @@ pkg_setup() {
 
 src_prepare() {
 	ecm_src_prepare
+
+	# TODO: try to get a build switch upstreamed
+	if ! use gamepad; then
+		sed -e "s/^pkg_check_modules.*libevdev/#&/" -i CMakeLists.txt || die
+	fi
 
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
