@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=9999
 QTMIN=6.10.1
-inherit ecm plasma.kde.org xdg
+inherit ecm optfeature plasma.kde.org xdg
 
 DESCRIPTION="Screenshot capture utility"
 HOMEPAGE="https://apps.kde.org/spectacle/"
@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/spectacle/"
 LICENSE="LGPL-2+ handbook? ( FDL-1.3 )"
 SLOT="6"
 KEYWORDS=""
-IUSE="ocr share"
+IUSE="share"
 
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
@@ -49,7 +49,6 @@ COMMON_DEPEND="
 	x11-libs/xcb-util
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
-	ocr? ( app-text/tesseract:= )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -66,18 +65,14 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-src_prepare() {
-	ecm_src_prepare
-	# TODO: try to get a build switch upstreamed
-	if ! use ocr; then
-		sed -e "s/^pkg_check_modules.*tesseract/#&/" \
-			-i CMakeLists.txt || die
-	fi
-}
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package share KF6Purpose)
 	)
 	ecm_src_configure
+}
+
+pkg_postinst() {
+	optfeature "text recognition in screenshots" "app-text/tesseract"
+	xdg_pkg_postinst
 }
