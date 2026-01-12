@@ -82,7 +82,6 @@ COMMON_DEPEND="
 	>=kde-plasma/libplasma-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
-	>=kde-plasma/plasma5support-${KDE_CATV}:6
 	media-libs/libcanberra
 	sci-libs/libqalculate:=
 	sys-apps/dbus
@@ -110,6 +109,7 @@ COMMON_DEPEND="
 		x11-libs/xcb-util
 		fontconfig? (
 			media-libs/fontconfig
+			media-libs/freetype
 			x11-libs/libXft
 			x11-libs/xcb-util-image
 		)
@@ -140,7 +140,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/kdesu-gui-${KDE_CATV}:*
 	>=kde-plasma/milou-${KDE_CATV}:6
 	>=kde-plasma/plasma-integration-${KDE_CATV}:6
-	>=kde-plasma/plasma-login-sessions-${KDE_CATV}:6
 	sys-apps/dbus
 	x11-apps/xmessage
 	x11-apps/xprop
@@ -157,6 +156,9 @@ BDEPEND="
 		>=dev-qt/qtwayland-${QTMIN}:6[compositor(+)]
 		X? ( x11-misc/xdotool )
 	)
+"
+PDEPEND="
+	>=kde-plasma/plasma-login-sessions-${KDE_CATV}:6
 "
 
 PATCHES=(
@@ -186,11 +188,13 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_X11=$(usex X) # remember to submit patches with bugs
+		-DWITH_X11_SESSION=$(usex X)
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		-DGLIBC_LOCALE_GEN=OFF
 		-DGLIBC_LOCALE_PREGENERATED=$(usex elibc_glibc)
 		$(cmake_use_find_package appstream AppStreamQt)
 		$(cmake_use_find_package fontconfig Fontconfig)
+		$(cmake_use_find_package fontconfig Freetype)
 		$(cmake_use_find_package ksysguard KSysGuard)
 		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
 		-DBUILD_CAMERAINDICATOR=$(usex screencast)
