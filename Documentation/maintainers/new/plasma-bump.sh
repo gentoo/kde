@@ -17,8 +17,9 @@ help() {
 	echo "* Creation of versioned set from kde-plasma-live"
 	echo "* Generation of package.* files in Documentation"
 	echo
-	echo "Usage: plasma-bump.sh <version>"
-	echo "Example: plasma-bump.sh 5.26.0"
+	echo "Usage: plasma-bump.sh [main-version] <bump-version>"
+	echo "Example: plasma-bump.sh 6.6.0"
+	echo "Example: plasma-bump.sh 6.6 6.5.90"
 	exit 0
 }
 
@@ -26,38 +27,44 @@ if [[ $1 == "--help" ]] ; then
 	help
 fi
 
-VERSION="${1}"
-
-if [[ -z "${VERSION}" ]] ; then
+if [[ -z "${1}" ]] ; then
 	echo ERROR: Not enough arguments
 	echo
 	help
+elif [[ -z "${2}" ]] ; then
+	VERSION="${1}"
+	MAINVERSION=$(echo ${VERSION} | cut -d "." -f 1-2)
+else
+	VERSION="${2}"
+	MAINVERSION="${1}"
 fi
 
-major_version=$(echo ${VERSION} | cut -d "." -f 1-2)
 kfv="kde-plasma-${VERSION}"
-kfmv="kde-plasma-${major_version}"
+kfmv="kde-plasma-${MAINVERSION}"
 
 pushd "${TARGET_REPO}" > /dev/null
 
-if ! [[ -f sets/kde-plasma-${major_version} ]]; then
-	bump_set_from_live kde-plasma ${major_version} # TODO: s/49.9999/50:5/
+if ! [[ -f sets/kde-plasma-${MAINVERSION} ]]; then
+	bump_set_from_live kde-plasma ${MAINVERSION} # TODO: s/49.9999/50:5/
 	create_keywords_files ${kfmv} kde-plasma
 
-	sed -i -e "/PLASMA_RELEASES/s/ *)$/ ${major_version} )/" Documentation/maintainers/regenerate-files
+	sed -i -e "/PLASMA_RELEASES/s/ *)$/ ${MAINVERSION} )/" Documentation/maintainers/regenerate-files
 	Documentation/maintainers/regenerate-files
 
 	# initial stable branch bump
-	bump_packages_from_set kde-plasma-${major_version} 9999 ${major_version}.49.9999
-	commit_packages ${kfmv} "add ${major_version}.49.9999 stable branch"
+	bump_packages_from_set kde-plasma-${MAINVERSION} 9999 ${MAINVERSION}.49.9999
+	commit_packages ${kfmv} "add ${MAINVERSION}.49.9999 stable branch"
 else
-	# only .0 version gets non public tarballs pre-release
-	if [[ ${VERSION} == *.0 ]]; then
-		mask_from_set kde-plasma-${major_version} ${VERSION} ${kfv}
-		mark_unreleased plasma ${VERSION}
-	fi
+	case ${VERSION} in
+		*.0)
+			# only .0 version gets non public tarballs pre-release
+			mark_unreleased plasma ${VERSION} ;&
+		*.9?)
+			# beta versions are kept masked
+			mask_from_set kde-plasma-${MAINVERSION} ${VERSION} ${kfv}
+	esac
 
-	bump_packages_from_set kde-plasma-${major_version} ${major_version}.49.9999 ${VERSION}
+	bump_packages_from_set kde-plasma-${MAINVERSION} ${MAINVERSION}.49.9999 ${VERSION}
 	commit_packages ${kfmv} "${VERSION} version bump"
 fi
 
