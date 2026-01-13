@@ -1,0 +1,5 @@
+~media-libs/pulseaudio-qt-9999 **
+~dev-libs/plasma-wayland-protocols-9999 **
+>=kde-plasma/breeze-6.5.0:5
+>=kde-plasma/oxygen-6.5.0:5
+>=kde-plasma/plasma-integration-6.5.0:5
