@@ -46,15 +46,19 @@ if ! [[ -f sets/kde-plasma-${major_version} ]]; then
 
 	sed -i -e "/PLASMA_RELEASES/s/ *)$/ ${major_version} )/" Documentation/maintainers/regenerate-files
 	Documentation/maintainers/regenerate-files
-fi
 
-# only .0 version gets non public tarballs pre-release
-if [[ ${VERSION} == *.0 ]]; then
-	mask_from_set kde-plasma-${major_version} ${VERSION} ${kfv}
-	mark_unreleased plasma ${VERSION}
-fi
+	# initial stable branch bump
+	bump_packages_from_set kde-plasma-${major_version} 9999 ${major_version}.49.9999
+	commit_packages ${kfmv} "add ${major_version}.49.9999 stable branch"
+else
+	# only .0 version gets non public tarballs pre-release
+	if [[ ${VERSION} == *.0 ]]; then
+		mask_from_set kde-plasma-${major_version} ${VERSION} ${kfv}
+		mark_unreleased plasma ${VERSION}
+	fi
 
-bump_packages_from_set kde-plasma-${major_version} ${major_version}.49.9999 ${VERSION}
-commit_packages ${kfmv} "${VERSION} version bump"
+	bump_packages_from_set kde-plasma-${major_version} ${major_version}.49.9999 ${VERSION}
+	commit_packages ${kfmv} "${VERSION} version bump"
+fi
 
 popd > /dev/null
