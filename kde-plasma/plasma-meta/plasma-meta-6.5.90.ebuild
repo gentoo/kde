@@ -10,11 +10,11 @@ HOMEPAGE="https://kde.org/plasma-desktop/"
 
 LICENSE="metapackage"
 SLOT="6"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64"
 IUSE="accessibility bluetooth +browser-integration +crash-handler crypt cups
 discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
 +networkmanager ocr oxygen-theme plymouth pulseaudio qt5 rdp +sddm sdk +smart
-systemd thunderbolt unsupported wacom +wallpapers webengine X"
+systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine X"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd ) rdp? ( systemd )"
 
@@ -122,6 +122,7 @@ RDEPEND="
 	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
 	!unsupported? ( !gui-apps/qt6ct )
+	virtualkeyboard? ( >=kde-plasma/plasma-keyboard-${PV}:${SLOT} )
 	wacom? ( >=kde-plasma/plasma-desktop-${PV}:${SLOT}[input_devices_wacom] )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 	webengine? ( kde-apps/khelpcenter:6 )
