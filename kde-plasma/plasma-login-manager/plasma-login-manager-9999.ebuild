@@ -91,3 +91,7 @@ src_install() {
 	newpamd "${FILESDIR}"/${PN}-autologin.pam ${PN}-autologin
 	newpamd "${FILESDIR}"/${PN}-greeter.pam ${PN}-greeter
 }
+
+pkg_postinst() {
+	tmpfiles_process plasmalogin.conf
+}
