@@ -87,9 +87,9 @@ src_install() {
 	insinto /etc/plasmalogin.conf.d/
 	doins "${S}"/01gentoo.conf
 
-	newpamd "${FILESDIR}"/${PN}.pam ${PN}
-	newpamd "${FILESDIR}"/${PN}-autologin.pam ${PN}-autologin
-	newpamd "${FILESDIR}"/${PN}-greeter.pam ${PN}-greeter
+	newpamd "${FILESDIR}"/plasmalogin.pam plasmalogin
+	newpamd "${FILESDIR}"/plasmalogin-autologin.pam plasmalogin-autologin
+	newpamd "${FILESDIR}"/plasmalogin-greeter.pam plasmalogin-greeter
 }
 
 pkg_postinst() {
