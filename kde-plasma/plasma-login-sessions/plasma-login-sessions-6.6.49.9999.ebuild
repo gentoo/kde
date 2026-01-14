@@ -33,7 +33,7 @@ ecm-common_inject_heredoc() {
 src_configure() {
 	local mycmakeargs=(
 		-DKDE_INSTALL_LIBEXECDIR=/usr/libexec # temp. workaround, bug 941502
-		-DPLASMA_X11_DEFAULT_SESSION=$(usex !wayland)
+		-DWITH_X11_SESSION=$(usex X)
 	)
 	ecm-common_src_configure
 }
@@ -42,8 +42,5 @@ src_install() {
 	cmake_src_install
 	if ! use wayland; then
 		rm -rv "${ED}"/usr/share/wayland-sessions || die
-	fi
-	if ! use X; then
-		rm -rv "${ED}"/usr/share/xsessions || die
 	fi
 }
