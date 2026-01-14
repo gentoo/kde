@@ -35,6 +35,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
+	acct-user/plasmalogin
 "
 BDEPEND="
 	dev-python/docutils
