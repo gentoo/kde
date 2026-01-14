@@ -44,7 +44,10 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-qt/qtbase-${QTMIN}:6[network] )
 "
 RDEPEND="${COMMON_DEPEND}
-	dev-libs/elfutils[utils]
+	|| (
+		dev-libs/elfutils[utils]
+		>=dev-debug/gdb-18
+	)
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	$(python_gen_cond_dep '
