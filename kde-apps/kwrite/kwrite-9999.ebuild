@@ -32,12 +32,8 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	ecm_src_prepare
 	ecm_punt_po_install
-
-	# these tests are run in kde-apps/kate-lib
-	cmake_comment_add_subdirectory -f apps/lib autotests
-
-	# Don't build kio plugin
-	cmake_comment_add_subdirectory -f apps/lib io
+	# these tests are run in kde-apps/kate-lib; don't build kio plugin
+	cmake_comment_add_subdirectory -f apps/lib autotests io
 }
 
 src_configure() {
