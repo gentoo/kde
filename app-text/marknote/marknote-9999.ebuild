@@ -4,16 +4,16 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=6.3.0
-QTMIN=6.6.2
-inherit ecm kde.org
+KFMIN=6.19.0
+QTMIN=6.9.1
+inherit ecm kde.org xdg
 
 DESCRIPTION="Markdown editor with a wide range of formating options for everyday notes"
 HOMEPAGE="https://apps.kde.org/marknote/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 LICENSE="GPL-2+"
@@ -21,7 +21,7 @@ SLOT="0"
 
 # TODO: md4c not packaged
 DEPEND="
-	>=dev-libs/kirigami-addons-1.3.40:6
+	>=dev-libs/kirigami-addons-1.7.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -33,6 +33,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
