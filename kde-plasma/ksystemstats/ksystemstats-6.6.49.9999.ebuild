@@ -23,7 +23,7 @@ DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kio-6.22.1:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/libksysguard-${KDE_CATV}:6
 	net-libs/libpcap

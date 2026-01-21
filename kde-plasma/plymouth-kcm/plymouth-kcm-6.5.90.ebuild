@@ -23,7 +23,7 @@ DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kio-6.22.1:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	sys-boot/plymouth

@@ -23,7 +23,7 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kio-6.22.1:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui,X] )
 "
