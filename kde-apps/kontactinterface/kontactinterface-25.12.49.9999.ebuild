@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_QTHELP="true"
-KFMIN=6.19.0
+KFMIN=6.22.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org
 
@@ -20,7 +20,7 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets,X,xml]
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kio-6.22.1:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6

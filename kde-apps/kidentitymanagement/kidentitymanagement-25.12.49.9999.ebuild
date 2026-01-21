@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.19.0
+KFMIN=6.22.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org
 
@@ -29,7 +29,7 @@ DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kio-6.22.1:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "

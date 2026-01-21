@@ -6,7 +6,7 @@ EAPI=8
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="pim"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.19.0
+KFMIN=6.22.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
@@ -38,7 +38,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kio-6.22.1:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kitemviews-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
