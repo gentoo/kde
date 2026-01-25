@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=6.19.0
+KFMIN=6.22.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="KWallet extension for signond"
