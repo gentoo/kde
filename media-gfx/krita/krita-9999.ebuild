@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{11..13} )
-KFMIN=6.9.0
-QTMIN=6.8.0
+KFMIN=6.16.0
+QTMIN=6.10.1
 inherit ecm kde.org python-single-r1 xdg
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -74,12 +74,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	pdf? ( app-text/poppler[qt6(-)] )
 	raw? ( kde-apps/libkdcraw:6 )
 	webp? ( >=media-libs/libwebp-1.2.0:= )
-
 "
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 DEPEND="${COMMON_DEPEND}
 	dev-libs/immer
 	dev-libs/lager
