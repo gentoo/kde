@@ -28,8 +28,6 @@ BDEPEND="virtual/pkgconfig"
 
 DOCS=( AUTHORS README README.porting TODO )
 
-PATCHES=( "${FILESDIR}/${P}-uniquify-identities.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLES=OFF
