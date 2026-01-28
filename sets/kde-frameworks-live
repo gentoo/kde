@@ -1,3 +1,5 @@
+# Tier 0
+~kde-frameworks/extra-cmake-modules-9999:0
 @kde-frameworks-tier1-live
 @kde-frameworks-tier2-live
 @kde-frameworks-tier3-live
