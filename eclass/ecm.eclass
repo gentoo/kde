@@ -295,6 +295,7 @@ RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
 # @FUNCTION: _ecm_handbook_optional
+# @INTERNAL
 # @DESCRIPTION:
 # Use with ECM_HANDBOOK=optional; ticks either -DBUILD_DOC if available,
 # or -DCMAKE_DISABLE_FIND_PACKAGE_KF6DocTools
