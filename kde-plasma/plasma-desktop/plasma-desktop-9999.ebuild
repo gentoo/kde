@@ -65,7 +65,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	>=kde-plasma/kwin-${KDE_CATV}:6
 	>=kde-plasma/libksysguard-${KDE_CATV}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?,X]
