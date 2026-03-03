@@ -32,7 +32,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
-	kde-plasma/libplasma:6
+	kde-plasma/libplasma:6=
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.21
