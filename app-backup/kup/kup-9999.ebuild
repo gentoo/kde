@@ -34,7 +34,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	kde-plasma/libplasma:6
+	kde-plasma/libplasma:6=
 	kde-plasma/plasma5support:6
 "
 RDEPEND="${DEPEND}
