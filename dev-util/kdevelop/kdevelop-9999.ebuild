@@ -64,7 +64,7 @@ COMMON_DEPEND="
 	gdbui? ( kde-plasma/libksysguard:6= )
 	plasma? (
 		>=kde-frameworks/krunner-${KFMIN}:6
-		kde-plasma/libplasma:6
+		kde-plasma/libplasma:6=
 	)
 	qmake? ( >=dev-util/kdevelop-pg-qt-2.4.0:0 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
