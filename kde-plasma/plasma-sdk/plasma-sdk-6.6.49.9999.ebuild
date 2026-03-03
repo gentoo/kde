@@ -34,7 +34,7 @@ DEPEND="
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/ktexteditor-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	>=kde-plasma/plasma5support-${KDE_CATV}:6
 "
 RDEPEND="${DEPEND}
