@@ -38,7 +38,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	plasma? (
 		>=kde-frameworks/kpackage-${KFMIN}:6
-		kde-plasma/libplasma:6
+		kde-plasma/libplasma:6=
 	)
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )
 "
