@@ -29,7 +29,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
-	kde-plasma/libplasma:6
+	kde-plasma/libplasma:6=
 	kde-plasma/plasma5support:6
 	sys-auth/oath-toolkit
 "
