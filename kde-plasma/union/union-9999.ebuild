@@ -25,7 +25,7 @@ IUSE="tools"
 # 		>=kde-frameworks/karchive-${KFMIN}:6
 # 		>=kde-frameworks/kcolorscheme-${KFMIN}:6
 # 		>=kde-frameworks/kconfig-${KFMIN}:6
-# 		kde-plasma/libplasma:6
+# 		kde-plasma/libplasma:6=
 # 	)
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
