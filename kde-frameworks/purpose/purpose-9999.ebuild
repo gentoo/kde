@@ -43,7 +43,12 @@ RDEPEND="${DEPEND}
 		>=net-libs/accounts-qml-0.7_p20231028[qt6(+)]
 	)
 "
-BDEPEND="webengine? ( dev-util/intltool )"
+BDEPEND="
+	webengine? (
+		dev-util/intltool
+		kde-apps/kaccounts-integration:6
+	)
+"
 
 src_prepare() {
 	ecm_src_prepare
