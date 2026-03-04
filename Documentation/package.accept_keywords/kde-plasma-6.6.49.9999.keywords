@@ -73,6 +73,6 @@
 ~kde-plasma/systemsettings-6.6.49.9999 **
 ~kde-plasma/wacomtablet-6.6.49.9999 **
 ~kde-plasma/xdg-desktop-portal-kde-6.6.49.9999 **
-~media-libs/pulseaudio-qt-9999 **
-~dev-libs/plasma-wayland-protocols-9999 **
+~media-libs/pulseaudio-qt-1.8.1
+~dev-libs/plasma-wayland-protocols-1.20.0
 ~app-crypt/gocryptfs-2.6.1
