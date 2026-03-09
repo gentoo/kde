@@ -3,6 +3,7 @@
 
 EAPI=8
 
+PATCHSET=
 ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{11..14} )
 KFMIN=6.16.0
@@ -26,13 +27,16 @@ if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	fi
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
+if [[ -n ${PATCHSET} ]]; then
+	SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/kde/${PATCHSET}.tar.xz"
+fi
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="color-management fftw gif +gsl heif jpeg2k jpegxl +mypaint-brush-engine openexr pdf media +raw webp"
+IUSE="color-management fftw gif +gsl heif jpeg2k jpegxl +mypaint-brush-engine openexr pdf media +raw wayland webp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # bug 630508
@@ -49,7 +53,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		dev-python/sip:=[${PYTHON_USEDEP}]
 	')
 	>=dev-qt/qt5compat-${QTMIN}:6
-	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,-gles2-only,gui,network,opengl,sql,wayland,widgets,X,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,-gles2-only,gui,network,opengl,sql,wayland?,widgets,X,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -64,6 +68,9 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	media-gfx/exiv2:=
+	media-libs/fontconfig
+	media-libs/freetype
+	media-libs/harfbuzz:=
 	media-libs/lcms
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
@@ -103,6 +110,7 @@ PATCHES=(
 	# downstream
 	"${FILESDIR}"/${PN}-5.3.0-tests-optional.patch
 	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
+	"${WORKDIR}/${PATCHSET}"
 )
 
 src_prepare() {
@@ -132,6 +140,7 @@ src_configure() {
 		$(cmake_use_find_package openexr OpenEXR)
 		$(cmake_use_find_package pdf Poppler)
 		$(cmake_use_find_package raw KDcrawQt6)
+		$(cmake_use_find_package wayland Qt6WaylandClient)
 		$(cmake_use_find_package webp WebP)
 	)
 	ecm_src_configure
