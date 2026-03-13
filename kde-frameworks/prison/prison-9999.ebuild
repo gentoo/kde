@@ -18,7 +18,7 @@ RDEPEND="
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	media-gfx/qrencode:=
 	media-libs/libdmtx
-	media-libs/zxing-cpp:=
+	>=media-libs/zxing-cpp-1.4.0:=
 	qml? ( >=dev-qt/qtdeclarative-${QTMIN}:6 )
 "
 DEPEND="${RDEPEND}
