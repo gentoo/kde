@@ -22,6 +22,7 @@ DEPEND="
 	=kde-frameworks/kguiaddons-${KDE_CATV}*:6
 	=kde-frameworks/ki18n-${KDE_CATV}*:6
 	=kde-frameworks/kio-${KDE_CATV}*:6
+	=kde-frameworks/kirigami-${KDE_CATV}*:6
 	=kde-frameworks/kitemviews-${KDE_CATV}*:6
 	=kde-frameworks/kwidgetsaddons-${KDE_CATV}*:6
 	=kde-frameworks/kxmlgui-${KDE_CATV}*:6
