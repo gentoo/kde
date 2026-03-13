@@ -16,7 +16,11 @@ IUSE=""
 
 DEPEND=">=dev-qt/qtdeclarative-${QTMIN}:6"
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
+BDEPEND="
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
+	>=sys-devel/bison-3.3.2
+	sys-devel/flex
+"
 
 src_test() {
 	# bug 624214
