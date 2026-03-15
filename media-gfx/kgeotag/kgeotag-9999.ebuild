@@ -23,6 +23,7 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	kde-apps/libkexiv2:6
 	kde-apps/marble:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
