@@ -363,6 +363,7 @@ cmake_src_configure() {
 		case "${KERNEL:-linux}" in
 			Cygwin) sysname="CYGWIN_NT-5.1" ;;
 			HPUX) sysname="HP-UX" ;;
+			Hurd) sysname="GNU" ;;
 			linux) sysname="Linux" ;;
 			Winnt) sysname="Windows" ;;
 			*) sysname="${KERNEL}" ;;
