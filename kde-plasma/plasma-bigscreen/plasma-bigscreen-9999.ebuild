@@ -15,8 +15,11 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+# TODO: libcec automagic
+COMMON_DEPEND="
 	>=dev-libs/qcoro-0.7.0[qml]
+	>=dev-libs/libcec-6:=
+	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6
@@ -42,8 +45,12 @@ DEPEND="
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
+	media-libs/libsdl3
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	dev-libs/plasma-wayland-protocols
+"
+RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:6
 "
