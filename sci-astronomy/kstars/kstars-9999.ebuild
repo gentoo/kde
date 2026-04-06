@@ -83,6 +83,7 @@ PATCHES=(
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibXISF=ON # not packaged
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt6DataVisualization=ON # not packaged
 		-DBUILD_WITH_QT6=ON # KF6 please
 		-DENABLE_SENTRY=OFF
 		$(cmake_use_find_package password Qt6Keychain)
