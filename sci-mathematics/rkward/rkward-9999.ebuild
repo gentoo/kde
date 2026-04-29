@@ -23,7 +23,7 @@ IUSE=""
 DEPEND="
 	dev-lang/R
 	dev-libs/kdsingleapplication[qt6(+)]
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-frameworks/breeze-icons-${KFMIN}:6
@@ -48,6 +48,15 @@ RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 "
 BDEPEND="sys-devel/gettext"
+
+src_configure() {
+	local mycmakeargs=(
+		# using QWebView currently still requires QWebEngine runtime dep on Linux
+		-DFORCE_WITH_QWEBENGINE=ON
+	)
+
+	ecm_src_configure
+}
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
