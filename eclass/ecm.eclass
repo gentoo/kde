@@ -592,8 +592,8 @@ ecm_src_prepare() {
 		eqawarn "Push it upstream to make this message go away."
 	fi
 
-	# disable upstream git hooks (program detection, hook installation ... currently PIM)
-	if [[ -n ${_GEAR_KDE_ORG_ECLASS} && -d .git ]]; then
+	# disable upstream git hooks (program detection, hook installation ...)
+	if [[ -d .git ]]; then
 		if grep -Eq "\s*set.*GIT_SOURCE_TARBALL TRUE" CMakeLists.txt; then
 			sed -e "/\s*set.*GIT_SOURCE_TARBALL/s/TRUE/FALSE/" -i CMakeLists.txt || die
 		fi
