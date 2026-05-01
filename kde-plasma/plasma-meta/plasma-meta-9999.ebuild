@@ -14,7 +14,8 @@ KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration +crash-handler crypt cups
 discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
 +networkmanager ocr oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart
-systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine"
+systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine
++xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
@@ -119,6 +120,7 @@ RDEPEND="
 	wacom? ( >=kde-plasma/plasma-desktop-${PV}:${SLOT}[input_devices_wacom] )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 	webengine? ( kde-apps/khelpcenter:6 )
+	xwayland? ( >=gui-apps/xwaylandvideobridge-0.5.0 )
 "
 # TODO: obsolete, unless in the unlikely event that 6.8 will not drop X11:
 # X? (
@@ -155,7 +157,6 @@ pkg_postinst() {
 		ewarn " MYCMAKEARGS=\"-DLIBCXX_TYPEINFO_COMPARISON_IMPLEMENTATION=2\""
 		ewarn "You may then need to rebuild dev-qt/* and kde-*/*."
 	fi
-
 	if has_version dev-qt/qtgui; then
 		ewarn "KF5 and Qt5 support was removed in Gentoo. Such applications will exhibit"
 		ewarn "various integration bugs and generally look out of place in Plasma 6."

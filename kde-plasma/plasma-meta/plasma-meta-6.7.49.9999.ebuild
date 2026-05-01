@@ -14,7 +14,8 @@ KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration +crash-handler crypt cups
 discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
 +networkmanager ocr oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart
-systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine X"
+systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine X
++xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
@@ -125,6 +126,7 @@ RDEPEND="
 		>=kde-plasma/kwin-x11-${PV}:${SLOT}[lock]
 		wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
 	)
+	xwayland? ( >=gui-apps/xwaylandvideobridge-0.4.0_p20250215-r1 )
 "
 # NOTE spectacle moved from KDE Gear (yy.mm) to KDE Plasma version scheme
 # TODO drop after 2027-04-26
@@ -155,7 +157,6 @@ pkg_postinst() {
 		ewarn " MYCMAKEARGS=\"-DLIBCXX_TYPEINFO_COMPARISON_IMPLEMENTATION=2\""
 		ewarn "You may then need to rebuild dev-qt/* and kde-*/*."
 	fi
-
 	if has_version dev-qt/qtgui; then
 		ewarn "KF5 and Qt5 support was removed in Gentoo. Such applications will exhibit"
 		ewarn "various integration bugs and generally look out of place in Plasma 6."
