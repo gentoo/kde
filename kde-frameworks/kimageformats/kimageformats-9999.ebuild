@@ -35,7 +35,7 @@ DOCS=( src/imageformats/AUTHORS )
 
 src_configure() {
 	local mycmakeargs=(
-		-DKIMAGEFORMATS_JXR=OFF # TODO: check if ready upstream
+		-DKIMAGEFORMATS_WITH_KNOWN_CRASHES_JXR=OFF # TODO: check if ready upstream
 		$(cmake_use_find_package avif libavif)
 		$(cmake_use_find_package eps Qt6PrintSupport)
 		-DKIMAGEFORMATS_HEIF=$(usex heif)
