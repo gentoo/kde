@@ -5,7 +5,6 @@ EAPI=8
 
 KDE_ORG_CATEGORY="system"
 KFMIN=6.22.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.10.1
 inherit ecm kde.org
 
@@ -23,7 +22,7 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[qml]
-	>=kde-apps/libkgapi-${PVCUT}:6=
+	kde-apps/libkgapi:6=
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
