@@ -17,6 +17,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus?,icu,network]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	virtual/libudev:=
+	kernel_linux? ( sys-apps/util-linux )
 "
 DEPEND="${COMMON_DEPEND}
 	sys-kernel/linux-headers
