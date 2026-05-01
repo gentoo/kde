@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtbase-${QTMIN}:6[widgets] )
 	wayland? (
 		dev-libs/plasma-wayland-protocols
-		>=dev-libs/wayland-protocols-1.21
+		>=dev-libs/wayland-protocols-1.46
 	)
 "
 BDEPEND="
