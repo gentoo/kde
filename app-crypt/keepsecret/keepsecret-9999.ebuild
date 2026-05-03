@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_CATEGORY="utilities"
 KFMIN=6.22.0
 QTMIN=6.10.1
-inherit ecm kde.org xdg
+inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Password manager GUI for SecretService providers"
 HOMEPAGE="https://apps.kde.org/keepsecret/
