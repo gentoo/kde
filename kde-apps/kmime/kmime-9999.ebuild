@@ -3,20 +3,19 @@
 
 EAPI=8
 
-ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
-KFMIN=6.22.0
-inherit ecm gear.kde.org
+inherit ecm frameworks.kde.org
 
 DESCRIPTION="Libary for handling mail messages and newsgroup articles"
 
-LICENSE="GPL-2+"
-SLOT="6/$(ver_cut 1-2)"
+LICENSE="LGPL-2 LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND=">=kde-frameworks/kcodecs-${KFMIN}:6"
-RDEPEND="${DEPEND}"
+DEPEND="=kde-frameworks/kcodecs-${KDE_CATV}*:6"
+RDEPEND="${DEPEND}
+	!kde-apps/kmime:5
+"
 
 CMAKE_SKIP_TESTS=(
 	# bug 924507
