@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 ECM_QTHELP="false" # TODO: figure out install error
 ECM_TEST="forceoptional"
 KFMIN=6.22.0
