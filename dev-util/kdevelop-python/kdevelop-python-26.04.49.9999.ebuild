@@ -20,6 +20,7 @@ KEYWORDS=""
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="test" # bug 965829, multiple tests hang
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-qt/qt5compat-${QTMIN}:6
@@ -43,3 +44,5 @@ RDEPEND="${COMMON_DEPEND}
 		dev-python/pycodestyle[${PYTHON_USEDEP}]
 	')
 "
+
+PATCHES=( "${FILESDIR}/${PN}-26.04.1-python3.14.patch" ) # bug 974363
