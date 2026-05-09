@@ -8,9 +8,13 @@ inherit cmake kde.org
 DESCRIPTION="Cross-platform C++ XMPP client and server library"
 HOMEPAGE="https://invent.kde.org/libraries/qxmpp"
 
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
+
 LICENSE="LGPL-2.1 CC0-1.0"
 SLOT="0/9"
-KEYWORDS=""
 IUSE="doc gstreamer omemo test"
 RESTRICT="!test? ( test )"
 
