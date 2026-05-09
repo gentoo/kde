@@ -22,7 +22,7 @@ RDEPEND="
 	dev-qt/qtbase:6[network,ssl,xml]
 	gstreamer? ( media-libs/gstreamer )
 	omemo? (
-		>=dev-libs/openssl-3:0/3
+		>=dev-libs/openssl-3:=
 		net-libs/libomemo-c
 	)
 "
