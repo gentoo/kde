@@ -29,7 +29,6 @@ kde-plasma/ksshaskpass
 kde-plasma/ksystemstats
 kde-plasma/kwallet-pam
 kde-plasma/kwayland
-kde-plasma/kwayland-integration
 kde-plasma/kwin
 kde-plasma/kwin-x11
 kde-plasma/kwrited
@@ -48,6 +47,8 @@ kde-plasma/plasma-desktop
 kde-plasma/plasma-disks
 kde-plasma/plasma-firewall
 kde-plasma/plasma-integration
+kde-plasma/plasma-keyboard
+kde-plasma/plasma-login-manager
 kde-plasma/plasma-login-sessions
 kde-plasma/plasma-meta
 kde-plasma/plasma-nm
