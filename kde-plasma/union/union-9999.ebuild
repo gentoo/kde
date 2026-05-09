@@ -16,7 +16,7 @@ https://files.quantumproductions.info/union/overview.html"
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) GPL-3 BSD-2"
 SLOT="6"
 KEYWORDS=""
-IUSE="tools"
+IUSE="tools widgets"
 
 # IUSE="svg"
 # 	svg? (
@@ -27,24 +27,32 @@ IUSE="tools"
 # 		>=kde-frameworks/kconfig-${KFMIN}:6
 # 		kde-plasma/libplasma:6=
 # 	)
-RDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+DEPEND="
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets?]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	widgets? ( kde-plasma/breeze:6 )
+"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[qdoc]"
 
 DOCS=( README.md )
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_FRAMEWORKS=ON # we have no reason to disable those at this point
-		-DWITH_KIRIGAMI=ON
-		-DWITH_PLASMASVG_INPUT=OFF # defunct as of 2025-10-09
+		-DBUILD_INPUT_PLASMASVG=OFF # defunct as of 2025-10-09
+		-DBUILD_INPUT_CSS=OFF # cxx-rust-cssparser not packaged
+		-DBUILD_WITH_KDEFRAMEWORKS=ON # required by BUILD_PLATFORM_PLASMA
+		-DBUILD_PLATFORM_PLASMA=ON
+		-DBUILD_OUTPUT_KIRIGAMI=ON
+		-DBUILD_OUTPUT_QTQUICK=ON # required by BUILD_OUTPUT_KIRIGAMI
+		-DBUILD_OUTPUT_QTWIDGETS=$(usex widgets)
 		-DBUILD_TOOLS=$(usex tools)
 	)
 	ecm_src_configure

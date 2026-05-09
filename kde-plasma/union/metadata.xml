@@ -11,5 +11,6 @@
 	</upstream>
 	<use>
 		<flag name="tools">Build tools that are useful for development</flag>
+		<flag name="widgets">Build QtWidgets output that uses <pkg>kde-plasma/breeze</pkg> as the base by default</flag>
 	</use>
 </pkgmetadata>
