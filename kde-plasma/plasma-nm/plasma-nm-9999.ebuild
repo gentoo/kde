@@ -16,8 +16,9 @@ KEYWORDS=""
 IUSE="openconnect teamd"
 
 COMMON_DEPEND="
-	>=app-crypt/qca-2.3.7:2[qt6(+)]
+	dev-libs/openssl:=
 	dev-libs/qcoro[dbus]
+	>=dev-libs/qtkeychain-0.15.0:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
@@ -33,7 +34,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
-	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
