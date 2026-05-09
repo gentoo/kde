@@ -20,25 +20,26 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-qt/qtbase:6[network,ssl,xml]
-	dev-qt/qt5compat:6
 	gstreamer? ( media-libs/gstreamer )
 	omemo? (
-		app-crypt/qca:2[qt6(+)]
+		>=dev-libs/openssl-3:0/3
 		net-libs/libomemo-c
 	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( app-text/doxygen )"
+BDEPEND="
+	virtual/pkgconfig
+	doc? ( app-text/doxygen )
+"
 
 src_configure() {
 	local mycmakeargs=(
-		-DQT_VERSION_MAJOR=6
+		-DCMAKE_DISABLE_FIND_PACKAGE_ECM=ON # clang-format only
 		-DBUILD_DOCUMENTATION=$(usex doc)
 		-DBUILD_EXAMPLES=OFF
-		-DBUILD_TESTS=$(usex test)
-		-DBUILD_INTERNAL_TESTS=$(usex test)
+		-DBUILD_TESTING=$(usex test)
 		-DBUILD_OMEMO=$(usex omemo)
-		-DWITH_QCA=$(usex omemo)
+		-DWITH_ENCRYPTION=$(usex omemo)
 		-DWITH_GSTREAMER=$(usex gstreamer)
 	)
 	cmake_src_configure
