@@ -14,7 +14,7 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="appstream +fontconfig +ksysguard networkmanager +policykit
+IUSE="appstream +fontconfig +ksysguard +policykit
 screencast +semantic-desktop systemd telemetry +wallpaper-metadata +X"
 
 REQUIRED_USE="fontconfig? ( X )"
@@ -71,6 +71,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-frameworks/networkmanager-qt-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6[qml]
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/breeze-${KDE_CATV}:6
@@ -90,7 +91,6 @@ COMMON_DEPEND="
 	appstream? ( >=dev-libs/appstream-1[qt6] )
 	ksysguard? ( >=kde-plasma/libksysguard-${KDE_CATV}:6 )
 	policykit? ( virtual/libcrypt:= )
-	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
 	systemd? ( sys-apps/systemd:= )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
@@ -196,7 +196,6 @@ src_configure() {
 		$(cmake_use_find_package fontconfig Fontconfig)
 		$(cmake_use_find_package fontconfig Freetype)
 		$(cmake_use_find_package ksysguard KSysGuard)
-		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
 		-DBUILD_CAMERAINDICATOR=$(usex screencast)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
