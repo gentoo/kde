@@ -39,6 +39,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/plasma-wayland-protocols
 "
 RDEPEND="${COMMON_DEPEND}
+	dev-libs/kirigami-addons:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
