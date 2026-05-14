@@ -88,13 +88,15 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/aurorae-${KDE_CATV}:6
 	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/milou-${KDE_CATV}:6
 	sys-apps/hwdata
 	X? ( >=x11-base/xwayland-23.1.0[libei] )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.20.0
-	>=dev-libs/wayland-protocols-1.47
+	>=dev-libs/plasma-wayland-protocols-1.21.0
+	>=dev-libs/wayland-protocols-1.48
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
+	dev-util/vulkan-headers
 	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
 	X? ( x11-base/xorg-proto )
 "

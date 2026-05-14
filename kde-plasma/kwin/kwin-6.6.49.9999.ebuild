@@ -88,6 +88,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/aurorae-${KDE_CATV}:6
 	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/milou-${KDE_CATV}:6
 	sys-apps/hwdata
 	X? ( >=x11-base/xwayland-23.1.0[libei] )
 "
