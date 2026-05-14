@@ -58,7 +58,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
-	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/krunner-${KFMIN}:6

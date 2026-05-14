@@ -58,7 +58,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
-	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/krunner-${KFMIN}:6
@@ -116,7 +115,7 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.19.0
+	>=dev-libs/plasma-wayland-protocols-1.21.0
 	dev-libs/qcoro
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	test? ( screencast? ( >=media-video/pipewire-0.3:* ) )
