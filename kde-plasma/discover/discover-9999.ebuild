@@ -24,7 +24,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/attica-${KFMIN}:6
-	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -45,7 +44,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/purpose-${KFMIN}:6
 	firmware? ( >=sys-apps/fwupd-1.9.4 )
 	flatpak? ( sys-apps/flatpak )
-	snap? ( sys-libs/snapd-glib:=[qt6(-)] )
+	snap? (
+		>=kde-frameworks/kauth-${KFMIN}:6
+		sys-libs/snapd-glib:=[qt6(-)]
+	)
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 	webengine? ( >=dev-qt/qtwebview-${QTMIN}:6 )
 "
