@@ -11,7 +11,7 @@ inherit ecm fcaps flag-o-matic plasma.kde.org toolchain-funcs
 DESCRIPTION="Task management and system monitoring library"
 
 LICENSE="LGPL-2+"
-SLOT="6/10"
+SLOT="6/11"
 KEYWORDS=""
 IUSE=""
 
