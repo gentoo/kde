@@ -47,6 +47,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.19.0
+	>=dev-libs/wayland-protocols-1.46
 	x11-base/xorg-proto
 	test? ( >=kde-frameworks/karchive-${KFMIN}:6 )
 "
