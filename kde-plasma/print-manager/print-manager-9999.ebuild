@@ -12,7 +12,8 @@ DESCRIPTION="Manage CUPS print jobs and printers in Plasma"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="+gtk"
+IUSE="+gtk test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6
@@ -32,7 +33,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	>=net-print/cups-2.4
-	test? ( >=kde-frameworks/kitemmodels-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
 	!<kde-plasma/print-manager-23.08.5-r100:5
@@ -40,6 +40,7 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	gtk? ( app-admin/system-config-printer )
 "
+DEPEND+=" test? ( >=kde-frameworks/kitemmodels-${KFMIN}:6 )"
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
 src_configure() {
