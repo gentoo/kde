@@ -70,7 +70,6 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?,X]
 	>=kde-plasma/plasma5support-${KDE_CATV}:6
-	media-libs/libcanberra
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libxcb
@@ -86,6 +85,7 @@ COMMON_DEPEND="
 	input_devices_wacom? (
 		dev-libs/wayland
 		dev-libs/libwacom:=
+		media-libs/libcanberra
 	)
 	scim? ( app-i18n/scim )
 	sdl? ( media-libs/libsdl2[joystick] )
