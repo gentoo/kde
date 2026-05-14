@@ -32,10 +32,12 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	>=net-print/cups-2.4
+	test? ( >=kde-frameworks/kitemmodels-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
 	!<kde-plasma/print-manager-23.08.5-r100:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	gtk? ( app-admin/system-config-printer )
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
