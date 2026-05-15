@@ -9,7 +9,7 @@ RUST_MIN_VER="1.85.0"
 
 # TODO: ECMGenerateQDoc
 ECM_TEST="true"
-inherit cargo ecm kde.org toolchain-funcs
+inherit cargo ecm flag-o-matic kde.org
 
 DESCRIPTION="C++ library for parsing CSS that uses the Rust cssparser crate internally"
 HOMEPAGE="https://invent.kde.org/libraries/cxx-rust-cssparser"
