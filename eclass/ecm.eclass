@@ -511,7 +511,7 @@ fi
 
 # @FUNCTION: cmake_prepare-per-cmakelists
 # @DESCRIPTION:
-# For proper description see cmake.eclass manpage.
+# For proper description see cmake-utils.eclass manpage.
 cmake_prepare-per-cmakelists() {
 	debug-print-function ${FUNCNAME} "$@"
 	local cm="$1"
