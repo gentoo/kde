@@ -11,7 +11,7 @@
 # (undisclosed contributors)
 # Original author: Zephyrus (zephyrus@mirach.it)
 # @SUPPORTED_EAPIS: 8
-# @PROVIDES: ninja-utils
+# @PROVIDES: cmake-utils ninja-utils
 # @BLURB: common ebuild functions for cmake-based packages
 # @DESCRIPTION:
 # The cmake eclass makes creating ebuilds for cmake-based packages much easier.
@@ -26,7 +26,7 @@ esac
 if [[ -z ${_CMAKE_ECLASS} ]]; then
 _CMAKE_ECLASS=1
 
-inherit flag-o-matic multiprocessing ninja-utils toolchain-funcs xdg-utils
+inherit cmake-utils flag-o-matic multiprocessing ninja-utils toolchain-funcs xdg-utils
 
 # @ECLASS_VARIABLE: BUILD_DIR
 # @DEFAULT_UNSET
@@ -99,15 +99,6 @@ fi
 # The default is set to "yes" (enabled).
 : "${CMAKE_WARN_UNUSED_CLI:=yes}"
 
-# @ECLASS_VARIABLE: CMAKE_ECM_MODE
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Default value is "auto", which means _cmake_modify-cmakelists will make an
-# effort to detect find_package(ECM) in CMakeLists.txt.  If set to true, make
-# extra checks and add common config settings related to ECM (KDE Extra CMake
-# Modules).  If set to false, do nothing.
-: "${CMAKE_ECM_MODE:=auto}"
-
 # @ECLASS_VARIABLE: CMAKE_EXTRA_CACHE_FILE
 # @USER_VARIABLE
 # @DEFAULT_UNSET
@@ -115,38 +106,6 @@ fi
 # Specifies an extra cache file to pass to cmake. This is the analog of EXTRA_ECONF
 # for econf and is needed to pass TRY_RUN results when cross-compiling.
 # Should be set by user in a per-package basis in /etc/portage/package.env.
-
-# @ECLASS_VARIABLE: CMAKE_QA_COMPAT_SKIP
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# If set, skip detection of CMakeLists.txt unsupported in CMake 4 in case of
-# false positives (e.g. unused outdated bundled libs).
-
-# @ECLASS_VARIABLE: _CMAKE_MINREQVER_CMAKE305
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Internal array containing <file>:<version> tuples detected by
-# _cmake_minreqver-get() for any CMake file with cmake_minimum_required
-# version lower than 3.5.
-_CMAKE_MINREQVER_CMAKE305=()
-
-# @ECLASS_VARIABLE: _CMAKE_MINREQVER_CMAKE310
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Internal array containing <file>:<version> tuples detected by
-# _cmake_minreqver-get() for any CMake file with cmake_minimum_required
-# version lower than 3.10 (causes CMake warnings as of 4.0) on top of those
-# already added to _CMAKE_MINREQVER_CMAKE305.
-_CMAKE_MINREQVER_CMAKE310=()
-
-# @ECLASS_VARIABLE: _CMAKE_MINREQVER_CMAKE316
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Internal array containing <file>:<version> tuples detected by
-# _cmake_minreqver-get() for any CMake file with cmake_minimum_required
-# version lower than 3.16 (causes ECM warnings since 5.100), on top of those
-# already added to _CMAKE_MINREQVER_CMAKE305 and _CMAKE_MINREQVER_CMAKE310.
-_CMAKE_MINREQVER_CMAKE316=()
 
 # @ECLASS_VARIABLE: CMAKE_QA_SRC_DIR_READONLY
 # @USER_VARIABLE
@@ -168,14 +127,6 @@ case ${CMAKE_BUILD_TYPE} in
 	*) ;;
 esac
 
-case ${CMAKE_ECM_MODE} in
-	auto|true|false) ;;
-	*)
-		eerror "Unknown value for \${CMAKE_ECM_MODE}"
-		die "Value ${CMAKE_ECM_MODE} is not supported"
-		;;
-esac
-
 case ${CMAKE_MAKEFILE_GENERATOR} in
 	emake)
 		BDEPEND="dev-build/make"
@@ -192,82 +143,6 @@ esac
 if [[ ${PN} != cmake ]]; then
 	BDEPEND+=" >=dev-build/cmake-3.31.9-r1"
 fi
-
-# @FUNCTION: cmake_run_in
-# @USAGE: <working dir> <run command>
-# @DESCRIPTION:
-# Set the desired working dir for a function or command.
-cmake_run_in() {
-	if [[ -z ${2} ]]; then
-		die "${FUNCNAME[0]} must be passed at least two arguments"
-	fi
-
-	[[ -e ${1} ]] || die "${FUNCNAME[0]}: Nonexistent path: ${1}"
-
-	pushd ${1} > /dev/null || die
-		"${@:2}"
-	popd > /dev/null || die
-}
-
-# @FUNCTION: cmake_comment_add_subdirectory
-# @USAGE: [-f <filename or directory>] <subdirectory> [<subdirectories>]
-# @DESCRIPTION:
-# Comment out one or more add_subdirectory calls with #DONOTBUILD in
-# a) a given file path (error out on nonexisting path)
-# b) a CMakeLists.txt file inside a given directory (ewarn if not found)
-# c) CMakeLists.txt in current directory (do nothing if not found).
-cmake_comment_add_subdirectory() {
-	local d filename="CMakeLists.txt"
-	if [[ $# -lt 1 ]]; then
-		die "${FUNCNAME[0]} must be passed at least one subdirectory name to comment"
-	fi
-	case ${1} in
-		-f)
-			if [[ $# -ge 3 ]]; then
-				filename="${2}"
-				if [[ -d ${filename} ]]; then
-					filename+="/CMakeLists.txt"
-					if [[ ! -e ${filename} ]]; then
-						ewarn "You've given me nothing to work with in ${filename}!"
-						return
-					fi
-				elif [[ ! -e ${filename} ]]; then
-					die "${FUNCNAME}: called on non-existing ${filename}"
-				fi
-			else
-				die "${FUNCNAME[0]}: bad number of arguments: -f <filename or directory> <subdirectory> expected"
-			fi
-			shift 2
-			;;
-		*)
-			[[ -e ${filename} ]] || return
-			;;
-	esac
-
-	for d in "$@"; do
-		d=${d//\//\\/}
-		sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${d}\([[:space:]][a-Z_ ]*\|[[:space:]]*\))/I s/^/#DONOTBUILD /" \
-			-i ${filename} || die "failed to comment add_subdirectory(${d})"
-	done
-}
-
-# @FUNCTION: cmake_use_find_package
-# @USAGE: <USE flag> <package name>
-# @DESCRIPTION:
-# Based on use_enable. See ebuild(5).
-#
-# `cmake_use_find_package foo LibFoo` echoes -DCMAKE_DISABLE_FIND_PACKAGE_LibFoo=OFF
-# if foo is enabled and -DCMAKE_DISABLE_FIND_PACKAGE_LibFoo=ON if it is disabled.
-# This can be used to make find_package optional.
-cmake_use_find_package() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	if [[ "$#" != 2 || -z $1 ]] ; then
-		die "Usage: cmake_use_find_package <USE flag> <package name>"
-	fi
-
-	echo "-DCMAKE_DISABLE_FIND_PACKAGE_$2=$(use $1 && echo OFF || echo ON)"
-}
 
 # @FUNCTION: _cmake_check_build_dir
 # @INTERNAL
@@ -298,110 +173,30 @@ _cmake_check_build_dir() {
 	mkdir -p "${BUILD_DIR}" || die
 }
 
-# @FUNCTION: _cmake_minreqver-get
-# @USAGE: <path>
+# @FUNCTION: _cmake_modify-per-cmakelists
 # @INTERNAL
 # @DESCRIPTION:
-# Internal function for extracting cmake_minimum_required version from a
-# given CMake file <path>.  Echos minimum version if found.
-_cmake_minreqver-get() {
-	if [[ $# -ne 1 ]]; then
-		die "${FUNCNAME[0]} must be passed exactly one argument"
-	fi
-	local ver=$(sed -ne "/^\s*cmake_minimum_required/I{s/.*\(\.\.\.*\|\s\)\([0-9][0-9.]*\)\([)]\|\s\).*$/\2/p;q}" \
-		"${1}" 2>/dev/null \
-	)
-	[[ -n ${ver} ]] && echo ${ver}
-}
+# Comment out all set (<some_should_be_user_defined_variable> value)
+# In EAPI-8, calls cmake_prepare-per-cmakelists().
+_cmake_modify-per-cmakelists() {
+	debug-print-function ${FUNCNAME} "$@"
+	local file="$1"
 
-# @FUNCTION: _cmake_minreqver-info
-# @INTERNAL
-# @DESCRIPTION:
-# QA Notice and file listings for any CMake file not meeting various minimum
-# standards for cmake_minimum_required.  May be called from prepare or install
-# phase, adjusts QA notice accordingly (build or installed files warning).
-_cmake_minreqver-info() {
-	local warnlvl
-	[[ ${#_CMAKE_MINREQVER_CMAKE305[@]} != 0 ]] && warnlvl=305
-	[[ ${#_CMAKE_MINREQVER_CMAKE310[@]} != 0 ]] || [[ -n ${warnlvl} ]] && warnlvl=310
-	[[ ${CMAKE_ECM_MODE} == true ]] &&
-		{ [[ ${#_CMAKE_MINREQVER_CMAKE316[@]} != 0 ]] || [[ -n ${warnlvl} ]]; } && warnlvl=316
-
-	local weak_qaw="QA Notice: "
-	minreqver_qanotice() {
-		bug() {
-			case ${1} in
-				305) echo "951350" ;;
-				310) echo "964405" ;;
-				316) echo "964407" ;;
-			esac
-		}
-		minreqver_qanotice_prepare() {
-			case ${1} in
-				305)
-					eqawarn "${weak_qaw}Compatibility with CMake < 3.5 has been removed from CMake 4,"
-					eqawarn "${CATEGORY}/${PN} will fail to build w/o a fix."
-					;;
-				310) eqawarn "${weak_qaw}Compatibility with CMake < 3.10 will be removed in a future release." ;;
-				316) eqawarn "${weak_qaw}Compatibility w/ CMake < 3.16 will be removed in future ECM release." ;;
-			esac
-		}
-		minreqver_qanotice_install() {
-			case ${1} in
-				305)
-					eqawarn "${weak_qaw}Package installs CMake module(s) incompatible with CMake 4,"
-					eqawarn "breaking any packages relying on it."
-					;;
-				31[06])
-					eqawarn "${weak_qaw}Package installs CMake module(s) w/ <${1/3/3.} minimum version that will"
-					eqawarn "be unsupported by future releases and is going to break any packages relying on it."
-					;;
-			esac
-		}
-		minreqver_qanotice_${EBUILD_PHASE} ${1}
-		eqawarn "See also tracker bug #$(bug ${1}); check existing or file a new bug for this package."
-		case ${1} in
-			305)	eqawarn "Please also take it upstream." ;;
-			31[06])	eqawarn "If not fixed in upstream's code repository, we should make sure they are aware." ;;
-		esac
-		eqawarn
-		weak_qaw="" # weak notice: no "QA Notice" starting with second call
-	}
-
-	local info
-	# <eqawarn msg> <_CMAKE_MINREQVER_* array>
-	minreqver_listing() {
-		[[ ${#@} -gt 1 ]] || return
-		eqawarn "${1}"
-		shift
-		for info in "${@}"; do
-			eqawarn "  ${info}";
+	sed \
+		-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_BUILD_TYPE\([[:space:]].*)\|)\)/I{s/^/#_cmake_modify_IGNORE /g}' \
+		-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_\(COLOR_MAKEFILE\|INSTALL_PREFIX\|VERBOSE_MAKEFILE\)[[:space:]].*)/I{s/^/#_cmake_modify_IGNORE /g}' \
+		-i "${file}" || die "failed to disable hardcoded settings"
+	readarray -t mod_lines < <(grep -se "^#_cmake_modify_IGNORE" "${file}")
+	if [[ ${#mod_lines[*]} -gt 0 ]]; then
+		einfo "Hardcoded definition(s) removed in ${file/${CMAKE_USE_DIR%\/}\//}:"
+		local mod_line
+		for mod_line in "${mod_lines[@]}"; do
+			einfo "${mod_line:22:99}"
 		done
-		eqawarn
-	}
+	fi
 
-	# CMake 4-caused error is highest priority and must always be shown
-	if [[ ${#_CMAKE_MINREQVER_CMAKE305[@]} != 0 ]]; then
-		minreqver_qanotice 305
-		minreqver_listing "The following files are causing errors:" ${_CMAKE_MINREQVER_CMAKE305[*]}
-	fi
-	# for warnings, we only want the latest relevant one, but list all flagged files
-	if [[ ${warnlvl} -ge 310 ]]; then
-		minreqver_qanotice ${warnlvl}
-		minreqver_listing "The following files are causing warnings:" ${_CMAKE_MINREQVER_CMAKE310[*]}
-		[[ ${warnlvl} == 316 ]] &&
-			minreqver_listing "The following files are causing warnings:" ${_CMAKE_MINREQVER_CMAKE316[*]}
-	fi
-	if [[ ${warnlvl} ]]; then
-		if [[ ${EBUILD_PHASE} == prepare && ${#_CMAKE_MINREQVER_CMAKE305[@]} != 0 ]] && has_version -b ">=dev-build/cmake-4"; then
-			eqawarn "CMake 4 detected; building with -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
-			eqawarn "This is merely a workaround to avoid CMake Error and *not* a permanent fix;"
-			eqawarn "there may be new build or runtime bugs as a result."
-			eqawarn
-		fi
-		eqawarn "An upstreamable patch should take any resulting CMake policy changes"
-		eqawarn "into account. See also:"
-		eqawarn "  https://cmake.org/cmake/help/latest/manual/cmake-policies.7.html"
+	if [[ ${EAPI} == 8 ]]; then
+		cmake_prepare-per-cmakelists ${file}
 	fi
 }
 
@@ -427,38 +222,7 @@ _cmake_modify-cmakelists() {
 	# Only edit the files once
 	grep -qs "<<< Gentoo configuration >>>" "${CMAKE_USE_DIR}"/CMakeLists.txt && return 0
 
-	local file ver
-	while read -d '' -r file ; do
-		# Comment out all set (<some_should_be_user_defined_variable> value)
-		sed \
-			-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_BUILD_TYPE\([[:space:]].*)\|)\)/I{s/^/#_cmake_modify_IGNORE /g}' \
-			-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_\(COLOR_MAKEFILE\|INSTALL_PREFIX\|VERBOSE_MAKEFILE\)[[:space:]].*)/I{s/^/#_cmake_modify_IGNORE /g}' \
-			-i "${file}" || die "failed to disable hardcoded settings"
-		readarray -t mod_lines < <(grep -se "^#_cmake_modify_IGNORE" "${file}")
-		if [[ ${#mod_lines[*]} -gt 0 ]]; then
-			einfo "Hardcoded definition(s) removed in ${file/${CMAKE_USE_DIR%\/}\//}:"
-			local mod_line
-			for mod_line in "${mod_lines[@]}"; do
-				einfo "${mod_line:22:99}"
-			done
-		fi
-		if [[ ${CMAKE_ECM_MODE} == auto ]] && grep -Eq "\s*find_package\s*\(\s*ECM " "${file}"; then
-			CMAKE_ECM_MODE=true
-		fi
-		ver=$(_cmake_minreqver-get "${file}")
-		# Flag unsupported minimum CMake versions unless CMAKE_QA_COMPAT_SKIP is set
-		if [[ -n "${ver}" && ! ${CMAKE_QA_COMPAT_SKIP} ]]; then
-			# we don't want duplicates that were already flagged
-			if ver_test "${ver}" -lt "3.5"; then
-				_CMAKE_MINREQVER_CMAKE305+=( "${file#"${CMAKE_USE_DIR}/"}":"${ver}" )
-			elif ver_test "${ver}" -lt "3.10"; then
-				_CMAKE_MINREQVER_CMAKE310+=( "${file#"${CMAKE_USE_DIR}/"}":"${ver}" )
-			elif ver_test "${ver}" -lt "3.16"; then
-				_CMAKE_MINREQVER_CMAKE316+=( "${file#"${CMAKE_USE_DIR}/"}":"${ver}" )
-			fi
-		fi
-		cmake_prepare-per-cmakelists ${file}
-	done < <(find "${CMAKE_USE_DIR}" -type f -iname "CMakeLists.txt" -print0 || die)
+	cmake_recurse_files "${CMAKE_USE_DIR}" "CMakeLists.txt" _cmake_modify-per-cmakelists
 
 	# NOTE Append some useful summary here
 	cat >> "${CMAKE_USE_DIR}"/CMakeLists.txt <<- _EOF_ || die
@@ -505,9 +269,8 @@ cmake_prepare() {
 		find -name "${name}.cmake" -exec rm -v {} + || die
 	done
 
-	# Remove dangerous things.
-	_cmake_modify-cmakelists
-	_cmake_minreqver-info
+	_cmake_modify-cmakelists # remove dangerous things
+	cmake_minreqver_qainfo
 
 	# Make ${CMAKE_USE_DIR} read-only in order to detect broken build systems
 	if [[ ${CMAKE_QA_SRC_DIR_READONLY} && ! ${CMAKE_IN_SOURCE_BUILD} ]]; then
@@ -731,11 +494,8 @@ cmake_src_configure() {
 		cmakeargs+=( -C "${CMAKE_EXTRA_CACHE_FILE}" )
 	fi
 
-	if ! [[ ${CMAKE_QA_COMPAT_SKIP} ]] &&
-		[[ -n ${_CMAKE_MINREQVER_CMAKE305[@]} ]] &&
-		has_version -b ">=dev-build/cmake-4"; then
-		cmakeargs+=( -DCMAKE_POLICY_VERSION_MINIMUM=3.5 )
-	fi
+	[[ -n ${CMAKE_POLICY_VERSION_MINIMUM} ]] &&
+		cmakeargs+=( -DCMAKE_POLICY_VERSION_MINIMUM=${CMAKE_POLICY_VERSION_MINIMUM} )
 
 	pushd "${BUILD_DIR}" > /dev/null || die
 	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${mycmakeargs_local[*]}"
@@ -851,23 +611,7 @@ cmake_src_install() {
 		einstalldocs
 	popd > /dev/null || die
 
-	# reset these for install phase run
-	_CMAKE_MINREQVER_CMAKE305=()
-	_CMAKE_MINREQVER_CMAKE310=()
-	_CMAKE_MINREQVER_CMAKE316=()
-	local file ver
-	while read -d '' -r file ; do
-		# Flag unsupported minimum CMake versions unless CMAKE_QA_COMPAT_SKIP is set
-		ver=$(_cmake_minreqver-get "${file}")
-		if [[ -n "${ver}" && ! ${CMAKE_QA_COMPAT_SKIP} ]]; then
-			if ver_test "${ver}" -lt "3.5"; then
-				_CMAKE_MINREQVER_CMAKE305+=( "${file#"${D}"}":"${ver}" )
-			elif ver_test "${ver}" -lt "3.10"; then
-				_CMAKE_MINREQVER_CMAKE310+=( "${file#"${D}"}":"${ver}" )
-			fi
-		fi
-	done < <(find "${D}" -type f -iname "*.cmake" -print0 || die)
-	_cmake_minreqver-info
+	cmake_minreqver_qainfo
 }
 
 fi
