@@ -29,7 +29,6 @@ DEPEND="
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
-	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
@@ -42,8 +41,13 @@ PDEPEND=">=kde-frameworks/breeze-icons-${KFMIN}:*"
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_QT6=ON
 		-DBUILD_QT5=OFF
+		-DBUILD_QT6=ON
+		 # TODO: Consider build options? # bug 911205
+		-DWITH_DECORATIONS=ON
+		-DWITH_WALLPAPERS=ON
+		-DBUILD_CURSOR=ON
+		-DBUILD_WITH_QTQUICK=ON # qtdeclarative
 	)
 	ecm_src_configure
 }
