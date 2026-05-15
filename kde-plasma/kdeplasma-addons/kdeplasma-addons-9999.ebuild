@@ -67,16 +67,6 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="dev-build/corrosion"
 
-src_unpack() {
-	if [[ ${KDE_BUILD_TYPE} == live ]]; then
-		git-r3_src_unpack
-		default
-		S="${S}/kdeds/kameleon/qmk/kameleon-qmk-helper" cargo_live_src_unpack
-	else
-		cargo_src_unpack
-	fi
-}
-
 src_configure() {
 	# Rust extensions are incompatible with C/C++ LTO compiler see e.g.
 	# https://bugs.gentoo.org/910220
