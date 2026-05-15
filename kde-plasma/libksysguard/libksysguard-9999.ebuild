@@ -29,6 +29,7 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:6
 	net-libs/libpcap
 	sys-apps/lm-sensors:=
+	virtual/libudev:=
 	virtual/zlib:=
 	x11-libs/libdrm
 "
