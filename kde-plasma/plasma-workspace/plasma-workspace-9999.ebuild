@@ -14,8 +14,8 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="appstream +fontconfig +ksysguard +policykit
-screencast +semantic-desktop systemd telemetry +wallpaper-metadata +X"
+IUSE="appstream +fontconfig flatpak +ksysguard +policykit screencast
++semantic-desktop systemd telemetry +wallpaper-metadata +X"
 
 REQUIRED_USE="fontconfig? ( X )"
 RESTRICT="test"
@@ -88,6 +88,7 @@ COMMON_DEPEND="
 	virtual/zlib:=
 	virtual/libudev:=
 	appstream? ( >=dev-libs/appstream-1[qt6] )
+	flatpak? ( sys-apps/flatpak )
 	ksysguard? ( >=kde-plasma/libksysguard-${KDE_CATV}:6 )
 	policykit? ( virtual/libcrypt:= )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
@@ -178,7 +179,10 @@ src_prepare() {
 		sed -e "s/check_X11_lib(Xft)/#&/" -i CMakeLists.txt || die
 	fi
 
-	# TODO: try to get a build switch upstreamed
+	# TODO: try to get build switches upstreamed
+	if ! use flatpak; then
+		sed -e "s/^pkg_check_modules.*Flatpak/#&/" -i CMakeLists.txt || die
+	fi
 	if ! use systemd; then
 		sed -e "s/^pkg_check_modules.*SYSTEMD/#&/" -i CMakeLists.txt || die
 	fi
