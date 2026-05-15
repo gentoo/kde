@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_TEST="true"
 KFMIN=9999
 QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
@@ -24,7 +25,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons
@@ -34,6 +35,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.19
+	test? ( >=dev-qt/qtwayland-${QTMIN}:6 )
 "
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
