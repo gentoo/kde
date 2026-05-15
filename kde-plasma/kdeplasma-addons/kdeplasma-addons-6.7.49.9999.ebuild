@@ -3,14 +3,24 @@
 
 EAPI=8
 
+CRATES="
+"
+RUST_MIN_VER="1.87.0"
+
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.24.0
 QTMIN=6.10.1
-inherit ecm plasma.kde.org optfeature xdg
+inherit cargo ecm flag-o-matic plasma.kde.org optfeature xdg
 
 DESCRIPTION="Extra Plasma applets and engines"
 
+if [[ ${KDE_BUILD_TYPE} == release ]] && [[ ${PKGBUMPING} != ${PVR} ]]; then
+	SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz"
+fi
+
 LICENSE="GPL-2 LGPL-2"
+# Dependent crate licenses
+LICENSE+=" GPL-3 MIT Unicode-3.0 ZLIB"
 SLOT="6"
 KEYWORDS=""
 IUSE="+alternate-calendar share webengine"
@@ -55,8 +65,16 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 "
+BDEPEND="
+	dev-build/corrosion
+	dev-build/cxxbridge-cmd
+"
 
 src_configure() {
+	# Rust extensions are incompatible with C/C++ LTO compiler see e.g.
+	# https://bugs.gentoo.org/910220
+	filter-lto
+
 	local mycmakeargs=(
 		$(cmake_use_find_package alternate-calendar ICU)
 		$(cmake_use_find_package share KF6Purpose)
