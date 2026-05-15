@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_QTHELP="true"
+ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
 KFMIN=9999
 QTMIN=6.10.1
