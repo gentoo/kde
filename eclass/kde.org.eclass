@@ -236,7 +236,7 @@ kde.org_src_unpack() {
 		live)
 			git-r3_src_unpack
 			default
-			if has cmake ${INHERITED} && has cargo ${INHERITED} ]]; then
+			if has cmake ${INHERITED} && has cargo ${INHERITED}; then
 				_kde.org_live_corrosion_unpack
 			fi
 			;;
