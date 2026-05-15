@@ -34,7 +34,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	x11-libs/libXcursor
 	x11-libs/libxcb
 "
