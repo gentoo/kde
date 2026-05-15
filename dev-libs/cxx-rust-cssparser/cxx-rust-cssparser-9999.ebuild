@@ -27,7 +27,10 @@ LICENSE="BSD-2 CC0-1.0 || ( LGPL-2.1 LGPL-3 )"
 LICENSE+=" Apache-2.0 MIT MPL-2.0 Unicode-3.0 ZLIB"
 SLOT="0"
 
-BDEPEND="dev-build/corrosion"
+BDEPEND="
+	dev-build/corrosion
+	dev-build/cxxbridge-cmd
+"
 
 src_configure() {
 	# Rust extensions are incompatible with C/C++ LTO compiler see e.g.
