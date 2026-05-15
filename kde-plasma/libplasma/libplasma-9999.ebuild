@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_QTHELP="true"
+ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
 KFMIN=9999
 QTMIN=6.10.1
@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-libs/wayland-1.15.0
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
-	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
+	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
@@ -53,6 +53,8 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
+	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
 "
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
