@@ -70,7 +70,6 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?,X]
 	>=kde-plasma/plasma5support-${KDE_CATV}:6
-	media-libs/libcanberra
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libxcb
@@ -84,8 +83,9 @@ COMMON_DEPEND="
 		x11-libs/xcb-util-keysyms
 	)
 	input_devices_wacom? (
-		dev-libs/wayland
 		dev-libs/libwacom:=
+		dev-libs/wayland
+		media-libs/libcanberra
 	)
 	scim? ( app-i18n/scim )
 	sdl? ( media-libs/libsdl2[joystick] )
@@ -126,6 +126,7 @@ BDEPEND="
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/${PN}-6.1.80-override-include-dirs.patch" # downstream patch
+	"${FILESDIR}/${PN}-6.6.5-canberra-optional.patch"
 )
 
 src_prepare() {

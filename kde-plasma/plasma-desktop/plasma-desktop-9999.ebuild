@@ -83,8 +83,8 @@ COMMON_DEPEND="
 		x11-libs/xcb-util-keysyms
 	)
 	input_devices_wacom? (
-		dev-libs/wayland
 		dev-libs/libwacom:=
+		dev-libs/wayland
 		media-libs/libcanberra
 	)
 	scim? ( app-i18n/scim )
