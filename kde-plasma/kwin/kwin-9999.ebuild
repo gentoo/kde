@@ -24,7 +24,7 @@ RESTRICT="test"
 # qtbase[X]: private/qtx11extras_p.h in src/helpers/killer
 COMMON_DEPEND="
 	>=dev-libs/libei-1.4
-	>=dev-libs/libinput-1.28:=
+	>=dev-libs/libinput-1.30:=
 	>=dev-libs/wayland-1.24.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,wayland,widgets,X]
