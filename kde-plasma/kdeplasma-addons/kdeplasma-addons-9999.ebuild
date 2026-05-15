@@ -28,6 +28,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
