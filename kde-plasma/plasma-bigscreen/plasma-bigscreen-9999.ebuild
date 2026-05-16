@@ -51,6 +51,11 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/plasma-wayland-protocols
 "
 RDEPEND="${COMMON_DEPEND}
+	>=kde-plasma/kwin-${KDE_CATV}:6
+	>=kde-plasma/milou-${KDE_CATV}:6
+	>=kde-plasma/plasma-nano-${KDE_CATV}:6
+	>=kde-plasma/plasma-nm-${KDE_CATV}:6
+	>=kde-plasma/plasma-pa-${KDE_CATV}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:6
 "
