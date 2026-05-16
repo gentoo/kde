@@ -12,7 +12,7 @@ DESCRIPTION="Qt Platform Theme integration plugins for the Plasma workspaces"
 LICENSE="LGPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE=""
+IUSE="union"
 
 # requires running kde environment
 RESTRICT="test"
@@ -36,6 +36,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	x11-libs/libXcursor
 	x11-libs/libxcb
+	union? ( >=kde-plasma/union-${KDE_CATV}:6 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.19.0
@@ -55,6 +56,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_QT6=ON
 		-DBUILD_QT5=OFF
+		-DDEFAULT_UNION_STYLE=$(usex union)
 	)
 	ecm_src_configure
 }
