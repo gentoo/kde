@@ -65,10 +65,7 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 "
-BDEPEND="
-	dev-build/corrosion
-	dev-build/cxxbridge-cmd
-"
+BDEPEND="dev-build/corrosion"
 
 src_configure() {
 	# Rust extensions are incompatible with C/C++ LTO compiler see e.g.
