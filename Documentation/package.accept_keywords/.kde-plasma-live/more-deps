@@ -1,2 +1,4 @@
 ~media-libs/pulseaudio-qt-9999 **
 ~dev-libs/plasma-wayland-protocols-9999 **
+~dev-build/cxxbridge-cmd-1.0.194
+~dev-libs/cxx-rust-cssparser-1.0.0
