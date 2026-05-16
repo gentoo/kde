@@ -40,14 +40,17 @@ DEPEND="
 RDEPEND="${DEPEND}
 	widgets? ( kde-plasma/breeze:6 )
 "
-BDEPEND=">=dev-qt/qttools-${QTMIN}:6[qdoc]"
+BDEPEND="
+	dev-libs/cxx-rust-cssparser
+	>=dev-qt/qttools-${QTMIN}:6[qdoc]
+"
 
 DOCS=( README.md )
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_INPUT_PLASMASVG=OFF # defunct as of 2025-10-09
-		-DBUILD_INPUT_CSS=OFF # cxx-rust-cssparser not packaged
+		-DBUILD_INPUT_CSS=ON # CSS is the default input format
 		-DBUILD_WITH_KDEFRAMEWORKS=ON # required by BUILD_PLATFORM_PLASMA
 		-DBUILD_PLATFORM_PLASMA=ON
 		-DBUILD_OUTPUT_KIRIGAMI=ON
