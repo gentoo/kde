@@ -54,3 +54,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:6
 "
+BDEPEND="
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
+	dev-util/wayland-scanner
+"
