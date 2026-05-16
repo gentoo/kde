@@ -67,7 +67,6 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	dev-build/corrosion
-	dev-build/cxxbridge-cmd
 "
 
 src_configure() {
