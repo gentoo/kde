@@ -38,6 +38,15 @@ readonly KDE_CATV
 # For proper description see kde.org.eclass manpage.
 KDE_PV_UNRELEASED=( )
 
+# Set _KDE_RELEASE_MANAGER to enable signature checking.
+case ${PV} in
+	*_p*) ;;
+	*) _KDE_RELEASE_MANAGER="bshah" ;;
+esac
+# Allow overriding in ebuild if necessary
+: ${KDE_RELEASE_MANAGER:=${_KDE_RELEASE_MANAGER}}
+unset _KDE_RELEASE_MANAGER
+
 inherit kde.org
 
 HOMEPAGE="https://kde.org/plasma-desktop"
@@ -68,6 +77,10 @@ elif [[ -z ${KDE_ORG_COMMIT} ]]; then
 	esac
 
 	SRC_URI="${_KDE_SRC_URI}${KDE_ORG_TAR_PN}-${PV}.tar.xz"
+
+	if [[ -n ${KDE_RELEASE_MANAGER} ]]; then
+		SRC_URI+=" verify-sig? ( ${_KDE_SRC_URI}${KDE_ORG_TAR_PN}-${PV}.tar.xz.sig )"
+	fi
 fi
 
 case ${PN} in
