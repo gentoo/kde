@@ -9,6 +9,7 @@ RUST_MIN_VER="1.85.0"
 
 # TODO: ECMGenerateQDoc
 ECM_TEST="true"
+KDE_RELEASE_MANAGER="bshah"
 inherit cargo ecm flag-o-matic kde.org
 
 DESCRIPTION="C++ library for parsing CSS that uses the Rust cssparser crate internally"
@@ -16,10 +17,13 @@ HOMEPAGE="https://invent.kde.org/libraries/cxx-rust-cssparser"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${KDE_ORG_NAME}/${KDE_ORG_NAME}-${PV}.tar.xz"
-	KEYWORDS="~amd64"
+	if [[ -n ${KDE_RELEASE_MANAGER} ]]; then
+		SRC_URI+=" verify-sig? ( mirror://kde/stable/${KDE_ORG_NAME}/${KDE_ORG_NAME}-${PV}.tar.xz.sig )"
+	fi
 	if [[ ${PKGBUMPING} != ${PVR} ]]; then
 		SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz"
 	fi
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="BSD-2 CC0-1.0 || ( LGPL-2.1 LGPL-3 )"
