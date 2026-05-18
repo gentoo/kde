@@ -3,9 +3,11 @@
 
 EAPI=8
 
+KDE_ORG_CATEGORY=plasma-mobile
+
 KFMIN=6.3.0
 QTMIN=6.6.2
-inherit ecm plasma-mobile.kde.org
+inherit ecm gear.kde.org
 
 DESCRIPTION="Touch friendly calendar application"
 HOMEPAGE="https://apps.kde.org/calindori/"
