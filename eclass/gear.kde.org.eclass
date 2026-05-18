@@ -250,6 +250,7 @@ fi
 if $(ver_test -gt 24.04.75); then
 	case ${PN} in
 		audex | \
+		calindori | \
 		itinerary | \
 		kio-perldoc | \
 		kolourpaint | \

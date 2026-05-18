@@ -30,7 +30,5 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 "
-RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5
-"
+RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
