@@ -5,6 +5,14 @@
 		<email>kde@gentoo.org</email>
 		<name>Gentoo KDE Project</name>
 	</maintainer>
+	<use>
+		<flag name="union">
+		Enable <pkg>kde-plasma/union</pkg> by default. This is still experimental
+		and many applications are not yet ready for it, so may either not
+		use it at all at runtime if enabled, or may misbehave. The USE
+		flag exists to facilitate testing for upstream bug reports.
+		</flag>
+	</use>
 	<upstream>
 		<bugs-to>https://bugs.kde.org/</bugs-to>
 	</upstream>
