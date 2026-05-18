@@ -3,6 +3,7 @@
 
 EAPI=8
 
+KDE_RELEASE_MANAGER="bsash"
 inherit cmake kde.org
 
 DESCRIPTION="Plasma Specific Protocols for Wayland"
@@ -10,6 +11,9 @@ HOMEPAGE="https://invent.kde.org/libraries/plasma-wayland-protocols"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	if [[ -n ${KDE_RELEASE_MANAGER} ]]; then
+		SRC_URI+=" verify-sig? ( mirror://kde/stable/${PN}/${P}.tar.xz.sig )"
+	fi
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
