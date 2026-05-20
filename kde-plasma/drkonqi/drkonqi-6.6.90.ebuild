@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 PYTHON_COMPAT=( python3_{11..14} )
-KFMIN=6.24.0
+KFMIN=6.26.0
 QTMIN=6.10.1
 inherit ecm plasma.kde.org python-single-r1 xdg
 

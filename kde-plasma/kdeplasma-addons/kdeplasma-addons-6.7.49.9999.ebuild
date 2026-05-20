@@ -8,7 +8,7 @@ CRATES="
 RUST_MIN_VER="1.87.0"
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.24.0
+KFMIN=6.26.0
 QTMIN=6.10.1
 inherit cargo ecm flag-o-matic plasma.kde.org optfeature xdg
 

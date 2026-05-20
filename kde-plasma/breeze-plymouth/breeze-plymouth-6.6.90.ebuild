@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=6.24.0
+KFMIN=6.26.0
 inherit branding cmake plasma.kde.org
 
 DESCRIPTION="Breeze theme for Plymouth"
