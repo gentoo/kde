@@ -20,7 +20,7 @@ SLOT="6/3"
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,opengl,wayland]
+	>=dev-qt/qtbase-${QTMIN}:6=[gui,opengl,wayland]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	media-video/mpv:=[libmpv]
 "
