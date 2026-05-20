@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=6.9.0
+KFMIN=6.10.0
 QTMIN=6.8.1
 inherit ecm kde.org optfeature xdg
 
