@@ -54,7 +54,7 @@ DEPEND="
 	>=kde-frameworks/purpose-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	media-video/ffmpeg:=[encode(+),libass,sdl,X]
-	>=media-libs/mlt-7.32.0:=[ffmpeg,frei0r,qt6,sdl,xml]
+	>=media-libs/mlt-7.38.0:=[ffmpeg,frei0r,qt6,sdl,xml]
 	>=media-libs/opentimelineio-0.18.0:=
 "
 RDEPEND="${DEPEND}
