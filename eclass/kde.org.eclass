@@ -34,7 +34,10 @@ fi
 export KDE_BUILD_TYPE
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
-	inherit eapi9-pipestatus git-r3
+	case ${EAPI} in
+		8) inherit eapi9-pipestatus ;&
+		*) inherit git-r3 ;;
+	esac
 fi
 
 # @ECLASS_VARIABLE: KDE_ORG_CATEGORIES
