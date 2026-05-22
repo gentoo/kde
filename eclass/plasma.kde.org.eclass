@@ -42,7 +42,7 @@ KDE_PV_UNRELEASED=( )
 case ${PV} in
 	*_p*) ;;
 	# avoid retroactively enabling verify-sig for eclass-overrides users
-	6.6.*) ;;
+	6.6.4|6.6.5) ;;
 	*) _KDE_RELEASE_MANAGER="bshah" ;;
 esac
 
