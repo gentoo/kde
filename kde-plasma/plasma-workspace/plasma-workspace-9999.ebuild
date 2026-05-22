@@ -128,6 +128,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/libkworkspace:5
 	!<kde-plasma/plasma-desktop-6.6.90
+	!kde-plasma/plasma-login-sessions
 	!<kde-plasma/xdg-desktop-portal-kde-6.1.90
 	!kde-plasma/xembed-sni-proxy:*
 	app-text/iso-codes
@@ -156,9 +157,6 @@ BDEPEND="
 		>=dev-qt/qtwayland-${QTMIN}:6[compositor(+)]
 		X? ( x11-misc/xdotool )
 	)
-"
-PDEPEND="
-	>=kde-plasma/plasma-login-sessions-${KDE_CATV}:6
 "
 
 PATCHES=(
@@ -191,7 +189,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_X11=$(usex X) # remember to submit patches with bugs
-		-DWITH_X11_SESSION=$(usex X)
+		-DWITH_X11_SESSION=OFF # gone in 6.8
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		-DGLIBC_LOCALE_GEN=OFF
 		-DGLIBC_LOCALE_PREGENERATED=$(usex elibc_glibc)
