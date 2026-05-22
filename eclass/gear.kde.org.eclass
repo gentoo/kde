@@ -83,7 +83,7 @@ elif [[ -z ${KDE_ORG_COMMIT} ]]; then
 	fi
 fi
 
-# list of applications ported to KF6 having to block SLOT=5
+# list of applications ported to KF6 having to block SLOT=5; TODO: drop on 2026-09-01
 if $(ver_test -gt 24.01.75); then
 	case ${PN} in
 		akonadi | \
@@ -270,7 +270,6 @@ fi
 if $(ver_test -gt 24.04.75); then
 	case ${PN} in
 		audex | \
-		calindori | \
 		itinerary | \
 		kio-perldoc | \
 		kolourpaint | \
