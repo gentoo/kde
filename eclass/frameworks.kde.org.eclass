@@ -41,6 +41,9 @@ KDE_PV_UNRELEASED=( )
 # Set _KDE_RELEASE_MANAGER to enable signature checking.
 case ${PV} in
 	*_p*) ;;
+	# avoid retroactively enabling verify-sig for eclass-overrides users
+	6.25.*) ;;
+	6.26.*) ;;
 	*) _KDE_RELEASE_MANAGER="nicolasfella" ;;
 esac
 # Allow overriding in ebuild if necessary
