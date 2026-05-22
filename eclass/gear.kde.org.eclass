@@ -39,7 +39,11 @@ case ${PV} in
 	26.04.*) ;;
 	*) _KDE_RELEASE_MANAGER="heikobecker" ;;
 esac
-# Allow overriding in ebuild if necessary
+
+# @ECLASS_VARIABLE: KDE_RELEASE_MANAGER
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Identity of a release manager used to verify distfile signature.
 : ${KDE_RELEASE_MANAGER:=${_KDE_RELEASE_MANAGER}}
 unset _KDE_RELEASE_MANAGER
 
