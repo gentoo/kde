@@ -38,21 +38,10 @@ readonly KDE_CATV
 # For proper description see kde.org.eclass manpage.
 KDE_PV_UNRELEASED=( )
 
-# Set _KDE_RELEASE_MANAGER to enable signature checking.
-case ${PV} in
-	*_p*) ;;
-	# avoid retroactively enabling verify-sig for eclass-overrides users
-	6.25.*) ;;
-	6.26.*) ;;
-	*) _KDE_RELEASE_MANAGER="nicolasfella" ;;
-esac
-
-# @ECLASS_VARIABLE: KDE_RELEASE_MANAGER
-# @PRE_INHERIT
-# @DESCRIPTION:
-# Identity of a release manager used to verify distfile signature.
-: ${KDE_RELEASE_MANAGER:=${_KDE_RELEASE_MANAGER}}
-unset _KDE_RELEASE_MANAGER
+# Enable verify-sig unconditionally in the future.
+if ver_test -ge 6.26.90; then
+	KDE_VERIFY_SIG=1
+fi
 
 inherit kde.org
 
@@ -83,7 +72,7 @@ _KDE_SRC_URI="mirror://kde/stable/frameworks/${KDE_CATV}/"
 if [[ ${KDE_BUILD_TYPE} != live && -z ${KDE_ORG_COMMIT} ]]; then
 	SRC_URI="${_KDE_SRC_URI}${KDE_ORG_TAR_PN}-${PV}.tar.xz"
 
-	if [[ -n ${KDE_RELEASE_MANAGER} ]]; then
+	if [[ -n ${KDE_VERIFY_SIG} ]]; then
 		SRC_URI+=" verify-sig? ( ${_KDE_SRC_URI}${KDE_ORG_TAR_PN}-${PV}.tar.xz.sig )"
 	fi
 fi

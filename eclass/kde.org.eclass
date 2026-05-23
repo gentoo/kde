@@ -110,15 +110,15 @@ readonly KDE_ORG_CATEGORIES
 # Known schedule URI of package or release group.
 : "${KDE_ORG_SCHEDULE_URI:="https://community.kde.org/Schedules"}"
 
-# @ECLASS_VARIABLE: KDE_RELEASE_MANAGER
+# @ECLASS_VARIABLE: KDE_VERIFY_SIG
 # @PRE_INHERIT
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# Identity of a release manager used to verify distfile signature.
-if [[ -n ${KDE_RELEASE_MANAGER} ]] && [[ ${KDE_BUILD_TYPE} == release ]] && [[ -z ${KDE_ORG_COMMIT} ]]; then
+# Enable signature verification for non snapshot releases.
+if [[ -n ${KDE_VERIFY_SIG} ]] && [[ ${KDE_BUILD_TYPE} == release ]] && [[ -z ${KDE_ORG_COMMIT} ]]; then
 	inherit verify-sig
-	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-${KDE_RELEASE_MANAGER} )"
-	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/${KDE_RELEASE_MANAGER}.asc
+	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-kde )"
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kde.asc
 fi
 
 # @ECLASS_VARIABLE: KDE_SELINUX_MODULE
@@ -255,7 +255,7 @@ kde.org_src_unpack() {
 			fi
 			;;
 		*)
-			if [[ -n ${KDE_RELEASE_MANAGER} ]] && [[ -z ${KDE_ORG_COMMIT} ]]; then
+			if has verify-sig ${INHERITED} && in_iuse verify-sig && use verify-sig; then
 				verify-sig_verify_detached "${DISTDIR}"/${KDE_ORG_TAR_PN}-${PV}.tar.xz{,.sig}
 			fi
 			if has cargo ${INHERITED}; then
