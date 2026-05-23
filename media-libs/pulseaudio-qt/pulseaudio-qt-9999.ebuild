@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_QTHELP="true"
 ECM_TEST="true"
-KDE_RELEASE_MANAGER="nicolasfella"
+KDE_VERIFY_SIG=1
 KFMIN=6.9.0
 QTMIN=6.8.1
 inherit ecm kde.org
@@ -16,7 +16,7 @@ HOMEPAGE="https://invent.kde.org/libraries/pulseaudio-qt"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	if [[ -n ${KDE_RELEASE_MANAGER} ]]; then
+	if [[ -n ${KDE_VERIFY_SIG} ]]; then
 		SRC_URI+=" verify-sig? ( mirror://kde/stable/${PN}/${P}.tar.xz.sig )"
 	fi
 	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
