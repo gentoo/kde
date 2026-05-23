@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="accessibility bluetooth +browser-integration +crash-handler crypt cups
 discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
 +networkmanager ocr oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart
-systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine X"
+systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
@@ -27,9 +27,9 @@ RDEPEND="
 	>=kde-plasma/kde-cli-tools-common-${PV}
 	>=kde-plasma/kdecoration-${PV}:${SLOT}
 	>=kde-plasma/kdeplasma-addons-${PV}:${SLOT}
-	>=kde-plasma/kdesu-gui-${PV}[X?]
+	>=kde-plasma/kdesu-gui-${PV}
 	>=kde-plasma/keditfiletype-${PV}
-	>=kde-plasma/kglobalacceld-${PV}:${SLOT}[X?]
+	>=kde-plasma/kglobalacceld-${PV}:${SLOT}
 	>=kde-plasma/kinfocenter-${PV}:${SLOT}
 	>=kde-plasma/kmenuedit-${PV}:${SLOT}
 	>=kde-plasma/knighttime-${PV}:${SLOT}
@@ -51,10 +51,9 @@ RDEPEND="
 	>=kde-plasma/plasma-activities-stats-${PV}:${SLOT}
 	>=kde-plasma/plasma-desktop-${PV}:${SLOT}
 	>=kde-plasma/plasma-integration-${PV}:${SLOT}
-	>=kde-plasma/plasma-login-sessions-${PV}:${SLOT}[X?]
 	>=kde-plasma/plasma-systemmonitor-${PV}:${SLOT}
 	>=kde-plasma/plasma-welcome-${PV}:${SLOT}
-	>=kde-plasma/plasma-workspace-${PV}:${SLOT}[X?]
+	>=kde-plasma/plasma-workspace-${PV}:${SLOT}
 	>=kde-plasma/plasma5support-${PV}:${SLOT}
 	>=kde-plasma/polkit-kde-agent-${PV}:*
 	>=kde-plasma/powerdevil-${PV}:${SLOT}
@@ -99,7 +98,7 @@ RDEPEND="
 	)
 	oxygen-theme? (
 		>=kde-frameworks/oxygen-icons-6.0.0:*
-		>=kde-plasma/oxygen-${PV}:${SLOT}[X?]
+		>=kde-plasma/oxygen-${PV}:${SLOT}
 		>=kde-plasma/oxygen-sounds-${PV}:${SLOT}
 	)
 	plymouth? (
@@ -120,12 +119,13 @@ RDEPEND="
 	wacom? ( >=kde-plasma/plasma-desktop-${PV}:${SLOT}[input_devices_wacom] )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 	webengine? ( kde-apps/khelpcenter:6 )
-	X? (
-		>=kde-plasma/kgamma-${PV}:${SLOT}
-		>=kde-plasma/kwin-x11-${PV}:${SLOT}[lock]
-		wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
-	)
 "
+# TODO: obsolete, unless in the unlikely event that 6.8 will not drop X11:
+# X? (
+# 	>=kde-plasma/kgamma-${PV}:${SLOT}
+# 	>=kde-plasma/kwin-x11-${PV}:${SLOT}[lock]
+# 	wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
+# )
 # NOTE spectacle moved from KDE Gear (yy.mm) to KDE Plasma version scheme
 # TODO drop after 2027-04-26
 case ${PV} in
