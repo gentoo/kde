@@ -16,7 +16,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility gamepad gles2-only lock screencast +shortcuts systemd X"
+IUSE="accessibility gamepad gles2-only lock screencast selinux +shortcuts systemd X"
 
 RESTRICT="test"
 
@@ -90,6 +90,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/libplasma-${KDE_CATV}:6
 	>=kde-plasma/milou-${KDE_CATV}:6
 	sys-apps/hwdata
+	selinux? ( sec-policy/selinux-wm )
 	X? ( >=x11-base/xwayland-23.1.0[libei] )
 "
 DEPEND="${COMMON_DEPEND}
