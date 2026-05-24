@@ -14,7 +14,7 @@ DESCRIPTION="Flexible, composited X window manager"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility gles2-only lock +shortcuts systemd"
+IUSE="accessibility gles2-only lock selinux +shortcuts systemd"
 
 RESTRICT="test"
 
@@ -83,6 +83,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/libplasma-${KDE_CATV}:6
 	sys-apps/hwdata
 	>=x11-base/xwayland-23.1.0
+	selinux? ( sec-policy/selinux-wm )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.16.0
