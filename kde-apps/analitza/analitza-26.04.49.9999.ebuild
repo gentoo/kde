@@ -26,12 +26,7 @@ BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 src_prepare() {
 	ecm_src_prepare
-
-	if ! use test; then
-		sed -i \
-			-e "/add_subdirectory(examples)/ s/^/#DONT/" \
-			analitzaplot/CMakeLists.txt || die
-	fi
+	use test || cmake_comment_add_subdirectory -f analitzaplot examples
 }
 
 src_configure() {
