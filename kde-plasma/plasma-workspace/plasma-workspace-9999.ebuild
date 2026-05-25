@@ -166,8 +166,6 @@ PATCHES=(
 src_prepare() {
 	ecm_src_prepare
 
-	cmake_comment_add_subdirectory login-sessions
-
 	if ! use policykit; then
 		cmake_comment_add_subdirectory -f kcms users
 	fi
