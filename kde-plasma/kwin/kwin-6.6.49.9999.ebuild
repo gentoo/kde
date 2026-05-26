@@ -16,7 +16,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility gamepad gles2-only lock screencast selinux +shortcuts systemd X"
+IUSE="accessibility gamepad gles2-only lock screencast selinux +shortcuts systemd"
 
 RESTRICT="test"
 
@@ -63,23 +63,21 @@ COMMON_DEPEND="
 	>=media-libs/mesa-24.1.0_rc1[opengl,wayland]
 	virtual/libudev:=
 	>=x11-libs/libdrm-2.4.127
+	x11-libs/libX11
+	x11-libs/libXi
+	x11-libs/libXres
 	>=x11-libs/libxcvt-0.1.1
+	>=x11-libs/libxcb-1.10:=
 	>=x11-libs/libxkbcommon-1.5.0
+	x11-libs/xcb-util-cursor
+	x11-libs/xcb-util-keysyms
+	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
 	gamepad? ( dev-libs/libevdev )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
 	screencast? ( >=media-video/pipewire-1.2.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
 	systemd? ( sys-apps/systemd:= )
-	X? (
-		x11-libs/libX11
-		>=x11-libs/libxcb-1.10:=
-		x11-libs/libXi
-		x11-libs/libXres
-		x11-libs/xcb-util-cursor
-		x11-libs/xcb-util-keysyms
-		x11-libs/xcb-util-wm
-	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdeplasma-addons:5
@@ -90,18 +88,17 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/libplasma-${KDE_CATV}:6
 	>=kde-plasma/milou-${KDE_CATV}:6
 	sys-apps/hwdata
+	>=x11-base/xwayland-23.1.0[libei]
 	selinux? ( sec-policy/selinux-wm )
-	X? ( >=x11-base/xwayland-23.1.0[libei] )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.20.0
 	>=dev-libs/wayland-protocols-1.47
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
+	x11-base/xorg-proto
 	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
-	X? ( x11-base/xorg-proto )
 "
-BDEPEND="
-	${PYTHON_DEPS}
+BDEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
@@ -145,7 +142,7 @@ src_configure() {
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
-		-DKWIN_BUILD_X11=$(usex X)
+		-DKWIN_BUILD_X11=ON # bug #965053
 	)
 
 	ecm_src_configure
