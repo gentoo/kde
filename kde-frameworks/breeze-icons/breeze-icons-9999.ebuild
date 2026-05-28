@@ -4,6 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..14} )
+QTMIN=6.9.0
 inherit cmake frameworks.kde.org python-any-r1 xdg
 
 DESCRIPTION="Breeze SVG icon theme"
@@ -21,7 +22,7 @@ RDEPEND="
 "
 BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/lxml[${PYTHON_USEDEP}]')
-	dev-qt/qtbase:6[gui]
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=kde-frameworks/extra-cmake-modules-${KDE_CATV}:*
 	test? ( app-misc/fdupes )
 "
