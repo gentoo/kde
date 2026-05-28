@@ -104,6 +104,16 @@ BDEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
 
+case ${PV} in
+	6.?.[6-9][0-5]* )
+		# src/core/renderdevice.cpp enables Vulkan validation layers
+		# for pre-releases to get better crashes.
+		RDEPEND+=" media-libs/vulkan-layers"
+		;;
+	*)
+		;;
+esac
+
 # https://bugs.gentoo.org/941628
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
