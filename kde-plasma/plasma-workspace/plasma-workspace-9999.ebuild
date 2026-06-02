@@ -187,7 +187,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_X11=$(usex X) # remember to submit patches with bugs
-		-DWITH_X11_SESSION=OFF # gone in 6.8
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		-DGLIBC_LOCALE_GEN=OFF
 		-DGLIBC_LOCALE_PREGENERATED=$(usex elibc_glibc)
