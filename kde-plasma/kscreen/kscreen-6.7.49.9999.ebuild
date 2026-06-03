@@ -27,7 +27,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
 	>=kde-plasma/libkscreen-${KDE_CATV}:6=
@@ -54,6 +54,8 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
 "
+
+PATCHES=( "${FILESDIR}/${PN}-6.6.91-with_x11.patch" ) # downstream, obsolete in git master
 
 src_prepare() {
 	ecm_src_prepare
