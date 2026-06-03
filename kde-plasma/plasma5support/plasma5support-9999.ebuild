@@ -46,7 +46,6 @@ src_configure() {
 		$(cmake_use_find_package activities PlasmaActivities)
 		$(cmake_use_find_package geolocation KF6NetworkManagerQt)
 		$(cmake_use_find_package ksysguard KSysGuard)
-		-DWITH_X11=OFF # pending removal in git master
 	)
 	ecm_src_configure
 }
