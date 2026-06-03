@@ -14,7 +14,7 @@ HOMEPAGE="https://invent.kde.org/plasma/kscreen"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="X"
+IUSE=""
 
 # slot op: Uses Qt6GuiPrivate and Qt6WaylandClientPrivate
 COMMON_DEPEND="
@@ -32,12 +32,6 @@ COMMON_DEPEND="
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
 	>=kde-plasma/libkscreen-${KDE_CATV}:6=
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
-	X? (
-		>=dev-qt/qtbase-${QTMIN}:6[X]
-		x11-libs/libX11
-		x11-libs/libxcb:=
-		x11-libs/libXi
-	)
 "
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
@@ -56,21 +50,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-CMAKE_SKIP_TESTS=(
-	# last checked 2025-07-17, also fails upstream
-	# FAIL!  : TestConfig::testDisabledScreenConfig() Compared values are not the same
-	kscreen-kded-configtest
-	kscreen-kded-testgenerator # bugs 580440, 970323
-)
-
 src_prepare() {
 	ecm_src_prepare
 	use ppc64 && cmake_comment_add_subdirectory hdrcalibrator # avif masked on big-endian
-}
-
-src_configure() {
-	local mycmakeargs=(
-		-DWITH_X11=$(usex X)
-	)
-	ecm_src_configure
 }
