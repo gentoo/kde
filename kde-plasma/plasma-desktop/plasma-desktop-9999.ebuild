@@ -143,7 +143,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_KCM_MOUSE_X11=ON
-		-DBUILD_KCM_TOUCHPAD_X11=ON
 		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
