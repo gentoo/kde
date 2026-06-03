@@ -55,13 +55,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-CMAKE_SKIP_TESTS=(
-	# last checked 2025-07-17, also fails upstream
-	# FAIL!  : TestConfig::testDisabledScreenConfig() Compared values are not the same
-	kscreen-kded-configtest
-	kscreen-kded-testgenerator # bugs 580440, 970323
-)
-
 src_prepare() {
 	ecm_src_prepare
 	use ppc64 && cmake_comment_add_subdirectory hdrcalibrator # avif masked on big-endian
