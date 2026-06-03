@@ -10,8 +10,6 @@ QTMIN=6.10.1
 inherit ecm plasma.kde.org optfeature xdg
 
 DESCRIPTION="KDE Plasma desktop"
-XORGHDRS="${PN}-override-include-dirs-5"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
@@ -122,10 +120,6 @@ BDEPEND="
 	input_devices_wacom? ( dev-util/wayland-scanner )
 "
 
-PATCHES=(
-	"${WORKDIR}/${XORGHDRS}/${PN}-6.1.80-override-include-dirs.patch" # downstream patch
-)
-
 src_prepare() {
 	ecm_src_prepare
 
@@ -142,9 +136,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_KCM_MOUSE_X11=ON
-		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
-		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
+		-DBUILD_KCM_MOUSE_X11=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		$(cmake_use_find_package ibus GLIB2)
 		-DBUILD_KCM_TABLET=$(usex input_devices_wacom)
