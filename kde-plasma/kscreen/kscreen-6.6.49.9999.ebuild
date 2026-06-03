@@ -40,7 +40,6 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	!ppc64? ( >=kde-frameworks/kimageformats-${KFMIN}:6[avif] )
 	>=kde-plasma/kglobalacceld-${KDE_CATV}:6
 "
