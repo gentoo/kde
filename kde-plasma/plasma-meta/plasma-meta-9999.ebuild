@@ -122,12 +122,6 @@ RDEPEND="
 	webengine? ( kde-apps/khelpcenter:6 )
 	xwayland? ( >=gui-apps/xwaylandvideobridge-0.5.0 )
 "
-# TODO: obsolete, unless in the unlikely event that 6.8 will not drop X11:
-# X? (
-# 	>=kde-plasma/kgamma-${PV}:${SLOT}
-# 	>=kde-plasma/kwin-x11-${PV}:${SLOT}[lock]
-# 	wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
-# )
 # NOTE spectacle moved from KDE Gear (yy.mm) to KDE Plasma version scheme
 # TODO drop after 2027-04-26
 case ${PV} in
