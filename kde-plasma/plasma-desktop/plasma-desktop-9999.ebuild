@@ -20,7 +20,6 @@ RESTRICT="test" # missing selenium-webdriver-at-spi
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 # kde-frameworks/kwindowsystem[X]: Uses KX11Extras
-# kde-plasma/plasma-workspace[X]: applets/pager/pagermodel.cpp includes xwindowtasksmodel.h
 COMMON_DEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,wayland,widgets,xml]
@@ -66,12 +65,11 @@ COMMON_DEPEND="
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
-	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?,X]
+	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?]
 	>=kde-plasma/plasma5support-${KDE_CATV}:6
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libxcb
-	x11-libs/libXcursor
 	x11-libs/libxkbcommon
 	x11-libs/libxkbfile
 	ibus? (
@@ -136,7 +134,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_KCM_MOUSE_X11=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		$(cmake_use_find_package ibus GLIB2)
 		-DBUILD_KCM_TABLET=$(usex input_devices_wacom)
