@@ -15,13 +15,13 @@ HOMEPAGE="https://apps.kde.org/spectacle/"
 LICENSE="LGPL-2+ handbook? ( FDL-1.3 )"
 SLOT="6"
 KEYWORDS=""
-IUSE="share"
+IUSE="share X"
 
-# slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
+# qtbase slot op: Uses qtx11extras_p.h and qpa/qplatformnativeinterface.h
 COMMON_DEPEND="
 	app-text/tesseract:=
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,wayland,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,wayland,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -38,19 +38,22 @@ COMMON_DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6
 	>=kde-plasma/kpipewire-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
 	>=media-libs/kquickimageeditor-0.6.0:6
 	media-libs/opencv:=
-	x11-libs/libxcb
-	x11-libs/libXrandr
-	x11-libs/xcb-util
-	x11-libs/xcb-util-cursor
-	x11-libs/xcb-util-image
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
+	X? (
+		>=dev-qt/qtbase-${QTMIN}:6[X]
+		x11-libs/libxcb
+		x11-libs/libXrandr
+		x11-libs/xcb-util
+		x11-libs/xcb-util-cursor
+		x11-libs/xcb-util-image
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.19.0
@@ -68,6 +71,7 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
+		-DWITH_X11=$(usex X)
 		$(cmake_use_find_package share KF6Purpose)
 	)
 	ecm_src_configure
