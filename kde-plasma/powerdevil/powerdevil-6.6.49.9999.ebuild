@@ -73,6 +73,11 @@ BDEPEND="
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_wake_alarm=ep usr/libexec/org_kde_powerdevil )
 
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_kf_module WindowSystem # pending use of ecm_find_qmlmodule upstream in >=6.7
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package brightness-control DDCUtil)
