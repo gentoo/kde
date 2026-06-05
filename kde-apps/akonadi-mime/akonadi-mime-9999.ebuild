@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.22.0
+KFMIN=6.27.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
@@ -24,12 +24,12 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-apps/akonadi-${PVCUT}:6=
-	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/kmime-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=x11-misc/shared-mime-info-1.10

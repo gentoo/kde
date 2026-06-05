@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.22.0
+KFMIN=6.27.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
@@ -27,12 +27,12 @@ DEPEND="
 	dev-libs/openssl:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-apps/kpkpass-${PVCUT}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kmime-${KFMIN}:6
 	>=media-libs/zxing-cpp-1.1.1:=
 	virtual/zlib:=
 "

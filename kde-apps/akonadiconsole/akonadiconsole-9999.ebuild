@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.22.0
+KFMIN=6.27.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
@@ -25,7 +25,6 @@ DEPEND="
 	>=kde-apps/akonadi-mime-${PVCUT}:6=
 	>=kde-apps/akonadi-search-${PVCUT}:6=
 	>=kde-apps/calendarsupport-${PVCUT}:6=
-	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-apps/libkdepim-${PVCUT}:6=
 	>=kde-apps/messagelib-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
@@ -39,6 +38,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/kmime-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6

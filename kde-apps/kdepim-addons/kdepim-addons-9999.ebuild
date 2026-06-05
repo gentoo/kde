@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.22.0
+KFMIN=6.27.0
 QTMIN=6.10.1
 VIRTUALDBUS_TEST=1
 inherit ecm gear.kde.org optfeature
@@ -38,7 +38,6 @@ RDEPEND="
 	>=kde-apps/kimap-${PVCUT}:6=
 	>=kde-apps/kldap-${PVCUT}:6=
 	>=kde-apps/kmailtransport-${PVCUT}:6=
-	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-apps/kpimtextedit-${PVCUT}:6=
 	>=kde-apps/kpkpass-${PVCUT}:6=
 	>=kde-apps/libgravatar-${PVCUT}:6=
@@ -65,6 +64,7 @@ RDEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kmime-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/ktexttemplate-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6

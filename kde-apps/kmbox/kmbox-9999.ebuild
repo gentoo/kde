@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
-KFMIN=6.22.0
+KFMIN=6.27.0
 PVCUT=$(ver_cut 1-3)
 inherit ecm gear.kde.org
 
@@ -16,5 +16,5 @@ SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE=""
 
-DEPEND=">=kde-apps/kmime-${PVCUT}:6="
+DEPEND=">=kde-frameworks/kmime-${KFMIN}:6"
 RDEPEND="${DEPEND}"

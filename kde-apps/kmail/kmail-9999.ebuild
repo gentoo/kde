@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.22.0
+KFMIN=6.27.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org optfeature xdg
 
@@ -38,7 +38,6 @@ COMMON_DEPEND="
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-apps/kldap-${PVCUT}:6=
 	>=kde-apps/kmailtransport-${PVCUT}:6=
-	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-apps/kontactinterface-${PVCUT}:6=
 	>=kde-apps/kpimtextedit-${PVCUT}:6=
 	>=kde-apps/libgravatar-${PVCUT}:6=
@@ -67,6 +66,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/kitemviews-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
+	>=kde-frameworks/kmime-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6

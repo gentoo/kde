@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.22.0
+KFMIN=6.27.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org
 
@@ -21,11 +21,11 @@ IUSE=""
 RDEPEND="
 	dev-libs/cyrus-sasl
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
-	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kmime-${KFMIN}:6
 "
 # TODO: Convince upstream not to install stuff with tests
 DEPEND="${RDEPEND}

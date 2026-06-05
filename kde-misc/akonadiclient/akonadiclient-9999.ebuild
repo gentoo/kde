@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
-KFMIN=6.16.0
-QTMIN=6.7.2
+KFMIN=6.27.0
+QTMIN=6.10.1
 inherit ecm kde.org
 
 DESCRIPTION="Commandline interface for accessing Akonadi"
@@ -21,12 +21,12 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
 	kde-apps/akonadi:6[xml]
 	kde-apps/akonadi-contacts:6
-	kde-apps/kmime:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kmime-${KFMIN}:6
 	sys-libs/ncurses:=
 "
 RDEPEND="${DEPEND}
