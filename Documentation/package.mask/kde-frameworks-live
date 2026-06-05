@@ -32,6 +32,7 @@
 ~kde-frameworks/kwindowsystem-9999:6
 ~kde-frameworks/modemmanager-qt-9999:6
 ~kde-frameworks/networkmanager-qt-9999:6
+~kde-frameworks/oxygen-icons-9999:6
 ~kde-frameworks/prison-9999:6
 ~kde-frameworks/solid-9999:6
 ~kde-frameworks/sonnet-9999:6
@@ -47,6 +48,7 @@
 ~kde-frameworks/kfilemetadata-9999:6
 ~kde-frameworks/kimageformats-9999:6
 ~kde-frameworks/kjobwidgets-9999:6
+~kde-frameworks/kmime-9999:6
 ~kde-frameworks/knotifications-9999:6
 ~kde-frameworks/kpackage-9999:6
 ~kde-frameworks/kpty-9999:6
