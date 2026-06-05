@@ -7,7 +7,7 @@ ECM_DESIGNERPLUGIN="true"
 ECM_PYTHON_BINDINGS="off"
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="forceoptional"
-KFMIN=6.22.0
+KFMIN=6.27.0
 QTMIN=6.10.1
 VIRTUALDBUS_TEST="true"
 inherit ecm gear.kde.org xdg
