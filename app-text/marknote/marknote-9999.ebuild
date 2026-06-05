@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=6.19.0
+KFMIN=6.22.0
 QTMIN=6.9.1
 inherit ecm kde.org xdg
 
@@ -26,7 +26,6 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	kde-apps/kmime:6=
 	>=kde-frameworks/breeze-icons-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -35,6 +34,11 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	|| (
+		>=kde-frameworks/kmime-${KFMIN}:6
+		=kde-apps/kmime-26.04*:6
+	)
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	plasma? (
