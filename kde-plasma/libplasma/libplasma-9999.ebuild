@@ -14,14 +14,13 @@ DESCRIPTION="Plasma library and runtime components based upon KF6 and Qt6"
 LICENSE="LGPL-2+"
 SLOT="6/7"
 KEYWORDS=""
-IUSE="activities gles2-only"
+IUSE="activities"
 
 RESTRICT="test"
 
 # dev-qt/qtbase slot op: includes qpa/qplatformwindow_p.h, qpa/qplatformwindow.h
-# kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 COMMON_DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gles2-only=,gui,opengl,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,opengl,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-libs/wayland-1.15.0
@@ -38,17 +37,12 @@ COMMON_DEPEND="
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
-	media-libs/libglvnd
-	x11-libs/libX11
-	x11-libs/libxcb
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	activities? ( =kde-plasma/plasma-activities-${KDE_CATV}*:6= )
-	!gles2-only? ( media-libs/libglvnd[X] )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.19.0
 	>=dev-libs/wayland-protocols-1.46
-	x11-base/xorg-proto
 	test? ( >=kde-frameworks/karchive-${KFMIN}:6 )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -63,8 +57,8 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
+		-DWITHOUT_X11=ON # until upstream MR 1513 is merged
 		-DENABLE_ACTIVITIES=$(usex activities)
-		$(cmake_use_find_package !gles2-only OpenGL)
 	)
 
 	ecm_src_configure
