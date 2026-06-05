@@ -16,9 +16,25 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND=">=kde-frameworks/kcodecs-${KFMIN}:6"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	|| (
+		>=kde-frameworks/kmime-6.27.0
+		>=kde-apps/kmime-common-${PV}
+	)
+"
+
+DOCS=( AUTHORS README.md TODO )
 
 CMAKE_SKIP_TESTS=(
 	# bug 924507
 	kmime-{header,message}test
 )
+
+src_prepare() {
+	ecm_src_prepare
+
+	sed -e "s/^ecm_install_po_files_as_qm(poqm)/#& # packaged separately/" \
+		-i CMakeLists.txt || die
+	sed -e "s/^ecm_qt_install_logging_categories.*/#& packaged separately/" \
+		-i src/CMakeLists.txt || die
+}
