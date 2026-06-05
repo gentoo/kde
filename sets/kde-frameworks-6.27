@@ -1,0 +1,7 @@
+# Tier 0
+<kde-frameworks/extra-cmake-modules-6.27.50:0
+@kde-frameworks-tier1-6.27
+@kde-frameworks-tier2-6.27
+@kde-frameworks-tier3-6.27
+# Tier 4: Provide extra features to other Frameworks to integrate with Plasma.
+<kde-frameworks/frameworkintegration-6.27.50:6
