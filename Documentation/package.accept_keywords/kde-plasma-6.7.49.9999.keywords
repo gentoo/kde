@@ -76,5 +76,5 @@
 ~kde-plasma/union-6.7.49.9999 **
 ~kde-plasma/wacomtablet-6.7.49.9999 **
 ~kde-plasma/xdg-desktop-portal-kde-6.7.49.9999 **
-~dev-libs/plasma-wayland-protocols-1.21.0
 ~dev-libs/cxx-rust-cssparser-1.0.0
+~sec-keys/openpgp-keys-kde-20260523
