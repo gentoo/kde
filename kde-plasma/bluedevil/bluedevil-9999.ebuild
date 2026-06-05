@@ -17,7 +17,6 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-# kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
@@ -33,7 +32,7 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 "
 RDEPEND="${DEPEND}
