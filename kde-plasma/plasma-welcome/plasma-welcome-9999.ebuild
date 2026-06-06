@@ -37,6 +37,7 @@ DEPEND="
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 "
 RDEPEND="${DEPEND}"
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 src_configure() {
 	lto-guarantee-fat
