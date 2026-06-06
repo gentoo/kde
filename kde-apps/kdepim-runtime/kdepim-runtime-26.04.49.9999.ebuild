@@ -19,7 +19,6 @@ IUSE="activities speech"
 
 RESTRICT="test"
 
-# TODO kolab
 RDEPEND="
 	>=app-crypt/qca-2.3.7:2[qt6(+)]
 	dev-libs/cyrus-sasl:2
@@ -70,13 +69,18 @@ DEPEND="${RDEPEND}
 	)
 "
 
+src_prepare() {
+	ecm_src_prepare
+	# never provided by Gentoo, dropped upstream in git master
+	cmake_comment_add_subdirectory -f resources kolab
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package speech Qt6TextToSpeech)
 		-DKDEPIM_RUN_AKONADI_TEST=$(usex test)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Etebase=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Libkolabxml=ON
 	)
 	ecm_src_configure
 }
