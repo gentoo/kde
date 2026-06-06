@@ -18,6 +18,7 @@ RDEPEND="${DEPEND}
 	!=kde-apps/kmime-26.04.2-r0
 	!kde-apps/kmime-common
 "
+BDEPEND="dev-qt/qttools:6[linguist]"
 
 CMAKE_SKIP_TESTS=(
 	# bug 924507
