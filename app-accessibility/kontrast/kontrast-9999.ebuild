@@ -30,3 +30,4 @@ DEPEND="
 RDEPEND="${DEPEND}
 	kde-plasma/xdg-desktop-portal-kde:*
 "
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
