@@ -29,4 +29,7 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
-BDEPEND=">=kde-frameworks/ki18n-${KFMIN}:6"
+BDEPEND="
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
+	>=kde-frameworks/ki18n-${KFMIN}:6
+"
