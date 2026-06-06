@@ -37,3 +37,4 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 "
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
