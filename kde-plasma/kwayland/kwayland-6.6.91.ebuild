@@ -32,6 +32,7 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	>=dev-util/wayland-scanner-1.19.0
 "
 
