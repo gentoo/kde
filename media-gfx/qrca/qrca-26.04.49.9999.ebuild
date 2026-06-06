@@ -43,6 +43,7 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
 	>=kde-frameworks/prison-${KFMIN}:6[qml]
 "
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 src_configure() {
 	local mycmakeargs=(
