@@ -64,6 +64,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtlocation-${QTMIN}:6
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	>=dev-qt/qtwebengine-${QTMIN}:6
 	=kde-apps/kdepim-runtime-${PVCUT}*:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
