@@ -88,6 +88,7 @@ RDEPEND="${COMMON_DEPEND}
 	panorama? ( media-gfx/hugin )
 "
 BDEPEND="
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	sys-devel/gettext
 	panorama? (
 		app-alternatives/lex
