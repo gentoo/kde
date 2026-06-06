@@ -55,5 +55,6 @@ RDEPEND="${COMMON_DEPEND}
 	=kde-apps/kdepim-runtime-${PVCUT}*:6
 "
 BDEPEND="
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	test? ( >=kde-apps/akonadi-${PVCUT}:6[tools] )
 "
