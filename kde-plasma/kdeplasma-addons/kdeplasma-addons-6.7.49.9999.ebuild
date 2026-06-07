@@ -3,6 +3,7 @@
 
 EAPI=8
 
+CARGO_OPTIONAL=1
 CRATES="
 "
 RUST_MIN_VER="1.87.0"
@@ -23,19 +24,17 @@ LICENSE="GPL-2 LGPL-2"
 LICENSE+=" GPL-3 MIT Unicode-3.0 ZLIB"
 SLOT="6"
 KEYWORDS=""
-IUSE="+alternate-calendar share webengine"
+IUSE="+alternate-calendar led share webengine"
 
 RESTRICT="test" # bug 727846, +missing selenium-webdriver-at-spi
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
-	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
@@ -55,6 +54,10 @@ DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	alternate-calendar? ( dev-libs/icu:= )
+	led? (
+		>=kde-frameworks/kauth-${KFMIN}:6
+		>=kde-frameworks/kdbusaddons-${KFMIN}:6
+	)
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )
 "
@@ -66,8 +69,26 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 "
 BDEPEND="
-	dev-build/corrosion
+	led? (
+		${RUST_DEPEND}
+		dev-build/corrosion
+	)
 "
+
+pkg_setup() {
+	use led && rust_pkg_setup
+}
+
+src_prepare() {
+	ecm_src_prepare
+	# TODO: upstream build switch?
+	if ! use led; then
+		cmake_comment_add_subdirectory kdeds
+		ecm_punt_bogus_dep Corrosion
+		ecm_punt_bogus_dep KF6 Auth
+		ecm_punt_bogus_dep KF6 DBusAddons
+	fi
+}
 
 src_configure() {
 	# Rust extensions are incompatible with C/C++ LTO compiler see e.g.
