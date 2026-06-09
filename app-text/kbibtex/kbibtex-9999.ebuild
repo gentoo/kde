@@ -55,9 +55,9 @@ RDEPEND="${COMMON_DEPEND}
 	dev-tex/bibtex2html
 "
 DEPEND="${COMMON_DEPEND}
-	${PYTHON_DEPS}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
+BDEPEND="${PYTHON_DEPS}"
 
 src_configure() {
 	local mycmakeargs=(
