@@ -28,14 +28,24 @@ DEPEND="
 	=kde-frameworks/knotifications-${KDE_CATV}*:6
 	=kde-frameworks/kservice-${KDE_CATV}*:6
 	=kde-frameworks/prison-${KDE_CATV}*:6
-	webengine? ( >=dev-qt/qtbase-${QTMIN}:6[dbus] )
+	webengine? (
+		>=dev-qt/qtbase-${QTMIN}:6[dbus]
+		kde-apps/kaccounts-integration:6
+		>=net-libs/accounts-qt-1.17[qt6(+)]
+	)
 "
 RDEPEND="${DEPEND}
 	=kde-frameworks/kcmutils-${KDE_CATV}*:6
 	=kde-frameworks/kitemmodels-${KDE_CATV}*:6
 	=kde-frameworks/prison-${KDE_CATV}*:6[qml]
 	bluetooth? ( =kde-frameworks/bluez-qt-${KDE_CATV}*:6 )
-	webengine? ( net-libs/konlineaccounts:6 )
+	webengine? ( !kde-frameworks/purpose-kaccounts-services )
+"
+BDEPEND="
+	webengine? (
+		dev-util/intltool
+		kde-apps/kaccounts-integration:6
+	)
 "
 
 src_prepare() {
@@ -48,7 +58,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_DBUS=$(usex webengine)
-		-DCMAKE_DISABLE_FIND_PACKAGE_KAccounts6=ON
 	)
 
 	ecm_src_configure
