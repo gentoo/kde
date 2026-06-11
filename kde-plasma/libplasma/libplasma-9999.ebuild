@@ -57,7 +57,6 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITHOUT_X11=ON # until upstream MR 1513 is merged
 		-DENABLE_ACTIVITIES=$(usex activities)
 	)
 
