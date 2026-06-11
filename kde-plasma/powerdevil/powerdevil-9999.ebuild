@@ -19,11 +19,10 @@ IUSE="brightness-control"
 
 RESTRICT="test" # bug 926513
 
-# slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/qcoro[dbus]
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,wayland,widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6[policykit]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -47,7 +46,6 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
 	virtual/libudev:=
-	x11-libs/libxcb
 	brightness-control? ( app-misc/ddcutil:= )
 "
 DEPEND="${COMMON_DEPEND}
