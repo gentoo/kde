@@ -18,10 +18,9 @@ IUSE=""
 # requires running environment w/ RDEPENDs (circular dep w/ plasma-workspace)
 RESTRICT="test"
 
-# qtbase slot op: GuiPrivate use in greeter
-COMMON_DEPEND="
+DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
@@ -42,15 +41,8 @@ COMMON_DEPEND="
 	>=kde-plasma/libkscreen-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	sys-libs/pam
-	x11-libs/libX11
-	x11-libs/libXi
-	x11-libs/libxcb
-	x11-libs/xcb-util-keysyms
 "
-DEPEND="${COMMON_DEPEND}
-	x11-base/xorg-proto
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
