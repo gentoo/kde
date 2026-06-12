@@ -56,7 +56,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X(-)]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
@@ -65,7 +65,7 @@ COMMON_DEPEND="
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
-	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?]
+	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?,X(-)]
 	>=kde-plasma/plasma5support-${KDE_CATV}:6
 	virtual/libudev:=
 	x11-libs/libX11
@@ -103,6 +103,7 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-6.0.80
 	dev-libs/kirigami-addons:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-plasma/kwin-${KDE_CATV}:6[X(-)]
 	>=kde-plasma/plasma-mimeapps-list-3
 	media-fonts/noto-emoji
 	sys-apps/util-linux
