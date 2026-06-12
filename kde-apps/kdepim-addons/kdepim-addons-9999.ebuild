@@ -79,8 +79,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="test? ( sys-apps/dbus )"
 
-PATCHES=( "${FILESDIR}/${PN}-26.04.0-no-autogeneratetext.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DKDEPIM_RUN_AKONADI_TEST=OFF # tests need database software and networking
