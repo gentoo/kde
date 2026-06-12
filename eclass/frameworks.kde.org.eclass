@@ -36,7 +36,7 @@ readonly KDE_CATV
 # @INTERNAL
 # @DESCRIPTION:
 # For proper description see kde.org.eclass manpage.
-KDE_PV_UNRELEASED=( 6.27.0 6.27.0 )
+KDE_PV_UNRELEASED=( )
 
 # Enable verify-sig unconditionally in the future.
 if ver_test -ge 6.26.90; then
