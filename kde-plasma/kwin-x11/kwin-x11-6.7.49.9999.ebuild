@@ -14,7 +14,7 @@ DESCRIPTION="Flexible, composited X window manager"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility gles2-only lock selinux +shortcuts systemd"
+IUSE="accessibility gles2-only lock +nightlight selinux +shortcuts systemd"
 
 RESTRICT="test"
 
@@ -51,7 +51,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
-	>=kde-plasma/knighttime-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	media-libs/fontconfig
 	media-libs/freetype
@@ -72,6 +71,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
+	nightlight? ( >=kde-plasma/knighttime-${KDE_CATV}:6 )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -113,6 +113,7 @@ src_configure() {
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
+		-DKWIN_BUILD_NIGHTLIGHT=$(usex nightlight)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
 	)
 
