@@ -8,7 +8,7 @@ ECM_TEST="true"
 KFMIN=6.22.0
 inherit ecm gear.kde.org
 
-DESCRIPTION="Libary for handling mail messages and newsgroup articles"
+DESCRIPTION="Library for handling mail messages and newsgroup articles"
 
 LICENSE="GPL-2+"
 SLOT="6/$(ver_cut 1-2)"
@@ -18,8 +18,8 @@ IUSE=""
 DEPEND=">=kde-frameworks/kcodecs-${KFMIN}:6"
 RDEPEND="${DEPEND}
 	|| (
-		>=kde-frameworks/kmime-6.27.0
-		>=kde-apps/kmime-common-${PV}
+		>=kde-frameworks/kmime-6.27.0:6
+		>=kde-apps/kmime-common-${PV}:6
 	)
 "
 
