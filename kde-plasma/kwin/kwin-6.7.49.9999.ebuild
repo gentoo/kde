@@ -61,6 +61,7 @@ COMMON_DEPEND="
 	media-libs/libepoxy
 	media-libs/libglvnd
 	>=media-libs/mesa-24.1.0_rc1[opengl,wayland]
+	media-libs/vulkan-loader
 	virtual/libudev:=
 	>=x11-libs/libdrm-2.4.127
 	>=x11-libs/libxcvt-0.1.1
