@@ -6,12 +6,12 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.9.0
 QTMIN=6.7.2
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit ecm kde.org optfeature python-any-r1 xdg
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 DESCRIPTION="Advanced audio player based on KDE Frameworks"
