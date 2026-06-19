@@ -75,6 +75,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/knighttime-${KDE_CATV}:6
+	>=kde-plasma/kscreenlocker-${KDE_CATV}:6
 	>=kde-plasma/kwayland-${KDE_CATV}:6
 	>=kde-plasma/kwin-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
