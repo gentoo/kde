@@ -23,6 +23,7 @@ RESTRICT="test"
 # kde-frameworks/kwindowsystem[X]: Uses KX11Extras
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 # slot op: various private QtWaylandClient headers
+# kde-plasma/kscreenlocker: ScreenSaverDBusInterface REQUIRED
 COMMON_DEPEND="
 	dev-libs/icu:=
 	>=dev-libs/wayland-1.15
@@ -73,6 +74,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/prison-${KFMIN}:6[qml]
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/knighttime-${KDE_CATV}:6
+	>=kde-plasma/kscreenlocker-${KDE_CATV}:6
 	>=kde-plasma/kwayland-${KDE_CATV}:6
 	>=kde-plasma/kwin-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
