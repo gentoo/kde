@@ -35,7 +35,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package opencv OpenCV)
+		-DWITH_OPENCV=$(usex opencv)
 	)
 	ecm_src_configure
 }
