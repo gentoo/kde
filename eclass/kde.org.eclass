@@ -33,11 +33,33 @@ if [[ ${PV} == *9999* ]]; then
 fi
 export KDE_BUILD_TYPE
 
+# @ECLASS_VARIABLE: KDE_VERIFY_SIG
+# @PRE_INHERIT
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Enable signature verification for non snapshot releases.
+
+# @ECLASS_VARIABLE: KDE_ORG_COMMIT
+# @PRE_INHERIT
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# DEPRECATED - blocks KDE_VERIFY_SIG.  Do not use, will be dropped with EAPI 9.
+# If set, instead of a regular release tarball, pull tar.gz snapshot from an
+# invent.kde.org repository identified by KDE_ORG_CATEGORY and KDE_ORG_NAME
+# at the desired COMMIT ID.
+
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	case ${EAPI} in
 		8) inherit eapi9-pipestatus ;&
 		*) inherit git-r3 ;;
 	esac
+elif [[ -n ${KDE_VERIFY_SIG} ]]; then
+	if [[ ${EAPI} == 8 ]] && [[ -n ${KDE_ORG_COMMIT} ]]; then
+		die "KDE_VERIFY_SIG and KDE_ORG_COMMIT are mutually exclusive!"
+	fi
+	inherit verify-sig
+	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-kde )"
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kde.asc
 fi
 
 # @ECLASS_VARIABLE: KDE_ORG_CATEGORIES
@@ -90,14 +112,6 @@ readonly KDE_ORG_CATEGORIES
 # category on invent.kde.org, with "kde" as fallback value.
 : "${KDE_ORG_CATEGORY:=${KDE_ORG_CATEGORIES[${CATEGORY}]:-kde}}"
 
-# @ECLASS_VARIABLE: KDE_ORG_COMMIT
-# @PRE_INHERIT
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# If set, instead of a regular release tarball, pull tar.gz snapshot from an
-# invent.kde.org repository identified by KDE_ORG_CATEGORY and KDE_ORG_NAME
-# at the desired COMMIT ID.
-
 # @ECLASS_VARIABLE: KDE_ORG_NAME
 # @PRE_INHERIT
 # @DESCRIPTION:
@@ -109,17 +123,6 @@ readonly KDE_ORG_CATEGORIES
 # @DESCRIPTION:
 # Known schedule URI of package or release group.
 : "${KDE_ORG_SCHEDULE_URI:="https://community.kde.org/Schedules"}"
-
-# @ECLASS_VARIABLE: KDE_VERIFY_SIG
-# @PRE_INHERIT
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Enable signature verification for non snapshot releases.
-if [[ -n ${KDE_VERIFY_SIG} ]] && [[ ${KDE_BUILD_TYPE} == release ]] && [[ -z ${KDE_ORG_COMMIT} ]]; then
-	inherit verify-sig
-	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-kde )"
-	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kde.asc
-fi
 
 # @ECLASS_VARIABLE: KDE_SELINUX_MODULE
 # @PRE_INHERIT
@@ -180,7 +183,7 @@ case ${KDE_BUILD_TYPE} in
 		EGIT_REPO_URI="${EGIT_MIRROR}/${EGIT_REPONAME:=$KDE_ORG_NAME}.git"
 		;;
 	*)
-		if [[ -n ${KDE_ORG_COMMIT} ]]; then
+		if [[ ${EAPI} == 8 ]] && [[ -n ${KDE_ORG_COMMIT} ]]; then
 			_KDE_ORG_TARFILE="${KDE_ORG_NAME}-${PV}-${KDE_ORG_COMMIT:0:8}.tar.gz"
 			SRC_URI="mirror://gentoo/${_KDE_ORG_TARFILE}"
 			SRC_URI+=" https://invent.kde.org/${KDE_ORG_CATEGORY}/${KDE_ORG_NAME}/-/"
