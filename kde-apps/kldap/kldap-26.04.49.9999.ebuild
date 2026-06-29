@@ -20,7 +20,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/cyrus-sasl
-	>=dev-libs/qtkeychain-0.15.0:=
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6

@@ -22,7 +22,7 @@ RESTRICT="test" # bug 926456; requires akonadi server
 DEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
-	>=dev-libs/qtkeychain-0.15.0:=
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-apps/akonadi-${PVCUT}:6=

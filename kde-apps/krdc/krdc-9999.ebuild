@@ -20,7 +20,7 @@ REQUIRED_USE="ssh? ( || ( rdp vnc ) )"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 2016-01-24
 DEPEND="
-	>=dev-libs/qtkeychain-0.15.0:=[qt6(+)]
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,wayland?,widgets,xml]
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6

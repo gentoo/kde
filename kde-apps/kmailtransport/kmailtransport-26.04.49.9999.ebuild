@@ -20,7 +20,7 @@ IUSE=""
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-libs/qtkeychain-0.15.0:=
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-apps/ksmtp-${PVCUT}:6=
 	>=kde-apps/libkgapi-${PVCUT}:6=

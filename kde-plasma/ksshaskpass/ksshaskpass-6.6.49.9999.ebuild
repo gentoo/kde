@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-libs/qtkeychain-0.15.0:=[qt6(+)]
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6

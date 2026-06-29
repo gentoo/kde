@@ -25,7 +25,7 @@ IUSE="speech"
 RESTRICT="test"
 
 DEPEND="
-	>=dev-libs/qtkeychain-0.15.0:=[qt6(+)]
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6

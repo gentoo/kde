@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-libs/qtkeychain-0.15.0:=
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,xml]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
