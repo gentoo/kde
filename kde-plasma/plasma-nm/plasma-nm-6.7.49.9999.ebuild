@@ -18,7 +18,7 @@ IUSE="openconnect teamd"
 COMMON_DEPEND="
 	dev-libs/openssl:=
 	dev-libs/qcoro[dbus]
-	>=dev-libs/qtkeychain-0.15.0:=[qt6(+)]
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
