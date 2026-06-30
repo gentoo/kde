@@ -57,6 +57,7 @@ src_configure() {
 		-DBUILD_git=OFF
 		-DBUILD_makefileactions=OFF
 		-DBUILD_mountiso=OFF
+		-DBUILD_mountedisooverlay=OFF
 		-DBUILD_svn=OFF
 	)
 	ecm_src_configure

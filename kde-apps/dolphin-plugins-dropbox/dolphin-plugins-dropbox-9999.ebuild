@@ -50,6 +50,7 @@ src_configure() {
 		-DBUILD_hg=OFF
 		-DBUILD_makefileactions=OFF
 		-DBUILD_mountiso=OFF
+		-DBUILD_mountedisooverlay=OFF
 		-DBUILD_svn=OFF
 	)
 	ecm_src_configure

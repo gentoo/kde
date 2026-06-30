@@ -47,6 +47,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_${MY_PLUGIN_NAME}=ON
+		-DBUILD_mountedisooverlay=ON # complements mountiso
 		-DBUILD_bazaar=OFF
 		-DBUILD_dropbox=OFF
 		-DBUILD_git=OFF
