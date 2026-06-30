@@ -19,11 +19,13 @@ IUSE=""
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	media-libs/aubio:=
 	>=media-sound/fluidsynth-2.5.1:=
 "
 RDEPEND="${DEPEND}"
