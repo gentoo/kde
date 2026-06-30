@@ -29,7 +29,7 @@ esac
 # @INTERNAL
 # @DESCRIPTION:
 # For proper description see kde.org.eclass manpage.
-KDE_PV_UNRELEASED=( )
+KDE_PV_UNRELEASED=( 26.04.3 )
 
 # Enable verify-sig unconditionally in the future.
 if ver_test -ge 26.04.90; then
