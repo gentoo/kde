@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/okteta/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	if [[ ${PV} == *_p* ]]; then
-		SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}.tar.gz"
+		SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}.tar.xz"
 	elif [[ ${KDE_BUILD_TYPE} == release ]]; then
 		SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 	fi
