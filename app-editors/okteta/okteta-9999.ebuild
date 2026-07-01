@@ -4,18 +4,22 @@
 EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="optional"
 ECM_TEST="true"
 EGIT_BRANCH="work/kossebau/kf6"
-KFMIN=6.20.0
-QTMIN=6.8.1
-inherit ecm kde.org xdg
+KFMIN=6.22.0
+QTMIN=6.10.1
+inherit ecm kde.org optfeature xdg
 
 DESCRIPTION="Hex editor by KDE"
 HOMEPAGE="https://apps.kde.org/okteta/"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+if [[ ${KDE_BUILD_TYPE} != live ]]; then
+	if [[ ${PV} == *_p* ]]; then
+		SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}.tar.gz"
+	elif [[ ${KDE_BUILD_TYPE} == release ]]; then
+		SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+	fi
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
@@ -51,8 +55,6 @@ RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-0.26.60-doctools-optional.patch" ) # downstream
-
 pkg_setup() {
 	einfo "This ebuild is building upstream's work/kossebau/kf6 branch, which:"
 	einfo "- contains the complete dump of the \"it builds, starts and does not crash"
@@ -72,4 +74,9 @@ src_configure() {
 
 src_test() {
 	ecm_src_test -j1
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	optfeature "terminal tool" "kde-apps/konsole:6"
 }
