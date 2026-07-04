@@ -29,6 +29,7 @@ src_configure() {
 		local mycmakeargs=(
 			-DCMAKE_DISABLE_FIND_PACKAGE_Avahi=ON
 			-DCMAKE_DISABLE_FIND_PACKAGE_DNSSD=ON
+			-DCMAKE_DISABLE_FIND_PACKAGE_Qt6Widgets=ON # examples are not installed
 		)
 	fi
 
