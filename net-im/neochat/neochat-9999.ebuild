@@ -65,6 +65,8 @@ CMAKE_SKIP_TESTS=(
 	# bug 938530, i18n bs
 	eventhandlertest
 	# bug 909816, tries access /proc/PID/mem
+	actionstest # bug 972783
+	modeltest # bug 972783
 	texthandlertest # ki18n (KLocalizedString) failure
 	roommanagertest # bug 969837, who cares
 	servernoticestest # bug 967518, really
