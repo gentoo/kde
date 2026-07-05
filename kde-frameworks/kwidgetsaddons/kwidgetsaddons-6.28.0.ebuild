@@ -21,6 +21,8 @@ BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 CMAKE_SKIP_TESTS=(
 	# bug 650216
 	kdatecomboboxtest
+	# bug 948896
+	kdatetimeedittest
 	# bug 697866
 	ksqueezedtextlabelautotest
 	# bug 926508
