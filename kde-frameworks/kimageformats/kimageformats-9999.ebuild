@@ -18,7 +18,7 @@ RDEPEND="
 	=kde-frameworks/karchive-${KDE_CATV}*:6
 	avif? ( >=media-libs/libavif-0.8.2:=[aom] )
 	eps? ( >=dev-qt/qtbase-${QTMIN}:6[widgets] )
-	heif? ( >=media-libs/libheif-1.19.7:=[x265] )
+	heif? ( >=media-libs/libheif-1.19.7:=[de265,x265] )
 	jpeg2k? ( media-libs/openjpeg:= )
 	jpegxl? ( >=media-libs/libjxl-0.9.4:= )
 	openexr? ( >=media-libs/openexr-3:= )
@@ -27,7 +27,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? (
 		>=dev-qt/qtimageformats-${QTMIN}:6
-		heif? ( media-libs/libheif[ffmpeg] )
+		heif? ( media-libs/libheif[ffmpeg,jpeg2k] )
 	)
 "
 
