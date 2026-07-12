@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_CATEGORY=plasma-mobile
 
-KFMIN=6.3.0
+KFMIN=6.27.0
 QTMIN=6.6.2
 inherit ecm gear.kde.org
 
