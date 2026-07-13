@@ -5,7 +5,7 @@ EAPI=8
 
 KDE_ORG_CATEGORY="sdk"
 PYTHON_COMPAT=( python3_{12..15} )
-inherit bash-completion-r1 cmake kde.org python-single-r1
+inherit cmake kde.org python-single-r1 shell-completion
 
 DESCRIPTION="Framework for custom processing of PO files"
 HOMEPAGE="http://pology.nedohodnik.net"
