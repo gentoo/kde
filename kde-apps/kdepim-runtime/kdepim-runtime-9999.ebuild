@@ -15,18 +15,16 @@ HOMEPAGE="https://apps.kde.org/kontact/"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
-IUSE="activities speech"
+IUSE="activities +ews speech"
 
 RESTRICT="test"
 
 RDEPEND="
-	>=app-crypt/qca-2.3.7:2[qt6(+)]
 	dev-libs/cyrus-sasl:2
 	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-libs/ktextaddons-2.0.1:6
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets,xml]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
-	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-calendar-${PVCUT}:6=
 	>=kde-apps/akonadi-contacts-${PVCUT}:6=
@@ -60,6 +58,10 @@ RDEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	activities? ( >=kde-plasma/plasma-activities-6.5.0:6= )
+	ews? (
+		>=app-crypt/qca-2.3.7:2[qt6(+)]
+		>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
+	)
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )
 "
 DEPEND="${RDEPEND}
@@ -72,6 +74,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
+		-DKDEPIM_EWS=$(usex ews)
 		$(cmake_use_find_package speech Qt6TextToSpeech)
 		-DKDEPIM_RUN_AKONADI_TEST=$(usex test)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Etebase=ON
