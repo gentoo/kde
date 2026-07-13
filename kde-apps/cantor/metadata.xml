@@ -7,6 +7,7 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://bugs.kde.org/</bugs-to>
+		<remote-id type="kde-invent">education/cantor</remote-id>
 	</upstream>
 	<use>
 		<flag name="analitza">Enable <pkg>kde-apps/analitza</pkg> backend support</flag>
