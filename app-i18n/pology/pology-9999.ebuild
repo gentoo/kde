@@ -4,7 +4,7 @@
 EAPI=8
 
 KDE_ORG_CATEGORY="sdk"
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit bash-completion-r1 cmake kde.org python-single-r1
 
 DESCRIPTION="Framework for custom processing of PO files"
