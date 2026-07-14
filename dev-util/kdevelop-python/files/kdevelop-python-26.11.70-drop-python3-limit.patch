@@ -16,7 +16,7 @@ index 4a8ee6f2..e1ea85d7 100644
  
  set(Python3_USE_STATIC_LIBS FALSE)
  set(Python3_FIND_STRATEGY VERSION)
--find_package(Python3 3.4.3...<3.14 COMPONENTS Interpreter Development REQUIRED)
+-find_package(Python3 3.4.3...<3.16 COMPONENTS Interpreter Development REQUIRED)
 +find_package(Python3 3.4.3 COMPONENTS Interpreter Development REQUIRED)
  
  configure_file(kdevpythonversion.h.cmake "${CMAKE_CURRENT_BINARY_DIR}/kdevpythonversion.h" @ONLY)
