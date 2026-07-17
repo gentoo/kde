@@ -24,7 +24,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=sys-auth/polkit-qt-0.175[qt6(+)]
 "
 RDEPEND="${DEPEND}
