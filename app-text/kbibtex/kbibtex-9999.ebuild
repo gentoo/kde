@@ -23,8 +23,6 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="webengine"
 
-RESTRICT="test"
-
 COMMON_DEPEND="
 	app-text/poppler[qt6]
 	dev-libs/icu:=
