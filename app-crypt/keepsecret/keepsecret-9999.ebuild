@@ -9,16 +9,11 @@ QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Password manager GUI for SecretService providers"
-HOMEPAGE="https://apps.kde.org/keepsecret/
-https://invent.kde.org/utilities/keepsecret"
-
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
+HOMEPAGE="https://apps.kde.org/keepsecret/"
 
 LICENSE="GPL-2+"
 SLOT="0"
+KEYWORDS=""
 
 DEPEND="
 	app-crypt/libsecret
