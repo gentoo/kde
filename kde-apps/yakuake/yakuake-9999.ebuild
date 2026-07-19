@@ -14,12 +14,13 @@ HOMEPAGE="https://apps.kde.org/yakuake/"
 LICENSE="GPL-2 LGPL-2"
 SLOT="6"
 KEYWORDS=""
-IUSE="absolute-position"
+IUSE=""
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
-# kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
+# TODO: add IUSE X to tick WITH_X11, but only after:
+# FIXME: kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 RDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets,X?]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/konsole-${PVCUT}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
@@ -42,22 +43,12 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	kde-plasma/kwayland:6
 	x11-libs/libX11
 	x11-libs/libxcb
 	x11-libs/xcb-util
-	absolute-position? ( kde-plasma/kwayland:6 )
 "
 DEPEND="${RDEPEND}
 	dev-libs/plasma-wayland-protocols
 	x11-base/xorg-proto
 "
-
-src_configure() {
-	# TODO: start to use WITH_X11 option? but there's still the
-	# KX11Extras use...
-	local mycmakeargs=(
-		$(cmake_use_find_package absolute-position KWayland)
-	)
-
-	ecm_src_configure
-}
