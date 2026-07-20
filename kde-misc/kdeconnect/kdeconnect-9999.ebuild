@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	dev-libs/libei
 	dev-libs/openssl:=
 	>=dev-libs/wayland-1.15.0
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,wayland,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,wayland,widgets,X?]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -77,6 +77,13 @@ BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
+
+src_prepare() {
+	ecm_src_prepare
+
+	# uses private/qxkbcommon_p.h:
+	use X || cmake_comment_add_subdirectory -f plugins shareinputdevices
+}
 
 src_configure() {
 	# -Werror=lto-type-mismatch
