@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=9999
+KFMIN=6.26.0
 QTMIN=6.10.1
 inherit ecm fcaps plasma.kde.org
 
