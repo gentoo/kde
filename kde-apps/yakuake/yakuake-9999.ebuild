@@ -20,7 +20,7 @@ IUSE=""
 # TODO: add IUSE X to tick WITH_X11, but only after:
 # FIXME: kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 RDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets,X?]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets,X]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/konsole-${PVCUT}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
