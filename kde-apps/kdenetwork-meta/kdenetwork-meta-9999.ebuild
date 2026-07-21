@@ -13,7 +13,6 @@ IUSE="+bittorrent dropbox samba +webengine +zeroconf"
 
 RDEPEND="
 	>=kde-apps/kget-${PV}:*
-	>=kde-misc/kdeconnect-${PV}:*
 	>=net-im/tokodon-${PV}
 	>=net-irc/konversation-${PV}:*
 	>=net-news/alligator-${PV}
@@ -33,6 +32,7 @@ RDEPEND="
 	zeroconf? (
 		>=kde-apps/krdc-${PV}:*
 		>=kde-apps/krfb-${PV}:*
+		>=kde-misc/kdeconnect-${PV}:*
 		>=net-misc/kio-zeroconf-${PV}:*
 	)
 "
