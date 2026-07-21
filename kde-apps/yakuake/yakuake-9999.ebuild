@@ -52,3 +52,7 @@ DEPEND="${RDEPEND}
 	dev-libs/plasma-wayland-protocols
 	x11-base/xorg-proto
 "
+BDEPEND="
+	>=dev-qt/qtbase-${QTMIN}:6[wayland]
+	dev-util/wayland-scanner
+"
