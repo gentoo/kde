@@ -5,8 +5,8 @@ EAPI=8
 
 # TODO: ECMGenerateQDoc
 ECM_TEST="true"
-KFMIN=6.16.0
-QTMIN=6.8.1
+KFMIN=6.27.0
+QTMIN=6.10.1
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -41,7 +41,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-	kde-plasma/libplasma:6
+	kde-plasma/libplasma:6=
 "
 DEPEND="${COMMON_DEPEND}
 	test? (
