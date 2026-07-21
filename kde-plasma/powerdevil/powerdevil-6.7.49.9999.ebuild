@@ -23,7 +23,7 @@ RESTRICT="test" # bug 926513
 COMMON_DEPEND="
 	dev-libs/qcoro[dbus]
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets,X]
 	>=kde-frameworks/kauth-${KFMIN}:6[policykit]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
