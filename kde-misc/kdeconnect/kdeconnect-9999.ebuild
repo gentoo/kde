@@ -16,7 +16,7 @@ HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect/"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="bluetooth pulseaudio telephony zeroconf X"
+IUSE="bluetooth pulseaudio telephony X"
 
 RESTRICT="test"
 
@@ -53,7 +53,6 @@ COMMON_DEPEND="
 	bluetooth? ( >=dev-qt/qtconnectivity-${QTMIN}:6[bluetooth] )
 	pulseaudio? ( >=media-libs/pulseaudio-qt-1.4:= )
 	telephony? ( >=kde-frameworks/modemmanager-qt-${KFMIN}:6 )
-	zeroconf? ( >=kde-frameworks/kdnssd-${KFMIN}:6 )
 	X? (
 		x11-libs/libfakekey
 		x11-libs/libX11
@@ -69,6 +68,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qttools-${QTMIN}:6[qdbus]
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/kdnssd-${KFMIN}:6
 	kde-plasma/libplasma:6
 	net-fs/sshfs
 "
@@ -96,7 +96,6 @@ src_configure() {
 		-DWITH_PULSEAUDIO=$(usex pulseaudio)
 		$(cmake_use_find_package telephony KF6ModemManagerQt)
 		-DWITH_X11=$(usex X)
-		-DMDNS_ENABLED=$(usex zeroconf)
 	)
 	ecm_src_configure
 }
