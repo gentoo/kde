@@ -20,8 +20,7 @@ IUSE="bluetooth pulseaudio telephony X"
 
 RESTRICT="test"
 
-# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
-# TODO: make conditional on X upstream
+# slot op: Uses Qt6::GuiPrivate for qpa/qplatformnativeinterface.h, qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/libei
 	dev-libs/openssl:=
@@ -49,7 +48,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	sys-apps/dbus
-	x11-libs/libxkbcommon
 	bluetooth? ( >=dev-qt/qtconnectivity-${QTMIN}:6[bluetooth] )
 	pulseaudio? ( >=media-libs/pulseaudio-qt-1.4:= )
 	telephony? ( >=kde-frameworks/modemmanager-qt-${KFMIN}:6 )
@@ -57,6 +55,7 @@ COMMON_DEPEND="
 		x11-libs/libfakekey
 		x11-libs/libX11
 		x11-libs/libXtst
+		x11-libs/libxkbcommon
 	)
 "
 DEPEND="${COMMON_DEPEND}
@@ -81,7 +80,7 @@ BDEPEND="
 src_prepare() {
 	ecm_src_prepare
 
-	# uses private/qxkbcommon_p.h:
+	# TODO: make conditional on X upstream (uses private/qxkbcommon_p.h):
 	use X || cmake_comment_add_subdirectory -f plugins shareinputdevices
 }
 
