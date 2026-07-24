@@ -12,15 +12,15 @@ DESCRIPTION="Qt Platform Theme integration plugins for the Plasma workspaces"
 LICENSE="LGPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="union"
+IUSE="union X"
 
 # requires running kde environment
 RESTRICT="test"
 
-# slot ops: qdbus*_p.h and Qt6::GuiPrivate for qtx11extras_p.h
+# slot ops: various private headers and Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets,X?]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -34,8 +34,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	x11-libs/libXcursor
-	x11-libs/libxcb
+	X? (
+		x11-libs/libXcursor
+		x11-libs/libxcb
+	)
 	union? ( >=kde-plasma/union-${KDE_CATV}:6 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -57,6 +59,7 @@ src_configure() {
 		-DBUILD_QT6=ON
 		-DBUILD_QT5=OFF
 		-DDEFAULT_UNION_STYLE=$(usex union)
+		-DWITH_X11=$(usex X) # important for XWayland integration
 	)
 	ecm_src_configure
 }
