@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>kde@gentoo.org</email>
+		<name>Gentoo KDE Project</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="kde-invent">sdk/elf-dissector</remote-id>
+	</upstream>
+	<use>
+		<flag name="capstone">Enable disassembly support with <pkg>dev-libs/capstone</pkg></flag>
+	</use>
+</pkgmetadata>
