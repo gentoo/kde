@@ -44,6 +44,7 @@
 ~kde-frameworks/kcompletion-9999:6 **
 ~kde-frameworks/kcontacts-9999:6 **
 ~kde-frameworks/kcrash-9999:6 **
+~kde-frameworks/kdav-9999:6 **
 ~kde-frameworks/kdoctools-9999:6 **
 ~kde-frameworks/kfilemetadata-9999:6 **
 ~kde-frameworks/kimageformats-9999:6 **
@@ -61,7 +62,6 @@
 ~kde-frameworks/kbookmarks-9999:6 **
 ~kde-frameworks/kcmutils-9999:6 **
 ~kde-frameworks/kconfigwidgets-9999:6 **
-~kde-frameworks/kdav-9999:6 **
 ~kde-frameworks/kdeclarative-9999:6 **
 ~kde-frameworks/kded-9999:6 **
 ~kde-frameworks/kdesu-9999:6 **
