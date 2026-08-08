@@ -651,7 +651,6 @@ ecm_src_configure() {
 
 		set(BUILD_WITH_QT6 ON CACHE BOOL "") # QtVersionOption.cmake: Hard-require Qt6
 		# KDEInstallDirs6 section
-		set(KDE_INSTALL_USE_QT_SYS_PATHS ON CACHE BOOL "") # install mkspecs in same dir as Qt stuff
 		# move handbook outside of doc dir, bug #667138
 		set(KDE_INSTALL_DOCBUNDLEDIR "${EPREFIX}/usr/share/help" CACHE PATH "")
 		set(KDE_INSTALL_INFODIR "${EPREFIX}/usr/share/info" CACHE PATH "")
