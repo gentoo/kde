@@ -16,7 +16,7 @@ IUSE="avif eps heif jpeg2k jpegxl openexr raw"
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	=kde-frameworks/karchive-${KDE_CATV}*:6
-	avif? ( >=media-libs/libavif-0.8.2:=[aom] )
+	avif? ( >=media-libs/libavif-1:=[aom] )
 	eps? ( >=dev-qt/qtbase-${QTMIN}:6[widgets] )
 	heif? ( >=media-libs/libheif-1.19.7:=[de265,x265] )
 	jpeg2k? ( media-libs/openjpeg:= )
