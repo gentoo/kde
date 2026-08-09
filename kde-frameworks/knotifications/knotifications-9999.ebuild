@@ -20,4 +20,3 @@ RDEPEND="
 	media-libs/libcanberra
 "
 DEPEND="${RDEPEND}"
-BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
