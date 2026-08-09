@@ -45,23 +45,45 @@ if [[ ${EAPI} == 8 ]]; then
 : "${VIRTUALX_REQUIRED:=manual}"
 
 inherit toolchain-funcs virtualx
-fi
 
 # @ECLASS_VARIABLE: ECM_NONGUI
+# @DEPRECATED: ECM_AUTODEPS
 # @DESCRIPTION:
 # By default, for all CATEGORIES except kde-frameworks, set to "false", which
 # assumes we are building a GUI application, and depend on breeze-icons or
 # oxygen-icons.  If set to "true", do nothing.
 : "${ECM_NONGUI:=false}"
-if [[ ${CATEGORY} == kde-frameworks ]]; then
-	ECM_NONGUI=true
+
+if [[ -z ${ECM_AUTODEPS} ]]; then
+	case ${ECM_NONGUI} in
+		true)
+			ECM_AUTODEPS=base ;;
+		false)
+			ECM_AUTODEPS=gui ;;
+		*)
+			eerror "Unknown value for \${ECM_NONGUI}"
+			die "Value ${ECM_NONGUI} is not supported"
+			;;
+	esac
+fi
+fi # EAPI-8
+
+# @ECLASS_VARIABLE: ECM_AUTODEPS
+# @DESCRIPTION:
+# Will accept "gui" (default for non-kde-frameworks), "base" or "minimal".
+# If set to "minimal", switch other meta vars to non-interference (currently:
+# ECM_DEBUG=false) and do not add any dependencies on top of eclass' needs.
+# If set to "base", add dev-qt/qtbase:6 to BDEPEND/RDEPEND/DEPEND.
+# If set to "gui", also depend on breeze-icons or oxygen-icons.
+: "${ECM_AUTODEPS:=gui}"
+if [[ ${CATEGORY} == kde-frameworks && ${ECM_AUTODEPS} == gui ]]; then
+	ECM_AUTODEPS=base
 fi
 
 # @ECLASS_VARIABLE: ECM_DEBUG
 # @DESCRIPTION:
 # Add "debug" to IUSE. If !debug, add -DQT_NO_DEBUG to CPPFLAGS. If set to
 # "false", do nothing.
-: "${ECM_DEBUG:=true}"
 
 # @ECLASS_VARIABLE: ECM_DESIGNERPLUGIN
 # @DESCRIPTION:
@@ -180,18 +202,27 @@ ver_test ${KFMIN} -lt 5.240 && die "KF5 is unsupported!"
 [[ ${KDE_GCC_MINIMAL} ]] && ver_test ${KFMIN} -ge 6.9 &&
 	die "KDE_GCC_MINIMAL has been banned with KFMIN >=6.9.0."
 
-case ${ECM_NONGUI} in
-	true) ;;
-	false)
+case ${ECM_AUTODEPS} in
+	gui)
 		# gui applications need breeze or oxygen for basic iconset, bug #564838
 		RDEPEND+=" || (
 			kde-frameworks/breeze-icons:*
 			kde-frameworks/oxygen-icons:*
 		)"
+		;&
+	base)
+		BDEPEND+=" dev-qt/qtbase:6" # build tools
+		COMMONDEPEND+=" dev-qt/qtbase:6"
+		[[ ${EAPI} == 8 ]] && RDEPEND+=" >=kde-frameworks/kf-env-6"
+		: "${ECM_DEBUG:=true}"
+		;;
+	minimal)
+		# eclass deps are defined outside this switch
+		: "${ECM_DEBUG:=false}"
 		;;
 	*)
-		eerror "Unknown value for \${ECM_NONGUI}"
-		die "Value ${ECM_NONGUI} is not supported"
+		eerror "Unknown value for \${ECM_AUTODEPS}"
+		die "Value ${ECM_AUTODEPS} is not supported"
 		;;
 esac
 
@@ -287,8 +318,6 @@ if [[ ${ECM_TEST} != false ]]; then
 	IUSE+=" test"
 	RESTRICT+=" !test? ( test )"
 fi
-RDEPEND+=" >=kde-frameworks/kf-env-6"
-COMMONDEPEND+=" dev-qt/qtbase:6"
 
 DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
