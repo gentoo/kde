@@ -42,6 +42,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.245.0-disable-qmlplugindump.patch"
 	"${FILESDIR}/${PN}-6.5.0-disable-appstreamtest.patch"
 	"${FILESDIR}/${PN}-6.5.0-disable-git-commit-hooks.patch"
+	"${FILESDIR}/${P}-dont-needlessly-query-qt.patch" # bug #939465
 )
 
 python_check_deps() {
