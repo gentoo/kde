@@ -44,7 +44,6 @@ COMMON_DEPEND="
 	>=kde-plasma/kpipewire-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
 	>=media-libs/kquickimageeditor-0.6.0:6
-	media-libs/opencv:=
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	X? (
 		>=dev-qt/qtbase-${QTMIN}:6[X]
