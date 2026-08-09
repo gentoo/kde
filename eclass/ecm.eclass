@@ -34,7 +34,7 @@ _ECM_ECLASS=1
 # For proper description see cmake.eclass manpage.
 CMAKE_ECM_MODE=true
 
-inherit cmake flag-o-matic
+inherit cmake flag-o-matic qt-utils
 
 if [[ ${EAPI} == 8 ]]; then
 # @ECLASS_VARIABLE: VIRTUALX_REQUIRED
@@ -650,7 +650,13 @@ ecm_src_configure() {
 		set(ECM_DISABLE_GIT ON CACHE BOOL "") # *-disable-git-commit-hooks.patch
 
 		set(BUILD_WITH_QT6 ON CACHE BOOL "") # QtVersionOption.cmake: Hard-require Qt6
-		# KDEInstallDirs6 section
+		set(QT_HOST_LIBEXECS_CACHED ${BROOT}$(qt_get_libexecdir 6) CACHE PATH "") # FindQtWaylandScanner.cmake
+		# KDEInstallDirs6.cmake section
+		set(QT_INSTALL_PREFIX_CACHED ${EPREFIX}/usr CACHE PATH "") # same as QT6_PREFIX in qt6-build.eclass
+		set(QT_INSTALL_ARCHDATA_CACHED ${EPREFIX}$(qt_get_archdatadir 6) CACHE PATH "")
+		set(QT_INSTALL_DOCS_CACHED ${EPREFIX}/usr/share/qt6-doc CACHE PATH "") # ECMAddQch too; same as QT6_DOCDIR in qt6-build.eclass
+		set(QT_INSTALL_PLUGINS_CACHED ${EPREFIX}$(qt_get_plugindir 6) CACHE PATH "")
+		set(QT_INSTALL_QML_CACHED ${EPREFIX}$(qt_get_qmldir 6) CACHE PATH "")
 		# move handbook outside of doc dir, bug #667138
 		set(KDE_INSTALL_DOCBUNDLEDIR "${EPREFIX}/usr/share/help" CACHE PATH "")
 		set(KDE_INSTALL_INFODIR "${EPREFIX}/usr/share/info" CACHE PATH "")
