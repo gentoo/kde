@@ -38,7 +38,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${KDE_CATV}:6 )"
 
-PATCHES=( "${FILESDIR}/${PN}-6.29.0-stdalone.patch" )
+PATCHES=( "${FILESDIR}/${P}-stdalone.patch" )
 
 src_prepare() {
 	ecm_src_prepare
@@ -59,13 +59,18 @@ src_configure() {
 }
 
 src_install() {
-	ecm_src_install
+	# provided by kde-frameworks/kwallet
+	ECM_REMOVE_FROM_INSTALL=( /usr/share/config.kcfg/kwalletsettings.kcfg )
 
 	# provided by kde-frameworks/ksecretd-services
 	if use keyring; then
-		rm -v "${ED}"/usr/share/dbus-1/services/org.freedesktop.impl.portal.desktop.kwallet.service \
-			"${ED}"/usr/share/dbus-1/services/org.kde.secretservicecompat.service || die
+		ECM_REMOVE_FROM_INSTALL+=(
+			/usr/share/dbus-1/services/org.freedesktop.impl.portal.desktop.kwallet.service
+			/usr/share/dbus-1/services/org.kde.secretservicecompat.service
+		)
 	fi
+
+	ecm_src_install
 }
 
 pkg_postinst() {
