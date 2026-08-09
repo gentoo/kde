@@ -20,22 +20,15 @@ fi
 
 LICENSE="LGPL-2.1+"
 SLOT="6"
-IUSE="+opencv"
+IUSE=""
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=dev-cpp/highway-1.3.0
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
-	opencv? ( media-libs/opencv:= )
 "
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
-
-src_configure() {
-	local mycmakeargs=(
-		-DWITH_OPENCV=$(usex opencv)
-	)
-	ecm_src_configure
-}
