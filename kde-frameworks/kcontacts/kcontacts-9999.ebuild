@@ -18,7 +18,6 @@ RDEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	=kde-frameworks/kcodecs-${KDE_CATV}*:6
 	=kde-frameworks/kconfig-${KDE_CATV}*:6
-	=kde-frameworks/kcoreaddons-${KDE_CATV}*:6
 	=kde-frameworks/ki18n-${KDE_CATV}*:6
 "
 DEPEND="${RDEPEND}"
