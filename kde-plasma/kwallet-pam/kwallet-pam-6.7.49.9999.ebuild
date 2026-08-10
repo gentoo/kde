@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_NONGUI=true
 KFMIN=6.26.0
 inherit ecm plasma.kde.org
 
@@ -15,10 +16,10 @@ IUSE=""
 
 DEPEND="
 	dev-libs/libgcrypt:0=
-	>=kde-frameworks/kwallet-${KFMIN}:6
 	sys-libs/pam
 "
 RDEPEND="${DEPEND}
+	>=kde-frameworks/kwallet-runtime-${KFMIN}:6
 	net-misc/socat
 "
 BDEPEND="virtual/pkgconfig"
@@ -26,11 +27,12 @@ BDEPEND="virtual/pkgconfig"
 src_configure() {
 	local mycmakeargs=(
 		-DKDE_INSTALL_LIBDIR="/$(get_libdir)"
+		-DKWALLETD_BIN_PATH="${EPREFIX}/usr/bin/ksecretd" # source: KF6WalletConfig.cmake
 	)
 	ecm_src_configure
 }
 
 pkg_postinst() {
-	elog "This package enables auto-unlocking of kde-frameworks/kwallet:6."
+	elog "This package enables auto-unlocking of kde-frameworks/kwallet-runtime:6."
 	elog "See also: https://wiki.gentoo.org/wiki/KDE#KWallet_auto-unlocking"
 }
