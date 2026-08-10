@@ -15,14 +15,15 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-RDEPEND="
+DEPEND=">=dev-qt/qtbase-${QTMIN}:6[gui]"
+RDEPEND="${DEPEND}
 	!kde-frameworks/${PN}:5
 	!kde-frameworks/${PN}-rcc:5
 	!kde-frameworks/${PN}-rcc:6
 "
 BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/lxml[${PYTHON_USEDEP}]')
-	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=dev-qt/qtbase-${QTMIN}:6
 	>=kde-frameworks/extra-cmake-modules-${KDE_CATV}:*
 	test? ( app-misc/fdupes )
 "
