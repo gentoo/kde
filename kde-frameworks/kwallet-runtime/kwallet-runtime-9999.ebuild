@@ -38,7 +38,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${KDE_CATV}:6 )"
 
-PATCHES=( "${FILESDIR}/${P}-stdalone.patch" )
+PATCHES=( "${FILESDIR}/${PN}-6.29.0-stdalone.patch" )
 
 src_prepare() {
 	ecm_src_prepare
