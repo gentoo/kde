@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_AUTODEPS="base"
 KDE_ORG_NAME="kdesdk-kio"
 KFMIN=6.27.0
 inherit ecm gear.kde.org
