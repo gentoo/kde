@@ -7,6 +7,7 @@ ECM_HANDBOOK="forceoff"
 KDE_ORG_NAME="akonadi-calendar-tools"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.27.0
+QTMIN=6.10.1
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Command line interface to KDE calendars"
@@ -18,6 +19,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-calendar-${PVCUT}:6=
 	>=kde-apps/calendarsupport-${PVCUT}:6=
