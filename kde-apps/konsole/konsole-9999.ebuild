@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/konsole/ https://konsole.kde.org"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="X"
+IUSE="ssh X"
 
 DEPEND="
 	dev-libs/icu:=
@@ -43,13 +43,19 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[wayland,X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	x11-libs/libxkbcommon
+	ssh? ( >=net-libs/libssh-0.9.8:= )
 "
 RDEPEND="${DEPEND}"
+
+# Pending: https://invent.kde.org/utilities/konsole/-/merge_requests/1296
+PATCHES=( "${FILESDIR}/${PN}-26.07.90-bogus-dep.patch" )
 
 src_configure() {
 	local mycmakeargs=(
 		# kapsule is not yet packaged
 		-DWITH_KAPSULE=OFF
+		-DWITH_LIBSSH=$(usex ssh)
 		-DWITH_X11=$(usex X)
 	)
 	ecm_src_configure

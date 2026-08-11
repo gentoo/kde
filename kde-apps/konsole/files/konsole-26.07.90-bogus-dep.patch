@@ -1,0 +1,41 @@
+From f3c9daea1135d88f7a1ff41e9e8983dd6da0ebcc Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Tue, 11 Aug 2026 22:48:42 +0200
+Subject: [PATCH] Drop bogus ZLIB dependency
+
+Amends 79d024230dc8fb1ae75954b62a163172984daf6e
+
+Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
+---
+ CMakeLists.txt     | 2 --
+ src/CMakeLists.txt | 1 -
+ 2 files changed, 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 90d42c775..0c82847eb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -96,8 +96,6 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
+ 
+ find_package(ICU 61.0 COMPONENTS uc i18n REQUIRED)
+ 
+-find_package(ZLIB REQUIRED)
+-
+ option(WITH_KAPSULE "Build with Kapsule container support" OFF)
+ if(WITH_KAPSULE)
+     find_package(QCoro6 REQUIRED COMPONENTS Core)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 1bf49a2f0..b3bdc9674 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -268,7 +268,6 @@ target_link_libraries(konsoleprivate
+         Qt::Multimedia
+         Qt::PrintSupport
+         Qt::Xml
+-        ZLIB::ZLIB
+         ICU::uc
+         ICU::i18n
+ )
+-- 
+2.55.0
+
