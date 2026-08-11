@@ -17,6 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/kirigami-addons:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6
@@ -25,8 +26,9 @@ DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	media-libs/aubio:=
-	>=media-sound/fluidsynth-2.5.1:=
+	>=media-sound/fluidsynth-2.5.3:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
