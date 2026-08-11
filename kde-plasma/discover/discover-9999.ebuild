@@ -42,7 +42,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
-	firmware? ( >=sys-apps/fwupd-1.9.4 )
+	firmware? ( >=sys-apps/fwupd-2.1.1 )
 	flatpak? ( sys-apps/flatpak )
 	snap? (
 		>=kde-frameworks/kauth-${KFMIN}:6
