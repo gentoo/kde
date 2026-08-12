@@ -32,6 +32,7 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
+	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
