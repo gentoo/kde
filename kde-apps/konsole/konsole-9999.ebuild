@@ -48,9 +48,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# Pending: https://invent.kde.org/utilities/konsole/-/merge_requests/1296
-PATCHES=( "${FILESDIR}/${PN}-26.07.90-bogus-dep.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		# kapsule is not yet packaged
