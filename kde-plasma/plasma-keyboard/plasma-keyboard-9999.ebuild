@@ -26,6 +26,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
+	x11-libs/libxkbcommon
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons
@@ -41,4 +42,5 @@ BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
+	virtual/pkgconfig
 "
