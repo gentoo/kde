@@ -96,7 +96,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.21.0
-	>=dev-libs/wayland-protocols-1.48
+	>=dev-libs/wayland-protocols-1.49
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	dev-util/vulkan-headers
 	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
