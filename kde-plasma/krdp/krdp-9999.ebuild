@@ -18,6 +18,7 @@ KEYWORDS=""
 IUSE="systemd"
 
 COMMON_DEPEND="
+	>=dev-libs/libei-1.6.0
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,wayland]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
@@ -42,7 +43,10 @@ RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
-BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
+BDEPEND="
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	virtual/pkgconfig
+"
 
 src_configure() {
 	# std::jthread and std::stop_token are implemented as experimental in libcxx
