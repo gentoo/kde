@@ -38,7 +38,6 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
-	>=kde-frameworks/kmime-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
