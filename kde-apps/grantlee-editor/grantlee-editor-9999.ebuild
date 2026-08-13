@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-libs/ktextaddons-2.0.1:6
+	>=dev-libs/ktextaddons-2.1.2:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-contacts-${PVCUT}:6=
