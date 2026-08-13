@@ -24,7 +24,7 @@ RESTRICT="test" # bug 616878
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 COMMON_DEPEND="
 	dev-cpp/gpgmepp:=
-	>=dev-libs/ktextaddons-2.0.1:6[speech?]
+	>=dev-libs/ktextaddons-2.1.2:6[speech?]
 	dev-libs/libgpg-error
 	dev-libs/qgpgme:=
 	>=dev-libs/qtkeychain-0.16.0:=
@@ -76,7 +76,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
-	activities? ( kde-plasma/plasma-activities:6= )
+	activities? ( >=kde-plasma/plasma-activities-6.5.0:6= )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -100,6 +100,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DOPTION_ADD_AUTOGENERATETEXT=OFF # would also require the same in dev-libs/ktextaddons
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
