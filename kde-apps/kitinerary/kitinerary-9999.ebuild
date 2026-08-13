@@ -21,15 +21,16 @@ IUSE=""
 RESTRICT="test" # bug 907957, 851000, 739732...
 
 DEPEND="
-	>=app-text/poppler-23.12.0:=[qt6]
+	app-text/poppler:=[qt6]
 	dev-libs/libphonenumber
 	dev-libs/libxml2:2=
 	dev-libs/openssl:=
-	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-apps/kpkpass-${PVCUT}:6=
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kmime-${KFMIN}:6
