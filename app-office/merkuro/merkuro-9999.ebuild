@@ -32,7 +32,6 @@ DEPEND="
 	>=kde-apps/akonadi-contacts-${PVCUT}:6=
 	>=kde-apps/akonadi-mime-${PVCUT}:6=
 	>=kde-apps/akonadi-search-${PVCUT}:6=
-	>=kde-apps/kcalutils-${PVCUT}:6=
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-apps/kmailtransport-${PVCUT}:6=
 	>=kde-apps/kmbox-${PVCUT}:6=
