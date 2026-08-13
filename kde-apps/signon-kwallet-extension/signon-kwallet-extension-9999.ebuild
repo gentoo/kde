@@ -3,11 +3,12 @@
 
 EAPI=8
 
+ECM_AUTODEPS="base"
 KFMIN=6.27.0
 inherit ecm gear.kde.org
 
 DESCRIPTION="KWallet extension for signond"
-HOMEPAGE="https://accounts-sso.gitlab.io/"
+HOMEPAGE="https://invent.kde.org/network/signon-kwallet-extension"
 
 LICENSE="GPL-2+"
 SLOT="6"
