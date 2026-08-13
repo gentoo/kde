@@ -37,6 +37,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kfilemetadata-${KFMIN}:6
+	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
