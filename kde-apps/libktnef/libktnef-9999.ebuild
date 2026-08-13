@@ -6,7 +6,6 @@ EAPI=8
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
 KDE_ORG_NAME="ktnef"
-PVCUT=$(ver_cut 1-3)
 KFMIN=6.27.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org
@@ -20,7 +19,6 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
-	>=kde-apps/kcalutils-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcontacts-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
