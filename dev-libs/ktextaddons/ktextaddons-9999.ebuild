@@ -6,8 +6,8 @@ EAPI=8
 ECM_DESIGNERPLUGIN="true"
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
-KFMIN=6.20.0
-QTMIN=6.9.0
+KFMIN=6.26.0
+QTMIN=6.10.1
 inherit ecm kde.org
 
 DESCRIPTION="Various text handling addons"
