@@ -22,7 +22,7 @@ IUSE="activities telemetry"
 RESTRICT="test"
 
 COMMON_DEPEND="
-	>=dev-libs/ktextaddons-2.0.1:6
+	>=dev-libs/ktextaddons-2.1.2:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
@@ -55,7 +55,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	x11-libs/libX11
-	activities? ( kde-plasma/plasma-activities:6= )
+	activities? ( >=kde-plasma/plasma-activities-6.5.0:6= )
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
