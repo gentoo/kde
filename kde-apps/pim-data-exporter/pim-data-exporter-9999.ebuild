@@ -22,7 +22,7 @@ IUSE="telemetry"
 RESTRICT="test" # 11 out of 21 tests fail...
 
 DEPEND="
-	>=dev-libs/ktextaddons-2.0.1:6
+	>=dev-libs/ktextaddons-2.1.2:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
