@@ -54,7 +54,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	activities? ( kde-plasma/plasma-activities:6= )
+	activities? ( >=kde-plasma/plasma-activities-6.5.0:6= )
 "
 RDEPEND="${DEPEND}"
 
