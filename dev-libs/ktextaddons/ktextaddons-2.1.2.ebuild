@@ -19,7 +19,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="LGPL-2+"
-SLOT="6"
+SLOT="6/$(ver_cut 1-2)"
 IUSE="speech"
 
 RESTRICT="test"
