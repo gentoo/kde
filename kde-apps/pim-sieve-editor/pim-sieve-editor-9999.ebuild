@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE="telemetry"
 
 DEPEND="
-	>=dev-libs/ktextaddons-2.1.2:6
+	>=dev-libs/ktextaddons-2.1.2:6=
 	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
