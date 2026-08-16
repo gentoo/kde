@@ -43,7 +43,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-	>=kde-frameworks/sonnet-${KFMIN}:6[qml]
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	media-libs/kquickimageeditor:6
 	>=net-libs/libquotient-0.9.5:=
@@ -58,6 +57,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtpositioning-${QTMIN}:6[qml]
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6[qml]
+	>=kde-frameworks/sonnet-${KFMIN}:6[qml]
 "
 BDEPEND="virtual/pkgconfig"
 
