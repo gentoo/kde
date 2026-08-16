@@ -134,6 +134,7 @@
 ~media-sound/elisa-9999 **
 ~media-sound/kasts-9999 **
 ~media-sound/krecorder-9999 **
+~kde-apps/dolphin-plugins-common-9999 **
 ~kde-apps/dolphin-plugins-dropbox-9999 **
 ~kde-apps/kaccounts-integration-9999 **
 ~kde-apps/kaccounts-providers-9999 **
@@ -215,7 +216,6 @@
 ~dev-util/kdevelop-python-9999 **
 ~dev-util/kio-perldoc-9999 **
 ~dev-util/massif-visualizer-9999 **
-~kde-apps/dolphin-plugins-common-9999 **
 ~kde-apps/dolphin-plugins-git-9999 **
 ~kde-apps/dolphin-plugins-mercurial-9999 **
 ~kde-apps/dolphin-plugins-subversion-9999 **
