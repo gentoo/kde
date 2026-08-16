@@ -19,6 +19,7 @@ IUSE="+mpris"
 RESTRICT="test"
 
 DEPEND="
+	dev-libs/kirigami-addons:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
