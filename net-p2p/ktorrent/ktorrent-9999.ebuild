@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="+bwscheduler +downloadorder +infowidget +ipfilter +logviewer +magnetgenerator
 +mediaplayer rss +scanfolder +shutdown +stats +upnp +webengine +zeroconf"
 
-COMMON_DEPEND="
+DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -54,10 +54,7 @@ COMMON_DEPEND="
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )
 	zeroconf? ( >=kde-frameworks/kdnssd-${KFMIN}:6 )
 "
-DEPEND="${COMMON_DEPEND}
-	>=dev-libs/boost-1.71
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	ipfilter? (
 		app-arch/bzip2
 		app-arch/unzip
