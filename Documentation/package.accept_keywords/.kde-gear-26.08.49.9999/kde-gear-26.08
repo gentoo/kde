@@ -4,9 +4,8 @@
 ~kde-apps/kate-addons-26.08.49.9999 **
 ~kde-apps/kate-common-26.08.49.9999 **
 ~kde-apps/kate-lib-26.08.49.9999 **
-#<kde-apps/kde-apps-meta-26.08.50
+~kde-apps/kde-apps-meta-26.08.49.9999 **
 ~kde-apps/kdecore-meta-26.08.49.9999 **
 ~kde-apps/khelpcenter-26.08.49.9999 **
 ~kde-apps/konsole-26.08.49.9999 **
 ~kde-apps/kwrite-26.08.49.9999 **
-#@kdeutils-26.08

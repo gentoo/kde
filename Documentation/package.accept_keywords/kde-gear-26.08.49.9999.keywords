@@ -12,12 +12,11 @@
 ~kde-apps/kate-addons-26.08.49.9999 **
 ~kde-apps/kate-common-26.08.49.9999 **
 ~kde-apps/kate-lib-26.08.49.9999 **
-#<kde-apps/kde-apps-meta-26.08.50
+~kde-apps/kde-apps-meta-26.08.49.9999 **
 ~kde-apps/kdecore-meta-26.08.49.9999 **
 ~kde-apps/khelpcenter-26.08.49.9999 **
 ~kde-apps/konsole-26.08.49.9999 **
 ~kde-apps/kwrite-26.08.49.9999 **
-#@kdeutils-26.08
 ~app-accessibility/kontrast-26.08.49.9999 **
 ~kde-apps/kdeaccessibility-meta-26.08.49.9999 **
 ~kde-apps/kmag-26.08.49.9999 **
@@ -232,4 +231,31 @@
 ~kde-apps/lokalize-26.08.49.9999 **
 ~kde-apps/poxml-26.08.49.9999 **
 ~kde-apps/umbrello-26.08.49.9999 **
+~app-cdr/dolphin-plugins-mountiso-26.08.49.9999 **
+~app-cdr/isoimagewriter-26.08.49.9999 **
+~app-crypt/keepsecret-26.08.49.9999 **
+~app-crypt/keysmith-26.08.49.9999 **
+~app-editors/ghostwriter-26.08.49.9999 **
+~app-misc/francis-26.08.49.9999 **
+~dev-libs/kweathercore-26.08.49.9999 **
+~kde-apps/ark-26.08.49.9999 **
+~kde-apps/filelight-26.08.49.9999 **
+~kde-apps/kbackup-26.08.49.9999 **
+~kde-apps/kcalc-26.08.49.9999 **
+~kde-apps/kcharselect-26.08.49.9999 **
+~kde-apps/kdebugsettings-26.08.49.9999 **
+~kde-apps/kdeutils-meta-26.08.49.9999 **
+~kde-apps/kdf-26.08.49.9999 **
+~kde-apps/kgpg-26.08.49.9999 **
+~kde-apps/kimagemapeditor-26.08.49.9999 **
+~kde-apps/kteatime-26.08.49.9999 **
+~kde-apps/ktimer-26.08.49.9999 **
+~kde-apps/kwalletmanager-26.08.49.9999 **
+~kde-apps/sweeper-26.08.49.9999 **
+~kde-apps/yakuake-26.08.49.9999 **
+~kde-misc/kclock-26.08.49.9999 **
+~kde-misc/kweather-26.08.49.9999 **
+~kde-misc/markdownpart-26.08.49.9999 **
+~sys-block/partitionmanager-26.08.49.9999 **
+~sys-libs/kpmcore-26.08.49.9999 **
 ~dev-libs/kirigami-app-components-1.0.0
