@@ -36,6 +36,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6
+	>=kde-frameworks/purpose-${KFMIN}:6
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
