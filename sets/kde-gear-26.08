@@ -4,7 +4,7 @@
 <kde-apps/kate-addons-26.08.50
 <kde-apps/kate-common-26.08.50
 <kde-apps/kate-lib-26.08.50
-#<kde-apps/kde-apps-meta-26.08.50
+<kde-apps/kde-apps-meta-26.08.50
 <kde-apps/kdecore-meta-26.08.50
 <kde-apps/khelpcenter-26.08.50
 <kde-apps/konsole-26.08.50
@@ -19,4 +19,4 @@
 @kdenetwork-26.08
 @kdepim-26.08
 @kdesdk-26.08
-#@kdeutils-26.08
+@kdeutils-26.08
