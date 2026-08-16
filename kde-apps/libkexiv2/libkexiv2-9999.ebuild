@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 KFMIN=6.27.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org
