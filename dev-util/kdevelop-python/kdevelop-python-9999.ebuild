@@ -45,4 +45,4 @@ RDEPEND="${COMMON_DEPEND}
 	')
 "
 
-PATCHES=( "${FILESDIR}/${PN}-26.11.70-drop-python3-limit.patch" ) # bug 974363
+PATCHES=( "${FILESDIR}/${PN}-26.08.0-drop-python3-limit.patch" ) # bug 974363
