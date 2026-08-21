@@ -9,7 +9,7 @@ ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-php"
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="PHP plugin for KDevelop"

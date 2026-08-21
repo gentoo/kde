@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Geography learning tool"

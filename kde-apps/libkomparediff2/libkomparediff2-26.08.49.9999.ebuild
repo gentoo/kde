@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library to compare files and strings"

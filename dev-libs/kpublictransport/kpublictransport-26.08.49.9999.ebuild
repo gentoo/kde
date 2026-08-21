@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library for accessing public transport timetables and other information"

@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Application for debugging Akonadi Resources"

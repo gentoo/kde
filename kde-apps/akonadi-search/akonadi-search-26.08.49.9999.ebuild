@@ -7,7 +7,7 @@ ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Libraries and daemons to implement searching in Akonadi"

@@ -7,7 +7,7 @@ ECM_TEST="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm flag-o-matic gear.kde.org xdg
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"

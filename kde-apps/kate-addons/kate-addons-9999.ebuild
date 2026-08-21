@@ -6,8 +6,8 @@ EAPI=8
 KDE_ORG_CATEGORY="utilities"
 KDE_ORG_NAME="kate"
 ECM_TEST="true"
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm flag-o-matic gear.kde.org optfeature
 
 DESCRIPTION="Addons used by Kate"

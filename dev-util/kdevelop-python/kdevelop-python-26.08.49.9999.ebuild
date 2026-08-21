@@ -8,7 +8,7 @@ KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
 PYTHON_COMPAT=( python3_{11..14} )
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org python-single-r1
 
 DESCRIPTION="Python plugin for KDevelop"

@@ -10,8 +10,8 @@ ECM_TEST="forceoptional"
 LUA_COMPAT=( luajit )
 PYTHON_COMPAT=( python3_{12..15} )
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org lua-single optfeature python-single-r1 xdg
 
 DESCRIPTION="Interface for doing mathematics and scientific computing"

@@ -6,8 +6,8 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_QTHELP="false" # TODO: figure out install error
 ECM_TEST="forceoptional"
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="KDE UML Modeller"

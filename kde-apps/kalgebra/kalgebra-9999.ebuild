@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm flag-o-matic gear.kde.org xdg
 
 DESCRIPTION="MathML-based 2D and 3D graph calculator by KDE"

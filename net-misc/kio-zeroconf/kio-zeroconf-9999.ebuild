@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="KIO worker to discover file systems by DNS-SD (DNS Service Discovery)"

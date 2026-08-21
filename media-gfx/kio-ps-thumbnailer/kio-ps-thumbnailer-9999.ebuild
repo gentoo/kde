@@ -4,8 +4,8 @@
 EAPI=8
 
 KDE_ORG_NAME="kdegraphics-thumbnailers"
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="KIO thumbnail generator for DVI, EPS, PDF and PS files"

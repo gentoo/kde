@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Wrapper around exiv2 library"

@@ -7,8 +7,8 @@ ECM_PYTHON_BINDINGS="off"
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library for akonadi calendar integration"

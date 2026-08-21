@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="KDE program that clicks the mouse for you"

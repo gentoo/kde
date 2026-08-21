@@ -5,8 +5,8 @@ EAPI=8
 
 KDE_ORG_CATEGORY="utilities"
 ECM_TEST="false"
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Weather forecast application for Plasma with flat and dynamic/animated views"

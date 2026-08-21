@@ -7,7 +7,7 @@ ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.27.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Data Model and Extraction System for Travel Reservation information"

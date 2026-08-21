@@ -4,8 +4,8 @@
 EAPI=8
 
 KDE_ORG_CATEGORY="utilities"
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Convergent clock application for Plasma"

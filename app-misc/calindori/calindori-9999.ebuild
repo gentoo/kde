@@ -5,8 +5,8 @@ EAPI=8
 
 KDE_ORG_CATEGORY=plasma-mobile
 
-KFMIN=6.27.0
-QTMIN=6.6.2
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Touch friendly calendar application"

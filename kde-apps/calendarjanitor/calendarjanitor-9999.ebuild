@@ -7,8 +7,8 @@ ECM_HANDBOOK="forceoff"
 ECM_TEST="false"
 KDE_ORG_NAME="akonadi-calendar-tools"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Tool to scan calendar data for buggy instances"

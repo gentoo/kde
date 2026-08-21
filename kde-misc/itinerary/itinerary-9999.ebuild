@@ -6,8 +6,8 @@ EAPI=8
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="pim"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Digital travel assistant with a priority on protecting your privacy"

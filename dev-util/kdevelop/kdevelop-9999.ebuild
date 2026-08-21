@@ -7,9 +7,9 @@ CMAKE_QA_COMPAT_SKIP=1 # bug 964762
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
-KFMIN=6.27.0
+KFMIN=6.29.0
 LLVM_COMPAT=( 16 17 18 19 20 21 22 )
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org llvm-r2 optfeature xdg
 
 DESCRIPTION="Integrated Development Environment, supporting KF6/Qt, C/C++ and much more"

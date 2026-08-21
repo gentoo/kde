@@ -7,7 +7,7 @@ ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="false"
 KFMIN=6.27.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="Calendar support library"

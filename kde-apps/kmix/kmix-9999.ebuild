@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="false"
-KFMIN=6.27.0
-QTMIN=6.10.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Volume control gui based on KDE Frameworks"
