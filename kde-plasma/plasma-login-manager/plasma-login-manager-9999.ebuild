@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=6.22.0
-QTMIN=6.10.0
+QTMIN=6.11.2
 inherit ecm plasma.kde.org linux-info pam tmpfiles
 
 DESCRIPTION="Plasma Login Manager"

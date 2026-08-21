@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=9999
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Qt Platform Theme integration plugins for the Plasma workspaces"

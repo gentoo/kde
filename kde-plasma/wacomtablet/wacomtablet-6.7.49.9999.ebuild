@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.26.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Wacom system settings module that supports different button/pen layout profiles"

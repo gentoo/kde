@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 KFMIN=6.26.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm fcaps flag-o-matic plasma.kde.org toolchain-funcs
 
 DESCRIPTION="Task management and system monitoring library"

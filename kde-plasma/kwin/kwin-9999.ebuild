@@ -8,7 +8,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 PYTHON_COMPAT=( python3_{12..15} )
 KFMIN=9999
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm fcaps plasma.kde.org python-any-r1 toolchain-funcs xdg
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"

@@ -6,7 +6,7 @@ EAPI=8
 ECM_EXAMPLES="true"
 ECM_TEST="true"
 KFMIN=6.26.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm flag-o-matic plasma.kde.org toolchain-funcs xdg
 
 DESCRIPTION="Library and examples for creating an RDP server"

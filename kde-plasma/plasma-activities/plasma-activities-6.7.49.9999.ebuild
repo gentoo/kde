@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
 KFMIN=6.26.0
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Core components for KDE's Activities System"

@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=6.26.0
-QTMIN=6.10.0
+QTMIN=6.11.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Minimal Plasma shell package"

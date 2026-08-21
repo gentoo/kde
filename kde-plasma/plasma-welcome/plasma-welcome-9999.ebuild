@@ -4,7 +4,7 @@
 EAPI=8
 
 KFMIN=9999
-QTMIN=6.10.1
+QTMIN=6.11.2
 inherit ecm dot-a plasma.kde.org xdg
 
 DESCRIPTION="Friendly onboarding wizard for Plasma"
