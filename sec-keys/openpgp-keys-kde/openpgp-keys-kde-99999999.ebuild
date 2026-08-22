@@ -51,6 +51,7 @@ SEC_KEYS_VALIDPGPKEYS=(
 	"064182440C674D9F8D0F6F8B4DA79EDA231C852B:rempt:manual"
 	"311DA4D94B93A7AEA0496DAF5F812C367AC0A802:schullouis:manual"
 	"45487DDF14E508C426A6D9362336C6834D68B605:seshpenguin:manual"
+	"38D0815D0FDC4E6EB8B282384A85935D3AF2F199:sgakerru:manual"
 	"68D9F1D6467048E7D0EB7533E7EAFA309651E1D0:sgerlach:manual"
 	"844C5E763F5A7FC81D16BD9324623302B8395825:shatur:manual"
 	"D253F4FD09638D1D6B65354B3B0E1973DFCD652D:silverhadch:manual"
@@ -81,7 +82,7 @@ if [[ ${PV} == 99999999 ]]; then
 	SRC_URI="" # override SRC_URI to avoid versioned keys
 	S="${WORKDIR}/${P}" # override sec-keys
 else
-	COMMIT="708de6864d21ff2ce16aa294484a46910fdf3534"
+	COMMIT="b613535e70ac8aac8050ceb01ee925e8620ac89b"
 	SRC_URI+="
 		https://invent.kde.org/sysadmin/release-keyring/-/archive/${COMMIT}/release-keyring-${COMMIT}.tar.bz2
 			-> kde-release-keyring-${COMMIT}.tar.bz2
