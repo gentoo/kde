@@ -21,7 +21,6 @@
 ~kde-apps/kalarm-9999
 ~kde-apps/kcalutils-9999
 ~kde-apps/kdepim-addons-9999
-~kde-apps/kdepim-meta-9999
 ~kde-apps/kdepim-runtime-9999
 ~kde-apps/kidentitymanagement-9999
 ~kde-apps/kimap-9999
@@ -54,3 +53,4 @@
 ~kde-apps/pim-sieve-editor-9999
 ~kde-apps/pimcommon-9999
 ~kde-misc/zanshin-9999
+~kde-apps/kdepim-meta-9999

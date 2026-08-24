@@ -11,7 +11,6 @@
 ~kde-apps/kcalc-9999
 ~kde-apps/kcharselect-9999
 ~kde-apps/kdebugsettings-9999
-~kde-apps/kdeutils-meta-9999
 ~kde-apps/kdf-9999
 ~kde-apps/kgpg-9999
 ~kde-apps/kimagemapeditor-9999
@@ -25,3 +24,4 @@
 ~kde-misc/markdownpart-9999
 ~sys-block/partitionmanager-9999
 ~sys-libs/kpmcore-9999
+~kde-apps/kdeutils-meta-9999
