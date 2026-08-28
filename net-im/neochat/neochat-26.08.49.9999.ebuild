@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=6.27.0
 QTMIN=6.11.2
-inherit ecm gear.kde.org xdg
+inherit ecm gear.kde.org toolchain-funcs xdg
 
 DESCRIPTION="Client for Matrix, the decentralized communication protocol"
 HOMEPAGE="https://apps.kde.org/neochat/"
@@ -71,6 +71,14 @@ CMAKE_SKIP_TESTS=(
 	roommanagertest # bug 969837, who cares
 	servernoticestest # bug 967518, really
 )
+
+pkg_pretend() {
+	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 15.1 # bug 981567
+}
+
+pkg_setup() {
+	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 15.1
+}
 
 src_configure() {
 	local mycmakeargs=(
