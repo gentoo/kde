@@ -26,6 +26,7 @@ DEPEND="
 	>=dev-cpp/highway-1.3.0
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
