@@ -37,7 +37,8 @@ bump_packages_from_set() {
 		ekeyword ^all ${destination} > /dev/null
 
 		if [[ ${destination} != *9999* ]] ; then
-			ekeyword $(get_main_tree_keyword ${cp}) ${destination} > /dev/null
+			local slot="$(portageq metadata / ebuild ${cp}-${sourceversion} SLOT)"
+			ekeyword $(get_main_tree_keyword ${cp} ${slot%/*}) ${destination} > /dev/null
 			ekeyword ~all ${destination} > /dev/null
 		fi
 
@@ -146,14 +147,20 @@ create_keywords_files() {
 }
 
 # @FUNCTION: get_main_tree_keyword
-# @USAGE: <cp>
+# @USAGE: <cp> [slot]
 # @DESCRIPTION:
 # Given a <cp>, get the keywords from the highest ebuild version in the gentoo repo.
 get_main_tree_keyword() {
 	local portdir="$(portageq get_repo_path / gentoo)"
 	local cp="${1}"
+	local slot basever
 
-	echo $(sed -ne 's/^\s*KEYWORDS="\(.*\)"/\1/p' "$(ls ${portdir}/${cp}/*.ebuild | sort | tail -n 1)")
+	if [[ -n ${2} ]]; then
+		slot=":${2}"
+	fi
+	slot="${slot}::gentoo"
+	basever="$(portageq best_visible / ${cp}${slot})" # TODO: what if there is no such slot in tree?
+	echo $(portageq metadata / ebuild ${basever} KEYWORDS)
 }
 
 # @FUNCTION: get_package_list_from_set
