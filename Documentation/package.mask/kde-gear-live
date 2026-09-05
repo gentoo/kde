@@ -7,14 +7,14 @@
 ~kde-apps/konqueror-9999
 ~www-client/falkon-9999
 ~app-accessibility/kontrast-9999
-~kde-apps/kdeaccessibility-meta-9999
 ~kde-apps/kmag-9999
 ~kde-apps/kmousetool-9999
 ~kde-apps/kmouth-9999
+~kde-apps/kdeaccessibility-meta-9999
 ~app-admin/kio-admin-9999
-~kde-apps/kdeadmin-meta-9999
 ~kde-apps/kcron-9999
 ~kde-apps/ksystemlog-9999
+~kde-apps/kdeadmin-meta-9999
 ~kde-apps/analitza-9999
 ~kde-apps/artikulate-9999
 ~kde-apps/blinken-9999
@@ -24,7 +24,6 @@
 ~kde-apps/kanagram-9999
 ~kde-apps/kbruch-9999
 ~kde-apps/kdeedu-data-9999
-~kde-apps/kdeedu-meta-9999
 ~kde-apps/kgeography-9999
 ~kde-apps/khangman-9999
 ~kde-apps/kig-9999
@@ -41,6 +40,7 @@
 ~kde-apps/parley-9999
 ~kde-apps/rocs-9999
 ~kde-apps/step-9999
+~kde-apps/kdeedu-meta-9999
 ~games-puzzle/skladnik-9999
 ~kde-apps/bomber-9999
 ~kde-apps/bovo-9999
@@ -52,7 +52,6 @@
 ~kde-apps/kblocks-9999
 ~kde-apps/kbounce-9999
 ~kde-apps/kbreakout-9999
-~kde-apps/kdegames-meta-9999
 ~kde-apps/kdiamond-9999
 ~kde-apps/kfourinline-9999
 ~kde-apps/kgoldrunner-9999
@@ -85,10 +84,10 @@
 ~kde-apps/lskat-9999
 ~kde-apps/palapeli-9999
 ~kde-apps/picmi-9999
+~kde-apps/kdegames-meta-9999
 ~kde-apps/gwenview-9999
 ~kde-apps/kamera-9999
 ~kde-apps/kcolorchooser-9999
-~kde-apps/kdegraphics-meta-9999
 ~kde-apps/kdegraphics-mobipocket-9999
 ~kde-apps/kolourpaint-9999
 ~kde-apps/kruler-9999
@@ -108,13 +107,13 @@
 ~media-gfx/qrca-9999
 ~media-gfx/skanpage-9999
 ~media-libs/ksanecore-9999
+~kde-apps/kdegraphics-meta-9999
 ~kde-apps/audiocd-kio-9999
 ~kde-apps/dragon-9999
 ~kde-apps/ffmpegthumbs-9999
 ~kde-apps/juk-9999
 ~kde-apps/k3b-9999
 ~kde-apps/kamoso-9999
-~kde-apps/kdemultimedia-meta-9999
 ~kde-apps/kdenlive-9999
 ~kde-apps/kmix-9999
 ~kde-apps/kwave-9999
@@ -123,11 +122,11 @@
 ~media-sound/elisa-9999
 ~media-sound/kasts-9999
 ~media-sound/krecorder-9999
+~kde-apps/kdemultimedia-meta-9999
 ~kde-apps/dolphin-plugins-common-9999
 ~kde-apps/dolphin-plugins-dropbox-9999
 ~kde-apps/kaccounts-integration-9999
 ~kde-apps/kaccounts-providers-9999
-~kde-apps/kdenetwork-meta-9999
 ~kde-apps/kdenetwork-filesharing-9999
 ~kde-apps/kget-9999
 ~kde-apps/kio-extras-9999
@@ -143,6 +142,7 @@
 ~net-misc/kio-zeroconf-9999
 ~net-news/alligator-9999
 ~net-p2p/ktorrent-9999
+~kde-apps/kdenetwork-meta-9999
 ~app-office/merkuro-9999
 ~dev-libs/kopeninghours-9999
 ~dev-libs/kosmindoormap-9999
@@ -166,7 +166,6 @@
 ~kde-apps/kalarm-9999
 ~kde-apps/kcalutils-9999
 ~kde-apps/kdepim-addons-9999
-~kde-apps/kdepim-meta-9999
 ~kde-apps/kdepim-runtime-9999
 ~kde-apps/kidentitymanagement-9999
 ~kde-apps/kimap-9999
@@ -199,6 +198,7 @@
 ~kde-apps/pim-sieve-editor-9999
 ~kde-apps/pimcommon-9999
 ~kde-misc/zanshin-9999
+~kde-apps/kdepim-meta-9999
 ~dev-build/dolphin-plugins-makefileactions-9999
 ~dev-util/kdevelop-9999
 ~dev-util/kdevelop-php-9999
@@ -212,13 +212,13 @@
 ~kde-apps/kcachegrind-9999
 ~kde-apps/kde-dev-scripts-9999
 ~kde-apps/kde-dev-utils-9999
-~kde-apps/kdesdk-meta-9999
 ~kde-apps/kdesdk-thumbnailers-9999
 ~kde-apps/kompare-9999
 ~kde-apps/libkomparediff2-9999
 ~kde-apps/lokalize-9999
 ~kde-apps/poxml-9999
 ~kde-apps/umbrello-9999
+~kde-apps/kdesdk-meta-9999
 ~app-cdr/dolphin-plugins-mountiso-9999
 ~app-cdr/isoimagewriter-9999
 ~app-crypt/keepsecret-9999
@@ -232,7 +232,6 @@
 ~kde-apps/kcalc-9999
 ~kde-apps/kcharselect-9999
 ~kde-apps/kdebugsettings-9999
-~kde-apps/kdeutils-meta-9999
 ~kde-apps/kdf-9999
 ~kde-apps/kgpg-9999
 ~kde-apps/kimagemapeditor-9999
@@ -246,3 +245,4 @@
 ~kde-misc/markdownpart-9999
 ~sys-block/partitionmanager-9999
 ~sys-libs/kpmcore-9999
+~kde-apps/kdeutils-meta-9999

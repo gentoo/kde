@@ -1,7 +1,6 @@
 ~kde-apps/gwenview-9999 **
 ~kde-apps/kamera-9999 **
 ~kde-apps/kcolorchooser-9999 **
-~kde-apps/kdegraphics-meta-9999 **
 ~kde-apps/kdegraphics-mobipocket-9999 **
 ~kde-apps/kolourpaint-9999 **
 ~kde-apps/kruler-9999 **
@@ -21,3 +20,4 @@
 ~media-gfx/qrca-9999 **
 ~media-gfx/skanpage-9999 **
 ~media-libs/ksanecore-9999 **
+~kde-apps/kdegraphics-meta-9999 **

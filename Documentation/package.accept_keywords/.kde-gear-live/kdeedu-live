@@ -7,7 +7,6 @@
 ~kde-apps/kanagram-9999 **
 ~kde-apps/kbruch-9999 **
 ~kde-apps/kdeedu-data-9999 **
-~kde-apps/kdeedu-meta-9999 **
 ~kde-apps/kgeography-9999 **
 ~kde-apps/khangman-9999 **
 ~kde-apps/kig-9999 **
@@ -24,3 +23,4 @@
 ~kde-apps/parley-9999 **
 ~kde-apps/rocs-9999 **
 ~kde-apps/step-9999 **
+~kde-apps/kdeedu-meta-9999 **

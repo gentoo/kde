@@ -4,7 +4,6 @@
 ~kde-apps/juk-9999 **
 ~kde-apps/k3b-9999 **
 ~kde-apps/kamoso-9999 **
-~kde-apps/kdemultimedia-meta-9999 **
 ~kde-apps/kdenlive-9999 **
 ~kde-apps/kmix-9999 **
 ~kde-apps/kwave-9999 **
@@ -13,3 +12,4 @@
 ~media-sound/elisa-9999 **
 ~media-sound/kasts-9999 **
 ~media-sound/krecorder-9999 **
+~kde-apps/kdemultimedia-meta-9999 **
