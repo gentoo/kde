@@ -22,4 +22,7 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 "
 RDEPEND="${DEPEND}"
-BDEPEND="app-alternatives/yacc"
+BDEPEND="
+	app-alternatives/yacc
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
+"
