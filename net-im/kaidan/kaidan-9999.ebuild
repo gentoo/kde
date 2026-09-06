@@ -20,7 +20,7 @@ SLOT="0"
 
 COMMON_DEPEND="
 	dev-libs/icu:=
-	dev-libs/kdsingleapplication
+	dev-libs/kdsingleapplication:=
 	>=dev-libs/qtkeychain-0.16:=
 	>=dev-libs/kirigami-addons-1.8.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,ssl,widgets,xml]
