@@ -4,12 +4,11 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=6.11.0
-QTMIN=6.8.0
+QTMIN=6.11.2
 inherit ecm kde.org xdg
 
 DESCRIPTION="Modern XMPP chat app for every device"
-HOMEPAGE="https://www.kaidan.im"
+HOMEPAGE="https://www.kaidan.im/"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
@@ -19,11 +18,11 @@ fi
 LICENSE="CC-BY-SA-4.0 GPL-3+ LGPL-2.1+ MIT"
 SLOT="0"
 
-RDEPEND="
+COMMON_DEPEND="
 	dev-libs/icu:=
 	dev-libs/kdsingleapplication
 	>=dev-libs/qtkeychain-0.16:=
-	>=dev-libs/kirigami-addons-1.4.0:6
+	>=dev-libs/kirigami-addons-1.8.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,ssl,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtlocation-${QTMIN}:6
@@ -34,17 +33,26 @@ RDEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6[qml]
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
+	media-libs/gstreamer:1.0
 	media-libs/kquickimageeditor:6
-	>=net-libs/qxmpp-1.11.0:=[omemo]
+	media-plugins/gst-plugins-qt6:1.0
+	>=net-libs/qxmpp-1.16.0:=[omemo]
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
-BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
+RDEPEND="${COMMON_DEPEND}
+	media-plugins/gst-plugins-meta:1.0
+"
+BDEPEND="
+	>=dev-qt/qttools-${QTMIN}:6[linguist]
+	virtual/pkgconfig
+"
 
 src_configure() {
 	local mycmakeargs=(
