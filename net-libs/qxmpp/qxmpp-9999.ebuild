@@ -14,12 +14,12 @@ if [[ ${KDE_BUILD_TYPE} == release ]]; then
 fi
 
 LICENSE="LGPL-2.1 CC0-1.0"
-SLOT="0/9"
+SLOT="0/10"
 IUSE="doc gstreamer omemo test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-qt/qtbase:6[network,ssl,xml]
+	>=dev-qt/qtbase-6.11.2:6[network,ssl,xml]
 	gstreamer? ( media-libs/gstreamer )
 	omemo? (
 		>=dev-libs/openssl-3:=
