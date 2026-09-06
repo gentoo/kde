@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.16.0
-QTMIN=6.7.2
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm kde.org xdg
 
 DESCRIPTION="Personal finances manager, aiming at being simple and intuitive"
@@ -21,7 +21,7 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="activities kde ofx"
 
-# hangs + installs files (also requires KF5DesignerPlugin)
+# hangs + installs files (also requires KF6DesignerPlugin)
 RESTRICT="test"
 
 DEPEND="
@@ -31,6 +31,7 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
