@@ -5,8 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.9.0
-QTMIN=6.8.1
+QTMIN=6.11.2
 VIRTUALDBUS_TEST="true"
 inherit ecm kde.org optfeature xdg
 
@@ -28,12 +27,12 @@ REQUIRED_USE="sqlcipher? ( sql )"
 COMMON_DEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
-	=app-office/libalkimia-9999*:=
+	=app-office/libalkimia-9999-r0:=
 	dev-libs/gmp:0=[cxx(+)]
 	dev-libs/kdiagram:6
 	dev-libs/libgpg-error
 	dev-libs/libofx:=
-	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql?,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
@@ -57,8 +56,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	activities? ( kde-plasma/plasma-activities:6= )
 	addressbook? (
-		kde-apps/akonadi:6
-		kde-apps/kidentitymanagement:6
+		kde-apps/akonadi:6=
+		kde-apps/kidentitymanagement:6=
 		>=kde-frameworks/kcontacts-${KFMIN}:6
 	)
 	calendar? ( dev-libs/libical:= )
