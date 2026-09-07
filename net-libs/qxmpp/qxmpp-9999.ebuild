@@ -15,7 +15,7 @@ fi
 
 LICENSE="LGPL-2.1 CC0-1.0"
 SLOT="0/10"
-IUSE="doc gstreamer omemo test"
+IUSE="gstreamer omemo test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -27,15 +27,16 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	virtual/pkgconfig
-	doc? ( app-text/doxygen )
-"
+#	doc? (
+#		dev-qt/qttools:6[qdoc]
+#		kde-frameworks/extra-cmake-modules
+#	)
+BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_ECM=ON # clang-format only
-		-DBUILD_DOCUMENTATION=$(usex doc)
+		-DBUILD_DOCUMENTATION=OFF # $(usex doc) TODO: Port to ECMGenerateQDoc
 		-DBUILD_EXAMPLES=OFF
 		-DBUILD_TESTING=$(usex test)
 		-DBUILD_OMEMO=$(usex omemo)
