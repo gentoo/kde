@@ -38,6 +38,7 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_ECM=ON # clang-format only
 		-DBUILD_DOCUMENTATION=OFF # $(usex doc) TODO: Port to ECMGenerateQDoc
 		-DBUILD_EXAMPLES=OFF
+		-DUSE_CCACHE=OFF
 		-DBUILD_TESTING=$(usex test)
 		-DBUILD_OMEMO=$(usex omemo)
 		-DWITH_ENCRYPTION=$(usex omemo)
