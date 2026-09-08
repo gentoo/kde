@@ -49,8 +49,8 @@ src_configure() {
 src_test() {
 	local CMAKE_SKIP_TESTS=(
 		# require network connection, bug #623708
-		tst_qxmpptransfermanager
-		tst_qxmppiceconnection
+		tst_QXmppTransferManager
+		tst_QXmppIceConnection
 	)
 	cmake_src_test
 }
