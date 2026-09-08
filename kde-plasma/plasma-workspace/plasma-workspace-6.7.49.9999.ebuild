@@ -163,7 +163,8 @@ PDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
-	"${FILESDIR}/${PN}-6.7.3-optional-nm.patch" # in git master
+	"${FILESDIR}/${PN}-6.7.3-optional-nm.patch" # in 6.8
+	"${FILESDIR}/${PN}-6.7.5-libcxx23-missing-header.patch" # in 6.8
 )
 
 src_prepare() {
