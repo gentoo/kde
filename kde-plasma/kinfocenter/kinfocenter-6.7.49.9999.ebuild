@@ -43,6 +43,8 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=( "${FILESDIR}/${PN}-6.7.5-libcxx23-missing-header.patch" ) # in 6.8
+
 CMAKE_SKIP_TESTS=(
 	# bug 816591
 	smbmountmodeltest
