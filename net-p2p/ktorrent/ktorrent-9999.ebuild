@@ -39,7 +39,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=net-libs/libktorrent-${PVCUT}:6
-	infowidget? ( dev-libs/geoip )
+	infowidget? ( dev-libs/libmaxminddb:= )
 	ipfilter? ( >=kde-frameworks/karchive-${KFMIN}:6 )
 	mediaplayer? (
 		>=dev-qt/qtmultimedia-${QTMIN}:6
