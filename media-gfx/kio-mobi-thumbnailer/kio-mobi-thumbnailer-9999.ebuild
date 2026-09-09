@@ -22,9 +22,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/thumbnailers-24.05.2-r1:6
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
