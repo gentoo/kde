@@ -21,7 +21,6 @@ DEPEND="
 	>=media-video/ffmpeg-6.1:0=
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/ffmpegthumbs-23.08.5-r1:5
 	!kde-apps/ffmpegthumbs-common
 "
 BDEPEND="
