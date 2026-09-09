@@ -21,7 +21,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/thumbnailers-24.05.2-r1:6
 	app-text/dvipsk
 	app-text/ghostscript-gpl
 "
