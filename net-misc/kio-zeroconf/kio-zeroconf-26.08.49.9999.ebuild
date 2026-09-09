@@ -23,6 +23,5 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
-	!<net-misc/kio-zeroconf-23.08.5-r2:5
 	!net-misc/kio-zeroconf-common
 "
