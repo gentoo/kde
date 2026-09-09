@@ -126,11 +126,9 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-plasma/libkworkspace:5
 	!<kde-plasma/plasma-desktop-6.6.90
 	!kde-plasma/plasma-login-sessions
 	!<kde-plasma/xdg-desktop-portal-kde-6.1.90
-	!kde-plasma/xembed-sni-proxy:*
 	app-text/iso-codes
 	dev-libs/kirigami-addons:6
 	>=dev-qt/qttools-${QTMIN}:*[qdbus]
