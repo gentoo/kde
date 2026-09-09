@@ -4,9 +4,10 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.9.0
-QTMIN=6.8.1
-inherit ecm kde.org xdg
+KDE_ORG_CATEGORY="plasma"
+KFMIN=9999
+QTMIN=6.11.2
+inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Backup scheduler for the Plasma desktop"
 HOMEPAGE="https://apps.kde.org/kup/"
@@ -34,11 +35,10 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	kde-plasma/libplasma:6=
-	kde-plasma/plasma5support:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
+	>=kde-plasma/plasma5support-${KDE_CATV}:6
 "
 RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	net-misc/rsync

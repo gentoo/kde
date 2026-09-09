@@ -82,6 +82,7 @@ fi
 case ${PN} in
 	breeze | \
 	kglobalacceld | \
+	kup | \
 	kwayland | \
 	libplasma | \
 	oxygen | \
