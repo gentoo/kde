@@ -21,6 +21,5 @@ DEPEND="
 	media-gfx/sane-backends
 "
 RDEPEND="${DEPEND}
-	!<media-libs/ksanecore-23.08.5-r2:5
 	!media-libs/ksanecore-common
 "
