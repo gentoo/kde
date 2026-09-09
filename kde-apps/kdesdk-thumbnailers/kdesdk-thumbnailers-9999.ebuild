@@ -20,6 +20,5 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kdesdk-thumbnailers-24.05.2-r1:5
 	!kde-apps/kdesdk-thumbnailers-common
 "
