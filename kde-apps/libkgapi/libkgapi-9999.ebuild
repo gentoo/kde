@@ -24,9 +24,7 @@ DEPEND="
 	>=kde-frameworks/kcontacts-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 "
-RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
-"
+RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 CMAKE_SKIP_TESTS=(
