@@ -11,8 +11,8 @@ HOMEPAGE="https://kde.org/plasma-desktop/"
 LICENSE="metapackage"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility bluetooth +browser-integration +crash-handler crypt cups
-discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
+IUSE="accessibility +backup bluetooth +browser-integration +crash-handler crypt
+cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
 +networkmanager ocr oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart
 systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine
 +xwayland"
@@ -20,8 +20,6 @@ systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
 RDEPEND="
-	!${CATEGORY}/${PN}:5
-	!kde-plasma/khotkeys:5
 	>=kde-plasma/aurorae-${PV}:${SLOT}
 	>=kde-plasma/kactivitymanagerd-${PV}:${SLOT}
 	>=kde-plasma/kde-cli-tools-${PV}:${SLOT}
@@ -64,6 +62,7 @@ RDEPEND="
 	sys-apps/dbus[elogind?,systemd?]
 	sys-auth/polkit[elogind?,systemd?]
 	sys-fs/udisks:2[elogind?,systemd?]
+	backup? ( >=app-backup/kup-${PV} )
 	bluetooth? ( >=kde-plasma/bluedevil-${PV}:${SLOT} )
 	browser-integration? ( >=kde-plasma/plasma-browser-integration-${PV}:${SLOT} )
 	crash-handler? (
