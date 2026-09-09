@@ -18,6 +18,7 @@ IUSE="X"
 
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
@@ -37,7 +38,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons:6
-	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	x11-misc/colord
 "
