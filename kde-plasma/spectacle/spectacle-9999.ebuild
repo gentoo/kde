@@ -55,7 +55,7 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.19.0
+	>=dev-libs/plasma-wayland-protocols-1.22.0
 "
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtimageformats-${QTMIN}:6
