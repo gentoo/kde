@@ -33,7 +33,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
-	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
@@ -50,9 +49,11 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	dev-libs/kirigami-addons:6
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
+	>=kde-frameworks/prison-${KFMIN}:6
 "
 DEPEND="${COMMON_DEPEND}
 	>=net-misc/modemmanager-1.20
