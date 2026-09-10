@@ -16,7 +16,7 @@ https://files.quantumproductions.info/union/overview.html"
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) GPL-3 BSD-2"
 SLOT="6"
 KEYWORDS=""
-IUSE="tools widgets"
+IUSE="tools +widgets"
 
 # IUSE="svg"
 # 	svg? (
@@ -37,12 +37,13 @@ DEPEND="
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
+	tools? ( virtual/zlib:= )
 "
 RDEPEND="${DEPEND}
 	widgets? ( kde-plasma/breeze:6 )
 "
 BDEPEND="
-	dev-libs/cxx-rust-cssparser
+	>=dev-libs/cxx-rust-cssparser-1.1.0
 	>=dev-qt/qttools-${QTMIN}:6[qdoc]
 "
 
