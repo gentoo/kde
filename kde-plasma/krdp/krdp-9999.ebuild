@@ -20,7 +20,7 @@ IUSE="systemd"
 COMMON_DEPEND="
 	>=dev-libs/libei-1.6.0
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,wayland]
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,wayland]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
