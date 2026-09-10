@@ -54,6 +54,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-6.1.90:*
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	|| (
 		sys-apps/tuned[ppd]
