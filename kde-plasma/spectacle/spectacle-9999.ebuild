@@ -43,7 +43,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/prison-${KFMIN}:6
 	>=kde-plasma/kpipewire-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
-	>=media-libs/kquickimageeditor-0.6.0:6
+	>=media-libs/kquickimageeditor-0.7.0.1:6
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	X? (
 		>=dev-qt/qtbase-${QTMIN}:6[X]
