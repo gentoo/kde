@@ -24,6 +24,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kidletime-${KFMIN}:6
@@ -36,7 +37,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	>=sys-apps/systemd-254:=
+	>=sys-apps/systemd-255:=
 	>=sys-auth/polkit-qt-0.175.0[qt6(+)]
 "
 DEPEND="${COMMON_DEPEND}
