@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_TEST=true
 KFMIN=9999
 QTMIN=6.11.2
 inherit ecm plasma.kde.org xdg
@@ -18,6 +19,7 @@ IUSE=""
 DEPEND="
 	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
+	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
