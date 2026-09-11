@@ -29,6 +29,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
+	media-libs/libglvnd
 	virtual/libudev:=
 	x11-libs/libdrm
 	gles2-only? ( >=media-libs/mesa-24.1.0_rc1[opengl] )
@@ -81,7 +82,7 @@ pkg_postinst() {
 
 	optfeature_header "Query GPU/graphics support info:"
 	optfeature "OpenCL information module" dev-util/clinfo
-	optfeature "OpenGL information module" x11-apps/mesa-progs
+	optfeature "EGL information module" x11-apps/mesa-progs
 	optfeature "Vulkan graphics API information module" dev-util/vulkan-tools
 	optfeature "Wayland information module" app-misc/wayland-utils
 	optfeature "X Server information module" x11-apps/xdpyinfo
