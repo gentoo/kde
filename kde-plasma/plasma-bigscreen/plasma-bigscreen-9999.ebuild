@@ -26,6 +26,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtwebengine-${QTMIN}:6[qml]
 	>=kde-frameworks/bluez-qt-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
