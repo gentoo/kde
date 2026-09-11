@@ -39,7 +39,9 @@ COMMON_DEPEND="
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-plasma/kpipewire-${KDE_CATV}:6
 	>=kde-plasma/kwayland-${KDE_CATV}:6
+	media-video/pipewire:=
 	x11-libs/libxkbcommon
 "
 DEPEND="${COMMON_DEPEND}
