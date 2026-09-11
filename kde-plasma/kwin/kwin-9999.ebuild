@@ -102,11 +102,11 @@ DEPEND="${COMMON_DEPEND}
 	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
 	X? ( x11-base/xorg-proto )
 "
-BDEPEND="
-	${PYTHON_DEPS}
+BDEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
+	virtual/pkgconfig
 "
 
 case ${PV} in
