@@ -33,10 +33,10 @@ DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
-	>=kde-plasma/plasma5support-${KDE_CATV}:6
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtdeclarative-${QTMIN}:6
