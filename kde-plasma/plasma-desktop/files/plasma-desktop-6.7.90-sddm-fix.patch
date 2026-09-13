@@ -1,0 +1,323 @@
+From 3509f85bd81b342a5f6ac9ecf08a598107179226 Mon Sep 17 00:00:00 2001
+From: Fabian Vogt <fabian@ritter-vogt.de>
+Date: Sun, 13 Sep 2026 18:03:40 +0200
+Subject: [PATCH 1/2] Revert "lockscreen: pass new footer to WallpaperFader"
+
+This reverts commit c0cbc9df38f18529fd97494914d68c239eae852a.
+---
+ desktoppackage/contents/lockscreen/LockScreenUi.qml |  4 +---
+ sddm-theme/Main.qml                                 | 10 ++++------
+ 2 files changed, 5 insertions(+), 9 deletions(-)
+
+diff --git a/desktoppackage/contents/lockscreen/LockScreenUi.qml b/desktoppackage/contents/lockscreen/LockScreenUi.qml
+index e5ecd6a888..a8f3e979bb 100644
+--- a/desktoppackage/contents/lockscreen/LockScreenUi.qml
++++ b/desktoppackage/contents/lockscreen/LockScreenUi.qml
+@@ -229,7 +229,7 @@ Item {
+             state: lockScreenRoot.uiVisible ? "on" : "off"
+             source: wallpaper
+             mainStack: mainStack
+-            footer: loginLockScreenFooter
++            footer: footer
+             clock: clock
+             alwaysShowClock: config.alwaysShowClock && !config.hideClockWhenIdle
+         }
+@@ -440,8 +440,6 @@ Item {
+         }
+ 
+         LoginLockScreen.Footer {
+-            id: loginLockScreenFooter
+-
+             onOskActivated: {
+                 mainBlock.mainPasswordBox.forceActiveFocus();
+             }
+diff --git a/sddm-theme/Main.qml b/sddm-theme/Main.qml
+index c94e51e7fa..18b0209b65 100644
+--- a/sddm-theme/Main.qml
++++ b/sddm-theme/Main.qml
+@@ -110,7 +110,7 @@ Item {
+             state: loginScreenRoot.uiVisible ? "on" : "off"
+             source: wallpaper
+             mainStack: mainStack
+-            footer: loginLockScreenFooter
++            footer: footer
+             clock: clock
+         }
+ 
+@@ -396,7 +396,7 @@ Item {
+             visible: config.showlogo === "shown"
+             source: config.logo
+             anchors.horizontalCenter: parent.horizontalCenter
+-            anchors.bottom: loginLockScreenFooter.top
++            anchors.bottom: footer.top
+             anchors.bottomMargin: Kirigami.Units.largeSpacing
+             asynchronous: true
+             sourceSize.height: height
+@@ -413,8 +413,6 @@ Item {
+         }
+ 
+         LoginLockScreen.Footer {
+-            id: loginLockScreenFooter
+-
+             onOskActivated: {
+                 userListComponent.mainPasswordBox.forceActiveFocus();
+             }
+@@ -425,7 +423,7 @@ Item {
+         target: sddm
+         function onLoginFailed() {
+             notificationMessage = i18ndc("plasma-desktop-sddm-theme", "@info:status", "Login Failed")
+-            loginLockScreenFooter.enabled = true
++            footer.enabled = true
+             mainStack.enabled = true
+             userListComponent.userList.opacity = 1
+             rejectPasswordAnimation.start()
+@@ -435,7 +433,7 @@ Item {
+             //there is no certainty any transition will finish, it depends on the time it
+             //takes to complete the init
+             mainStack.opacity = 0
+-            loginLockScreenFooter.opacity = 0
++            footer.opacity = 0
+         }
+     }
+ 
+-- 
+GitLab
+
+
+From ac9e56ea52a8875051a2a97f4b504693dac41ea8 Mon Sep 17 00:00:00 2001
+From: Fabian Vogt <fabian@ritter-vogt.de>
+Date: Sun, 13 Sep 2026 18:03:46 +0200
+Subject: [PATCH 2/2] Revert "Port lockscreen/SDDM footer to a reuseable
+ component"
+
+This reverts commit 1e77a2df155daec01704ee01395a93cf073015b6.
+
+Some references to the footer were not fixed, breaking the login method:
+
+file:///usr/share/sddm/themes/breeze/Login.qml:65: ReferenceError: footer is not defined
+
+It removed sessionButton which is still needed and referenced, which
+also broke login:
+
+file:///usr/share/sddm/themes/breeze/Main.qml:245: ReferenceError: sessionButton is not defined
+---
+ .../contents/lockscreen/LockScreenUi.qml      | 79 +++++++++++++++-
+ sddm-theme/Main.qml                           | 93 ++++++++++++++++++-
+ 2 files changed, 164 insertions(+), 8 deletions(-)
+
+diff --git a/desktoppackage/contents/lockscreen/LockScreenUi.qml b/desktoppackage/contents/lockscreen/LockScreenUi.qml
+index a8f3e979bb..7e5b3517a8 100644
+--- a/desktoppackage/contents/lockscreen/LockScreenUi.qml
++++ b/desktoppackage/contents/lockscreen/LockScreenUi.qml
+@@ -15,8 +15,8 @@ import Qt5Compat.GraphicalEffects
+ 
+ import org.kde.plasma.components as PlasmaComponents3
+ import org.kde.plasma.private.accessibility
++import org.kde.plasma.workspace.components as PW
+ import org.kde.plasma.workspace.keyboardlayout as Keyboards
+-import org.kde.plasma.workspace.loginlockscreen as LoginLockScreen
+ import org.kde.plasma.private.keyboardindicator as KeyboardIndicator
+ import org.kde.kirigami as Kirigami
+ import org.kde.kscreenlocker as ScreenLocker
+@@ -439,10 +439,81 @@ Item {
+             }
+         }
+ 
+-        LoginLockScreen.Footer {
+-            onOskActivated: {
+-                mainBlock.mainPasswordBox.forceActiveFocus();
++        // Note: Containment masks stretch clickable area of their buttons to
++        // the screen edges, essentially making them adhere to Fitts's law.
++        // Due to virtual keyboard button having an icon, buttons may have
++        // different heights, so fillHeight is required.
++        //
++        // Note for contributors: Keep this in sync with SDDM Main.qml footer.
++        RowLayout {
++            id: footer
++            anchors {
++                bottom: parent.bottom
++                left: parent.left
++                right: parent.right
++                margins: Kirigami.Units.smallSpacing
+             }
++            spacing: Kirigami.Units.smallSpacing
++
++            PlasmaComponents3.ToolButton {
++                id: virtualKeyboardButton
++
++                focusPolicy: Qt.TabFocus
++                text: i18ndc("plasma_shell_org.kde.plasma.desktop", "Button to show/hide virtual keyboard", "Virtual Keyboard")
++                icon.name: Keyboards.KWinVirtualKeyboard.visible ? "input-keyboard-virtual-on" : "input-keyboard-virtual-off"
++                onClicked: {
++                    if (Keyboards.KWinVirtualKeyboard.visible) {
++                        Keyboards.KWinVirtualKeyboard.active = false;
++                    } else {
++                        // Otherwise the password field loses focus and on-screen keyboard
++                        // keystrokes get eaten
++                        mainBlock.mainPasswordBox.forceActiveFocus();
++                        Keyboards.KWinVirtualKeyboard.forceActivate();
++                    }
++                }
++
++                Layout.fillHeight: true
++                containmentMask: Item {
++                    parent: virtualKeyboardButton
++                    anchors.fill: parent
++                    anchors.leftMargin: -footer.anchors.margins
++                    anchors.bottomMargin: -footer.anchors.margins
++                }
++            }
++
++            PlasmaComponents3.ToolButton {
++                id: keyboardButton
++
++                focusPolicy: Qt.TabFocus
++                Accessible.description: i18ndc("plasma_shell_org.kde.plasma.desktop", "Button to change keyboard layout", "Switch layout")
++                icon.name: "input-keyboard"
++
++                PW.KeyboardLayoutSwitcher {
++                    id: keyboardLayoutSwitcher
++
++                    anchors.fill: parent
++                    acceptedButtons: Qt.NoButton
++                }
++
++                text: keyboardLayoutSwitcher.layoutNames.longName
++                onClicked: keyboardLayoutSwitcher.keyboardLayout.switchToNextLayout()
++
++                visible: keyboardLayoutSwitcher.hasMultipleKeyboardLayouts
++
++                Layout.fillHeight: true
++                containmentMask: Item {
++                    parent: keyboardButton
++                    anchors.fill: parent
++                    anchors.leftMargin: virtualKeyboardButton.visible ? 0 : -footer.anchors.margins
++                    anchors.bottomMargin: -footer.anchors.margins
++                }
++            }
++
++            Item {
++                Layout.fillWidth: true
++            }
++
++            Battery {}
+         }
+     }
+ }
+diff --git a/sddm-theme/Main.qml b/sddm-theme/Main.qml
+index 18b0209b65..ab75d3db99 100644
+--- a/sddm-theme/Main.qml
++++ b/sddm-theme/Main.qml
+@@ -10,9 +10,9 @@ import QtQuick.Layouts
+ import QtQuick.Controls as QQC2
+ import Qt5Compat.GraphicalEffects
+ 
++import org.kde.plasma.components as PlasmaComponents3
+ import org.kde.plasma.private.keyboardindicator as KeyboardIndicator
+ import org.kde.plasma.workspace.keyboardlayout as Keyboards
+-import org.kde.plasma.workspace.loginlockscreen as LoginLockScreen
+ import org.kde.kirigami as Kirigami
+ 
+ import org.kde.breeze.components
+@@ -412,10 +412,95 @@ Item {
+             }
+         }
+ 
+-        LoginLockScreen.Footer {
+-            onOskActivated: {
+-                userListComponent.mainPasswordBox.forceActiveFocus();
++        // Note: Containment masks stretch clickable area of their buttons to
++        // the screen edges, essentially making them adhere to Fitts's law.
++        // Due to virtual keyboard button having an icon, buttons may have
++        // different heights, so fillHeight is required.
++        //
++        // Note for contributors: Keep this in sync with LockScreenUi.qml footer.
++        RowLayout {
++            id: footer
++            anchors {
++                bottom: parent.bottom
++                left: parent.left
++                right: parent.right
++                margins: Kirigami.Units.smallSpacing
++            }
++            spacing: Kirigami.Units.smallSpacing
++
++            Behavior on opacity {
++                OpacityAnimator {
++                    duration: Kirigami.Units.longDuration
++                }
++            }
++
++            PlasmaComponents3.ToolButton {
++                id: virtualKeyboardButton
++
++                text: i18ndc("plasma-desktop-sddm-theme", "Button to show/hide virtual keyboard", "Virtual Keyboard")
++                icon.name: Keyboards.KWinVirtualKeyboard.visible ? "input-keyboard-virtual-on" : "input-keyboard-virtual-off"
++                onClicked: {
++                    if (Keyboards.KWinVirtualKeyboard.visible) {
++                        Keyboards.KWinVirtualKeyboard.active = false;
++                    } else {
++                        // Otherwise the password field loses focus and on-screen keyboard
++                        // keystrokes get eaten
++                        userListComponent.mainPasswordBox.forceActiveFocus();
++                        Keyboards.KWinVirtualKeyboard.forceActivate();
++                    }
++                }
++
++                Layout.fillHeight: true
++                containmentMask: Item {
++                    parent: virtualKeyboardButton
++                    anchors.fill: parent
++                    anchors.leftMargin: -footer.anchors.margins
++                    anchors.bottomMargin: -footer.anchors.margins
++                }
+             }
++
++            KeyboardButton {
++                id: keyboardButton
++
++                onKeyboardLayoutChanged: {
++                    // Otherwise the password field loses focus and virtual keyboard
++                    // keystrokes get eaten
++                    userListComponent.mainPasswordBox.forceActiveFocus();
++                }
++
++                Layout.fillHeight: true
++                containmentMask: Item {
++                    parent: keyboardButton
++                    anchors.fill: parent
++                    anchors.leftMargin: virtualKeyboardButton.visible ? 0 : -footer.anchors.margins
++                    anchors.bottomMargin: -footer.anchors.margins
++                }
++            }
++
++            SessionButton {
++                id: sessionButton
++
++                onSessionChanged: {
++                    // Otherwise the password field loses focus and virtual keyboard
++                    // keystrokes get eaten
++                    userListComponent.mainPasswordBox.forceActiveFocus();
++                }
++
++                Layout.fillHeight: true
++                containmentMask: Item {
++                    parent: sessionButton
++                    anchors.fill: parent
++                    anchors.leftMargin: virtualKeyboardButton.visible || keyboardButton.visible
++                        ? 0 : -footer.anchors.margins
++                    anchors.bottomMargin: -footer.anchors.margins
++                }
++            }
++
++            Item {
++                Layout.fillWidth: true
++            }
++
++            Battery {}
+         }
+     }
+ 
+-- 
+GitLab
+
