@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_NONGUI=true
+ECM_AUTODEPS=minimal
 KFMIN=6.26.0
 inherit ecm plasma.kde.org
 

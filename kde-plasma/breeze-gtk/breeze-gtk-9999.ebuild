@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_AUTODEPS="minimal"
 KFMIN=9999
 PYTHON_COMPAT=( python3_{12..15} )
 inherit ecm plasma.kde.org python-any-r1
@@ -15,6 +16,7 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
+RDEPEND="kde-frameworks/breeze-icons:*"
 BDEPEND="${PYTHON_DEPS}
 	dev-lang/sassc
 	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
