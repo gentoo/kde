@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/merkuro.calendar/"
 LICENSE="|| ( GPL-2 GPL-3 ) CC0-1.0"
 SLOT="6"
 KEYWORDS=""
-IUSE=""
+IUSE="plasma"
 
 # All of the tests involve interacting with akonadi right now (as of 22.04)
 RESTRICT="test"
@@ -57,6 +57,7 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	plasma? ( kde-plasma/libplasma:6= )
 "
 # Qt5Compat.GraphicalEffects usage in multiple QML files
 # qtlocation is needed at runtime only or fails to start
@@ -68,3 +69,10 @@ RDEPEND="${DEPEND}
 	=kde-apps/kdepim-runtime-${PVCUT}*:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package plasma Plasma)
+	)
+	ecm_src_configure
+}
