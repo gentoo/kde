@@ -25,7 +25,6 @@ DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
 	!<kde-frameworks/kglobalaccel-5.116.0-r2:5[-kf6compat(-)]
