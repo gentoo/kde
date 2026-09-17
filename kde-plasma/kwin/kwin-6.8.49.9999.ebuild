@@ -69,7 +69,7 @@ COMMON_DEPEND="
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
 	gamepad? ( dev-libs/libevdev )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
-	screencast? ( >=media-video/pipewire-1.2.0:= )
+	screencast? ( >=media-video/pipewire-1.4.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
 	systemd? ( sys-apps/systemd:= )
 	X? (
