@@ -3,10 +3,10 @@
 
 EAPI=8
 
+ECM_AUTODEPS="base"
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
 ECM_TEST="true"
 KFMIN=6.29.0
-PVCUT=$(ver_cut 1-3)
 inherit ecm gear.kde.org
 
 DESCRIPTION="Library for accessing MBox format mail storages"

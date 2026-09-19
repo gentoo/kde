@@ -3,8 +3,9 @@
 
 EAPI=8
 
+ECM_AUTODEPS=minimal
 KFMIN=9999
-inherit branding cmake plasma.kde.org
+inherit branding ecm plasma.kde.org
 
 DESCRIPTION="Breeze theme for Plymouth"
 
@@ -13,7 +14,6 @@ SLOT="6"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND=">=kde-frameworks/extra-cmake-modules-${KFMIN}:0"
 DEPEND="sys-boot/plymouth"
 RDEPEND="${DEPEND}"
 
@@ -23,5 +23,5 @@ src_configure() {
 		-DDISTRO_VERSION="${BRANDING_OS_VERSION}"
 	)
 
-	cmake_src_configure
+	ecm_src_configure
 }
