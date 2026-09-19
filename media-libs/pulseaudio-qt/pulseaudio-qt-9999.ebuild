@@ -7,8 +7,8 @@ ECM_HANDBOOK="forceoptional"
 ECM_QTHELP="true"
 ECM_TEST="true"
 KDE_VERIFY_SIG=1
-KFMIN=6.9.0
-QTMIN=6.8.1
+KFMIN=6.27.0
+QTMIN=6.11.2
 inherit ecm kde.org
 
 DESCRIPTION="Qt bindings for libpulse"
