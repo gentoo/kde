@@ -27,6 +27,7 @@ IUSE="tools +widgets"
 # 		kde-plasma/libplasma:6=
 # 	)
 DEPEND="
+	>=dev-libs/cxx-rust-cssparser-1.1.0
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets?]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtshadertools-${QTMIN}:6
@@ -42,7 +43,6 @@ RDEPEND="${DEPEND}
 	widgets? ( kde-plasma/breeze:6 )
 "
 BDEPEND="
-	>=dev-libs/cxx-rust-cssparser-1.1.0
 	>=dev-qt/qttools-${QTMIN}:6[qdoc]
 "
 
