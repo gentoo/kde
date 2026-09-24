@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/krdc/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="+rdp +ssh +vnc wayland"
+IUSE="+rdp spice +ssh +vnc wayland"
 
 REQUIRED_USE="ssh? ( || ( rdp vnc ) )"
 
@@ -44,6 +44,10 @@ DEPEND="
 		>=kde-frameworks/kio-${KFMIN}:6
 		>=net-misc/freerdp-2.10:3
 	)
+	spice? (
+		dev-libs/glib:2
+		net-misc/spice-gtk
+	)
 	ssh? ( net-libs/libssh:= )
 	vnc? ( >=net-libs/libvncserver-0.9.15 )
 "
@@ -53,6 +57,7 @@ BDEPEND="x11-misc/shared-mime-info"
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_RDP=$(usex rdp)
+		-DWITH_SPICE=$(usex spice)
 		$(cmake_use_find_package ssh LibSSH)
 		-DWITH_VNC=$(usex vnc)
 		$(cmake_use_find_package wayland Qt6WaylandClient)

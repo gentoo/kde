@@ -10,6 +10,7 @@
 		<remote-id type="kde-invent">network/krdc</remote-id>
 	</upstream>
 	<use>
+		<flag name="spice">Enable Spice protocol support via <pkg>net-misc/spice-gtk</pkg></flag>
 		<flag name="ssh">Enable VNC/RDP SSH tunnel support via <pkg>net-libs/libssh</pkg></flag>
 	</use>
 </pkgmetadata>
