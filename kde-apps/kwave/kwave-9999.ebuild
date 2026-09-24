@@ -68,7 +68,7 @@ BDEPEND="
 	) )
 "
 
-DOCS=( AUTHORS CHANGES LICENSES README.md TODO )
+DOCS=( AUTHORS CHANGES LICENSES README.md )
 
 src_configure() {
 	local mycmakeargs=(
