@@ -3,6 +3,7 @@
 
 EAPI=8
 
+ECM_AUTODEPS="minimal"
 ECM_HANDBOOK="optional"
 KFMIN=6.29.0
 inherit ecm gear.kde.org
@@ -22,7 +23,5 @@ RDEPEND="
 
 src_prepare() {
 	ecm_src_prepare
-
-	# bug 275069
-	sed -e 's:colorsvn::' -i CMakeLists.txt || die
+	sed -e '/colorsvn/s/^/# bug 275069 - /' -i CMakeLists.txt || die
 }

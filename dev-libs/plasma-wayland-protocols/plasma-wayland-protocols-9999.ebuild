@@ -3,13 +3,14 @@
 
 EAPI=8
 
+ECM_AUTODEPS=minimal
 KDE_VERIFY_SIG=1
-inherit cmake kde.org
+inherit ecm kde.org
 
 DESCRIPTION="Plasma Specific Protocols for Wayland"
 HOMEPAGE="https://invent.kde.org/libraries/plasma-wayland-protocols"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 	if [[ -n ${KDE_VERIFY_SIG} ]]; then
 		SRC_URI+=" verify-sig? ( mirror://kde/stable/${PN}/${P}.tar.xz.sig )"
@@ -23,20 +24,13 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="test? ( dev-libs/wayland )"
-BDEPEND="
-	dev-libs/libpcre2:*
-	dev-qt/qtbase:6
-	>=kde-frameworks/extra-cmake-modules-6.0:*
-	test? ( dev-util/wayland-scanner )
-"
+BDEPEND="test? ( dev-util/wayland-scanner )"
 
 src_configure() {
 	local mycmakeargs=(
-		-DQT_MAJOR_VERSION=6
-		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON # ecm.eclass
-		-DKDE_INSTALL_DOCBUNDLEDIR="${EPREFIX}/usr/share/help" # ecm.eclass
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt6CoreTools=ON # testing for bug #923502
 		-DBUILD_TESTING=$(usex test)
 	)
 
-	cmake_src_configure
+	ecm_src_configure
 }
