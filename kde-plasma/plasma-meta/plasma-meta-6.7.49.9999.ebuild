@@ -28,7 +28,6 @@ RDEPEND="
 	>=kde-plasma/kde-cli-tools-common-${PV}
 	>=kde-plasma/kdecoration-${PV}:${SLOT}
 	>=kde-plasma/kdeplasma-addons-${PV}:${SLOT}
-	>=kde-plasma/kdesu-gui-${PV}[X?]
 	>=kde-plasma/keditfiletype-${PV}
 	>=kde-plasma/kglobalacceld-${PV}:${SLOT}[X(-)?]
 	>=kde-plasma/kinfocenter-${PV}:${SLOT}
@@ -122,6 +121,7 @@ RDEPEND="
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 	webengine? ( kde-apps/khelpcenter:6 )
 	X? (
+		>=kde-plasma/kdesu-gui-${PV}[X?]
 		>=kde-plasma/kgamma-${PV}:${SLOT}
 		>=kde-plasma/kwin-x11-${PV}:${SLOT}[lock]
 		wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
