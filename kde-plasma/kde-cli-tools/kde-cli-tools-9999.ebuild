@@ -15,7 +15,7 @@ HOMEPAGE="https://invent.kde.org/plasma/kde-cli-tools"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="kdesu X"
+IUSE="X"
 
 # slot op: kstart Uses Qt6::GuiPrivate for qtx11extras_p.h
 DEPEND="
@@ -29,7 +29,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=${CATEGORY}/${PN}-common-${PV}
-	kdesu? ( >=${CATEGORY}/kdesu-gui-${PV} )
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
