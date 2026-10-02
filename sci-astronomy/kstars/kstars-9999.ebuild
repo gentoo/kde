@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=6.9.0
-QTMIN=6.8.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm kde.org optfeature xdg
 
 DESCRIPTION="Desktop Planetarium"
@@ -24,18 +24,18 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # currently broken w/ KF6, https://invent.kde.org/education/kstars/-/issues/294
 RESTRICT="test"
 
-# https://wiki.gentoo.org/wiki/Project:Qt/Qt6_migration_notes#Still_unpackaged
-# >=dev-qt/qtdatavis3d-${QTMIN}:6
 COMMON_DEPEND="
 	dev-cpp/eigen:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtgraphs-${QTMIN}:6[quick3d]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebsockets-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
@@ -52,7 +52,7 @@ COMMON_DEPEND="
 	sci-libs/libnova:=
 	>=sci-libs/stellarsolver-2.7
 	virtual/zlib:=
-	password? ( >=dev-libs/qtkeychain-0.14.2:=[qt6(+)] )
+	password? ( >=dev-libs/qtkeychain-0.16.0:= )
 	raw? ( media-libs/libraw:= )
 "
 # TODO: what about virtual/opengl?
@@ -83,7 +83,6 @@ PATCHES=(
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibXISF=ON # not packaged
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt6DataVisualization=ON # not packaged
 		-DBUILD_WITH_QT6=ON # KF6 please
 		-DENABLE_SENTRY=OFF
 		$(cmake_use_find_package password Qt6Keychain)
