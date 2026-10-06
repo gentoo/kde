@@ -8,6 +8,7 @@ CRATES="
 RUST_MIN_VER="1.85.0"
 
 # TODO: ECMGenerateQDoc
+ECM_AUTODEPS="minimal"
 ECM_TEST="true"
 KDE_VERIFY_SIG=1
 inherit cargo ecm flag-o-matic kde.org

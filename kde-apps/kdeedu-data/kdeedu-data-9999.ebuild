@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit cmake gear.kde.org xdg
+ECM_AUTODEPS=minimal
+inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Shared icons, artwork and data files for educational applications"
 
@@ -11,8 +12,3 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-
-BDEPEND="
-	dev-qt/qtbase:6
-	>=kde-frameworks/extra-cmake-modules-6.0:0
-"
