@@ -43,8 +43,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/prison-${KFMIN}:6
 	>=kde-plasma/kpipewire-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
-	>=media-libs/kquickimageeditor-0.6.0:6
-	media-libs/opencv:=
+	>=media-libs/kquickimageeditor-0.7.0.1:6
 	x11-libs/libxcb
 	x11-libs/libXrandr
 	x11-libs/xcb-util
@@ -65,6 +64,8 @@ BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
+
+PATCHES=( "${FILESDIR}/${PN}-6.7.5-remove-opencv-dep.patch" ) # in 6.8; future-proofing, bug #983887
 
 src_configure() {
 	local mycmakeargs=(
