@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..15} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit cmake kde.org python-any-r1 xdg
 
 DESCRIPTION="Simple tag editor based on Qt"
@@ -16,9 +16,9 @@ fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="acoustid flac kde mp3 mp4 +mpris +taglib test vorbis"
+IUSE="acoustid flac kde mp4 +mpris +taglib test vorbis"
 
-REQUIRED_USE="test? ( flac mp3 mp4 taglib vorbis )" # bug 926747
+REQUIRED_USE="test? ( flac mp4 taglib vorbis )" # bug 926747
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -39,7 +39,6 @@ DEPEND="
 		kde-frameworks/kwidgetsaddons:6
 		kde-frameworks/kxmlgui:6
 	)
-	mp3? ( media-libs/id3lib )
 	mp4? ( media-libs/libmp4v2 )
 	mpris? ( dev-qt/qtbase:6[dbus] )
 	taglib? ( >=media-libs/taglib-1.9.1:= )
@@ -74,7 +73,6 @@ src_configure() {
 		-DWITH_CHROMAPRINT=$(usex acoustid)
 		-DWITH_DBUS=$(usex mpris)
 		-DWITH_FLAC=$(usex flac)
-		-DWITH_ID3LIB=$(usex mp3)
 		-DWITH_MP4V2=$(usex mp4)
 		-DWITH_TAGLIB=$(usex taglib)
 		-DBUILD_TESTING=$(usex test)
