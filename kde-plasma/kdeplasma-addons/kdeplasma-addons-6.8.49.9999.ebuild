@@ -16,7 +16,13 @@ inherit cargo ecm flag-o-matic plasma.kde.org optfeature xdg
 DESCRIPTION="Extra Plasma applets and engines"
 
 if [[ ${KDE_BUILD_TYPE} == release ]] && [[ ${PKGBUMPING} != ${PVR} ]]; then
-	SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz"
+	CRATES_PV=${PV}
+	if [[ ${KDE_ORG_UNRELEASED} && ${PV} == *.*.0 ]] ; then
+		# For unreleased versions (only .0), the last tag will (typically) be x.y.91.
+		# Just reuse a beta/rc crate tarball for that.
+		CRATES_PV=$(ver_cut 1).$((($(ver_cut 2) - 1))).91
+	fi
+	SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/v${CRATES_PV}/${PN}-${CRATES_PV}-crates.tar.xz"
 fi
 
 LICENSE="GPL-2 LGPL-2"
