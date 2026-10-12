@@ -4,16 +4,14 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KDE_ORG_CATEGORY="plasma"
-KFMIN=6.30.0
+KFMIN=9999
 QTMIN=6.11.2
 inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Backup scheduler for the Plasma desktop"
-HOMEPAGE="https://apps.kde.org/kup/"
 
 LICENSE="GPL-2+"
-SLOT="0"
+SLOT="6"
 KEYWORDS=""
 IUSE=""
 

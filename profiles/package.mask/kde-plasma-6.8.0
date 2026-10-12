@@ -2,7 +2,6 @@
 # KDE Plasma 6.8 6.8.0 mask
 # UNRELEASED
 #
-~app-backup/kup-6.8.0
 ~kde-plasma/aurorae-6.8.0
 ~kde-plasma/bluedevil-6.8.0
 ~kde-plasma/breeze-6.8.0
@@ -30,6 +29,7 @@
 ~kde-plasma/kscreenlocker-6.8.0
 ~kde-plasma/ksshaskpass-6.8.0
 ~kde-plasma/ksystemstats-6.8.0
+~kde-plasma/kup-6.8.0
 ~kde-plasma/kwallet-pam-6.8.0
 ~kde-plasma/kwayland-6.8.0
 ~kde-plasma/kwin-6.8.0

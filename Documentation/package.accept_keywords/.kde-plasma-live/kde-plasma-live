@@ -1,4 +1,3 @@
-~app-backup/kup-9999 **
 ~kde-plasma/aurorae-9999 **
 ~kde-plasma/bluedevil-9999 **
 ~kde-plasma/breeze-9999 **
@@ -26,6 +25,7 @@
 ~kde-plasma/kscreenlocker-9999 **
 ~kde-plasma/ksshaskpass-9999 **
 ~kde-plasma/ksystemstats-9999 **
+~kde-plasma/kup-9999 **
 ~kde-plasma/kwallet-pam-9999 **
 ~kde-plasma/kwayland-9999 **
 ~kde-plasma/kwin-9999 **
