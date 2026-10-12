@@ -34,11 +34,11 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-plasma/union-${KDE_CATV}:6
 	X? (
 		x11-libs/libXcursor
 		x11-libs/libxcb
 	)
-	union? ( >=kde-plasma/union-${KDE_CATV}:6 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.22.0
@@ -58,7 +58,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_QT6=ON
 		-DBUILD_QT5=OFF
-		-DDEFAULT_UNION_STYLE=$(usex union)
 		-DWITH_X11=$(usex X) # important for XWayland integration
 	)
 	ecm_src_configure
