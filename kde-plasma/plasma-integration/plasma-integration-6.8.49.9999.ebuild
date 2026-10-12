@@ -12,7 +12,7 @@ DESCRIPTION="Qt Platform Theme integration plugins for the Plasma workspaces"
 LICENSE="LGPL-2+"
 SLOT="6"
 KEYWORDS=""
-IUSE="union X"
+IUSE="X"
 
 # requires running kde environment
 RESTRICT="test"
