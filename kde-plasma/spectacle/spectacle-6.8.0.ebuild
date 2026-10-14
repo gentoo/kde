@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/spectacle/"
 
 LICENSE="LGPL-2+ handbook? ( FDL-1.3 )"
 SLOT="6"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64"
 IUSE="share X"
 
 # qtbase slot op: Uses qtx11extras_p.h and qpa/qplatformnativeinterface.h
