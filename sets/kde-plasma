@@ -42,6 +42,7 @@ kde-plasma/oxygen
 kde-plasma/oxygen-sounds
 kde-plasma/plasma-activities
 kde-plasma/plasma-activities-stats
+kde-plasma/plasma-bigscreen
 kde-plasma/plasma-browser-integration
 kde-plasma/plasma-desktop
 kde-plasma/plasma-disks
@@ -51,6 +52,7 @@ kde-plasma/plasma-keyboard
 kde-plasma/plasma-login-manager
 kde-plasma/plasma-login-sessions
 kde-plasma/plasma-meta
+kde-plasma/plasma-nano
 kde-plasma/plasma-nm
 kde-plasma/plasma-pa
 kde-plasma/plasma-sdk
