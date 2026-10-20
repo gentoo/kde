@@ -76,8 +76,8 @@ RDEPEND="
 	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
 	display-manager? (
 		sddm? (
+			gui-apps/sddm[elogind?,systemd?]
 			>=kde-plasma/sddm-kcm-${PV}:${SLOT}
-			>=x11-misc/sddm-0.21.0_p20240302[elogind?,systemd?]
 		)
 		!sddm? ( x11-misc/lightdm )
 	)
