@@ -11,17 +11,15 @@ HOMEPAGE="https://kde.org/plasma-desktop/"
 LICENSE="metapackage"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility bluetooth +browser-integration +crash-handler crypt cups
-discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
-+networkmanager ocr oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart
-systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine X
+IUSE="accessibility bluetooth +browser-integration +crash-handler crypt
+cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
++networkmanager oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart systemd
+thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine X
 +xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
 RDEPEND="
-	!${CATEGORY}/${PN}:5
-	!kde-plasma/khotkeys:5
 	>=kde-plasma/aurorae-${PV}:${SLOT}
 	>=kde-plasma/kactivitymanagerd-${PV}:${SLOT}
 	>=kde-plasma/kde-cli-tools-${PV}:${SLOT}
@@ -139,10 +137,9 @@ case ${PV} in
 		"
 		;;
 esac
-# Optional runtime deps: kde-plasma/plasma-desktop, kde-plasma/spectacle
+# Optional runtime deps: kde-plasma/plasma-desktop
 RDEPEND="${RDEPEND}
 	accessibility? ( app-accessibility/orca )
-	ocr? ( app-text/tesseract )
 "
 
 pkg_postinst() {
