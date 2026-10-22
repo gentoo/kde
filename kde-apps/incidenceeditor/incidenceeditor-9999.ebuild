@@ -26,7 +26,6 @@ RDEPEND="
 	>=kde-apps/akonadi-mime-${PVCUT}:6=
 	>=kde-apps/calendarsupport-${PVCUT}:6=
 	>=kde-apps/eventviews-${PVCUT}:6=
-	>=kde-apps/kcalutils-${PVCUT}:6=
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-apps/kldap-${PVCUT}:6=
 	>=kde-apps/kpimtextedit-${PVCUT}:6=
