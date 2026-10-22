@@ -22,7 +22,7 @@ IUSE="activities telemetry"
 RESTRICT="test"
 
 COMMON_DEPEND="
-	>=dev-libs/ktextaddons-2.1.2:6=
+	>=dev-libs/ktextaddons-2.2.0:6=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
@@ -31,7 +31,6 @@ COMMON_DEPEND="
 	>=kde-apps/calendarsupport-${PVCUT}:6=
 	>=kde-apps/eventviews-${PVCUT}:6=
 	>=kde-apps/incidenceeditor-${PVCUT}:6=
-	>=kde-apps/kcalutils-${PVCUT}:6=
 	>=kde-apps/kmailtransport-${PVCUT}:6=
 	>=kde-apps/kontactinterface-${PVCUT}:6=
 	>=kde-apps/libkdepim-${PVCUT}:6=
@@ -59,7 +58,6 @@ COMMON_DEPEND="
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
-	>=kde-apps/kldap-${PVCUT}:6
 	test? ( kde-apps/akonadi-config[sqlite] )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -70,6 +68,7 @@ BDEPEND="test? ( >=kde-apps/akonadi-${PVCUT}:6[tools] )"
 
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_PCH=OFF # no thanks.
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 	)
