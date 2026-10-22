@@ -80,8 +80,6 @@ COMMON_DEPEND="
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
-	>=kde-apps/kcalutils-${PVCUT}:6
-	>=kde-apps/kldap-${PVCUT}:6
 	test? ( kde-apps/akonadi-config[sqlite] )
 "
 RDEPEND="${COMMON_DEPEND}
