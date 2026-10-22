@@ -23,7 +23,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
-	>=dev-libs/ktextaddons-2.1.2:6=
+	>=dev-libs/ktextaddons-2.2.0:6=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
@@ -33,7 +33,6 @@ RDEPEND="
 	>=kde-apps/grantleetheme-${PVCUT}:6=
 	>=kde-apps/incidenceeditor-${PVCUT}:6=
 	>=kde-apps/kaddressbook-${PVCUT}:6
-	>=kde-apps/kcalutils-${PVCUT}:6=
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-apps/kimap-${PVCUT}:6=
 	>=kde-apps/kldap-${PVCUT}:6=
@@ -44,13 +43,13 @@ RDEPEND="
 	>=kde-apps/libkdepim-${PVCUT}:6=
 	>=kde-apps/libkleo-${PVCUT}:6=
 	>=kde-apps/libksieve-${PVCUT}:6=
-	>=kde-apps/libktnef-${PVCUT}:6=
 	>=kde-apps/mailcommon-${PVCUT}:6=
 	>=kde-apps/mailimporter-${PVCUT}:6=
 	>=kde-apps/messagelib-${PVCUT}:6=
 	>=kde-apps/pimcommon-${PVCUT}:6=[activities?]
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -83,6 +82,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DKDEPIM_RUN_AKONADI_TEST=OFF # tests need database software and networking
 		-DOPTION_ADD_AUTOGENERATETEXT=OFF # would also require the same in dev-libs/ktextaddons
+		-DOPTION_ADD_MPCPROTOCOL=OFF # more default-enabled AI crap
 		# not packaged (bug 911819), but if present leads to rust shenanigans
 		-DCMAKE_DISABLE_FIND_PACKAGE_Corrosion=ON # for adblock support, bug 940898
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
