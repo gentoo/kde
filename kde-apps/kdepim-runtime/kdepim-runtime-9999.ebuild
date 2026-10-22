@@ -22,14 +22,13 @@ RESTRICT="test"
 RDEPEND="
 	dev-libs/cyrus-sasl:2
 	>=dev-libs/qtkeychain-0.16.0:=
-	>=dev-libs/ktextaddons-2.1.2:6=
+	>=dev-libs/ktextaddons-2.2.0:6=
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets,xml]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-calendar-${PVCUT}:6=
 	>=kde-apps/akonadi-contacts-${PVCUT}:6=
 	>=kde-apps/akonadi-mime-${PVCUT}:6=
-	>=kde-apps/kcalutils-${PVCUT}:6=
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-apps/kimap-${PVCUT}:6=
 	>=kde-apps/kldap-${PVCUT}:6=
@@ -73,6 +72,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-DDAV_ENABLE_PUSH_NOTIFICATIONS=OFF # TODO: not packaged KUnifiedPush, bug #971494
 		-DOPTION_USE_PLASMA_ACTIVITIES=$(usex activities)
 		-DKDEPIM_EWS=$(usex ews)
 		$(cmake_use_find_package speech Qt6TextToSpeech)
