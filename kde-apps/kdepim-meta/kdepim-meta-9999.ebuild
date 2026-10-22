@@ -29,7 +29,6 @@ RDEPEND="
 	>=kde-apps/incidenceeditor-${PV}:*
 	>=kde-apps/kaddressbook-${PV}:*
 	>=kde-apps/kalarm-${PV}:*
-	>=kde-apps/kcalutils-${PV}:*
 	>=kde-apps/kdepim-addons-${PV}:*
 	>=kde-apps/kdepim-runtime-${PV}:*
 	>=kde-apps/kidentitymanagement-${PV}:*
