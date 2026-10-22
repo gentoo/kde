@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KFMIN=6.29.0
+KFMIN=6.31.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.11.2
 VIRTUALDBUS_TEST="true"
