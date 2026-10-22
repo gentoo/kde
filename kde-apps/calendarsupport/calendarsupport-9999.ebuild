@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_QTHELP="false" # TODO: Port to ECMGenerateQDoc
-ECM_TEST="false"
+ECM_TEST="true"
 KFMIN=6.31.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.11.2
@@ -19,11 +19,10 @@ IUSE=""
 
 DEPEND="
 	dev-libs/libical
-	>=dev-libs/ktextaddons-2.1.2:6=
+	>=dev-libs/ktextaddons-2.2.0:6=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-calendar-${PVCUT}:6=
-	>=kde-apps/kcalutils-${PVCUT}:6=
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-apps/libkdepim-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
@@ -34,9 +33,11 @@ DEPEND="
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kjobwidgets-${KFMIN}:6
 	>=kde-frameworks/kmime-${KFMIN}:6
+	>=kde-frameworks/ktexttemplate-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
