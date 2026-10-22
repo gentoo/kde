@@ -19,7 +19,6 @@ IUSE="+pim speech X"
 
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
-	>=kde-apps/kcalutils-${PVCUT}:6=
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
@@ -56,7 +55,7 @@ COMMON_DEPEND="
 		>=kde-apps/akonadi-mime-${PVCUT}:6=
 		>=kde-apps/kmailtransport-${PVCUT}:6=
 	)
-	speech? ( >=dev-libs/ktextaddons-2.1.2:6=[speech] )
+	speech? ( >=dev-libs/ktextaddons-2.2.0:6=[speech] )
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${COMMON_DEPEND}
