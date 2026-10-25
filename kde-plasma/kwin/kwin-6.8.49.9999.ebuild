@@ -83,7 +83,6 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-plasma/kdeplasma-addons:5
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/aurorae-${KDE_CATV}:6
