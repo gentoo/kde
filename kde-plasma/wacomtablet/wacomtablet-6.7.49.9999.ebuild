@@ -33,8 +33,8 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6=
-	>=kde-plasma/plasma5support-${KDE_CATV}:6
+	=kde-plasma/libplasma-${KDE_CATV}*:6=
+	=kde-plasma/plasma5support-${KDE_CATV}*:6
 	>=x11-drivers/xf86-input-wacom-0.20.0
 	x11-libs/libXi
 	x11-libs/libxcb
