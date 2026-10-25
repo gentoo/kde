@@ -75,7 +75,6 @@ COMMON_DEPEND="
 	shortcuts? ( =kde-plasma/kglobalacceld-${KDE_CATV}*:6 )
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-plasma/kdeplasma-addons:5
 	!<kde-plasma/kwin-6.3.80
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
