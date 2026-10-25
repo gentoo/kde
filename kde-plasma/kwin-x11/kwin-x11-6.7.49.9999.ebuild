@@ -49,9 +49,9 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6=[wayland,X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-plasma/breeze-${KDE_CATV}:6
-	>=kde-plasma/kdecoration-${KDE_CATV}:6
-	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
+	=kde-plasma/breeze-${KDE_CATV}*:6
+	=kde-plasma/kdecoration-${KDE_CATV}*:6
+	=kde-plasma/plasma-activities-${KDE_CATV}*:6=
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/lcms:2
@@ -70,17 +70,17 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
-	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
-	nightlight? ( >=kde-plasma/knighttime-${KDE_CATV}:6 )
-	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
+	lock? ( =kde-plasma/kscreenlocker-${KDE_CATV}*:6 )
+	nightlight? ( =kde-plasma/knighttime-${KDE_CATV}*:6 )
+	shortcuts? ( =kde-plasma/kglobalacceld-${KDE_CATV}*:6 )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdeplasma-addons:5
 	!<kde-plasma/kwin-6.3.80
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
-	>=kde-plasma/aurorae-${KDE_CATV}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	=kde-plasma/aurorae-${KDE_CATV}*:6
+	=kde-plasma/libplasma-${KDE_CATV}*:6
 	sys-apps/hwdata
 	>=x11-base/xwayland-23.1.0
 	selinux? ( sec-policy/selinux-wm )
@@ -91,7 +91,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	x11-base/xorg-proto
 	x11-libs/xcb-util-image
-	test? ( >=kde-plasma/kwayland-${KDE_CATV}:6 )
+	test? ( =kde-plasma/kwayland-${KDE_CATV}*:6 )
 "
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
