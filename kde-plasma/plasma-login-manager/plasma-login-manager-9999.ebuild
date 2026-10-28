@@ -61,7 +61,7 @@ src_prepare() {
 	InputMethod=
 	EOF
 
-	cmake_src_prepare
+	ecm_src_prepare
 
 	if ! use test; then
 		sed -e "/^find_package/s/ Test//" -i CMakeLists.txt || die
@@ -81,11 +81,11 @@ src_configure() {
 		#-DPLASMALOGIN_INITIAL_VT=7
 	)
 
-	cmake_src_configure
+	ecm_src_configure
 }
 
 src_install() {
-	cmake_src_install
+	ecm_src_install
 
 	insinto /etc/plasmalogin.conf.d/
 	doins "${S}"/01gentoo.conf
