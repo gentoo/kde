@@ -1,0 +1,233 @@
+From 75c48702e0412aec3881b37874c143fe9efd6421 Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Wed, 28 Oct 2026 21:47:42 +0100
+Subject: [PATCH] Make PlasmaActivities optional via ENABLE_ACTIVITIES cmake
+ option
+
+systemsettings may be used to change configuration in a non-Plasma
+environment such as e.g. LXQt.
+
+Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
+---
+ CMakeLists.txt                  |  8 +++++++-
+ app/CMakeLists.txt              |  7 ++++++-
+ app/ModuleView.cpp              | 12 ++++++++----
+ app/ModuleView.h                |  4 ++++
+ app/SidebarMode.cpp             |  4 ++++
+ config-systemsettings.h.cmake   |  1 +
+ runner/CMakeLists.txt           |  7 ++++++-
+ runner/systemsettingsrunner.cpp |  7 ++++++-
+ 8 files changed, 42 insertions(+), 8 deletions(-)
+ create mode 100644 config-systemsettings.h.cmake
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 80dff93d..4d5c3667 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -65,7 +65,13 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
+     QUIET
+ )
+ 
+-find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
++option(ENABLE_ACTIVITIES "Enable support for Plasma Activities in runner and " ON)
++
++if(ENABLE_ACTIVITIES)
++    find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
++endif()
++
++configure_file(config-systemsettings.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-systemsettings.h )
+ 
+ add_library(systemsettings_debug STATIC)
+ target_link_libraries(systemsettings_debug Qt::Core)
+diff --git a/app/CMakeLists.txt b/app/CMakeLists.txt
+index b197a739..8b937494 100644
+--- a/app/CMakeLists.txt
++++ b/app/CMakeLists.txt
+@@ -55,12 +55,17 @@ target_link_libraries(systemsettings PRIVATE
+     KF6::AuthCore
+     KF6::I18nQml
+     KF6::ColorScheme
+-    Plasma::Activities
+     Qt::QuickWidgets
+     Qt::Qml
+     Qt::Quick
+ )
+ 
++if(ENABLE_ACTIVITIES)
++    target_link_libraries(systemsettings PRIVATE
++        Plasma::Activities
++    )
++endif()
++
+ kconfig_target_kcfg_file(systemsettings FILE systemsettings-config.kcfg CLASS_NAME Settings MUTATORS)
+ 
+ install(TARGETS systemsettings ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+diff --git a/app/ModuleView.cpp b/app/ModuleView.cpp
+index 6ded0eb9..988f90a2 100644
+--- a/app/ModuleView.cpp
++++ b/app/ModuleView.cpp
+@@ -36,7 +36,9 @@
+ #include <KSharedConfig>
+ #include <KStandardGuiItem>
+ #include <KTitleWidget>
++#if ENABLE_ACTIVITIES
+ #include <PlasmaActivities/ResourceInstance>
++#endif
+ 
+ #include <cmath>
+ 
+@@ -137,7 +139,9 @@ public:
+     QIcon mApplyIcon;
+     KMessageDialog *mResolvingChangesDialog = nullptr;
+     bool pageChangeSupressed = false;
++#if ENABLE_ACTIVITIES
+     bool mSaveStatistics = true;
++#endif
+     bool mDefaultsIndicatorsVisible = false;
+     KCModule::Buttons mButtonMask = ~KCModule::Buttons(KCModule::NoAdditionalButton);
+     KAuth::Action authAction;
+@@ -476,13 +480,13 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
+     if (!activeModule) {
+         return;
+     }
+-
++#if ENABLE_ACTIVITIES
+     // TODO: if we'll ever need statistics for kinfocenter modules, save them with an URL like "kinfo:"
+     if (d->mSaveStatistics && activeModule->metaData().pluginId() != QStringLiteral("kcm_landingpage")) {
+         KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->metaData().pluginId()),
+                                                       QStringLiteral("org.kde.systemsettings"));
+     }
+-
++#endif
+     d->mLayout->setContentsMargins(0, 0, 0, 0);
+     d->mLayout->setSpacing(0);
+     d->mButtons->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+@@ -573,7 +577,7 @@ void ModuleView::setFaceType(KPageView::FaceType type)
+ {
+     d->mPageWidget->setFaceType(type);
+ }
+-
++#if ENABLE_ACTIVITIES
+ void ModuleView::setSaveStatistics(bool save)
+ {
+     d->mSaveStatistics = save;
+@@ -583,7 +587,7 @@ bool ModuleView::saveStatistics() const
+ {
+     return d->mSaveStatistics;
+ }
+-
++#endif
+ void ModuleView::setApplyVisible(bool visible)
+ {
+     d->mButtonMask.setFlag(KCModule::Apply, visible);
+diff --git a/app/ModuleView.h b/app/ModuleView.h
+index e7997d36..58bcc365 100644
+--- a/app/ModuleView.h
++++ b/app/ModuleView.h
+@@ -8,6 +8,8 @@
+ #ifndef MODULE_VIEW_H
+ #define MODULE_VIEW_H
+ 
++#include <config-systemsettings.h>
++
+ #include <KAuth/Action>
+ #include <KPageView>
+ 
+@@ -84,11 +86,13 @@ public:
+      */
+     void setSaveStatistics(bool save);
+ 
++#if ENABLE_ACTIVITIES
+     /**
+      * @returns whether Systemsettings should save statisctics about
+      * most used module
+      */
+     bool saveStatistics() const;
++#endif
+ 
+     /**
+      * Shows or hides the Apply button.
+diff --git a/app/SidebarMode.cpp b/app/SidebarMode.cpp
+index d1e87288..7301651d 100644
+--- a/app/SidebarMode.cpp
++++ b/app/SidebarMode.cpp
+@@ -234,7 +234,9 @@ void SidebarMode::initEvent()
+     d->quickWidget = nullptr;
+     moduleView()->setFaceType(KPageView::Plain);
+     if (d->applicationMode == InfoCenter) {
++#if ENABLE_ACTIVITIES
+         d->moduleView->setSaveStatistics(false);
++#endif
+         d->moduleView->setApplyVisible(false);
+         d->moduleView->setDefaultsVisible(false);
+     }
+@@ -430,7 +432,9 @@ void SidebarMode::moduleLoaded()
+     }
+     d->moduleView->show();
+     if (d->applicationMode == InfoCenter) {
++#if ENABLE_ACTIVITIES
+         d->moduleView->setSaveStatistics(false);
++#endif
+         d->moduleView->setApplyVisible(false);
+         d->moduleView->setDefaultsVisible(false);
+     }
+diff --git a/config-systemsettings.h.cmake b/config-systemsettings.h.cmake
+new file mode 100644
+index 00000000..70f01700
+--- /dev/null
++++ b/config-systemsettings.h.cmake
+@@ -0,0 +1 @@
++#cmakedefine01 ENABLE_ACTIVITIES
+diff --git a/runner/CMakeLists.txt b/runner/CMakeLists.txt
+index 347dca14..64f9a0cb 100644
+--- a/runner/CMakeLists.txt
++++ b/runner/CMakeLists.txt
+@@ -11,5 +11,10 @@ target_link_libraries(krunner_systemsettings
+     KF6::Runner
+     KF6::Service
+     KF6::KCMUtils
+-    Plasma::Activities
+ )
++
++if(ENABLE_ACTIVITIES)
++    target_link_libraries(krunner_systemsettings
++        Plasma::Activities
++    )
++endif()
+diff --git a/runner/systemsettingsrunner.cpp b/runner/systemsettingsrunner.cpp
+index 2bd13992..bb798abc 100644
+--- a/runner/systemsettingsrunner.cpp
++++ b/runner/systemsettingsrunner.cpp
+@@ -8,6 +8,8 @@
+     SPDX-License-Identifier: LGPL-2.0-only
+ */
+ 
++#include <config-systemsettings.h>
++
+ #include "systemsettingsrunner.h"
+ 
+ #include <algorithm>
+@@ -21,7 +23,9 @@
+ #include <KLocalizedString>
+ #include <KNotificationJobUiDelegate>
+ #include <KSycoca>
++#if ENABLE_ACTIVITIES
+ #include <PlasmaActivities/ResourceInstance>
++#endif
+ 
+ #include "../app/kcmmetadatahelpers.h"
+ 
+@@ -148,8 +152,9 @@ void SystemsettingsRunner::run(const KRunner::RunnerContext & /*context*/, const
+     delegate->setAutoErrorHandlingEnabled(true);
+     job->setUiDelegate(delegate);
+     job->start();
+-
++#if ENABLE_ACTIVITIES
+     KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("systemsettings:") + data.pluginId()), QStringLiteral("org.kde.krunner"));
++#endif
+ }
+ 
+ QMimeData *SystemsettingsRunner::mimeDataForMatch(const KRunner::QueryMatch &match)
+-- 
+2.56.0
+
