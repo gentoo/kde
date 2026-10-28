@@ -39,7 +39,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	acct-user/plasmalogin
-	kde-plasma/kwin[lock]
+	kde-plasma/kwin[activities(+),lock]
 "
 BDEPEND="
 	dev-python/docutils
