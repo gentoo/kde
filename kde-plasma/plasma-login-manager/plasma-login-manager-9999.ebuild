@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=6.22.0
+KFMIN=9999
 QTMIN=6.11.2
 inherit ecm plasma.kde.org linux-info pam tmpfiles
 
@@ -25,7 +25,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kio-6.22.1:6
+	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/kscreen-${KDE_CATV}:6
