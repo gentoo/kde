@@ -123,6 +123,10 @@ esac
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
 
+PATCHES=(
+	"${FILESDIR}/${PN}-6.8.2-optional-setcap.patch" # in 6.9; bug #984516
+)
+
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 14
 }
@@ -154,6 +158,7 @@ src_configure() {
 	local mycmakeargs=(
 		# KWIN_BUILD_DECORATIONS exists, drops aurorae, breeze
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
+		-DKWIN_BUILD_SET_CAP_SYS_NICE=OFF # see fcaps.eclass, FILECAPS
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		$(cmake_use_find_package activities PlasmaActivities)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
