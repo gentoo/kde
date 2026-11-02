@@ -123,6 +123,10 @@ esac
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
 
+PATCHES=(
+	"${FILESDIR}/${PN}-6.7.6-persistent-cli-no_options.patch" # in 6.8; bug #985093
+)
+
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 14
 }
