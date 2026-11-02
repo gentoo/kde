@@ -4,8 +4,9 @@
 EAPI=8
 
 KDE_ORG_CATEGORY="system"
-KFMIN=6.23.0
-QTMIN=6.8.0
+KDE_TEST="forceoptional"
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm kde.org
 
 DESCRIPTION="Btrfs Filesystem snapshot integration for KDE applications"
@@ -18,23 +19,16 @@ KEYWORDS=""
 # Tests require root access to create a btrfs loop device to test against
 RESTRICT="test"
 
-# kcoreaddon required due to use of kcoreaddons_add_plugin
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6
-	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	sys-apps/util-linux
 	sys-fs/btrfs-progs:=
 "
 RDEPEND="${DEPEND}"
+# kcoreaddons: kcoreaddons_add_plugin
 BDEPEND="
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	virtual/pkgconfig
 "
-
-src_prepare() {
-	cmake_src_prepare
-
-	# Don't build tests unconditionally
-	cmake_comment_add_subdirectory autotests
-}
