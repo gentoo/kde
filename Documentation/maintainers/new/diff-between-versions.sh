@@ -1,34 +1,32 @@
 #!/bin/bash
+. "$(dirname "$0")/lib.sh"
 
-. $(dirname "$0")/lib.sh
-
-: ${SOURCE_REPO:="$(realpath $(dirname $0)/../../../)"}
 : ${TARGET_REPO:="$(pwd)"}
 
 help() {
-	echo Simple set-based ebuild differ.
+	echo "Simple set-based ebuild differ."
 	echo
-	echo Given a set in the source repository, prints the diff between two versions
-	echo of ebuilds in the target repository.
+	echo "Given a set in the source repository, prints the diff between two versions"
+	echo "of ebuilds in the target repository."
 	echo
-	echo Reads TARGET_REPO from your enviroment, defaulting to the current directory.
+	echo "Reads TARGET_REPO from your enviroment, defaulting to the current directory."
 	echo
-	echo Usage: diff-between-versions.sh SETNAME VERSION1 VERSION2
-	echo Example: diff-between-versions.sh kde-frameworks-5.15 5.14.0 5.15.0
+	echo "Usage: diff-between-versions.sh SETNAME VERSION1 VERSION2"
+	echo "Example: diff-between-versions.sh kde-frameworks-6.32 6.32.0 6.31.0"
 	exit 0
 }
 
 
-SETNAME="$1"
-VERSION1="$2"
-VERSION2="$3"
+SETNAME="${1}"
+VERSION1="${2}"
+VERSION2="${3}"
 
-if [[ $1 == "--help" ]] ; then
+if [[ ${1} == "--help" ]] ; then
 	help
 fi
 
 if [[ -z "${SETNAME}" || -z "${VERSION1}" || -z "${VERSION2}" ]] ; then
-	echo ERROR: Not enough arguments
+	echo "ERROR: Not enough arguments"
 	echo
 	help
 fi
