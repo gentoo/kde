@@ -1,13 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 . "$(dirname "$0")/lib.sh"
 
 : ${TARGET_REPO:="$(pwd)"}
 
 help() {
-	echo "Perform a version bump of KDE Release Service."
+	echo "Perform a version bump of KDE Gear."
 	echo
 	echo "Based on the kde-gear-live set, this script performs a full version bump"
-	echo "of a new unreleased KDE Release Service."
+	echo "of a new unreleased KDE Gear."
 	echo
 	echo "In addition to the new ebuild being created, the following operations are performed:"
 	echo
@@ -18,17 +18,17 @@ help() {
 	echo "* Generation of package.* files in Documentation"
 	echo
 	echo "Usage: gear-bump.sh <version>"
-	echo "Example: gear-bump.sh 26.04.2"
-	echo "Example: gear-bump.sh 26.04 26.03.90"
+	echo "Example: gear-bump.sh 26.08.3"
+	echo "Example: gear-bump.sh 26.08 26.07.90"
 	exit 0
 }
 
-if [[ $1 == "--help" ]] ; then
+if [[ ${1} == "--help" ]] ; then
 	help
 fi
 
 if [[ -z "${1}" ]] ; then
-	echo ERROR: Not enough arguments
+	echo "ERROR: Not enough arguments"
 	echo
 	help
 elif [[ -z "${2}" ]] ; then
@@ -44,11 +44,12 @@ kfmv="kde-gear-${MAINVERSION}"
 
 pushd "${TARGET_REPO}" > /dev/null
 
-if ! [[ -f sets/kde-gear-${MAINVERSION} ]]; then
+if ! [[ -f "${SOURCE_REPO}"/sets/kde-gear-${MAINVERSION} ]]; then
 	bump_set_from_live kde-gear ${MAINVERSION}
 	create_keywords_files ${kfmv} kde-gear
 
-	sed -i -e "/GEAR_RELEASES/s/ *)$/ ${MAINVERSION} )/" Documentation/maintainers/regenerate-files
+	sed -e "/GEAR_RELEASES/s/ *)$/ ${MAINVERSION} )/" \
+		-i "${SOURCE_REPO}"/Documentation/maintainers/regenerate-files
 	Documentation/maintainers/regenerate-files
 
 	bump_packages_from_set kde-gear-${MAINVERSION} 9999 ${MAINVERSION}.49.9999
