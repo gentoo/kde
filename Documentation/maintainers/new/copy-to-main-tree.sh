@@ -1,4 +1,5 @@
 #!/bin/bash
+. "$(dirname "$0")/lib.sh"
 
 # Requires:
 # dev-util/pkgdev
@@ -6,35 +7,31 @@
 # dev-vcs/git
 # dev-util/pkgcheck
 
-. $(dirname "$0")/lib.sh
-
-: ${SOURCE_REPO:="$(realpath $(dirname $0)/../../../)"}
 : ${TARGET_REPO:="$(pwd)"}
 
 help() {
-	echo Simple set-based ebuild copier.
+	echo "Simple set-based ebuild copier."
 	echo
-	echo Given a set in the source repository, copies all ebuilds with the specified
-	echo version into the target repository. Optionally, if target is a git repository,
-	echo each ebuild will be committed as \"cat/pn: TARGETVERSION version bump\"
+	echo "Given a set in the source repository, copies all ebuilds with the specified"
+	echo "version into the target repository. Optionally, if target is a git repository,"
+	echo "each ebuild will be committed as \"cat/pn: TARGETVERSION version bump\""
 	echo
-	echo Reads TARGET_REPO from your enviroment, defaulting to the current directory.
+	echo "Reads TARGET_REPO from your enviroment, defaulting to the current directory."
 	echo
-	echo Usage: copy-to-main-tree.sh SETNAME TARGETVERSION
-	echo Example: copy-to-main-tree.sh kde-frameworks-5.72 5.72.0
+	echo "Usage: copy-to-main-tree.sh SETNAME TARGETVERSION"
+	echo "Example: copy-to-main-tree.sh kde-frameworks-6.32 6.32.0"
 	exit 0
 }
 
+SETNAME="${1}"
+TARGETVERSION="${2}"
 
-SETNAME="$1"
-TARGETVERSION="$2"
-
-if [[ $1 == "--help" ]] ; then
+if [[ ${1} == "--help" ]] ; then
 	help
 fi
 
 if [[ -z "${SETNAME}" || -z "${TARGETVERSION}" ]] ; then
-	echo ERROR: Not enough arguments
+	echo "ERROR: Not enough arguments"
 	echo
 	help
 fi
