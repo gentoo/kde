@@ -14,6 +14,8 @@ LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2.1 LGPL-3"
 SLOT="6"
 KEYWORDS=""
 
+RESTRICT="test" # bug #980983; error: socket path "..." plus null terminator exceeds 108 bytes
+
 # slot op: Uses Qt6::GuiPrivate for qxkbcommon_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
