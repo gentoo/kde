@@ -1,4 +1,5 @@
 #!/bin/bash
+. $(dirname "$0")/lib.sh
 
 # Requires:
 # dev-util/pkgdev
@@ -6,34 +7,31 @@
 # dev-vcs/git
 # dev-util/pkgcheck
 
-. $(dirname "$0")/lib.sh
-
 : ${TARGET_REPO:="$(pwd)"}
 
 help() {
-	echo Simple set-based version removed.
+	echo "Simple set-based version removed."
 	echo
-	echo Given a set file, removes all packages of a specified version.
-	echo Optionally, if target is a git repository, each change will be
-	echo committed as \"cat/pn: drop VERSION*\".
+	echo "Given a set file, removes all packages of a specified version."
+	echo "Optionally, if target is a git repository, each change will be"
+	echo "committed as \"cat/pn: drop VERSION*\"."
 	echo
-	echo Reads TARGET_REPO from your environment, defaulting to the current directory.
+	echo "Reads TARGET_REPO from your environment, defaulting to the current directory."
 	echo
-	echo Usage: set-based-remove.sh SETNAME VERSION
-	echo Example: set-based-remove.sh kde-plasma-5.19 5.19.1
+	echo "Usage: set-based-remove.sh SETNAME VERSION"
+	echo "Example: set-based-remove.sh kde-plasma-6.8 6.8.2"
 	exit 0
 }
 
+SETNAME="${1}"
+VERSION="${2}"
 
-SETNAME="$1"
-VERSION="$2"
-
-if [[ $1 == "--help" ]] ; then
+if [[ ${1} == "--help" ]] ; then
 	help
 fi
 
 if [[ -z "${SETNAME}" || -z "${VERSION}" ]] ; then
-	echo ERROR: Not enough arguments
+	echo "ERROR: Not enough arguments"
 	echo
 	help
 fi
