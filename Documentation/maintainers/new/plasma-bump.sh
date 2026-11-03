@@ -18,8 +18,8 @@ help() {
 	echo "* Generation of package.* files in Documentation"
 	echo
 	echo "Usage: plasma-bump.sh [main-version] <bump-version>"
-	echo "Example: plasma-bump.sh 6.6.0"
-	echo "Example: plasma-bump.sh 6.6 6.5.90"
+	echo "Example: plasma-bump.sh 6.8.0"
+	echo "Example: plasma-bump.sh 6.8 6.7.90"
 	exit 0
 }
 
@@ -28,7 +28,7 @@ if [[ $1 == "--help" ]] ; then
 fi
 
 if [[ -z "${1}" ]] ; then
-	echo ERROR: Not enough arguments
+	echo "ERROR: Not enough arguments"
 	echo
 	help
 elif [[ -z "${2}" ]] ; then
@@ -44,11 +44,11 @@ kfmv="kde-plasma-${MAINVERSION}"
 
 pushd "${TARGET_REPO}" > /dev/null
 
-if ! [[ -f sets/kde-plasma-${MAINVERSION} ]]; then
+if ! [[ -f ${SOURCE_REPO}/sets/kde-plasma-${MAINVERSION} ]]; then
 	bump_set_from_live kde-plasma ${MAINVERSION} # TODO: s/49.9999/50:5/
 	create_keywords_files ${kfmv} kde-plasma
 
-	sed -i -e "/PLASMA_RELEASES/s/ *)$/ ${MAINVERSION} )/" Documentation/maintainers/regenerate-files
+	sed -i -e "/PLASMA_RELEASES/s/ *)$/ ${MAINVERSION} )/" "${SOURCE_REPO}"/Documentation/maintainers/regenerate-files
 	Documentation/maintainers/regenerate-files
 
 	# initial stable branch bump
