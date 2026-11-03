@@ -33,7 +33,7 @@ if [[ -z "${1}" ]] ; then
 	help
 elif [[ -z "${2}" ]] ; then
 	VERSION="${1}"
-	MAINVERSION=$(echo ${VERSION} | cut -d "." -f 1-2)
+	MAINVERSION="$(main_version ${VERSION})"
 else
 	VERSION="${2}"
 	MAINVERSION="${1}"
