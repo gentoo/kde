@@ -146,14 +146,20 @@ create_keywords_files() {
 }
 
 # @FUNCTION: get_main_tree_keyword
-# @USAGE: <cp>
+# @USAGE: <cp> [<main version>]
 # @DESCRIPTION:
 # Given a <cp>, get the keywords from the highest ebuild version in the gentoo repo.
+# If given also <main version>, prefer the keywords from existing main version branch.
 get_main_tree_keyword() {
 	local portdir="$(portageq get_repo_path / gentoo)"
 	local cp="${1}"
+	local mv="${2}"
+	local checkpath="${portdir}/${cp}/${cp##*/}"
 
-	echo $(sed -ne 's/^\s*KEYWORDS="\(.*\)"/\1/p' "$(ls ${portdir}/${cp}/*.ebuild | sort | tail -n 1)")
+	if [[ -n ${mv} ]] && compgen -G "${checkpath}-${mv}*.ebuild" >/dev/null 2>&1; then
+		checkpath+="-${mv}"
+	fi
+	echo $(sed -ne 's/^\s*KEYWORDS="\(.*\)"/\1/p' "$(ls ${checkpath}*.ebuild | sort | tail -n 1)")
 }
 
 # @FUNCTION: get_package_list_from_set
