@@ -17,18 +17,18 @@ help() {
 	echo "* Generation of package.* files in Documentation"
 	echo
 	echo "Usage: frameworks-bump.sh <version>"
-	echo "Example: frameworks-bump.sh 5.101.0"
+	echo "Example: frameworks-bump.sh 6.32.0"
 	exit 0
 }
 
-if [[ $1 == "--help" ]] ; then
+if [[ ${1} == "--help" ]] ; then
 	help
 fi
 
 VERSION="${1}"
 
 if [[ -z "${VERSION}" ]] ; then
-	echo ERROR: Not enough arguments
+	echo "ERROR: Not enough arguments"
 	echo
 	help
 fi
@@ -55,7 +55,8 @@ mask_from_live_set ${setname} ${VERSION} kde-frameworks-${VERSION}
 mark_unreleased frameworks ${VERSION}
 create_keywords_files ${kfmv} ${setname}
 
-sed -i -e "/KF${major_version}_RELEASES/s/ *)$/ ${major_minor_version} )/" Documentation/maintainers/regenerate-files
+sed -e "/KF${major_version}_RELEASES/s/ *)$/ ${major_minor_version} )/" \
+	-i "${SOURCE_REPO}"/Documentation/maintainers/regenerate-files
 Documentation/maintainers/regenerate-files
 
 bump_packages_from_set ${setname}-live ${base_version} ${VERSION}
