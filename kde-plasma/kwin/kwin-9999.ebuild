@@ -154,6 +154,7 @@ src_configure() {
 	local mycmakeargs=(
 		# KWIN_BUILD_DECORATIONS exists, drops aurorae, breeze
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
+		-DKWIN_BUILD_SET_CAP_SYS_NICE=OFF # see fcaps.eclass, FILECAPS
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		$(cmake_use_find_package activities PlasmaActivities)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
