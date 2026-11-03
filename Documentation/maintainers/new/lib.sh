@@ -172,6 +172,21 @@ get_package_list_from_set() {
 	done
 }
 
+# @FUNCTION: main_version
+# @USAGE: <pv>
+# @DESCRIPTION:
+# Given a <pv> version string, get the first and second part (x.y.z -> x.y).
+main_version() {
+	local pv="${1}"
+
+	if [[ $# -gt 1 ]]; then
+		echo "${FUNCNAME[0]}: error: must be passed exactly one argument!"
+		return
+	fi
+
+	echo ${pv} | cut -d "." -f 1-2
+}
+
 # @FUNCTION: mark_unreleased
 # @USAGE: <category> <version>
 # @DESCRIPTION:
