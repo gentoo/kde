@@ -44,8 +44,11 @@ for package in ${packages} ; do
 
 	pn=$(basename $(pwd))
 
-	rm -f ${pn}-${VERSION}.ebuild
-	rm -f ${pn}-${VERSION}-r*.ebuild
+	for x in "${pn}-${VERSION}" "${pn}-${VERSION}-r*" "${pn}-${VERSION}.?" "${pn}-${VERSION}.??"; do
+		if compgen -G "${x}.ebuild" >/dev/null 2>&1; then
+			rm ${x}.ebuild
+		fi
+	done
 
 	pkgdev manifest
 	popd > /dev/null
