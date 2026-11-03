@@ -60,12 +60,14 @@ bump_set_from_live() {
 	local target="${1}"
 	local destination="${2}"
 
-	cp sets/${target}-live sets/${target}-${destination}
-	sed -E "s/^~/</;/^#/! s/[0-9]+(\.[0-9]+)*(\:.*)*$/${destination}.50\2/" -i sets/${target}-${destination}
-	sed -e "/^@/s/live$/${destination}/" -i sets/${target}-${destination}
+	cp "${SOURCE_REPO}"/sets/${target}-live "${SOURCE_REPO}"/sets/${target}-${destination}
+	sed -E "s/^~/</;/^#/! s/[0-9]+(\.[0-9]+)*(\:.*)*$/${destination}.50\2/" \
+		-i "${SOURCE_REPO}"/sets/${target}-${destination}
+	sed -e "/^@/s/live$/${destination}/" \
+		-i "${SOURCE_REPO}"/sets/${target}-${destination}
 		
 
-	for entry in $(grep ^@ sets/${target}-live) ; do
+	for entry in $(grep ^@ "${SOURCE_REPO}"/sets/${target}-live) ; do
 		entry=${entry/-live/}
 		bump_set_from_live ${entry/@/} ${destination}
 	done
@@ -117,32 +119,30 @@ create_keywords_files() {
 		return
 	fi
 
-	pushd Documentation > /dev/null
-	pushd package.unmask > /dev/null
-	cp -r .${base}-live .${target}
-	pushd .${target} > /dev/null
-	rm *-live
-	ln -s  ../../../sets/${target} ${target}
-	for x in $(grep ^@ ../../../sets/${target}); do
-		ln -s ../../../sets/${x/@/} ${x/@/}
-	done
-	echo "# You can use this file to mask/unmask the $(pretty_setname ${target}) release." > _HEADER_
-	echo "# Edit Documentation/package.unmask/.${target}/ files instead." >> _HEADER_
-	popd > /dev/null
+	pushd "${SOURCE_REPO}"/Documentation/package.unmask > /dev/null
+		cp -r .${base}-live .${target}
+		pushd .${target} > /dev/null
+			rm *-live
+			ln -s ../../../sets/${target} ${target}
+			for x in $(grep ^@ ../../../sets/${target}); do
+				ln -s ../../../sets/${x/@/} ${x/@/}
+			done
+			echo "# You can use this file to mask/unmask the $(pretty_setname ${target}) release." > _HEADER_
+			echo "# Edit Documentation/package.unmask/.${target}/ files instead." >> _HEADER_
+		popd > /dev/null
 	popd > /dev/null
 
-	pushd package.accept_keywords > /dev/null
-	cp -r .${base}-live.base .${target}
-	pushd .${target} > /dev/null
-	rm *-live
-	ln -s  ../../../sets/${target} ${target}
-	for x in $(grep ^@ ../../../sets/${target}); do
-		ln -s ../../../sets/${x/@/} ${x/@/}
-	done
-	echo "# You can use this file to keyword/unkeyword the $(pretty_setname ${target}) release." > _HEADER_
-	echo "# Edit Documentation/package.accept_keywords/.${target}/ files instead." >> _HEADER_
-	popd > /dev/null
-	popd > /dev/null
+	pushd "${SOURCE_REPO}"/Documentation/package.accept_keywords > /dev/null
+		cp -r .${base}-live.base .${target}
+		pushd .${target} > /dev/null
+			rm *-live
+			ln -s ../../../sets/${target} ${target}
+			for x in $(grep ^@ ../../../sets/${target}); do
+				ln -s ../../../sets/${x/@/} ${x/@/}
+			done
+			echo "# You can use this file to keyword/unkeyword the $(pretty_setname ${target}) release." > _HEADER_
+			echo "# Edit Documentation/package.accept_keywords/.${target}/ files instead." >> _HEADER_
+		popd > /dev/null
 	popd > /dev/null
 }
 
@@ -201,7 +201,8 @@ main_version() {
 mark_unreleased() {
 	local category="${1}"
 	local version="${2}"
-	sed -i -e "/^KDE_PV_UNRELEASED/s/ )/ ${version}&/" eclass/"${category}".kde.org.eclass
+	sed -e "/^KDE_PV_UNRELEASED/s/ )/ ${version}&/" \
+		-i "${SOURCE_REPO}"/eclass/"${category}".kde.org.eclass
 }
 
 # @FUNCTION: mask_from_set
@@ -218,16 +219,18 @@ mask_from_set() {
 	if command -v git &> /dev/null; then
 		author="$(git config --get user.name) <$(git config --get user.email)>"
 	fi
-	[[ -d profiles/package.mask ]] || mkdir profiles/package.mask
-	[[ -f profiles/package.mask/${filename} ]] && rm profiles/package.mask/${filename}
+	[[ -d "${SOURCE_REPO}"/profiles/package.mask ]] ||
+		mkdir "${SOURCE_REPO}"/profiles/package.mask
+	[[ -f "${SOURCE_REPO}"/profiles/package.mask/${filename} ]] &&
+		rm "${SOURCE_REPO}"/profiles/package.mask/${filename}
 
-	touch profiles/package.mask/${filename}
-	echo "# ${author} ($(date "+%Y-%m-%d"))" >> profiles/package.mask/${filename}
-	echo "# $(pretty_setname ${set}-${version}) mask" >> profiles/package.mask/${filename}
-	echo "# UNRELEASED" >> profiles/package.mask/${filename}
-	echo "#" >> profiles/package.mask/${filename}
-	get_package_list_from_set ${set} >> profiles/package.mask/${filename}
-	sed -i -e "/^#/!s/^/~/" -e "/^#/!s/$/-${version}/" profiles/package.mask/${filename}
+	touch "${SOURCE_REPO}"/profiles/package.mask/${filename}
+	echo "# ${author} ($(date "+%Y-%m-%d"))" >> "${SOURCE_REPO}"/profiles/package.mask/${filename}
+	echo "# $(pretty_setname ${set}-${version}) mask" >> "${SOURCE_REPO}"/profiles/package.mask/${filename}
+	echo "# UNRELEASED" >> "${SOURCE_REPO}"/profiles/package.mask/${filename}
+	echo "#" >> "${SOURCE_REPO}"/profiles/package.mask/${filename}
+	get_package_list_from_set ${set} >> "${SOURCE_REPO}"/profiles/package.mask/${filename}
+	sed -i -e "/^#/!s/^/~/" -e "/^#/!s/$/-${version}/" "${SOURCE_REPO}"/profiles/package.mask/${filename}
 }
 
 # @FUNCTION: mask_from_live_set
