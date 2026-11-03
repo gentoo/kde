@@ -22,6 +22,7 @@ bump_packages_from_set() {
 	local setname="${1}"
 	local sourceversion="${2}"
 	local targetversion="${3}"
+	local mainversion="$(main_version ${targetversion})"
 
 	local packages=$(get_package_list_from_set ${setname})
 
@@ -37,7 +38,7 @@ bump_packages_from_set() {
 		ekeyword ^all ${destination} > /dev/null
 
 		if [[ ${destination} != *9999* ]] ; then
-			ekeyword $(get_main_tree_keyword ${cp}) ${destination} > /dev/null
+			ekeyword $(get_main_tree_keyword ${cp} ${mainversion}) ${destination} > /dev/null
 			ekeyword ~all ${destination} > /dev/null
 		fi
 
