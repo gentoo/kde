@@ -9,7 +9,7 @@
 # Optional:
 # dev-vcs/git
 
-: ${SOURCE_REPO:="$(realpath $(dirname $0)/../../../)"}
+: ${SOURCE_REPO:="$(realpath $(dirname $0)/../../)"}
 
 : ${TARGET_REPO:="${SOURCE_REPO}"}
 
