@@ -5,6 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 KDE_SELINUX_MODULE="gpg"
+PIMMIN=26.04.3
 PVCUT=$(ver_cut 1-3)
 KFMIN=6.31.0
 QTMIN=6.11.2
@@ -38,8 +39,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	pim? (
-		>=kde-apps/akonadi-${PVCUT}:6=
-		>=kde-apps/akonadi-contacts-${PVCUT}:6=
+		>=kde-apps/akonadi-${PIMMIN}:6=
+		>=kde-apps/akonadi-contacts-${PIMMIN}:6=
 		>=kde-frameworks/kcontacts-${KFMIN}:6
 	)
 "
