@@ -70,8 +70,9 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		# Don't use the generic name, bug #980039
+		-DDBUS_CONFIG_FILENAME=org.freedesktop.plasmalogin.conf
 		-DRUNTIME_DIR=/run/plasmalogin
-
 		# We install our own, our layout isn't in the upstream repo
 		-DINSTALL_PAM_CONFIGURATION=OFF
 		# If non-systemd compat ever arrives, we can try 7
