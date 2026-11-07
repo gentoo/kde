@@ -18,6 +18,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/qcoro[network]
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
