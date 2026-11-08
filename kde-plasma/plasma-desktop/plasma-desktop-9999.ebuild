@@ -67,6 +67,7 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?]
 	>=kde-plasma/plasma5support-${KDE_CATV}:6
+	>=sys-auth/polkit-qt-0.200.0-r1
 	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libxcb
