@@ -18,7 +18,7 @@ RDEPEND="
 	policykit? (
 		>=dev-qt/qtbase-${QTMIN}:6[dbus]
 		=kde-frameworks/kwindowsystem-${KDE_CATV}*:6[wayland]
-		>=sys-auth/polkit-qt-0.175.0[qt6(+)]
+		>=sys-auth/polkit-qt-0.200.0-r1
 	)
 "
 DEPEND="${RDEPEND}
