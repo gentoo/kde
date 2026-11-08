@@ -38,7 +38,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	>=sys-apps/systemd-255:=
-	>=sys-auth/polkit-qt-0.175.0[qt6(+)]
+	>=sys-auth/polkit-qt-0.200.0-r1
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
