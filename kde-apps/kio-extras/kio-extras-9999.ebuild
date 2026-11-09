@@ -71,7 +71,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kio-extras:5[-kf6compat(-)]
-	!kde-apps/kio-extras-kf5:5
 	!<kde-frameworks/kio-5.116.0-r2:5
 	!kde-frameworks/kio-trash-desktop-file:5
 	>=kde-frameworks/kded-${KFMIN}:6
