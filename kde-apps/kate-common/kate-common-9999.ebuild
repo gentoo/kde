@@ -10,10 +10,3 @@ inherit ecm-common gear.kde.org
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-RDEPEND="
-	!<kde-apps/kate-24.07.90-r1
-	!<kde-apps/kate-addons-24.07.90-r1
-	!<kde-apps/kate-lib-24.07.90-r1
-	!<kde-apps/kwrite-24.07.90-r1
-"
