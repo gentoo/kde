@@ -9,11 +9,3 @@ inherit ecm-common gear.kde.org
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-RDEPEND="
-	!<app-cdr/dolphin-plugins-mountiso-24.07.90-r1
-	!<kde-apps/dolphin-plugins-dropbox-24.07.90-r1
-	!<kde-apps/dolphin-plugins-git-24.07.90-r1
-	!<kde-apps/dolphin-plugins-mercurial-24.07.90-r1
-	!<kde-apps/dolphin-plugins-subversion-24.07.90-r1
-"
