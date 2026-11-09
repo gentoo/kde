@@ -54,7 +54,6 @@ DEPEND="
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kio-extras-23.08.5-r100:5
 	kde-apps/kfind:6
 "
 
