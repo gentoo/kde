@@ -8,7 +8,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="kdevelop"
 KFMIN=6.31.0
-LLVM_COMPAT=( 16 17 18 19 20 21 22 )
+LLVM_COMPAT=( 20 21 22 23 )
 QTMIN=6.11.2
 inherit ecm gear.kde.org llvm-r2 optfeature xdg
 
