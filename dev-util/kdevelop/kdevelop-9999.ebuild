@@ -20,6 +20,9 @@ SLOT="6/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE="gdbui plasma +qmake +share subversion"
 
+# see bug 366471, 986079, etc...
+RESTRICT="test"
+
 # UPSTREAM: not ported yet, check plugins/CMakeLists.txt
 # IUSE="hex"
 # 	hex? ( app-editors/okteta:6 )
