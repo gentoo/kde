@@ -237,7 +237,9 @@ _kde.org_live_corrosion_unpack() {
 	# Need to handle every corrosion "project" individually.
 	local path
 	while IFS= read -r -d '' path ; do
-		S="${path%/*}" cargo_live_src_unpack
+		pushd "${path%/*}" >/dev/null || die
+		cargo_live_src_unpack
+		popd >/dev/null || die
 	done < <(find "${S}" -type f -iname CMakeLists.txt -print0 | xargs -0 grep -z -Z -l -i corrosion_import_crate; pipestatus || die)
 }
 
