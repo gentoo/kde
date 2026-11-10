@@ -11,12 +11,15 @@ HOMEPAGE="https://kde.org/plasma-desktop/"
 LICENSE="metapackage"
 SLOT="6"
 KEYWORDS=""
-IUSE="accessibility +backup bluetooth +browser-integration +crash-handler crypt
-cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
-+networkmanager oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart systemd
-thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine +xwayland"
+IUSE="accessibility +backup bluetooth +browser-integration +crash-handler
+crypt cups discover +elogind +firewall flatpak grub gtk +kwallet lightdm
++networkmanager oxygen-theme plasma-login-manager plymouth pulseaudio rdp
++sddm sdk +smart systemd thunderbolt unsupported virtualkeyboard wacom
++wallpapers webengine +xwayland"
 
-REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
+REQUIRED_USE="^^ ( elogind systemd )
+	firewall? ( systemd )
+	plasma-login-manager? ( systemd )"
 
 RDEPEND="
 	>=kde-plasma/aurorae-${PV}:${SLOT}
@@ -73,13 +76,6 @@ RDEPEND="
 		net-print/cups-meta
 	)
 	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
-	display-manager? (
-		sddm? (
-			gui-apps/sddm[elogind?,systemd?]
-			>=kde-plasma/sddm-kcm-${PV}:${SLOT}
-		)
-		!sddm? ( x11-misc/lightdm )
-	)
 	elogind? ( sys-auth/elogind[pam] )
 	flatpak? ( >=kde-plasma/flatpak-kcm-${PV}:${SLOT} )
 	grub? ( >=kde-plasma/breeze-grub-${PV}:${SLOT} )
@@ -90,6 +86,7 @@ RDEPEND="
 		x11-misc/appmenu-gtk-module
 	)
 	kwallet? ( >=kde-plasma/kwallet-pam-${PV}:${SLOT} )
+	lightdm? ( x11-misc/lightdm )
 	networkmanager? (
 		>=kde-plasma/plasma-nm-${PV}:${SLOT}
 		net-misc/networkmanager[elogind?,systemd?]
@@ -105,11 +102,16 @@ RDEPEND="
 	)
 	pulseaudio? ( >=kde-plasma/plasma-pa-${PV}:${SLOT} )
 	rdp? ( >=kde-plasma/krdp-${PV}:${SLOT} )
+	sddm? (
+		gui-apps/sddm[elogind?,systemd?]
+		>=kde-plasma/sddm-kcm-${PV}:${SLOT}
+	)
 	sdk? ( >=kde-plasma/plasma-sdk-${PV}:${SLOT} )
 	smart? ( >=kde-plasma/plasma-disks-${PV}:${SLOT} )
 	systemd? (
 		>=sys-apps/systemd-257[pam]
 		firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} )
+		plasma-login-manager? ( >=kde-plasma/plasma-login-manager-${PV} )
 	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
 	!unsupported? ( !gui-apps/qt6ct )
