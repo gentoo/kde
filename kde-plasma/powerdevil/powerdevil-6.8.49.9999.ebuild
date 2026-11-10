@@ -15,7 +15,7 @@ HOMEPAGE="https://invent.kde.org/plasma/powerdevil"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE="brightness-control"
+IUSE="activities brightness-control"
 
 RESTRICT="test" # bug 926513
 
@@ -43,9 +43,9 @@ COMMON_DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/libkscreen-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
-	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
 	virtual/libudev:=
+	activities? ( >=kde-plasma/plasma-activities-${KDE_CATV}:6= )
 	brightness-control? ( app-misc/ddcutil:= )
 "
 DEPEND="${COMMON_DEPEND}
@@ -72,8 +72,11 @@ BDEPEND="
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_wake_alarm=ep usr/libexec/org_kde_powerdevil )
 
+PATCHES=( "${FILESDIR}/${PN}-6.8.2-activities-optional.patch" )
+
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_ACTIVITIES=$(usex activities)
 		$(cmake_use_find_package brightness-control DDCUtil)
 	)
 	use test && mycmakeargs+=(
