@@ -25,9 +25,7 @@
 <kde-apps/kdepim-runtime-26.08.50
 <kde-apps/kidentitymanagement-26.08.50
 <kde-apps/kimap-26.08.50
-<kde-apps/kitinerary-26.08.50
 <kde-apps/kldap-26.08.50
-<kde-apps/kleopatra-26.08.50
 <kde-apps/kmail-26.08.50
 <kde-apps/kmail-account-wizard-26.08.50
 <kde-apps/kmailtransport-26.08.50
@@ -37,12 +35,9 @@
 <kde-apps/kontactinterface-26.08.50
 <kde-apps/korganizer-26.08.50
 <kde-apps/kpimtextedit-26.08.50
-<kde-apps/kpkpass-26.08.50
 <kde-apps/ksmtp-26.08.50
 <kde-apps/libgravatar-26.08.50
 <kde-apps/libkdepim-26.08.50
-<kde-apps/libkgapi-26.08.50
-<kde-apps/libkleo-26.08.50
 <kde-apps/libksieve-26.08.50
 <kde-apps/libktnef-26.08.50
 <kde-apps/mailcommon-26.08.50
@@ -54,3 +49,9 @@
 <kde-apps/pim-sieve-editor-26.08.50
 <kde-apps/pimcommon-26.08.50
 <kde-misc/zanshin-26.08.50
+# stable
+<kde-apps/kitinerary-26.08.50
+<kde-apps/kleopatra-26.08.50
+<kde-apps/kpkpass-26.08.50
+<kde-apps/libkgapi-26.08.50
+<kde-apps/libkleo-26.08.50
