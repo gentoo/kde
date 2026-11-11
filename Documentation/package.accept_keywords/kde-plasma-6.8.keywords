@@ -73,6 +73,4 @@
 <kde-plasma/systemsettings-6.8.50
 <kde-plasma/union-6.8.50
 <kde-plasma/xdg-desktop-portal-kde-6.8.50
-~media-libs/pulseaudio-qt-9999 **
-~dev-libs/plasma-wayland-protocols-9999 **
-~dev-libs/cxx-rust-cssparser-1.0.0
+~dev-libs/cxx-rust-cssparser-1.1.0
