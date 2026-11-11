@@ -41,7 +41,7 @@ done
 # for plasma, we just want the latest release, as there won't be a branch
 # for the older version (nor ebuilds for live)
 for release in "${PLASMA_RELEASES[-1]}"; do
-	if [[ -d ".kde-plasma-${release}" ]]; then
+	if [[ -d ".kde-plasma-${release}" && -e "${SOURCE_REPO}"/kde-plasma/plasma-meta/plasma-meta-${release}.49.9999.ebuild ]]; then
 		rm -rf ".kde-plasma-${release}.49.9999"
 		mkdir -p ".kde-plasma-${release}.49.9999"
 		echo -e "${HEADER}" > "kde-plasma-${release}.49.9999.keywords"
@@ -65,7 +65,7 @@ done
 
 # ... and for completely unkeyworded packages, add "**"
 for release in "${GEAR_RELEASES[@]}"; do
-	if [[ -d ".kde-gear-${release}" ]]; then
+	if [[ -d ".kde-gear-${release}" && -e "${SOURCE_REPO}"/kde-apps/kde-apps-meta/kde-apps-meta-${release}.49.9999.ebuild ]]; then
 		rm -rf ".kde-gear-${release}.49.9999"
 		mkdir -p ".kde-gear-${release}.49.9999"
 		echo -e "${HEADER}" > "kde-gear-${release}.49.9999.keywords"
