@@ -74,6 +74,7 @@ COMMON_DEPEND="
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
 	systemd? ( sys-apps/systemd:= )
 	X? (
+		>=x11-base/xwayland-23.1.0[libei]
 		x11-libs/libX11
 		>=x11-libs/libxcb-1.10:=
 		x11-libs/libXi
@@ -92,7 +93,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/milou-${KDE_CATV}:6
 	sys-apps/hwdata
 	selinux? ( sec-policy/selinux-wm )
-	X? ( >=x11-base/xwayland-23.1.0[libei] )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.23.0
