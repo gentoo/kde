@@ -181,9 +181,7 @@
 ~kde-apps/kdepim-runtime-26.08.49.9999 **
 ~kde-apps/kidentitymanagement-26.08.49.9999 **
 ~kde-apps/kimap-26.08.49.9999 **
-~kde-apps/kitinerary-26.08.49.9999 **
 ~kde-apps/kldap-26.08.49.9999 **
-~kde-apps/kleopatra-26.08.49.9999 **
 ~kde-apps/kmail-26.08.49.9999 **
 ~kde-apps/kmail-account-wizard-26.08.49.9999 **
 ~kde-apps/kmailtransport-26.08.49.9999 **
@@ -193,12 +191,9 @@
 ~kde-apps/kontactinterface-26.08.49.9999 **
 ~kde-apps/korganizer-26.08.49.9999 **
 ~kde-apps/kpimtextedit-26.08.49.9999 **
-~kde-apps/kpkpass-26.08.49.9999 **
 ~kde-apps/ksmtp-26.08.49.9999 **
 ~kde-apps/libgravatar-26.08.49.9999 **
 ~kde-apps/libkdepim-26.08.49.9999 **
-~kde-apps/libkgapi-26.08.49.9999 **
-~kde-apps/libkleo-26.08.49.9999 **
 ~kde-apps/libksieve-26.08.49.9999 **
 ~kde-apps/libktnef-26.08.49.9999 **
 ~kde-apps/mailcommon-26.08.49.9999 **
@@ -210,6 +205,12 @@
 ~kde-apps/pim-sieve-editor-26.08.49.9999 **
 ~kde-apps/pimcommon-26.08.49.9999 **
 ~kde-misc/zanshin-26.08.49.9999 **
+# stable
+~kde-apps/kitinerary-26.08.49.9999 **
+~kde-apps/kleopatra-26.08.49.9999 **
+~kde-apps/kpkpass-26.08.49.9999 **
+~kde-apps/libkgapi-26.08.49.9999 **
+~kde-apps/libkleo-26.08.49.9999 **
 ~dev-build/dolphin-plugins-makefileactions-26.08.49.9999 **
 ~dev-util/kdevelop-26.08.49.9999 **
 ~dev-util/kdevelop-php-26.08.49.9999 **
@@ -258,4 +259,3 @@
 ~kde-misc/markdownpart-26.08.49.9999 **
 ~sys-block/partitionmanager-26.08.49.9999 **
 ~sys-libs/kpmcore-26.08.49.9999 **
-~dev-libs/kirigami-app-components-1.0.0
