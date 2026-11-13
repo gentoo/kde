@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>johu@gmx.de</email>
+		<name>Johannes Huber</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>kde@gentoo.org</email>
+		<name>Gentoo KDE Project</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://bugs.kde.org/enter_bug.cgi?product=kwi</bugs-to>
+		<remote-id type="kde-invent">utilities/kwi</remote-id>
+	</upstream>
+	<use>
+		<flag name="kpart">Build the KPart to embed the terminal in other KDE applications</flag>
+	</use>
+</pkgmetadata>
