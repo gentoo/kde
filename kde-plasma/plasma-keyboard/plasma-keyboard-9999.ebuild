@@ -14,6 +14,8 @@ LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2.1 LGPL-3"
 SLOT="6"
 KEYWORDS=""
 
+IUSE="anthy libchewing libhangul libpinyin"
+
 # slot op: Uses Qt6::GuiPrivate for qxkbcommon_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
@@ -27,6 +29,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	x11-libs/libxkbcommon
+	anthy? ( app-i18n/anthy:= )
+	libchewing? ( app-i18n/libchewing:= )
+	libhangul? ( app-i18n/libhangul:= )
+	libpinyin? ( app-i18n/libpinyin:= )
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons
@@ -44,3 +50,13 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	virtual/pkgconfig
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DPLASMA_KEYBOARD_ANTHY_ENABLED=$(usex anthy)
+		-DPLASMA_KEYBOARD_LIBCHEWING_ENABLED=$(usex libchewing)
+		-DPLASMA_KEYBOARD_LIBHANGUL_ENABLED=$(usex libhangul)
+		-DPLASMA_KEYBOARD_LIBPINYIN_ENABLED=$(usex libpinyin)
+	)
+	ecm_src_configure
+}

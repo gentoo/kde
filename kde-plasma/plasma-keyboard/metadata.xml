@@ -9,4 +9,10 @@
 		<bugs-to>https://bugs.kde.org</bugs-to>
 		<remote-id type="kde-invent">plasma/plasma-keyboard</remote-id>
 	</upstream>
+	<use>
+		<flag name="anthy">Enable Japanese input with <pkg>app-i18n/anthy</pkg></flag>
+		<flag name="libchewing">Enable Chinese zhuyin input with <pkg>app-i18n/libchewing</pkg></flag>
+		<flag name="libhangul">Enable Korean input with <pkg>app-i18n/libhangul</pkg></flag>
+		<flag name="libpinyin">Enable Chinese pinyin input with <pkg>app-i18n/libpinyin</pkg></flag>
+	</use>
 </pkgmetadata>
