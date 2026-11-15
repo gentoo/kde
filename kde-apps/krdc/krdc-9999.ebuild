@@ -21,7 +21,7 @@ REQUIRED_USE="ssh? ( || ( rdp vnc ) )"
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 2016-01-24
 DEPEND="
 	>=dev-libs/qtkeychain-0.16.0:=
-	>=dev-qt/qtbase-${QTMIN}:6[gui,wayland?,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,wayland?,widgets,xml]
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -42,6 +42,8 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	rdp? (
 		>=kde-frameworks/kio-${KFMIN}:6
+		>=kde-frameworks/solid-${KFMIN}:6
+		kde-plasma/kscreen:6
 		>=net-misc/freerdp-2.10:3
 	)
 	spice? (
