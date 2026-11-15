@@ -12,10 +12,10 @@
 ~kde-apps/kate-addons-9999 **
 ~kde-apps/kate-common-9999 **
 ~kde-apps/kate-lib-9999 **
-~kde-apps/kdecore-meta-9999 **
 ~kde-apps/khelpcenter-9999 **
 ~kde-apps/konsole-9999 **
 ~kde-apps/kwrite-9999 **
+~kde-apps/kdecore-meta-9999 **
 ~kde-apps/kde-apps-meta-9999 **
 ~app-accessibility/kontrast-9999 **
 ~kde-apps/kmag-9999 **
@@ -145,7 +145,6 @@
 ~kde-apps/krfb-9999 **
 ~kde-apps/signon-kwallet-extension-9999 **
 ~kde-misc/kdeconnect-9999 **
-~kde-misc/kio-gdrive-9999 **
 ~net-im/neochat-9999 **
 ~net-im/tokodon-9999 **
 ~net-irc/konversation-9999 **
