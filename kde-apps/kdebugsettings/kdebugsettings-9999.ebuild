@@ -20,6 +20,8 @@ RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
