@@ -14,7 +14,7 @@ DESCRIPTION="Universal document viewer based on KDE Frameworks"
 HOMEPAGE="https://okular.kde.org https://apps.kde.org/okular/"
 
 LICENSE="GPL-2" # TODO: CHECK
-SLOT="6"
+SLOT="6/5" # okularcore SOVERSION
 KEYWORDS=""
 IUSE="crypt djvu epub markdown mobi +pdf +postscript share speech +tiff"
 
