@@ -327,6 +327,13 @@ _ecm_disable_unwanted() {
 	if grep -Eq "option.*ENABLE_PCH" CMakeLists.txt; then
 		echo "-DENABLE_PCH=OFF"
 	fi
+	# Backstory: https://mail.kde.org/pipermail/kde-pim/2026-October/049638.html
+	if grep -Eq "option.*USE_FASTER_LINKER" CMakeLists.txt; then
+		echo "-DUSE_FASTER_LINKER=OFF"
+	fi
+	if grep -Eq "option.*USE_MOLD_LINKER" CMakeLists.txt; then
+		echo "-DUSE_MOLD_LINKER=OFF"
+	fi
 	if grep -Eq "option.*WARNINGS_AS_ERRORS" CMakeLists.txt; then
 		echo "-DWARNINGS_AS_ERRORS=OFF"
 	fi
