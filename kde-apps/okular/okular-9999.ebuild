@@ -16,7 +16,7 @@ HOMEPAGE="https://okular.kde.org https://apps.kde.org/okular/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6/5" # okularcore SOVERSION
 KEYWORDS=""
-IUSE="crypt djvu epub markdown mobi +pdf +postscript share speech +tiff"
+IUSE="crypt djvu epub markdown mobi +multimedia +pdf +postscript share speech +tiff"
 
 # slot op: Uses Qt6::CorePrivate
 DEPEND="
@@ -49,6 +49,7 @@ DEPEND="
 	epub? ( app-text/ebook-tools )
 	markdown? ( >=app-text/discount-2.2.7-r1:= )
 	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:6 )
+	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:6 )
 	pdf? ( >=app-text/poppler-24.10.0[nss,qt6] )
 	postscript? ( app-text/libspectre )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
@@ -73,15 +74,15 @@ CMAKE_SKIP_TESTS=(
 
 src_configure() {
 	local mycmakeargs=(
-		-DFORCE_NOT_REQUIRED_DEPENDENCIES="KF6DocTools;KF6Wallet;DjVuLibre;EPub;Discount;QMobipocket6;Poppler;LibSpectre;KF6Purpose;Qt6TextToSpeech;TIFF;"
+		-DFORCE_NOT_REQUIRED_DEPENDENCIES="KF6DocTools;KF6Wallet;DjVuLibre;EPub;Discount;QMobipocket6;Qt6MultimediaWidgets;Poppler;LibSpectre;KF6Purpose;Qt6TextToSpeech;TIFF;"
 		-DOKULAR_UI=desktop
 		$(cmake_use_find_package crypt KF6Wallet)
 		$(cmake_use_find_package djvu DjVuLibre)
 		$(cmake_use_find_package epub EPub)
 		$(cmake_use_find_package markdown Discount)
 		$(cmake_use_find_package mobi QMobipocket6)
+		$(cmake_use_find_package multimedia Qt6MultimediaWidgets)
 		$(cmake_use_find_package pdf Poppler)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Phonon4Qt6=ON
 		$(cmake_use_find_package postscript LibSpectre)
 		$(cmake_use_find_package share KF6Purpose)
 		$(cmake_use_find_package speech Qt6TextToSpeech)
