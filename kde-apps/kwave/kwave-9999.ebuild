@@ -38,8 +38,8 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	flac? ( media-libs/flac:=[cxx] )
 	mp3? (
-		media-libs/id3lib
 		media-libs/libmad
+		>=media-libs/taglib-2:=
 		|| (
 			media-sound/lame
 			media-sound/toolame
