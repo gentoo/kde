@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-libs/kirigami-addons-1.4.0:6
+	>=dev-libs/kirigami-addons-1.15.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
