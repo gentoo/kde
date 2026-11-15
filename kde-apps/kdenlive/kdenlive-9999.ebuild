@@ -4,7 +4,6 @@
 EAPI=8
 
 ECM_DESIGNERPLUGIN="true"
-ECM_HANDBOOK="optional"
 ECM_QTHELP="true"
 ECM_TEST="true"
 KFMIN=6.31.0
@@ -17,7 +16,7 @@ HOMEPAGE="https://kdenlive.org/en/"
 LICENSE="GPL-3"
 SLOT="6"
 KEYWORDS=""
-IUSE="gles2-only semantic-desktop"
+IUSE="gles2-only"
 
 RESTRICT="test" # segfaults, bug 684132
 
