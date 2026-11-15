@@ -23,7 +23,6 @@ RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
-	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
