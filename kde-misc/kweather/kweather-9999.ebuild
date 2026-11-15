@@ -17,7 +17,7 @@ SLOT="6"
 KEYWORDS=""
 
 DEPEND="
-	dev-libs/kirigami-addons:6
+	>=dev-libs/kirigami-addons-1.13:6
 	dev-libs/kweathercore:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,opengl,widgets]
 	>=dev-qt/qtcharts-${QTMIN}:6[qml]
