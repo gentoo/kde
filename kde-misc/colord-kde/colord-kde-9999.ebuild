@@ -6,7 +6,7 @@ EAPI=8
 KDE_ORG_CATEGORY=graphics
 KFMIN=6.31.0
 QTMIN=6.11.2
-inherit ecm gear.kde.org xdg
+inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Provides interfaces and session daemon to colord"
 HOMEPAGE="https://invent.kde.org/graphics/colord-kde"
@@ -51,8 +51,5 @@ src_configure() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	if ! has_version "gnome-extra/gnome-color-manager"; then
-		elog "You may want to install gnome-extra/gnome-color-manager to add support for"
-		elog "colorhug calibration devices."
-	fi
+	optfeature "ColorHug calibration devices support" "gnome-extra/gnome-color-manager"
 }
