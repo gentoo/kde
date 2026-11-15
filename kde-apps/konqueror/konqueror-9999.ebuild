@@ -56,6 +56,10 @@ DEPEND="
 RDEPEND="${DEPEND}
 	kde-apps/kfind:6
 "
+BDEPEND="
+	>=kde-frameworks/kcmutils-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+"
 
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
