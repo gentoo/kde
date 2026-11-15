@@ -27,11 +27,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	if ! use doc ; then
-		# TODO: Avoid automagic qttools[qdoc] dep
-		sed -i -e '/include(ECMGenerateQDoc)/d' CMakeLists.txt || die
-		sed -i -e '/ecm_generate_qdoc/d' src/CMakeLists.txt || die
-	fi
+	# TODO: Avoid automagic qttools[qdoc] dep
+	sed -i -e '/include(ECMGenerateQDoc)/d' CMakeLists.txt || die
+	sed -i -e '/ecm_generate_qdoc/d' src/CMakeLists.txt || die
 
 	ecm_src_prepare
 }
