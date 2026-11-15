@@ -25,3 +25,13 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	if ! use doc ; then
+		# TODO: Avoid automagic qttools[qdoc] dep
+		sed -i -e '/include(ECMGenerateQDoc)/d' CMakeLists.txt || die
+		sed -i -e '/ecm_generate_qdoc/d' src/CMakeLists.txt || die
+	fi
+
+	ecm_src_prepare
+}
