@@ -30,7 +30,6 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
-	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 "
