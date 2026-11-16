@@ -13,7 +13,7 @@ DESCRIPTION="Control Center to configure KDE Plasma desktop"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS=""
-IUSE=""
+IUSE="activities"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
@@ -40,9 +40,18 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
+	activities? ( >=kde-plasma/plasma-activities-${KDE_CATV}:6= )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-6.7.5-activities-optional.patch" )
+
+src_configure() {
+	local mycmakeargs=(
+		-DENABLE_ACTIVITIES=$(usex activities)
+	)
+	ecm_src_configure
+}
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
