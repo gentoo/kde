@@ -5,7 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-PVCUT=$(ver_cut 1-3)
+PIMMIN=26.04.3
+PVCUT=$(ver_cut 1-3) # libkleo, mimetreeparser
 KFMIN=6.31.0
 QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
@@ -47,9 +48,9 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	pim? (
-		>=kde-apps/akonadi-mime-${PVCUT}:6=
-		>=kde-apps/kidentitymanagement-${PVCUT}:6=
-		>=kde-apps/kmailtransport-${PVCUT}:6=
+		>=kde-apps/akonadi-mime-${PIMMIN}:6=
+		>=kde-apps/kidentitymanagement-${PIMMIN}:6=
+		>=kde-apps/kmailtransport-${PIMMIN}:6=
 	)
 "
 RDEPEND="${DEPEND}
@@ -59,9 +60,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package pim KPim6AkonadiMime)
-		$(cmake_use_find_package pim KPim6IdentityManagementCore)
-		$(cmake_use_find_package pim KPim6MailTransport)
+		-DENABLE_AKONADISUPPORT=$(usex pim)
 	)
 	ecm_src_configure
 }
