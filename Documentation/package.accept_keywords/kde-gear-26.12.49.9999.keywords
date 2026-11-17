@@ -158,9 +158,11 @@
 # stable
 ~kde-apps/kitinerary-26.12.49.9999 **
 ~kde-apps/kleopatra-26.12.49.9999 **
+~kde-apps/kmbox-26.12.49.9999 **
 ~kde-apps/kpkpass-26.12.49.9999 **
 ~kde-apps/libkgapi-26.12.49.9999 **
 ~kde-apps/libkleo-26.12.49.9999 **
+~kde-apps/mimetreeparser-26.12.49.9999 **
 ~dev-build/dolphin-plugins-makefileactions-26.12.49.9999 **
 ~dev-util/kdevelop-26.12.49.9999 **
 ~dev-util/kdevelop-php-26.12.49.9999 **
