@@ -29,6 +29,7 @@ DEPEND="
 	>=kde-apps/libkleo-${PVCUT}:6=
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kmime-${KFMIN}:6
