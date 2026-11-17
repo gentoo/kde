@@ -1,0 +1,58 @@
+See also: https://invent.kde.org/pim/kleopatra/-/merge_requests/453
+
+Depends on pt1.patch that needs to be rebased each minor release bump.
+
+From d8e880d0043423b0f8364f078a8d4116ae55fef8 Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Mon, 16 Nov 2026 18:19:13 +0100
+Subject: [PATCH] Add explicit ENABLE_AKONADISUPPORT option
+
+Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
+---
+ CMakeLists.txt         | 18 ++++++++----
+ src/CMakeLists.txt     |  2 +-
+ 2 files changed, 9 insertions(+), 5 deletions(-)
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -94,6 +92,7 @@ find_package(KF6 ${KF6_WANT_VERSION}
+     IconThemes
+     ItemModels
+     KIO
++    Mime
+     WidgetsAddons
+     WindowSystem
+     XmlGui
+@@ -127,12 +126,15 @@ set(QGPGME_NAME "QGpgmeQt6")
+ find_package(${QGPGME_NAME} ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
+ 
+ find_package(KPim6Libkleo ${LIBKLEO_VERSION} CONFIG REQUIRED)
+-find_package(KF6Mime ${KF6_WANT_VERSION} CONFIG REQUIRED)
+-find_package(KPim6IdentityManagementCore ${KIDENTITYMANAGEMENT_VERSION} CONFIG)
+-find_package(KPim6MailTransport ${KMAILTRANSPORT_VERSION} CONFIG)
+-find_package(KPim6AkonadiMime ${AKONADI_MIME_VERSION} CONFIG)
+ find_package(KPim6MimeTreeParserWidgets ${MIMETREEPARSER_VERSION} CONFIG REQUIRED)
+ 
++option(ENABLE_AKONADISUPPORT "Support submitting PGP keys to a WebKeyDirectory service (uses akonadi)" ON)
++if(ENABLE_AKONADISUPPORT)
++    find_package(KPim6IdentityManagementCore ${PIM_MIN_VERSION} CONFIG REQUIRED)
++    find_package(KPim6MailTransport ${PIM_MIN_VERSION} CONFIG REQUIRED)
++    find_package(KPim6AkonadiMime ${PIM_MIN_VERSION} CONFIG REQUIRED)
++endif()
++
+ set(CMAKE_MODULE_PATH ${LIBKLEO_MODULE_PATH} ${CMAKE_MODULE_PATH})
+ 
+ find_package(Qt6 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets Test Network PrintSupport)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index b2f9253b0..8bb4d075a 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -52,7 +52,7 @@ set(_kleopatra_uiserver_extra_libs LibAssuan::LibAssuan LibGpgError::LibGpgError
+ add_definitions(-DGPG_ERR_SOURCE_DEFAULT=GPG_ERR_SOURCE_KLEO)
+ add_definitions(-DGPGMEPP_ERR_SOURCE_DEFAULT=GPG_ERR_SOURCE_KLEO)
+ 
+-if(KPim6IdentityManagementCore_FOUND AND KPim6MailTransport_FOUND AND KPim6AkonadiMime_FOUND)
++if(ENABLE_AKONADISUPPORT)
+   set(_kleopatra_mail_libs
+       KPim6::IdentityManagementCore # Export OpenPGP keys using WKS
+       KPim6::MailTransport

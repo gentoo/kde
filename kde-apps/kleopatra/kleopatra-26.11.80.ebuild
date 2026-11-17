@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 PIMMIN=26.04.3
-PVCUT=$(ver_cut 1-3) # libkleo
+PVCUT=$(ver_cut 1-3) # libkleo, mimetreeparser
 KFMIN=6.31.0
 QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
@@ -30,7 +30,7 @@ DEPEND="
 	dev-libs/libgpg-error
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-apps/libkleo-${PVCUT}:6=
-	>=kde-apps/mimetreeparser-${PIMMIN}:6=
+	>=kde-apps/mimetreeparser-${PVCUT}:6=
 	>=kde-frameworks/kcodecs-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -58,13 +58,13 @@ RDEPEND="${DEPEND}
 	app-crypt/paperkey
 "
 
-PATCHES=( "${FILESDIR}/${P}-lower-pim-deps.patch" )
+PATCHES=(
+	"${FILESDIR}"/${P}-pim-deps-pt{1,2}.patch # in git master
+)
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package pim KPim6AkonadiMime)
-		$(cmake_use_find_package pim KPim6IdentityManagementCore)
-		$(cmake_use_find_package pim KPim6MailTransport)
+		-DENABLE_AKONADISUPPORT=$(usex pim)
 	)
 	ecm_src_configure
 }
