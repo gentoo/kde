@@ -51,6 +51,11 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+CMAKE_SKIP_TESTS=(
+	# Needs to create a socket, would require setting XDG_RUNTIME_DIR to a path short enough to work
+	mockinputmethodcompositor
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DPLASMA_KEYBOARD_ANTHY_ENABLED=$(usex anthy)
