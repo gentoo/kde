@@ -21,18 +21,19 @@ COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[gui,wayland,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtvirtualkeyboard-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kpackage-${KFMIN}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	x11-libs/libxkbcommon
 	anthy? ( app-i18n/anthy:= )
 	libchewing? ( app-i18n/libchewing:= )
 	libhangul? ( app-i18n/libhangul:= )
 	libpinyin? ( app-i18n/libpinyin:= )
+	gpl3? ( >=dev-qt/qtmultimedia-${QTMIN}:6 )
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons
@@ -41,6 +42,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 "
 DEPEND="${COMMON_DEPEND}
+	dev-libs/plasma-wayland-protocols
 	>=dev-libs/wayland-protocols-1.19
 	test? ( >=dev-qt/qtwayland-${QTMIN}:6 )
 "
