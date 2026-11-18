@@ -11,6 +11,7 @@
 	</upstream>
 	<use>
 		<flag name="anthy">Enable Japanese input with <pkg>app-i18n/anthy</pkg></flag>
+		<flag name="gpl3">Enable features requiring GPL-3 compliance such as sound and vibration support</flag>
 		<flag name="libchewing">Enable Chinese zhuyin input with <pkg>app-i18n/libchewing</pkg></flag>
 		<flag name="libhangul">Enable Korean input with <pkg>app-i18n/libhangul</pkg></flag>
 		<flag name="libpinyin">Enable Chinese pinyin input with <pkg>app-i18n/libpinyin</pkg></flag>

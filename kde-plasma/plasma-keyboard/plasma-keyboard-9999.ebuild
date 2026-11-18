@@ -10,11 +10,11 @@ inherit ecm plasma.kde.org xdg
 
 DESCRIPTION="Virtual keyboard based on Qt Virtual Keyboard"
 
-LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2.1 LGPL-3"
+LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2.1 LGPL-3 gpl3? ( GPL-3 )"
 SLOT="6"
 KEYWORDS=""
 
-IUSE="anthy libchewing libhangul libpinyin"
+IUSE="anthy +gpl3 libchewing libhangul libpinyin"
 
 # slot op: Uses Qt6::GuiPrivate for qxkbcommon_p.h
 COMMON_DEPEND="
@@ -62,6 +62,8 @@ src_configure() {
 		-DPLASMA_KEYBOARD_LIBCHEWING_ENABLED=$(usex libchewing)
 		-DPLASMA_KEYBOARD_LIBHANGUL_ENABLED=$(usex libhangul)
 		-DPLASMA_KEYBOARD_LIBPINYIN_ENABLED=$(usex libpinyin)
+		-DPLASMA_KEYBOARD_SOUNDS_ENABLED=$(usex gpl3)
+		-DPLASMA_KEYBOARD_VIBRATION_ENABLED=$(usex gpl3)
 	)
 	ecm_src_configure
 }
