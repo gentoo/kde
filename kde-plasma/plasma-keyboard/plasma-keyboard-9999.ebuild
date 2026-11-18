@@ -19,7 +19,7 @@ IUSE="anthy +gpl3 libchewing libhangul libpinyin"
 # slot op: Uses Qt6::GuiPrivate for qxkbcommon_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[gui,wayland,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[gui,wayland]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
