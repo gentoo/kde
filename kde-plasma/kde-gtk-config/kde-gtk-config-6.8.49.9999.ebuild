@@ -27,7 +27,7 @@ DEPEND="
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
-	x11-libs/gtk+:3[X]
+	x11-libs/gtk+:3
 "
 RDEPEND="${DEPEND}
 	x11-misc/xsettingsd
