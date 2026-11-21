@@ -5,9 +5,18 @@ EAPI=8
 
 ECM_TEST="true"
 KDE_ORG_CATEGORY="utilities"
+KDE_VERIFY_SIG=1
 KFMIN=6.29.0
 QTMIN=6.11.2
 inherit ecm kde.org
+
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	if [[ -n ${KDE_VERIFY_SIG} ]]; then
+		SRC_URI+=" verify-sig? ( mirror://kde/stable/${PN}/${PV}/${P}.tar.xz.sig )"
+	fi
+	KEYWORDS="~amd64"
+fi
 
 DESCRIPTION="Modern and fast terminal for KDE Plasma and other desktops"
 HOMEPAGE="https://invent.kde.org/utilities/kwi"
