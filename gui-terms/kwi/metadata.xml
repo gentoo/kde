@@ -14,6 +14,7 @@
 		<remote-id type="kde-invent">utilities/kwi</remote-id>
 	</upstream>
 	<use>
+		<flag name="app">Build the standalone Kwi terminal application</flag>
 		<flag name="kpart">Build the KPart to embed the terminal in other KDE applications</flag>
 	</use>
 </pkgmetadata>
