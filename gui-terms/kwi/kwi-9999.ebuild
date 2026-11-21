@@ -68,8 +68,3 @@ src_configure() {
 	)
 	ecm_src_configure
 }
-
-src_install() {
-	ecm_src_install
-	rm -rv "${ED}"/usr/share/licenses || die
-}
