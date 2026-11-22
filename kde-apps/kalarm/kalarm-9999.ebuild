@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-PVCUT=$(ver_cut 1-3)
+PIMMIN=26.04.3
 KFMIN=6.31.0
 QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
@@ -19,7 +19,7 @@ IUSE="+pim speech X"
 
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
-	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+	>=kde-apps/kidentitymanagement-${PIMMIN}:6=
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -50,16 +50,16 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=media-video/mpv-0.37.0:=[libmpv]
 	pim? (
-		>=kde-apps/akonadi-${PVCUT}:6=
-		>=kde-apps/akonadi-contacts-${PVCUT}:6=
-		>=kde-apps/akonadi-mime-${PVCUT}:6=
-		>=kde-apps/kmailtransport-${PVCUT}:6=
+		>=kde-apps/akonadi-${PIMMIN}:6=
+		>=kde-apps/akonadi-contacts-${PIMMIN}:6=
+		>=kde-apps/akonadi-mime-${PIMMIN}:6=
+		>=kde-apps/kmailtransport-${PIMMIN}:6=
 	)
-	speech? ( >=dev-libs/ktextaddons-2.2.0:6=[speech] )
+	speech? ( >=dev-libs/ktextaddons-2.0.0:6=[speech] )
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${COMMON_DEPEND}
-	pim? ( =kde-apps/kdepim-runtime-${PVCUT}*:6 )
+	pim? ( =kde-apps/kdepim-runtime-${PIMMIN}*:6 )
 "
 DEPEND="${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
