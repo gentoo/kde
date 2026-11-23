@@ -59,7 +59,8 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-pim-deps-pt{1,2}.patch # in git master
+	"${FILESDIR}/${P}-pim-deps.patch" # in 26.11.90
+	"${FILESDIR}/${PN}-26.11.90-akonadi-option.patch" # in git master
 )
 
 src_configure() {

@@ -59,8 +59,7 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-26.11.90-pim-deps-pt1.patch" # TODO: respin on bumps
-	"${FILESDIR}/${PN}-26.11.80-pim-deps-pt2.patch" # +^ in git master
+	"${FILESDIR}/${PN}-26.11.90-akonadi-option.patch" # in git master
 )
 
 src_configure() {
