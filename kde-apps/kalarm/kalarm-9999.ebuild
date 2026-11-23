@@ -17,8 +17,8 @@ SLOT="6"
 KEYWORDS=""
 IUSE="+pim speech vlc X"
 
-COMMON_DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
+DEPEND="
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,X?]
 	>=kde-apps/kidentitymanagement-${PIMMIN}:6=
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
@@ -54,16 +54,12 @@ COMMON_DEPEND="
 		>=kde-apps/akonadi-mime-${PIMMIN}:6=
 		>=kde-apps/kmailtransport-${PIMMIN}:6=
 	)
-	speech? ( >=dev-libs/ktextaddons-2.0.0:6=[speech] )
-	vlc? ( media-video/vlc:= )
+	speech? ( >=dev-libs/ktextaddons-2.0.2:6=[speech] )
+	vlc? ( =media-video/vlc-3*:= )
 	!vlc? ( >=media-video/mpv-0.37.0:=[libmpv] )
-	X? ( x11-libs/libX11 )
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	pim? ( =kde-apps/kdepim-runtime-${PIMMIN}*:6 )
-"
-DEPEND="${COMMON_DEPEND}
-	X? ( x11-base/xorg-proto )
 "
 
 src_configure() {
