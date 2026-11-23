@@ -59,7 +59,7 @@ COMMON_DEPEND="
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${COMMON_DEPEND}
-	pim? ( =kde-apps/kdepim-runtime-${PIMMIN}*:6 )
+	pim? ( >=kde-apps/kdepim-runtime-${PIMMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
