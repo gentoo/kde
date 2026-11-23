@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=6.22.0
-QTMIN=6.9.1
+KFMIN=6.27.0
+QTMIN=6.11.2
 inherit ecm kde.org xdg
 
 DESCRIPTION="Markdown editor with a wide range of formating options for everyday notes"
@@ -21,7 +21,7 @@ SLOT="0"
 IUSE="plasma"
 
 DEPEND="
-	>=dev-libs/kirigami-addons-1.11.0:6
+	>=dev-libs/kirigami-addons-1.13.0:6
 	dev-libs/md4c
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
@@ -35,10 +35,7 @@ DEPEND="
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
-	|| (
-		>=kde-frameworks/kmime-${KFMIN}:6
-		=kde-apps/kmime-26.04*:6
-	)
+	>=kde-frameworks/kmime-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	plasma? (
