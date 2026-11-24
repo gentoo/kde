@@ -18,7 +18,6 @@
 <kde-apps/grantleetheme-26.04.50
 <kde-apps/incidenceeditor-26.04.50
 <kde-apps/kaddressbook-26.04.50
-<kde-apps/kalarm-26.04.50
 <kde-apps/kcalutils-26.04.50
 <kde-apps/kdepim-addons-26.04.50
 <kde-apps/kdepim-meta-26.04.50
@@ -29,7 +28,6 @@
 <kde-apps/kmail-26.04.50
 <kde-apps/kmail-account-wizard-26.04.50
 <kde-apps/kmailtransport-26.04.50
-<kde-apps/kmbox-26.04.50
 <kde-apps/kmime-26.04.50
 <kde-apps/kmime-common-26.04.50
 <kde-apps/konsolekalendar-26.04.50
@@ -46,7 +44,6 @@
 <kde-apps/mailimporter-26.04.50
 <kde-apps/mbox-importer-26.04.50
 <kde-apps/messagelib-26.04.50
-<kde-apps/mimetreeparser-26.04.50
 <kde-apps/pim-data-exporter-26.04.50
 <kde-apps/pim-sieve-editor-26.04.50
 <kde-apps/pimcommon-26.04.50

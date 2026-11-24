@@ -174,7 +174,6 @@
 <kde-apps/grantleetheme-26.08.50
 <kde-apps/incidenceeditor-26.08.50
 <kde-apps/kaddressbook-26.08.50
-<kde-apps/kalarm-26.08.50
 <kde-apps/kcalutils-26.08.50
 <kde-apps/kdepim-addons-26.08.50
 <kde-apps/kdepim-meta-26.08.50
@@ -185,7 +184,6 @@
 <kde-apps/kmail-26.08.50
 <kde-apps/kmail-account-wizard-26.08.50
 <kde-apps/kmailtransport-26.08.50
-<kde-apps/kmbox-26.08.50
 <kde-apps/konsolekalendar-26.08.50
 <kde-apps/kontact-26.08.50
 <kde-apps/kontactinterface-26.08.50
@@ -200,17 +198,19 @@
 <kde-apps/mailimporter-26.08.50
 <kde-apps/mbox-importer-26.08.50
 <kde-apps/messagelib-26.08.50
-<kde-apps/mimetreeparser-26.08.50
 <kde-apps/pim-data-exporter-26.08.50
 <kde-apps/pim-sieve-editor-26.08.50
 <kde-apps/pimcommon-26.08.50
 <kde-misc/zanshin-26.08.50
 # stable
+<kde-apps/kalarm-26.08.50
 <kde-apps/kitinerary-26.08.50
 <kde-apps/kleopatra-26.08.50
+<kde-apps/kmbox-26.08.50
 <kde-apps/kpkpass-26.08.50
 <kde-apps/libkgapi-26.08.50
 <kde-apps/libkleo-26.08.50
+<kde-apps/mimetreeparser-26.08.50
 <dev-build/dolphin-plugins-makefileactions-26.08.50
 <dev-util/kdevelop-26.08.50
 <dev-util/kdevelop-php-26.08.50
