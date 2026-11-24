@@ -3,14 +3,24 @@
 
 EAPI=8
 
+CRATES="
+"
+RUST_MIN_VER="1.85.0"
+
 KFMIN=9999
 QTMIN=6.11.2
-inherit ecm plasma.kde.org linux-info pam tmpfiles
+inherit cargo ecm flag-o-matic plasma.kde.org linux-info pam tmpfiles
 
 DESCRIPTION="Plasma Login Manager"
 HOMEPAGE="https://invent.kde.org/plasma/plasma-login-manager"
 
+if [[ ${KDE_BUILD_TYPE} == release && ${PKGBUMPING} != ${PVR} ]]; then
+	SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz"
+fi
+
 LICENSE="GPL-2+ MIT CC-BY-3.0 CC-BY-SA-3.0 public-domain"
+# Dependent crate licenses
+LICENSE+=" Apache-2.0 MIT"
 SLOT="0"
 KEYWORDS=""
 IUSE="test"
@@ -41,6 +51,7 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/kwin-${KDE_CATV}
 "
 BDEPEND="
+	dev-build/corrosion
 	dev-python/docutils
 	>=dev-qt/qttools-${QTMIN}[linguist]
 	virtual/pkgconfig
@@ -49,6 +60,7 @@ BDEPEND="
 pkg_setup() {
 	local CONFIG_CHECK="~DRM"
 	use kernel_linux && linux-info_pkg_setup
+	rust_pkg_setup
 }
 
 src_prepare() {
@@ -69,6 +81,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# Rust extensions are incompatible with C/C++ LTO compiler see e.g.
+	# https://bugs.gentoo.org/910220
+	filter-lto
+
 	local mycmakeargs=(
 		# Don't use the generic name, bug #980039
 		-DDBUS_CONFIG_FILENAME=org.freedesktop.plasmalogin.conf
