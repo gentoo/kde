@@ -68,7 +68,7 @@ src_configure() {
 		-DENABLE_LIBVLC=$(usex vlc)
 		-DENABLE_AKONADI_PLUGIN=$(usex pim)
 		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
-		-DWITHOUT_X11=$(usex !X)
+		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
