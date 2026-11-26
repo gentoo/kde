@@ -64,10 +64,10 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_AKONADI_PLUGIN=$(usex pim)
+		-DENABLE_TEXT_TO_SPEECH_SUPPORT=$(usex speech)
 		-DENABLE_LIBMPV=$(usex !vlc)
 		-DENABLE_LIBVLC=$(usex vlc)
-		-DENABLE_AKONADI_PLUGIN=$(usex pim)
-		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
 		-DWITH_X11=$(usex X)
 	)
 
