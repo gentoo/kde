@@ -23,6 +23,7 @@ RESTRICT="test"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -36,6 +37,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<${CATEGORY}/${KDE_ORG_NAME}-6.2.4:*
 	>=${CATEGORY}/${KDE_ORG_NAME}-common-${PV}
+	dev-libs/kirigami-addons:6
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
