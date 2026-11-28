@@ -442,7 +442,7 @@ ecm_punt_bogus_dep() {
 	fi
 
 	if [[ -z ${prefix} ]]; then
-		sed -e "/find_package\s*(\s*${dep}\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${[A-Z0-9_]*}\)\)\+\s*)/Is/^/# removed by ecm.eclass - /" \
+		sed -e "/find_package\s*(\s*${dep}\(\s\+[A-Z0-9_\$\s\{\}]*\)*\s*)/Is/^/# removed by ecm.eclass - /" \
 			-i CMakeLists.txt || die
 		return
 	else
@@ -461,7 +461,8 @@ ecm_punt_bogus_dep() {
 	sed -e "${first},${last}s/${dep}//" -i CMakeLists.txt || die
 
 	if [[ ${length} -eq 1 ]] ; then
-		sed -e "/find_package\s*(\s*${prefix}\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${[A-Z0-9_]*}\)\)\+\s*)/Is/^/# removed by ecm.eclass - /" -i CMakeLists.txt || die
+		sed -e "/find_package\s*(\s*${prefix}\(\s\+[A-Z0-9_\$\s\{\}]*\)*\s*)/Is/^/# removed by ecm.eclass - /" \
+			-i CMakeLists.txt || die
 	fi
 }
 
