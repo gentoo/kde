@@ -20,7 +20,9 @@
 		<flag name="grub">Pull in Breeze theme for <pkg>sys-boot/grub</pkg></flag>
 		<flag name="gtk">Enable Breeze widget style and system settings module for GTK+</flag>
 		<flag name="kwallet">Enable support for KWallet auto-unlocking via <pkg>kde-plasma/kwallet-pam</pkg></flag>
+		<flag name="lightdm">Pull in the <pkg>x11-misc/lightdm</pkg> display manager</flag>
 		<flag name="oxygen-theme">Pull in Oxygen icons, sound theme and visual style for KDE Plasma</flag>
+		<flag name="plasma-login-manager">Pull in <pkg>kde-plasma/plasma-login-manager</pkg> display manager (<pkg>sys-apps/systemd</pkg> option only)</flag>
 		<flag name="plymouth">Pull in Breeze theme for <pkg>sys-boot/plymouth</pkg></flag>
 		<flag name="pulseaudio">Install Plasma applet for PulseAudio volume management</flag>
 		<flag name="sddm">Pull in the <pkg>gui-apps/sddm</pkg> display manager and system settings module</flag>
