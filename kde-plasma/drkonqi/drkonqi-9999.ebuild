@@ -60,6 +60,11 @@ RDEPEND="${COMMON_DEPEND}
 	)
 "
 
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_bogus_dep GDB # bug #987520
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_PYTHON_VENDORING=OFF
